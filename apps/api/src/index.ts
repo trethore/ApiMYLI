@@ -1,15 +1,13 @@
 import "dotenv/config";
 import { PrismaLibSql } from "@prisma/adapter-libsql";
-import { createClient } from "@libsql/client";
 import {
   PrismaClient,
   type User as PrismaUser,
-} from "../prisma/generated/prisma/client";
+} from "@prisma/generated/prisma/client";
 import { createSchema, createYoga } from "graphql-yoga";
 
 const databaseUrl = Bun.env.DATABASE_URL ?? "file:./prisma/dev.db";
-const libsql = createClient({ url: databaseUrl });
-const adapter = new PrismaLibSql(libsql);
+const adapter = new PrismaLibSql({ url: databaseUrl });
 const prisma = new PrismaClient({ adapter });
 
 type GraphqlUser = {
