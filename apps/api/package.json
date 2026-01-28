@@ -1,0 +1,26 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "start": "bun src/index.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev && prisma generate"
+  },
+  "dependencies": {
+    "@libsql/client": "latest",
+    "@prisma/client": "latest",
+    "@prisma/adapter-libsql": "latest",
+    "dotenv": "latest",
+    "graphql": "latest",
+    "graphql-yoga": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "bun-types": "latest",
+    "prisma": "latest",
+    "typescript": "latest"
+  }
+}

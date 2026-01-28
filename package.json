@@ -1,0 +1,8 @@
+{
+  "name": "apimlyl-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
