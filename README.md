@@ -14,6 +14,7 @@ We use turborepo to make a monorepo.
 │   ├── api/                    # GraphQL API application
 │   └── web/                    # Next.js web application
 ├── packages/                   # Shared packages (workspace modules)
+├── docker-compose.yml          # PostgreSQL and Redis services
 ├── package.json                # Root workspace configuration
 ├── bun.lock                    # Dependency lock file
 └── README.md
@@ -23,13 +24,20 @@ We use turborepo to make a monorepo.
 
 ### Prerequisites
 
-To instal bun follow this link: [installation](https://github.com/oven-sh/bun)
+- **Bun** — [installation](https://github.com/oven-sh/bun)
+- **Docker** — Required for PostgreSQL and Redis containers
 
 ### Installation & Setup
 
 ```bash
+# Start PostgreSQL and Redis
+docker compose up -d
+
 # Install all dependencies (from repository root)
 bun install
+
+# Run database migrations (first time only)
+bun run --filter api prisma:migrate
 ```
 
 ### Run
@@ -63,13 +71,22 @@ bun run --filter api dev
 bun run --filter web build
 ```
 
+Start or stop the infrastructure services:
+
+```bash
+docker compose up -d    # Start PostgreSQL and Redis in background
+docker compose down     # Stop services
+docker compose ps       # Check service status
+```
+
 ## Dependencies
 
 ### Api
 
 - GraphQL Yoga serves as the GraphQL server.
-- Prisma with libsql adapter handles database operations.
-- SQLite is used as the database via Prisma.
+- Prisma handles database operations.
+- PostgreSQL is used as the database via Prisma.
+- Redis (via ioredis) is used for caching and session management.
 
 ### Web
 

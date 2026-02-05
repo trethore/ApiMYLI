@@ -1,20 +1,21 @@
 import "dotenv/config";
-import { PrismaLibSql } from "@prisma/adapter-libsql";
-import {
-  PrismaClient,
-  type User as PrismaUser,
-} from "@prisma/generated/prisma/client";
+import type { PrismaClient } from "@prisma/generated/prisma/client";
+import type { User as PrismaUser } from "@prisma/generated/prisma/client";
 import { createSchema, createYoga } from "graphql-yoga";
-
-const databaseUrl = Bun.env.DATABASE_URL ?? "file:./prisma/dev.db";
-const adapter = new PrismaLibSql({ url: databaseUrl });
-const prisma = new PrismaClient({ adapter });
+import { prisma } from "@/prisma";
+import { redis } from "@/redis";
+import type Redis from "ioredis";
 
 type GraphqlUser = {
   id: string;
   email: string;
   name: string | null;
   createdAt: string;
+};
+
+type GraphqlContext = {
+  prisma: PrismaClient;
+  redis: Redis;
 };
 
 const toGraphqlUser = (user: PrismaUser): GraphqlUser => ({
@@ -43,11 +44,7 @@ const schema = createSchema({
   resolvers: {
     Query: {
       hello: () => "Hello from GraphQL + Prisma",
-      users: async (
-        _parent: unknown,
-        _args: unknown,
-        context: { prisma: PrismaClient }
-      ) => {
+      users: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
         const users = await context.prisma.user.findMany();
         return users.map(toGraphqlUser);
       },
@@ -56,7 +53,7 @@ const schema = createSchema({
       createUser: async (
         _parent: unknown,
         args: { email: string; name?: string | null },
-        context: { prisma: PrismaClient }
+        context: GraphqlContext,
       ) => {
         const user = await context.prisma.user.create({
           data: {
@@ -72,7 +69,7 @@ const schema = createSchema({
 
 const yoga = createYoga({
   schema,
-  context: { prisma },
+  context: { prisma, redis },
 });
 
 const port = Number(Bun.env.PORT ?? 4000);
@@ -81,6 +78,4 @@ const server = Bun.serve({
   fetch: yoga.fetch,
 });
 
-console.log(
-  `GraphQL server ready at http://localhost:${server.port}${yoga.graphqlEndpoint}`
-);
+console.log(`GraphQL server ready at http://localhost:${server.port}${yoga.graphqlEndpoint}`);

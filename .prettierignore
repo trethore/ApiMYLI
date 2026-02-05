@@ -1,0 +1,7 @@
+node_modules
+bun.lock
+dist
+.next
+out
+build
+apps/api/prisma/generated

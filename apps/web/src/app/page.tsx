@@ -15,9 +15,9 @@ export default function Home() {
           Launch a modern stack with a typed GraphQL core and a rapid UI layer.
         </h1>
         <p className="max-w-2xl text-lg text-muted-foreground">
-          Next.js powers the product surface, Prisma keeps your data model crisp, and
-          GraphQL keeps your API approachable. Tailwind and shadcn give you UI
-          components that stay consistent from prototype to production.
+          Next.js powers the product surface, Prisma keeps your data model crisp, and GraphQL keeps
+          your API approachable. Tailwind and shadcn give you UI components that stay consistent
+          from prototype to production.
         </p>
         <div className="flex flex-col items-center gap-3 sm:flex-row">
           <Button size="lg">Explore the schema</Button>
@@ -29,8 +29,7 @@ export default function Home() {
           <div className="rounded-2xl border border-border bg-card/70 p-5 backdrop-blur">
             <p className="text-sm font-semibold">Next.js App Router</p>
             <p className="mt-2 text-sm text-muted-foreground">
-              A structured front-end foundation with server components ready when you
-              are.
+              A structured front-end foundation with server components ready when you are.
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-card/70 p-5 backdrop-blur">

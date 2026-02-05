@@ -12,6 +12,7 @@ MYLI - API is a TypeScript monorepo built with **Bun** as both the runtime and p
 │   ├── api/                    # GraphQL API application
 │   └── web/                    # Next.js web application
 ├── packages/                   # Shared packages (workspace modules)
+├── docker-compose.yml          # PostgreSQL and Redis services
 ├── package.json                # Root workspace configuration
 ├── bun.lock                    # Dependency lock file
 └── README.md                   # README of the repo.
@@ -100,8 +101,8 @@ Never add comments unless documentation is explicitly requested.
 const activeUsers = users.filter((u) => u.isActive);
 
 // Good: Explains why a non-obvious approach is needed
-// Using libsql adapter requires URL format even for local files
-const databaseUrl = Bun.env.DATABASE_URL ?? "file:./prisma/dev.db";
+// Redis retry uses exponential backoff capped at 2s to avoid thundering herd
+return Math.min(times * 200, 2000);
 ```
 
 ## Dependencies
@@ -109,8 +110,9 @@ const databaseUrl = Bun.env.DATABASE_URL ?? "file:./prisma/dev.db";
 ### Api
 
 - GraphQL Yoga serves as the GraphQL server.
-- Prisma with libsql adapter handles database operations.
-- SQLite is used as the database via Prisma.
+- Prisma handles database operations.
+- PostgreSQL is used as the database via Prisma.
+- Redis (via ioredis) is used for caching and session management.
 
 ### Web
 
