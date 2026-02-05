@@ -25,47 +25,35 @@ export type AggregateUser = {
 }
 
 export type UserMinAggregateOutputType = {
-  id: string | null
-  email: string | null
-  name: string | null
-  createdAt: Date | null
+  accountId: string | null
+  pseudo: string | null
 }
 
 export type UserMaxAggregateOutputType = {
-  id: string | null
-  email: string | null
-  name: string | null
-  createdAt: Date | null
+  accountId: string | null
+  pseudo: string | null
 }
 
 export type UserCountAggregateOutputType = {
-  id: number
-  email: number
-  name: number
-  createdAt: number
+  accountId: number
+  pseudo: number
   _all: number
 }
 
 
 export type UserMinAggregateInputType = {
-  id?: true
-  email?: true
-  name?: true
-  createdAt?: true
+  accountId?: true
+  pseudo?: true
 }
 
 export type UserMaxAggregateInputType = {
-  id?: true
-  email?: true
-  name?: true
-  createdAt?: true
+  accountId?: true
+  pseudo?: true
 }
 
 export type UserCountAggregateInputType = {
-  id?: true
-  email?: true
-  name?: true
-  createdAt?: true
+  accountId?: true
+  pseudo?: true
   _all?: true
 }
 
@@ -142,10 +130,8 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 }
 
 export type UserGroupByOutputType = {
-  id: string
-  email: string
-  name: string | null
-  createdAt: Date
+  accountId: string
+  pseudo: string | null
   _count: UserCountAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
@@ -170,34 +156,47 @@ export type UserWhereInput = {
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
-  id?: Prisma.StringFilter<"User"> | string
-  email?: Prisma.StringFilter<"User"> | string
-  name?: Prisma.StringNullableFilter<"User"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  accountId?: Prisma.UuidFilter<"User"> | string
+  pseudo?: Prisma.StringNullableFilter<"User"> | string | null
+  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
+  preference?: Prisma.XOR<Prisma.PreferenceNullableScalarRelationFilter, Prisma.PreferenceWhereInput> | null
+  preferenceVector?: Prisma.XOR<Prisma.PreferenceVectorNullableScalarRelationFilter, Prisma.PreferenceVectorWhereInput> | null
+  playlistUsers?: Prisma.PlaylistUserListRelationFilter
+  trackLikes?: Prisma.TrackUserLikeListRelationFilter
+  trackListens?: Prisma.TrackUserListenListRelationFilter
+  trackComments?: Prisma.TrackCommentListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
-  id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  name?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  accountId?: Prisma.SortOrder
+  pseudo?: Prisma.SortOrderInput | Prisma.SortOrder
+  account?: Prisma.AccountOrderByWithRelationInput
+  preference?: Prisma.PreferenceOrderByWithRelationInput
+  preferenceVector?: Prisma.PreferenceVectorOrderByWithRelationInput
+  playlistUsers?: Prisma.PlaylistUserOrderByRelationAggregateInput
+  trackLikes?: Prisma.TrackUserLikeOrderByRelationAggregateInput
+  trackListens?: Prisma.TrackUserListenOrderByRelationAggregateInput
+  trackComments?: Prisma.TrackCommentOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
-  id?: string
-  email?: string
+  accountId?: string
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
-  name?: Prisma.StringNullableFilter<"User"> | string | null
-  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
-}, "id" | "email">
+  pseudo?: Prisma.StringNullableFilter<"User"> | string | null
+  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
+  preference?: Prisma.XOR<Prisma.PreferenceNullableScalarRelationFilter, Prisma.PreferenceWhereInput> | null
+  preferenceVector?: Prisma.XOR<Prisma.PreferenceVectorNullableScalarRelationFilter, Prisma.PreferenceVectorWhereInput> | null
+  playlistUsers?: Prisma.PlaylistUserListRelationFilter
+  trackLikes?: Prisma.TrackUserLikeListRelationFilter
+  trackListens?: Prisma.TrackUserListenListRelationFilter
+  trackComments?: Prisma.TrackCommentListRelationFilter
+}, "accountId">
 
 export type UserOrderByWithAggregationInput = {
-  id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  name?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  accountId?: Prisma.SortOrder
+  pseudo?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
   _min?: Prisma.UserMinOrderByAggregateInput
@@ -207,134 +206,723 @@ export type UserScalarWhereWithAggregatesInput = {
   AND?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
   OR?: Prisma.UserScalarWhereWithAggregatesInput[]
   NOT?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<"User"> | string
-  email?: Prisma.StringWithAggregatesFilter<"User"> | string
-  name?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  accountId?: Prisma.UuidWithAggregatesFilter<"User"> | string
+  pseudo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
 }
 
 export type UserCreateInput = {
-  id?: string
-  email: string
-  name?: string | null
-  createdAt?: Date | string
+  pseudo?: string | null
+  account: Prisma.AccountCreateNestedOneWithoutUserInput
+  preference?: Prisma.PreferenceCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
-  id?: string
-  email: string
-  name?: string | null
-  createdAt?: Date | string
+  accountId: string
+  pseudo?: string | null
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  account?: Prisma.AccountUpdateOneRequiredWithoutUserNestedInput
+  preference?: Prisma.PreferenceUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
-  id?: string
-  email: string
-  name?: string | null
-  createdAt?: Date | string
+  accountId: string
+  pseudo?: string | null
 }
 
 export type UserUpdateManyMutationInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type UserUncheckedUpdateManyInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type UserNullableScalarRelationFilter = {
+  is?: Prisma.UserWhereInput | null
+  isNot?: Prisma.UserWhereInput | null
 }
 
 export type UserCountOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  accountId?: Prisma.SortOrder
+  pseudo?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  accountId?: Prisma.SortOrder
+  pseudo?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
+  accountId?: Prisma.SortOrder
+  pseudo?: Prisma.SortOrder
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
+export type UserScalarRelationFilter = {
+  is?: Prisma.UserWhereInput
+  isNot?: Prisma.UserWhereInput
 }
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
+export type UserCreateNestedOneWithoutAccountInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAccountInput, Prisma.UserUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAccountInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
+export type UserUncheckedCreateNestedOneWithoutAccountInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAccountInput, Prisma.UserUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAccountInput
+  connect?: Prisma.UserWhereUniqueInput
 }
 
+export type UserUpdateOneWithoutAccountNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAccountInput, Prisma.UserUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAccountInput
+  upsert?: Prisma.UserUpsertWithoutAccountInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAccountInput, Prisma.UserUpdateWithoutAccountInput>, Prisma.UserUncheckedUpdateWithoutAccountInput>
+}
+
+export type UserUncheckedUpdateOneWithoutAccountNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAccountInput, Prisma.UserUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAccountInput
+  upsert?: Prisma.UserUpsertWithoutAccountInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAccountInput, Prisma.UserUpdateWithoutAccountInput>, Prisma.UserUncheckedUpdateWithoutAccountInput>
+}
+
+export type UserCreateNestedOneWithoutPreferenceInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPreferenceInput, Prisma.UserUncheckedCreateWithoutPreferenceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPreferenceInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPreferenceNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPreferenceInput, Prisma.UserUncheckedCreateWithoutPreferenceInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPreferenceInput
+  upsert?: Prisma.UserUpsertWithoutPreferenceInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPreferenceInput, Prisma.UserUpdateWithoutPreferenceInput>, Prisma.UserUncheckedUpdateWithoutPreferenceInput>
+}
+
+export type UserCreateNestedOneWithoutPreferenceVectorInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPreferenceVectorInput, Prisma.UserUncheckedCreateWithoutPreferenceVectorInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPreferenceVectorInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPreferenceVectorNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPreferenceVectorInput, Prisma.UserUncheckedCreateWithoutPreferenceVectorInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPreferenceVectorInput
+  upsert?: Prisma.UserUpsertWithoutPreferenceVectorInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPreferenceVectorInput, Prisma.UserUpdateWithoutPreferenceVectorInput>, Prisma.UserUncheckedUpdateWithoutPreferenceVectorInput>
+}
+
+export type UserCreateNestedOneWithoutPlaylistUsersInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPlaylistUsersInput, Prisma.UserUncheckedCreateWithoutPlaylistUsersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPlaylistUsersInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPlaylistUsersNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPlaylistUsersInput, Prisma.UserUncheckedCreateWithoutPlaylistUsersInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPlaylistUsersInput
+  upsert?: Prisma.UserUpsertWithoutPlaylistUsersInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPlaylistUsersInput, Prisma.UserUpdateWithoutPlaylistUsersInput>, Prisma.UserUncheckedUpdateWithoutPlaylistUsersInput>
+}
+
+export type UserCreateNestedOneWithoutTrackLikesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTrackLikesInput, Prisma.UserUncheckedCreateWithoutTrackLikesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTrackLikesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutTrackLikesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTrackLikesInput, Prisma.UserUncheckedCreateWithoutTrackLikesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTrackLikesInput
+  upsert?: Prisma.UserUpsertWithoutTrackLikesInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTrackLikesInput, Prisma.UserUpdateWithoutTrackLikesInput>, Prisma.UserUncheckedUpdateWithoutTrackLikesInput>
+}
+
+export type UserCreateNestedOneWithoutTrackListensInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTrackListensInput, Prisma.UserUncheckedCreateWithoutTrackListensInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTrackListensInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutTrackListensNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTrackListensInput, Prisma.UserUncheckedCreateWithoutTrackListensInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTrackListensInput
+  upsert?: Prisma.UserUpsertWithoutTrackListensInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTrackListensInput, Prisma.UserUpdateWithoutTrackListensInput>, Prisma.UserUncheckedUpdateWithoutTrackListensInput>
+}
+
+export type UserCreateNestedOneWithoutTrackCommentsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTrackCommentsInput, Prisma.UserUncheckedCreateWithoutTrackCommentsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTrackCommentsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutTrackCommentsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTrackCommentsInput, Prisma.UserUncheckedCreateWithoutTrackCommentsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTrackCommentsInput
+  upsert?: Prisma.UserUpsertWithoutTrackCommentsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTrackCommentsInput, Prisma.UserUpdateWithoutTrackCommentsInput>, Prisma.UserUncheckedUpdateWithoutTrackCommentsInput>
+}
+
+export type UserCreateWithoutAccountInput = {
+  pseudo?: string | null
+  preference?: Prisma.PreferenceCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutAccountInput = {
+  pseudo?: string | null
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutAccountInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutAccountInput, Prisma.UserUncheckedCreateWithoutAccountInput>
+}
+
+export type UserUpsertWithoutAccountInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutAccountInput, Prisma.UserUncheckedUpdateWithoutAccountInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutAccountInput, Prisma.UserUncheckedCreateWithoutAccountInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutAccountInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutAccountInput, Prisma.UserUncheckedUpdateWithoutAccountInput>
+}
+
+export type UserUpdateWithoutAccountInput = {
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preference?: Prisma.PreferenceUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutAccountInput = {
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutPreferenceInput = {
+  pseudo?: string | null
+  account: Prisma.AccountCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutPreferenceInput = {
+  accountId: string
+  pseudo?: string | null
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutPreferenceInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPreferenceInput, Prisma.UserUncheckedCreateWithoutPreferenceInput>
+}
+
+export type UserUpsertWithoutPreferenceInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPreferenceInput, Prisma.UserUncheckedUpdateWithoutPreferenceInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPreferenceInput, Prisma.UserUncheckedCreateWithoutPreferenceInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPreferenceInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPreferenceInput, Prisma.UserUncheckedUpdateWithoutPreferenceInput>
+}
+
+export type UserUpdateWithoutPreferenceInput = {
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  account?: Prisma.AccountUpdateOneRequiredWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPreferenceInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutPreferenceVectorInput = {
+  pseudo?: string | null
+  account: Prisma.AccountCreateNestedOneWithoutUserInput
+  preference?: Prisma.PreferenceCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutPreferenceVectorInput = {
+  accountId: string
+  pseudo?: string | null
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutPreferenceVectorInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPreferenceVectorInput, Prisma.UserUncheckedCreateWithoutPreferenceVectorInput>
+}
+
+export type UserUpsertWithoutPreferenceVectorInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPreferenceVectorInput, Prisma.UserUncheckedUpdateWithoutPreferenceVectorInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPreferenceVectorInput, Prisma.UserUncheckedCreateWithoutPreferenceVectorInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPreferenceVectorInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPreferenceVectorInput, Prisma.UserUncheckedUpdateWithoutPreferenceVectorInput>
+}
+
+export type UserUpdateWithoutPreferenceVectorInput = {
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  account?: Prisma.AccountUpdateOneRequiredWithoutUserNestedInput
+  preference?: Prisma.PreferenceUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPreferenceVectorInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutPlaylistUsersInput = {
+  pseudo?: string | null
+  account: Prisma.AccountCreateNestedOneWithoutUserInput
+  preference?: Prisma.PreferenceCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutPlaylistUsersInput = {
+  accountId: string
+  pseudo?: string | null
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutPlaylistUsersInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPlaylistUsersInput, Prisma.UserUncheckedCreateWithoutPlaylistUsersInput>
+}
+
+export type UserUpsertWithoutPlaylistUsersInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPlaylistUsersInput, Prisma.UserUncheckedUpdateWithoutPlaylistUsersInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPlaylistUsersInput, Prisma.UserUncheckedCreateWithoutPlaylistUsersInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPlaylistUsersInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPlaylistUsersInput, Prisma.UserUncheckedUpdateWithoutPlaylistUsersInput>
+}
+
+export type UserUpdateWithoutPlaylistUsersInput = {
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  account?: Prisma.AccountUpdateOneRequiredWithoutUserNestedInput
+  preference?: Prisma.PreferenceUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPlaylistUsersInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutTrackLikesInput = {
+  pseudo?: string | null
+  account: Prisma.AccountCreateNestedOneWithoutUserInput
+  preference?: Prisma.PreferenceCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutTrackLikesInput = {
+  accountId: string
+  pseudo?: string | null
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutTrackLikesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutTrackLikesInput, Prisma.UserUncheckedCreateWithoutTrackLikesInput>
+}
+
+export type UserUpsertWithoutTrackLikesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutTrackLikesInput, Prisma.UserUncheckedUpdateWithoutTrackLikesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutTrackLikesInput, Prisma.UserUncheckedCreateWithoutTrackLikesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutTrackLikesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutTrackLikesInput, Prisma.UserUncheckedUpdateWithoutTrackLikesInput>
+}
+
+export type UserUpdateWithoutTrackLikesInput = {
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  account?: Prisma.AccountUpdateOneRequiredWithoutUserNestedInput
+  preference?: Prisma.PreferenceUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutTrackLikesInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutTrackListensInput = {
+  pseudo?: string | null
+  account: Prisma.AccountCreateNestedOneWithoutUserInput
+  preference?: Prisma.PreferenceCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutTrackListensInput = {
+  accountId: string
+  pseudo?: string | null
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutTrackListensInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutTrackListensInput, Prisma.UserUncheckedCreateWithoutTrackListensInput>
+}
+
+export type UserUpsertWithoutTrackListensInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutTrackListensInput, Prisma.UserUncheckedUpdateWithoutTrackListensInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutTrackListensInput, Prisma.UserUncheckedCreateWithoutTrackListensInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutTrackListensInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutTrackListensInput, Prisma.UserUncheckedUpdateWithoutTrackListensInput>
+}
+
+export type UserUpdateWithoutTrackListensInput = {
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  account?: Prisma.AccountUpdateOneRequiredWithoutUserNestedInput
+  preference?: Prisma.PreferenceUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutTrackListensInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutTrackCommentsInput = {
+  pseudo?: string | null
+  account: Prisma.AccountCreateNestedOneWithoutUserInput
+  preference?: Prisma.PreferenceCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutTrackCommentsInput = {
+  accountId: string
+  pseudo?: string | null
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutTrackCommentsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutTrackCommentsInput, Prisma.UserUncheckedCreateWithoutTrackCommentsInput>
+}
+
+export type UserUpsertWithoutTrackCommentsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutTrackCommentsInput, Prisma.UserUncheckedUpdateWithoutTrackCommentsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutTrackCommentsInput, Prisma.UserUncheckedCreateWithoutTrackCommentsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutTrackCommentsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutTrackCommentsInput, Prisma.UserUncheckedUpdateWithoutTrackCommentsInput>
+}
+
+export type UserUpdateWithoutTrackCommentsInput = {
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  account?: Prisma.AccountUpdateOneRequiredWithoutUserNestedInput
+  preference?: Prisma.PreferenceUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutTrackCommentsInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+}
+
+
+/**
+ * Count Type UserCountOutputType
+ */
+
+export type UserCountOutputType = {
+  playlistUsers: number
+  trackLikes: number
+  trackListens: number
+  trackComments: number
+}
+
+export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  playlistUsers?: boolean | UserCountOutputTypeCountPlaylistUsersArgs
+  trackLikes?: boolean | UserCountOutputTypeCountTrackLikesArgs
+  trackListens?: boolean | UserCountOutputTypeCountTrackListensArgs
+  trackComments?: boolean | UserCountOutputTypeCountTrackCommentsArgs
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UserCountOutputType
+   */
+  select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPlaylistUsersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PlaylistUserWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountTrackLikesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TrackUserLikeWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountTrackListensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TrackUserListenWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountTrackCommentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TrackCommentWhereInput
+}
 
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id?: boolean
-  email?: boolean
-  name?: boolean
-  createdAt?: boolean
+  accountId?: boolean
+  pseudo?: boolean
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  preference?: boolean | Prisma.User$preferenceArgs<ExtArgs>
+  preferenceVector?: boolean | Prisma.User$preferenceVectorArgs<ExtArgs>
+  playlistUsers?: boolean | Prisma.User$playlistUsersArgs<ExtArgs>
+  trackLikes?: boolean | Prisma.User$trackLikesArgs<ExtArgs>
+  trackListens?: boolean | Prisma.User$trackListensArgs<ExtArgs>
+  trackComments?: boolean | Prisma.User$trackCommentsArgs<ExtArgs>
+  _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id?: boolean
-  email?: boolean
-  name?: boolean
-  createdAt?: boolean
+  accountId?: boolean
+  pseudo?: boolean
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id?: boolean
-  email?: boolean
-  name?: boolean
-  createdAt?: boolean
+  accountId?: boolean
+  pseudo?: boolean
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
-  id?: boolean
-  email?: boolean
-  name?: boolean
-  createdAt?: boolean
+  accountId?: boolean
+  pseudo?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "name" | "createdAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"accountId" | "pseudo", ExtArgs["result"]["user"]>
+export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  preference?: boolean | Prisma.User$preferenceArgs<ExtArgs>
+  preferenceVector?: boolean | Prisma.User$preferenceVectorArgs<ExtArgs>
+  playlistUsers?: boolean | Prisma.User$playlistUsersArgs<ExtArgs>
+  trackLikes?: boolean | Prisma.User$trackLikesArgs<ExtArgs>
+  trackListens?: boolean | Prisma.User$trackListensArgs<ExtArgs>
+  trackComments?: boolean | Prisma.User$trackCommentsArgs<ExtArgs>
+  _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+}
+export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+}
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
-  objects: {}
+  objects: {
+    account: Prisma.$AccountPayload<ExtArgs>
+    preference: Prisma.$PreferencePayload<ExtArgs> | null
+    preferenceVector: Prisma.$PreferenceVectorPayload<ExtArgs> | null
+    playlistUsers: Prisma.$PlaylistUserPayload<ExtArgs>[]
+    trackLikes: Prisma.$TrackUserLikePayload<ExtArgs>[]
+    trackListens: Prisma.$TrackUserListenPayload<ExtArgs>[]
+    trackComments: Prisma.$TrackCommentPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: string
-    email: string
-    name: string | null
-    createdAt: Date
+    accountId: string
+    pseudo: string | null
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -418,8 +1006,8 @@ export interface UserDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    * // Get first 10 Users
    * const users = await prisma.user.findMany({ take: 10 })
    * 
-   * // Only select the `id`
-   * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+   * // Only select the `accountId`
+   * const userWithAccountIdOnly = await prisma.user.findMany({ select: { accountId: true } })
    * 
    */
   findMany<T extends UserFindManyArgs>(args?: Prisma.SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -463,9 +1051,9 @@ export interface UserDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   ]
    * })
    * 
-   * // Create many Users and only return the `id`
-   * const userWithIdOnly = await prisma.user.createManyAndReturn({
-   *   select: { id: true },
+   * // Create many Users and only return the `accountId`
+   * const userWithAccountIdOnly = await prisma.user.createManyAndReturn({
+   *   select: { accountId: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -554,9 +1142,9 @@ export interface UserDelegate<ExtArgs extends runtime.Types.Extensions.InternalA
    *   ]
    * })
    * 
-   * // Update zero or more Users and only return the `id`
-   * const userWithIdOnly = await prisma.user.updateManyAndReturn({
-   *   select: { id: true },
+   * // Update zero or more Users and only return the `accountId`
+   * const userWithAccountIdOnly = await prisma.user.updateManyAndReturn({
+   *   select: { accountId: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -729,6 +1317,13 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  account<T extends Prisma.AccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountDefaultArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  preference<T extends Prisma.User$preferenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$preferenceArgs<ExtArgs>>): Prisma.Prisma__PreferenceClient<runtime.Types.Result.GetResult<Prisma.$PreferencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  preferenceVector<T extends Prisma.User$preferenceVectorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$preferenceVectorArgs<ExtArgs>>): Prisma.Prisma__PreferenceVectorClient<runtime.Types.Result.GetResult<Prisma.$PreferenceVectorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  playlistUsers<T extends Prisma.User$playlistUsersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$playlistUsersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PlaylistUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  trackLikes<T extends Prisma.User$trackLikesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$trackLikesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackUserLikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  trackListens<T extends Prisma.User$trackListensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$trackListensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackUserListenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  trackComments<T extends Prisma.User$trackCommentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$trackCommentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackCommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -758,10 +1353,8 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
  * Fields of the User model
  */
 export interface UserFieldRefs {
-  readonly id: Prisma.FieldRef<"User", 'String'>
-  readonly email: Prisma.FieldRef<"User", 'String'>
-  readonly name: Prisma.FieldRef<"User", 'String'>
-  readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly accountId: Prisma.FieldRef<"User", 'String'>
+  readonly pseudo: Prisma.FieldRef<"User", 'String'>
 }
     
 
@@ -778,6 +1371,10 @@ export type UserFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
    * Filter, which User to fetch.
    */
@@ -797,6 +1394,10 @@ export type UserFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.I
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  /**
    * Filter, which User to fetch.
    */
   where: Prisma.UserWhereUniqueInput
@@ -814,6 +1415,10 @@ export type UserFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
    * Filter, which User to fetch.
    */
@@ -863,6 +1468,10 @@ export type UserFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  /**
    * Filter, which User to fetch.
    */
   where?: Prisma.UserWhereInput
@@ -911,6 +1520,10 @@ export type UserFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  /**
    * Filter, which Users to fetch.
    */
   where?: Prisma.UserWhereInput
@@ -954,6 +1567,10 @@ export type UserCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  /**
    * The data needed to create a User.
    */
   data: Prisma.XOR<Prisma.UserCreateInput, Prisma.UserUncheckedCreateInput>
@@ -987,6 +1604,10 @@ export type UserCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions
    */
   data: Prisma.UserCreateManyInput | Prisma.UserCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1001,6 +1622,10 @@ export type UserUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
    * The data needed to update a User.
    */
@@ -1053,6 +1678,10 @@ export type UserUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions
    * Limit how many Users to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1067,6 +1696,10 @@ export type UserUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
   /**
    * The filter to search for the User to update in case it exists.
    */
@@ -1094,6 +1727,10 @@ export type UserDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  /**
    * Filter which User to delete.
    */
   where: Prisma.UserWhereUniqueInput
@@ -1114,6 +1751,140 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 /**
+ * User.preference
+ */
+export type User$preferenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Preference
+   */
+  select?: Prisma.PreferenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Preference
+   */
+  omit?: Prisma.PreferenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PreferenceInclude<ExtArgs> | null
+  where?: Prisma.PreferenceWhereInput
+}
+
+/**
+ * User.preferenceVector
+ */
+export type User$preferenceVectorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PreferenceVector
+   */
+  select?: Prisma.PreferenceVectorSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PreferenceVector
+   */
+  omit?: Prisma.PreferenceVectorOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PreferenceVectorInclude<ExtArgs> | null
+  where?: Prisma.PreferenceVectorWhereInput
+}
+
+/**
+ * User.playlistUsers
+ */
+export type User$playlistUsersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PlaylistUser
+   */
+  select?: Prisma.PlaylistUserSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PlaylistUser
+   */
+  omit?: Prisma.PlaylistUserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PlaylistUserInclude<ExtArgs> | null
+  where?: Prisma.PlaylistUserWhereInput
+  orderBy?: Prisma.PlaylistUserOrderByWithRelationInput | Prisma.PlaylistUserOrderByWithRelationInput[]
+  cursor?: Prisma.PlaylistUserWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PlaylistUserScalarFieldEnum | Prisma.PlaylistUserScalarFieldEnum[]
+}
+
+/**
+ * User.trackLikes
+ */
+export type User$trackLikesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TrackUserLike
+   */
+  select?: Prisma.TrackUserLikeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TrackUserLike
+   */
+  omit?: Prisma.TrackUserLikeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TrackUserLikeInclude<ExtArgs> | null
+  where?: Prisma.TrackUserLikeWhereInput
+  orderBy?: Prisma.TrackUserLikeOrderByWithRelationInput | Prisma.TrackUserLikeOrderByWithRelationInput[]
+  cursor?: Prisma.TrackUserLikeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TrackUserLikeScalarFieldEnum | Prisma.TrackUserLikeScalarFieldEnum[]
+}
+
+/**
+ * User.trackListens
+ */
+export type User$trackListensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TrackUserListen
+   */
+  select?: Prisma.TrackUserListenSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TrackUserListen
+   */
+  omit?: Prisma.TrackUserListenOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TrackUserListenInclude<ExtArgs> | null
+  where?: Prisma.TrackUserListenWhereInput
+  orderBy?: Prisma.TrackUserListenOrderByWithRelationInput | Prisma.TrackUserListenOrderByWithRelationInput[]
+  cursor?: Prisma.TrackUserListenWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TrackUserListenScalarFieldEnum | Prisma.TrackUserListenScalarFieldEnum[]
+}
+
+/**
+ * User.trackComments
+ */
+export type User$trackCommentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TrackComment
+   */
+  select?: Prisma.TrackCommentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TrackComment
+   */
+  omit?: Prisma.TrackCommentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TrackCommentInclude<ExtArgs> | null
+  where?: Prisma.TrackCommentWhereInput
+  orderBy?: Prisma.TrackCommentOrderByWithRelationInput | Prisma.TrackCommentOrderByWithRelationInput[]
+  cursor?: Prisma.TrackCommentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TrackCommentScalarFieldEnum | Prisma.TrackCommentScalarFieldEnum[]
+}
+
+/**
  * User without action
  */
 export type UserDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1125,4 +1896,8 @@ export type UserDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
 }

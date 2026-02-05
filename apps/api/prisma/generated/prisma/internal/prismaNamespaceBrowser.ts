@@ -51,7 +51,34 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  User: 'User'
+  Account: 'Account',
+  Artist: 'Artist',
+  Album: 'Album',
+  Genre: 'Genre',
+  Track: 'Track',
+  AudioFeature: 'AudioFeature',
+  TemporalFeature: 'TemporalFeature',
+  Tag: 'Tag',
+  Playlist: 'Playlist',
+  License: 'License',
+  RankTrack: 'RankTrack',
+  RankArtist: 'RankArtist',
+  TrackGenre: 'TrackGenre',
+  TrackTag: 'TrackTag',
+  ArtistTag: 'ArtistTag',
+  AlbumArtist: 'AlbumArtist',
+  TrackArtistMain: 'TrackArtistMain',
+  TrackArtistFeat: 'TrackArtistFeat',
+  TrackLicense: 'TrackLicense',
+  PlaylistTrack: 'PlaylistTrack',
+  User: 'User',
+  Preference: 'Preference',
+  PreferenceVector: 'PreferenceVector',
+  GenrePreference: 'GenrePreference',
+  PlaylistUser: 'PlaylistUser',
+  TrackUserLike: 'TrackUserLike',
+  TrackUserListen: 'TrackUserListen',
+  TrackComment: 'TrackComment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -70,14 +97,294 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const UserScalarFieldEnum = {
-  id: 'id',
-  email: 'email',
+export const AccountScalarFieldEnum = {
+  accountId: 'accountId',
+  login: 'login',
+  password: 'password',
   name: 'name',
+  email: 'email',
   createdAt: 'createdAt'
 } as const
 
+export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
+
+
+export const ArtistScalarFieldEnum = {
+  artistId: 'artistId',
+  artistBio: 'artistBio',
+  artistLocation: 'artistLocation',
+  artistLatitude: 'artistLatitude',
+  artistLongitude: 'artistLongitude',
+  artistActiveYearBegin: 'artistActiveYearBegin',
+  artistActiveYearEnd: 'artistActiveYearEnd',
+  artistFavorites: 'artistFavorites',
+  artistComments: 'artistComments'
+} as const
+
+export type ArtistScalarFieldEnum = (typeof ArtistScalarFieldEnum)[keyof typeof ArtistScalarFieldEnum]
+
+
+export const AlbumScalarFieldEnum = {
+  albumId: 'albumId',
+  albumTitle: 'albumTitle',
+  albumType: 'albumType',
+  albumTracksCount: 'albumTracksCount',
+  albumDateReleased: 'albumDateReleased',
+  albumListens: 'albumListens',
+  albumFavorites: 'albumFavorites',
+  albumComments: 'albumComments',
+  albumProducer: 'albumProducer'
+} as const
+
+export type AlbumScalarFieldEnum = (typeof AlbumScalarFieldEnum)[keyof typeof AlbumScalarFieldEnum]
+
+
+export const GenreScalarFieldEnum = {
+  genreId: 'genreId',
+  parentId: 'parentId',
+  title: 'title',
+  topLevel: 'topLevel'
+} as const
+
+export type GenreScalarFieldEnum = (typeof GenreScalarFieldEnum)[keyof typeof GenreScalarFieldEnum]
+
+
+export const TrackScalarFieldEnum = {
+  trackId: 'trackId',
+  albumId: 'albumId',
+  trackTitle: 'trackTitle',
+  trackDuration: 'trackDuration',
+  trackNumber: 'trackNumber',
+  trackDiscNumber: 'trackDiscNumber',
+  trackExplicit: 'trackExplicit',
+  trackInstrumental: 'trackInstrumental',
+  trackListens: 'trackListens',
+  trackFavorites: 'trackFavorites',
+  trackInterest: 'trackInterest',
+  trackComments: 'trackComments',
+  trackDateCreated: 'trackDateCreated',
+  trackComposer: 'trackComposer',
+  trackLyricist: 'trackLyricist',
+  trackPublisher: 'trackPublisher'
+} as const
+
+export type TrackScalarFieldEnum = (typeof TrackScalarFieldEnum)[keyof typeof TrackScalarFieldEnum]
+
+
+export const AudioFeatureScalarFieldEnum = {
+  trackId: 'trackId',
+  acousticness: 'acousticness',
+  danceability: 'danceability',
+  energy: 'energy',
+  instrumentalness: 'instrumentalness',
+  liveness: 'liveness',
+  speechiness: 'speechiness',
+  tempo: 'tempo',
+  valence: 'valence'
+} as const
+
+export type AudioFeatureScalarFieldEnum = (typeof AudioFeatureScalarFieldEnum)[keyof typeof AudioFeatureScalarFieldEnum]
+
+
+export const TemporalFeatureScalarFieldEnum = {
+  trackId: 'trackId'
+} as const
+
+export type TemporalFeatureScalarFieldEnum = (typeof TemporalFeatureScalarFieldEnum)[keyof typeof TemporalFeatureScalarFieldEnum]
+
+
+export const TagScalarFieldEnum = {
+  tagId: 'tagId',
+  tagName: 'tagName'
+} as const
+
+export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
+
+
+export const PlaylistScalarFieldEnum = {
+  playlistId: 'playlistId',
+  playlistName: 'playlistName'
+} as const
+
+export type PlaylistScalarFieldEnum = (typeof PlaylistScalarFieldEnum)[keyof typeof PlaylistScalarFieldEnum]
+
+
+export const LicenseScalarFieldEnum = {
+  licenseId: 'licenseId',
+  licenseTitle: 'licenseTitle',
+  licenseUrl: 'licenseUrl'
+} as const
+
+export type LicenseScalarFieldEnum = (typeof LicenseScalarFieldEnum)[keyof typeof LicenseScalarFieldEnum]
+
+
+export const RankTrackScalarFieldEnum = {
+  trackId: 'trackId',
+  ranksDate: 'ranksDate',
+  rankSongCurrency: 'rankSongCurrency',
+  rankSongHotttnesss: 'rankSongHotttnesss'
+} as const
+
+export type RankTrackScalarFieldEnum = (typeof RankTrackScalarFieldEnum)[keyof typeof RankTrackScalarFieldEnum]
+
+
+export const RankArtistScalarFieldEnum = {
+  artistId: 'artistId',
+  ranksDate: 'ranksDate',
+  rankArtistDiscovery: 'rankArtistDiscovery',
+  rankArtistFamiliarity: 'rankArtistFamiliarity',
+  rankArtistHotttnesss: 'rankArtistHotttnesss'
+} as const
+
+export type RankArtistScalarFieldEnum = (typeof RankArtistScalarFieldEnum)[keyof typeof RankArtistScalarFieldEnum]
+
+
+export const TrackGenreScalarFieldEnum = {
+  trackId: 'trackId',
+  genreId: 'genreId'
+} as const
+
+export type TrackGenreScalarFieldEnum = (typeof TrackGenreScalarFieldEnum)[keyof typeof TrackGenreScalarFieldEnum]
+
+
+export const TrackTagScalarFieldEnum = {
+  trackId: 'trackId',
+  tagId: 'tagId'
+} as const
+
+export type TrackTagScalarFieldEnum = (typeof TrackTagScalarFieldEnum)[keyof typeof TrackTagScalarFieldEnum]
+
+
+export const ArtistTagScalarFieldEnum = {
+  artistId: 'artistId',
+  tagId: 'tagId'
+} as const
+
+export type ArtistTagScalarFieldEnum = (typeof ArtistTagScalarFieldEnum)[keyof typeof ArtistTagScalarFieldEnum]
+
+
+export const AlbumArtistScalarFieldEnum = {
+  albumId: 'albumId',
+  artistId: 'artistId'
+} as const
+
+export type AlbumArtistScalarFieldEnum = (typeof AlbumArtistScalarFieldEnum)[keyof typeof AlbumArtistScalarFieldEnum]
+
+
+export const TrackArtistMainScalarFieldEnum = {
+  trackId: 'trackId',
+  artistId: 'artistId'
+} as const
+
+export type TrackArtistMainScalarFieldEnum = (typeof TrackArtistMainScalarFieldEnum)[keyof typeof TrackArtistMainScalarFieldEnum]
+
+
+export const TrackArtistFeatScalarFieldEnum = {
+  trackId: 'trackId',
+  artistId: 'artistId'
+} as const
+
+export type TrackArtistFeatScalarFieldEnum = (typeof TrackArtistFeatScalarFieldEnum)[keyof typeof TrackArtistFeatScalarFieldEnum]
+
+
+export const TrackLicenseScalarFieldEnum = {
+  trackId: 'trackId',
+  licenseId: 'licenseId'
+} as const
+
+export type TrackLicenseScalarFieldEnum = (typeof TrackLicenseScalarFieldEnum)[keyof typeof TrackLicenseScalarFieldEnum]
+
+
+export const PlaylistTrackScalarFieldEnum = {
+  playlistId: 'playlistId',
+  trackId: 'trackId'
+} as const
+
+export type PlaylistTrackScalarFieldEnum = (typeof PlaylistTrackScalarFieldEnum)[keyof typeof PlaylistTrackScalarFieldEnum]
+
+
+export const UserScalarFieldEnum = {
+  accountId: 'accountId',
+  pseudo: 'pseudo'
+} as const
+
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const PreferenceScalarFieldEnum = {
+  accountId: 'accountId',
+  ageRange: 'ageRange',
+  gender: 'gender',
+  position: 'position',
+  hasConsented: 'hasConsented',
+  isListening: 'isListening',
+  frequency: 'frequency',
+  whenListening: 'whenListening',
+  durationPref: 'durationPref',
+  energyPref: 'energyPref',
+  tempoPref: 'tempoPref',
+  feelingPref: 'feelingPref',
+  isLivePref: 'isLivePref',
+  qualityPref: 'qualityPref',
+  curiosityPref: 'curiosityPref',
+  context: 'context',
+  how: 'how',
+  platform: 'platform',
+  utility: 'utility'
+} as const
+
+export type PreferenceScalarFieldEnum = (typeof PreferenceScalarFieldEnum)[keyof typeof PreferenceScalarFieldEnum]
+
+
+export const PreferenceVectorScalarFieldEnum = {
+  accountId: 'accountId'
+} as const
+
+export type PreferenceVectorScalarFieldEnum = (typeof PreferenceVectorScalarFieldEnum)[keyof typeof PreferenceVectorScalarFieldEnum]
+
+
+export const GenrePreferenceScalarFieldEnum = {
+  accountId: 'accountId',
+  genreId: 'genreId'
+} as const
+
+export type GenrePreferenceScalarFieldEnum = (typeof GenrePreferenceScalarFieldEnum)[keyof typeof GenrePreferenceScalarFieldEnum]
+
+
+export const PlaylistUserScalarFieldEnum = {
+  playlistId: 'playlistId',
+  accountId: 'accountId'
+} as const
+
+export type PlaylistUserScalarFieldEnum = (typeof PlaylistUserScalarFieldEnum)[keyof typeof PlaylistUserScalarFieldEnum]
+
+
+export const TrackUserLikeScalarFieldEnum = {
+  trackId: 'trackId',
+  accountId: 'accountId'
+} as const
+
+export type TrackUserLikeScalarFieldEnum = (typeof TrackUserLikeScalarFieldEnum)[keyof typeof TrackUserLikeScalarFieldEnum]
+
+
+export const TrackUserListenScalarFieldEnum = {
+  trackId: 'trackId',
+  accountId: 'accountId',
+  count: 'count'
+} as const
+
+export type TrackUserListenScalarFieldEnum = (typeof TrackUserListenScalarFieldEnum)[keyof typeof TrackUserListenScalarFieldEnum]
+
+
+export const TrackCommentScalarFieldEnum = {
+  commentId: 'commentId',
+  trackId: 'trackId',
+  accountId: 'accountId',
+  content: 'content',
+  createdAt: 'createdAt'
+} as const
+
+export type TrackCommentScalarFieldEnum = (typeof TrackCommentScalarFieldEnum)[keyof typeof TrackCommentScalarFieldEnum]
 
 
 export const SortOrder = {

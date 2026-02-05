@@ -9,9 +9,395 @@ datasource db {
   provider = "postgresql"
 }
 
+// ============================================================================
+// CORE ENTITIES
+// ============================================================================
+
+model Account {
+  accountId String   @id @default(dbgenerated("uuid_generate_v4()")) @map("account_id") @db.Uuid
+  login     String?  @unique @db.VarChar(255)
+  password  String?  @db.VarChar(255)
+  name      String?  @db.VarChar(255)
+  email     String?  @db.VarChar(255)
+  createdAt DateTime? @map("created_at") @db.Timestamp(6)
+
+  artist Artist?
+  user   User?
+
+  @@map("account")
+}
+
+model Artist {
+  artistId              String  @id @map("artist_id") @db.Uuid
+  artistBio             String? @map("artist_bio")
+  artistLocation        String? @map("artist_location")
+  artistLatitude        Float?  @map("artist_latitude")
+  artistLongitude       Float?  @map("artist_longitude")
+  artistActiveYearBegin Int?    @map("artist_active_year_begin")
+  artistActiveYearEnd   Int?    @map("artist_active_year_end")
+  artistFavorites       BigInt? @map("artist_favorites")
+  artistComments        BigInt? @map("artist_comments")
+
+  account        Account          @relation(fields: [artistId], references: [accountId])
+  artistTags     ArtistTag[]
+  albumArtists   AlbumArtist[]
+  mainTracks     TrackArtistMain[]
+  featTracks     TrackArtistFeat[]
+  rankArtists    RankArtist[]
+
+  @@map("artist")
+}
+
+model Album {
+  albumId           String  @id @default(dbgenerated("uuid_generate_v4()")) @map("album_id") @db.Uuid
+  albumTitle        String? @map("album_title")
+  albumType         String? @map("album_type") @db.VarChar(255)
+  albumTracksCount  Int?    @map("album_tracks_count")
+  albumDateReleased DateTime? @map("album_date_released") @db.Date
+  albumListens      BigInt? @map("album_listens")
+  albumFavorites    BigInt? @map("album_favorites")
+  albumComments     BigInt? @map("album_comments")
+  albumProducer     String? @map("album_producer") @db.VarChar(255)
+
+  tracks       Track[]
+  albumArtists AlbumArtist[]
+
+  @@map("album")
+}
+
+model Genre {
+  genreId  String  @id @default(dbgenerated("uuid_generate_v4()")) @map("genre_id") @db.Uuid
+  parentId String? @map("parent_id") @db.Uuid
+  title    String? @db.VarChar(255)
+  topLevel Int?    @map("top_level")
+
+  parent           Genre?            @relation("GenreHierarchy", fields: [parentId], references: [genreId])
+  children         Genre[]           @relation("GenreHierarchy")
+  trackGenres      TrackGenre[]
+  genrePreferences GenrePreference[]
+
+  @@map("genre")
+}
+
+model Track {
+  trackId         String   @id @default(dbgenerated("uuid_generate_v4()")) @map("track_id") @db.Uuid
+  albumId         String?  @map("album_id") @db.Uuid
+  trackTitle      String?  @map("track_title") @db.VarChar(255)
+  trackDuration   BigInt?  @map("track_duration")
+  trackNumber     Int?     @map("track_number")
+  trackDiscNumber Int?     @map("track_disc_number")
+  trackExplicit   Boolean? @map("track_explicit")
+  trackInstrumental Boolean? @map("track_instrumental")
+  trackListens    BigInt?  @map("track_listens")
+  trackFavorites  BigInt?  @map("track_favorites")
+  trackInterest   Float?   @map("track_interest")
+  trackComments   BigInt?  @map("track_comments")
+  trackDateCreated DateTime? @map("track_date_created") @db.Date
+  trackComposer   String?  @map("track_composer") @db.VarChar(255)
+  trackLyricist   String?  @map("track_lyricist") @db.VarChar(255)
+  trackPublisher  String?  @map("track_publisher") @db.VarChar(255)
+
+  album           Album?            @relation(fields: [albumId], references: [albumId])
+  audioFeature    AudioFeature?
+  temporalFeature TemporalFeature?
+  trackGenres     TrackGenre[]
+  trackTags       TrackTag[]
+  mainArtists     TrackArtistMain[]
+  featArtists     TrackArtistFeat[]
+  trackLicenses   TrackLicense[]
+  playlistTracks  PlaylistTrack[]
+  rankTracks      RankTrack[]
+  userLikes       TrackUserLike[]
+  userListens     TrackUserListen[]
+  comments        TrackComment[]
+
+  @@map("track")
+}
+
+model AudioFeature {
+  trackId          String @id @map("track_id") @db.Uuid
+  acousticness     Float? @db.DoublePrecision
+  danceability     Float? @db.DoublePrecision
+  energy           Float? @db.DoublePrecision
+  instrumentalness Float? @db.DoublePrecision
+  liveness         Float? @db.DoublePrecision
+  speechiness      Float? @db.DoublePrecision
+  tempo            Float? @db.DoublePrecision
+  valence          Float? @db.DoublePrecision
+
+  track Track @relation(fields: [trackId], references: [trackId])
+
+  @@map("audio_feature")
+}
+
+model TemporalFeature {
+  trackId String @id @map("track_id") @db.Uuid
+
+  track Track @relation(fields: [trackId], references: [trackId])
+
+  @@map("temporal_feature")
+}
+
+model Tag {
+  tagId   String  @id @default(dbgenerated("uuid_generate_v4()")) @map("tag_id") @db.Uuid
+  tagName String? @map("tag_name") @db.VarChar(255)
+
+  trackTags  TrackTag[]
+  artistTags ArtistTag[]
+
+  @@map("tag")
+}
+
+model Playlist {
+  playlistId   String  @id @default(dbgenerated("uuid_generate_v4()")) @map("playlist_id") @db.Uuid
+  playlistName String? @map("playlist_name") @db.VarChar(255)
+
+  playlistTracks PlaylistTrack[]
+  playlistUsers  PlaylistUser[]
+
+  @@map("playlist")
+}
+
+model License {
+  licenseId    String  @id @default(dbgenerated("uuid_generate_v4()")) @map("license_id") @db.Uuid
+  licenseTitle String? @map("license_title") @db.VarChar(255)
+  licenseUrl   String? @map("license_url") @db.VarChar(255)
+
+  trackLicenses TrackLicense[]
+
+  @@map("license")
+}
+
+// ============================================================================
+// RANKING TABLES
+// ============================================================================
+
+model RankTrack {
+  trackId           String   @map("track_id") @db.Uuid
+  ranksDate         DateTime @default(now()) @map("ranks_date") @db.Timestamp(6)
+  rankSongCurrency  BigInt?  @map("rank_song_currency")
+  rankSongHotttnesss BigInt? @map("rank_song_hotttnesss")
+
+  track Track @relation(fields: [trackId], references: [trackId])
+
+  @@id([trackId, ranksDate])
+  @@map("rank_track")
+}
+
+model RankArtist {
+  artistId              String   @map("artist_id") @db.Uuid
+  ranksDate             DateTime @default(now()) @map("ranks_date") @db.Timestamp(6)
+  rankArtistDiscovery   BigInt?  @map("rank_artist_discovery")
+  rankArtistFamiliarity BigInt?  @map("rank_artist_familiarity")
+  rankArtistHotttnesss  BigInt?  @map("rank_artist_hotttnesss")
+
+  artist Artist @relation(fields: [artistId], references: [artistId])
+
+  @@id([artistId, ranksDate])
+  @@map("rank_artist")
+}
+
+// ============================================================================
+// JOIN TABLES
+// ============================================================================
+
+model TrackGenre {
+  trackId String @map("track_id") @db.Uuid
+  genreId String @map("genre_id") @db.Uuid
+
+  track Track @relation(fields: [trackId], references: [trackId])
+  genre Genre @relation(fields: [genreId], references: [genreId])
+
+  @@id([trackId, genreId])
+  @@map("track_genre")
+}
+
+model TrackTag {
+  trackId String @map("track_id") @db.Uuid
+  tagId   String @map("tag_id") @db.Uuid
+
+  track Track @relation(fields: [trackId], references: [trackId])
+  tag   Tag   @relation(fields: [tagId], references: [tagId])
+
+  @@id([trackId, tagId])
+  @@map("track_tag")
+}
+
+model ArtistTag {
+  artistId String @map("artist_id") @db.Uuid
+  tagId    String @map("tag_id") @db.Uuid
+
+  artist Artist @relation(fields: [artistId], references: [artistId])
+  tag    Tag    @relation(fields: [tagId], references: [tagId])
+
+  @@id([artistId, tagId])
+  @@map("artist_tag")
+}
+
+model AlbumArtist {
+  albumId  String @map("album_id") @db.Uuid
+  artistId String @map("artist_id") @db.Uuid
+
+  album  Album  @relation(fields: [albumId], references: [albumId])
+  artist Artist @relation(fields: [artistId], references: [artistId])
+
+  @@id([albumId, artistId])
+  @@map("album_artist")
+}
+
+model TrackArtistMain {
+  trackId  String @map("track_id") @db.Uuid
+  artistId String @map("artist_id") @db.Uuid
+
+  track  Track  @relation(fields: [trackId], references: [trackId])
+  artist Artist @relation(fields: [artistId], references: [artistId])
+
+  @@id([trackId, artistId])
+  @@map("track_artist_main")
+}
+
+model TrackArtistFeat {
+  trackId  String @map("track_id") @db.Uuid
+  artistId String @map("artist_id") @db.Uuid
+
+  track  Track  @relation(fields: [trackId], references: [trackId])
+  artist Artist @relation(fields: [artistId], references: [artistId])
+
+  @@id([trackId, artistId])
+  @@map("track_artist_feat")
+}
+
+model TrackLicense {
+  trackId   String @map("track_id") @db.Uuid
+  licenseId String @map("license_id") @db.Uuid
+
+  track   Track   @relation(fields: [trackId], references: [trackId])
+  license License @relation(fields: [licenseId], references: [licenseId])
+
+  @@id([trackId, licenseId])
+  @@map("track_license")
+}
+
+model PlaylistTrack {
+  playlistId String @map("playlist_id") @db.Uuid
+  trackId    String @map("track_id") @db.Uuid
+
+  playlist Playlist @relation(fields: [playlistId], references: [playlistId])
+  track    Track    @relation(fields: [trackId], references: [trackId])
+
+  @@id([playlistId, trackId])
+  @@map("playlist_track")
+}
+
+// ============================================================================
+// USER-RELATED TABLES
+// ============================================================================
+
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  createdAt DateTime @default(now())
+  accountId String  @id @map("account_id") @db.Uuid
+  pseudo    String? @db.VarChar(255)
+
+  account          Account          @relation(fields: [accountId], references: [accountId])
+  preference       Preference?
+  preferenceVector PreferenceVector?
+  playlistUsers    PlaylistUser[]
+  trackLikes       TrackUserLike[]
+  trackListens     TrackUserListen[]
+  trackComments    TrackComment[]
+
+  @@map("user")
+}
+
+model Preference {
+  accountId     String   @id @map("account_id") @db.Uuid
+  ageRange      String?  @map("age_range") @db.VarChar(255)
+  gender        String?  @db.VarChar(255)
+  position      String?  @db.VarChar(255)
+  hasConsented  Boolean? @map("has_consented")
+  isListening   Boolean? @map("is_listening")
+  frequency     String?  @db.VarChar(255)
+  whenListening Float?   @map("when_listening") @db.DoublePrecision
+  durationPref  Int?     @map("duration_pref")
+  energyPref    String?  @map("energy_pref") @db.VarChar(255)
+  tempoPref     Float?   @map("tempo_pref") @db.DoublePrecision
+  feelingPref   String?  @map("feeling_pref") @db.VarChar(255)
+  isLivePref    String?  @map("is_live_pref") @db.VarChar(255)
+  qualityPref   Int?     @map("quality_pref")
+  curiosityPref Int?     @map("curiosity_pref")
+  context       String?  @db.VarChar(255)
+  how           String?  @db.VarChar(255)
+  platform      String?  @db.VarChar(255)
+  utility       String?  @db.VarChar(255)
+
+  user             User              @relation(fields: [accountId], references: [accountId])
+  genrePreferences GenrePreference[]
+
+  @@map("preference")
+}
+
+model PreferenceVector {
+  accountId String                          @id @map("account_id") @db.Uuid
+  embedding Unsupported("VECTOR(71)")?      @map("embedding")
+
+  user User @relation(fields: [accountId], references: [accountId])
+
+  @@map("preference_vector")
+}
+
+model GenrePreference {
+  accountId String @map("account_id") @db.Uuid
+  genreId   String @map("genre_id") @db.Uuid
+
+  preference Preference @relation(fields: [accountId], references: [accountId])
+  genre      Genre      @relation(fields: [genreId], references: [genreId])
+
+  @@id([accountId, genreId])
+  @@map("genre_preference")
+}
+
+model PlaylistUser {
+  playlistId String @map("playlist_id") @db.Uuid
+  accountId  String @map("account_id") @db.Uuid
+
+  playlist Playlist @relation(fields: [playlistId], references: [playlistId])
+  user     User     @relation(fields: [accountId], references: [accountId])
+
+  @@id([playlistId, accountId])
+  @@map("playlist_user")
+}
+
+model TrackUserLike {
+  trackId   String @map("track_id") @db.Uuid
+  accountId String @map("account_id") @db.Uuid
+
+  track Track @relation(fields: [trackId], references: [trackId])
+  user  User  @relation(fields: [accountId], references: [accountId])
+
+  @@id([trackId, accountId])
+  @@map("track_user_like")
+}
+
+model TrackUserListen {
+  trackId   String @map("track_id") @db.Uuid
+  accountId String @map("account_id") @db.Uuid
+  count     Int?   @default(1)
+
+  track Track @relation(fields: [trackId], references: [trackId])
+  user  User  @relation(fields: [accountId], references: [accountId])
+
+  @@id([trackId, accountId])
+  @@map("track_user_listen")
+}
+
+model TrackComment {
+  commentId String   @id @default(dbgenerated("uuid_generate_v4()")) @map("comment_id") @db.Uuid
+  trackId   String   @map("track_id") @db.Uuid
+  accountId String?  @map("account_id") @db.Uuid
+  content   String?
+  createdAt DateTime? @default(now()) @map("created_at") @db.Timestamp(6)
+
+  track Track @relation(fields: [trackId], references: [trackId])
+  user  User? @relation(fields: [accountId], references: [accountId])
+
+  @@map("track_comment")
 }

@@ -18,7 +18,142 @@ export { Prisma }
 export * as $Enums from './enums'
 export * from './enums';
 /**
+ * Model Account
+ * 
+ */
+export type Account = Prisma.AccountModel
+/**
+ * Model Artist
+ * 
+ */
+export type Artist = Prisma.ArtistModel
+/**
+ * Model Album
+ * 
+ */
+export type Album = Prisma.AlbumModel
+/**
+ * Model Genre
+ * 
+ */
+export type Genre = Prisma.GenreModel
+/**
+ * Model Track
+ * 
+ */
+export type Track = Prisma.TrackModel
+/**
+ * Model AudioFeature
+ * 
+ */
+export type AudioFeature = Prisma.AudioFeatureModel
+/**
+ * Model TemporalFeature
+ * 
+ */
+export type TemporalFeature = Prisma.TemporalFeatureModel
+/**
+ * Model Tag
+ * 
+ */
+export type Tag = Prisma.TagModel
+/**
+ * Model Playlist
+ * 
+ */
+export type Playlist = Prisma.PlaylistModel
+/**
+ * Model License
+ * 
+ */
+export type License = Prisma.LicenseModel
+/**
+ * Model RankTrack
+ * 
+ */
+export type RankTrack = Prisma.RankTrackModel
+/**
+ * Model RankArtist
+ * 
+ */
+export type RankArtist = Prisma.RankArtistModel
+/**
+ * Model TrackGenre
+ * 
+ */
+export type TrackGenre = Prisma.TrackGenreModel
+/**
+ * Model TrackTag
+ * 
+ */
+export type TrackTag = Prisma.TrackTagModel
+/**
+ * Model ArtistTag
+ * 
+ */
+export type ArtistTag = Prisma.ArtistTagModel
+/**
+ * Model AlbumArtist
+ * 
+ */
+export type AlbumArtist = Prisma.AlbumArtistModel
+/**
+ * Model TrackArtistMain
+ * 
+ */
+export type TrackArtistMain = Prisma.TrackArtistMainModel
+/**
+ * Model TrackArtistFeat
+ * 
+ */
+export type TrackArtistFeat = Prisma.TrackArtistFeatModel
+/**
+ * Model TrackLicense
+ * 
+ */
+export type TrackLicense = Prisma.TrackLicenseModel
+/**
+ * Model PlaylistTrack
+ * 
+ */
+export type PlaylistTrack = Prisma.PlaylistTrackModel
+/**
  * Model User
  * 
  */
 export type User = Prisma.UserModel
+/**
+ * Model Preference
+ * 
+ */
+export type Preference = Prisma.PreferenceModel
+/**
+ * Model PreferenceVector
+ * 
+ */
+export type PreferenceVector = Prisma.PreferenceVectorModel
+/**
+ * Model GenrePreference
+ * 
+ */
+export type GenrePreference = Prisma.GenrePreferenceModel
+/**
+ * Model PlaylistUser
+ * 
+ */
+export type PlaylistUser = Prisma.PlaylistUserModel
+/**
+ * Model TrackUserLike
+ * 
+ */
+export type TrackUserLike = Prisma.TrackUserLikeModel
+/**
+ * Model TrackUserListen
+ * 
+ */
+export type TrackUserListen = Prisma.TrackUserListenModel
+/**
+ * Model TrackComment
+ * 
+ */
+export type TrackComment = Prisma.TrackCommentModel

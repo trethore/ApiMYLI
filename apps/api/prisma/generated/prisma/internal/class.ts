@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.3.0",
   "engineVersion": "9d6ad21cbbceab97458517b147a6a09ff43aa735",
   "activeProvider": "postgresql",
-  "inlineSchema": "generator client {\n  provider   = \"prisma-client\"\n  output     = \"./generated/prisma\"\n  engineType = \"client\"\n  runtime    = \"bun\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id        String   @id @default(cuid())\n  email     String   @unique\n  name      String?\n  createdAt DateTime @default(now())\n}\n",
+  "inlineSchema": "generator client {\n  provider   = \"prisma-client\"\n  output     = \"./generated/prisma\"\n  engineType = \"client\"\n  runtime    = \"bun\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\n// ============================================================================\n// CORE ENTITIES\n// ============================================================================\n\nmodel Account {\n  accountId String    @id @default(dbgenerated(\"uuid_generate_v4()\")) @map(\"account_id\") @db.Uuid\n  login     String?   @unique @db.VarChar(255)\n  password  String?   @db.VarChar(255)\n  name      String?   @db.VarChar(255)\n  email     String?   @db.VarChar(255)\n  createdAt DateTime? @map(\"created_at\") @db.Timestamp(6)\n\n  artist Artist?\n  user   User?\n\n  @@map(\"account\")\n}\n\nmodel Artist {\n  artistId              String  @id @map(\"artist_id\") @db.Uuid\n  artistBio             String? @map(\"artist_bio\")\n  artistLocation        String? @map(\"artist_location\")\n  artistLatitude        Float?  @map(\"artist_latitude\")\n  artistLongitude       Float?  @map(\"artist_longitude\")\n  artistActiveYearBegin Int?    @map(\"artist_active_year_begin\")\n  artistActiveYearEnd   Int?    @map(\"artist_active_year_end\")\n  artistFavorites       BigInt? @map(\"artist_favorites\")\n  artistComments        BigInt? @map(\"artist_comments\")\n\n  account      Account           @relation(fields: [artistId], references: [accountId])\n  artistTags   ArtistTag[]\n  albumArtists AlbumArtist[]\n  mainTracks   TrackArtistMain[]\n  featTracks   TrackArtistFeat[]\n  rankArtists  RankArtist[]\n\n  @@map(\"artist\")\n}\n\nmodel Album {\n  albumId           String    @id @default(dbgenerated(\"uuid_generate_v4()\")) @map(\"album_id\") @db.Uuid\n  albumTitle        String?   @map(\"album_title\")\n  albumType         String?   @map(\"album_type\") @db.VarChar(255)\n  albumTracksCount  Int?      @map(\"album_tracks_count\")\n  albumDateReleased DateTime? @map(\"album_date_released\") @db.Date\n  albumListens      BigInt?   @map(\"album_listens\")\n  albumFavorites    BigInt?   @map(\"album_favorites\")\n  albumComments     BigInt?   @map(\"album_comments\")\n  albumProducer     String?   @map(\"album_producer\") @db.VarChar(255)\n\n  tracks       Track[]\n  albumArtists AlbumArtist[]\n\n  @@map(\"album\")\n}\n\nmodel Genre {\n  genreId  String  @id @default(dbgenerated(\"uuid_generate_v4()\")) @map(\"genre_id\") @db.Uuid\n  parentId String? @map(\"parent_id\") @db.Uuid\n  title    String? @db.VarChar(255)\n  topLevel Int?    @map(\"top_level\")\n\n  parent           Genre?            @relation(\"GenreHierarchy\", fields: [parentId], references: [genreId])\n  children         Genre[]           @relation(\"GenreHierarchy\")\n  trackGenres      TrackGenre[]\n  genrePreferences GenrePreference[]\n\n  @@map(\"genre\")\n}\n\nmodel Track {\n  trackId           String    @id @default(dbgenerated(\"uuid_generate_v4()\")) @map(\"track_id\") @db.Uuid\n  albumId           String?   @map(\"album_id\") @db.Uuid\n  trackTitle        String?   @map(\"track_title\") @db.VarChar(255)\n  trackDuration     BigInt?   @map(\"track_duration\")\n  trackNumber       Int?      @map(\"track_number\")\n  trackDiscNumber   Int?      @map(\"track_disc_number\")\n  trackExplicit     Boolean?  @map(\"track_explicit\")\n  trackInstrumental Boolean?  @map(\"track_instrumental\")\n  trackListens      BigInt?   @map(\"track_listens\")\n  trackFavorites    BigInt?   @map(\"track_favorites\")\n  trackInterest     Float?    @map(\"track_interest\")\n  trackComments     BigInt?   @map(\"track_comments\")\n  trackDateCreated  DateTime? @map(\"track_date_created\") @db.Date\n  trackComposer     String?   @map(\"track_composer\") @db.VarChar(255)\n  trackLyricist     String?   @map(\"track_lyricist\") @db.VarChar(255)\n  trackPublisher    String?   @map(\"track_publisher\") @db.VarChar(255)\n\n  album           Album?            @relation(fields: [albumId], references: [albumId])\n  audioFeature    AudioFeature?\n  temporalFeature TemporalFeature?\n  trackGenres     TrackGenre[]\n  trackTags       TrackTag[]\n  mainArtists     TrackArtistMain[]\n  featArtists     TrackArtistFeat[]\n  trackLicenses   TrackLicense[]\n  playlistTracks  PlaylistTrack[]\n  rankTracks      RankTrack[]\n  userLikes       TrackUserLike[]\n  userListens     TrackUserListen[]\n  comments        TrackComment[]\n\n  @@map(\"track\")\n}\n\nmodel AudioFeature {\n  trackId          String @id @map(\"track_id\") @db.Uuid\n  acousticness     Float? @db.DoublePrecision\n  danceability     Float? @db.DoublePrecision\n  energy           Float? @db.DoublePrecision\n  instrumentalness Float? @db.DoublePrecision\n  liveness         Float? @db.DoublePrecision\n  speechiness      Float? @db.DoublePrecision\n  tempo            Float? @db.DoublePrecision\n  valence          Float? @db.DoublePrecision\n\n  track Track @relation(fields: [trackId], references: [trackId])\n\n  @@map(\"audio_feature\")\n}\n\nmodel TemporalFeature {\n  trackId String @id @map(\"track_id\") @db.Uuid\n\n  track Track @relation(fields: [trackId], references: [trackId])\n\n  @@map(\"temporal_feature\")\n}\n\nmodel Tag {\n  tagId   String  @id @default(dbgenerated(\"uuid_generate_v4()\")) @map(\"tag_id\") @db.Uuid\n  tagName String? @map(\"tag_name\") @db.VarChar(255)\n\n  trackTags  TrackTag[]\n  artistTags ArtistTag[]\n\n  @@map(\"tag\")\n}\n\nmodel Playlist {\n  playlistId   String  @id @default(dbgenerated(\"uuid_generate_v4()\")) @map(\"playlist_id\") @db.Uuid\n  playlistName String? @map(\"playlist_name\") @db.VarChar(255)\n\n  playlistTracks PlaylistTrack[]\n  playlistUsers  PlaylistUser[]\n\n  @@map(\"playlist\")\n}\n\nmodel License {\n  licenseId    String  @id @default(dbgenerated(\"uuid_generate_v4()\")) @map(\"license_id\") @db.Uuid\n  licenseTitle String? @map(\"license_title\") @db.VarChar(255)\n  licenseUrl   String? @map(\"license_url\") @db.VarChar(255)\n\n  trackLicenses TrackLicense[]\n\n  @@map(\"license\")\n}\n\n// ============================================================================\n// RANKING TABLES\n// ============================================================================\n\nmodel RankTrack {\n  trackId            String   @map(\"track_id\") @db.Uuid\n  ranksDate          DateTime @default(now()) @map(\"ranks_date\") @db.Timestamp(6)\n  rankSongCurrency   BigInt?  @map(\"rank_song_currency\")\n  rankSongHotttnesss BigInt?  @map(\"rank_song_hotttnesss\")\n\n  track Track @relation(fields: [trackId], references: [trackId])\n\n  @@id([trackId, ranksDate])\n  @@map(\"rank_track\")\n}\n\nmodel RankArtist {\n  artistId              String   @map(\"artist_id\") @db.Uuid\n  ranksDate             DateTime @default(now()) @map(\"ranks_date\") @db.Timestamp(6)\n  rankArtistDiscovery   BigInt?  @map(\"rank_artist_discovery\")\n  rankArtistFamiliarity BigInt?  @map(\"rank_artist_familiarity\")\n  rankArtistHotttnesss  BigInt?  @map(\"rank_artist_hotttnesss\")\n\n  artist Artist @relation(fields: [artistId], references: [artistId])\n\n  @@id([artistId, ranksDate])\n  @@map(\"rank_artist\")\n}\n\n// ============================================================================\n// JOIN TABLES\n// ============================================================================\n\nmodel TrackGenre {\n  trackId String @map(\"track_id\") @db.Uuid\n  genreId String @map(\"genre_id\") @db.Uuid\n\n  track Track @relation(fields: [trackId], references: [trackId])\n  genre Genre @relation(fields: [genreId], references: [genreId])\n\n  @@id([trackId, genreId])\n  @@map(\"track_genre\")\n}\n\nmodel TrackTag {\n  trackId String @map(\"track_id\") @db.Uuid\n  tagId   String @map(\"tag_id\") @db.Uuid\n\n  track Track @relation(fields: [trackId], references: [trackId])\n  tag   Tag   @relation(fields: [tagId], references: [tagId])\n\n  @@id([trackId, tagId])\n  @@map(\"track_tag\")\n}\n\nmodel ArtistTag {\n  artistId String @map(\"artist_id\") @db.Uuid\n  tagId    String @map(\"tag_id\") @db.Uuid\n\n  artist Artist @relation(fields: [artistId], references: [artistId])\n  tag    Tag    @relation(fields: [tagId], references: [tagId])\n\n  @@id([artistId, tagId])\n  @@map(\"artist_tag\")\n}\n\nmodel AlbumArtist {\n  albumId  String @map(\"album_id\") @db.Uuid\n  artistId String @map(\"artist_id\") @db.Uuid\n\n  album  Album  @relation(fields: [albumId], references: [albumId])\n  artist Artist @relation(fields: [artistId], references: [artistId])\n\n  @@id([albumId, artistId])\n  @@map(\"album_artist\")\n}\n\nmodel TrackArtistMain {\n  trackId  String @map(\"track_id\") @db.Uuid\n  artistId String @map(\"artist_id\") @db.Uuid\n\n  track  Track  @relation(fields: [trackId], references: [trackId])\n  artist Artist @relation(fields: [artistId], references: [artistId])\n\n  @@id([trackId, artistId])\n  @@map(\"track_artist_main\")\n}\n\nmodel TrackArtistFeat {\n  trackId  String @map(\"track_id\") @db.Uuid\n  artistId String @map(\"artist_id\") @db.Uuid\n\n  track  Track  @relation(fields: [trackId], references: [trackId])\n  artist Artist @relation(fields: [artistId], references: [artistId])\n\n  @@id([trackId, artistId])\n  @@map(\"track_artist_feat\")\n}\n\nmodel TrackLicense {\n  trackId   String @map(\"track_id\") @db.Uuid\n  licenseId String @map(\"license_id\") @db.Uuid\n\n  track   Track   @relation(fields: [trackId], references: [trackId])\n  license License @relation(fields: [licenseId], references: [licenseId])\n\n  @@id([trackId, licenseId])\n  @@map(\"track_license\")\n}\n\nmodel PlaylistTrack {\n  playlistId String @map(\"playlist_id\") @db.Uuid\n  trackId    String @map(\"track_id\") @db.Uuid\n\n  playlist Playlist @relation(fields: [playlistId], references: [playlistId])\n  track    Track    @relation(fields: [trackId], references: [trackId])\n\n  @@id([playlistId, trackId])\n  @@map(\"playlist_track\")\n}\n\n// ============================================================================\n// USER-RELATED TABLES\n// ============================================================================\n\nmodel User {\n  accountId String  @id @map(\"account_id\") @db.Uuid\n  pseudo    String? @db.VarChar(255)\n\n  account          Account           @relation(fields: [accountId], references: [accountId])\n  preference       Preference?\n  preferenceVector PreferenceVector?\n  playlistUsers    PlaylistUser[]\n  trackLikes       TrackUserLike[]\n  trackListens     TrackUserListen[]\n  trackComments    TrackComment[]\n\n  @@map(\"user\")\n}\n\nmodel Preference {\n  accountId     String   @id @map(\"account_id\") @db.Uuid\n  ageRange      String?  @map(\"age_range\") @db.VarChar(255)\n  gender        String?  @db.VarChar(255)\n  position      String?  @db.VarChar(255)\n  hasConsented  Boolean? @map(\"has_consented\")\n  isListening   Boolean? @map(\"is_listening\")\n  frequency     String?  @db.VarChar(255)\n  whenListening Float?   @map(\"when_listening\") @db.DoublePrecision\n  durationPref  Int?     @map(\"duration_pref\")\n  energyPref    String?  @map(\"energy_pref\") @db.VarChar(255)\n  tempoPref     Float?   @map(\"tempo_pref\") @db.DoublePrecision\n  feelingPref   String?  @map(\"feeling_pref\") @db.VarChar(255)\n  isLivePref    String?  @map(\"is_live_pref\") @db.VarChar(255)\n  qualityPref   Int?     @map(\"quality_pref\")\n  curiosityPref Int?     @map(\"curiosity_pref\")\n  context       String?  @db.VarChar(255)\n  how           String?  @db.VarChar(255)\n  platform      String?  @db.VarChar(255)\n  utility       String?  @db.VarChar(255)\n\n  user             User              @relation(fields: [accountId], references: [accountId])\n  genrePreferences GenrePreference[]\n\n  @@map(\"preference\")\n}\n\nmodel PreferenceVector {\n  accountId String                     @id @map(\"account_id\") @db.Uuid\n  embedding Unsupported(\"VECTOR(71)\")? @map(\"embedding\")\n\n  user User @relation(fields: [accountId], references: [accountId])\n\n  @@map(\"preference_vector\")\n}\n\nmodel GenrePreference {\n  accountId String @map(\"account_id\") @db.Uuid\n  genreId   String @map(\"genre_id\") @db.Uuid\n\n  preference Preference @relation(fields: [accountId], references: [accountId])\n  genre      Genre      @relation(fields: [genreId], references: [genreId])\n\n  @@id([accountId, genreId])\n  @@map(\"genre_preference\")\n}\n\nmodel PlaylistUser {\n  playlistId String @map(\"playlist_id\") @db.Uuid\n  accountId  String @map(\"account_id\") @db.Uuid\n\n  playlist Playlist @relation(fields: [playlistId], references: [playlistId])\n  user     User     @relation(fields: [accountId], references: [accountId])\n\n  @@id([playlistId, accountId])\n  @@map(\"playlist_user\")\n}\n\nmodel TrackUserLike {\n  trackId   String @map(\"track_id\") @db.Uuid\n  accountId String @map(\"account_id\") @db.Uuid\n\n  track Track @relation(fields: [trackId], references: [trackId])\n  user  User  @relation(fields: [accountId], references: [accountId])\n\n  @@id([trackId, accountId])\n  @@map(\"track_user_like\")\n}\n\nmodel TrackUserListen {\n  trackId   String @map(\"track_id\") @db.Uuid\n  accountId String @map(\"account_id\") @db.Uuid\n  count     Int?   @default(1)\n\n  track Track @relation(fields: [trackId], references: [trackId])\n  user  User  @relation(fields: [accountId], references: [accountId])\n\n  @@id([trackId, accountId])\n  @@map(\"track_user_listen\")\n}\n\nmodel TrackComment {\n  commentId String    @id @default(dbgenerated(\"uuid_generate_v4()\")) @map(\"comment_id\") @db.Uuid\n  trackId   String    @map(\"track_id\") @db.Uuid\n  accountId String?   @map(\"account_id\") @db.Uuid\n  content   String?\n  createdAt DateTime? @default(now()) @map(\"created_at\") @db.Timestamp(6)\n\n  track Track @relation(fields: [trackId], references: [trackId])\n  user  User? @relation(fields: [accountId], references: [accountId])\n\n  @@map(\"track_comment\")\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -28,7 +28,7 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Account\":{\"fields\":[{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"account_id\"},{\"name\":\"login\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"created_at\"},{\"name\":\"artist\",\"kind\":\"object\",\"type\":\"Artist\",\"relationName\":\"AccountToArtist\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"AccountToUser\"}],\"dbName\":\"account\"},\"Artist\":{\"fields\":[{\"name\":\"artistId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"artist_id\"},{\"name\":\"artistBio\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"artist_bio\"},{\"name\":\"artistLocation\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"artist_location\"},{\"name\":\"artistLatitude\",\"kind\":\"scalar\",\"type\":\"Float\",\"dbName\":\"artist_latitude\"},{\"name\":\"artistLongitude\",\"kind\":\"scalar\",\"type\":\"Float\",\"dbName\":\"artist_longitude\"},{\"name\":\"artistActiveYearBegin\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"artist_active_year_begin\"},{\"name\":\"artistActiveYearEnd\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"artist_active_year_end\"},{\"name\":\"artistFavorites\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"artist_favorites\"},{\"name\":\"artistComments\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"artist_comments\"},{\"name\":\"account\",\"kind\":\"object\",\"type\":\"Account\",\"relationName\":\"AccountToArtist\"},{\"name\":\"artistTags\",\"kind\":\"object\",\"type\":\"ArtistTag\",\"relationName\":\"ArtistToArtistTag\"},{\"name\":\"albumArtists\",\"kind\":\"object\",\"type\":\"AlbumArtist\",\"relationName\":\"AlbumArtistToArtist\"},{\"name\":\"mainTracks\",\"kind\":\"object\",\"type\":\"TrackArtistMain\",\"relationName\":\"ArtistToTrackArtistMain\"},{\"name\":\"featTracks\",\"kind\":\"object\",\"type\":\"TrackArtistFeat\",\"relationName\":\"ArtistToTrackArtistFeat\"},{\"name\":\"rankArtists\",\"kind\":\"object\",\"type\":\"RankArtist\",\"relationName\":\"ArtistToRankArtist\"}],\"dbName\":\"artist\"},\"Album\":{\"fields\":[{\"name\":\"albumId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"album_id\"},{\"name\":\"albumTitle\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"album_title\"},{\"name\":\"albumType\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"album_type\"},{\"name\":\"albumTracksCount\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"album_tracks_count\"},{\"name\":\"albumDateReleased\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"album_date_released\"},{\"name\":\"albumListens\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"album_listens\"},{\"name\":\"albumFavorites\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"album_favorites\"},{\"name\":\"albumComments\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"album_comments\"},{\"name\":\"albumProducer\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"album_producer\"},{\"name\":\"tracks\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"AlbumToTrack\"},{\"name\":\"albumArtists\",\"kind\":\"object\",\"type\":\"AlbumArtist\",\"relationName\":\"AlbumToAlbumArtist\"}],\"dbName\":\"album\"},\"Genre\":{\"fields\":[{\"name\":\"genreId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"genre_id\"},{\"name\":\"parentId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"parent_id\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"topLevel\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"top_level\"},{\"name\":\"parent\",\"kind\":\"object\",\"type\":\"Genre\",\"relationName\":\"GenreHierarchy\"},{\"name\":\"children\",\"kind\":\"object\",\"type\":\"Genre\",\"relationName\":\"GenreHierarchy\"},{\"name\":\"trackGenres\",\"kind\":\"object\",\"type\":\"TrackGenre\",\"relationName\":\"GenreToTrackGenre\"},{\"name\":\"genrePreferences\",\"kind\":\"object\",\"type\":\"GenrePreference\",\"relationName\":\"GenreToGenrePreference\"}],\"dbName\":\"genre\"},\"Track\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"albumId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"album_id\"},{\"name\":\"trackTitle\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_title\"},{\"name\":\"trackDuration\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"track_duration\"},{\"name\":\"trackNumber\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"track_number\"},{\"name\":\"trackDiscNumber\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"track_disc_number\"},{\"name\":\"trackExplicit\",\"kind\":\"scalar\",\"type\":\"Boolean\",\"dbName\":\"track_explicit\"},{\"name\":\"trackInstrumental\",\"kind\":\"scalar\",\"type\":\"Boolean\",\"dbName\":\"track_instrumental\"},{\"name\":\"trackListens\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"track_listens\"},{\"name\":\"trackFavorites\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"track_favorites\"},{\"name\":\"trackInterest\",\"kind\":\"scalar\",\"type\":\"Float\",\"dbName\":\"track_interest\"},{\"name\":\"trackComments\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"track_comments\"},{\"name\":\"trackDateCreated\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"track_date_created\"},{\"name\":\"trackComposer\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_composer\"},{\"name\":\"trackLyricist\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_lyricist\"},{\"name\":\"trackPublisher\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_publisher\"},{\"name\":\"album\",\"kind\":\"object\",\"type\":\"Album\",\"relationName\":\"AlbumToTrack\"},{\"name\":\"audioFeature\",\"kind\":\"object\",\"type\":\"AudioFeature\",\"relationName\":\"AudioFeatureToTrack\"},{\"name\":\"temporalFeature\",\"kind\":\"object\",\"type\":\"TemporalFeature\",\"relationName\":\"TemporalFeatureToTrack\"},{\"name\":\"trackGenres\",\"kind\":\"object\",\"type\":\"TrackGenre\",\"relationName\":\"TrackToTrackGenre\"},{\"name\":\"trackTags\",\"kind\":\"object\",\"type\":\"TrackTag\",\"relationName\":\"TrackToTrackTag\"},{\"name\":\"mainArtists\",\"kind\":\"object\",\"type\":\"TrackArtistMain\",\"relationName\":\"TrackToTrackArtistMain\"},{\"name\":\"featArtists\",\"kind\":\"object\",\"type\":\"TrackArtistFeat\",\"relationName\":\"TrackToTrackArtistFeat\"},{\"name\":\"trackLicenses\",\"kind\":\"object\",\"type\":\"TrackLicense\",\"relationName\":\"TrackToTrackLicense\"},{\"name\":\"playlistTracks\",\"kind\":\"object\",\"type\":\"PlaylistTrack\",\"relationName\":\"PlaylistTrackToTrack\"},{\"name\":\"rankTracks\",\"kind\":\"object\",\"type\":\"RankTrack\",\"relationName\":\"RankTrackToTrack\"},{\"name\":\"userLikes\",\"kind\":\"object\",\"type\":\"TrackUserLike\",\"relationName\":\"TrackToTrackUserLike\"},{\"name\":\"userListens\",\"kind\":\"object\",\"type\":\"TrackUserListen\",\"relationName\":\"TrackToTrackUserListen\"},{\"name\":\"comments\",\"kind\":\"object\",\"type\":\"TrackComment\",\"relationName\":\"TrackToTrackComment\"}],\"dbName\":\"track\"},\"AudioFeature\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"acousticness\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"danceability\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"energy\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"instrumentalness\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"liveness\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"speechiness\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"tempo\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"valence\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"AudioFeatureToTrack\"}],\"dbName\":\"audio_feature\"},\"TemporalFeature\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"TemporalFeatureToTrack\"}],\"dbName\":\"temporal_feature\"},\"Tag\":{\"fields\":[{\"name\":\"tagId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"tag_id\"},{\"name\":\"tagName\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"tag_name\"},{\"name\":\"trackTags\",\"kind\":\"object\",\"type\":\"TrackTag\",\"relationName\":\"TagToTrackTag\"},{\"name\":\"artistTags\",\"kind\":\"object\",\"type\":\"ArtistTag\",\"relationName\":\"ArtistTagToTag\"}],\"dbName\":\"tag\"},\"Playlist\":{\"fields\":[{\"name\":\"playlistId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"playlist_id\"},{\"name\":\"playlistName\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"playlist_name\"},{\"name\":\"playlistTracks\",\"kind\":\"object\",\"type\":\"PlaylistTrack\",\"relationName\":\"PlaylistToPlaylistTrack\"},{\"name\":\"playlistUsers\",\"kind\":\"object\",\"type\":\"PlaylistUser\",\"relationName\":\"PlaylistToPlaylistUser\"}],\"dbName\":\"playlist\"},\"License\":{\"fields\":[{\"name\":\"licenseId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"license_id\"},{\"name\":\"licenseTitle\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"license_title\"},{\"name\":\"licenseUrl\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"license_url\"},{\"name\":\"trackLicenses\",\"kind\":\"object\",\"type\":\"TrackLicense\",\"relationName\":\"LicenseToTrackLicense\"}],\"dbName\":\"license\"},\"RankTrack\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"ranksDate\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"ranks_date\"},{\"name\":\"rankSongCurrency\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"rank_song_currency\"},{\"name\":\"rankSongHotttnesss\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"rank_song_hotttnesss\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"RankTrackToTrack\"}],\"dbName\":\"rank_track\"},\"RankArtist\":{\"fields\":[{\"name\":\"artistId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"artist_id\"},{\"name\":\"ranksDate\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"ranks_date\"},{\"name\":\"rankArtistDiscovery\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"rank_artist_discovery\"},{\"name\":\"rankArtistFamiliarity\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"rank_artist_familiarity\"},{\"name\":\"rankArtistHotttnesss\",\"kind\":\"scalar\",\"type\":\"BigInt\",\"dbName\":\"rank_artist_hotttnesss\"},{\"name\":\"artist\",\"kind\":\"object\",\"type\":\"Artist\",\"relationName\":\"ArtistToRankArtist\"}],\"dbName\":\"rank_artist\"},\"TrackGenre\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"genreId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"genre_id\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"TrackToTrackGenre\"},{\"name\":\"genre\",\"kind\":\"object\",\"type\":\"Genre\",\"relationName\":\"GenreToTrackGenre\"}],\"dbName\":\"track_genre\"},\"TrackTag\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"tagId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"tag_id\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"TrackToTrackTag\"},{\"name\":\"tag\",\"kind\":\"object\",\"type\":\"Tag\",\"relationName\":\"TagToTrackTag\"}],\"dbName\":\"track_tag\"},\"ArtistTag\":{\"fields\":[{\"name\":\"artistId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"artist_id\"},{\"name\":\"tagId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"tag_id\"},{\"name\":\"artist\",\"kind\":\"object\",\"type\":\"Artist\",\"relationName\":\"ArtistToArtistTag\"},{\"name\":\"tag\",\"kind\":\"object\",\"type\":\"Tag\",\"relationName\":\"ArtistTagToTag\"}],\"dbName\":\"artist_tag\"},\"AlbumArtist\":{\"fields\":[{\"name\":\"albumId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"album_id\"},{\"name\":\"artistId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"artist_id\"},{\"name\":\"album\",\"kind\":\"object\",\"type\":\"Album\",\"relationName\":\"AlbumToAlbumArtist\"},{\"name\":\"artist\",\"kind\":\"object\",\"type\":\"Artist\",\"relationName\":\"AlbumArtistToArtist\"}],\"dbName\":\"album_artist\"},\"TrackArtistMain\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"artistId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"artist_id\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"TrackToTrackArtistMain\"},{\"name\":\"artist\",\"kind\":\"object\",\"type\":\"Artist\",\"relationName\":\"ArtistToTrackArtistMain\"}],\"dbName\":\"track_artist_main\"},\"TrackArtistFeat\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"artistId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"artist_id\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"TrackToTrackArtistFeat\"},{\"name\":\"artist\",\"kind\":\"object\",\"type\":\"Artist\",\"relationName\":\"ArtistToTrackArtistFeat\"}],\"dbName\":\"track_artist_feat\"},\"TrackLicense\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"licenseId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"license_id\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"TrackToTrackLicense\"},{\"name\":\"license\",\"kind\":\"object\",\"type\":\"License\",\"relationName\":\"LicenseToTrackLicense\"}],\"dbName\":\"track_license\"},\"PlaylistTrack\":{\"fields\":[{\"name\":\"playlistId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"playlist_id\"},{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"playlist\",\"kind\":\"object\",\"type\":\"Playlist\",\"relationName\":\"PlaylistToPlaylistTrack\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"PlaylistTrackToTrack\"}],\"dbName\":\"playlist_track\"},\"User\":{\"fields\":[{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"account_id\"},{\"name\":\"pseudo\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"account\",\"kind\":\"object\",\"type\":\"Account\",\"relationName\":\"AccountToUser\"},{\"name\":\"preference\",\"kind\":\"object\",\"type\":\"Preference\",\"relationName\":\"PreferenceToUser\"},{\"name\":\"preferenceVector\",\"kind\":\"object\",\"type\":\"PreferenceVector\",\"relationName\":\"PreferenceVectorToUser\"},{\"name\":\"playlistUsers\",\"kind\":\"object\",\"type\":\"PlaylistUser\",\"relationName\":\"PlaylistUserToUser\"},{\"name\":\"trackLikes\",\"kind\":\"object\",\"type\":\"TrackUserLike\",\"relationName\":\"TrackUserLikeToUser\"},{\"name\":\"trackListens\",\"kind\":\"object\",\"type\":\"TrackUserListen\",\"relationName\":\"TrackUserListenToUser\"},{\"name\":\"trackComments\",\"kind\":\"object\",\"type\":\"TrackComment\",\"relationName\":\"TrackCommentToUser\"}],\"dbName\":\"user\"},\"Preference\":{\"fields\":[{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"account_id\"},{\"name\":\"ageRange\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"age_range\"},{\"name\":\"gender\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"position\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hasConsented\",\"kind\":\"scalar\",\"type\":\"Boolean\",\"dbName\":\"has_consented\"},{\"name\":\"isListening\",\"kind\":\"scalar\",\"type\":\"Boolean\",\"dbName\":\"is_listening\"},{\"name\":\"frequency\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"whenListening\",\"kind\":\"scalar\",\"type\":\"Float\",\"dbName\":\"when_listening\"},{\"name\":\"durationPref\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"duration_pref\"},{\"name\":\"energyPref\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"energy_pref\"},{\"name\":\"tempoPref\",\"kind\":\"scalar\",\"type\":\"Float\",\"dbName\":\"tempo_pref\"},{\"name\":\"feelingPref\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"feeling_pref\"},{\"name\":\"isLivePref\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"is_live_pref\"},{\"name\":\"qualityPref\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"quality_pref\"},{\"name\":\"curiosityPref\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"curiosity_pref\"},{\"name\":\"context\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"how\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"platform\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"utility\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"PreferenceToUser\"},{\"name\":\"genrePreferences\",\"kind\":\"object\",\"type\":\"GenrePreference\",\"relationName\":\"GenrePreferenceToPreference\"}],\"dbName\":\"preference\"},\"PreferenceVector\":{\"fields\":[{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"account_id\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"PreferenceVectorToUser\"}],\"dbName\":\"preference_vector\"},\"GenrePreference\":{\"fields\":[{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"account_id\"},{\"name\":\"genreId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"genre_id\"},{\"name\":\"preference\",\"kind\":\"object\",\"type\":\"Preference\",\"relationName\":\"GenrePreferenceToPreference\"},{\"name\":\"genre\",\"kind\":\"object\",\"type\":\"Genre\",\"relationName\":\"GenreToGenrePreference\"}],\"dbName\":\"genre_preference\"},\"PlaylistUser\":{\"fields\":[{\"name\":\"playlistId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"playlist_id\"},{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"account_id\"},{\"name\":\"playlist\",\"kind\":\"object\",\"type\":\"Playlist\",\"relationName\":\"PlaylistToPlaylistUser\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"PlaylistUserToUser\"}],\"dbName\":\"playlist_user\"},\"TrackUserLike\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"account_id\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"TrackToTrackUserLike\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"TrackUserLikeToUser\"}],\"dbName\":\"track_user_like\"},\"TrackUserListen\":{\"fields\":[{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"account_id\"},{\"name\":\"count\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"TrackToTrackUserListen\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"TrackUserListenToUser\"}],\"dbName\":\"track_user_listen\"},\"TrackComment\":{\"fields\":[{\"name\":\"commentId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"comment_id\"},{\"name\":\"trackId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"track_id\"},{\"name\":\"accountId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"account_id\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"created_at\"},{\"name\":\"track\",\"kind\":\"object\",\"type\":\"Track\",\"relationName\":\"TrackToTrackComment\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"TrackCommentToUser\"}],\"dbName\":\"track_comment\"}},\"enums\":{},\"types\":{}}")
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -60,8 +60,8 @@ export interface PrismaClientConstructor {
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
+   * // Fetch zero or more Accounts
+   * const accounts = await prisma.account.findMany()
    * ```
    * 
    * Read more in our [docs](https://pris.ly/d/client).
@@ -82,8 +82,8 @@ export interface PrismaClientConstructor {
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more Accounts
+ * const accounts = await prisma.account.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -177,6 +177,206 @@ export interface PrismaClient<
   }>>
 
       /**
+   * `prisma.account`: Exposes CRUD operations for the **Account** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Accounts
+    * const accounts = await prisma.account.findMany()
+    * ```
+    */
+  get account(): Prisma.AccountDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.artist`: Exposes CRUD operations for the **Artist** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Artists
+    * const artists = await prisma.artist.findMany()
+    * ```
+    */
+  get artist(): Prisma.ArtistDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.album`: Exposes CRUD operations for the **Album** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Albums
+    * const albums = await prisma.album.findMany()
+    * ```
+    */
+  get album(): Prisma.AlbumDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.genre`: Exposes CRUD operations for the **Genre** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Genres
+    * const genres = await prisma.genre.findMany()
+    * ```
+    */
+  get genre(): Prisma.GenreDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.track`: Exposes CRUD operations for the **Track** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tracks
+    * const tracks = await prisma.track.findMany()
+    * ```
+    */
+  get track(): Prisma.TrackDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.audioFeature`: Exposes CRUD operations for the **AudioFeature** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AudioFeatures
+    * const audioFeatures = await prisma.audioFeature.findMany()
+    * ```
+    */
+  get audioFeature(): Prisma.AudioFeatureDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.temporalFeature`: Exposes CRUD operations for the **TemporalFeature** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TemporalFeatures
+    * const temporalFeatures = await prisma.temporalFeature.findMany()
+    * ```
+    */
+  get temporalFeature(): Prisma.TemporalFeatureDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.tag`: Exposes CRUD operations for the **Tag** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tags
+    * const tags = await prisma.tag.findMany()
+    * ```
+    */
+  get tag(): Prisma.TagDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.playlist`: Exposes CRUD operations for the **Playlist** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Playlists
+    * const playlists = await prisma.playlist.findMany()
+    * ```
+    */
+  get playlist(): Prisma.PlaylistDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.license`: Exposes CRUD operations for the **License** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Licenses
+    * const licenses = await prisma.license.findMany()
+    * ```
+    */
+  get license(): Prisma.LicenseDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.rankTrack`: Exposes CRUD operations for the **RankTrack** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more RankTracks
+    * const rankTracks = await prisma.rankTrack.findMany()
+    * ```
+    */
+  get rankTrack(): Prisma.RankTrackDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.rankArtist`: Exposes CRUD operations for the **RankArtist** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more RankArtists
+    * const rankArtists = await prisma.rankArtist.findMany()
+    * ```
+    */
+  get rankArtist(): Prisma.RankArtistDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.trackGenre`: Exposes CRUD operations for the **TrackGenre** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrackGenres
+    * const trackGenres = await prisma.trackGenre.findMany()
+    * ```
+    */
+  get trackGenre(): Prisma.TrackGenreDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.trackTag`: Exposes CRUD operations for the **TrackTag** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrackTags
+    * const trackTags = await prisma.trackTag.findMany()
+    * ```
+    */
+  get trackTag(): Prisma.TrackTagDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.artistTag`: Exposes CRUD operations for the **ArtistTag** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ArtistTags
+    * const artistTags = await prisma.artistTag.findMany()
+    * ```
+    */
+  get artistTag(): Prisma.ArtistTagDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.albumArtist`: Exposes CRUD operations for the **AlbumArtist** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AlbumArtists
+    * const albumArtists = await prisma.albumArtist.findMany()
+    * ```
+    */
+  get albumArtist(): Prisma.AlbumArtistDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.trackArtistMain`: Exposes CRUD operations for the **TrackArtistMain** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrackArtistMains
+    * const trackArtistMains = await prisma.trackArtistMain.findMany()
+    * ```
+    */
+  get trackArtistMain(): Prisma.TrackArtistMainDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.trackArtistFeat`: Exposes CRUD operations for the **TrackArtistFeat** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrackArtistFeats
+    * const trackArtistFeats = await prisma.trackArtistFeat.findMany()
+    * ```
+    */
+  get trackArtistFeat(): Prisma.TrackArtistFeatDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.trackLicense`: Exposes CRUD operations for the **TrackLicense** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrackLicenses
+    * const trackLicenses = await prisma.trackLicense.findMany()
+    * ```
+    */
+  get trackLicense(): Prisma.TrackLicenseDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.playlistTrack`: Exposes CRUD operations for the **PlaylistTrack** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PlaylistTracks
+    * const playlistTracks = await prisma.playlistTrack.findMany()
+    * ```
+    */
+  get playlistTrack(): Prisma.PlaylistTrackDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
    * `prisma.user`: Exposes CRUD operations for the **User** model.
     * Example usage:
     * ```ts
@@ -185,6 +385,76 @@ export interface PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.preference`: Exposes CRUD operations for the **Preference** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Preferences
+    * const preferences = await prisma.preference.findMany()
+    * ```
+    */
+  get preference(): Prisma.PreferenceDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.preferenceVector`: Exposes CRUD operations for the **PreferenceVector** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PreferenceVectors
+    * const preferenceVectors = await prisma.preferenceVector.findMany()
+    * ```
+    */
+  get preferenceVector(): Prisma.PreferenceVectorDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.genrePreference`: Exposes CRUD operations for the **GenrePreference** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GenrePreferences
+    * const genrePreferences = await prisma.genrePreference.findMany()
+    * ```
+    */
+  get genrePreference(): Prisma.GenrePreferenceDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.playlistUser`: Exposes CRUD operations for the **PlaylistUser** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PlaylistUsers
+    * const playlistUsers = await prisma.playlistUser.findMany()
+    * ```
+    */
+  get playlistUser(): Prisma.PlaylistUserDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.trackUserLike`: Exposes CRUD operations for the **TrackUserLike** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrackUserLikes
+    * const trackUserLikes = await prisma.trackUserLike.findMany()
+    * ```
+    */
+  get trackUserLike(): Prisma.TrackUserLikeDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.trackUserListen`: Exposes CRUD operations for the **TrackUserListen** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrackUserListens
+    * const trackUserListens = await prisma.trackUserListen.findMany()
+    * ```
+    */
+  get trackUserListen(): Prisma.TrackUserListenDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.trackComment`: Exposes CRUD operations for the **TrackComment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrackComments
+    * const trackComments = await prisma.trackComment.findMany()
+    * ```
+    */
+  get trackComment(): Prisma.TrackCommentDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {
