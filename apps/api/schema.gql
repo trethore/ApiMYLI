@@ -1,0 +1,13 @@
+type User {
+  accountId: ID!
+  pseudo: String
+}
+
+type Query {
+  hello: String!
+  users: [User!]!
+}
+
+type Mutation {
+  createUser(accountId: String!, pseudo: String): User!
+}

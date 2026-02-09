@@ -55,6 +55,7 @@ bun run --filter api prisma:migrate
 | ------------------------- | --------------------------------------------- |
 | `bun run dev`             | Start development server with hot reload      |
 | `bun run start`           | Start production server                       |
+| `bun run schema:generate` | Generate `schema.gql` from GraphQL schema     |
 | `bun run prisma:generate` | Generate Prisma client from schema            |
 | `bun run prisma:migrate`  | Run database migrations and regenerate client |
 
@@ -75,6 +76,7 @@ Execute app-specific commands from the repository root using Bun's filter:
 
 ```bash
 bun run --filter api dev
+bun run --filter api schema:generate
 bun run --filter web build
 ```
 
