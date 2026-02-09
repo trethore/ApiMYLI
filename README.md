@@ -4,7 +4,7 @@ MYLI - API is a TypeScript monorepo built with **Bun** as both the runtime and p
 
 ## Overview
 
-We use turborepo to make a monorepo.
+We use turborepo to make a monorepo that follow a Clean Architecture direction
 
 ### Project Structure
 
@@ -19,6 +19,13 @@ We use turborepo to make a monorepo.
 ├── bun.lock                    # Dependency lock file
 └── README.md
 ```
+
+### Clean Architecture Principles
+
+- Domain and application logic must not depend on frameworks.
+- Infrastructure details (Prisma, Redis, GraphQL, Next.js) stay at the edges.
+- Dependencies point inward: `presentation -> application -> domain`.
+- Shared business rules belong in `packages`, app wiring belongs in `apps`.
 
 ## Getting started
 

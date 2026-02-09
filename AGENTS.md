@@ -29,6 +29,17 @@ The web application uses:
 
 - `@/*` mapped to `src/*`
 
+### Clean Architecture Rules
+
+- `packages/domain/src/entities`: core entities and value objects.
+- `packages/domain/src/repositories`: abstract repository interfaces.
+- `packages/application/src/use-cases`: application workflows.
+- `packages/application/src/ports`: application input/output ports.
+- `apps/api/src/presentation`: GraphQL transport layer.
+- `apps/api/src/infrastructure`: external integrations and persistence adapters.
+- `apps/api/src/main`: composition root and bootstrapping.
+- `apps/web/src/features`: UI feature composition that consumes application-facing contracts.
+
 ## Build, Test, and Development Commands
 
 ### Installation
@@ -66,8 +77,6 @@ Execute app-specific commands from the repository root using Bun's filter:
 bun run --filter api dev
 bun run --filter web build
 ```
-
-## Coding Conventions
 
 ### Typescript
 
