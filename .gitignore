@@ -11,3 +11,4 @@ coverage
 **/prisma/*.db
 **/prisma/*.db-journal
 *.log
+apps/api/prisma/seed-data/

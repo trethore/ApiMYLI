@@ -7,6 +7,7 @@
     "dev": "bun --hot src/index.ts",
     "start": "bun src/index.ts",
     "schema:generate": "bun src/main/generate-schema.ts",
+    "seed:download": "bun src/main/download-seed-data.ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev && prisma generate"
   },
