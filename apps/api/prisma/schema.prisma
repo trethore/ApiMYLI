@@ -96,8 +96,8 @@ model Track {
   trackComposer   String?  @map("track_composer") @db.VarChar(255)
   trackLyricist   String?  @map("track_lyricist") @db.VarChar(255)
   trackPublisher  String?  @map("track_publisher") @db.VarChar(255)
-  trackUrl        String?  @map("track_url") @db.VarChar(255)
-  trackFile       String?  @map("track_file") @db.VarChar(255)
+  trackUrl        String?  @map("track_url")
+  trackFile       String?  @map("track_file")
 
   album           Album?            @relation(fields: [albumId], references: [albumId])
   audioFeature    AudioFeature?

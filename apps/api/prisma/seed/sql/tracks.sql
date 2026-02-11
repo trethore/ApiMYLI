@@ -1,0 +1,145 @@
+DROP TABLE IF EXISTS stg_track;
+CREATE TEMP TABLE stg_track (
+  track_id TEXT,
+  album_id TEXT,
+  artist_id TEXT,
+  track_comments BIGINT,
+  track_composer TEXT,
+  track_date_created DATE,
+  track_duration BIGINT,
+  track_favorites BIGINT,
+  track_genre_top TEXT,
+  track_genres TEXT,
+  track_interest DOUBLE PRECISION,
+  track_listens BIGINT,
+  track_lyricist TEXT,
+  track_publisher TEXT,
+  track_tags TEXT,
+  track_title TEXT
+);
+
+\copy stg_track FROM __TRACKS_CSV__ WITH (FORMAT csv, HEADER true, DELIMITER ',');
+
+DROP TABLE IF EXISTS stg_raw_track_numbers;
+CREATE TEMP TABLE stg_raw_track_numbers (
+  track_id TEXT,
+  album_id TEXT,
+  album_title TEXT,
+  artist_id TEXT,
+  artist_name TEXT,
+  tags TEXT,
+  track_bit_rate BIGINT,
+  track_comments BIGINT,
+  track_composer TEXT,
+  track_date_created DATE,
+  track_disc_number INT,
+  track_duration BIGINT,
+  track_explicit BOOLEAN,
+  track_favorites BIGINT,
+  track_file TEXT,
+  track_genres TEXT,
+  track_instrumental BOOLEAN,
+  track_interest DOUBLE PRECISION,
+  track_listens BIGINT,
+  track_lyricist TEXT,
+  track_number INT,
+  track_publisher TEXT,
+  track_title TEXT,
+  track_url TEXT
+);
+
+\copy stg_raw_track_numbers FROM __RAW_TRACKS_CSV__ WITH (FORMAT csv, HEADER true, DELIMITER ',');
+
+ALTER TABLE stg_track ADD COLUMN new_uuid UUID DEFAULT uuid_generate_v4();
+
+INSERT INTO track (
+  track_id,
+  album_id,
+  track_title,
+  track_duration,
+  track_number,
+  track_disc_number,
+  track_explicit,
+  track_instrumental,
+  track_listens,
+  track_favorites,
+  track_interest,
+  track_comments,
+  track_date_created,
+  track_composer,
+  track_lyricist,
+  track_publisher,
+  track_url,
+  track_file
+)
+SELECT
+  t.new_uuid,
+  m_alb.new_uuid,
+  t.track_title,
+  t.track_duration,
+  r.track_number,
+  r.track_disc_number,
+  r.track_explicit,
+  r.track_instrumental,
+  t.track_listens,
+  t.track_favorites,
+  t.track_interest,
+  t.track_comments,
+  t.track_date_created,
+  t.track_composer,
+  t.track_lyricist,
+  t.track_publisher,
+  r.track_url,
+  r.track_file
+FROM stg_track t
+LEFT JOIN _legacy_id_map m_alb
+  ON m_alb.old_id = t.album_id
+ AND m_alb.table_name = 'album'
+LEFT JOIN stg_raw_track_numbers r
+  ON r.track_id = t.track_id
+JOIN _legacy_id_map m_art
+  ON m_art.old_id = t.artist_id
+ AND m_art.table_name = 'artist';
+
+INSERT INTO _legacy_id_map (table_name, old_id, new_uuid)
+SELECT 'track', t.track_id, t.new_uuid
+FROM stg_track t
+JOIN _legacy_id_map m_art
+  ON m_art.old_id = t.artist_id
+ AND m_art.table_name = 'artist';
+
+INSERT INTO track_artist_main (track_id, artist_id)
+SELECT t.new_uuid, m_art.new_uuid
+FROM stg_track t
+JOIN _legacy_id_map m_art
+  ON m_art.old_id = t.artist_id
+ AND m_art.table_name = 'artist'
+ON CONFLICT DO NOTHING;
+
+INSERT INTO album_artist (album_id, artist_id)
+SELECT DISTINCT m_alb.new_uuid, m_art.new_uuid
+FROM stg_track t
+JOIN _legacy_id_map m_alb
+  ON m_alb.old_id = t.album_id
+ AND m_alb.table_name = 'album'
+JOIN _legacy_id_map m_art
+  ON m_art.old_id = t.artist_id
+ AND m_art.table_name = 'artist'
+ON CONFLICT DO NOTHING;
+
+WITH exploded AS (
+  SELECT
+    new_uuid AS track_uuid,
+    trim(genre_old_id) AS genre_old_id
+  FROM stg_track, unnest(parse_python_list(track_genres)) AS genre_old_id
+  WHERE track_genres IS NOT NULL AND track_genres <> '[]'
+)
+INSERT INTO track_genre (track_id, genre_id)
+SELECT c.track_uuid, m.new_uuid
+FROM exploded c
+JOIN _legacy_id_map m
+  ON m.old_id = c.genre_old_id
+ AND m.table_name = 'genre'
+JOIN track t
+  ON t.track_id = c.track_uuid
+ON CONFLICT DO NOTHING;

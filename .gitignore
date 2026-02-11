@@ -1,3 +1,5 @@
+# Project
+
 node_modules
 .bun
 bun.lockb
@@ -11,4 +13,9 @@ coverage
 **/prisma/*.db
 **/prisma/*.db-journal
 *.log
+
+# Seed data
 apps/api/prisma/seed-data/
+
+# Other
+.ignore

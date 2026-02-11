@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "track" ALTER COLUMN "track_file" SET DATA TYPE TEXT,
+ALTER COLUMN "track_url" SET DATA TYPE TEXT;
