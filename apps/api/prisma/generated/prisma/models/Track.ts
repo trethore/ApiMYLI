@@ -63,6 +63,8 @@ export type TrackMinAggregateOutputType = {
   trackComposer: string | null
   trackLyricist: string | null
   trackPublisher: string | null
+  trackUrl: string | null
+  trackFile: string | null
 }
 
 export type TrackMaxAggregateOutputType = {
@@ -82,6 +84,8 @@ export type TrackMaxAggregateOutputType = {
   trackComposer: string | null
   trackLyricist: string | null
   trackPublisher: string | null
+  trackUrl: string | null
+  trackFile: string | null
 }
 
 export type TrackCountAggregateOutputType = {
@@ -101,6 +105,8 @@ export type TrackCountAggregateOutputType = {
   trackComposer: number
   trackLyricist: number
   trackPublisher: number
+  trackUrl: number
+  trackFile: number
   _all: number
 }
 
@@ -142,6 +148,8 @@ export type TrackMinAggregateInputType = {
   trackComposer?: true
   trackLyricist?: true
   trackPublisher?: true
+  trackUrl?: true
+  trackFile?: true
 }
 
 export type TrackMaxAggregateInputType = {
@@ -161,6 +169,8 @@ export type TrackMaxAggregateInputType = {
   trackComposer?: true
   trackLyricist?: true
   trackPublisher?: true
+  trackUrl?: true
+  trackFile?: true
 }
 
 export type TrackCountAggregateInputType = {
@@ -180,6 +190,8 @@ export type TrackCountAggregateInputType = {
   trackComposer?: true
   trackLyricist?: true
   trackPublisher?: true
+  trackUrl?: true
+  trackFile?: true
   _all?: true
 }
 
@@ -286,6 +298,8 @@ export type TrackGroupByOutputType = {
   trackComposer: string | null
   trackLyricist: string | null
   trackPublisher: string | null
+  trackUrl: string | null
+  trackFile: string | null
   _count: TrackCountAggregateOutputType | null
   _avg: TrackAvgAggregateOutputType | null
   _sum: TrackSumAggregateOutputType | null
@@ -328,6 +342,8 @@ export type TrackWhereInput = {
   trackComposer?: Prisma.StringNullableFilter<"Track"> | string | null
   trackLyricist?: Prisma.StringNullableFilter<"Track"> | string | null
   trackPublisher?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackUrl?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackFile?: Prisma.StringNullableFilter<"Track"> | string | null
   album?: Prisma.XOR<Prisma.AlbumNullableScalarRelationFilter, Prisma.AlbumWhereInput> | null
   audioFeature?: Prisma.XOR<Prisma.AudioFeatureNullableScalarRelationFilter, Prisma.AudioFeatureWhereInput> | null
   temporalFeature?: Prisma.XOR<Prisma.TemporalFeatureNullableScalarRelationFilter, Prisma.TemporalFeatureWhereInput> | null
@@ -360,6 +376,8 @@ export type TrackOrderByWithRelationInput = {
   trackComposer?: Prisma.SortOrderInput | Prisma.SortOrder
   trackLyricist?: Prisma.SortOrderInput | Prisma.SortOrder
   trackPublisher?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackFile?: Prisma.SortOrderInput | Prisma.SortOrder
   album?: Prisma.AlbumOrderByWithRelationInput
   audioFeature?: Prisma.AudioFeatureOrderByWithRelationInput
   temporalFeature?: Prisma.TemporalFeatureOrderByWithRelationInput
@@ -395,6 +413,8 @@ export type TrackWhereUniqueInput = Prisma.AtLeast<{
   trackComposer?: Prisma.StringNullableFilter<"Track"> | string | null
   trackLyricist?: Prisma.StringNullableFilter<"Track"> | string | null
   trackPublisher?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackUrl?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackFile?: Prisma.StringNullableFilter<"Track"> | string | null
   album?: Prisma.XOR<Prisma.AlbumNullableScalarRelationFilter, Prisma.AlbumWhereInput> | null
   audioFeature?: Prisma.XOR<Prisma.AudioFeatureNullableScalarRelationFilter, Prisma.AudioFeatureWhereInput> | null
   temporalFeature?: Prisma.XOR<Prisma.TemporalFeatureNullableScalarRelationFilter, Prisma.TemporalFeatureWhereInput> | null
@@ -427,6 +447,8 @@ export type TrackOrderByWithAggregationInput = {
   trackComposer?: Prisma.SortOrderInput | Prisma.SortOrder
   trackLyricist?: Prisma.SortOrderInput | Prisma.SortOrder
   trackPublisher?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackFile?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.TrackCountOrderByAggregateInput
   _avg?: Prisma.TrackAvgOrderByAggregateInput
   _max?: Prisma.TrackMaxOrderByAggregateInput
@@ -454,6 +476,8 @@ export type TrackScalarWhereWithAggregatesInput = {
   trackComposer?: Prisma.StringNullableWithAggregatesFilter<"Track"> | string | null
   trackLyricist?: Prisma.StringNullableWithAggregatesFilter<"Track"> | string | null
   trackPublisher?: Prisma.StringNullableWithAggregatesFilter<"Track"> | string | null
+  trackUrl?: Prisma.StringNullableWithAggregatesFilter<"Track"> | string | null
+  trackFile?: Prisma.StringNullableWithAggregatesFilter<"Track"> | string | null
 }
 
 export type TrackCreateInput = {
@@ -472,6 +496,8 @@ export type TrackCreateInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -504,6 +530,8 @@ export type TrackUncheckedCreateInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -534,6 +562,8 @@ export type TrackUpdateInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -566,6 +596,8 @@ export type TrackUncheckedUpdateInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -597,6 +629,8 @@ export type TrackCreateManyInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
 }
 
 export type TrackUpdateManyMutationInput = {
@@ -615,6 +649,8 @@ export type TrackUpdateManyMutationInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type TrackUncheckedUpdateManyInput = {
@@ -634,6 +670,8 @@ export type TrackUncheckedUpdateManyInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type TrackListRelationFilter = {
@@ -663,6 +701,8 @@ export type TrackCountOrderByAggregateInput = {
   trackComposer?: Prisma.SortOrder
   trackLyricist?: Prisma.SortOrder
   trackPublisher?: Prisma.SortOrder
+  trackUrl?: Prisma.SortOrder
+  trackFile?: Prisma.SortOrder
 }
 
 export type TrackAvgOrderByAggregateInput = {
@@ -692,6 +732,8 @@ export type TrackMaxOrderByAggregateInput = {
   trackComposer?: Prisma.SortOrder
   trackLyricist?: Prisma.SortOrder
   trackPublisher?: Prisma.SortOrder
+  trackUrl?: Prisma.SortOrder
+  trackFile?: Prisma.SortOrder
 }
 
 export type TrackMinOrderByAggregateInput = {
@@ -711,6 +753,8 @@ export type TrackMinOrderByAggregateInput = {
   trackComposer?: Prisma.SortOrder
   trackLyricist?: Prisma.SortOrder
   trackPublisher?: Prisma.SortOrder
+  trackUrl?: Prisma.SortOrder
+  trackFile?: Prisma.SortOrder
 }
 
 export type TrackSumOrderByAggregateInput = {
@@ -958,6 +1002,8 @@ export type TrackCreateWithoutAlbumInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutTrackInput
@@ -988,6 +1034,8 @@ export type TrackUncheckedCreateWithoutAlbumInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -1048,6 +1096,8 @@ export type TrackScalarWhereInput = {
   trackComposer?: Prisma.StringNullableFilter<"Track"> | string | null
   trackLyricist?: Prisma.StringNullableFilter<"Track"> | string | null
   trackPublisher?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackUrl?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackFile?: Prisma.StringNullableFilter<"Track"> | string | null
 }
 
 export type TrackCreateWithoutAudioFeatureInput = {
@@ -1066,6 +1116,8 @@ export type TrackCreateWithoutAudioFeatureInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutTrackInput
@@ -1097,6 +1149,8 @@ export type TrackUncheckedCreateWithoutAudioFeatureInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
   trackTags?: Prisma.TrackTagUncheckedCreateNestedManyWithoutTrackInput
@@ -1142,6 +1196,8 @@ export type TrackUpdateWithoutAudioFeatureInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutTrackNestedInput
@@ -1173,6 +1229,8 @@ export type TrackUncheckedUpdateWithoutAudioFeatureInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
   trackTags?: Prisma.TrackTagUncheckedUpdateManyWithoutTrackNestedInput
@@ -1202,6 +1260,8 @@ export type TrackCreateWithoutTemporalFeatureInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutTrackInput
@@ -1233,6 +1293,8 @@ export type TrackUncheckedCreateWithoutTemporalFeatureInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
   trackTags?: Prisma.TrackTagUncheckedCreateNestedManyWithoutTrackInput
@@ -1278,6 +1340,8 @@ export type TrackUpdateWithoutTemporalFeatureInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutTrackNestedInput
@@ -1309,6 +1373,8 @@ export type TrackUncheckedUpdateWithoutTemporalFeatureInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
   trackTags?: Prisma.TrackTagUncheckedUpdateManyWithoutTrackNestedInput
@@ -1338,6 +1404,8 @@ export type TrackCreateWithoutRankTracksInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -1369,6 +1437,8 @@ export type TrackUncheckedCreateWithoutRankTracksInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -1414,6 +1484,8 @@ export type TrackUpdateWithoutRankTracksInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -1445,6 +1517,8 @@ export type TrackUncheckedUpdateWithoutRankTracksInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -1474,6 +1548,8 @@ export type TrackCreateWithoutTrackGenresInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -1505,6 +1581,8 @@ export type TrackUncheckedCreateWithoutTrackGenresInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackTags?: Prisma.TrackTagUncheckedCreateNestedManyWithoutTrackInput
@@ -1550,6 +1628,8 @@ export type TrackUpdateWithoutTrackGenresInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -1581,6 +1661,8 @@ export type TrackUncheckedUpdateWithoutTrackGenresInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackTags?: Prisma.TrackTagUncheckedUpdateManyWithoutTrackNestedInput
@@ -1610,6 +1692,8 @@ export type TrackCreateWithoutTrackTagsInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -1641,6 +1725,8 @@ export type TrackUncheckedCreateWithoutTrackTagsInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -1686,6 +1772,8 @@ export type TrackUpdateWithoutTrackTagsInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -1717,6 +1805,8 @@ export type TrackUncheckedUpdateWithoutTrackTagsInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -1746,6 +1836,8 @@ export type TrackCreateWithoutMainArtistsInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -1777,6 +1869,8 @@ export type TrackUncheckedCreateWithoutMainArtistsInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -1822,6 +1916,8 @@ export type TrackUpdateWithoutMainArtistsInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -1853,6 +1949,8 @@ export type TrackUncheckedUpdateWithoutMainArtistsInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -1882,6 +1980,8 @@ export type TrackCreateWithoutFeatArtistsInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -1913,6 +2013,8 @@ export type TrackUncheckedCreateWithoutFeatArtistsInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -1958,6 +2060,8 @@ export type TrackUpdateWithoutFeatArtistsInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -1989,6 +2093,8 @@ export type TrackUncheckedUpdateWithoutFeatArtistsInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -2018,6 +2124,8 @@ export type TrackCreateWithoutTrackLicensesInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -2049,6 +2157,8 @@ export type TrackUncheckedCreateWithoutTrackLicensesInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -2094,6 +2204,8 @@ export type TrackUpdateWithoutTrackLicensesInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -2125,6 +2237,8 @@ export type TrackUncheckedUpdateWithoutTrackLicensesInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -2154,6 +2268,8 @@ export type TrackCreateWithoutPlaylistTracksInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -2185,6 +2301,8 @@ export type TrackUncheckedCreateWithoutPlaylistTracksInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -2230,6 +2348,8 @@ export type TrackUpdateWithoutPlaylistTracksInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -2261,6 +2381,8 @@ export type TrackUncheckedUpdateWithoutPlaylistTracksInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -2290,6 +2412,8 @@ export type TrackCreateWithoutUserLikesInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -2321,6 +2445,8 @@ export type TrackUncheckedCreateWithoutUserLikesInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -2366,6 +2492,8 @@ export type TrackUpdateWithoutUserLikesInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -2397,6 +2525,8 @@ export type TrackUncheckedUpdateWithoutUserLikesInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -2426,6 +2556,8 @@ export type TrackCreateWithoutUserListensInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -2457,6 +2589,8 @@ export type TrackUncheckedCreateWithoutUserListensInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -2502,6 +2636,8 @@ export type TrackUpdateWithoutUserListensInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -2533,6 +2669,8 @@ export type TrackUncheckedUpdateWithoutUserListensInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -2562,6 +2700,8 @@ export type TrackCreateWithoutCommentsInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   album?: Prisma.AlbumCreateNestedOneWithoutTracksInput
   audioFeature?: Prisma.AudioFeatureCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureCreateNestedOneWithoutTrackInput
@@ -2593,6 +2733,8 @@ export type TrackUncheckedCreateWithoutCommentsInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
   audioFeature?: Prisma.AudioFeatureUncheckedCreateNestedOneWithoutTrackInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedCreateNestedOneWithoutTrackInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutTrackInput
@@ -2638,6 +2780,8 @@ export type TrackUpdateWithoutCommentsInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   album?: Prisma.AlbumUpdateOneWithoutTracksNestedInput
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
@@ -2669,6 +2813,8 @@ export type TrackUncheckedUpdateWithoutCommentsInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -2698,6 +2844,8 @@ export type TrackCreateManyAlbumInput = {
   trackComposer?: string | null
   trackLyricist?: string | null
   trackPublisher?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
 }
 
 export type TrackUpdateWithoutAlbumInput = {
@@ -2716,6 +2864,8 @@ export type TrackUpdateWithoutAlbumInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutTrackNestedInput
@@ -2746,6 +2896,8 @@ export type TrackUncheckedUpdateWithoutAlbumInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   audioFeature?: Prisma.AudioFeatureUncheckedUpdateOneWithoutTrackNestedInput
   temporalFeature?: Prisma.TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutTrackNestedInput
@@ -2776,6 +2928,8 @@ export type TrackUncheckedUpdateManyWithoutAlbumInput = {
   trackComposer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackLyricist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackPublisher?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -2907,6 +3061,8 @@ export type TrackSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   trackComposer?: boolean
   trackLyricist?: boolean
   trackPublisher?: boolean
+  trackUrl?: boolean
+  trackFile?: boolean
   album?: boolean | Prisma.Track$albumArgs<ExtArgs>
   audioFeature?: boolean | Prisma.Track$audioFeatureArgs<ExtArgs>
   temporalFeature?: boolean | Prisma.Track$temporalFeatureArgs<ExtArgs>
@@ -2940,6 +3096,8 @@ export type TrackSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   trackComposer?: boolean
   trackLyricist?: boolean
   trackPublisher?: boolean
+  trackUrl?: boolean
+  trackFile?: boolean
   album?: boolean | Prisma.Track$albumArgs<ExtArgs>
 }, ExtArgs["result"]["track"]>
 
@@ -2960,6 +3118,8 @@ export type TrackSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   trackComposer?: boolean
   trackLyricist?: boolean
   trackPublisher?: boolean
+  trackUrl?: boolean
+  trackFile?: boolean
   album?: boolean | Prisma.Track$albumArgs<ExtArgs>
 }, ExtArgs["result"]["track"]>
 
@@ -2980,9 +3140,11 @@ export type TrackSelectScalar = {
   trackComposer?: boolean
   trackLyricist?: boolean
   trackPublisher?: boolean
+  trackUrl?: boolean
+  trackFile?: boolean
 }
 
-export type TrackOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "albumId" | "trackTitle" | "trackDuration" | "trackNumber" | "trackDiscNumber" | "trackExplicit" | "trackInstrumental" | "trackListens" | "trackFavorites" | "trackInterest" | "trackComments" | "trackDateCreated" | "trackComposer" | "trackLyricist" | "trackPublisher", ExtArgs["result"]["track"]>
+export type TrackOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "albumId" | "trackTitle" | "trackDuration" | "trackNumber" | "trackDiscNumber" | "trackExplicit" | "trackInstrumental" | "trackListens" | "trackFavorites" | "trackInterest" | "trackComments" | "trackDateCreated" | "trackComposer" | "trackLyricist" | "trackPublisher" | "trackUrl" | "trackFile", ExtArgs["result"]["track"]>
 export type TrackInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   album?: boolean | Prisma.Track$albumArgs<ExtArgs>
   audioFeature?: boolean | Prisma.Track$audioFeatureArgs<ExtArgs>
@@ -3040,6 +3202,8 @@ export type $TrackPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     trackComposer: string | null
     trackLyricist: string | null
     trackPublisher: string | null
+    trackUrl: string | null
+    trackFile: string | null
   }, ExtArgs["result"]["track"]>
   composites: {}
 }
@@ -3492,6 +3656,8 @@ export interface TrackFieldRefs {
   readonly trackComposer: Prisma.FieldRef<"Track", 'String'>
   readonly trackLyricist: Prisma.FieldRef<"Track", 'String'>
   readonly trackPublisher: Prisma.FieldRef<"Track", 'String'>
+  readonly trackUrl: Prisma.FieldRef<"Track", 'String'>
+  readonly trackFile: Prisma.FieldRef<"Track", 'String'>
 }
     
 

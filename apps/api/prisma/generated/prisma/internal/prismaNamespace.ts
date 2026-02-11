@@ -2610,7 +2610,9 @@ export const TrackScalarFieldEnum = {
   trackDateCreated: 'trackDateCreated',
   trackComposer: 'trackComposer',
   trackLyricist: 'trackLyricist',
-  trackPublisher: 'trackPublisher'
+  trackPublisher: 'trackPublisher',
+  trackUrl: 'trackUrl',
+  trackFile: 'trackFile'
 } as const
 
 export type TrackScalarFieldEnum = (typeof TrackScalarFieldEnum)[keyof typeof TrackScalarFieldEnum]
