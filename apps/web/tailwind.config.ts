@@ -8,14 +8,18 @@ const config: Config = {
     extend: {
       colors: {
         background: "hsl(var(--background))",
+        "background-secondary": "hsl(var(--background-secondary))",
         foreground: "hsl(var(--foreground))",
+        "foreground-secondary": "hsl(var(--foreground-secondary))",
         card: "hsl(var(--card))",
         "card-foreground": "hsl(var(--card-foreground))",
         popover: "hsl(var(--popover))",
         "popover-foreground": "hsl(var(--popover-foreground))",
         primary: "hsl(var(--primary))",
+        "primary-bis": "hsl(var(--primary-bis))",
         "primary-foreground": "hsl(var(--primary-foreground))",
         secondary: "hsl(var(--secondary))",
+        "secondary-bis": "hsl(var(--secondary-bis))",
         "secondary-foreground": "hsl(var(--secondary-foreground))",
         muted: "hsl(var(--muted))",
         "muted-foreground": "hsl(var(--muted-foreground))",
@@ -26,6 +30,11 @@ const config: Config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        // Keeping "muse-*" for direct reference if needed, but mapped to variables
+        "muse-dark-blue": "hsl(var(--color-dark-blue))",
+        "muse-sky-blue": "hsl(var(--color-sky-blue))",
+        "muse-purple": "hsl(var(--color-purple))",
+        "muse-pink": "hsl(var(--color-pink))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -33,8 +42,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        sans: ["var(--font-alexandria)", "system-ui", "sans-serif"],
+        heading: ["var(--font-protest-strike)", "sans-serif"],
       },
     },
   },
