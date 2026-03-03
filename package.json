@@ -11,5 +11,9 @@
   },
   "devDependencies": {
     "prettier": "3.5.3"
+  },
+  "overrides": {
+    "hono": "4.11.10",
+    "lodash": "4.17.23"
   }
 }
