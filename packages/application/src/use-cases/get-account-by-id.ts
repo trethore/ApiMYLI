@@ -1,9 +1,9 @@
-import type { User } from "packages/domain/src/entities/user";
-import type { UserRepository } from "packages/domain/src/repositories/user-repository";
+import type { Account } from "packages/domain/src/entities/account";
+import type { AccountRepository } from "packages/domain/src/repositories/account-repository";
 
-export const getUserById = async (
-  repository: UserRepository,
+export const getAccountById = async (
+  repository: AccountRepository,
   id: string
-): Promise<User | null> => {
+): Promise<Account | null> => {
   return repository.findById(id);
 };

@@ -1,17 +1,38 @@
 import type {
   Account as PrismaAccount,
   PrismaClient,
-  User as PrismaUser,
 } from "@prisma/generated/prisma/client";
 import { createAuthToken, revokeAuthToken, verifyAuthToken } from "@/infrastructure/auth";
 import { hashPassword, verifyPassword } from "@/infrastructure/password-hasher";
+
+const PASSWORD_REGEX = /^(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{12,}$/;
+const validatePassword = (pw: string) => {
+  if (!PASSWORD_REGEX.test(pw)) {
+    throw new Error("Password must be at least 12 characters long and include at least one uppercase letter and one special character.");
+  }
+};
 import { createSchema } from "graphql-yoga";
 import type Redis from "ioredis";
 
-type GraphqlUser = {
+type GraphqlArtist = {
+  artistId: string;
+  artistBio?: string | null;
+  artistLocation?: string | null;
+  artistLatitude?: number | null;
+  artistLongitude?: number | null;
+  artistActiveYearBegin?: number | null;
+  artistActiveYearEnd?: number | null;
+  artistFavorites?: number | null;
+  artistComments?: number | null;
+};
+
+type GraphqlAccount = {
   accountId: string;
+  login: string | null;
   email: string | null;
   name: string | null;
+  isArtist: boolean;
+  artist?: GraphqlArtist | null;
 };
 
 type GraphqlContext = {
@@ -20,10 +41,27 @@ type GraphqlContext = {
   authToken: string | null;
 };
 
-const toGraphqlUser = (user: PrismaUser & { account: PrismaAccount }): GraphqlUser => ({
-  accountId: user.accountId,
-  email: user.account.email,
-  name: user.account.name,
+const toGraphqlAccount = (
+  account: PrismaAccount & { artist?: any }
+): GraphqlAccount => ({
+  accountId: account.accountId,
+  login: account.login ?? null,
+  email: account.email ?? null,
+  name: account.name ?? null,
+  isArtist: account.isArtist,
+  artist: account.artist
+    ? {
+        artistId: account.artist.artistId,
+        artistBio: account.artist.artistBio,
+        artistLocation: account.artist.artistLocation,
+        artistLatitude: account.artist.artistLatitude,
+        artistLongitude: account.artist.artistLongitude,
+        artistActiveYearBegin: account.artist.artistActiveYearBegin,
+        artistActiveYearEnd: account.artist.artistActiveYearEnd,
+        artistFavorites: account.artist.artistFavorites,
+        artistComments: account.artist.artistComments,
+      }
+    : null,
 });
 
 const requireAuth = async (context: GraphqlContext): Promise<string> => {
@@ -42,27 +80,57 @@ const requireAuth = async (context: GraphqlContext): Promise<string> => {
 
 export const schema = createSchema({
   typeDefs: /* GraphQL */ `
-    type User {
+    type Artist {
+      artistId: ID!
+      artistBio: String
+      artistLocation: String
+      artistLatitude: Float
+      artistLongitude: Float
+      artistActiveYearBegin: Int
+      artistActiveYearEnd: Int
+      artistFavorites: Float
+      artistComments: Float
+    }
+
+    type Account {
       accountId: ID!
+      login: String
       email: String
       name: String
+      isArtist: Boolean!
+      artist: Artist
     }
 
     type AuthPayload {
       token: String!
-      user: User!
+      account: Account!
     }
 
-    input CreateUserInput {
+    input CreateAccountInput {
+      login: String!
       email: String!
       password: String!
       name: String!
+      isArtist: Boolean
     }
 
-    input UpdateUserInput {
+    input UpdateArtistInput {
+      artistBio: String
+      artistLocation: String
+      artistLatitude: Float
+      artistLongitude: Float
+      artistActiveYearBegin: Int
+      artistActiveYearEnd: Int
+      artistFavorites: Float
+      artistComments: Float
+    }
+
+    input UpdateAccountInput {
+      login: String
       email: String
       password: String
       name: String
+      isArtist: Boolean
     }
 
     input LoginInput {
@@ -72,14 +140,14 @@ export const schema = createSchema({
 
     type Query {
       hello: String!
-      users: [User!]!
-      user(accountId: String!): User
+      account(accountId: String!): Account
     }
 
     type Mutation {
-      createUser(input: CreateUserInput!): User!
-      updateUser(accountId: String!, input: UpdateUserInput!): User
-      deleteUser(accountId: String!): Boolean!
+      createAccount(input: CreateAccountInput!): Account!
+      updateAccount(accountId: String!, input: UpdateAccountInput!): Account
+      updateArtist(accountId: String!, input: UpdateArtistInput!): Artist
+      deleteAccount(accountId: String!): Boolean!
       login(input: LoginInput!): AuthPayload
       logout: Boolean!
     }
@@ -90,32 +158,26 @@ export const schema = createSchema({
         await requireAuth(context);
         return "Hello from GraphQL + Prisma";
       },
-      users: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
-        await requireAuth(context);
-        const users = await context.prisma.user.findMany({
-          include: { account: true },
-        });
-        return users.map(toGraphqlUser);
-      },
-      user: async (
+      account: async (
         _parent: unknown,
         args: { accountId: string },
         context: GraphqlContext,
       ) => {
         await requireAuth(context);
-        const user = await context.prisma.user.findUnique({
+        const account = await context.prisma.account.findUnique({
           where: { accountId: args.accountId },
-          include: { account: true },
+          include: { artist: true },
         });
 
-        return user ? toGraphqlUser(user) : null;
+        return account ? toGraphqlAccount(account) : null;
       },
     },
     Mutation: {
-      createUser: async (
+      createAccount: async (
         _parent: unknown,
         args: {
           input: {
+            login: string;
             email: string;
             password: string;
             name: string;
@@ -123,28 +185,50 @@ export const schema = createSchema({
         },
         context: GraphqlContext,
       ) => {
+        const login = args.input.login;
+        if (!login || login.trim() === "") {
+          throw new Error("Login is required");
+        }
+        // unique login check
+        const existing = await context.prisma.account.findUnique({
+          where: { login },
+        });
+        if (existing) {
+          throw new Error("Login already in use");
+        }
+        // unique email check
+        const existingEmail = await context.prisma.account.findFirst({
+          where: { email: args.input.email },
+        });
+        if (existingEmail) {
+          throw new Error("Email already in use");
+        }
+
+        validatePassword(args.input.password);
         const passwordHash = await hashPassword(args.input.password);
 
-        const user = await context.prisma.user.create({
-          data: {
-            account: {
-              create: {
-                email: args.input.email,
-                password: passwordHash,
-                name: args.input.name,
-              },
-            },
-          },
-          include: { account: true },
+        const accountData: any = {
+            login,
+            email: args.input.email,
+            password: passwordHash,
+            name: args.input.name,
+            isArtist: args.input.isArtist ?? false,
+        };
+        if (args.input.isArtist) {
+          accountData.artist = { create: {} };
+        }
+        const account = await context.prisma.account.create({
+          data: accountData,
         });
 
-        return toGraphqlUser(user);
+        return toGraphqlAccount(account);
       },
-      updateUser: async (
+      updateAccount: async (
         _parent: unknown,
         args: {
           accountId: string;
           input: {
+            login?: string | null;
             email?: string | null;
             password?: string | null;
             name?: string | null;
@@ -153,38 +237,76 @@ export const schema = createSchema({
         context: GraphqlContext,
       ) => {
         await requireAuth(context);
-        const passwordHash =
-          args.input.password === undefined
-            ? undefined
-            : args.input.password === null
-              ? null
-              : await hashPassword(args.input.password);
 
-        const user = await context.prisma.user.update({
+        if (args.input.login) {
+          const other = await context.prisma.account.findUnique({
+            where: { login: args.input.login },
+          });
+          if (other && other.accountId !== args.accountId) {
+            throw new Error("Login already in use");
+          }
+        }
+        if (args.input.email) {
+          const otherEmail = await context.prisma.account.findFirst({
+            where: { email: args.input.email },
+          });
+          if (otherEmail && otherEmail.accountId !== args.accountId) {
+            throw new Error("Email already in use");
+          }
+        }
+
+        let passwordHash: string | undefined | null;
+        if (args.input.password !== undefined) {
+          if (args.input.password === null) {
+            passwordHash = null;
+          } else {
+            validatePassword(args.input.password);
+            passwordHash = await hashPassword(args.input.password);
+          }
+        }
+
+        const updateData: any = {
+            login: args.input.login ?? undefined,
+            email: args.input.email ?? undefined,
+            password: passwordHash,
+            name: args.input.name ?? undefined,
+            isArtist: args.input.isArtist ?? undefined,
+        };
+        if (args.input.isArtist !== undefined) {
+          if (args.input.isArtist) {
+            updateData.artist = { upsert: {
+              create: {},
+              update: {},
+            } };
+          } else {
+            updateData.artist = { delete: true };
+          }
+        }
+        const account = await context.prisma.account.update({
           where: { accountId: args.accountId },
-          data: {
-            account: {
-              update: {
-                email: args.input.email ?? undefined,
-                password: passwordHash,
-                name: args.input.name ?? undefined,
-              },
-            },
-          },
-          include: { account: true },
+          data: updateData,
         });
 
-        return toGraphqlUser(user);
+        return toGraphqlAccount(account);
       },
-      deleteUser: async (
+      updateArtist: async (
+        _parent: unknown,
+        args: { accountId: string; input: Record<string, any> },
+        context: GraphqlContext,
+      ) => {
+        await requireAuth(context);
+        const artist = await context.prisma.artist.update({
+          where: { artistId: args.accountId },
+          data: args.input,
+        });
+        return artist;
+      },
+      deleteAccount: async (
         _parent: unknown,
         args: { accountId: string },
         context: GraphqlContext,
       ) => {
         await requireAuth(context);
-        await context.prisma.user.delete({
-          where: { accountId: args.accountId },
-        });
         await context.prisma.account.delete({
           where: { accountId: args.accountId },
         });
@@ -197,31 +319,19 @@ export const schema = createSchema({
       ) => {
         const account = await context.prisma.account.findFirst({
           where: { email: args.input.email },
-          include: { user: true },
         });
 
-        if (!account?.user || !account.password) {
+        if (!account || !account.password) {
           return null;
         }
 
         const isValid = await verifyPassword(args.input.password, account.password);
-
         if (!isValid) {
           return null;
         }
 
-        const user = await context.prisma.user.findUnique({
-          where: { accountId: account.accountId },
-          include: { account: true },
-        });
-
-        if (!user) {
-          return null;
-        }
-
         const token = await createAuthToken(account.accountId, context.redis);
-
-        return { token, user: toGraphqlUser(user) };
+        return { token, account: toGraphqlAccount(account) };
       },
       logout: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
         if (!context.authToken) {

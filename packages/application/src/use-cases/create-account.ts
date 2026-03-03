@@ -1,9 +1,9 @@
-import type { User } from "packages/domain/src/entities/user";
-import type { CreateUserData, UserRepository } from "packages/domain/src/repositories/user-repository";
+import type { Account } from "packages/domain/src/entities/account";
+import type { CreateAccountData, AccountRepository } from "packages/domain/src/repositories/account-repository";
 
-export const createUser = async (
-  repository: UserRepository,
-  data: CreateUserData
-): Promise<User> => {
+export const createAccount = async (
+  repository: AccountRepository,
+  data: CreateAccountData
+): Promise<Account> => {
   return repository.create(data);
 };

@@ -1,8 +1,8 @@
-import type { User } from "packages/domain/src/entities/user";
-import type { UserRepository } from "packages/domain/src/repositories/user-repository";
+import type { Account } from "packages/domain/src/entities/account";
+import type { AccountRepository } from "packages/domain/src/repositories/account-repository";
 
-export const listUsers = async (
-  repository: UserRepository
-): Promise<User[]> => {
+export const listAccounts = async (
+  repository: AccountRepository
+): Promise<Account[]> => {
   return repository.list();
 };

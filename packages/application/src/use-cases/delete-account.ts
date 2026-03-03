@@ -1,7 +1,7 @@
-import type { UserRepository } from "packages/domain/src/repositories/user-repository";
+import type { AccountRepository } from "packages/domain/src/repositories/account-repository";
 
-export const deleteUser = async (
-  repository: UserRepository,
+export const deleteAccount = async (
+  repository: AccountRepository,
   id: string
 ): Promise<boolean> => {
   return repository.delete(id);

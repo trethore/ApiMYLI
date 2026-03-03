@@ -1,10 +1,10 @@
-import type { User } from "packages/domain/src/entities/user";
-import type { UpdateUserData, UserRepository } from "packages/domain/src/repositories/user-repository";
+import type { Account } from "packages/domain/src/entities/account";
+import type { UpdateAccountData, AccountRepository } from "packages/domain/src/repositories/account-repository";
 
-export const updateUser = async (
-  repository: UserRepository,
+export const updateAccount = async (
+  repository: AccountRepository,
   id: string,
-  data: UpdateUserData
-): Promise<User | null> => {
+  data: UpdateAccountData
+): Promise<Account | null> => {
   return repository.update(id, data);
 };
