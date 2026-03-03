@@ -1,20 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Alexandria, Protest_Strike } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { AuthProvider } from "@/context/AuthContext";
+import { PlayerProvider } from "@/context/PlayerContext";
+import { PlaylistProvider } from "@/context/PlaylistContext";
+import Player from "@/components/Player";
+import PlayerPadding from "@/components/PlayerPadding";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const alexandria = Alexandria({
+  variable: "--font-alexandria",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const protestStrike = Protest_Strike({
+  weight: "400",
+  variable: "--font-protest-strike",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "MYLI Monorepo",
-  description: "Next.js, Prisma, GraphQL, and shadcn UI starter",
+  title: "MUSE",
+  description: "MUSE Streaming Platform",
+  authors: [{ name: "Muse" }],
 };
 
 export default function RootLayout({
@@ -23,8 +31,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+    <html lang="fr" suppressHydrationWarning>
+      <body className={`${alexandria.variable} ${protestStrike.variable} antialiased font-[family-name:var(--font-alexandria)]`}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <AuthProvider>
+              <PlayerProvider>
+                <PlaylistProvider>
+                    {children}
+                    <PlayerPadding />
+                    <Player />
+                </PlaylistProvider>
+              </PlayerProvider>
+            </AuthProvider>
+          </ThemeProvider>
+      </body>
     </html>
   );
 }
