@@ -164,6 +164,7 @@ export type UserWhereInput = {
   playlistUsers?: Prisma.PlaylistUserListRelationFilter
   trackLikes?: Prisma.TrackUserLikeListRelationFilter
   trackListens?: Prisma.TrackUserListenListRelationFilter
+  pinnedItems?: Prisma.UserPinnedItemListRelationFilter
   trackComments?: Prisma.TrackCommentListRelationFilter
 }
 
@@ -176,6 +177,7 @@ export type UserOrderByWithRelationInput = {
   playlistUsers?: Prisma.PlaylistUserOrderByRelationAggregateInput
   trackLikes?: Prisma.TrackUserLikeOrderByRelationAggregateInput
   trackListens?: Prisma.TrackUserListenOrderByRelationAggregateInput
+  pinnedItems?: Prisma.UserPinnedItemOrderByRelationAggregateInput
   trackComments?: Prisma.TrackCommentOrderByRelationAggregateInput
 }
 
@@ -191,6 +193,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   playlistUsers?: Prisma.PlaylistUserListRelationFilter
   trackLikes?: Prisma.TrackUserLikeListRelationFilter
   trackListens?: Prisma.TrackUserListenListRelationFilter
+  pinnedItems?: Prisma.UserPinnedItemListRelationFilter
   trackComments?: Prisma.TrackCommentListRelationFilter
 }, "accountId">
 
@@ -218,6 +221,7 @@ export type UserCreateInput = {
   playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
 }
 
@@ -229,6 +233,7 @@ export type UserUncheckedCreateInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -240,6 +245,7 @@ export type UserUpdateInput = {
   playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
 }
 
@@ -251,6 +257,7 @@ export type UserUncheckedUpdateInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -395,6 +402,20 @@ export type UserUpdateOneRequiredWithoutTrackListensNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTrackListensInput, Prisma.UserUpdateWithoutTrackListensInput>, Prisma.UserUncheckedUpdateWithoutTrackListensInput>
 }
 
+export type UserCreateNestedOneWithoutPinnedItemsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPinnedItemsInput, Prisma.UserUncheckedCreateWithoutPinnedItemsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPinnedItemsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPinnedItemsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPinnedItemsInput, Prisma.UserUncheckedCreateWithoutPinnedItemsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPinnedItemsInput
+  upsert?: Prisma.UserUpsertWithoutPinnedItemsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPinnedItemsInput, Prisma.UserUpdateWithoutPinnedItemsInput>, Prisma.UserUncheckedUpdateWithoutPinnedItemsInput>
+}
+
 export type UserCreateNestedOneWithoutTrackCommentsInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutTrackCommentsInput, Prisma.UserUncheckedCreateWithoutTrackCommentsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutTrackCommentsInput
@@ -418,6 +439,7 @@ export type UserCreateWithoutAccountInput = {
   playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
 }
 
@@ -428,6 +450,7 @@ export type UserUncheckedCreateWithoutAccountInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -454,6 +477,7 @@ export type UserUpdateWithoutAccountInput = {
   playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
 }
 
@@ -464,6 +488,7 @@ export type UserUncheckedUpdateWithoutAccountInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -474,6 +499,7 @@ export type UserCreateWithoutPreferenceInput = {
   playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
 }
 
@@ -484,6 +510,7 @@ export type UserUncheckedCreateWithoutPreferenceInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -510,6 +537,7 @@ export type UserUpdateWithoutPreferenceInput = {
   playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
 }
 
@@ -520,6 +548,7 @@ export type UserUncheckedUpdateWithoutPreferenceInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -530,6 +559,7 @@ export type UserCreateWithoutPreferenceVectorInput = {
   playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
 }
 
@@ -540,6 +570,7 @@ export type UserUncheckedCreateWithoutPreferenceVectorInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -566,6 +597,7 @@ export type UserUpdateWithoutPreferenceVectorInput = {
   playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
 }
 
@@ -576,6 +608,7 @@ export type UserUncheckedUpdateWithoutPreferenceVectorInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -586,6 +619,7 @@ export type UserCreateWithoutPlaylistUsersInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
 }
 
@@ -596,6 +630,7 @@ export type UserUncheckedCreateWithoutPlaylistUsersInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -622,6 +657,7 @@ export type UserUpdateWithoutPlaylistUsersInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
 }
 
@@ -632,6 +668,7 @@ export type UserUncheckedUpdateWithoutPlaylistUsersInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -642,6 +679,7 @@ export type UserCreateWithoutTrackLikesInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
   playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
 }
 
@@ -652,6 +690,7 @@ export type UserUncheckedCreateWithoutTrackLikesInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
   playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -678,6 +717,7 @@ export type UserUpdateWithoutTrackLikesInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
   playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
 }
 
@@ -688,6 +728,7 @@ export type UserUncheckedUpdateWithoutTrackLikesInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
   playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -698,6 +739,7 @@ export type UserCreateWithoutTrackListensInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
   playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
 }
 
@@ -708,6 +750,7 @@ export type UserUncheckedCreateWithoutTrackListensInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
   playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutUserInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -734,6 +777,7 @@ export type UserUpdateWithoutTrackListensInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
   playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
 }
 
@@ -744,6 +788,67 @@ export type UserUncheckedUpdateWithoutTrackListensInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
   playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutPinnedItemsInput = {
+  pseudo?: string | null
+  account: Prisma.AccountCreateNestedOneWithoutUserInput
+  preference?: Prisma.PreferenceCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutPinnedItemsInput = {
+  accountId: string
+  pseudo?: string | null
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutUserInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutUserInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
+  trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutPinnedItemsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPinnedItemsInput, Prisma.UserUncheckedCreateWithoutPinnedItemsInput>
+}
+
+export type UserUpsertWithoutPinnedItemsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPinnedItemsInput, Prisma.UserUncheckedUpdateWithoutPinnedItemsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPinnedItemsInput, Prisma.UserUncheckedCreateWithoutPinnedItemsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPinnedItemsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPinnedItemsInput, Prisma.UserUncheckedUpdateWithoutPinnedItemsInput>
+}
+
+export type UserUpdateWithoutPinnedItemsInput = {
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  account?: Prisma.AccountUpdateOneRequiredWithoutUserNestedInput
+  preference?: Prisma.PreferenceUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPinnedItemsInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutUserNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput
+  playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
+  trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
+  trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -755,6 +860,7 @@ export type UserCreateWithoutTrackCommentsInput = {
   playlistUsers?: Prisma.PlaylistUserCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutTrackCommentsInput = {
@@ -765,6 +871,7 @@ export type UserUncheckedCreateWithoutTrackCommentsInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedCreateNestedManyWithoutUserInput
   trackLikes?: Prisma.TrackUserLikeUncheckedCreateNestedManyWithoutUserInput
   trackListens?: Prisma.TrackUserListenUncheckedCreateNestedManyWithoutUserInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutTrackCommentsInput = {
@@ -791,6 +898,7 @@ export type UserUpdateWithoutTrackCommentsInput = {
   playlistUsers?: Prisma.PlaylistUserUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTrackCommentsInput = {
@@ -801,6 +909,7 @@ export type UserUncheckedUpdateWithoutTrackCommentsInput = {
   playlistUsers?: Prisma.PlaylistUserUncheckedUpdateManyWithoutUserNestedInput
   trackLikes?: Prisma.TrackUserLikeUncheckedUpdateManyWithoutUserNestedInput
   trackListens?: Prisma.TrackUserListenUncheckedUpdateManyWithoutUserNestedInput
+  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -812,6 +921,7 @@ export type UserCountOutputType = {
   playlistUsers: number
   trackLikes: number
   trackListens: number
+  pinnedItems: number
   trackComments: number
 }
 
@@ -819,6 +929,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   playlistUsers?: boolean | UserCountOutputTypeCountPlaylistUsersArgs
   trackLikes?: boolean | UserCountOutputTypeCountTrackLikesArgs
   trackListens?: boolean | UserCountOutputTypeCountTrackListensArgs
+  pinnedItems?: boolean | UserCountOutputTypeCountPinnedItemsArgs
   trackComments?: boolean | UserCountOutputTypeCountTrackCommentsArgs
 }
 
@@ -856,6 +967,13 @@ export type UserCountOutputTypeCountTrackListensArgs<ExtArgs extends runtime.Typ
 /**
  * UserCountOutputType without action
  */
+export type UserCountOutputTypeCountPinnedItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.UserPinnedItemWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
 export type UserCountOutputTypeCountTrackCommentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.TrackCommentWhereInput
 }
@@ -870,6 +988,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   playlistUsers?: boolean | Prisma.User$playlistUsersArgs<ExtArgs>
   trackLikes?: boolean | Prisma.User$trackLikesArgs<ExtArgs>
   trackListens?: boolean | Prisma.User$trackListensArgs<ExtArgs>
+  pinnedItems?: boolean | Prisma.User$pinnedItemsArgs<ExtArgs>
   trackComments?: boolean | Prisma.User$trackCommentsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
@@ -899,6 +1018,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   playlistUsers?: boolean | Prisma.User$playlistUsersArgs<ExtArgs>
   trackLikes?: boolean | Prisma.User$trackLikesArgs<ExtArgs>
   trackListens?: boolean | Prisma.User$trackListensArgs<ExtArgs>
+  pinnedItems?: boolean | Prisma.User$pinnedItemsArgs<ExtArgs>
   trackComments?: boolean | Prisma.User$trackCommentsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -918,6 +1038,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     playlistUsers: Prisma.$PlaylistUserPayload<ExtArgs>[]
     trackLikes: Prisma.$TrackUserLikePayload<ExtArgs>[]
     trackListens: Prisma.$TrackUserListenPayload<ExtArgs>[]
+    pinnedItems: Prisma.$UserPinnedItemPayload<ExtArgs>[]
     trackComments: Prisma.$TrackCommentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1323,6 +1444,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   playlistUsers<T extends Prisma.User$playlistUsersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$playlistUsersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PlaylistUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trackLikes<T extends Prisma.User$trackLikesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$trackLikesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackUserLikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trackListens<T extends Prisma.User$trackListensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$trackListensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackUserListenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pinnedItems<T extends Prisma.User$pinnedItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$pinnedItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserPinnedItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trackComments<T extends Prisma.User$trackCommentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$trackCommentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackCommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1858,6 +1980,30 @@ export type User$trackListensArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.TrackUserListenScalarFieldEnum | Prisma.TrackUserListenScalarFieldEnum[]
+}
+
+/**
+ * User.pinnedItems
+ */
+export type User$pinnedItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UserPinnedItem
+   */
+  select?: Prisma.UserPinnedItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the UserPinnedItem
+   */
+  omit?: Prisma.UserPinnedItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserPinnedItemInclude<ExtArgs> | null
+  where?: Prisma.UserPinnedItemWhereInput
+  orderBy?: Prisma.UserPinnedItemOrderByWithRelationInput | Prisma.UserPinnedItemOrderByWithRelationInput[]
+  cursor?: Prisma.UserPinnedItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.UserPinnedItemScalarFieldEnum | Prisma.UserPinnedItemScalarFieldEnum[]
 }
 
 /**

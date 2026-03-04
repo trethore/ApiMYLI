@@ -78,6 +78,7 @@ export const ModelName = {
   PlaylistUser: 'PlaylistUser',
   TrackUserLike: 'TrackUserLike',
   TrackUserListen: 'TrackUserListen',
+  UserPinnedItem: 'UserPinnedItem',
   TrackComment: 'TrackComment'
 } as const
 
@@ -370,10 +371,25 @@ export type TrackUserLikeScalarFieldEnum = (typeof TrackUserLikeScalarFieldEnum)
 export const TrackUserListenScalarFieldEnum = {
   trackId: 'trackId',
   accountId: 'accountId',
-  count: 'count'
+  count: 'count',
+  listenedAt: 'listenedAt'
 } as const
 
 export type TrackUserListenScalarFieldEnum = (typeof TrackUserListenScalarFieldEnum)[keyof typeof TrackUserListenScalarFieldEnum]
+
+
+export const UserPinnedItemScalarFieldEnum = {
+  accountId: 'accountId',
+  slot: 'slot',
+  itemType: 'itemType',
+  trackId: 'trackId',
+  albumId: 'albumId',
+  artistId: 'artistId',
+  playlistId: 'playlistId',
+  pinnedAt: 'pinnedAt'
+} as const
+
+export type UserPinnedItemScalarFieldEnum = (typeof UserPinnedItemScalarFieldEnum)[keyof typeof UserPinnedItemScalarFieldEnum]
 
 
 export const TrackCommentScalarFieldEnum = {

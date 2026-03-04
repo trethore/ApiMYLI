@@ -9,7 +9,11 @@
 * 🟢 You can import this file directly.
 */
 
+export const PinnedItemType = {
+  TRACK: 'TRACK',
+  ALBUM: 'ALBUM',
+  ARTIST: 'ARTIST',
+  PLAYLIST: 'PLAYLIST'
+} as const
 
-
-// This file is empty because there are no enums in the schema.
-export {}
+export type PinnedItemType = (typeof PinnedItemType)[keyof typeof PinnedItemType]

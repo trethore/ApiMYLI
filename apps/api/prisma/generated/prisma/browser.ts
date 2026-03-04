@@ -153,6 +153,11 @@ export type TrackUserLike = Prisma.TrackUserLikeModel
  */
 export type TrackUserListen = Prisma.TrackUserListenModel
 /**
+ * Model UserPinnedItem
+ * 
+ */
+export type UserPinnedItem = Prisma.UserPinnedItemModel
+/**
  * Model TrackComment
  * 
  */
