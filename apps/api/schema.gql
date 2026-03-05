@@ -97,6 +97,12 @@ type PinnedItem {
   playlist: PlaylistSummary
 }
 
+type TrackListenHistoryItem {
+  listenHistoryItemId: ID!
+  listenedAt: String!
+  track: Track!
+}
+
 type Account {
   accountId: ID!
   login: String
@@ -160,6 +166,7 @@ type Query {
   albumTracks(albumId: String!): [Track!]!
   artistTopTracks(artistId: String!, limit: Int): [Track!]!
   likedTracks: [Track!]!
+  myTrackHistory(limit: Int): [TrackListenHistoryItem!]!
   playlist(playlistId: String!): Playlist
   myPlaylists: [Playlist!]!
   myPinnedItems: [PinnedItem!]!

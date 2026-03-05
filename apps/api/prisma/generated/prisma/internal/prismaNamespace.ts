@@ -410,6 +410,7 @@ export const ModelName = {
   PlaylistAccount: 'PlaylistAccount',
   TrackAccountLike: 'TrackAccountLike',
   TrackAccountListen: 'TrackAccountListen',
+  TrackListenHistoryItem: 'TrackListenHistoryItem',
   AccountPinnedItem: 'AccountPinnedItem',
   TrackComment: 'TrackComment'
 } as const
@@ -427,7 +428,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountListen" | "accountPinnedItem" | "trackComment"
+    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountListen" | "trackListenHistoryItem" | "accountPinnedItem" | "trackComment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2355,6 +2356,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    TrackListenHistoryItem: {
+      payload: Prisma.$TrackListenHistoryItemPayload<ExtArgs>
+      fields: Prisma.TrackListenHistoryItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TrackListenHistoryItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TrackListenHistoryItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload>
+        }
+        findFirst: {
+          args: Prisma.TrackListenHistoryItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TrackListenHistoryItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload>
+        }
+        findMany: {
+          args: Prisma.TrackListenHistoryItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload>[]
+        }
+        create: {
+          args: Prisma.TrackListenHistoryItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload>
+        }
+        createMany: {
+          args: Prisma.TrackListenHistoryItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TrackListenHistoryItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload>[]
+        }
+        delete: {
+          args: Prisma.TrackListenHistoryItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload>
+        }
+        update: {
+          args: Prisma.TrackListenHistoryItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.TrackListenHistoryItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TrackListenHistoryItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TrackListenHistoryItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.TrackListenHistoryItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackListenHistoryItemPayload>
+        }
+        aggregate: {
+          args: Prisma.TrackListenHistoryItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTrackListenHistoryItem>
+        }
+        groupBy: {
+          args: Prisma.TrackListenHistoryItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrackListenHistoryItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TrackListenHistoryItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrackListenHistoryItemCountAggregateOutputType> | number
+        }
+      }
+    }
     AccountPinnedItem: {
       payload: Prisma.$AccountPinnedItemPayload<ExtArgs>
       fields: Prisma.AccountPinnedItemFieldRefs
@@ -3344,6 +3419,16 @@ export const TrackAccountListenScalarFieldEnum = {
 export type TrackAccountListenScalarFieldEnum = (typeof TrackAccountListenScalarFieldEnum)[keyof typeof TrackAccountListenScalarFieldEnum]
 
 
+export const TrackListenHistoryItemScalarFieldEnum = {
+  listenHistoryItemId: 'listenHistoryItemId',
+  trackId: 'trackId',
+  accountId: 'accountId',
+  listenedAt: 'listenedAt'
+} as const
+
+export type TrackListenHistoryItemScalarFieldEnum = (typeof TrackListenHistoryItemScalarFieldEnum)[keyof typeof TrackListenHistoryItemScalarFieldEnum]
+
+
 export const AccountPinnedItemScalarFieldEnum = {
   accountId: 'accountId',
   slot: 'slot',
@@ -3610,6 +3695,7 @@ export type GlobalOmitConfig = {
   playlistAccount?: Prisma.PlaylistAccountOmit
   trackAccountLike?: Prisma.TrackAccountLikeOmit
   trackAccountListen?: Prisma.TrackAccountListenOmit
+  trackListenHistoryItem?: Prisma.TrackListenHistoryItemOmit
   accountPinnedItem?: Prisma.AccountPinnedItemOmit
   trackComment?: Prisma.TrackCommentOmit
 }

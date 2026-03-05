@@ -29,6 +29,7 @@ model Account {
   playlistAccounts PlaylistAccount[]
   trackLikes       TrackAccountLike[]
   trackListens     TrackAccountListen[]
+  trackListenHistoryItems TrackListenHistoryItem[]
   pinnedItems      AccountPinnedItem[]
   trackComments    TrackComment[]
 
@@ -129,6 +130,7 @@ model Track {
   rankTracks      RankTrack[]
   accountLikes    TrackAccountLike[]
   accountListens  TrackAccountListen[]
+  listenHistoryItems TrackListenHistoryItem[]
   pinnedItems     AccountPinnedItem[] @relation("PinnedTrack")
   comments        TrackComment[]
 
@@ -913,6 +915,20 @@ model TrackAccountListen {
 
   @@id([trackId, accountId])
   @@map("track_account_listen")
+}
+
+model TrackListenHistoryItem {
+  listenHistoryItemId String   @id @default(dbgenerated("uuid_generate_v4()")) @map("listen_history_item_id") @db.Uuid
+  trackId             String   @map("track_id") @db.Uuid
+  accountId           String   @map("account_id") @db.Uuid
+  listenedAt          DateTime @default(now()) @map("listened_at") @db.Timestamp(6)
+
+  track   Track   @relation(fields: [trackId], references: [trackId], onDelete: Cascade)
+  account Account @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
+
+  @@index([accountId, listenedAt(sort: Desc)])
+  @@index([trackId, listenedAt(sort: Desc)])
+  @@map("track_listen_history_item")
 }
 
 enum PinnedItemType {

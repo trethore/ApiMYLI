@@ -86,6 +86,26 @@ DO UPDATE SET
   count = EXCLUDED.count,
   listened_at = EXCLUDED.listened_at;
 
+INSERT INTO track_listen_history_item (listen_history_item_id, track_id, account_id, listened_at)
+SELECT
+  uuid_generate_v4(),
+  p.track_id,
+  p.account_id,
+  (NOW() - (p.rn % 30) * INTERVAL '1 day') - gs.offset * INTERVAL '1 minute'
+FROM stg_account_track_pair p
+JOIN LATERAL generate_series(0, ((p.rn - 1) % 20)) AS gs(offset) ON TRUE;
+
+UPDATE track t
+SET track_listens = stats.total_listens
+FROM (
+  SELECT
+    tal.track_id,
+    SUM(COALESCE(tal.count, 0))::BIGINT AS total_listens
+  FROM track_account_listen tal
+  GROUP BY tal.track_id
+) AS stats
+WHERE stats.track_id = t.track_id;
+
 INSERT INTO playlist_track (playlist_id, track_id)
 SELECT
   p.account_id,

@@ -1,4 +1,5 @@
 import type { Prisma, PrismaClient } from "@prisma/generated/prisma/client";
+import type { TrackListenHistoryItem } from "packages/domain/src/entities/track-listen-history-item";
 import type { Track } from "packages/domain/src/entities/track";
 import type { TrackLibraryRepository } from "packages/domain/src/repositories/track-library-repository";
 import { toTrack, trackInclude } from "@/infrastructure/prisma-music-mappers";
@@ -17,6 +18,25 @@ const readTrack = async (
 
   return track ? toTrack(track) : null;
 };
+
+const listenHistoryItemInclude = (currentAccountId: string) =>
+  ({
+    track: {
+      include: trackInclude(currentAccountId),
+    },
+  }) satisfies Prisma.TrackListenHistoryItemInclude;
+
+type PrismaTrackListenHistoryItemWithRelations = Prisma.TrackListenHistoryItemGetPayload<{
+  include: ReturnType<typeof listenHistoryItemInclude>;
+}>;
+
+const toTrackListenHistoryItem = (
+  historyItem: PrismaTrackListenHistoryItemWithRelations,
+): TrackListenHistoryItem => ({
+  listenHistoryItemId: historyItem.listenHistoryItemId,
+  listenedAt: historyItem.listenedAt,
+  track: toTrack(historyItem.track),
+});
 
 const toBigInt = (value: bigint | null | undefined): bigint => {
   return value ?? BigInt(0);
@@ -110,6 +130,19 @@ export const createPrismaTrackLibraryRepository = (
 
     return tracks.map(toTrack);
   },
+  listTrackListenHistory: async (
+    accountId: string,
+    limit = 50,
+  ): Promise<TrackListenHistoryItem[]> => {
+    const historyItems = await prisma.trackListenHistoryItem.findMany({
+      where: { accountId },
+      include: listenHistoryItemInclude(accountId),
+      orderBy: [{ listenedAt: "desc" }, { listenHistoryItemId: "desc" }],
+      take: limit,
+    });
+
+    return historyItems.map(toTrackListenHistoryItem);
+  },
   recordTrackListen: async (accountId: string, trackId: string): Promise<boolean> => {
     return prisma.$transaction(async (transaction) => {
       const track = await transaction.track.findUnique({
@@ -120,6 +153,16 @@ export const createPrismaTrackLibraryRepository = (
       if (!track) {
         return false;
       }
+
+      const listenedAt = new Date();
+
+      await transaction.trackListenHistoryItem.create({
+        data: {
+          listenedAt,
+          track: { connect: { trackId } },
+          account: { connect: { accountId } },
+        },
+      });
 
       const existingListen = await transaction.trackAccountListen.findFirst({
         where: { trackId, accountId },
@@ -135,14 +178,14 @@ export const createPrismaTrackLibraryRepository = (
           },
           data: {
             count: (existingListen.count ?? 0) + 1,
-            listenedAt: new Date(),
+            listenedAt,
           },
         });
       } else {
         await transaction.trackAccountListen.create({
           data: {
             count: 1,
-            listenedAt: new Date(),
+            listenedAt,
             track: { connect: { trackId } },
             account: { connect: { accountId } },
           },
