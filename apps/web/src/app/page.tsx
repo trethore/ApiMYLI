@@ -7,8 +7,13 @@ import { Button } from "@/components/ui/button";
 import { MdPlayArrow, MdShuffle } from "react-icons/md";
 import MusicVisualizer from "@/components/MusicVisualizer";
 import CoverCarousel from "@/components/CoverCarousel";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const { isAuthenticated } = useAuth();
+  const router = useRouter();
+
   // ... existing types ...
   type ContentType = "Album" | "Single" | "Artiste" | "Playlist";
   type Content = {
@@ -91,6 +96,14 @@ export default function Home() {
             <Button
               className="flex-1 rounded-none bg-transparent hover:bg-white/20 text-foreground border-r-2 border-[var(--color-background)] hover:cursor-pointer"
               size="lg"
+              onClick={() => {
+                if (isAuthenticated) {
+                  // Lancer la radio logic... (To be implemented later according to previous codebase state)
+                  console.log("Lancer la radio");
+                } else {
+                  router.push("/login");
+                }
+              }}
             >
               <MdPlayArrow className="mr-2 h-5 w-5" /> Lancer la radio
             </Button>

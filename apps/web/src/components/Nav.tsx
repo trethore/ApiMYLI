@@ -1,8 +1,69 @@
+"use client";
+
 import Link from "next/link";
 import { MdHome, MdLibraryMusic, MdSearch, MdPerson } from "react-icons/md";
 import MuseLogo from "./SVG/MuseLogo";
+import { useAuth } from "@/context/AuthContext";
+import { useTheme } from "next-themes";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Nav() {
+  const { isAuthenticated } = useAuth();
+  const { theme, setTheme } = useTheme();
+
+  const UserMenu = () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger className="p-2 hover:text-primary-bis text-foreground outline-none cursor-pointer">
+        <div className="w-[20px] h-[20px]">
+          <MdPerson className="w-full h-full" />
+        </div>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-48 bg-card text-card-foreground border-border">
+        {isAuthenticated ? (
+          <>
+            <DropdownMenuItem asChild>
+              <Link href="/settings" className="w-full cursor-pointer">Compte</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
+              Mode {theme === "dark" ? "clair" : "sombre"}
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
+            </DropdownMenuItem>
+          </>
+        ) : (
+          <>
+            <DropdownMenuItem asChild>
+              <Link href="/login" className="w-full cursor-pointer">Connexion</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/register" className="w-full cursor-pointer">Inscription</Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
+              Mode {theme === "dark" ? "clair" : "sombre"}
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
+            </DropdownMenuItem>
+          </>
+        )}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+
   return (
     <>
       {/* Mobile Nav (< lg) */}
@@ -22,11 +83,7 @@ export default function Nav() {
             <MdSearch className="w-full h-full" />
           </div>
         </Link>
-        <Link href="/settings" className="p-2 hover:text-primary-bis">
-          <div className="w-[20px] h-[20px]">
-            <MdPerson className="w-full h-full" />
-          </div>
-        </Link>
+        <UserMenu />
       </nav>
 
       {/* Desktop Nav (>= lg) */}
@@ -61,11 +118,7 @@ export default function Nav() {
             </div>
           </div>
 
-          <Link href="/settings" className="p-2 hover:text-primary-bis text-foreground">
-            <div className="w-[20px] h-[20px]">
-              <MdPerson className="w-full h-full" />
-            </div>
-          </Link>
+          <UserMenu />
         </div>
         <span></span>
       </nav>

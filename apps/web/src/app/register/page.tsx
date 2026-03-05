@@ -147,13 +147,13 @@ export default function RegisterPage() {
                       <li
                         key={rule.label}
                         className={`flex items-center gap-1.5 transition-colors ${
-                          rule.valid ? "text-muted-foreground" : "text-pink-500"
+                          rule.valid ? "text-muted-foreground" : "text-[var(--color-muse-purple)]"
                         }`}
                       >
                         {rule.valid ? (
-                          <Check size={12} className="shrink-0 text-green-500" />
+                          <Check size={12} className="shrink-0 text-[var(--color-muse-sky-blue)]" />
                         ) : (
-                          <X size={12} className="shrink-0 text-pink-500" />
+                          <X size={12} className="shrink-0 text-[var(--color-muse-purple)]" />
                         )}
                         {rule.label}
                       </li>

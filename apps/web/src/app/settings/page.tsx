@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun, User, LogOut, Trash2, Loader2 } from "lucide-react";
-import { useTheme } from "next-themes";
+import { User, LogOut, Trash2, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -43,7 +42,6 @@ import { useEffect, useState } from "react";
 import { usePlayer } from "@/context/PlayerContext";
 
 export default function Settings() {
-  const { setTheme } = useTheme();
   const { isAuthenticated, user, logout, updateUser, deleteAccount, isLoading, error, clearError } =
     useAuth();
   const { clearPlayer } = usePlayer();
@@ -94,33 +92,6 @@ export default function Settings() {
       <Nav />
       <main className="flex-1 p-8 pb-24 text-center max-w-3xl mx-auto w-full space-y-8">
         <SectionTitle title="Paramètres du compte" className="text-left mt-0 text-4xl" />
-
-        {/* Appearance Section */}
-        <Card className="text-left bg-card border-border">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl text-primary font-[family-name:var(--font-protest-strike)] font-light">
-              <Sun className="w-5 h-5 " /> Apparence
-            </CardTitle>
-            <CardDescription>Gérez le thème de l&apos;application.</CardDescription>
-          </CardHeader>
-          <CardContent className="flex items-center justify-between">
-            <span>Thème</span>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                  <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                  <span className="sr-only">Toggle theme</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>Clair</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>Sombre</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>Système</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </CardContent>
-        </Card>
 
         {/* Profile Section */}
         <Card className="text-left bg-card border-border">
