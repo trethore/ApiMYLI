@@ -28,10 +28,12 @@ export type AggregateGenre = {
 
 export type GenreAvgAggregateOutputType = {
   topLevel: number | null
+  tracksCount: number | null
 }
 
 export type GenreSumAggregateOutputType = {
   topLevel: number | null
+  tracksCount: number | null
 }
 
 export type GenreMinAggregateOutputType = {
@@ -39,6 +41,7 @@ export type GenreMinAggregateOutputType = {
   parentId: string | null
   title: string | null
   topLevel: number | null
+  tracksCount: number | null
 }
 
 export type GenreMaxAggregateOutputType = {
@@ -46,6 +49,7 @@ export type GenreMaxAggregateOutputType = {
   parentId: string | null
   title: string | null
   topLevel: number | null
+  tracksCount: number | null
 }
 
 export type GenreCountAggregateOutputType = {
@@ -53,16 +57,19 @@ export type GenreCountAggregateOutputType = {
   parentId: number
   title: number
   topLevel: number
+  tracksCount: number
   _all: number
 }
 
 
 export type GenreAvgAggregateInputType = {
   topLevel?: true
+  tracksCount?: true
 }
 
 export type GenreSumAggregateInputType = {
   topLevel?: true
+  tracksCount?: true
 }
 
 export type GenreMinAggregateInputType = {
@@ -70,6 +77,7 @@ export type GenreMinAggregateInputType = {
   parentId?: true
   title?: true
   topLevel?: true
+  tracksCount?: true
 }
 
 export type GenreMaxAggregateInputType = {
@@ -77,6 +85,7 @@ export type GenreMaxAggregateInputType = {
   parentId?: true
   title?: true
   topLevel?: true
+  tracksCount?: true
 }
 
 export type GenreCountAggregateInputType = {
@@ -84,6 +93,7 @@ export type GenreCountAggregateInputType = {
   parentId?: true
   title?: true
   topLevel?: true
+  tracksCount?: true
   _all?: true
 }
 
@@ -178,6 +188,7 @@ export type GenreGroupByOutputType = {
   parentId: string | null
   title: string | null
   topLevel: number | null
+  tracksCount: number | null
   _count: GenreCountAggregateOutputType | null
   _avg: GenreAvgAggregateOutputType | null
   _sum: GenreSumAggregateOutputType | null
@@ -208,6 +219,7 @@ export type GenreWhereInput = {
   parentId?: Prisma.UuidNullableFilter<"Genre"> | string | null
   title?: Prisma.StringNullableFilter<"Genre"> | string | null
   topLevel?: Prisma.IntNullableFilter<"Genre"> | number | null
+  tracksCount?: Prisma.IntNullableFilter<"Genre"> | number | null
   parent?: Prisma.XOR<Prisma.GenreNullableScalarRelationFilter, Prisma.GenreWhereInput> | null
   children?: Prisma.GenreListRelationFilter
   trackGenres?: Prisma.TrackGenreListRelationFilter
@@ -219,6 +231,7 @@ export type GenreOrderByWithRelationInput = {
   parentId?: Prisma.SortOrderInput | Prisma.SortOrder
   title?: Prisma.SortOrderInput | Prisma.SortOrder
   topLevel?: Prisma.SortOrderInput | Prisma.SortOrder
+  tracksCount?: Prisma.SortOrderInput | Prisma.SortOrder
   parent?: Prisma.GenreOrderByWithRelationInput
   children?: Prisma.GenreOrderByRelationAggregateInput
   trackGenres?: Prisma.TrackGenreOrderByRelationAggregateInput
@@ -233,6 +246,7 @@ export type GenreWhereUniqueInput = Prisma.AtLeast<{
   parentId?: Prisma.UuidNullableFilter<"Genre"> | string | null
   title?: Prisma.StringNullableFilter<"Genre"> | string | null
   topLevel?: Prisma.IntNullableFilter<"Genre"> | number | null
+  tracksCount?: Prisma.IntNullableFilter<"Genre"> | number | null
   parent?: Prisma.XOR<Prisma.GenreNullableScalarRelationFilter, Prisma.GenreWhereInput> | null
   children?: Prisma.GenreListRelationFilter
   trackGenres?: Prisma.TrackGenreListRelationFilter
@@ -244,6 +258,7 @@ export type GenreOrderByWithAggregationInput = {
   parentId?: Prisma.SortOrderInput | Prisma.SortOrder
   title?: Prisma.SortOrderInput | Prisma.SortOrder
   topLevel?: Prisma.SortOrderInput | Prisma.SortOrder
+  tracksCount?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.GenreCountOrderByAggregateInput
   _avg?: Prisma.GenreAvgOrderByAggregateInput
   _max?: Prisma.GenreMaxOrderByAggregateInput
@@ -259,12 +274,14 @@ export type GenreScalarWhereWithAggregatesInput = {
   parentId?: Prisma.UuidNullableWithAggregatesFilter<"Genre"> | string | null
   title?: Prisma.StringNullableWithAggregatesFilter<"Genre"> | string | null
   topLevel?: Prisma.IntNullableWithAggregatesFilter<"Genre"> | number | null
+  tracksCount?: Prisma.IntNullableWithAggregatesFilter<"Genre"> | number | null
 }
 
 export type GenreCreateInput = {
   genreId?: string
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   parent?: Prisma.GenreCreateNestedOneWithoutChildrenInput
   children?: Prisma.GenreCreateNestedManyWithoutParentInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutGenreInput
@@ -276,6 +293,7 @@ export type GenreUncheckedCreateInput = {
   parentId?: string | null
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   children?: Prisma.GenreUncheckedCreateNestedManyWithoutParentInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutGenreInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutGenreInput
@@ -285,6 +303,7 @@ export type GenreUpdateInput = {
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   parent?: Prisma.GenreUpdateOneWithoutChildrenNestedInput
   children?: Prisma.GenreUpdateManyWithoutParentNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutGenreNestedInput
@@ -296,6 +315,7 @@ export type GenreUncheckedUpdateInput = {
   parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   children?: Prisma.GenreUncheckedUpdateManyWithoutParentNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutGenreNestedInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedUpdateManyWithoutGenreNestedInput
@@ -306,12 +326,14 @@ export type GenreCreateManyInput = {
   parentId?: string | null
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
 }
 
 export type GenreUpdateManyMutationInput = {
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type GenreUncheckedUpdateManyInput = {
@@ -319,6 +341,7 @@ export type GenreUncheckedUpdateManyInput = {
   parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type GenreNullableScalarRelationFilter = {
@@ -341,10 +364,12 @@ export type GenreCountOrderByAggregateInput = {
   parentId?: Prisma.SortOrder
   title?: Prisma.SortOrder
   topLevel?: Prisma.SortOrder
+  tracksCount?: Prisma.SortOrder
 }
 
 export type GenreAvgOrderByAggregateInput = {
   topLevel?: Prisma.SortOrder
+  tracksCount?: Prisma.SortOrder
 }
 
 export type GenreMaxOrderByAggregateInput = {
@@ -352,6 +377,7 @@ export type GenreMaxOrderByAggregateInput = {
   parentId?: Prisma.SortOrder
   title?: Prisma.SortOrder
   topLevel?: Prisma.SortOrder
+  tracksCount?: Prisma.SortOrder
 }
 
 export type GenreMinOrderByAggregateInput = {
@@ -359,10 +385,12 @@ export type GenreMinOrderByAggregateInput = {
   parentId?: Prisma.SortOrder
   title?: Prisma.SortOrder
   topLevel?: Prisma.SortOrder
+  tracksCount?: Prisma.SortOrder
 }
 
 export type GenreSumOrderByAggregateInput = {
   topLevel?: Prisma.SortOrder
+  tracksCount?: Prisma.SortOrder
 }
 
 export type GenreScalarRelationFilter = {
@@ -460,6 +488,7 @@ export type GenreCreateWithoutChildrenInput = {
   genreId?: string
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   parent?: Prisma.GenreCreateNestedOneWithoutChildrenInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutGenreInput
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutGenreInput
@@ -470,6 +499,7 @@ export type GenreUncheckedCreateWithoutChildrenInput = {
   parentId?: string | null
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutGenreInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutGenreInput
 }
@@ -483,6 +513,7 @@ export type GenreCreateWithoutParentInput = {
   genreId?: string
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   children?: Prisma.GenreCreateNestedManyWithoutParentInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutGenreInput
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutGenreInput
@@ -492,6 +523,7 @@ export type GenreUncheckedCreateWithoutParentInput = {
   genreId?: string
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   children?: Prisma.GenreUncheckedCreateNestedManyWithoutParentInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutGenreInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutGenreInput
@@ -522,6 +554,7 @@ export type GenreUpdateWithoutChildrenInput = {
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   parent?: Prisma.GenreUpdateOneWithoutChildrenNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutGenreNestedInput
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutGenreNestedInput
@@ -532,6 +565,7 @@ export type GenreUncheckedUpdateWithoutChildrenInput = {
   parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutGenreNestedInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedUpdateManyWithoutGenreNestedInput
 }
@@ -560,12 +594,14 @@ export type GenreScalarWhereInput = {
   parentId?: Prisma.UuidNullableFilter<"Genre"> | string | null
   title?: Prisma.StringNullableFilter<"Genre"> | string | null
   topLevel?: Prisma.IntNullableFilter<"Genre"> | number | null
+  tracksCount?: Prisma.IntNullableFilter<"Genre"> | number | null
 }
 
 export type GenreCreateWithoutTrackGenresInput = {
   genreId?: string
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   parent?: Prisma.GenreCreateNestedOneWithoutChildrenInput
   children?: Prisma.GenreCreateNestedManyWithoutParentInput
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutGenreInput
@@ -576,6 +612,7 @@ export type GenreUncheckedCreateWithoutTrackGenresInput = {
   parentId?: string | null
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   children?: Prisma.GenreUncheckedCreateNestedManyWithoutParentInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutGenreInput
 }
@@ -600,6 +637,7 @@ export type GenreUpdateWithoutTrackGenresInput = {
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   parent?: Prisma.GenreUpdateOneWithoutChildrenNestedInput
   children?: Prisma.GenreUpdateManyWithoutParentNestedInput
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutGenreNestedInput
@@ -610,6 +648,7 @@ export type GenreUncheckedUpdateWithoutTrackGenresInput = {
   parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   children?: Prisma.GenreUncheckedUpdateManyWithoutParentNestedInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedUpdateManyWithoutGenreNestedInput
 }
@@ -618,6 +657,7 @@ export type GenreCreateWithoutGenrePreferencesInput = {
   genreId?: string
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   parent?: Prisma.GenreCreateNestedOneWithoutChildrenInput
   children?: Prisma.GenreCreateNestedManyWithoutParentInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutGenreInput
@@ -628,6 +668,7 @@ export type GenreUncheckedCreateWithoutGenrePreferencesInput = {
   parentId?: string | null
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
   children?: Prisma.GenreUncheckedCreateNestedManyWithoutParentInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutGenreInput
 }
@@ -652,6 +693,7 @@ export type GenreUpdateWithoutGenrePreferencesInput = {
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   parent?: Prisma.GenreUpdateOneWithoutChildrenNestedInput
   children?: Prisma.GenreUpdateManyWithoutParentNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutGenreNestedInput
@@ -662,6 +704,7 @@ export type GenreUncheckedUpdateWithoutGenrePreferencesInput = {
   parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   children?: Prisma.GenreUncheckedUpdateManyWithoutParentNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutGenreNestedInput
 }
@@ -670,12 +713,14 @@ export type GenreCreateManyParentInput = {
   genreId?: string
   title?: string | null
   topLevel?: number | null
+  tracksCount?: number | null
 }
 
 export type GenreUpdateWithoutParentInput = {
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   children?: Prisma.GenreUpdateManyWithoutParentNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutGenreNestedInput
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutGenreNestedInput
@@ -685,6 +730,7 @@ export type GenreUncheckedUpdateWithoutParentInput = {
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   children?: Prisma.GenreUncheckedUpdateManyWithoutParentNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutGenreNestedInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedUpdateManyWithoutGenreNestedInput
@@ -694,6 +740,7 @@ export type GenreUncheckedUpdateManyWithoutParentInput = {
   genreId?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 
@@ -750,6 +797,7 @@ export type GenreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   parentId?: boolean
   title?: boolean
   topLevel?: boolean
+  tracksCount?: boolean
   parent?: boolean | Prisma.Genre$parentArgs<ExtArgs>
   children?: boolean | Prisma.Genre$childrenArgs<ExtArgs>
   trackGenres?: boolean | Prisma.Genre$trackGenresArgs<ExtArgs>
@@ -762,6 +810,7 @@ export type GenreSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   parentId?: boolean
   title?: boolean
   topLevel?: boolean
+  tracksCount?: boolean
   parent?: boolean | Prisma.Genre$parentArgs<ExtArgs>
 }, ExtArgs["result"]["genre"]>
 
@@ -770,6 +819,7 @@ export type GenreSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   parentId?: boolean
   title?: boolean
   topLevel?: boolean
+  tracksCount?: boolean
   parent?: boolean | Prisma.Genre$parentArgs<ExtArgs>
 }, ExtArgs["result"]["genre"]>
 
@@ -778,9 +828,10 @@ export type GenreSelectScalar = {
   parentId?: boolean
   title?: boolean
   topLevel?: boolean
+  tracksCount?: boolean
 }
 
-export type GenreOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"genreId" | "parentId" | "title" | "topLevel", ExtArgs["result"]["genre"]>
+export type GenreOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"genreId" | "parentId" | "title" | "topLevel" | "tracksCount", ExtArgs["result"]["genre"]>
 export type GenreInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   parent?: boolean | Prisma.Genre$parentArgs<ExtArgs>
   children?: boolean | Prisma.Genre$childrenArgs<ExtArgs>
@@ -808,6 +859,7 @@ export type $GenrePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     parentId: string | null
     title: string | null
     topLevel: number | null
+    tracksCount: number | null
   }, ExtArgs["result"]["genre"]>
   composites: {}
 }
@@ -1239,6 +1291,7 @@ export interface GenreFieldRefs {
   readonly parentId: Prisma.FieldRef<"Genre", 'String'>
   readonly title: Prisma.FieldRef<"Genre", 'String'>
   readonly topLevel: Prisma.FieldRef<"Genre", 'Int'>
+  readonly tracksCount: Prisma.FieldRef<"Genre", 'Int'>
 }
     
 

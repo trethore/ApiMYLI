@@ -47,6 +47,7 @@ export type ArtistSumAggregateOutputType = {
 export type ArtistMinAggregateOutputType = {
   artistId: string | null
   artistBio: string | null
+  artistMembers: string | null
   artistImageFile: string | null
   artistImages: string | null
   artistLocation: string | null
@@ -61,6 +62,7 @@ export type ArtistMinAggregateOutputType = {
 export type ArtistMaxAggregateOutputType = {
   artistId: string | null
   artistBio: string | null
+  artistMembers: string | null
   artistImageFile: string | null
   artistImages: string | null
   artistLocation: string | null
@@ -75,6 +77,7 @@ export type ArtistMaxAggregateOutputType = {
 export type ArtistCountAggregateOutputType = {
   artistId: number
   artistBio: number
+  artistMembers: number
   artistImageFile: number
   artistImages: number
   artistLocation: number
@@ -109,6 +112,7 @@ export type ArtistSumAggregateInputType = {
 export type ArtistMinAggregateInputType = {
   artistId?: true
   artistBio?: true
+  artistMembers?: true
   artistImageFile?: true
   artistImages?: true
   artistLocation?: true
@@ -123,6 +127,7 @@ export type ArtistMinAggregateInputType = {
 export type ArtistMaxAggregateInputType = {
   artistId?: true
   artistBio?: true
+  artistMembers?: true
   artistImageFile?: true
   artistImages?: true
   artistLocation?: true
@@ -137,6 +142,7 @@ export type ArtistMaxAggregateInputType = {
 export type ArtistCountAggregateInputType = {
   artistId?: true
   artistBio?: true
+  artistMembers?: true
   artistImageFile?: true
   artistImages?: true
   artistLocation?: true
@@ -238,6 +244,7 @@ export type ArtistGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 export type ArtistGroupByOutputType = {
   artistId: string
   artistBio: string | null
+  artistMembers: string | null
   artistImageFile: string | null
   artistImages: string | null
   artistLocation: string | null
@@ -275,6 +282,7 @@ export type ArtistWhereInput = {
   NOT?: Prisma.ArtistWhereInput | Prisma.ArtistWhereInput[]
   artistId?: Prisma.UuidFilter<"Artist"> | string
   artistBio?: Prisma.StringNullableFilter<"Artist"> | string | null
+  artistMembers?: Prisma.StringNullableFilter<"Artist"> | string | null
   artistImageFile?: Prisma.StringNullableFilter<"Artist"> | string | null
   artistImages?: Prisma.StringNullableFilter<"Artist"> | string | null
   artistLocation?: Prisma.StringNullableFilter<"Artist"> | string | null
@@ -296,6 +304,7 @@ export type ArtistWhereInput = {
 export type ArtistOrderByWithRelationInput = {
   artistId?: Prisma.SortOrder
   artistBio?: Prisma.SortOrderInput | Prisma.SortOrder
+  artistMembers?: Prisma.SortOrderInput | Prisma.SortOrder
   artistImageFile?: Prisma.SortOrderInput | Prisma.SortOrder
   artistImages?: Prisma.SortOrderInput | Prisma.SortOrder
   artistLocation?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -320,6 +329,7 @@ export type ArtistWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ArtistWhereInput[]
   NOT?: Prisma.ArtistWhereInput | Prisma.ArtistWhereInput[]
   artistBio?: Prisma.StringNullableFilter<"Artist"> | string | null
+  artistMembers?: Prisma.StringNullableFilter<"Artist"> | string | null
   artistImageFile?: Prisma.StringNullableFilter<"Artist"> | string | null
   artistImages?: Prisma.StringNullableFilter<"Artist"> | string | null
   artistLocation?: Prisma.StringNullableFilter<"Artist"> | string | null
@@ -341,6 +351,7 @@ export type ArtistWhereUniqueInput = Prisma.AtLeast<{
 export type ArtistOrderByWithAggregationInput = {
   artistId?: Prisma.SortOrder
   artistBio?: Prisma.SortOrderInput | Prisma.SortOrder
+  artistMembers?: Prisma.SortOrderInput | Prisma.SortOrder
   artistImageFile?: Prisma.SortOrderInput | Prisma.SortOrder
   artistImages?: Prisma.SortOrderInput | Prisma.SortOrder
   artistLocation?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -363,6 +374,7 @@ export type ArtistScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ArtistScalarWhereWithAggregatesInput | Prisma.ArtistScalarWhereWithAggregatesInput[]
   artistId?: Prisma.UuidWithAggregatesFilter<"Artist"> | string
   artistBio?: Prisma.StringNullableWithAggregatesFilter<"Artist"> | string | null
+  artistMembers?: Prisma.StringNullableWithAggregatesFilter<"Artist"> | string | null
   artistImageFile?: Prisma.StringNullableWithAggregatesFilter<"Artist"> | string | null
   artistImages?: Prisma.StringNullableWithAggregatesFilter<"Artist"> | string | null
   artistLocation?: Prisma.StringNullableWithAggregatesFilter<"Artist"> | string | null
@@ -376,6 +388,7 @@ export type ArtistScalarWhereWithAggregatesInput = {
 
 export type ArtistCreateInput = {
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -397,6 +410,7 @@ export type ArtistCreateInput = {
 export type ArtistUncheckedCreateInput = {
   artistId: string
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -416,6 +430,7 @@ export type ArtistUncheckedCreateInput = {
 
 export type ArtistUpdateInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -437,6 +452,7 @@ export type ArtistUpdateInput = {
 export type ArtistUncheckedUpdateInput = {
   artistId?: Prisma.StringFieldUpdateOperationsInput | string
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -457,6 +473,7 @@ export type ArtistUncheckedUpdateInput = {
 export type ArtistCreateManyInput = {
   artistId: string
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -470,6 +487,7 @@ export type ArtistCreateManyInput = {
 
 export type ArtistUpdateManyMutationInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -484,6 +502,7 @@ export type ArtistUpdateManyMutationInput = {
 export type ArtistUncheckedUpdateManyInput = {
   artistId?: Prisma.StringFieldUpdateOperationsInput | string
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -503,6 +522,7 @@ export type ArtistNullableScalarRelationFilter = {
 export type ArtistCountOrderByAggregateInput = {
   artistId?: Prisma.SortOrder
   artistBio?: Prisma.SortOrder
+  artistMembers?: Prisma.SortOrder
   artistImageFile?: Prisma.SortOrder
   artistImages?: Prisma.SortOrder
   artistLocation?: Prisma.SortOrder
@@ -526,6 +546,7 @@ export type ArtistAvgOrderByAggregateInput = {
 export type ArtistMaxOrderByAggregateInput = {
   artistId?: Prisma.SortOrder
   artistBio?: Prisma.SortOrder
+  artistMembers?: Prisma.SortOrder
   artistImageFile?: Prisma.SortOrder
   artistImages?: Prisma.SortOrder
   artistLocation?: Prisma.SortOrder
@@ -540,6 +561,7 @@ export type ArtistMaxOrderByAggregateInput = {
 export type ArtistMinOrderByAggregateInput = {
   artistId?: Prisma.SortOrder
   artistBio?: Prisma.SortOrder
+  artistMembers?: Prisma.SortOrder
   artistImageFile?: Prisma.SortOrder
   artistImages?: Prisma.SortOrder
   artistLocation?: Prisma.SortOrder
@@ -709,6 +731,7 @@ export type ArtistUpdateOneWithoutPinnedItemsNestedInput = {
 
 export type ArtistCreateWithoutAccountInput = {
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -728,6 +751,7 @@ export type ArtistCreateWithoutAccountInput = {
 
 export type ArtistUncheckedCreateWithoutAccountInput = {
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -763,6 +787,7 @@ export type ArtistUpdateToOneWithWhereWithoutAccountInput = {
 
 export type ArtistUpdateWithoutAccountInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -782,6 +807,7 @@ export type ArtistUpdateWithoutAccountInput = {
 
 export type ArtistUncheckedUpdateWithoutAccountInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -801,6 +827,7 @@ export type ArtistUncheckedUpdateWithoutAccountInput = {
 
 export type ArtistCreateWithoutRankArtistsInput = {
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -821,6 +848,7 @@ export type ArtistCreateWithoutRankArtistsInput = {
 export type ArtistUncheckedCreateWithoutRankArtistsInput = {
   artistId: string
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -855,6 +883,7 @@ export type ArtistUpdateToOneWithWhereWithoutRankArtistsInput = {
 
 export type ArtistUpdateWithoutRankArtistsInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -875,6 +904,7 @@ export type ArtistUpdateWithoutRankArtistsInput = {
 export type ArtistUncheckedUpdateWithoutRankArtistsInput = {
   artistId?: Prisma.StringFieldUpdateOperationsInput | string
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -893,6 +923,7 @@ export type ArtistUncheckedUpdateWithoutRankArtistsInput = {
 
 export type ArtistCreateWithoutArtistTagsInput = {
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -913,6 +944,7 @@ export type ArtistCreateWithoutArtistTagsInput = {
 export type ArtistUncheckedCreateWithoutArtistTagsInput = {
   artistId: string
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -947,6 +979,7 @@ export type ArtistUpdateToOneWithWhereWithoutArtistTagsInput = {
 
 export type ArtistUpdateWithoutArtistTagsInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -967,6 +1000,7 @@ export type ArtistUpdateWithoutArtistTagsInput = {
 export type ArtistUncheckedUpdateWithoutArtistTagsInput = {
   artistId?: Prisma.StringFieldUpdateOperationsInput | string
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -985,6 +1019,7 @@ export type ArtistUncheckedUpdateWithoutArtistTagsInput = {
 
 export type ArtistCreateWithoutAlbumArtistsInput = {
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -1005,6 +1040,7 @@ export type ArtistCreateWithoutAlbumArtistsInput = {
 export type ArtistUncheckedCreateWithoutAlbumArtistsInput = {
   artistId: string
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -1039,6 +1075,7 @@ export type ArtistUpdateToOneWithWhereWithoutAlbumArtistsInput = {
 
 export type ArtistUpdateWithoutAlbumArtistsInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1059,6 +1096,7 @@ export type ArtistUpdateWithoutAlbumArtistsInput = {
 export type ArtistUncheckedUpdateWithoutAlbumArtistsInput = {
   artistId?: Prisma.StringFieldUpdateOperationsInput | string
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1077,6 +1115,7 @@ export type ArtistUncheckedUpdateWithoutAlbumArtistsInput = {
 
 export type ArtistCreateWithoutMainTracksInput = {
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -1097,6 +1136,7 @@ export type ArtistCreateWithoutMainTracksInput = {
 export type ArtistUncheckedCreateWithoutMainTracksInput = {
   artistId: string
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -1131,6 +1171,7 @@ export type ArtistUpdateToOneWithWhereWithoutMainTracksInput = {
 
 export type ArtistUpdateWithoutMainTracksInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1151,6 +1192,7 @@ export type ArtistUpdateWithoutMainTracksInput = {
 export type ArtistUncheckedUpdateWithoutMainTracksInput = {
   artistId?: Prisma.StringFieldUpdateOperationsInput | string
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1169,6 +1211,7 @@ export type ArtistUncheckedUpdateWithoutMainTracksInput = {
 
 export type ArtistCreateWithoutFeatTracksInput = {
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -1189,6 +1232,7 @@ export type ArtistCreateWithoutFeatTracksInput = {
 export type ArtistUncheckedCreateWithoutFeatTracksInput = {
   artistId: string
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -1223,6 +1267,7 @@ export type ArtistUpdateToOneWithWhereWithoutFeatTracksInput = {
 
 export type ArtistUpdateWithoutFeatTracksInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1243,6 +1288,7 @@ export type ArtistUpdateWithoutFeatTracksInput = {
 export type ArtistUncheckedUpdateWithoutFeatTracksInput = {
   artistId?: Prisma.StringFieldUpdateOperationsInput | string
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1261,6 +1307,7 @@ export type ArtistUncheckedUpdateWithoutFeatTracksInput = {
 
 export type ArtistCreateWithoutPinnedItemsInput = {
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -1281,6 +1328,7 @@ export type ArtistCreateWithoutPinnedItemsInput = {
 export type ArtistUncheckedCreateWithoutPinnedItemsInput = {
   artistId: string
   artistBio?: string | null
+  artistMembers?: string | null
   artistImageFile?: string | null
   artistImages?: string | null
   artistLocation?: string | null
@@ -1315,6 +1363,7 @@ export type ArtistUpdateToOneWithWhereWithoutPinnedItemsInput = {
 
 export type ArtistUpdateWithoutPinnedItemsInput = {
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1335,6 +1384,7 @@ export type ArtistUpdateWithoutPinnedItemsInput = {
 export type ArtistUncheckedUpdateWithoutPinnedItemsInput = {
   artistId?: Prisma.StringFieldUpdateOperationsInput | string
   artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1430,6 +1480,7 @@ export type ArtistCountOutputTypeCountRankArtistsArgs<ExtArgs extends runtime.Ty
 export type ArtistSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   artistId?: boolean
   artistBio?: boolean
+  artistMembers?: boolean
   artistImageFile?: boolean
   artistImages?: boolean
   artistLocation?: boolean
@@ -1452,6 +1503,7 @@ export type ArtistSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
 export type ArtistSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   artistId?: boolean
   artistBio?: boolean
+  artistMembers?: boolean
   artistImageFile?: boolean
   artistImages?: boolean
   artistLocation?: boolean
@@ -1467,6 +1519,7 @@ export type ArtistSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type ArtistSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   artistId?: boolean
   artistBio?: boolean
+  artistMembers?: boolean
   artistImageFile?: boolean
   artistImages?: boolean
   artistLocation?: boolean
@@ -1482,6 +1535,7 @@ export type ArtistSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
 export type ArtistSelectScalar = {
   artistId?: boolean
   artistBio?: boolean
+  artistMembers?: boolean
   artistImageFile?: boolean
   artistImages?: boolean
   artistLocation?: boolean
@@ -1493,7 +1547,7 @@ export type ArtistSelectScalar = {
   artistComments?: boolean
 }
 
-export type ArtistOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"artistId" | "artistBio" | "artistImageFile" | "artistImages" | "artistLocation" | "artistLatitude" | "artistLongitude" | "artistActiveYearBegin" | "artistActiveYearEnd" | "artistFavorites" | "artistComments", ExtArgs["result"]["artist"]>
+export type ArtistOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"artistId" | "artistBio" | "artistMembers" | "artistImageFile" | "artistImages" | "artistLocation" | "artistLatitude" | "artistLongitude" | "artistActiveYearBegin" | "artistActiveYearEnd" | "artistFavorites" | "artistComments", ExtArgs["result"]["artist"]>
 export type ArtistInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
   artistTags?: boolean | Prisma.Artist$artistTagsArgs<ExtArgs>
@@ -1525,6 +1579,7 @@ export type $ArtistPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     artistId: string
     artistBio: string | null
+    artistMembers: string | null
     artistImageFile: string | null
     artistImages: string | null
     artistLocation: string | null
@@ -1966,6 +2021,7 @@ export interface Prisma__ArtistClient<T, Null = never, ExtArgs extends runtime.T
 export interface ArtistFieldRefs {
   readonly artistId: Prisma.FieldRef<"Artist", 'String'>
   readonly artistBio: Prisma.FieldRef<"Artist", 'String'>
+  readonly artistMembers: Prisma.FieldRef<"Artist", 'String'>
   readonly artistImageFile: Prisma.FieldRef<"Artist", 'String'>
   readonly artistImages: Prisma.FieldRef<"Artist", 'String'>
   readonly artistLocation: Prisma.FieldRef<"Artist", 'String'>
