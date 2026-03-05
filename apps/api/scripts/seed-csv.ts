@@ -123,6 +123,11 @@ const downloadArchive = async (downloadUrl: string, archivePath: string): Promis
 };
 
 const extractArchive = async (archivePath: string, targetDirectoryPath: string): Promise<void> => {
+  if (process.platform === "win32") {
+    await $`tar -xf ${archivePath} -C ${targetDirectoryPath}`;
+    return;
+  }
+
   await $`unzip -o ${archivePath} -d ${targetDirectoryPath}`;
 };
 
