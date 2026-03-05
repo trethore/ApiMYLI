@@ -140,11 +140,6 @@ export type TrackLicense = Prisma.TrackLicenseModel
  */
 export type PlaylistTrack = Prisma.PlaylistTrackModel
 /**
- * Model User
- * 
- */
-export type User = Prisma.UserModel
-/**
  * Model Preference
  * 
  */
@@ -160,25 +155,25 @@ export type PreferenceVector = Prisma.PreferenceVectorModel
  */
 export type GenrePreference = Prisma.GenrePreferenceModel
 /**
- * Model PlaylistUser
+ * Model PlaylistAccount
  * 
  */
-export type PlaylistUser = Prisma.PlaylistUserModel
+export type PlaylistAccount = Prisma.PlaylistAccountModel
 /**
- * Model TrackUserLike
+ * Model TrackAccountLike
  * 
  */
-export type TrackUserLike = Prisma.TrackUserLikeModel
+export type TrackAccountLike = Prisma.TrackAccountLikeModel
 /**
- * Model TrackUserListen
+ * Model TrackAccountListen
  * 
  */
-export type TrackUserListen = Prisma.TrackUserListenModel
+export type TrackAccountListen = Prisma.TrackAccountListenModel
 /**
- * Model UserPinnedItem
+ * Model AccountPinnedItem
  * 
  */
-export type UserPinnedItem = Prisma.UserPinnedItemModel
+export type AccountPinnedItem = Prisma.AccountPinnedItemModel
 /**
  * Model TrackComment
  * 

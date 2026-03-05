@@ -150,12 +150,12 @@ export type PreferenceVectorWhereInput = {
   OR?: Prisma.PreferenceVectorWhereInput[]
   NOT?: Prisma.PreferenceVectorWhereInput | Prisma.PreferenceVectorWhereInput[]
   accountId?: Prisma.UuidFilter<"PreferenceVector"> | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
 }
 
 export type PreferenceVectorOrderByWithRelationInput = {
   accountId?: Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
+  account?: Prisma.AccountOrderByWithRelationInput
 }
 
 export type PreferenceVectorWhereUniqueInput = Prisma.AtLeast<{
@@ -163,7 +163,7 @@ export type PreferenceVectorWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.PreferenceVectorWhereInput | Prisma.PreferenceVectorWhereInput[]
   OR?: Prisma.PreferenceVectorWhereInput[]
   NOT?: Prisma.PreferenceVectorWhereInput | Prisma.PreferenceVectorWhereInput[]
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
 }, "accountId">
 
 export type PreferenceVectorOrderByWithAggregationInput = {
@@ -181,7 +181,7 @@ export type PreferenceVectorScalarWhereWithAggregatesInput = {
 }
 
 export type PreferenceVectorCreateInput = {
-  user: Prisma.UserCreateNestedOneWithoutPreferenceVectorInput
+  account: Prisma.AccountCreateNestedOneWithoutPreferenceVectorInput
 }
 
 export type PreferenceVectorUncheckedCreateInput = {
@@ -189,7 +189,7 @@ export type PreferenceVectorUncheckedCreateInput = {
 }
 
 export type PreferenceVectorUpdateInput = {
-  user?: Prisma.UserUpdateOneRequiredWithoutPreferenceVectorNestedInput
+  account?: Prisma.AccountUpdateOneRequiredWithoutPreferenceVectorNestedInput
 }
 
 export type PreferenceVectorUncheckedUpdateInput = {
@@ -225,67 +225,67 @@ export type PreferenceVectorMinOrderByAggregateInput = {
   accountId?: Prisma.SortOrder
 }
 
-export type PreferenceVectorCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutUserInput, Prisma.PreferenceVectorUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.PreferenceVectorCreateOrConnectWithoutUserInput
+export type PreferenceVectorCreateNestedOneWithoutAccountInput = {
+  create?: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutAccountInput, Prisma.PreferenceVectorUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.PreferenceVectorCreateOrConnectWithoutAccountInput
   connect?: Prisma.PreferenceVectorWhereUniqueInput
 }
 
-export type PreferenceVectorUncheckedCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutUserInput, Prisma.PreferenceVectorUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.PreferenceVectorCreateOrConnectWithoutUserInput
+export type PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput = {
+  create?: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutAccountInput, Prisma.PreferenceVectorUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.PreferenceVectorCreateOrConnectWithoutAccountInput
   connect?: Prisma.PreferenceVectorWhereUniqueInput
 }
 
-export type PreferenceVectorUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutUserInput, Prisma.PreferenceVectorUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.PreferenceVectorCreateOrConnectWithoutUserInput
-  upsert?: Prisma.PreferenceVectorUpsertWithoutUserInput
+export type PreferenceVectorUpdateOneWithoutAccountNestedInput = {
+  create?: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutAccountInput, Prisma.PreferenceVectorUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.PreferenceVectorCreateOrConnectWithoutAccountInput
+  upsert?: Prisma.PreferenceVectorUpsertWithoutAccountInput
   disconnect?: Prisma.PreferenceVectorWhereInput | boolean
   delete?: Prisma.PreferenceVectorWhereInput | boolean
   connect?: Prisma.PreferenceVectorWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.PreferenceVectorUpdateToOneWithWhereWithoutUserInput, Prisma.PreferenceVectorUpdateWithoutUserInput>, Prisma.PreferenceVectorUncheckedUpdateWithoutUserInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PreferenceVectorUpdateToOneWithWhereWithoutAccountInput, Prisma.PreferenceVectorUpdateWithoutAccountInput>, Prisma.PreferenceVectorUncheckedUpdateWithoutAccountInput>
 }
 
-export type PreferenceVectorUncheckedUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutUserInput, Prisma.PreferenceVectorUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.PreferenceVectorCreateOrConnectWithoutUserInput
-  upsert?: Prisma.PreferenceVectorUpsertWithoutUserInput
+export type PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput = {
+  create?: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutAccountInput, Prisma.PreferenceVectorUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.PreferenceVectorCreateOrConnectWithoutAccountInput
+  upsert?: Prisma.PreferenceVectorUpsertWithoutAccountInput
   disconnect?: Prisma.PreferenceVectorWhereInput | boolean
   delete?: Prisma.PreferenceVectorWhereInput | boolean
   connect?: Prisma.PreferenceVectorWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.PreferenceVectorUpdateToOneWithWhereWithoutUserInput, Prisma.PreferenceVectorUpdateWithoutUserInput>, Prisma.PreferenceVectorUncheckedUpdateWithoutUserInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PreferenceVectorUpdateToOneWithWhereWithoutAccountInput, Prisma.PreferenceVectorUpdateWithoutAccountInput>, Prisma.PreferenceVectorUncheckedUpdateWithoutAccountInput>
 }
 
-export type PreferenceVectorCreateWithoutUserInput = {
-
-}
-
-export type PreferenceVectorUncheckedCreateWithoutUserInput = {
+export type PreferenceVectorCreateWithoutAccountInput = {
 
 }
 
-export type PreferenceVectorCreateOrConnectWithoutUserInput = {
+export type PreferenceVectorUncheckedCreateWithoutAccountInput = {
+
+}
+
+export type PreferenceVectorCreateOrConnectWithoutAccountInput = {
   where: Prisma.PreferenceVectorWhereUniqueInput
-  create: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutUserInput, Prisma.PreferenceVectorUncheckedCreateWithoutUserInput>
+  create: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutAccountInput, Prisma.PreferenceVectorUncheckedCreateWithoutAccountInput>
 }
 
-export type PreferenceVectorUpsertWithoutUserInput = {
-  update: Prisma.XOR<Prisma.PreferenceVectorUpdateWithoutUserInput, Prisma.PreferenceVectorUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutUserInput, Prisma.PreferenceVectorUncheckedCreateWithoutUserInput>
+export type PreferenceVectorUpsertWithoutAccountInput = {
+  update: Prisma.XOR<Prisma.PreferenceVectorUpdateWithoutAccountInput, Prisma.PreferenceVectorUncheckedUpdateWithoutAccountInput>
+  create: Prisma.XOR<Prisma.PreferenceVectorCreateWithoutAccountInput, Prisma.PreferenceVectorUncheckedCreateWithoutAccountInput>
   where?: Prisma.PreferenceVectorWhereInput
 }
 
-export type PreferenceVectorUpdateToOneWithWhereWithoutUserInput = {
+export type PreferenceVectorUpdateToOneWithWhereWithoutAccountInput = {
   where?: Prisma.PreferenceVectorWhereInput
-  data: Prisma.XOR<Prisma.PreferenceVectorUpdateWithoutUserInput, Prisma.PreferenceVectorUncheckedUpdateWithoutUserInput>
+  data: Prisma.XOR<Prisma.PreferenceVectorUpdateWithoutAccountInput, Prisma.PreferenceVectorUncheckedUpdateWithoutAccountInput>
 }
 
-export type PreferenceVectorUpdateWithoutUserInput = {
+export type PreferenceVectorUpdateWithoutAccountInput = {
 
 }
 
-export type PreferenceVectorUncheckedUpdateWithoutUserInput = {
+export type PreferenceVectorUncheckedUpdateWithoutAccountInput = {
 
 }
 
@@ -293,17 +293,17 @@ export type PreferenceVectorUncheckedUpdateWithoutUserInput = {
 
 export type PreferenceVectorSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   accountId?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["preferenceVector"]>
 
 export type PreferenceVectorSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   accountId?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["preferenceVector"]>
 
 export type PreferenceVectorSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   accountId?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["preferenceVector"]>
 
 export type PreferenceVectorSelectScalar = {
@@ -312,19 +312,19 @@ export type PreferenceVectorSelectScalar = {
 
 export type PreferenceVectorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"accountId", ExtArgs["result"]["preferenceVector"]>
 export type PreferenceVectorInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }
 export type PreferenceVectorIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }
 export type PreferenceVectorIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }
 
 export type $PreferenceVectorPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "PreferenceVector"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
+    account: Prisma.$AccountPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     accountId: string
@@ -722,7 +722,7 @@ readonly fields: PreferenceVectorFieldRefs;
  */
 export interface Prisma__PreferenceVectorClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  account<T extends Prisma.AccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountDefaultArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

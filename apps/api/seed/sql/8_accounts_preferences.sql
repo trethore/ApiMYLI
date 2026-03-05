@@ -1,7 +1,7 @@
 -- ====================================================================================
--- USERS AND PREFERENCES
+-- ACCOUNTS AND PREFERENCES
 -- ====================================================================================
-CREATE TEMP TABLE stg_user (
+CREATE TEMP TABLE stg_account (
   created_at TIMESTAMP,
   has_consented TEXT,
   is_listening TEXT,
@@ -25,22 +25,17 @@ CREATE TEMP TABLE stg_user (
   account_uuid UUID DEFAULT uuid_generate_v4()
 );
 
-\copy stg_user (created_at, has_consented, is_listening, frequency, context, "when", how, platform, utility, track_genre, duration, energy, tempo, feeling, is_live, quality, curiosity, age_range, gender, position) FROM './data/clean_answers.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',');
+\copy stg_account (created_at, has_consented, is_listening, frequency, context, "when", how, platform, utility, track_genre, duration, energy, tempo, feeling, is_live, quality, curiosity, age_range, gender, position) FROM './data/clean_answers.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',');
 
-INSERT INTO account (account_id, login, name, email, created_at)
+INSERT INTO account (account_id, login, name, pseudo, email, created_at)
 SELECT
   account_uuid,
-  'user_' || substr(account_uuid::text, 1, 8),
-  'User ' || substr(account_uuid::text, 1, 8),
-  'user_' || substr(account_uuid::text, 1, 8) || '@test.com',
+  'account_' || substr(account_uuid::text, 1, 8),
+  'Account ' || substr(account_uuid::text, 1, 8),
+  'Account_' || substr(account_uuid::text, 1, 8),
+  'account_' || substr(account_uuid::text, 1, 8) || '@test.com',
   created_at
-FROM stg_user;
-
-INSERT INTO "user" (account_id, pseudo)
-SELECT
-  account_uuid,
-  'User_' || substr(account_uuid::text, 1, 8)
-FROM stg_user;
+FROM stg_account;
 
 INSERT INTO preference (
   account_id,
@@ -89,18 +84,18 @@ SELECT
   how,
   platform,
   utility
-FROM stg_user;
+FROM stg_account;
 
-WITH user_genres AS (
+WITH account_genres AS (
   SELECT
     account_uuid,
     trim(genre_name) AS genre_name
-  FROM stg_user, unnest(parse_python_list(track_genre)) AS genre_name
+  FROM stg_account, unnest(parse_python_list(track_genre)) AS genre_name
 )
 INSERT INTO genre_preference (account_id, genre_id)
 SELECT
-  ug.account_uuid,
+  ag.account_uuid,
   g.genre_id
-FROM user_genres ug
-JOIN genre g ON lower(g.title) = lower(ug.genre_name)
+FROM account_genres ag
+JOIN genre g ON lower(g.title) = lower(ag.genre_name)
 ON CONFLICT DO NOTHING;

@@ -404,14 +404,13 @@ export const ModelName = {
   TrackArtistFeat: 'TrackArtistFeat',
   TrackLicense: 'TrackLicense',
   PlaylistTrack: 'PlaylistTrack',
-  User: 'User',
   Preference: 'Preference',
   PreferenceVector: 'PreferenceVector',
   GenrePreference: 'GenrePreference',
-  PlaylistUser: 'PlaylistUser',
-  TrackUserLike: 'TrackUserLike',
-  TrackUserListen: 'TrackUserListen',
-  UserPinnedItem: 'UserPinnedItem',
+  PlaylistAccount: 'PlaylistAccount',
+  TrackAccountLike: 'TrackAccountLike',
+  TrackAccountListen: 'TrackAccountListen',
+  AccountPinnedItem: 'AccountPinnedItem',
   TrackComment: 'TrackComment'
 } as const
 
@@ -428,7 +427,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "user" | "preference" | "preferenceVector" | "genrePreference" | "playlistUser" | "trackUserLike" | "trackUserListen" | "userPinnedItem" | "trackComment"
+    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountListen" | "accountPinnedItem" | "trackComment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1912,80 +1911,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    User: {
-      payload: Prisma.$UserPayload<ExtArgs>
-      fields: Prisma.UserFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.UserFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>
-        }
-        findFirst: {
-          args: Prisma.UserFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>
-        }
-        findMany: {
-          args: Prisma.UserFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>[]
-        }
-        create: {
-          args: Prisma.UserCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>
-        }
-        createMany: {
-          args: Prisma.UserCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>[]
-        }
-        delete: {
-          args: Prisma.UserDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>
-        }
-        update: {
-          args: Prisma.UserUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>
-        }
-        deleteMany: {
-          args: Prisma.UserDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.UserUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>[]
-        }
-        upsert: {
-          args: Prisma.UserUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>
-        }
-        aggregate: {
-          args: Prisma.UserAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateUser>
-        }
-        groupBy: {
-          args: Prisma.UserGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UserGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.UserCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UserCountAggregateOutputType> | number
-        }
-      }
-    }
     Preference: {
       payload: Prisma.$PreferencePayload<ExtArgs>
       fields: Prisma.PreferenceFieldRefs
@@ -2208,299 +2133,299 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    PlaylistUser: {
-      payload: Prisma.$PlaylistUserPayload<ExtArgs>
-      fields: Prisma.PlaylistUserFieldRefs
+    PlaylistAccount: {
+      payload: Prisma.$PlaylistAccountPayload<ExtArgs>
+      fields: Prisma.PlaylistAccountFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.PlaylistUserFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload> | null
+          args: Prisma.PlaylistAccountFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.PlaylistUserFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload>
+          args: Prisma.PlaylistAccountFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload>
         }
         findFirst: {
-          args: Prisma.PlaylistUserFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload> | null
+          args: Prisma.PlaylistAccountFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.PlaylistUserFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload>
+          args: Prisma.PlaylistAccountFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload>
         }
         findMany: {
-          args: Prisma.PlaylistUserFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload>[]
+          args: Prisma.PlaylistAccountFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload>[]
         }
         create: {
-          args: Prisma.PlaylistUserCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload>
+          args: Prisma.PlaylistAccountCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload>
         }
         createMany: {
-          args: Prisma.PlaylistUserCreateManyArgs<ExtArgs>
+          args: Prisma.PlaylistAccountCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.PlaylistUserCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload>[]
+          args: Prisma.PlaylistAccountCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload>[]
         }
         delete: {
-          args: Prisma.PlaylistUserDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload>
+          args: Prisma.PlaylistAccountDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload>
         }
         update: {
-          args: Prisma.PlaylistUserUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload>
+          args: Prisma.PlaylistAccountUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload>
         }
         deleteMany: {
-          args: Prisma.PlaylistUserDeleteManyArgs<ExtArgs>
+          args: Prisma.PlaylistAccountDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.PlaylistUserUpdateManyArgs<ExtArgs>
+          args: Prisma.PlaylistAccountUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.PlaylistUserUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload>[]
+          args: Prisma.PlaylistAccountUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload>[]
         }
         upsert: {
-          args: Prisma.PlaylistUserUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistUserPayload>
+          args: Prisma.PlaylistAccountUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlaylistAccountPayload>
         }
         aggregate: {
-          args: Prisma.PlaylistUserAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregatePlaylistUser>
+          args: Prisma.PlaylistAccountAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePlaylistAccount>
         }
         groupBy: {
-          args: Prisma.PlaylistUserGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PlaylistUserGroupByOutputType>[]
+          args: Prisma.PlaylistAccountGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlaylistAccountGroupByOutputType>[]
         }
         count: {
-          args: Prisma.PlaylistUserCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PlaylistUserCountAggregateOutputType> | number
+          args: Prisma.PlaylistAccountCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlaylistAccountCountAggregateOutputType> | number
         }
       }
     }
-    TrackUserLike: {
-      payload: Prisma.$TrackUserLikePayload<ExtArgs>
-      fields: Prisma.TrackUserLikeFieldRefs
+    TrackAccountLike: {
+      payload: Prisma.$TrackAccountLikePayload<ExtArgs>
+      fields: Prisma.TrackAccountLikeFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.TrackUserLikeFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload> | null
+          args: Prisma.TrackAccountLikeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.TrackUserLikeFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload>
+          args: Prisma.TrackAccountLikeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload>
         }
         findFirst: {
-          args: Prisma.TrackUserLikeFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload> | null
+          args: Prisma.TrackAccountLikeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.TrackUserLikeFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload>
+          args: Prisma.TrackAccountLikeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload>
         }
         findMany: {
-          args: Prisma.TrackUserLikeFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload>[]
+          args: Prisma.TrackAccountLikeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload>[]
         }
         create: {
-          args: Prisma.TrackUserLikeCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload>
+          args: Prisma.TrackAccountLikeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload>
         }
         createMany: {
-          args: Prisma.TrackUserLikeCreateManyArgs<ExtArgs>
+          args: Prisma.TrackAccountLikeCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.TrackUserLikeCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload>[]
+          args: Prisma.TrackAccountLikeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload>[]
         }
         delete: {
-          args: Prisma.TrackUserLikeDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload>
+          args: Prisma.TrackAccountLikeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload>
         }
         update: {
-          args: Prisma.TrackUserLikeUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload>
+          args: Prisma.TrackAccountLikeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload>
         }
         deleteMany: {
-          args: Prisma.TrackUserLikeDeleteManyArgs<ExtArgs>
+          args: Prisma.TrackAccountLikeDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.TrackUserLikeUpdateManyArgs<ExtArgs>
+          args: Prisma.TrackAccountLikeUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.TrackUserLikeUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload>[]
+          args: Prisma.TrackAccountLikeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload>[]
         }
         upsert: {
-          args: Prisma.TrackUserLikeUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserLikePayload>
+          args: Prisma.TrackAccountLikeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountLikePayload>
         }
         aggregate: {
-          args: Prisma.TrackUserLikeAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTrackUserLike>
+          args: Prisma.TrackAccountLikeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTrackAccountLike>
         }
         groupBy: {
-          args: Prisma.TrackUserLikeGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TrackUserLikeGroupByOutputType>[]
+          args: Prisma.TrackAccountLikeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrackAccountLikeGroupByOutputType>[]
         }
         count: {
-          args: Prisma.TrackUserLikeCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TrackUserLikeCountAggregateOutputType> | number
+          args: Prisma.TrackAccountLikeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrackAccountLikeCountAggregateOutputType> | number
         }
       }
     }
-    TrackUserListen: {
-      payload: Prisma.$TrackUserListenPayload<ExtArgs>
-      fields: Prisma.TrackUserListenFieldRefs
+    TrackAccountListen: {
+      payload: Prisma.$TrackAccountListenPayload<ExtArgs>
+      fields: Prisma.TrackAccountListenFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.TrackUserListenFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload> | null
+          args: Prisma.TrackAccountListenFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.TrackUserListenFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload>
+          args: Prisma.TrackAccountListenFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload>
         }
         findFirst: {
-          args: Prisma.TrackUserListenFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload> | null
+          args: Prisma.TrackAccountListenFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.TrackUserListenFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload>
+          args: Prisma.TrackAccountListenFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload>
         }
         findMany: {
-          args: Prisma.TrackUserListenFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload>[]
+          args: Prisma.TrackAccountListenFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload>[]
         }
         create: {
-          args: Prisma.TrackUserListenCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload>
+          args: Prisma.TrackAccountListenCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload>
         }
         createMany: {
-          args: Prisma.TrackUserListenCreateManyArgs<ExtArgs>
+          args: Prisma.TrackAccountListenCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.TrackUserListenCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload>[]
+          args: Prisma.TrackAccountListenCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload>[]
         }
         delete: {
-          args: Prisma.TrackUserListenDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload>
+          args: Prisma.TrackAccountListenDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload>
         }
         update: {
-          args: Prisma.TrackUserListenUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload>
+          args: Prisma.TrackAccountListenUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload>
         }
         deleteMany: {
-          args: Prisma.TrackUserListenDeleteManyArgs<ExtArgs>
+          args: Prisma.TrackAccountListenDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.TrackUserListenUpdateManyArgs<ExtArgs>
+          args: Prisma.TrackAccountListenUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.TrackUserListenUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload>[]
+          args: Prisma.TrackAccountListenUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload>[]
         }
         upsert: {
-          args: Prisma.TrackUserListenUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackUserListenPayload>
+          args: Prisma.TrackAccountListenUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountListenPayload>
         }
         aggregate: {
-          args: Prisma.TrackUserListenAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTrackUserListen>
+          args: Prisma.TrackAccountListenAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTrackAccountListen>
         }
         groupBy: {
-          args: Prisma.TrackUserListenGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TrackUserListenGroupByOutputType>[]
+          args: Prisma.TrackAccountListenGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrackAccountListenGroupByOutputType>[]
         }
         count: {
-          args: Prisma.TrackUserListenCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TrackUserListenCountAggregateOutputType> | number
+          args: Prisma.TrackAccountListenCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrackAccountListenCountAggregateOutputType> | number
         }
       }
     }
-    UserPinnedItem: {
-      payload: Prisma.$UserPinnedItemPayload<ExtArgs>
-      fields: Prisma.UserPinnedItemFieldRefs
+    AccountPinnedItem: {
+      payload: Prisma.$AccountPinnedItemPayload<ExtArgs>
+      fields: Prisma.AccountPinnedItemFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.UserPinnedItemFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload> | null
+          args: Prisma.AccountPinnedItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.UserPinnedItemFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+          args: Prisma.AccountPinnedItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload>
         }
         findFirst: {
-          args: Prisma.UserPinnedItemFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload> | null
+          args: Prisma.AccountPinnedItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.UserPinnedItemFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+          args: Prisma.AccountPinnedItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload>
         }
         findMany: {
-          args: Prisma.UserPinnedItemFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>[]
+          args: Prisma.AccountPinnedItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload>[]
         }
         create: {
-          args: Prisma.UserPinnedItemCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+          args: Prisma.AccountPinnedItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload>
         }
         createMany: {
-          args: Prisma.UserPinnedItemCreateManyArgs<ExtArgs>
+          args: Prisma.AccountPinnedItemCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.UserPinnedItemCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>[]
+          args: Prisma.AccountPinnedItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload>[]
         }
         delete: {
-          args: Prisma.UserPinnedItemDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+          args: Prisma.AccountPinnedItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload>
         }
         update: {
-          args: Prisma.UserPinnedItemUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+          args: Prisma.AccountPinnedItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload>
         }
         deleteMany: {
-          args: Prisma.UserPinnedItemDeleteManyArgs<ExtArgs>
+          args: Prisma.AccountPinnedItemDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.UserPinnedItemUpdateManyArgs<ExtArgs>
+          args: Prisma.AccountPinnedItemUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.UserPinnedItemUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>[]
+          args: Prisma.AccountPinnedItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload>[]
         }
         upsert: {
-          args: Prisma.UserPinnedItemUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+          args: Prisma.AccountPinnedItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountPinnedItemPayload>
         }
         aggregate: {
-          args: Prisma.UserPinnedItemAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateUserPinnedItem>
+          args: Prisma.AccountPinnedItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAccountPinnedItem>
         }
         groupBy: {
-          args: Prisma.UserPinnedItemGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UserPinnedItemGroupByOutputType>[]
+          args: Prisma.AccountPinnedItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AccountPinnedItemGroupByOutputType>[]
         }
         count: {
-          args: Prisma.UserPinnedItemCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UserPinnedItemCountAggregateOutputType> | number
+          args: Prisma.AccountPinnedItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AccountPinnedItemCountAggregateOutputType> | number
         }
       }
     }
@@ -2622,6 +2547,7 @@ export const AccountScalarFieldEnum = {
   login: 'login',
   password: 'password',
   name: 'name',
+  pseudo: 'pseudo',
   email: 'email',
   isArtist: 'isArtist',
   createdAt: 'createdAt'
@@ -3352,14 +3278,6 @@ export const PlaylistTrackScalarFieldEnum = {
 export type PlaylistTrackScalarFieldEnum = (typeof PlaylistTrackScalarFieldEnum)[keyof typeof PlaylistTrackScalarFieldEnum]
 
 
-export const UserScalarFieldEnum = {
-  accountId: 'accountId',
-  pseudo: 'pseudo'
-} as const
-
-export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
-
-
 export const PreferenceScalarFieldEnum = {
   accountId: 'accountId',
   ageRange: 'ageRange',
@@ -3400,33 +3318,33 @@ export const GenrePreferenceScalarFieldEnum = {
 export type GenrePreferenceScalarFieldEnum = (typeof GenrePreferenceScalarFieldEnum)[keyof typeof GenrePreferenceScalarFieldEnum]
 
 
-export const PlaylistUserScalarFieldEnum = {
+export const PlaylistAccountScalarFieldEnum = {
   playlistId: 'playlistId',
   accountId: 'accountId'
 } as const
 
-export type PlaylistUserScalarFieldEnum = (typeof PlaylistUserScalarFieldEnum)[keyof typeof PlaylistUserScalarFieldEnum]
+export type PlaylistAccountScalarFieldEnum = (typeof PlaylistAccountScalarFieldEnum)[keyof typeof PlaylistAccountScalarFieldEnum]
 
 
-export const TrackUserLikeScalarFieldEnum = {
+export const TrackAccountLikeScalarFieldEnum = {
   trackId: 'trackId',
   accountId: 'accountId'
 } as const
 
-export type TrackUserLikeScalarFieldEnum = (typeof TrackUserLikeScalarFieldEnum)[keyof typeof TrackUserLikeScalarFieldEnum]
+export type TrackAccountLikeScalarFieldEnum = (typeof TrackAccountLikeScalarFieldEnum)[keyof typeof TrackAccountLikeScalarFieldEnum]
 
 
-export const TrackUserListenScalarFieldEnum = {
+export const TrackAccountListenScalarFieldEnum = {
   trackId: 'trackId',
   accountId: 'accountId',
   count: 'count',
   listenedAt: 'listenedAt'
 } as const
 
-export type TrackUserListenScalarFieldEnum = (typeof TrackUserListenScalarFieldEnum)[keyof typeof TrackUserListenScalarFieldEnum]
+export type TrackAccountListenScalarFieldEnum = (typeof TrackAccountListenScalarFieldEnum)[keyof typeof TrackAccountListenScalarFieldEnum]
 
 
-export const UserPinnedItemScalarFieldEnum = {
+export const AccountPinnedItemScalarFieldEnum = {
   accountId: 'accountId',
   slot: 'slot',
   itemType: 'itemType',
@@ -3437,7 +3355,7 @@ export const UserPinnedItemScalarFieldEnum = {
   pinnedAt: 'pinnedAt'
 } as const
 
-export type UserPinnedItemScalarFieldEnum = (typeof UserPinnedItemScalarFieldEnum)[keyof typeof UserPinnedItemScalarFieldEnum]
+export type AccountPinnedItemScalarFieldEnum = (typeof AccountPinnedItemScalarFieldEnum)[keyof typeof AccountPinnedItemScalarFieldEnum]
 
 
 export const TrackCommentScalarFieldEnum = {
@@ -3686,14 +3604,13 @@ export type GlobalOmitConfig = {
   trackArtistFeat?: Prisma.TrackArtistFeatOmit
   trackLicense?: Prisma.TrackLicenseOmit
   playlistTrack?: Prisma.PlaylistTrackOmit
-  user?: Prisma.UserOmit
   preference?: Prisma.PreferenceOmit
   preferenceVector?: Prisma.PreferenceVectorOmit
   genrePreference?: Prisma.GenrePreferenceOmit
-  playlistUser?: Prisma.PlaylistUserOmit
-  trackUserLike?: Prisma.TrackUserLikeOmit
-  trackUserListen?: Prisma.TrackUserListenOmit
-  userPinnedItem?: Prisma.UserPinnedItemOmit
+  playlistAccount?: Prisma.PlaylistAccountOmit
+  trackAccountLike?: Prisma.TrackAccountLikeOmit
+  trackAccountListen?: Prisma.TrackAccountListenOmit
+  accountPinnedItem?: Prisma.AccountPinnedItemOmit
   trackComment?: Prisma.TrackCommentOmit
 }
 

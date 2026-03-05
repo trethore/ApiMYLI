@@ -344,7 +344,7 @@ export type PreferenceWhereInput = {
   how?: Prisma.StringNullableFilter<"Preference"> | string | null
   platform?: Prisma.StringNullableFilter<"Preference"> | string | null
   utility?: Prisma.StringNullableFilter<"Preference"> | string | null
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
   genrePreferences?: Prisma.GenrePreferenceListRelationFilter
 }
 
@@ -368,7 +368,7 @@ export type PreferenceOrderByWithRelationInput = {
   how?: Prisma.SortOrderInput | Prisma.SortOrder
   platform?: Prisma.SortOrderInput | Prisma.SortOrder
   utility?: Prisma.SortOrderInput | Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
+  account?: Prisma.AccountOrderByWithRelationInput
   genrePreferences?: Prisma.GenrePreferenceOrderByRelationAggregateInput
 }
 
@@ -395,7 +395,7 @@ export type PreferenceWhereUniqueInput = Prisma.AtLeast<{
   how?: Prisma.StringNullableFilter<"Preference"> | string | null
   platform?: Prisma.StringNullableFilter<"Preference"> | string | null
   utility?: Prisma.StringNullableFilter<"Preference"> | string | null
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
   genrePreferences?: Prisma.GenrePreferenceListRelationFilter
 }, "accountId">
 
@@ -470,7 +470,7 @@ export type PreferenceCreateInput = {
   how?: string | null
   platform?: string | null
   utility?: string | null
-  user: Prisma.UserCreateNestedOneWithoutPreferenceInput
+  account: Prisma.AccountCreateNestedOneWithoutPreferenceInput
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutPreferenceInput
 }
 
@@ -516,7 +516,7 @@ export type PreferenceUpdateInput = {
   how?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   platform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   utility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  user?: Prisma.UserUpdateOneRequiredWithoutPreferenceNestedInput
+  account?: Prisma.AccountUpdateOneRequiredWithoutPreferenceNestedInput
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutPreferenceNestedInput
 }
 
@@ -700,36 +700,36 @@ export type PreferenceScalarRelationFilter = {
   isNot?: Prisma.PreferenceWhereInput
 }
 
-export type PreferenceCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.PreferenceCreateWithoutUserInput, Prisma.PreferenceUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.PreferenceCreateOrConnectWithoutUserInput
+export type PreferenceCreateNestedOneWithoutAccountInput = {
+  create?: Prisma.XOR<Prisma.PreferenceCreateWithoutAccountInput, Prisma.PreferenceUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.PreferenceCreateOrConnectWithoutAccountInput
   connect?: Prisma.PreferenceWhereUniqueInput
 }
 
-export type PreferenceUncheckedCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.PreferenceCreateWithoutUserInput, Prisma.PreferenceUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.PreferenceCreateOrConnectWithoutUserInput
+export type PreferenceUncheckedCreateNestedOneWithoutAccountInput = {
+  create?: Prisma.XOR<Prisma.PreferenceCreateWithoutAccountInput, Prisma.PreferenceUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.PreferenceCreateOrConnectWithoutAccountInput
   connect?: Prisma.PreferenceWhereUniqueInput
 }
 
-export type PreferenceUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.PreferenceCreateWithoutUserInput, Prisma.PreferenceUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.PreferenceCreateOrConnectWithoutUserInput
-  upsert?: Prisma.PreferenceUpsertWithoutUserInput
+export type PreferenceUpdateOneWithoutAccountNestedInput = {
+  create?: Prisma.XOR<Prisma.PreferenceCreateWithoutAccountInput, Prisma.PreferenceUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.PreferenceCreateOrConnectWithoutAccountInput
+  upsert?: Prisma.PreferenceUpsertWithoutAccountInput
   disconnect?: Prisma.PreferenceWhereInput | boolean
   delete?: Prisma.PreferenceWhereInput | boolean
   connect?: Prisma.PreferenceWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.PreferenceUpdateToOneWithWhereWithoutUserInput, Prisma.PreferenceUpdateWithoutUserInput>, Prisma.PreferenceUncheckedUpdateWithoutUserInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PreferenceUpdateToOneWithWhereWithoutAccountInput, Prisma.PreferenceUpdateWithoutAccountInput>, Prisma.PreferenceUncheckedUpdateWithoutAccountInput>
 }
 
-export type PreferenceUncheckedUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.PreferenceCreateWithoutUserInput, Prisma.PreferenceUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.PreferenceCreateOrConnectWithoutUserInput
-  upsert?: Prisma.PreferenceUpsertWithoutUserInput
+export type PreferenceUncheckedUpdateOneWithoutAccountNestedInput = {
+  create?: Prisma.XOR<Prisma.PreferenceCreateWithoutAccountInput, Prisma.PreferenceUncheckedCreateWithoutAccountInput>
+  connectOrCreate?: Prisma.PreferenceCreateOrConnectWithoutAccountInput
+  upsert?: Prisma.PreferenceUpsertWithoutAccountInput
   disconnect?: Prisma.PreferenceWhereInput | boolean
   delete?: Prisma.PreferenceWhereInput | boolean
   connect?: Prisma.PreferenceWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.PreferenceUpdateToOneWithWhereWithoutUserInput, Prisma.PreferenceUpdateWithoutUserInput>, Prisma.PreferenceUncheckedUpdateWithoutUserInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PreferenceUpdateToOneWithWhereWithoutAccountInput, Prisma.PreferenceUpdateWithoutAccountInput>, Prisma.PreferenceUncheckedUpdateWithoutAccountInput>
 }
 
 export type PreferenceCreateNestedOneWithoutGenrePreferencesInput = {
@@ -746,7 +746,7 @@ export type PreferenceUpdateOneRequiredWithoutGenrePreferencesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PreferenceUpdateToOneWithWhereWithoutGenrePreferencesInput, Prisma.PreferenceUpdateWithoutGenrePreferencesInput>, Prisma.PreferenceUncheckedUpdateWithoutGenrePreferencesInput>
 }
 
-export type PreferenceCreateWithoutUserInput = {
+export type PreferenceCreateWithoutAccountInput = {
   ageRange?: string | null
   gender?: string | null
   position?: string | null
@@ -768,7 +768,7 @@ export type PreferenceCreateWithoutUserInput = {
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutPreferenceInput
 }
 
-export type PreferenceUncheckedCreateWithoutUserInput = {
+export type PreferenceUncheckedCreateWithoutAccountInput = {
   ageRange?: string | null
   gender?: string | null
   position?: string | null
@@ -790,23 +790,23 @@ export type PreferenceUncheckedCreateWithoutUserInput = {
   genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutPreferenceInput
 }
 
-export type PreferenceCreateOrConnectWithoutUserInput = {
+export type PreferenceCreateOrConnectWithoutAccountInput = {
   where: Prisma.PreferenceWhereUniqueInput
-  create: Prisma.XOR<Prisma.PreferenceCreateWithoutUserInput, Prisma.PreferenceUncheckedCreateWithoutUserInput>
+  create: Prisma.XOR<Prisma.PreferenceCreateWithoutAccountInput, Prisma.PreferenceUncheckedCreateWithoutAccountInput>
 }
 
-export type PreferenceUpsertWithoutUserInput = {
-  update: Prisma.XOR<Prisma.PreferenceUpdateWithoutUserInput, Prisma.PreferenceUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.PreferenceCreateWithoutUserInput, Prisma.PreferenceUncheckedCreateWithoutUserInput>
+export type PreferenceUpsertWithoutAccountInput = {
+  update: Prisma.XOR<Prisma.PreferenceUpdateWithoutAccountInput, Prisma.PreferenceUncheckedUpdateWithoutAccountInput>
+  create: Prisma.XOR<Prisma.PreferenceCreateWithoutAccountInput, Prisma.PreferenceUncheckedCreateWithoutAccountInput>
   where?: Prisma.PreferenceWhereInput
 }
 
-export type PreferenceUpdateToOneWithWhereWithoutUserInput = {
+export type PreferenceUpdateToOneWithWhereWithoutAccountInput = {
   where?: Prisma.PreferenceWhereInput
-  data: Prisma.XOR<Prisma.PreferenceUpdateWithoutUserInput, Prisma.PreferenceUncheckedUpdateWithoutUserInput>
+  data: Prisma.XOR<Prisma.PreferenceUpdateWithoutAccountInput, Prisma.PreferenceUncheckedUpdateWithoutAccountInput>
 }
 
-export type PreferenceUpdateWithoutUserInput = {
+export type PreferenceUpdateWithoutAccountInput = {
   ageRange?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -828,7 +828,7 @@ export type PreferenceUpdateWithoutUserInput = {
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutPreferenceNestedInput
 }
 
-export type PreferenceUncheckedUpdateWithoutUserInput = {
+export type PreferenceUncheckedUpdateWithoutAccountInput = {
   ageRange?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -869,7 +869,7 @@ export type PreferenceCreateWithoutGenrePreferencesInput = {
   how?: string | null
   platform?: string | null
   utility?: string | null
-  user: Prisma.UserCreateNestedOneWithoutPreferenceInput
+  account: Prisma.AccountCreateNestedOneWithoutPreferenceInput
 }
 
 export type PreferenceUncheckedCreateWithoutGenrePreferencesInput = {
@@ -929,7 +929,7 @@ export type PreferenceUpdateWithoutGenrePreferencesInput = {
   how?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   platform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   utility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  user?: Prisma.UserUpdateOneRequiredWithoutPreferenceNestedInput
+  account?: Prisma.AccountUpdateOneRequiredWithoutPreferenceNestedInput
 }
 
 export type PreferenceUncheckedUpdateWithoutGenrePreferencesInput = {
@@ -1005,7 +1005,7 @@ export type PreferenceSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   how?: boolean
   platform?: boolean
   utility?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
   genrePreferences?: boolean | Prisma.Preference$genrePreferencesArgs<ExtArgs>
   _count?: boolean | Prisma.PreferenceCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["preference"]>
@@ -1030,7 +1030,7 @@ export type PreferenceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   how?: boolean
   platform?: boolean
   utility?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["preference"]>
 
 export type PreferenceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1053,7 +1053,7 @@ export type PreferenceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   how?: boolean
   platform?: boolean
   utility?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["preference"]>
 
 export type PreferenceSelectScalar = {
@@ -1080,21 +1080,21 @@ export type PreferenceSelectScalar = {
 
 export type PreferenceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"accountId" | "ageRange" | "gender" | "position" | "hasConsented" | "isListening" | "frequency" | "whenListening" | "durationPref" | "energyPref" | "tempoPref" | "feelingPref" | "isLivePref" | "qualityPref" | "curiosityPref" | "context" | "how" | "platform" | "utility", ExtArgs["result"]["preference"]>
 export type PreferenceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
   genrePreferences?: boolean | Prisma.Preference$genrePreferencesArgs<ExtArgs>
   _count?: boolean | Prisma.PreferenceCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PreferenceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }
 export type PreferenceIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
 }
 
 export type $PreferencePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Preference"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
+    account: Prisma.$AccountPayload<ExtArgs>
     genrePreferences: Prisma.$GenrePreferencePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1511,7 +1511,7 @@ readonly fields: PreferenceFieldRefs;
  */
 export interface Prisma__PreferenceClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  account<T extends Prisma.AccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountDefaultArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   genrePreferences<T extends Prisma.Preference$genrePreferencesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Preference$genrePreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GenrePreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
