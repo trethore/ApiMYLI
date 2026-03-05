@@ -15,6 +15,74 @@ const validatePassword = (password: string): void => {
   }
 };
 
+const resolveLoginUpdate = async (
+  accountRepository: AccountRepository,
+  targetAccountId: string,
+  login: string | null | undefined,
+): Promise<string | null | undefined> => {
+  if (login === undefined) {
+    return undefined;
+  }
+
+  if (login === null) {
+    return null;
+  }
+
+  const normalizedLogin = login.trim();
+  if (!normalizedLogin) {
+    throw new Error("Login is required");
+  }
+
+  const existingLogin = await accountRepository.findByLogin(normalizedLogin);
+  if (existingLogin && existingLogin.accountId !== targetAccountId) {
+    throw new Error("Login already in use");
+  }
+
+  return normalizedLogin;
+};
+
+const resolveEmailUpdate = async (
+  accountRepository: AccountRepository,
+  targetAccountId: string,
+  email: string | null | undefined,
+): Promise<string | null | undefined> => {
+  if (email === undefined) {
+    return undefined;
+  }
+
+  if (email === null) {
+    return null;
+  }
+
+  const normalizedEmail = email.trim();
+  if (!normalizedEmail) {
+    throw new Error("Email is required");
+  }
+
+  const existingEmail = await accountRepository.findByEmail(normalizedEmail);
+  if (existingEmail && existingEmail.accountId !== targetAccountId) {
+    throw new Error("Email already in use");
+  }
+
+  return normalizedEmail;
+};
+
+const resolvePasswordUpdate = async (
+  passwordHasher: PasswordHasherPort,
+  password: string | null | undefined,
+): Promise<string | null | undefined> => {
+  if (password === undefined) {
+    return undefined;
+  }
+
+  if (password === null) {
+    return null;
+  }
+
+  validatePassword(password);
+  return passwordHasher.hash(password);
+};
+
 export type UpdateAccountInput = {
   login?: string | null;
   email?: string | null;
@@ -43,49 +111,27 @@ export const updateAccount = async (
     isArtist: input.isArtist ?? undefined,
   };
 
-  if (input.login !== undefined) {
-    if (input.login === null) {
-      updateData.login = null;
-    } else {
-      const normalizedLogin = input.login.trim();
-      if (!normalizedLogin) {
-        throw new Error("Login is required");
-      }
-
-      const existingLogin = await dependencies.accountRepository.findByLogin(normalizedLogin);
-      if (existingLogin && existingLogin.accountId !== targetAccountId) {
-        throw new Error("Login already in use");
-      }
-
-      updateData.login = normalizedLogin;
-    }
+  const loginUpdate = await resolveLoginUpdate(
+    dependencies.accountRepository,
+    targetAccountId,
+    input.login,
+  );
+  if (loginUpdate !== undefined) {
+    updateData.login = loginUpdate;
   }
 
-  if (input.email !== undefined) {
-    if (input.email === null) {
-      updateData.email = null;
-    } else {
-      const normalizedEmail = input.email.trim();
-      if (!normalizedEmail) {
-        throw new Error("Email is required");
-      }
-
-      const existingEmail = await dependencies.accountRepository.findByEmail(normalizedEmail);
-      if (existingEmail && existingEmail.accountId !== targetAccountId) {
-        throw new Error("Email already in use");
-      }
-
-      updateData.email = normalizedEmail;
-    }
+  const emailUpdate = await resolveEmailUpdate(
+    dependencies.accountRepository,
+    targetAccountId,
+    input.email,
+  );
+  if (emailUpdate !== undefined) {
+    updateData.email = emailUpdate;
   }
 
-  if (input.password !== undefined) {
-    if (input.password === null) {
-      updateData.password = null;
-    } else {
-      validatePassword(input.password);
-      updateData.password = await dependencies.passwordHasher.hash(input.password);
-    }
+  const passwordUpdate = await resolvePasswordUpdate(dependencies.passwordHasher, input.password);
+  if (passwordUpdate !== undefined) {
+    updateData.password = passwordUpdate;
   }
 
   return dependencies.accountRepository.update(targetAccountId, updateData);

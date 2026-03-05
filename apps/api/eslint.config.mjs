@@ -3,13 +3,17 @@ import prettierConfig from "eslint-config-prettier";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-export default tseslint.config(
+export default [
   {
     ignores: ["prisma/generated/**", "schema.gql", "data/**"],
   },
+
   js.configs.recommended,
+
   ...tseslint.configs.recommended,
+
   prettierConfig,
+
   {
     files: ["**/*.ts"],
     languageOptions: {
@@ -20,4 +24,4 @@ export default tseslint.config(
       },
     },
   },
-);
+];
