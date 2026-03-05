@@ -18,12 +18,19 @@ model Account {
   login     String?  @unique @db.VarChar(255)
   password  String?  @db.VarChar(255)
   name      String?  @db.VarChar(255)
+  pseudo    String?  @db.VarChar(255)
   email     String?  @unique @db.VarChar(255)
   isArtist  Boolean  @default(false) @map("is_artist")
   createdAt DateTime? @map("created_at") @db.Timestamp(6)
 
-  artist Artist?
-  user   User?
+  artist           Artist?
+  preference       Preference?
+  preferenceVector PreferenceVector?
+  playlistAccounts PlaylistAccount[]
+  trackLikes       TrackAccountLike[]
+  trackListens     TrackAccountListen[]
+  pinnedItems      AccountPinnedItem[]
+  trackComments    TrackComment[]
 
   @@map("account")
 }
@@ -42,12 +49,12 @@ model Artist {
   artistFavorites       BigInt? @map("artist_favorites")
   artistComments        BigInt? @map("artist_comments")
 
-  account      Account           @relation(fields: [artistId], references: [accountId])
+  account      Account             @relation(fields: [artistId], references: [accountId])
   artistTags   ArtistTag[]
   albumArtists AlbumArtist[]
   mainTracks   TrackArtistMain[]
   featTracks   TrackArtistFeat[]
-  pinnedItems  UserPinnedItem[]  @relation("PinnedArtist")
+  pinnedItems  AccountPinnedItem[] @relation("PinnedArtist")
   rankArtists  RankArtist[]
 
   @@map("artist")
@@ -68,7 +75,7 @@ model Album {
 
   tracks       Track[]
   albumArtists AlbumArtist[]
-  pinnedItems  UserPinnedItem[] @relation("PinnedAlbum")
+  pinnedItems  AccountPinnedItem[] @relation("PinnedAlbum")
 
   @@map("album")
 }
@@ -120,9 +127,9 @@ model Track {
   trackLicenses   TrackLicense[]
   playlistTracks  PlaylistTrack[]
   rankTracks      RankTrack[]
-  userLikes       TrackUserLike[]
-  userListens     TrackUserListen[]
-  pinnedItems     UserPinnedItem[]  @relation("PinnedTrack")
+  accountLikes    TrackAccountLike[]
+  accountListens  TrackAccountListen[]
+  pinnedItems     AccountPinnedItem[] @relation("PinnedTrack")
   comments        TrackComment[]
 
   @@map("track")
@@ -685,8 +692,8 @@ model Playlist {
   playlistName String? @map("playlist_name") @db.VarChar(255)
 
   playlistTracks PlaylistTrack[]
-  playlistUsers  PlaylistUser[]
-  pinnedItems    UserPinnedItem[] @relation("PinnedPlaylist")
+  playlistAccounts PlaylistAccount[]
+  pinnedItems      AccountPinnedItem[] @relation("PinnedPlaylist")
 
   @@map("playlist")
 }
@@ -823,24 +830,8 @@ model PlaylistTrack {
 }
 
 // ============================================================================
-// USER-RELATED TABLES
+// ACCOUNT-RELATED TABLES
 // ============================================================================
-
-model User {
-  accountId String  @id @map("account_id") @db.Uuid
-  pseudo    String? @db.VarChar(255)
-
-  account          Account           @relation(fields: [accountId], references: [accountId])
-  preference       Preference?
-  preferenceVector PreferenceVector?
-  playlistUsers    PlaylistUser[]
-  trackLikes       TrackUserLike[]
-  trackListens     TrackUserListen[]
-  pinnedItems      UserPinnedItem[]
-  trackComments    TrackComment[]
-
-  @@map("user")
-}
 
 model Preference {
   accountId     String   @id @map("account_id") @db.Uuid
@@ -863,7 +854,7 @@ model Preference {
   platform      String?  @db.VarChar(255)
   utility       String?  @db.VarChar(255)
 
-  user             User              @relation(fields: [accountId], references: [accountId])
+  account          Account           @relation(fields: [accountId], references: [accountId])
   genrePreferences GenrePreference[]
 
   @@map("preference")
@@ -873,7 +864,7 @@ model PreferenceVector {
   accountId String                     @id @map("account_id") @db.Uuid
   embedding Unsupported("VECTOR(71)")? @map("embedding")
 
-  user User @relation(fields: [accountId], references: [accountId])
+  account Account @relation(fields: [accountId], references: [accountId])
 
   @@map("preference_vector")
 }
@@ -889,39 +880,39 @@ model GenrePreference {
   @@map("genre_preference")
 }
 
-model PlaylistUser {
+model PlaylistAccount {
   playlistId String @map("playlist_id") @db.Uuid
   accountId  String @map("account_id") @db.Uuid
 
   playlist Playlist @relation(fields: [playlistId], references: [playlistId])
-  user     User     @relation(fields: [accountId], references: [accountId])
+  account  Account  @relation(fields: [accountId], references: [accountId])
 
   @@id([playlistId, accountId])
-  @@map("playlist_user")
+  @@map("playlist_account")
 }
 
-model TrackUserLike {
+model TrackAccountLike {
   trackId   String @map("track_id") @db.Uuid
   accountId String @map("account_id") @db.Uuid
 
-  track Track @relation(fields: [trackId], references: [trackId])
-  user  User  @relation(fields: [accountId], references: [accountId])
+  track   Track   @relation(fields: [trackId], references: [trackId])
+  account Account @relation(fields: [accountId], references: [accountId])
 
   @@id([trackId, accountId])
-  @@map("track_user_like")
+  @@map("track_account_like")
 }
 
-model TrackUserListen {
+model TrackAccountListen {
   trackId    String   @map("track_id") @db.Uuid
   accountId  String   @map("account_id") @db.Uuid
   count      Int?     @default(1)
   listenedAt DateTime @default(now()) @map("listened_at") @db.Timestamp(6)
 
-  track Track @relation(fields: [trackId], references: [trackId])
-  user  User  @relation(fields: [accountId], references: [accountId])
+  track   Track   @relation(fields: [trackId], references: [trackId])
+  account Account @relation(fields: [accountId], references: [accountId])
 
   @@id([trackId, accountId])
-  @@map("track_user_listen")
+  @@map("track_account_listen")
 }
 
 enum PinnedItemType {
@@ -933,7 +924,7 @@ enum PinnedItemType {
   @@map("pinned_item_type")
 }
 
-model UserPinnedItem {
+model AccountPinnedItem {
   accountId  String         @map("account_id") @db.Uuid
   slot       Int
   itemType   PinnedItemType @map("item_type")
@@ -943,14 +934,14 @@ model UserPinnedItem {
   playlistId String?        @map("playlist_id") @db.Uuid
   pinnedAt   DateTime       @default(now()) @map("pinned_at") @db.Timestamp(6)
 
-  user     User      @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
+  account  Account   @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
   track    Track?    @relation("PinnedTrack", fields: [trackId], references: [trackId], onDelete: Cascade)
   album    Album?    @relation("PinnedAlbum", fields: [albumId], references: [albumId], onDelete: Cascade)
   artist   Artist?   @relation("PinnedArtist", fields: [artistId], references: [artistId], onDelete: Cascade)
   playlist Playlist? @relation("PinnedPlaylist", fields: [playlistId], references: [playlistId], onDelete: Cascade)
 
   @@id([accountId, slot])
-  @@map("user_pinned_item")
+  @@map("account_pinned_item")
 }
 
 model TrackComment {
@@ -960,8 +951,8 @@ model TrackComment {
   content   String?
   createdAt DateTime? @default(now()) @map("created_at") @db.Timestamp(6)
 
-  track Track @relation(fields: [trackId], references: [trackId])
-  user  User? @relation(fields: [accountId], references: [accountId])
+  track   Track   @relation(fields: [trackId], references: [trackId])
+  account Account? @relation(fields: [accountId], references: [accountId])
 
   @@map("track_comment")
 }

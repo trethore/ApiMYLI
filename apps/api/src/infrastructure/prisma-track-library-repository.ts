@@ -36,15 +36,15 @@ export const createPrismaTrackLibraryRepository = (
         return null;
       }
 
-      const existingLike = await transaction.trackUserLike.findFirst({
+      const existingLike = await transaction.trackAccountLike.findFirst({
         where: { trackId, accountId },
       });
 
       if (!existingLike) {
-        await transaction.trackUserLike.create({
+        await transaction.trackAccountLike.create({
           data: {
             track: { connect: { trackId } },
-            user: { connect: { accountId } },
+            account: { connect: { accountId } },
           },
         });
 
@@ -70,12 +70,12 @@ export const createPrismaTrackLibraryRepository = (
         return null;
       }
 
-      const existingLike = await transaction.trackUserLike.findFirst({
+      const existingLike = await transaction.trackAccountLike.findFirst({
         where: { trackId, accountId },
       });
 
       if (existingLike) {
-        await transaction.trackUserLike.delete({
+        await transaction.trackAccountLike.delete({
           where: {
             trackId_accountId: {
               trackId,
@@ -100,15 +100,12 @@ export const createPrismaTrackLibraryRepository = (
   listLikedTracks: async (accountId: string): Promise<Track[]> => {
     const tracks = await prisma.track.findMany({
       where: {
-        userLikes: {
+        accountLikes: {
           some: { accountId },
         },
       },
       include: trackInclude(accountId),
-      orderBy: [
-        { trackFavorites: "desc" },
-        { trackTitle: "asc" },
-      ],
+      orderBy: [{ trackFavorites: "desc" }, { trackTitle: "asc" }],
     });
 
     return tracks.map(toTrack);
@@ -124,12 +121,12 @@ export const createPrismaTrackLibraryRepository = (
         return false;
       }
 
-      const existingListen = await transaction.trackUserListen.findFirst({
+      const existingListen = await transaction.trackAccountListen.findFirst({
         where: { trackId, accountId },
       });
 
       if (existingListen) {
-        await transaction.trackUserListen.update({
+        await transaction.trackAccountListen.update({
           where: {
             trackId_accountId: {
               trackId,
@@ -142,12 +139,12 @@ export const createPrismaTrackLibraryRepository = (
           },
         });
       } else {
-        await transaction.trackUserListen.create({
+        await transaction.trackAccountListen.create({
           data: {
             count: 1,
             listenedAt: new Date(),
             track: { connect: { trackId } },
-            user: { connect: { accountId } },
+            account: { connect: { accountId } },
           },
         });
       }

@@ -1,4 +1,10 @@
-import type { Album, Prisma, TrackArtistFeat, TrackArtistMain, User } from "@prisma/generated/prisma/client";
+import type {
+  Account,
+  Album,
+  Prisma,
+  TrackArtistFeat,
+  TrackArtistMain,
+} from "@prisma/generated/prisma/client";
 import type { Playlist as PlaylistEntity } from "packages/domain/src/entities/playlist";
 import type { ArtistSummary, Track } from "packages/domain/src/entities/track";
 
@@ -10,7 +16,7 @@ const toNullableNumber = (value: bigint | number | null | undefined): number | n
   return Number(value);
 };
 
-const trackUserLikesArgs = (currentAccountId?: string | null): Prisma.Track$userLikesArgs => {
+const trackAccountLikesArgs = (currentAccountId?: string | null): Prisma.Track$accountLikesArgs => {
   if (!currentAccountId) {
     return { take: 0 };
   }
@@ -42,18 +48,14 @@ export const trackInclude = (currentAccountId?: string | null) =>
         },
       },
     },
-    userLikes: trackUserLikesArgs(currentAccountId),
+    accountLikes: trackAccountLikesArgs(currentAccountId),
   }) satisfies Prisma.TrackInclude;
 
 export const playlistInclude = (currentAccountId?: string | null) =>
   ({
-    playlistUsers: {
+    playlistAccounts: {
       include: {
-        user: {
-          include: {
-            account: true,
-          },
-        },
+        account: true,
       },
     },
     playlistTracks: {
@@ -127,11 +129,11 @@ export const toTrack = (track: PrismaTrackWithRelations): Track => ({
   album: track.album ? toAlbumSummary(track.album) : null,
   mainArtists: track.mainArtists.map(toArtistSummary),
   featArtists: track.featArtists.map(toArtistSummary),
-  isLiked: track.userLikes.length > 0,
+  isLiked: track.accountLikes.length > 0,
 });
 
-const toOwnerDisplayName = (user: User & { account: { name: string | null; login: string | null } }) => {
-  return user.pseudo ?? user.account.name ?? user.account.login;
+const toOwnerDisplayName = (account: Account): string | null => {
+  return account.pseudo ?? account.name ?? account.login;
 };
 
 export const toPlaylist = (
@@ -140,11 +142,13 @@ export const toPlaylist = (
 ): PlaylistEntity => ({
   playlistId: playlist.playlistId,
   name: playlist.playlistName,
-  ownerDisplayName: playlist.playlistUsers[0]?.user
-    ? toOwnerDisplayName(playlist.playlistUsers[0].user)
+  ownerDisplayName: playlist.playlistAccounts[0]?.account
+    ? toOwnerDisplayName(playlist.playlistAccounts[0].account)
     : null,
   isEditable: currentAccountId
-    ? playlist.playlistUsers.some((playlistUser) => playlistUser.accountId === currentAccountId)
+    ? playlist.playlistAccounts.some(
+        (playlistAccount) => playlistAccount.accountId === currentAccountId,
+      )
     : false,
   trackCount: playlist.playlistTracks.length,
   tracks: playlist.playlistTracks.map((playlistTrack) => toTrack(playlistTrack.track)),

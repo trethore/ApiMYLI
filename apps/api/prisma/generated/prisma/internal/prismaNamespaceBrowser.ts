@@ -71,14 +71,13 @@ export const ModelName = {
   TrackArtistFeat: 'TrackArtistFeat',
   TrackLicense: 'TrackLicense',
   PlaylistTrack: 'PlaylistTrack',
-  User: 'User',
   Preference: 'Preference',
   PreferenceVector: 'PreferenceVector',
   GenrePreference: 'GenrePreference',
-  PlaylistUser: 'PlaylistUser',
-  TrackUserLike: 'TrackUserLike',
-  TrackUserListen: 'TrackUserListen',
-  UserPinnedItem: 'UserPinnedItem',
+  PlaylistAccount: 'PlaylistAccount',
+  TrackAccountLike: 'TrackAccountLike',
+  TrackAccountListen: 'TrackAccountListen',
+  AccountPinnedItem: 'AccountPinnedItem',
   TrackComment: 'TrackComment'
 } as const
 
@@ -103,6 +102,7 @@ export const AccountScalarFieldEnum = {
   login: 'login',
   password: 'password',
   name: 'name',
+  pseudo: 'pseudo',
   email: 'email',
   isArtist: 'isArtist',
   createdAt: 'createdAt'
@@ -833,14 +833,6 @@ export const PlaylistTrackScalarFieldEnum = {
 export type PlaylistTrackScalarFieldEnum = (typeof PlaylistTrackScalarFieldEnum)[keyof typeof PlaylistTrackScalarFieldEnum]
 
 
-export const UserScalarFieldEnum = {
-  accountId: 'accountId',
-  pseudo: 'pseudo'
-} as const
-
-export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
-
-
 export const PreferenceScalarFieldEnum = {
   accountId: 'accountId',
   ageRange: 'ageRange',
@@ -881,33 +873,33 @@ export const GenrePreferenceScalarFieldEnum = {
 export type GenrePreferenceScalarFieldEnum = (typeof GenrePreferenceScalarFieldEnum)[keyof typeof GenrePreferenceScalarFieldEnum]
 
 
-export const PlaylistUserScalarFieldEnum = {
+export const PlaylistAccountScalarFieldEnum = {
   playlistId: 'playlistId',
   accountId: 'accountId'
 } as const
 
-export type PlaylistUserScalarFieldEnum = (typeof PlaylistUserScalarFieldEnum)[keyof typeof PlaylistUserScalarFieldEnum]
+export type PlaylistAccountScalarFieldEnum = (typeof PlaylistAccountScalarFieldEnum)[keyof typeof PlaylistAccountScalarFieldEnum]
 
 
-export const TrackUserLikeScalarFieldEnum = {
+export const TrackAccountLikeScalarFieldEnum = {
   trackId: 'trackId',
   accountId: 'accountId'
 } as const
 
-export type TrackUserLikeScalarFieldEnum = (typeof TrackUserLikeScalarFieldEnum)[keyof typeof TrackUserLikeScalarFieldEnum]
+export type TrackAccountLikeScalarFieldEnum = (typeof TrackAccountLikeScalarFieldEnum)[keyof typeof TrackAccountLikeScalarFieldEnum]
 
 
-export const TrackUserListenScalarFieldEnum = {
+export const TrackAccountListenScalarFieldEnum = {
   trackId: 'trackId',
   accountId: 'accountId',
   count: 'count',
   listenedAt: 'listenedAt'
 } as const
 
-export type TrackUserListenScalarFieldEnum = (typeof TrackUserListenScalarFieldEnum)[keyof typeof TrackUserListenScalarFieldEnum]
+export type TrackAccountListenScalarFieldEnum = (typeof TrackAccountListenScalarFieldEnum)[keyof typeof TrackAccountListenScalarFieldEnum]
 
 
-export const UserPinnedItemScalarFieldEnum = {
+export const AccountPinnedItemScalarFieldEnum = {
   accountId: 'accountId',
   slot: 'slot',
   itemType: 'itemType',
@@ -918,7 +910,7 @@ export const UserPinnedItemScalarFieldEnum = {
   pinnedAt: 'pinnedAt'
 } as const
 
-export type UserPinnedItemScalarFieldEnum = (typeof UserPinnedItemScalarFieldEnum)[keyof typeof UserPinnedItemScalarFieldEnum]
+export type AccountPinnedItemScalarFieldEnum = (typeof AccountPinnedItemScalarFieldEnum)[keyof typeof AccountPinnedItemScalarFieldEnum]
 
 
 export const TrackCommentScalarFieldEnum = {

@@ -138,15 +138,11 @@ export const createPrismaAccountRepository = (prisma: PrismaClient): AccountRepo
     const account = await prisma.account.create({
       data: {
         login: data.login,
+        pseudo: data.login,
         email: data.email,
         password: data.password,
         name: data.name,
         isArtist: data.isArtist,
-        user: {
-          create: {
-            pseudo: data.login,
-          },
-        },
         artist: data.isArtist ? { create: {} } : undefined,
       },
       include: { artist: true },
@@ -187,6 +183,7 @@ export const createPrismaAccountRepository = (prisma: PrismaClient): AccountRepo
     const accountUpdateInput: Prisma.AccountUpdateInput = {};
     if (data.login !== undefined) {
       accountUpdateInput.login = data.login;
+      accountUpdateInput.pseudo = data.login;
     }
 
     if (data.email !== undefined) {
@@ -257,15 +254,14 @@ export const createPrismaAccountRepository = (prisma: PrismaClient): AccountRepo
   delete: async (id: string): Promise<boolean> => {
     try {
       const deletedCount = await prisma.$transaction(async (transaction): Promise<number> => {
-        await transaction.trackUserLike.deleteMany({ where: { accountId: id } });
-        await transaction.trackUserListen.deleteMany({ where: { accountId: id } });
+        await transaction.trackAccountLike.deleteMany({ where: { accountId: id } });
+        await transaction.trackAccountListen.deleteMany({ where: { accountId: id } });
         await transaction.trackComment.deleteMany({ where: { accountId: id } });
-        await transaction.userPinnedItem.deleteMany({ where: { accountId: id } });
+        await transaction.accountPinnedItem.deleteMany({ where: { accountId: id } });
         await transaction.genrePreference.deleteMany({ where: { accountId: id } });
         await transaction.preferenceVector.deleteMany({ where: { accountId: id } });
         await transaction.preference.deleteMany({ where: { accountId: id } });
-        await transaction.playlistUser.deleteMany({ where: { accountId: id } });
-        await transaction.user.deleteMany({ where: { accountId: id } });
+        await transaction.playlistAccount.deleteMany({ where: { accountId: id } });
         await transaction.artist.deleteMany({ where: { artistId: id } });
         const result = await transaction.account.deleteMany({ where: { accountId: id } });
         return result.count;

@@ -17,7 +17,7 @@ const hasPlaylistAccess = async (
   const playlist = await dbClient.playlist.findFirst({
     where: {
       playlistId,
-      playlistUsers: {
+      playlistAccounts: {
         some: { accountId },
       },
     },
@@ -50,7 +50,7 @@ export const createPrismaPlaylistRepository = (prisma: PrismaClient): PlaylistRe
   listByAccountId: async (accountId: string): Promise<Playlist[]> => {
     const playlists = await prisma.playlist.findMany({
       where: {
-        playlistUsers: {
+        playlistAccounts: {
           some: { accountId },
         },
       },
@@ -66,9 +66,9 @@ export const createPrismaPlaylistRepository = (prisma: PrismaClient): PlaylistRe
     const playlist = await prisma.playlist.create({
       data: {
         playlistName: data.name,
-        playlistUsers: {
+        playlistAccounts: {
           create: {
-            user: {
+            account: {
               connect: { accountId },
             },
           },
@@ -109,7 +109,7 @@ export const createPrismaPlaylistRepository = (prisma: PrismaClient): PlaylistRe
 
     await prisma.$transaction(async (transaction) => {
       await transaction.playlistTrack.deleteMany({ where: { playlistId } });
-      await transaction.playlistUser.deleteMany({ where: { playlistId } });
+      await transaction.playlistAccount.deleteMany({ where: { playlistId } });
       await transaction.playlist.delete({ where: { playlistId } });
     });
 
