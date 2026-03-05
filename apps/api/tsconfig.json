@@ -15,5 +15,5 @@
       "packages/*": ["../../packages/*"]
     }
   },
-  "include": ["src/**/*.ts", "scripts/**/*.ts", "prisma/**/*.ts"]
+  "include": ["src/**/*.ts", "scripts/**/*.ts", "seed/**/*.ts", "prisma/**/*.ts"]
 }

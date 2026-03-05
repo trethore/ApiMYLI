@@ -20,34 +20,5228 @@ export type TemporalFeatureModel = runtime.Types.Result.DefaultSelection<Prisma.
 
 export type AggregateTemporalFeature = {
   _count: TemporalFeatureCountAggregateOutputType | null
+  _avg: TemporalFeatureAvgAggregateOutputType | null
+  _sum: TemporalFeatureSumAggregateOutputType | null
   _min: TemporalFeatureMinAggregateOutputType | null
   _max: TemporalFeatureMaxAggregateOutputType | null
 }
 
+export type TemporalFeatureAvgAggregateOutputType = {
+  chroma_cens_kurtosis: number | null
+  chroma_cens_kurtosis1: number | null
+  chroma_cens_kurtosis2: number | null
+  chroma_cens_kurtosis3: number | null
+  chroma_cens_kurtosis4: number | null
+  chroma_cens_kurtosis5: number | null
+  chroma_cens_kurtosis6: number | null
+  chroma_cens_kurtosis7: number | null
+  chroma_cens_kurtosis8: number | null
+  chroma_cens_kurtosis9: number | null
+  chroma_cens_kurtosis10: number | null
+  chroma_cens_kurtosis11: number | null
+  chroma_cens_max: number | null
+  chroma_cens_max1: number | null
+  chroma_cens_max2: number | null
+  chroma_cens_max3: number | null
+  chroma_cens_max4: number | null
+  chroma_cens_max5: number | null
+  chroma_cens_max6: number | null
+  chroma_cens_max7: number | null
+  chroma_cens_max8: number | null
+  chroma_cens_max9: number | null
+  chroma_cens_max10: number | null
+  chroma_cens_max11: number | null
+  chroma_cens_mean: number | null
+  chroma_cens_mean1: number | null
+  chroma_cens_mean2: number | null
+  chroma_cens_mean3: number | null
+  chroma_cens_mean4: number | null
+  chroma_cens_mean5: number | null
+  chroma_cens_mean6: number | null
+  chroma_cens_mean7: number | null
+  chroma_cens_mean8: number | null
+  chroma_cens_mean9: number | null
+  chroma_cens_mean10: number | null
+  chroma_cens_mean11: number | null
+  chroma_cens_median: number | null
+  chroma_cens_median1: number | null
+  chroma_cens_median2: number | null
+  chroma_cens_median3: number | null
+  chroma_cens_median4: number | null
+  chroma_cens_median5: number | null
+  chroma_cens_median6: number | null
+  chroma_cens_median7: number | null
+  chroma_cens_median8: number | null
+  chroma_cens_median9: number | null
+  chroma_cens_median10: number | null
+  chroma_cens_median11: number | null
+  chroma_cens_min: number | null
+  chroma_cens_min1: number | null
+  chroma_cens_min2: number | null
+  chroma_cens_min3: number | null
+  chroma_cens_min4: number | null
+  chroma_cens_min5: number | null
+  chroma_cens_min6: number | null
+  chroma_cens_min7: number | null
+  chroma_cens_min8: number | null
+  chroma_cens_min9: number | null
+  chroma_cens_min10: number | null
+  chroma_cens_min11: number | null
+  chroma_cens_skew: number | null
+  chroma_cens_skew1: number | null
+  chroma_cens_skew2: number | null
+  chroma_cens_skew3: number | null
+  chroma_cens_skew4: number | null
+  chroma_cens_skew5: number | null
+  chroma_cens_skew6: number | null
+  chroma_cens_skew7: number | null
+  chroma_cens_skew8: number | null
+  chroma_cens_skew9: number | null
+  chroma_cens_skew10: number | null
+  chroma_cens_skew11: number | null
+  chroma_cens_std: number | null
+  chroma_cens_std1: number | null
+  chroma_cens_std2: number | null
+  chroma_cens_std3: number | null
+  chroma_cens_std4: number | null
+  chroma_cens_std5: number | null
+  chroma_cens_std6: number | null
+  chroma_cens_std7: number | null
+  chroma_cens_std8: number | null
+  chroma_cens_std9: number | null
+  chroma_cens_std10: number | null
+  chroma_cens_std11: number | null
+  chroma_cqt_kurtosis: number | null
+  chroma_cqt_kurtosis1: number | null
+  chroma_cqt_kurtosis2: number | null
+  chroma_cqt_kurtosis3: number | null
+  chroma_cqt_kurtosis4: number | null
+  chroma_cqt_kurtosis5: number | null
+  chroma_cqt_kurtosis6: number | null
+  chroma_cqt_kurtosis7: number | null
+  chroma_cqt_kurtosis8: number | null
+  chroma_cqt_kurtosis9: number | null
+  chroma_cqt_kurtosis10: number | null
+  chroma_cqt_kurtosis11: number | null
+  chroma_cqt_max: number | null
+  chroma_cqt_max1: number | null
+  chroma_cqt_max2: number | null
+  chroma_cqt_max3: number | null
+  chroma_cqt_max4: number | null
+  chroma_cqt_max5: number | null
+  chroma_cqt_max6: number | null
+  chroma_cqt_max7: number | null
+  chroma_cqt_max8: number | null
+  chroma_cqt_max9: number | null
+  chroma_cqt_max10: number | null
+  chroma_cqt_max11: number | null
+  chroma_cqt_mean: number | null
+  chroma_cqt_mean1: number | null
+  chroma_cqt_mean2: number | null
+  chroma_cqt_mean3: number | null
+  chroma_cqt_mean4: number | null
+  chroma_cqt_mean5: number | null
+  chroma_cqt_mean6: number | null
+  chroma_cqt_mean7: number | null
+  chroma_cqt_mean8: number | null
+  chroma_cqt_mean9: number | null
+  chroma_cqt_mean10: number | null
+  chroma_cqt_mean11: number | null
+  chroma_cqt_median: number | null
+  chroma_cqt_median1: number | null
+  chroma_cqt_median2: number | null
+  chroma_cqt_median3: number | null
+  chroma_cqt_median4: number | null
+  chroma_cqt_median5: number | null
+  chroma_cqt_median6: number | null
+  chroma_cqt_median7: number | null
+  chroma_cqt_median8: number | null
+  chroma_cqt_median9: number | null
+  chroma_cqt_median10: number | null
+  chroma_cqt_median11: number | null
+  chroma_cqt_min: number | null
+  chroma_cqt_min1: number | null
+  chroma_cqt_min2: number | null
+  chroma_cqt_min3: number | null
+  chroma_cqt_min4: number | null
+  chroma_cqt_min5: number | null
+  chroma_cqt_min6: number | null
+  chroma_cqt_min7: number | null
+  chroma_cqt_min8: number | null
+  chroma_cqt_min9: number | null
+  chroma_cqt_min10: number | null
+  chroma_cqt_min11: number | null
+  chroma_cqt_skew: number | null
+  chroma_cqt_skew1: number | null
+  chroma_cqt_skew2: number | null
+  chroma_cqt_skew3: number | null
+  chroma_cqt_skew4: number | null
+  chroma_cqt_skew5: number | null
+  chroma_cqt_skew6: number | null
+  chroma_cqt_skew7: number | null
+  chroma_cqt_skew8: number | null
+  chroma_cqt_skew9: number | null
+  chroma_cqt_skew10: number | null
+  chroma_cqt_skew11: number | null
+  chroma_cqt_std: number | null
+  chroma_cqt_std1: number | null
+  chroma_cqt_std2: number | null
+  chroma_cqt_std3: number | null
+  chroma_cqt_std4: number | null
+  chroma_cqt_std5: number | null
+  chroma_cqt_std6: number | null
+  chroma_cqt_std7: number | null
+  chroma_cqt_std8: number | null
+  chroma_cqt_std9: number | null
+  chroma_cqt_std10: number | null
+  chroma_cqt_std11: number | null
+  chroma_stft_kurtosis: number | null
+  chroma_stft_kurtosis1: number | null
+  chroma_stft_kurtosis2: number | null
+  chroma_stft_kurtosis3: number | null
+  chroma_stft_kurtosis4: number | null
+  chroma_stft_kurtosis5: number | null
+  chroma_stft_kurtosis6: number | null
+  chroma_stft_kurtosis7: number | null
+  chroma_stft_kurtosis8: number | null
+  chroma_stft_kurtosis9: number | null
+  chroma_stft_kurtosis10: number | null
+  chroma_stft_kurtosis11: number | null
+  chroma_stft_max: number | null
+  chroma_stft_max1: number | null
+  chroma_stft_max2: number | null
+  chroma_stft_max3: number | null
+  chroma_stft_max4: number | null
+  chroma_stft_max5: number | null
+  chroma_stft_max6: number | null
+  chroma_stft_max7: number | null
+  chroma_stft_max8: number | null
+  chroma_stft_max9: number | null
+  chroma_stft_max10: number | null
+  chroma_stft_max11: number | null
+  chroma_stft_mean: number | null
+  chroma_stft_mean1: number | null
+  chroma_stft_mean2: number | null
+  chroma_stft_mean3: number | null
+  chroma_stft_mean4: number | null
+  chroma_stft_mean5: number | null
+  chroma_stft_mean6: number | null
+  chroma_stft_mean7: number | null
+  chroma_stft_mean8: number | null
+  chroma_stft_mean9: number | null
+  chroma_stft_mean10: number | null
+  chroma_stft_mean11: number | null
+  chroma_stft_median: number | null
+  chroma_stft_median1: number | null
+  chroma_stft_median2: number | null
+  chroma_stft_median3: number | null
+  chroma_stft_median4: number | null
+  chroma_stft_median5: number | null
+  chroma_stft_median6: number | null
+  chroma_stft_median7: number | null
+  chroma_stft_median8: number | null
+  chroma_stft_median9: number | null
+  chroma_stft_median10: number | null
+  chroma_stft_median11: number | null
+  chroma_stft_min: number | null
+  chroma_stft_min1: number | null
+  chroma_stft_min2: number | null
+  chroma_stft_min3: number | null
+  chroma_stft_min4: number | null
+  chroma_stft_min5: number | null
+  chroma_stft_min6: number | null
+  chroma_stft_min7: number | null
+  chroma_stft_min8: number | null
+  chroma_stft_min9: number | null
+  chroma_stft_min10: number | null
+  chroma_stft_min11: number | null
+  chroma_stft_skew: number | null
+  chroma_stft_skew1: number | null
+  chroma_stft_skew2: number | null
+  chroma_stft_skew3: number | null
+  chroma_stft_skew4: number | null
+  chroma_stft_skew5: number | null
+  chroma_stft_skew6: number | null
+  chroma_stft_skew7: number | null
+  chroma_stft_skew8: number | null
+  chroma_stft_skew9: number | null
+  chroma_stft_skew10: number | null
+  chroma_stft_skew11: number | null
+  chroma_stft_std: number | null
+  chroma_stft_std1: number | null
+  chroma_stft_std2: number | null
+  chroma_stft_std3: number | null
+  chroma_stft_std4: number | null
+  chroma_stft_std5: number | null
+  chroma_stft_std6: number | null
+  chroma_stft_std7: number | null
+  chroma_stft_std8: number | null
+  chroma_stft_std9: number | null
+  chroma_stft_std10: number | null
+  chroma_stft_std11: number | null
+  mfcc_kurtosis: number | null
+  mfcc_kurtosis1: number | null
+  mfcc_kurtosis2: number | null
+  mfcc_kurtosis3: number | null
+  mfcc_kurtosis4: number | null
+  mfcc_kurtosis5: number | null
+  mfcc_kurtosis6: number | null
+  mfcc_kurtosis7: number | null
+  mfcc_kurtosis8: number | null
+  mfcc_kurtosis9: number | null
+  mfcc_kurtosis10: number | null
+  mfcc_kurtosis11: number | null
+  mfcc_kurtosis12: number | null
+  mfcc_kurtosis13: number | null
+  mfcc_kurtosis14: number | null
+  mfcc_kurtosis15: number | null
+  mfcc_kurtosis16: number | null
+  mfcc_kurtosis17: number | null
+  mfcc_kurtosis18: number | null
+  mfcc_kurtosis19: number | null
+  mfcc_max: number | null
+  mfcc_max1: number | null
+  mfcc_max2: number | null
+  mfcc_max3: number | null
+  mfcc_max4: number | null
+  mfcc_max5: number | null
+  mfcc_max6: number | null
+  mfcc_max7: number | null
+  mfcc_max8: number | null
+  mfcc_max9: number | null
+  mfcc_max10: number | null
+  mfcc_max11: number | null
+  mfcc_max12: number | null
+  mfcc_max13: number | null
+  mfcc_max14: number | null
+  mfcc_max15: number | null
+  mfcc_max16: number | null
+  mfcc_max17: number | null
+  mfcc_max18: number | null
+  mfcc_max19: number | null
+  mfcc_mean: number | null
+  mfcc_mean1: number | null
+  mfcc_mean2: number | null
+  mfcc_mean3: number | null
+  mfcc_mean4: number | null
+  mfcc_mean5: number | null
+  mfcc_mean6: number | null
+  mfcc_mean7: number | null
+  mfcc_mean8: number | null
+  mfcc_mean9: number | null
+  mfcc_mean10: number | null
+  mfcc_mean11: number | null
+  mfcc_mean12: number | null
+  mfcc_mean13: number | null
+  mfcc_mean14: number | null
+  mfcc_mean15: number | null
+  mfcc_mean16: number | null
+  mfcc_mean17: number | null
+  mfcc_mean18: number | null
+  mfcc_mean19: number | null
+  mfcc_median: number | null
+  mfcc_median1: number | null
+  mfcc_median2: number | null
+  mfcc_median3: number | null
+  mfcc_median4: number | null
+  mfcc_median5: number | null
+  mfcc_median6: number | null
+  mfcc_median7: number | null
+  mfcc_median8: number | null
+  mfcc_median9: number | null
+  mfcc_median10: number | null
+  mfcc_median11: number | null
+  mfcc_median12: number | null
+  mfcc_median13: number | null
+  mfcc_median14: number | null
+  mfcc_median15: number | null
+  mfcc_median16: number | null
+  mfcc_median17: number | null
+  mfcc_median18: number | null
+  mfcc_median19: number | null
+  mfcc_min: number | null
+  mfcc_min1: number | null
+  mfcc_min2: number | null
+  mfcc_min3: number | null
+  mfcc_min4: number | null
+  mfcc_min5: number | null
+  mfcc_min6: number | null
+  mfcc_min7: number | null
+  mfcc_min8: number | null
+  mfcc_min9: number | null
+  mfcc_min10: number | null
+  mfcc_min11: number | null
+  mfcc_min12: number | null
+  mfcc_min13: number | null
+  mfcc_min14: number | null
+  mfcc_min15: number | null
+  mfcc_min16: number | null
+  mfcc_min17: number | null
+  mfcc_min18: number | null
+  mfcc_min19: number | null
+  mfcc_skew: number | null
+  mfcc_skew1: number | null
+  mfcc_skew2: number | null
+  mfcc_skew3: number | null
+  mfcc_skew4: number | null
+  mfcc_skew5: number | null
+  mfcc_skew6: number | null
+  mfcc_skew7: number | null
+  mfcc_skew8: number | null
+  mfcc_skew9: number | null
+  mfcc_skew10: number | null
+  mfcc_skew11: number | null
+  mfcc_skew12: number | null
+  mfcc_skew13: number | null
+  mfcc_skew14: number | null
+  mfcc_skew15: number | null
+  mfcc_skew16: number | null
+  mfcc_skew17: number | null
+  mfcc_skew18: number | null
+  mfcc_skew19: number | null
+  mfcc_std: number | null
+  mfcc_std1: number | null
+  mfcc_std2: number | null
+  mfcc_std3: number | null
+  mfcc_std4: number | null
+  mfcc_std5: number | null
+  mfcc_std6: number | null
+  mfcc_std7: number | null
+  mfcc_std8: number | null
+  mfcc_std9: number | null
+  mfcc_std10: number | null
+  mfcc_std11: number | null
+  mfcc_std12: number | null
+  mfcc_std13: number | null
+  mfcc_std14: number | null
+  mfcc_std15: number | null
+  mfcc_std16: number | null
+  mfcc_std17: number | null
+  mfcc_std18: number | null
+  mfcc_std19: number | null
+  rmse_kurtosis: number | null
+  rmse_max: number | null
+  rmse_mean: number | null
+  rmse_median: number | null
+  rmse_min: number | null
+  rmse_skew: number | null
+  rmse_std: number | null
+  spectral_bandwidth_kurtosis: number | null
+  spectral_bandwidth_max: number | null
+  spectral_bandwidth_mean: number | null
+  spectral_bandwidth_median: number | null
+  spectral_bandwidth_min: number | null
+  spectral_bandwidth_skew: number | null
+  spectral_bandwidth_std: number | null
+  spectral_centroid_kurtosis: number | null
+  spectral_centroid_max: number | null
+  spectral_centroid_mean: number | null
+  spectral_centroid_median: number | null
+  spectral_centroid_min: number | null
+  spectral_centroid_skew: number | null
+  spectral_centroid_std: number | null
+  spectral_contrast_kurtosis: number | null
+  spectral_contrast_kurtosis1: number | null
+  spectral_contrast_kurtosis2: number | null
+  spectral_contrast_kurtosis3: number | null
+  spectral_contrast_kurtosis4: number | null
+  spectral_contrast_kurtosis5: number | null
+  spectral_contrast_kurtosis6: number | null
+  spectral_contrast_max: number | null
+  spectral_contrast_max1: number | null
+  spectral_contrast_max2: number | null
+  spectral_contrast_max3: number | null
+  spectral_contrast_max4: number | null
+  spectral_contrast_max5: number | null
+  spectral_contrast_max6: number | null
+  spectral_contrast_mean: number | null
+  spectral_contrast_mean1: number | null
+  spectral_contrast_mean2: number | null
+  spectral_contrast_mean3: number | null
+  spectral_contrast_mean4: number | null
+  spectral_contrast_mean5: number | null
+  spectral_contrast_mean6: number | null
+  spectral_contrast_median: number | null
+  spectral_contrast_median1: number | null
+  spectral_contrast_median2: number | null
+  spectral_contrast_median3: number | null
+  spectral_contrast_median4: number | null
+  spectral_contrast_median5: number | null
+  spectral_contrast_median6: number | null
+  spectral_contrast_min: number | null
+  spectral_contrast_min1: number | null
+  spectral_contrast_min2: number | null
+  spectral_contrast_min3: number | null
+  spectral_contrast_min4: number | null
+  spectral_contrast_min5: number | null
+  spectral_contrast_min6: number | null
+  spectral_contrast_skew: number | null
+  spectral_contrast_skew1: number | null
+  spectral_contrast_skew2: number | null
+  spectral_contrast_skew3: number | null
+  spectral_contrast_skew4: number | null
+  spectral_contrast_skew5: number | null
+  spectral_contrast_skew6: number | null
+  spectral_contrast_std: number | null
+  spectral_contrast_std1: number | null
+  spectral_contrast_std2: number | null
+  spectral_contrast_std3: number | null
+  spectral_contrast_std4: number | null
+  spectral_contrast_std5: number | null
+  spectral_contrast_std6: number | null
+  spectral_rolloff_kurtosis: number | null
+  spectral_rolloff_max: number | null
+  spectral_rolloff_mean: number | null
+  spectral_rolloff_median: number | null
+  spectral_rolloff_min: number | null
+  spectral_rolloff_skew: number | null
+  spectral_rolloff_std: number | null
+  tonnetz_kurtosis: number | null
+  tonnetz_kurtosis1: number | null
+  tonnetz_kurtosis2: number | null
+  tonnetz_kurtosis3: number | null
+  tonnetz_kurtosis4: number | null
+  tonnetz_kurtosis5: number | null
+  tonnetz_max: number | null
+  tonnetz_max1: number | null
+  tonnetz_max2: number | null
+  tonnetz_max3: number | null
+  tonnetz_max4: number | null
+  tonnetz_max5: number | null
+  tonnetz_mean: number | null
+  tonnetz_mean1: number | null
+  tonnetz_mean2: number | null
+  tonnetz_mean3: number | null
+  tonnetz_mean4: number | null
+  tonnetz_mean5: number | null
+  tonnetz_median: number | null
+  tonnetz_median1: number | null
+  tonnetz_median2: number | null
+  tonnetz_median3: number | null
+  tonnetz_median4: number | null
+  tonnetz_median5: number | null
+  tonnetz_min: number | null
+  tonnetz_min1: number | null
+  tonnetz_min2: number | null
+  tonnetz_min3: number | null
+  tonnetz_min4: number | null
+  tonnetz_min5: number | null
+  tonnetz_skew: number | null
+  tonnetz_skew1: number | null
+  tonnetz_skew2: number | null
+  tonnetz_skew3: number | null
+  tonnetz_skew4: number | null
+  tonnetz_skew5: number | null
+  tonnetz_std: number | null
+  tonnetz_std1: number | null
+  tonnetz_std2: number | null
+  tonnetz_std3: number | null
+  tonnetz_std4: number | null
+  tonnetz_std5: number | null
+  zcr_kurtosis: number | null
+  zcr_max: number | null
+  zcr_mean: number | null
+  zcr_median: number | null
+  zcr_min: number | null
+  zcr_skew: number | null
+  zcr_std: number | null
+}
+
+export type TemporalFeatureSumAggregateOutputType = {
+  chroma_cens_kurtosis: number | null
+  chroma_cens_kurtosis1: number | null
+  chroma_cens_kurtosis2: number | null
+  chroma_cens_kurtosis3: number | null
+  chroma_cens_kurtosis4: number | null
+  chroma_cens_kurtosis5: number | null
+  chroma_cens_kurtosis6: number | null
+  chroma_cens_kurtosis7: number | null
+  chroma_cens_kurtosis8: number | null
+  chroma_cens_kurtosis9: number | null
+  chroma_cens_kurtosis10: number | null
+  chroma_cens_kurtosis11: number | null
+  chroma_cens_max: number | null
+  chroma_cens_max1: number | null
+  chroma_cens_max2: number | null
+  chroma_cens_max3: number | null
+  chroma_cens_max4: number | null
+  chroma_cens_max5: number | null
+  chroma_cens_max6: number | null
+  chroma_cens_max7: number | null
+  chroma_cens_max8: number | null
+  chroma_cens_max9: number | null
+  chroma_cens_max10: number | null
+  chroma_cens_max11: number | null
+  chroma_cens_mean: number | null
+  chroma_cens_mean1: number | null
+  chroma_cens_mean2: number | null
+  chroma_cens_mean3: number | null
+  chroma_cens_mean4: number | null
+  chroma_cens_mean5: number | null
+  chroma_cens_mean6: number | null
+  chroma_cens_mean7: number | null
+  chroma_cens_mean8: number | null
+  chroma_cens_mean9: number | null
+  chroma_cens_mean10: number | null
+  chroma_cens_mean11: number | null
+  chroma_cens_median: number | null
+  chroma_cens_median1: number | null
+  chroma_cens_median2: number | null
+  chroma_cens_median3: number | null
+  chroma_cens_median4: number | null
+  chroma_cens_median5: number | null
+  chroma_cens_median6: number | null
+  chroma_cens_median7: number | null
+  chroma_cens_median8: number | null
+  chroma_cens_median9: number | null
+  chroma_cens_median10: number | null
+  chroma_cens_median11: number | null
+  chroma_cens_min: number | null
+  chroma_cens_min1: number | null
+  chroma_cens_min2: number | null
+  chroma_cens_min3: number | null
+  chroma_cens_min4: number | null
+  chroma_cens_min5: number | null
+  chroma_cens_min6: number | null
+  chroma_cens_min7: number | null
+  chroma_cens_min8: number | null
+  chroma_cens_min9: number | null
+  chroma_cens_min10: number | null
+  chroma_cens_min11: number | null
+  chroma_cens_skew: number | null
+  chroma_cens_skew1: number | null
+  chroma_cens_skew2: number | null
+  chroma_cens_skew3: number | null
+  chroma_cens_skew4: number | null
+  chroma_cens_skew5: number | null
+  chroma_cens_skew6: number | null
+  chroma_cens_skew7: number | null
+  chroma_cens_skew8: number | null
+  chroma_cens_skew9: number | null
+  chroma_cens_skew10: number | null
+  chroma_cens_skew11: number | null
+  chroma_cens_std: number | null
+  chroma_cens_std1: number | null
+  chroma_cens_std2: number | null
+  chroma_cens_std3: number | null
+  chroma_cens_std4: number | null
+  chroma_cens_std5: number | null
+  chroma_cens_std6: number | null
+  chroma_cens_std7: number | null
+  chroma_cens_std8: number | null
+  chroma_cens_std9: number | null
+  chroma_cens_std10: number | null
+  chroma_cens_std11: number | null
+  chroma_cqt_kurtosis: number | null
+  chroma_cqt_kurtosis1: number | null
+  chroma_cqt_kurtosis2: number | null
+  chroma_cqt_kurtosis3: number | null
+  chroma_cqt_kurtosis4: number | null
+  chroma_cqt_kurtosis5: number | null
+  chroma_cqt_kurtosis6: number | null
+  chroma_cqt_kurtosis7: number | null
+  chroma_cqt_kurtosis8: number | null
+  chroma_cqt_kurtosis9: number | null
+  chroma_cqt_kurtosis10: number | null
+  chroma_cqt_kurtosis11: number | null
+  chroma_cqt_max: number | null
+  chroma_cqt_max1: number | null
+  chroma_cqt_max2: number | null
+  chroma_cqt_max3: number | null
+  chroma_cqt_max4: number | null
+  chroma_cqt_max5: number | null
+  chroma_cqt_max6: number | null
+  chroma_cqt_max7: number | null
+  chroma_cqt_max8: number | null
+  chroma_cqt_max9: number | null
+  chroma_cqt_max10: number | null
+  chroma_cqt_max11: number | null
+  chroma_cqt_mean: number | null
+  chroma_cqt_mean1: number | null
+  chroma_cqt_mean2: number | null
+  chroma_cqt_mean3: number | null
+  chroma_cqt_mean4: number | null
+  chroma_cqt_mean5: number | null
+  chroma_cqt_mean6: number | null
+  chroma_cqt_mean7: number | null
+  chroma_cqt_mean8: number | null
+  chroma_cqt_mean9: number | null
+  chroma_cqt_mean10: number | null
+  chroma_cqt_mean11: number | null
+  chroma_cqt_median: number | null
+  chroma_cqt_median1: number | null
+  chroma_cqt_median2: number | null
+  chroma_cqt_median3: number | null
+  chroma_cqt_median4: number | null
+  chroma_cqt_median5: number | null
+  chroma_cqt_median6: number | null
+  chroma_cqt_median7: number | null
+  chroma_cqt_median8: number | null
+  chroma_cqt_median9: number | null
+  chroma_cqt_median10: number | null
+  chroma_cqt_median11: number | null
+  chroma_cqt_min: number | null
+  chroma_cqt_min1: number | null
+  chroma_cqt_min2: number | null
+  chroma_cqt_min3: number | null
+  chroma_cqt_min4: number | null
+  chroma_cqt_min5: number | null
+  chroma_cqt_min6: number | null
+  chroma_cqt_min7: number | null
+  chroma_cqt_min8: number | null
+  chroma_cqt_min9: number | null
+  chroma_cqt_min10: number | null
+  chroma_cqt_min11: number | null
+  chroma_cqt_skew: number | null
+  chroma_cqt_skew1: number | null
+  chroma_cqt_skew2: number | null
+  chroma_cqt_skew3: number | null
+  chroma_cqt_skew4: number | null
+  chroma_cqt_skew5: number | null
+  chroma_cqt_skew6: number | null
+  chroma_cqt_skew7: number | null
+  chroma_cqt_skew8: number | null
+  chroma_cqt_skew9: number | null
+  chroma_cqt_skew10: number | null
+  chroma_cqt_skew11: number | null
+  chroma_cqt_std: number | null
+  chroma_cqt_std1: number | null
+  chroma_cqt_std2: number | null
+  chroma_cqt_std3: number | null
+  chroma_cqt_std4: number | null
+  chroma_cqt_std5: number | null
+  chroma_cqt_std6: number | null
+  chroma_cqt_std7: number | null
+  chroma_cqt_std8: number | null
+  chroma_cqt_std9: number | null
+  chroma_cqt_std10: number | null
+  chroma_cqt_std11: number | null
+  chroma_stft_kurtosis: number | null
+  chroma_stft_kurtosis1: number | null
+  chroma_stft_kurtosis2: number | null
+  chroma_stft_kurtosis3: number | null
+  chroma_stft_kurtosis4: number | null
+  chroma_stft_kurtosis5: number | null
+  chroma_stft_kurtosis6: number | null
+  chroma_stft_kurtosis7: number | null
+  chroma_stft_kurtosis8: number | null
+  chroma_stft_kurtosis9: number | null
+  chroma_stft_kurtosis10: number | null
+  chroma_stft_kurtosis11: number | null
+  chroma_stft_max: number | null
+  chroma_stft_max1: number | null
+  chroma_stft_max2: number | null
+  chroma_stft_max3: number | null
+  chroma_stft_max4: number | null
+  chroma_stft_max5: number | null
+  chroma_stft_max6: number | null
+  chroma_stft_max7: number | null
+  chroma_stft_max8: number | null
+  chroma_stft_max9: number | null
+  chroma_stft_max10: number | null
+  chroma_stft_max11: number | null
+  chroma_stft_mean: number | null
+  chroma_stft_mean1: number | null
+  chroma_stft_mean2: number | null
+  chroma_stft_mean3: number | null
+  chroma_stft_mean4: number | null
+  chroma_stft_mean5: number | null
+  chroma_stft_mean6: number | null
+  chroma_stft_mean7: number | null
+  chroma_stft_mean8: number | null
+  chroma_stft_mean9: number | null
+  chroma_stft_mean10: number | null
+  chroma_stft_mean11: number | null
+  chroma_stft_median: number | null
+  chroma_stft_median1: number | null
+  chroma_stft_median2: number | null
+  chroma_stft_median3: number | null
+  chroma_stft_median4: number | null
+  chroma_stft_median5: number | null
+  chroma_stft_median6: number | null
+  chroma_stft_median7: number | null
+  chroma_stft_median8: number | null
+  chroma_stft_median9: number | null
+  chroma_stft_median10: number | null
+  chroma_stft_median11: number | null
+  chroma_stft_min: number | null
+  chroma_stft_min1: number | null
+  chroma_stft_min2: number | null
+  chroma_stft_min3: number | null
+  chroma_stft_min4: number | null
+  chroma_stft_min5: number | null
+  chroma_stft_min6: number | null
+  chroma_stft_min7: number | null
+  chroma_stft_min8: number | null
+  chroma_stft_min9: number | null
+  chroma_stft_min10: number | null
+  chroma_stft_min11: number | null
+  chroma_stft_skew: number | null
+  chroma_stft_skew1: number | null
+  chroma_stft_skew2: number | null
+  chroma_stft_skew3: number | null
+  chroma_stft_skew4: number | null
+  chroma_stft_skew5: number | null
+  chroma_stft_skew6: number | null
+  chroma_stft_skew7: number | null
+  chroma_stft_skew8: number | null
+  chroma_stft_skew9: number | null
+  chroma_stft_skew10: number | null
+  chroma_stft_skew11: number | null
+  chroma_stft_std: number | null
+  chroma_stft_std1: number | null
+  chroma_stft_std2: number | null
+  chroma_stft_std3: number | null
+  chroma_stft_std4: number | null
+  chroma_stft_std5: number | null
+  chroma_stft_std6: number | null
+  chroma_stft_std7: number | null
+  chroma_stft_std8: number | null
+  chroma_stft_std9: number | null
+  chroma_stft_std10: number | null
+  chroma_stft_std11: number | null
+  mfcc_kurtosis: number | null
+  mfcc_kurtosis1: number | null
+  mfcc_kurtosis2: number | null
+  mfcc_kurtosis3: number | null
+  mfcc_kurtosis4: number | null
+  mfcc_kurtosis5: number | null
+  mfcc_kurtosis6: number | null
+  mfcc_kurtosis7: number | null
+  mfcc_kurtosis8: number | null
+  mfcc_kurtosis9: number | null
+  mfcc_kurtosis10: number | null
+  mfcc_kurtosis11: number | null
+  mfcc_kurtosis12: number | null
+  mfcc_kurtosis13: number | null
+  mfcc_kurtosis14: number | null
+  mfcc_kurtosis15: number | null
+  mfcc_kurtosis16: number | null
+  mfcc_kurtosis17: number | null
+  mfcc_kurtosis18: number | null
+  mfcc_kurtosis19: number | null
+  mfcc_max: number | null
+  mfcc_max1: number | null
+  mfcc_max2: number | null
+  mfcc_max3: number | null
+  mfcc_max4: number | null
+  mfcc_max5: number | null
+  mfcc_max6: number | null
+  mfcc_max7: number | null
+  mfcc_max8: number | null
+  mfcc_max9: number | null
+  mfcc_max10: number | null
+  mfcc_max11: number | null
+  mfcc_max12: number | null
+  mfcc_max13: number | null
+  mfcc_max14: number | null
+  mfcc_max15: number | null
+  mfcc_max16: number | null
+  mfcc_max17: number | null
+  mfcc_max18: number | null
+  mfcc_max19: number | null
+  mfcc_mean: number | null
+  mfcc_mean1: number | null
+  mfcc_mean2: number | null
+  mfcc_mean3: number | null
+  mfcc_mean4: number | null
+  mfcc_mean5: number | null
+  mfcc_mean6: number | null
+  mfcc_mean7: number | null
+  mfcc_mean8: number | null
+  mfcc_mean9: number | null
+  mfcc_mean10: number | null
+  mfcc_mean11: number | null
+  mfcc_mean12: number | null
+  mfcc_mean13: number | null
+  mfcc_mean14: number | null
+  mfcc_mean15: number | null
+  mfcc_mean16: number | null
+  mfcc_mean17: number | null
+  mfcc_mean18: number | null
+  mfcc_mean19: number | null
+  mfcc_median: number | null
+  mfcc_median1: number | null
+  mfcc_median2: number | null
+  mfcc_median3: number | null
+  mfcc_median4: number | null
+  mfcc_median5: number | null
+  mfcc_median6: number | null
+  mfcc_median7: number | null
+  mfcc_median8: number | null
+  mfcc_median9: number | null
+  mfcc_median10: number | null
+  mfcc_median11: number | null
+  mfcc_median12: number | null
+  mfcc_median13: number | null
+  mfcc_median14: number | null
+  mfcc_median15: number | null
+  mfcc_median16: number | null
+  mfcc_median17: number | null
+  mfcc_median18: number | null
+  mfcc_median19: number | null
+  mfcc_min: number | null
+  mfcc_min1: number | null
+  mfcc_min2: number | null
+  mfcc_min3: number | null
+  mfcc_min4: number | null
+  mfcc_min5: number | null
+  mfcc_min6: number | null
+  mfcc_min7: number | null
+  mfcc_min8: number | null
+  mfcc_min9: number | null
+  mfcc_min10: number | null
+  mfcc_min11: number | null
+  mfcc_min12: number | null
+  mfcc_min13: number | null
+  mfcc_min14: number | null
+  mfcc_min15: number | null
+  mfcc_min16: number | null
+  mfcc_min17: number | null
+  mfcc_min18: number | null
+  mfcc_min19: number | null
+  mfcc_skew: number | null
+  mfcc_skew1: number | null
+  mfcc_skew2: number | null
+  mfcc_skew3: number | null
+  mfcc_skew4: number | null
+  mfcc_skew5: number | null
+  mfcc_skew6: number | null
+  mfcc_skew7: number | null
+  mfcc_skew8: number | null
+  mfcc_skew9: number | null
+  mfcc_skew10: number | null
+  mfcc_skew11: number | null
+  mfcc_skew12: number | null
+  mfcc_skew13: number | null
+  mfcc_skew14: number | null
+  mfcc_skew15: number | null
+  mfcc_skew16: number | null
+  mfcc_skew17: number | null
+  mfcc_skew18: number | null
+  mfcc_skew19: number | null
+  mfcc_std: number | null
+  mfcc_std1: number | null
+  mfcc_std2: number | null
+  mfcc_std3: number | null
+  mfcc_std4: number | null
+  mfcc_std5: number | null
+  mfcc_std6: number | null
+  mfcc_std7: number | null
+  mfcc_std8: number | null
+  mfcc_std9: number | null
+  mfcc_std10: number | null
+  mfcc_std11: number | null
+  mfcc_std12: number | null
+  mfcc_std13: number | null
+  mfcc_std14: number | null
+  mfcc_std15: number | null
+  mfcc_std16: number | null
+  mfcc_std17: number | null
+  mfcc_std18: number | null
+  mfcc_std19: number | null
+  rmse_kurtosis: number | null
+  rmse_max: number | null
+  rmse_mean: number | null
+  rmse_median: number | null
+  rmse_min: number | null
+  rmse_skew: number | null
+  rmse_std: number | null
+  spectral_bandwidth_kurtosis: number | null
+  spectral_bandwidth_max: number | null
+  spectral_bandwidth_mean: number | null
+  spectral_bandwidth_median: number | null
+  spectral_bandwidth_min: number | null
+  spectral_bandwidth_skew: number | null
+  spectral_bandwidth_std: number | null
+  spectral_centroid_kurtosis: number | null
+  spectral_centroid_max: number | null
+  spectral_centroid_mean: number | null
+  spectral_centroid_median: number | null
+  spectral_centroid_min: number | null
+  spectral_centroid_skew: number | null
+  spectral_centroid_std: number | null
+  spectral_contrast_kurtosis: number | null
+  spectral_contrast_kurtosis1: number | null
+  spectral_contrast_kurtosis2: number | null
+  spectral_contrast_kurtosis3: number | null
+  spectral_contrast_kurtosis4: number | null
+  spectral_contrast_kurtosis5: number | null
+  spectral_contrast_kurtosis6: number | null
+  spectral_contrast_max: number | null
+  spectral_contrast_max1: number | null
+  spectral_contrast_max2: number | null
+  spectral_contrast_max3: number | null
+  spectral_contrast_max4: number | null
+  spectral_contrast_max5: number | null
+  spectral_contrast_max6: number | null
+  spectral_contrast_mean: number | null
+  spectral_contrast_mean1: number | null
+  spectral_contrast_mean2: number | null
+  spectral_contrast_mean3: number | null
+  spectral_contrast_mean4: number | null
+  spectral_contrast_mean5: number | null
+  spectral_contrast_mean6: number | null
+  spectral_contrast_median: number | null
+  spectral_contrast_median1: number | null
+  spectral_contrast_median2: number | null
+  spectral_contrast_median3: number | null
+  spectral_contrast_median4: number | null
+  spectral_contrast_median5: number | null
+  spectral_contrast_median6: number | null
+  spectral_contrast_min: number | null
+  spectral_contrast_min1: number | null
+  spectral_contrast_min2: number | null
+  spectral_contrast_min3: number | null
+  spectral_contrast_min4: number | null
+  spectral_contrast_min5: number | null
+  spectral_contrast_min6: number | null
+  spectral_contrast_skew: number | null
+  spectral_contrast_skew1: number | null
+  spectral_contrast_skew2: number | null
+  spectral_contrast_skew3: number | null
+  spectral_contrast_skew4: number | null
+  spectral_contrast_skew5: number | null
+  spectral_contrast_skew6: number | null
+  spectral_contrast_std: number | null
+  spectral_contrast_std1: number | null
+  spectral_contrast_std2: number | null
+  spectral_contrast_std3: number | null
+  spectral_contrast_std4: number | null
+  spectral_contrast_std5: number | null
+  spectral_contrast_std6: number | null
+  spectral_rolloff_kurtosis: number | null
+  spectral_rolloff_max: number | null
+  spectral_rolloff_mean: number | null
+  spectral_rolloff_median: number | null
+  spectral_rolloff_min: number | null
+  spectral_rolloff_skew: number | null
+  spectral_rolloff_std: number | null
+  tonnetz_kurtosis: number | null
+  tonnetz_kurtosis1: number | null
+  tonnetz_kurtosis2: number | null
+  tonnetz_kurtosis3: number | null
+  tonnetz_kurtosis4: number | null
+  tonnetz_kurtosis5: number | null
+  tonnetz_max: number | null
+  tonnetz_max1: number | null
+  tonnetz_max2: number | null
+  tonnetz_max3: number | null
+  tonnetz_max4: number | null
+  tonnetz_max5: number | null
+  tonnetz_mean: number | null
+  tonnetz_mean1: number | null
+  tonnetz_mean2: number | null
+  tonnetz_mean3: number | null
+  tonnetz_mean4: number | null
+  tonnetz_mean5: number | null
+  tonnetz_median: number | null
+  tonnetz_median1: number | null
+  tonnetz_median2: number | null
+  tonnetz_median3: number | null
+  tonnetz_median4: number | null
+  tonnetz_median5: number | null
+  tonnetz_min: number | null
+  tonnetz_min1: number | null
+  tonnetz_min2: number | null
+  tonnetz_min3: number | null
+  tonnetz_min4: number | null
+  tonnetz_min5: number | null
+  tonnetz_skew: number | null
+  tonnetz_skew1: number | null
+  tonnetz_skew2: number | null
+  tonnetz_skew3: number | null
+  tonnetz_skew4: number | null
+  tonnetz_skew5: number | null
+  tonnetz_std: number | null
+  tonnetz_std1: number | null
+  tonnetz_std2: number | null
+  tonnetz_std3: number | null
+  tonnetz_std4: number | null
+  tonnetz_std5: number | null
+  zcr_kurtosis: number | null
+  zcr_max: number | null
+  zcr_mean: number | null
+  zcr_median: number | null
+  zcr_min: number | null
+  zcr_skew: number | null
+  zcr_std: number | null
+}
+
 export type TemporalFeatureMinAggregateOutputType = {
   trackId: string | null
+  chroma_cens_kurtosis: number | null
+  chroma_cens_kurtosis1: number | null
+  chroma_cens_kurtosis2: number | null
+  chroma_cens_kurtosis3: number | null
+  chroma_cens_kurtosis4: number | null
+  chroma_cens_kurtosis5: number | null
+  chroma_cens_kurtosis6: number | null
+  chroma_cens_kurtosis7: number | null
+  chroma_cens_kurtosis8: number | null
+  chroma_cens_kurtosis9: number | null
+  chroma_cens_kurtosis10: number | null
+  chroma_cens_kurtosis11: number | null
+  chroma_cens_max: number | null
+  chroma_cens_max1: number | null
+  chroma_cens_max2: number | null
+  chroma_cens_max3: number | null
+  chroma_cens_max4: number | null
+  chroma_cens_max5: number | null
+  chroma_cens_max6: number | null
+  chroma_cens_max7: number | null
+  chroma_cens_max8: number | null
+  chroma_cens_max9: number | null
+  chroma_cens_max10: number | null
+  chroma_cens_max11: number | null
+  chroma_cens_mean: number | null
+  chroma_cens_mean1: number | null
+  chroma_cens_mean2: number | null
+  chroma_cens_mean3: number | null
+  chroma_cens_mean4: number | null
+  chroma_cens_mean5: number | null
+  chroma_cens_mean6: number | null
+  chroma_cens_mean7: number | null
+  chroma_cens_mean8: number | null
+  chroma_cens_mean9: number | null
+  chroma_cens_mean10: number | null
+  chroma_cens_mean11: number | null
+  chroma_cens_median: number | null
+  chroma_cens_median1: number | null
+  chroma_cens_median2: number | null
+  chroma_cens_median3: number | null
+  chroma_cens_median4: number | null
+  chroma_cens_median5: number | null
+  chroma_cens_median6: number | null
+  chroma_cens_median7: number | null
+  chroma_cens_median8: number | null
+  chroma_cens_median9: number | null
+  chroma_cens_median10: number | null
+  chroma_cens_median11: number | null
+  chroma_cens_min: number | null
+  chroma_cens_min1: number | null
+  chroma_cens_min2: number | null
+  chroma_cens_min3: number | null
+  chroma_cens_min4: number | null
+  chroma_cens_min5: number | null
+  chroma_cens_min6: number | null
+  chroma_cens_min7: number | null
+  chroma_cens_min8: number | null
+  chroma_cens_min9: number | null
+  chroma_cens_min10: number | null
+  chroma_cens_min11: number | null
+  chroma_cens_skew: number | null
+  chroma_cens_skew1: number | null
+  chroma_cens_skew2: number | null
+  chroma_cens_skew3: number | null
+  chroma_cens_skew4: number | null
+  chroma_cens_skew5: number | null
+  chroma_cens_skew6: number | null
+  chroma_cens_skew7: number | null
+  chroma_cens_skew8: number | null
+  chroma_cens_skew9: number | null
+  chroma_cens_skew10: number | null
+  chroma_cens_skew11: number | null
+  chroma_cens_std: number | null
+  chroma_cens_std1: number | null
+  chroma_cens_std2: number | null
+  chroma_cens_std3: number | null
+  chroma_cens_std4: number | null
+  chroma_cens_std5: number | null
+  chroma_cens_std6: number | null
+  chroma_cens_std7: number | null
+  chroma_cens_std8: number | null
+  chroma_cens_std9: number | null
+  chroma_cens_std10: number | null
+  chroma_cens_std11: number | null
+  chroma_cqt_kurtosis: number | null
+  chroma_cqt_kurtosis1: number | null
+  chroma_cqt_kurtosis2: number | null
+  chroma_cqt_kurtosis3: number | null
+  chroma_cqt_kurtosis4: number | null
+  chroma_cqt_kurtosis5: number | null
+  chroma_cqt_kurtosis6: number | null
+  chroma_cqt_kurtosis7: number | null
+  chroma_cqt_kurtosis8: number | null
+  chroma_cqt_kurtosis9: number | null
+  chroma_cqt_kurtosis10: number | null
+  chroma_cqt_kurtosis11: number | null
+  chroma_cqt_max: number | null
+  chroma_cqt_max1: number | null
+  chroma_cqt_max2: number | null
+  chroma_cqt_max3: number | null
+  chroma_cqt_max4: number | null
+  chroma_cqt_max5: number | null
+  chroma_cqt_max6: number | null
+  chroma_cqt_max7: number | null
+  chroma_cqt_max8: number | null
+  chroma_cqt_max9: number | null
+  chroma_cqt_max10: number | null
+  chroma_cqt_max11: number | null
+  chroma_cqt_mean: number | null
+  chroma_cqt_mean1: number | null
+  chroma_cqt_mean2: number | null
+  chroma_cqt_mean3: number | null
+  chroma_cqt_mean4: number | null
+  chroma_cqt_mean5: number | null
+  chroma_cqt_mean6: number | null
+  chroma_cqt_mean7: number | null
+  chroma_cqt_mean8: number | null
+  chroma_cqt_mean9: number | null
+  chroma_cqt_mean10: number | null
+  chroma_cqt_mean11: number | null
+  chroma_cqt_median: number | null
+  chroma_cqt_median1: number | null
+  chroma_cqt_median2: number | null
+  chroma_cqt_median3: number | null
+  chroma_cqt_median4: number | null
+  chroma_cqt_median5: number | null
+  chroma_cqt_median6: number | null
+  chroma_cqt_median7: number | null
+  chroma_cqt_median8: number | null
+  chroma_cqt_median9: number | null
+  chroma_cqt_median10: number | null
+  chroma_cqt_median11: number | null
+  chroma_cqt_min: number | null
+  chroma_cqt_min1: number | null
+  chroma_cqt_min2: number | null
+  chroma_cqt_min3: number | null
+  chroma_cqt_min4: number | null
+  chroma_cqt_min5: number | null
+  chroma_cqt_min6: number | null
+  chroma_cqt_min7: number | null
+  chroma_cqt_min8: number | null
+  chroma_cqt_min9: number | null
+  chroma_cqt_min10: number | null
+  chroma_cqt_min11: number | null
+  chroma_cqt_skew: number | null
+  chroma_cqt_skew1: number | null
+  chroma_cqt_skew2: number | null
+  chroma_cqt_skew3: number | null
+  chroma_cqt_skew4: number | null
+  chroma_cqt_skew5: number | null
+  chroma_cqt_skew6: number | null
+  chroma_cqt_skew7: number | null
+  chroma_cqt_skew8: number | null
+  chroma_cqt_skew9: number | null
+  chroma_cqt_skew10: number | null
+  chroma_cqt_skew11: number | null
+  chroma_cqt_std: number | null
+  chroma_cqt_std1: number | null
+  chroma_cqt_std2: number | null
+  chroma_cqt_std3: number | null
+  chroma_cqt_std4: number | null
+  chroma_cqt_std5: number | null
+  chroma_cqt_std6: number | null
+  chroma_cqt_std7: number | null
+  chroma_cqt_std8: number | null
+  chroma_cqt_std9: number | null
+  chroma_cqt_std10: number | null
+  chroma_cqt_std11: number | null
+  chroma_stft_kurtosis: number | null
+  chroma_stft_kurtosis1: number | null
+  chroma_stft_kurtosis2: number | null
+  chroma_stft_kurtosis3: number | null
+  chroma_stft_kurtosis4: number | null
+  chroma_stft_kurtosis5: number | null
+  chroma_stft_kurtosis6: number | null
+  chroma_stft_kurtosis7: number | null
+  chroma_stft_kurtosis8: number | null
+  chroma_stft_kurtosis9: number | null
+  chroma_stft_kurtosis10: number | null
+  chroma_stft_kurtosis11: number | null
+  chroma_stft_max: number | null
+  chroma_stft_max1: number | null
+  chroma_stft_max2: number | null
+  chroma_stft_max3: number | null
+  chroma_stft_max4: number | null
+  chroma_stft_max5: number | null
+  chroma_stft_max6: number | null
+  chroma_stft_max7: number | null
+  chroma_stft_max8: number | null
+  chroma_stft_max9: number | null
+  chroma_stft_max10: number | null
+  chroma_stft_max11: number | null
+  chroma_stft_mean: number | null
+  chroma_stft_mean1: number | null
+  chroma_stft_mean2: number | null
+  chroma_stft_mean3: number | null
+  chroma_stft_mean4: number | null
+  chroma_stft_mean5: number | null
+  chroma_stft_mean6: number | null
+  chroma_stft_mean7: number | null
+  chroma_stft_mean8: number | null
+  chroma_stft_mean9: number | null
+  chroma_stft_mean10: number | null
+  chroma_stft_mean11: number | null
+  chroma_stft_median: number | null
+  chroma_stft_median1: number | null
+  chroma_stft_median2: number | null
+  chroma_stft_median3: number | null
+  chroma_stft_median4: number | null
+  chroma_stft_median5: number | null
+  chroma_stft_median6: number | null
+  chroma_stft_median7: number | null
+  chroma_stft_median8: number | null
+  chroma_stft_median9: number | null
+  chroma_stft_median10: number | null
+  chroma_stft_median11: number | null
+  chroma_stft_min: number | null
+  chroma_stft_min1: number | null
+  chroma_stft_min2: number | null
+  chroma_stft_min3: number | null
+  chroma_stft_min4: number | null
+  chroma_stft_min5: number | null
+  chroma_stft_min6: number | null
+  chroma_stft_min7: number | null
+  chroma_stft_min8: number | null
+  chroma_stft_min9: number | null
+  chroma_stft_min10: number | null
+  chroma_stft_min11: number | null
+  chroma_stft_skew: number | null
+  chroma_stft_skew1: number | null
+  chroma_stft_skew2: number | null
+  chroma_stft_skew3: number | null
+  chroma_stft_skew4: number | null
+  chroma_stft_skew5: number | null
+  chroma_stft_skew6: number | null
+  chroma_stft_skew7: number | null
+  chroma_stft_skew8: number | null
+  chroma_stft_skew9: number | null
+  chroma_stft_skew10: number | null
+  chroma_stft_skew11: number | null
+  chroma_stft_std: number | null
+  chroma_stft_std1: number | null
+  chroma_stft_std2: number | null
+  chroma_stft_std3: number | null
+  chroma_stft_std4: number | null
+  chroma_stft_std5: number | null
+  chroma_stft_std6: number | null
+  chroma_stft_std7: number | null
+  chroma_stft_std8: number | null
+  chroma_stft_std9: number | null
+  chroma_stft_std10: number | null
+  chroma_stft_std11: number | null
+  mfcc_kurtosis: number | null
+  mfcc_kurtosis1: number | null
+  mfcc_kurtosis2: number | null
+  mfcc_kurtosis3: number | null
+  mfcc_kurtosis4: number | null
+  mfcc_kurtosis5: number | null
+  mfcc_kurtosis6: number | null
+  mfcc_kurtosis7: number | null
+  mfcc_kurtosis8: number | null
+  mfcc_kurtosis9: number | null
+  mfcc_kurtosis10: number | null
+  mfcc_kurtosis11: number | null
+  mfcc_kurtosis12: number | null
+  mfcc_kurtosis13: number | null
+  mfcc_kurtosis14: number | null
+  mfcc_kurtosis15: number | null
+  mfcc_kurtosis16: number | null
+  mfcc_kurtosis17: number | null
+  mfcc_kurtosis18: number | null
+  mfcc_kurtosis19: number | null
+  mfcc_max: number | null
+  mfcc_max1: number | null
+  mfcc_max2: number | null
+  mfcc_max3: number | null
+  mfcc_max4: number | null
+  mfcc_max5: number | null
+  mfcc_max6: number | null
+  mfcc_max7: number | null
+  mfcc_max8: number | null
+  mfcc_max9: number | null
+  mfcc_max10: number | null
+  mfcc_max11: number | null
+  mfcc_max12: number | null
+  mfcc_max13: number | null
+  mfcc_max14: number | null
+  mfcc_max15: number | null
+  mfcc_max16: number | null
+  mfcc_max17: number | null
+  mfcc_max18: number | null
+  mfcc_max19: number | null
+  mfcc_mean: number | null
+  mfcc_mean1: number | null
+  mfcc_mean2: number | null
+  mfcc_mean3: number | null
+  mfcc_mean4: number | null
+  mfcc_mean5: number | null
+  mfcc_mean6: number | null
+  mfcc_mean7: number | null
+  mfcc_mean8: number | null
+  mfcc_mean9: number | null
+  mfcc_mean10: number | null
+  mfcc_mean11: number | null
+  mfcc_mean12: number | null
+  mfcc_mean13: number | null
+  mfcc_mean14: number | null
+  mfcc_mean15: number | null
+  mfcc_mean16: number | null
+  mfcc_mean17: number | null
+  mfcc_mean18: number | null
+  mfcc_mean19: number | null
+  mfcc_median: number | null
+  mfcc_median1: number | null
+  mfcc_median2: number | null
+  mfcc_median3: number | null
+  mfcc_median4: number | null
+  mfcc_median5: number | null
+  mfcc_median6: number | null
+  mfcc_median7: number | null
+  mfcc_median8: number | null
+  mfcc_median9: number | null
+  mfcc_median10: number | null
+  mfcc_median11: number | null
+  mfcc_median12: number | null
+  mfcc_median13: number | null
+  mfcc_median14: number | null
+  mfcc_median15: number | null
+  mfcc_median16: number | null
+  mfcc_median17: number | null
+  mfcc_median18: number | null
+  mfcc_median19: number | null
+  mfcc_min: number | null
+  mfcc_min1: number | null
+  mfcc_min2: number | null
+  mfcc_min3: number | null
+  mfcc_min4: number | null
+  mfcc_min5: number | null
+  mfcc_min6: number | null
+  mfcc_min7: number | null
+  mfcc_min8: number | null
+  mfcc_min9: number | null
+  mfcc_min10: number | null
+  mfcc_min11: number | null
+  mfcc_min12: number | null
+  mfcc_min13: number | null
+  mfcc_min14: number | null
+  mfcc_min15: number | null
+  mfcc_min16: number | null
+  mfcc_min17: number | null
+  mfcc_min18: number | null
+  mfcc_min19: number | null
+  mfcc_skew: number | null
+  mfcc_skew1: number | null
+  mfcc_skew2: number | null
+  mfcc_skew3: number | null
+  mfcc_skew4: number | null
+  mfcc_skew5: number | null
+  mfcc_skew6: number | null
+  mfcc_skew7: number | null
+  mfcc_skew8: number | null
+  mfcc_skew9: number | null
+  mfcc_skew10: number | null
+  mfcc_skew11: number | null
+  mfcc_skew12: number | null
+  mfcc_skew13: number | null
+  mfcc_skew14: number | null
+  mfcc_skew15: number | null
+  mfcc_skew16: number | null
+  mfcc_skew17: number | null
+  mfcc_skew18: number | null
+  mfcc_skew19: number | null
+  mfcc_std: number | null
+  mfcc_std1: number | null
+  mfcc_std2: number | null
+  mfcc_std3: number | null
+  mfcc_std4: number | null
+  mfcc_std5: number | null
+  mfcc_std6: number | null
+  mfcc_std7: number | null
+  mfcc_std8: number | null
+  mfcc_std9: number | null
+  mfcc_std10: number | null
+  mfcc_std11: number | null
+  mfcc_std12: number | null
+  mfcc_std13: number | null
+  mfcc_std14: number | null
+  mfcc_std15: number | null
+  mfcc_std16: number | null
+  mfcc_std17: number | null
+  mfcc_std18: number | null
+  mfcc_std19: number | null
+  rmse_kurtosis: number | null
+  rmse_max: number | null
+  rmse_mean: number | null
+  rmse_median: number | null
+  rmse_min: number | null
+  rmse_skew: number | null
+  rmse_std: number | null
+  spectral_bandwidth_kurtosis: number | null
+  spectral_bandwidth_max: number | null
+  spectral_bandwidth_mean: number | null
+  spectral_bandwidth_median: number | null
+  spectral_bandwidth_min: number | null
+  spectral_bandwidth_skew: number | null
+  spectral_bandwidth_std: number | null
+  spectral_centroid_kurtosis: number | null
+  spectral_centroid_max: number | null
+  spectral_centroid_mean: number | null
+  spectral_centroid_median: number | null
+  spectral_centroid_min: number | null
+  spectral_centroid_skew: number | null
+  spectral_centroid_std: number | null
+  spectral_contrast_kurtosis: number | null
+  spectral_contrast_kurtosis1: number | null
+  spectral_contrast_kurtosis2: number | null
+  spectral_contrast_kurtosis3: number | null
+  spectral_contrast_kurtosis4: number | null
+  spectral_contrast_kurtosis5: number | null
+  spectral_contrast_kurtosis6: number | null
+  spectral_contrast_max: number | null
+  spectral_contrast_max1: number | null
+  spectral_contrast_max2: number | null
+  spectral_contrast_max3: number | null
+  spectral_contrast_max4: number | null
+  spectral_contrast_max5: number | null
+  spectral_contrast_max6: number | null
+  spectral_contrast_mean: number | null
+  spectral_contrast_mean1: number | null
+  spectral_contrast_mean2: number | null
+  spectral_contrast_mean3: number | null
+  spectral_contrast_mean4: number | null
+  spectral_contrast_mean5: number | null
+  spectral_contrast_mean6: number | null
+  spectral_contrast_median: number | null
+  spectral_contrast_median1: number | null
+  spectral_contrast_median2: number | null
+  spectral_contrast_median3: number | null
+  spectral_contrast_median4: number | null
+  spectral_contrast_median5: number | null
+  spectral_contrast_median6: number | null
+  spectral_contrast_min: number | null
+  spectral_contrast_min1: number | null
+  spectral_contrast_min2: number | null
+  spectral_contrast_min3: number | null
+  spectral_contrast_min4: number | null
+  spectral_contrast_min5: number | null
+  spectral_contrast_min6: number | null
+  spectral_contrast_skew: number | null
+  spectral_contrast_skew1: number | null
+  spectral_contrast_skew2: number | null
+  spectral_contrast_skew3: number | null
+  spectral_contrast_skew4: number | null
+  spectral_contrast_skew5: number | null
+  spectral_contrast_skew6: number | null
+  spectral_contrast_std: number | null
+  spectral_contrast_std1: number | null
+  spectral_contrast_std2: number | null
+  spectral_contrast_std3: number | null
+  spectral_contrast_std4: number | null
+  spectral_contrast_std5: number | null
+  spectral_contrast_std6: number | null
+  spectral_rolloff_kurtosis: number | null
+  spectral_rolloff_max: number | null
+  spectral_rolloff_mean: number | null
+  spectral_rolloff_median: number | null
+  spectral_rolloff_min: number | null
+  spectral_rolloff_skew: number | null
+  spectral_rolloff_std: number | null
+  tonnetz_kurtosis: number | null
+  tonnetz_kurtosis1: number | null
+  tonnetz_kurtosis2: number | null
+  tonnetz_kurtosis3: number | null
+  tonnetz_kurtosis4: number | null
+  tonnetz_kurtosis5: number | null
+  tonnetz_max: number | null
+  tonnetz_max1: number | null
+  tonnetz_max2: number | null
+  tonnetz_max3: number | null
+  tonnetz_max4: number | null
+  tonnetz_max5: number | null
+  tonnetz_mean: number | null
+  tonnetz_mean1: number | null
+  tonnetz_mean2: number | null
+  tonnetz_mean3: number | null
+  tonnetz_mean4: number | null
+  tonnetz_mean5: number | null
+  tonnetz_median: number | null
+  tonnetz_median1: number | null
+  tonnetz_median2: number | null
+  tonnetz_median3: number | null
+  tonnetz_median4: number | null
+  tonnetz_median5: number | null
+  tonnetz_min: number | null
+  tonnetz_min1: number | null
+  tonnetz_min2: number | null
+  tonnetz_min3: number | null
+  tonnetz_min4: number | null
+  tonnetz_min5: number | null
+  tonnetz_skew: number | null
+  tonnetz_skew1: number | null
+  tonnetz_skew2: number | null
+  tonnetz_skew3: number | null
+  tonnetz_skew4: number | null
+  tonnetz_skew5: number | null
+  tonnetz_std: number | null
+  tonnetz_std1: number | null
+  tonnetz_std2: number | null
+  tonnetz_std3: number | null
+  tonnetz_std4: number | null
+  tonnetz_std5: number | null
+  zcr_kurtosis: number | null
+  zcr_max: number | null
+  zcr_mean: number | null
+  zcr_median: number | null
+  zcr_min: number | null
+  zcr_skew: number | null
+  zcr_std: number | null
 }
 
 export type TemporalFeatureMaxAggregateOutputType = {
   trackId: string | null
+  chroma_cens_kurtosis: number | null
+  chroma_cens_kurtosis1: number | null
+  chroma_cens_kurtosis2: number | null
+  chroma_cens_kurtosis3: number | null
+  chroma_cens_kurtosis4: number | null
+  chroma_cens_kurtosis5: number | null
+  chroma_cens_kurtosis6: number | null
+  chroma_cens_kurtosis7: number | null
+  chroma_cens_kurtosis8: number | null
+  chroma_cens_kurtosis9: number | null
+  chroma_cens_kurtosis10: number | null
+  chroma_cens_kurtosis11: number | null
+  chroma_cens_max: number | null
+  chroma_cens_max1: number | null
+  chroma_cens_max2: number | null
+  chroma_cens_max3: number | null
+  chroma_cens_max4: number | null
+  chroma_cens_max5: number | null
+  chroma_cens_max6: number | null
+  chroma_cens_max7: number | null
+  chroma_cens_max8: number | null
+  chroma_cens_max9: number | null
+  chroma_cens_max10: number | null
+  chroma_cens_max11: number | null
+  chroma_cens_mean: number | null
+  chroma_cens_mean1: number | null
+  chroma_cens_mean2: number | null
+  chroma_cens_mean3: number | null
+  chroma_cens_mean4: number | null
+  chroma_cens_mean5: number | null
+  chroma_cens_mean6: number | null
+  chroma_cens_mean7: number | null
+  chroma_cens_mean8: number | null
+  chroma_cens_mean9: number | null
+  chroma_cens_mean10: number | null
+  chroma_cens_mean11: number | null
+  chroma_cens_median: number | null
+  chroma_cens_median1: number | null
+  chroma_cens_median2: number | null
+  chroma_cens_median3: number | null
+  chroma_cens_median4: number | null
+  chroma_cens_median5: number | null
+  chroma_cens_median6: number | null
+  chroma_cens_median7: number | null
+  chroma_cens_median8: number | null
+  chroma_cens_median9: number | null
+  chroma_cens_median10: number | null
+  chroma_cens_median11: number | null
+  chroma_cens_min: number | null
+  chroma_cens_min1: number | null
+  chroma_cens_min2: number | null
+  chroma_cens_min3: number | null
+  chroma_cens_min4: number | null
+  chroma_cens_min5: number | null
+  chroma_cens_min6: number | null
+  chroma_cens_min7: number | null
+  chroma_cens_min8: number | null
+  chroma_cens_min9: number | null
+  chroma_cens_min10: number | null
+  chroma_cens_min11: number | null
+  chroma_cens_skew: number | null
+  chroma_cens_skew1: number | null
+  chroma_cens_skew2: number | null
+  chroma_cens_skew3: number | null
+  chroma_cens_skew4: number | null
+  chroma_cens_skew5: number | null
+  chroma_cens_skew6: number | null
+  chroma_cens_skew7: number | null
+  chroma_cens_skew8: number | null
+  chroma_cens_skew9: number | null
+  chroma_cens_skew10: number | null
+  chroma_cens_skew11: number | null
+  chroma_cens_std: number | null
+  chroma_cens_std1: number | null
+  chroma_cens_std2: number | null
+  chroma_cens_std3: number | null
+  chroma_cens_std4: number | null
+  chroma_cens_std5: number | null
+  chroma_cens_std6: number | null
+  chroma_cens_std7: number | null
+  chroma_cens_std8: number | null
+  chroma_cens_std9: number | null
+  chroma_cens_std10: number | null
+  chroma_cens_std11: number | null
+  chroma_cqt_kurtosis: number | null
+  chroma_cqt_kurtosis1: number | null
+  chroma_cqt_kurtosis2: number | null
+  chroma_cqt_kurtosis3: number | null
+  chroma_cqt_kurtosis4: number | null
+  chroma_cqt_kurtosis5: number | null
+  chroma_cqt_kurtosis6: number | null
+  chroma_cqt_kurtosis7: number | null
+  chroma_cqt_kurtosis8: number | null
+  chroma_cqt_kurtosis9: number | null
+  chroma_cqt_kurtosis10: number | null
+  chroma_cqt_kurtosis11: number | null
+  chroma_cqt_max: number | null
+  chroma_cqt_max1: number | null
+  chroma_cqt_max2: number | null
+  chroma_cqt_max3: number | null
+  chroma_cqt_max4: number | null
+  chroma_cqt_max5: number | null
+  chroma_cqt_max6: number | null
+  chroma_cqt_max7: number | null
+  chroma_cqt_max8: number | null
+  chroma_cqt_max9: number | null
+  chroma_cqt_max10: number | null
+  chroma_cqt_max11: number | null
+  chroma_cqt_mean: number | null
+  chroma_cqt_mean1: number | null
+  chroma_cqt_mean2: number | null
+  chroma_cqt_mean3: number | null
+  chroma_cqt_mean4: number | null
+  chroma_cqt_mean5: number | null
+  chroma_cqt_mean6: number | null
+  chroma_cqt_mean7: number | null
+  chroma_cqt_mean8: number | null
+  chroma_cqt_mean9: number | null
+  chroma_cqt_mean10: number | null
+  chroma_cqt_mean11: number | null
+  chroma_cqt_median: number | null
+  chroma_cqt_median1: number | null
+  chroma_cqt_median2: number | null
+  chroma_cqt_median3: number | null
+  chroma_cqt_median4: number | null
+  chroma_cqt_median5: number | null
+  chroma_cqt_median6: number | null
+  chroma_cqt_median7: number | null
+  chroma_cqt_median8: number | null
+  chroma_cqt_median9: number | null
+  chroma_cqt_median10: number | null
+  chroma_cqt_median11: number | null
+  chroma_cqt_min: number | null
+  chroma_cqt_min1: number | null
+  chroma_cqt_min2: number | null
+  chroma_cqt_min3: number | null
+  chroma_cqt_min4: number | null
+  chroma_cqt_min5: number | null
+  chroma_cqt_min6: number | null
+  chroma_cqt_min7: number | null
+  chroma_cqt_min8: number | null
+  chroma_cqt_min9: number | null
+  chroma_cqt_min10: number | null
+  chroma_cqt_min11: number | null
+  chroma_cqt_skew: number | null
+  chroma_cqt_skew1: number | null
+  chroma_cqt_skew2: number | null
+  chroma_cqt_skew3: number | null
+  chroma_cqt_skew4: number | null
+  chroma_cqt_skew5: number | null
+  chroma_cqt_skew6: number | null
+  chroma_cqt_skew7: number | null
+  chroma_cqt_skew8: number | null
+  chroma_cqt_skew9: number | null
+  chroma_cqt_skew10: number | null
+  chroma_cqt_skew11: number | null
+  chroma_cqt_std: number | null
+  chroma_cqt_std1: number | null
+  chroma_cqt_std2: number | null
+  chroma_cqt_std3: number | null
+  chroma_cqt_std4: number | null
+  chroma_cqt_std5: number | null
+  chroma_cqt_std6: number | null
+  chroma_cqt_std7: number | null
+  chroma_cqt_std8: number | null
+  chroma_cqt_std9: number | null
+  chroma_cqt_std10: number | null
+  chroma_cqt_std11: number | null
+  chroma_stft_kurtosis: number | null
+  chroma_stft_kurtosis1: number | null
+  chroma_stft_kurtosis2: number | null
+  chroma_stft_kurtosis3: number | null
+  chroma_stft_kurtosis4: number | null
+  chroma_stft_kurtosis5: number | null
+  chroma_stft_kurtosis6: number | null
+  chroma_stft_kurtosis7: number | null
+  chroma_stft_kurtosis8: number | null
+  chroma_stft_kurtosis9: number | null
+  chroma_stft_kurtosis10: number | null
+  chroma_stft_kurtosis11: number | null
+  chroma_stft_max: number | null
+  chroma_stft_max1: number | null
+  chroma_stft_max2: number | null
+  chroma_stft_max3: number | null
+  chroma_stft_max4: number | null
+  chroma_stft_max5: number | null
+  chroma_stft_max6: number | null
+  chroma_stft_max7: number | null
+  chroma_stft_max8: number | null
+  chroma_stft_max9: number | null
+  chroma_stft_max10: number | null
+  chroma_stft_max11: number | null
+  chroma_stft_mean: number | null
+  chroma_stft_mean1: number | null
+  chroma_stft_mean2: number | null
+  chroma_stft_mean3: number | null
+  chroma_stft_mean4: number | null
+  chroma_stft_mean5: number | null
+  chroma_stft_mean6: number | null
+  chroma_stft_mean7: number | null
+  chroma_stft_mean8: number | null
+  chroma_stft_mean9: number | null
+  chroma_stft_mean10: number | null
+  chroma_stft_mean11: number | null
+  chroma_stft_median: number | null
+  chroma_stft_median1: number | null
+  chroma_stft_median2: number | null
+  chroma_stft_median3: number | null
+  chroma_stft_median4: number | null
+  chroma_stft_median5: number | null
+  chroma_stft_median6: number | null
+  chroma_stft_median7: number | null
+  chroma_stft_median8: number | null
+  chroma_stft_median9: number | null
+  chroma_stft_median10: number | null
+  chroma_stft_median11: number | null
+  chroma_stft_min: number | null
+  chroma_stft_min1: number | null
+  chroma_stft_min2: number | null
+  chroma_stft_min3: number | null
+  chroma_stft_min4: number | null
+  chroma_stft_min5: number | null
+  chroma_stft_min6: number | null
+  chroma_stft_min7: number | null
+  chroma_stft_min8: number | null
+  chroma_stft_min9: number | null
+  chroma_stft_min10: number | null
+  chroma_stft_min11: number | null
+  chroma_stft_skew: number | null
+  chroma_stft_skew1: number | null
+  chroma_stft_skew2: number | null
+  chroma_stft_skew3: number | null
+  chroma_stft_skew4: number | null
+  chroma_stft_skew5: number | null
+  chroma_stft_skew6: number | null
+  chroma_stft_skew7: number | null
+  chroma_stft_skew8: number | null
+  chroma_stft_skew9: number | null
+  chroma_stft_skew10: number | null
+  chroma_stft_skew11: number | null
+  chroma_stft_std: number | null
+  chroma_stft_std1: number | null
+  chroma_stft_std2: number | null
+  chroma_stft_std3: number | null
+  chroma_stft_std4: number | null
+  chroma_stft_std5: number | null
+  chroma_stft_std6: number | null
+  chroma_stft_std7: number | null
+  chroma_stft_std8: number | null
+  chroma_stft_std9: number | null
+  chroma_stft_std10: number | null
+  chroma_stft_std11: number | null
+  mfcc_kurtosis: number | null
+  mfcc_kurtosis1: number | null
+  mfcc_kurtosis2: number | null
+  mfcc_kurtosis3: number | null
+  mfcc_kurtosis4: number | null
+  mfcc_kurtosis5: number | null
+  mfcc_kurtosis6: number | null
+  mfcc_kurtosis7: number | null
+  mfcc_kurtosis8: number | null
+  mfcc_kurtosis9: number | null
+  mfcc_kurtosis10: number | null
+  mfcc_kurtosis11: number | null
+  mfcc_kurtosis12: number | null
+  mfcc_kurtosis13: number | null
+  mfcc_kurtosis14: number | null
+  mfcc_kurtosis15: number | null
+  mfcc_kurtosis16: number | null
+  mfcc_kurtosis17: number | null
+  mfcc_kurtosis18: number | null
+  mfcc_kurtosis19: number | null
+  mfcc_max: number | null
+  mfcc_max1: number | null
+  mfcc_max2: number | null
+  mfcc_max3: number | null
+  mfcc_max4: number | null
+  mfcc_max5: number | null
+  mfcc_max6: number | null
+  mfcc_max7: number | null
+  mfcc_max8: number | null
+  mfcc_max9: number | null
+  mfcc_max10: number | null
+  mfcc_max11: number | null
+  mfcc_max12: number | null
+  mfcc_max13: number | null
+  mfcc_max14: number | null
+  mfcc_max15: number | null
+  mfcc_max16: number | null
+  mfcc_max17: number | null
+  mfcc_max18: number | null
+  mfcc_max19: number | null
+  mfcc_mean: number | null
+  mfcc_mean1: number | null
+  mfcc_mean2: number | null
+  mfcc_mean3: number | null
+  mfcc_mean4: number | null
+  mfcc_mean5: number | null
+  mfcc_mean6: number | null
+  mfcc_mean7: number | null
+  mfcc_mean8: number | null
+  mfcc_mean9: number | null
+  mfcc_mean10: number | null
+  mfcc_mean11: number | null
+  mfcc_mean12: number | null
+  mfcc_mean13: number | null
+  mfcc_mean14: number | null
+  mfcc_mean15: number | null
+  mfcc_mean16: number | null
+  mfcc_mean17: number | null
+  mfcc_mean18: number | null
+  mfcc_mean19: number | null
+  mfcc_median: number | null
+  mfcc_median1: number | null
+  mfcc_median2: number | null
+  mfcc_median3: number | null
+  mfcc_median4: number | null
+  mfcc_median5: number | null
+  mfcc_median6: number | null
+  mfcc_median7: number | null
+  mfcc_median8: number | null
+  mfcc_median9: number | null
+  mfcc_median10: number | null
+  mfcc_median11: number | null
+  mfcc_median12: number | null
+  mfcc_median13: number | null
+  mfcc_median14: number | null
+  mfcc_median15: number | null
+  mfcc_median16: number | null
+  mfcc_median17: number | null
+  mfcc_median18: number | null
+  mfcc_median19: number | null
+  mfcc_min: number | null
+  mfcc_min1: number | null
+  mfcc_min2: number | null
+  mfcc_min3: number | null
+  mfcc_min4: number | null
+  mfcc_min5: number | null
+  mfcc_min6: number | null
+  mfcc_min7: number | null
+  mfcc_min8: number | null
+  mfcc_min9: number | null
+  mfcc_min10: number | null
+  mfcc_min11: number | null
+  mfcc_min12: number | null
+  mfcc_min13: number | null
+  mfcc_min14: number | null
+  mfcc_min15: number | null
+  mfcc_min16: number | null
+  mfcc_min17: number | null
+  mfcc_min18: number | null
+  mfcc_min19: number | null
+  mfcc_skew: number | null
+  mfcc_skew1: number | null
+  mfcc_skew2: number | null
+  mfcc_skew3: number | null
+  mfcc_skew4: number | null
+  mfcc_skew5: number | null
+  mfcc_skew6: number | null
+  mfcc_skew7: number | null
+  mfcc_skew8: number | null
+  mfcc_skew9: number | null
+  mfcc_skew10: number | null
+  mfcc_skew11: number | null
+  mfcc_skew12: number | null
+  mfcc_skew13: number | null
+  mfcc_skew14: number | null
+  mfcc_skew15: number | null
+  mfcc_skew16: number | null
+  mfcc_skew17: number | null
+  mfcc_skew18: number | null
+  mfcc_skew19: number | null
+  mfcc_std: number | null
+  mfcc_std1: number | null
+  mfcc_std2: number | null
+  mfcc_std3: number | null
+  mfcc_std4: number | null
+  mfcc_std5: number | null
+  mfcc_std6: number | null
+  mfcc_std7: number | null
+  mfcc_std8: number | null
+  mfcc_std9: number | null
+  mfcc_std10: number | null
+  mfcc_std11: number | null
+  mfcc_std12: number | null
+  mfcc_std13: number | null
+  mfcc_std14: number | null
+  mfcc_std15: number | null
+  mfcc_std16: number | null
+  mfcc_std17: number | null
+  mfcc_std18: number | null
+  mfcc_std19: number | null
+  rmse_kurtosis: number | null
+  rmse_max: number | null
+  rmse_mean: number | null
+  rmse_median: number | null
+  rmse_min: number | null
+  rmse_skew: number | null
+  rmse_std: number | null
+  spectral_bandwidth_kurtosis: number | null
+  spectral_bandwidth_max: number | null
+  spectral_bandwidth_mean: number | null
+  spectral_bandwidth_median: number | null
+  spectral_bandwidth_min: number | null
+  spectral_bandwidth_skew: number | null
+  spectral_bandwidth_std: number | null
+  spectral_centroid_kurtosis: number | null
+  spectral_centroid_max: number | null
+  spectral_centroid_mean: number | null
+  spectral_centroid_median: number | null
+  spectral_centroid_min: number | null
+  spectral_centroid_skew: number | null
+  spectral_centroid_std: number | null
+  spectral_contrast_kurtosis: number | null
+  spectral_contrast_kurtosis1: number | null
+  spectral_contrast_kurtosis2: number | null
+  spectral_contrast_kurtosis3: number | null
+  spectral_contrast_kurtosis4: number | null
+  spectral_contrast_kurtosis5: number | null
+  spectral_contrast_kurtosis6: number | null
+  spectral_contrast_max: number | null
+  spectral_contrast_max1: number | null
+  spectral_contrast_max2: number | null
+  spectral_contrast_max3: number | null
+  spectral_contrast_max4: number | null
+  spectral_contrast_max5: number | null
+  spectral_contrast_max6: number | null
+  spectral_contrast_mean: number | null
+  spectral_contrast_mean1: number | null
+  spectral_contrast_mean2: number | null
+  spectral_contrast_mean3: number | null
+  spectral_contrast_mean4: number | null
+  spectral_contrast_mean5: number | null
+  spectral_contrast_mean6: number | null
+  spectral_contrast_median: number | null
+  spectral_contrast_median1: number | null
+  spectral_contrast_median2: number | null
+  spectral_contrast_median3: number | null
+  spectral_contrast_median4: number | null
+  spectral_contrast_median5: number | null
+  spectral_contrast_median6: number | null
+  spectral_contrast_min: number | null
+  spectral_contrast_min1: number | null
+  spectral_contrast_min2: number | null
+  spectral_contrast_min3: number | null
+  spectral_contrast_min4: number | null
+  spectral_contrast_min5: number | null
+  spectral_contrast_min6: number | null
+  spectral_contrast_skew: number | null
+  spectral_contrast_skew1: number | null
+  spectral_contrast_skew2: number | null
+  spectral_contrast_skew3: number | null
+  spectral_contrast_skew4: number | null
+  spectral_contrast_skew5: number | null
+  spectral_contrast_skew6: number | null
+  spectral_contrast_std: number | null
+  spectral_contrast_std1: number | null
+  spectral_contrast_std2: number | null
+  spectral_contrast_std3: number | null
+  spectral_contrast_std4: number | null
+  spectral_contrast_std5: number | null
+  spectral_contrast_std6: number | null
+  spectral_rolloff_kurtosis: number | null
+  spectral_rolloff_max: number | null
+  spectral_rolloff_mean: number | null
+  spectral_rolloff_median: number | null
+  spectral_rolloff_min: number | null
+  spectral_rolloff_skew: number | null
+  spectral_rolloff_std: number | null
+  tonnetz_kurtosis: number | null
+  tonnetz_kurtosis1: number | null
+  tonnetz_kurtosis2: number | null
+  tonnetz_kurtosis3: number | null
+  tonnetz_kurtosis4: number | null
+  tonnetz_kurtosis5: number | null
+  tonnetz_max: number | null
+  tonnetz_max1: number | null
+  tonnetz_max2: number | null
+  tonnetz_max3: number | null
+  tonnetz_max4: number | null
+  tonnetz_max5: number | null
+  tonnetz_mean: number | null
+  tonnetz_mean1: number | null
+  tonnetz_mean2: number | null
+  tonnetz_mean3: number | null
+  tonnetz_mean4: number | null
+  tonnetz_mean5: number | null
+  tonnetz_median: number | null
+  tonnetz_median1: number | null
+  tonnetz_median2: number | null
+  tonnetz_median3: number | null
+  tonnetz_median4: number | null
+  tonnetz_median5: number | null
+  tonnetz_min: number | null
+  tonnetz_min1: number | null
+  tonnetz_min2: number | null
+  tonnetz_min3: number | null
+  tonnetz_min4: number | null
+  tonnetz_min5: number | null
+  tonnetz_skew: number | null
+  tonnetz_skew1: number | null
+  tonnetz_skew2: number | null
+  tonnetz_skew3: number | null
+  tonnetz_skew4: number | null
+  tonnetz_skew5: number | null
+  tonnetz_std: number | null
+  tonnetz_std1: number | null
+  tonnetz_std2: number | null
+  tonnetz_std3: number | null
+  tonnetz_std4: number | null
+  tonnetz_std5: number | null
+  zcr_kurtosis: number | null
+  zcr_max: number | null
+  zcr_mean: number | null
+  zcr_median: number | null
+  zcr_min: number | null
+  zcr_skew: number | null
+  zcr_std: number | null
 }
 
 export type TemporalFeatureCountAggregateOutputType = {
   trackId: number
+  chroma_cens_kurtosis: number
+  chroma_cens_kurtosis1: number
+  chroma_cens_kurtosis2: number
+  chroma_cens_kurtosis3: number
+  chroma_cens_kurtosis4: number
+  chroma_cens_kurtosis5: number
+  chroma_cens_kurtosis6: number
+  chroma_cens_kurtosis7: number
+  chroma_cens_kurtosis8: number
+  chroma_cens_kurtosis9: number
+  chroma_cens_kurtosis10: number
+  chroma_cens_kurtosis11: number
+  chroma_cens_max: number
+  chroma_cens_max1: number
+  chroma_cens_max2: number
+  chroma_cens_max3: number
+  chroma_cens_max4: number
+  chroma_cens_max5: number
+  chroma_cens_max6: number
+  chroma_cens_max7: number
+  chroma_cens_max8: number
+  chroma_cens_max9: number
+  chroma_cens_max10: number
+  chroma_cens_max11: number
+  chroma_cens_mean: number
+  chroma_cens_mean1: number
+  chroma_cens_mean2: number
+  chroma_cens_mean3: number
+  chroma_cens_mean4: number
+  chroma_cens_mean5: number
+  chroma_cens_mean6: number
+  chroma_cens_mean7: number
+  chroma_cens_mean8: number
+  chroma_cens_mean9: number
+  chroma_cens_mean10: number
+  chroma_cens_mean11: number
+  chroma_cens_median: number
+  chroma_cens_median1: number
+  chroma_cens_median2: number
+  chroma_cens_median3: number
+  chroma_cens_median4: number
+  chroma_cens_median5: number
+  chroma_cens_median6: number
+  chroma_cens_median7: number
+  chroma_cens_median8: number
+  chroma_cens_median9: number
+  chroma_cens_median10: number
+  chroma_cens_median11: number
+  chroma_cens_min: number
+  chroma_cens_min1: number
+  chroma_cens_min2: number
+  chroma_cens_min3: number
+  chroma_cens_min4: number
+  chroma_cens_min5: number
+  chroma_cens_min6: number
+  chroma_cens_min7: number
+  chroma_cens_min8: number
+  chroma_cens_min9: number
+  chroma_cens_min10: number
+  chroma_cens_min11: number
+  chroma_cens_skew: number
+  chroma_cens_skew1: number
+  chroma_cens_skew2: number
+  chroma_cens_skew3: number
+  chroma_cens_skew4: number
+  chroma_cens_skew5: number
+  chroma_cens_skew6: number
+  chroma_cens_skew7: number
+  chroma_cens_skew8: number
+  chroma_cens_skew9: number
+  chroma_cens_skew10: number
+  chroma_cens_skew11: number
+  chroma_cens_std: number
+  chroma_cens_std1: number
+  chroma_cens_std2: number
+  chroma_cens_std3: number
+  chroma_cens_std4: number
+  chroma_cens_std5: number
+  chroma_cens_std6: number
+  chroma_cens_std7: number
+  chroma_cens_std8: number
+  chroma_cens_std9: number
+  chroma_cens_std10: number
+  chroma_cens_std11: number
+  chroma_cqt_kurtosis: number
+  chroma_cqt_kurtosis1: number
+  chroma_cqt_kurtosis2: number
+  chroma_cqt_kurtosis3: number
+  chroma_cqt_kurtosis4: number
+  chroma_cqt_kurtosis5: number
+  chroma_cqt_kurtosis6: number
+  chroma_cqt_kurtosis7: number
+  chroma_cqt_kurtosis8: number
+  chroma_cqt_kurtosis9: number
+  chroma_cqt_kurtosis10: number
+  chroma_cqt_kurtosis11: number
+  chroma_cqt_max: number
+  chroma_cqt_max1: number
+  chroma_cqt_max2: number
+  chroma_cqt_max3: number
+  chroma_cqt_max4: number
+  chroma_cqt_max5: number
+  chroma_cqt_max6: number
+  chroma_cqt_max7: number
+  chroma_cqt_max8: number
+  chroma_cqt_max9: number
+  chroma_cqt_max10: number
+  chroma_cqt_max11: number
+  chroma_cqt_mean: number
+  chroma_cqt_mean1: number
+  chroma_cqt_mean2: number
+  chroma_cqt_mean3: number
+  chroma_cqt_mean4: number
+  chroma_cqt_mean5: number
+  chroma_cqt_mean6: number
+  chroma_cqt_mean7: number
+  chroma_cqt_mean8: number
+  chroma_cqt_mean9: number
+  chroma_cqt_mean10: number
+  chroma_cqt_mean11: number
+  chroma_cqt_median: number
+  chroma_cqt_median1: number
+  chroma_cqt_median2: number
+  chroma_cqt_median3: number
+  chroma_cqt_median4: number
+  chroma_cqt_median5: number
+  chroma_cqt_median6: number
+  chroma_cqt_median7: number
+  chroma_cqt_median8: number
+  chroma_cqt_median9: number
+  chroma_cqt_median10: number
+  chroma_cqt_median11: number
+  chroma_cqt_min: number
+  chroma_cqt_min1: number
+  chroma_cqt_min2: number
+  chroma_cqt_min3: number
+  chroma_cqt_min4: number
+  chroma_cqt_min5: number
+  chroma_cqt_min6: number
+  chroma_cqt_min7: number
+  chroma_cqt_min8: number
+  chroma_cqt_min9: number
+  chroma_cqt_min10: number
+  chroma_cqt_min11: number
+  chroma_cqt_skew: number
+  chroma_cqt_skew1: number
+  chroma_cqt_skew2: number
+  chroma_cqt_skew3: number
+  chroma_cqt_skew4: number
+  chroma_cqt_skew5: number
+  chroma_cqt_skew6: number
+  chroma_cqt_skew7: number
+  chroma_cqt_skew8: number
+  chroma_cqt_skew9: number
+  chroma_cqt_skew10: number
+  chroma_cqt_skew11: number
+  chroma_cqt_std: number
+  chroma_cqt_std1: number
+  chroma_cqt_std2: number
+  chroma_cqt_std3: number
+  chroma_cqt_std4: number
+  chroma_cqt_std5: number
+  chroma_cqt_std6: number
+  chroma_cqt_std7: number
+  chroma_cqt_std8: number
+  chroma_cqt_std9: number
+  chroma_cqt_std10: number
+  chroma_cqt_std11: number
+  chroma_stft_kurtosis: number
+  chroma_stft_kurtosis1: number
+  chroma_stft_kurtosis2: number
+  chroma_stft_kurtosis3: number
+  chroma_stft_kurtosis4: number
+  chroma_stft_kurtosis5: number
+  chroma_stft_kurtosis6: number
+  chroma_stft_kurtosis7: number
+  chroma_stft_kurtosis8: number
+  chroma_stft_kurtosis9: number
+  chroma_stft_kurtosis10: number
+  chroma_stft_kurtosis11: number
+  chroma_stft_max: number
+  chroma_stft_max1: number
+  chroma_stft_max2: number
+  chroma_stft_max3: number
+  chroma_stft_max4: number
+  chroma_stft_max5: number
+  chroma_stft_max6: number
+  chroma_stft_max7: number
+  chroma_stft_max8: number
+  chroma_stft_max9: number
+  chroma_stft_max10: number
+  chroma_stft_max11: number
+  chroma_stft_mean: number
+  chroma_stft_mean1: number
+  chroma_stft_mean2: number
+  chroma_stft_mean3: number
+  chroma_stft_mean4: number
+  chroma_stft_mean5: number
+  chroma_stft_mean6: number
+  chroma_stft_mean7: number
+  chroma_stft_mean8: number
+  chroma_stft_mean9: number
+  chroma_stft_mean10: number
+  chroma_stft_mean11: number
+  chroma_stft_median: number
+  chroma_stft_median1: number
+  chroma_stft_median2: number
+  chroma_stft_median3: number
+  chroma_stft_median4: number
+  chroma_stft_median5: number
+  chroma_stft_median6: number
+  chroma_stft_median7: number
+  chroma_stft_median8: number
+  chroma_stft_median9: number
+  chroma_stft_median10: number
+  chroma_stft_median11: number
+  chroma_stft_min: number
+  chroma_stft_min1: number
+  chroma_stft_min2: number
+  chroma_stft_min3: number
+  chroma_stft_min4: number
+  chroma_stft_min5: number
+  chroma_stft_min6: number
+  chroma_stft_min7: number
+  chroma_stft_min8: number
+  chroma_stft_min9: number
+  chroma_stft_min10: number
+  chroma_stft_min11: number
+  chroma_stft_skew: number
+  chroma_stft_skew1: number
+  chroma_stft_skew2: number
+  chroma_stft_skew3: number
+  chroma_stft_skew4: number
+  chroma_stft_skew5: number
+  chroma_stft_skew6: number
+  chroma_stft_skew7: number
+  chroma_stft_skew8: number
+  chroma_stft_skew9: number
+  chroma_stft_skew10: number
+  chroma_stft_skew11: number
+  chroma_stft_std: number
+  chroma_stft_std1: number
+  chroma_stft_std2: number
+  chroma_stft_std3: number
+  chroma_stft_std4: number
+  chroma_stft_std5: number
+  chroma_stft_std6: number
+  chroma_stft_std7: number
+  chroma_stft_std8: number
+  chroma_stft_std9: number
+  chroma_stft_std10: number
+  chroma_stft_std11: number
+  mfcc_kurtosis: number
+  mfcc_kurtosis1: number
+  mfcc_kurtosis2: number
+  mfcc_kurtosis3: number
+  mfcc_kurtosis4: number
+  mfcc_kurtosis5: number
+  mfcc_kurtosis6: number
+  mfcc_kurtosis7: number
+  mfcc_kurtosis8: number
+  mfcc_kurtosis9: number
+  mfcc_kurtosis10: number
+  mfcc_kurtosis11: number
+  mfcc_kurtosis12: number
+  mfcc_kurtosis13: number
+  mfcc_kurtosis14: number
+  mfcc_kurtosis15: number
+  mfcc_kurtosis16: number
+  mfcc_kurtosis17: number
+  mfcc_kurtosis18: number
+  mfcc_kurtosis19: number
+  mfcc_max: number
+  mfcc_max1: number
+  mfcc_max2: number
+  mfcc_max3: number
+  mfcc_max4: number
+  mfcc_max5: number
+  mfcc_max6: number
+  mfcc_max7: number
+  mfcc_max8: number
+  mfcc_max9: number
+  mfcc_max10: number
+  mfcc_max11: number
+  mfcc_max12: number
+  mfcc_max13: number
+  mfcc_max14: number
+  mfcc_max15: number
+  mfcc_max16: number
+  mfcc_max17: number
+  mfcc_max18: number
+  mfcc_max19: number
+  mfcc_mean: number
+  mfcc_mean1: number
+  mfcc_mean2: number
+  mfcc_mean3: number
+  mfcc_mean4: number
+  mfcc_mean5: number
+  mfcc_mean6: number
+  mfcc_mean7: number
+  mfcc_mean8: number
+  mfcc_mean9: number
+  mfcc_mean10: number
+  mfcc_mean11: number
+  mfcc_mean12: number
+  mfcc_mean13: number
+  mfcc_mean14: number
+  mfcc_mean15: number
+  mfcc_mean16: number
+  mfcc_mean17: number
+  mfcc_mean18: number
+  mfcc_mean19: number
+  mfcc_median: number
+  mfcc_median1: number
+  mfcc_median2: number
+  mfcc_median3: number
+  mfcc_median4: number
+  mfcc_median5: number
+  mfcc_median6: number
+  mfcc_median7: number
+  mfcc_median8: number
+  mfcc_median9: number
+  mfcc_median10: number
+  mfcc_median11: number
+  mfcc_median12: number
+  mfcc_median13: number
+  mfcc_median14: number
+  mfcc_median15: number
+  mfcc_median16: number
+  mfcc_median17: number
+  mfcc_median18: number
+  mfcc_median19: number
+  mfcc_min: number
+  mfcc_min1: number
+  mfcc_min2: number
+  mfcc_min3: number
+  mfcc_min4: number
+  mfcc_min5: number
+  mfcc_min6: number
+  mfcc_min7: number
+  mfcc_min8: number
+  mfcc_min9: number
+  mfcc_min10: number
+  mfcc_min11: number
+  mfcc_min12: number
+  mfcc_min13: number
+  mfcc_min14: number
+  mfcc_min15: number
+  mfcc_min16: number
+  mfcc_min17: number
+  mfcc_min18: number
+  mfcc_min19: number
+  mfcc_skew: number
+  mfcc_skew1: number
+  mfcc_skew2: number
+  mfcc_skew3: number
+  mfcc_skew4: number
+  mfcc_skew5: number
+  mfcc_skew6: number
+  mfcc_skew7: number
+  mfcc_skew8: number
+  mfcc_skew9: number
+  mfcc_skew10: number
+  mfcc_skew11: number
+  mfcc_skew12: number
+  mfcc_skew13: number
+  mfcc_skew14: number
+  mfcc_skew15: number
+  mfcc_skew16: number
+  mfcc_skew17: number
+  mfcc_skew18: number
+  mfcc_skew19: number
+  mfcc_std: number
+  mfcc_std1: number
+  mfcc_std2: number
+  mfcc_std3: number
+  mfcc_std4: number
+  mfcc_std5: number
+  mfcc_std6: number
+  mfcc_std7: number
+  mfcc_std8: number
+  mfcc_std9: number
+  mfcc_std10: number
+  mfcc_std11: number
+  mfcc_std12: number
+  mfcc_std13: number
+  mfcc_std14: number
+  mfcc_std15: number
+  mfcc_std16: number
+  mfcc_std17: number
+  mfcc_std18: number
+  mfcc_std19: number
+  rmse_kurtosis: number
+  rmse_max: number
+  rmse_mean: number
+  rmse_median: number
+  rmse_min: number
+  rmse_skew: number
+  rmse_std: number
+  spectral_bandwidth_kurtosis: number
+  spectral_bandwidth_max: number
+  spectral_bandwidth_mean: number
+  spectral_bandwidth_median: number
+  spectral_bandwidth_min: number
+  spectral_bandwidth_skew: number
+  spectral_bandwidth_std: number
+  spectral_centroid_kurtosis: number
+  spectral_centroid_max: number
+  spectral_centroid_mean: number
+  spectral_centroid_median: number
+  spectral_centroid_min: number
+  spectral_centroid_skew: number
+  spectral_centroid_std: number
+  spectral_contrast_kurtosis: number
+  spectral_contrast_kurtosis1: number
+  spectral_contrast_kurtosis2: number
+  spectral_contrast_kurtosis3: number
+  spectral_contrast_kurtosis4: number
+  spectral_contrast_kurtosis5: number
+  spectral_contrast_kurtosis6: number
+  spectral_contrast_max: number
+  spectral_contrast_max1: number
+  spectral_contrast_max2: number
+  spectral_contrast_max3: number
+  spectral_contrast_max4: number
+  spectral_contrast_max5: number
+  spectral_contrast_max6: number
+  spectral_contrast_mean: number
+  spectral_contrast_mean1: number
+  spectral_contrast_mean2: number
+  spectral_contrast_mean3: number
+  spectral_contrast_mean4: number
+  spectral_contrast_mean5: number
+  spectral_contrast_mean6: number
+  spectral_contrast_median: number
+  spectral_contrast_median1: number
+  spectral_contrast_median2: number
+  spectral_contrast_median3: number
+  spectral_contrast_median4: number
+  spectral_contrast_median5: number
+  spectral_contrast_median6: number
+  spectral_contrast_min: number
+  spectral_contrast_min1: number
+  spectral_contrast_min2: number
+  spectral_contrast_min3: number
+  spectral_contrast_min4: number
+  spectral_contrast_min5: number
+  spectral_contrast_min6: number
+  spectral_contrast_skew: number
+  spectral_contrast_skew1: number
+  spectral_contrast_skew2: number
+  spectral_contrast_skew3: number
+  spectral_contrast_skew4: number
+  spectral_contrast_skew5: number
+  spectral_contrast_skew6: number
+  spectral_contrast_std: number
+  spectral_contrast_std1: number
+  spectral_contrast_std2: number
+  spectral_contrast_std3: number
+  spectral_contrast_std4: number
+  spectral_contrast_std5: number
+  spectral_contrast_std6: number
+  spectral_rolloff_kurtosis: number
+  spectral_rolloff_max: number
+  spectral_rolloff_mean: number
+  spectral_rolloff_median: number
+  spectral_rolloff_min: number
+  spectral_rolloff_skew: number
+  spectral_rolloff_std: number
+  tonnetz_kurtosis: number
+  tonnetz_kurtosis1: number
+  tonnetz_kurtosis2: number
+  tonnetz_kurtosis3: number
+  tonnetz_kurtosis4: number
+  tonnetz_kurtosis5: number
+  tonnetz_max: number
+  tonnetz_max1: number
+  tonnetz_max2: number
+  tonnetz_max3: number
+  tonnetz_max4: number
+  tonnetz_max5: number
+  tonnetz_mean: number
+  tonnetz_mean1: number
+  tonnetz_mean2: number
+  tonnetz_mean3: number
+  tonnetz_mean4: number
+  tonnetz_mean5: number
+  tonnetz_median: number
+  tonnetz_median1: number
+  tonnetz_median2: number
+  tonnetz_median3: number
+  tonnetz_median4: number
+  tonnetz_median5: number
+  tonnetz_min: number
+  tonnetz_min1: number
+  tonnetz_min2: number
+  tonnetz_min3: number
+  tonnetz_min4: number
+  tonnetz_min5: number
+  tonnetz_skew: number
+  tonnetz_skew1: number
+  tonnetz_skew2: number
+  tonnetz_skew3: number
+  tonnetz_skew4: number
+  tonnetz_skew5: number
+  tonnetz_std: number
+  tonnetz_std1: number
+  tonnetz_std2: number
+  tonnetz_std3: number
+  tonnetz_std4: number
+  tonnetz_std5: number
+  zcr_kurtosis: number
+  zcr_max: number
+  zcr_mean: number
+  zcr_median: number
+  zcr_min: number
+  zcr_skew: number
+  zcr_std: number
   _all: number
 }
 
 
+export type TemporalFeatureAvgAggregateInputType = {
+  chroma_cens_kurtosis?: true
+  chroma_cens_kurtosis1?: true
+  chroma_cens_kurtosis2?: true
+  chroma_cens_kurtosis3?: true
+  chroma_cens_kurtosis4?: true
+  chroma_cens_kurtosis5?: true
+  chroma_cens_kurtosis6?: true
+  chroma_cens_kurtosis7?: true
+  chroma_cens_kurtosis8?: true
+  chroma_cens_kurtosis9?: true
+  chroma_cens_kurtosis10?: true
+  chroma_cens_kurtosis11?: true
+  chroma_cens_max?: true
+  chroma_cens_max1?: true
+  chroma_cens_max2?: true
+  chroma_cens_max3?: true
+  chroma_cens_max4?: true
+  chroma_cens_max5?: true
+  chroma_cens_max6?: true
+  chroma_cens_max7?: true
+  chroma_cens_max8?: true
+  chroma_cens_max9?: true
+  chroma_cens_max10?: true
+  chroma_cens_max11?: true
+  chroma_cens_mean?: true
+  chroma_cens_mean1?: true
+  chroma_cens_mean2?: true
+  chroma_cens_mean3?: true
+  chroma_cens_mean4?: true
+  chroma_cens_mean5?: true
+  chroma_cens_mean6?: true
+  chroma_cens_mean7?: true
+  chroma_cens_mean8?: true
+  chroma_cens_mean9?: true
+  chroma_cens_mean10?: true
+  chroma_cens_mean11?: true
+  chroma_cens_median?: true
+  chroma_cens_median1?: true
+  chroma_cens_median2?: true
+  chroma_cens_median3?: true
+  chroma_cens_median4?: true
+  chroma_cens_median5?: true
+  chroma_cens_median6?: true
+  chroma_cens_median7?: true
+  chroma_cens_median8?: true
+  chroma_cens_median9?: true
+  chroma_cens_median10?: true
+  chroma_cens_median11?: true
+  chroma_cens_min?: true
+  chroma_cens_min1?: true
+  chroma_cens_min2?: true
+  chroma_cens_min3?: true
+  chroma_cens_min4?: true
+  chroma_cens_min5?: true
+  chroma_cens_min6?: true
+  chroma_cens_min7?: true
+  chroma_cens_min8?: true
+  chroma_cens_min9?: true
+  chroma_cens_min10?: true
+  chroma_cens_min11?: true
+  chroma_cens_skew?: true
+  chroma_cens_skew1?: true
+  chroma_cens_skew2?: true
+  chroma_cens_skew3?: true
+  chroma_cens_skew4?: true
+  chroma_cens_skew5?: true
+  chroma_cens_skew6?: true
+  chroma_cens_skew7?: true
+  chroma_cens_skew8?: true
+  chroma_cens_skew9?: true
+  chroma_cens_skew10?: true
+  chroma_cens_skew11?: true
+  chroma_cens_std?: true
+  chroma_cens_std1?: true
+  chroma_cens_std2?: true
+  chroma_cens_std3?: true
+  chroma_cens_std4?: true
+  chroma_cens_std5?: true
+  chroma_cens_std6?: true
+  chroma_cens_std7?: true
+  chroma_cens_std8?: true
+  chroma_cens_std9?: true
+  chroma_cens_std10?: true
+  chroma_cens_std11?: true
+  chroma_cqt_kurtosis?: true
+  chroma_cqt_kurtosis1?: true
+  chroma_cqt_kurtosis2?: true
+  chroma_cqt_kurtosis3?: true
+  chroma_cqt_kurtosis4?: true
+  chroma_cqt_kurtosis5?: true
+  chroma_cqt_kurtosis6?: true
+  chroma_cqt_kurtosis7?: true
+  chroma_cqt_kurtosis8?: true
+  chroma_cqt_kurtosis9?: true
+  chroma_cqt_kurtosis10?: true
+  chroma_cqt_kurtosis11?: true
+  chroma_cqt_max?: true
+  chroma_cqt_max1?: true
+  chroma_cqt_max2?: true
+  chroma_cqt_max3?: true
+  chroma_cqt_max4?: true
+  chroma_cqt_max5?: true
+  chroma_cqt_max6?: true
+  chroma_cqt_max7?: true
+  chroma_cqt_max8?: true
+  chroma_cqt_max9?: true
+  chroma_cqt_max10?: true
+  chroma_cqt_max11?: true
+  chroma_cqt_mean?: true
+  chroma_cqt_mean1?: true
+  chroma_cqt_mean2?: true
+  chroma_cqt_mean3?: true
+  chroma_cqt_mean4?: true
+  chroma_cqt_mean5?: true
+  chroma_cqt_mean6?: true
+  chroma_cqt_mean7?: true
+  chroma_cqt_mean8?: true
+  chroma_cqt_mean9?: true
+  chroma_cqt_mean10?: true
+  chroma_cqt_mean11?: true
+  chroma_cqt_median?: true
+  chroma_cqt_median1?: true
+  chroma_cqt_median2?: true
+  chroma_cqt_median3?: true
+  chroma_cqt_median4?: true
+  chroma_cqt_median5?: true
+  chroma_cqt_median6?: true
+  chroma_cqt_median7?: true
+  chroma_cqt_median8?: true
+  chroma_cqt_median9?: true
+  chroma_cqt_median10?: true
+  chroma_cqt_median11?: true
+  chroma_cqt_min?: true
+  chroma_cqt_min1?: true
+  chroma_cqt_min2?: true
+  chroma_cqt_min3?: true
+  chroma_cqt_min4?: true
+  chroma_cqt_min5?: true
+  chroma_cqt_min6?: true
+  chroma_cqt_min7?: true
+  chroma_cqt_min8?: true
+  chroma_cqt_min9?: true
+  chroma_cqt_min10?: true
+  chroma_cqt_min11?: true
+  chroma_cqt_skew?: true
+  chroma_cqt_skew1?: true
+  chroma_cqt_skew2?: true
+  chroma_cqt_skew3?: true
+  chroma_cqt_skew4?: true
+  chroma_cqt_skew5?: true
+  chroma_cqt_skew6?: true
+  chroma_cqt_skew7?: true
+  chroma_cqt_skew8?: true
+  chroma_cqt_skew9?: true
+  chroma_cqt_skew10?: true
+  chroma_cqt_skew11?: true
+  chroma_cqt_std?: true
+  chroma_cqt_std1?: true
+  chroma_cqt_std2?: true
+  chroma_cqt_std3?: true
+  chroma_cqt_std4?: true
+  chroma_cqt_std5?: true
+  chroma_cqt_std6?: true
+  chroma_cqt_std7?: true
+  chroma_cqt_std8?: true
+  chroma_cqt_std9?: true
+  chroma_cqt_std10?: true
+  chroma_cqt_std11?: true
+  chroma_stft_kurtosis?: true
+  chroma_stft_kurtosis1?: true
+  chroma_stft_kurtosis2?: true
+  chroma_stft_kurtosis3?: true
+  chroma_stft_kurtosis4?: true
+  chroma_stft_kurtosis5?: true
+  chroma_stft_kurtosis6?: true
+  chroma_stft_kurtosis7?: true
+  chroma_stft_kurtosis8?: true
+  chroma_stft_kurtosis9?: true
+  chroma_stft_kurtosis10?: true
+  chroma_stft_kurtosis11?: true
+  chroma_stft_max?: true
+  chroma_stft_max1?: true
+  chroma_stft_max2?: true
+  chroma_stft_max3?: true
+  chroma_stft_max4?: true
+  chroma_stft_max5?: true
+  chroma_stft_max6?: true
+  chroma_stft_max7?: true
+  chroma_stft_max8?: true
+  chroma_stft_max9?: true
+  chroma_stft_max10?: true
+  chroma_stft_max11?: true
+  chroma_stft_mean?: true
+  chroma_stft_mean1?: true
+  chroma_stft_mean2?: true
+  chroma_stft_mean3?: true
+  chroma_stft_mean4?: true
+  chroma_stft_mean5?: true
+  chroma_stft_mean6?: true
+  chroma_stft_mean7?: true
+  chroma_stft_mean8?: true
+  chroma_stft_mean9?: true
+  chroma_stft_mean10?: true
+  chroma_stft_mean11?: true
+  chroma_stft_median?: true
+  chroma_stft_median1?: true
+  chroma_stft_median2?: true
+  chroma_stft_median3?: true
+  chroma_stft_median4?: true
+  chroma_stft_median5?: true
+  chroma_stft_median6?: true
+  chroma_stft_median7?: true
+  chroma_stft_median8?: true
+  chroma_stft_median9?: true
+  chroma_stft_median10?: true
+  chroma_stft_median11?: true
+  chroma_stft_min?: true
+  chroma_stft_min1?: true
+  chroma_stft_min2?: true
+  chroma_stft_min3?: true
+  chroma_stft_min4?: true
+  chroma_stft_min5?: true
+  chroma_stft_min6?: true
+  chroma_stft_min7?: true
+  chroma_stft_min8?: true
+  chroma_stft_min9?: true
+  chroma_stft_min10?: true
+  chroma_stft_min11?: true
+  chroma_stft_skew?: true
+  chroma_stft_skew1?: true
+  chroma_stft_skew2?: true
+  chroma_stft_skew3?: true
+  chroma_stft_skew4?: true
+  chroma_stft_skew5?: true
+  chroma_stft_skew6?: true
+  chroma_stft_skew7?: true
+  chroma_stft_skew8?: true
+  chroma_stft_skew9?: true
+  chroma_stft_skew10?: true
+  chroma_stft_skew11?: true
+  chroma_stft_std?: true
+  chroma_stft_std1?: true
+  chroma_stft_std2?: true
+  chroma_stft_std3?: true
+  chroma_stft_std4?: true
+  chroma_stft_std5?: true
+  chroma_stft_std6?: true
+  chroma_stft_std7?: true
+  chroma_stft_std8?: true
+  chroma_stft_std9?: true
+  chroma_stft_std10?: true
+  chroma_stft_std11?: true
+  mfcc_kurtosis?: true
+  mfcc_kurtosis1?: true
+  mfcc_kurtosis2?: true
+  mfcc_kurtosis3?: true
+  mfcc_kurtosis4?: true
+  mfcc_kurtosis5?: true
+  mfcc_kurtosis6?: true
+  mfcc_kurtosis7?: true
+  mfcc_kurtosis8?: true
+  mfcc_kurtosis9?: true
+  mfcc_kurtosis10?: true
+  mfcc_kurtosis11?: true
+  mfcc_kurtosis12?: true
+  mfcc_kurtosis13?: true
+  mfcc_kurtosis14?: true
+  mfcc_kurtosis15?: true
+  mfcc_kurtosis16?: true
+  mfcc_kurtosis17?: true
+  mfcc_kurtosis18?: true
+  mfcc_kurtosis19?: true
+  mfcc_max?: true
+  mfcc_max1?: true
+  mfcc_max2?: true
+  mfcc_max3?: true
+  mfcc_max4?: true
+  mfcc_max5?: true
+  mfcc_max6?: true
+  mfcc_max7?: true
+  mfcc_max8?: true
+  mfcc_max9?: true
+  mfcc_max10?: true
+  mfcc_max11?: true
+  mfcc_max12?: true
+  mfcc_max13?: true
+  mfcc_max14?: true
+  mfcc_max15?: true
+  mfcc_max16?: true
+  mfcc_max17?: true
+  mfcc_max18?: true
+  mfcc_max19?: true
+  mfcc_mean?: true
+  mfcc_mean1?: true
+  mfcc_mean2?: true
+  mfcc_mean3?: true
+  mfcc_mean4?: true
+  mfcc_mean5?: true
+  mfcc_mean6?: true
+  mfcc_mean7?: true
+  mfcc_mean8?: true
+  mfcc_mean9?: true
+  mfcc_mean10?: true
+  mfcc_mean11?: true
+  mfcc_mean12?: true
+  mfcc_mean13?: true
+  mfcc_mean14?: true
+  mfcc_mean15?: true
+  mfcc_mean16?: true
+  mfcc_mean17?: true
+  mfcc_mean18?: true
+  mfcc_mean19?: true
+  mfcc_median?: true
+  mfcc_median1?: true
+  mfcc_median2?: true
+  mfcc_median3?: true
+  mfcc_median4?: true
+  mfcc_median5?: true
+  mfcc_median6?: true
+  mfcc_median7?: true
+  mfcc_median8?: true
+  mfcc_median9?: true
+  mfcc_median10?: true
+  mfcc_median11?: true
+  mfcc_median12?: true
+  mfcc_median13?: true
+  mfcc_median14?: true
+  mfcc_median15?: true
+  mfcc_median16?: true
+  mfcc_median17?: true
+  mfcc_median18?: true
+  mfcc_median19?: true
+  mfcc_min?: true
+  mfcc_min1?: true
+  mfcc_min2?: true
+  mfcc_min3?: true
+  mfcc_min4?: true
+  mfcc_min5?: true
+  mfcc_min6?: true
+  mfcc_min7?: true
+  mfcc_min8?: true
+  mfcc_min9?: true
+  mfcc_min10?: true
+  mfcc_min11?: true
+  mfcc_min12?: true
+  mfcc_min13?: true
+  mfcc_min14?: true
+  mfcc_min15?: true
+  mfcc_min16?: true
+  mfcc_min17?: true
+  mfcc_min18?: true
+  mfcc_min19?: true
+  mfcc_skew?: true
+  mfcc_skew1?: true
+  mfcc_skew2?: true
+  mfcc_skew3?: true
+  mfcc_skew4?: true
+  mfcc_skew5?: true
+  mfcc_skew6?: true
+  mfcc_skew7?: true
+  mfcc_skew8?: true
+  mfcc_skew9?: true
+  mfcc_skew10?: true
+  mfcc_skew11?: true
+  mfcc_skew12?: true
+  mfcc_skew13?: true
+  mfcc_skew14?: true
+  mfcc_skew15?: true
+  mfcc_skew16?: true
+  mfcc_skew17?: true
+  mfcc_skew18?: true
+  mfcc_skew19?: true
+  mfcc_std?: true
+  mfcc_std1?: true
+  mfcc_std2?: true
+  mfcc_std3?: true
+  mfcc_std4?: true
+  mfcc_std5?: true
+  mfcc_std6?: true
+  mfcc_std7?: true
+  mfcc_std8?: true
+  mfcc_std9?: true
+  mfcc_std10?: true
+  mfcc_std11?: true
+  mfcc_std12?: true
+  mfcc_std13?: true
+  mfcc_std14?: true
+  mfcc_std15?: true
+  mfcc_std16?: true
+  mfcc_std17?: true
+  mfcc_std18?: true
+  mfcc_std19?: true
+  rmse_kurtosis?: true
+  rmse_max?: true
+  rmse_mean?: true
+  rmse_median?: true
+  rmse_min?: true
+  rmse_skew?: true
+  rmse_std?: true
+  spectral_bandwidth_kurtosis?: true
+  spectral_bandwidth_max?: true
+  spectral_bandwidth_mean?: true
+  spectral_bandwidth_median?: true
+  spectral_bandwidth_min?: true
+  spectral_bandwidth_skew?: true
+  spectral_bandwidth_std?: true
+  spectral_centroid_kurtosis?: true
+  spectral_centroid_max?: true
+  spectral_centroid_mean?: true
+  spectral_centroid_median?: true
+  spectral_centroid_min?: true
+  spectral_centroid_skew?: true
+  spectral_centroid_std?: true
+  spectral_contrast_kurtosis?: true
+  spectral_contrast_kurtosis1?: true
+  spectral_contrast_kurtosis2?: true
+  spectral_contrast_kurtosis3?: true
+  spectral_contrast_kurtosis4?: true
+  spectral_contrast_kurtosis5?: true
+  spectral_contrast_kurtosis6?: true
+  spectral_contrast_max?: true
+  spectral_contrast_max1?: true
+  spectral_contrast_max2?: true
+  spectral_contrast_max3?: true
+  spectral_contrast_max4?: true
+  spectral_contrast_max5?: true
+  spectral_contrast_max6?: true
+  spectral_contrast_mean?: true
+  spectral_contrast_mean1?: true
+  spectral_contrast_mean2?: true
+  spectral_contrast_mean3?: true
+  spectral_contrast_mean4?: true
+  spectral_contrast_mean5?: true
+  spectral_contrast_mean6?: true
+  spectral_contrast_median?: true
+  spectral_contrast_median1?: true
+  spectral_contrast_median2?: true
+  spectral_contrast_median3?: true
+  spectral_contrast_median4?: true
+  spectral_contrast_median5?: true
+  spectral_contrast_median6?: true
+  spectral_contrast_min?: true
+  spectral_contrast_min1?: true
+  spectral_contrast_min2?: true
+  spectral_contrast_min3?: true
+  spectral_contrast_min4?: true
+  spectral_contrast_min5?: true
+  spectral_contrast_min6?: true
+  spectral_contrast_skew?: true
+  spectral_contrast_skew1?: true
+  spectral_contrast_skew2?: true
+  spectral_contrast_skew3?: true
+  spectral_contrast_skew4?: true
+  spectral_contrast_skew5?: true
+  spectral_contrast_skew6?: true
+  spectral_contrast_std?: true
+  spectral_contrast_std1?: true
+  spectral_contrast_std2?: true
+  spectral_contrast_std3?: true
+  spectral_contrast_std4?: true
+  spectral_contrast_std5?: true
+  spectral_contrast_std6?: true
+  spectral_rolloff_kurtosis?: true
+  spectral_rolloff_max?: true
+  spectral_rolloff_mean?: true
+  spectral_rolloff_median?: true
+  spectral_rolloff_min?: true
+  spectral_rolloff_skew?: true
+  spectral_rolloff_std?: true
+  tonnetz_kurtosis?: true
+  tonnetz_kurtosis1?: true
+  tonnetz_kurtosis2?: true
+  tonnetz_kurtosis3?: true
+  tonnetz_kurtosis4?: true
+  tonnetz_kurtosis5?: true
+  tonnetz_max?: true
+  tonnetz_max1?: true
+  tonnetz_max2?: true
+  tonnetz_max3?: true
+  tonnetz_max4?: true
+  tonnetz_max5?: true
+  tonnetz_mean?: true
+  tonnetz_mean1?: true
+  tonnetz_mean2?: true
+  tonnetz_mean3?: true
+  tonnetz_mean4?: true
+  tonnetz_mean5?: true
+  tonnetz_median?: true
+  tonnetz_median1?: true
+  tonnetz_median2?: true
+  tonnetz_median3?: true
+  tonnetz_median4?: true
+  tonnetz_median5?: true
+  tonnetz_min?: true
+  tonnetz_min1?: true
+  tonnetz_min2?: true
+  tonnetz_min3?: true
+  tonnetz_min4?: true
+  tonnetz_min5?: true
+  tonnetz_skew?: true
+  tonnetz_skew1?: true
+  tonnetz_skew2?: true
+  tonnetz_skew3?: true
+  tonnetz_skew4?: true
+  tonnetz_skew5?: true
+  tonnetz_std?: true
+  tonnetz_std1?: true
+  tonnetz_std2?: true
+  tonnetz_std3?: true
+  tonnetz_std4?: true
+  tonnetz_std5?: true
+  zcr_kurtosis?: true
+  zcr_max?: true
+  zcr_mean?: true
+  zcr_median?: true
+  zcr_min?: true
+  zcr_skew?: true
+  zcr_std?: true
+}
+
+export type TemporalFeatureSumAggregateInputType = {
+  chroma_cens_kurtosis?: true
+  chroma_cens_kurtosis1?: true
+  chroma_cens_kurtosis2?: true
+  chroma_cens_kurtosis3?: true
+  chroma_cens_kurtosis4?: true
+  chroma_cens_kurtosis5?: true
+  chroma_cens_kurtosis6?: true
+  chroma_cens_kurtosis7?: true
+  chroma_cens_kurtosis8?: true
+  chroma_cens_kurtosis9?: true
+  chroma_cens_kurtosis10?: true
+  chroma_cens_kurtosis11?: true
+  chroma_cens_max?: true
+  chroma_cens_max1?: true
+  chroma_cens_max2?: true
+  chroma_cens_max3?: true
+  chroma_cens_max4?: true
+  chroma_cens_max5?: true
+  chroma_cens_max6?: true
+  chroma_cens_max7?: true
+  chroma_cens_max8?: true
+  chroma_cens_max9?: true
+  chroma_cens_max10?: true
+  chroma_cens_max11?: true
+  chroma_cens_mean?: true
+  chroma_cens_mean1?: true
+  chroma_cens_mean2?: true
+  chroma_cens_mean3?: true
+  chroma_cens_mean4?: true
+  chroma_cens_mean5?: true
+  chroma_cens_mean6?: true
+  chroma_cens_mean7?: true
+  chroma_cens_mean8?: true
+  chroma_cens_mean9?: true
+  chroma_cens_mean10?: true
+  chroma_cens_mean11?: true
+  chroma_cens_median?: true
+  chroma_cens_median1?: true
+  chroma_cens_median2?: true
+  chroma_cens_median3?: true
+  chroma_cens_median4?: true
+  chroma_cens_median5?: true
+  chroma_cens_median6?: true
+  chroma_cens_median7?: true
+  chroma_cens_median8?: true
+  chroma_cens_median9?: true
+  chroma_cens_median10?: true
+  chroma_cens_median11?: true
+  chroma_cens_min?: true
+  chroma_cens_min1?: true
+  chroma_cens_min2?: true
+  chroma_cens_min3?: true
+  chroma_cens_min4?: true
+  chroma_cens_min5?: true
+  chroma_cens_min6?: true
+  chroma_cens_min7?: true
+  chroma_cens_min8?: true
+  chroma_cens_min9?: true
+  chroma_cens_min10?: true
+  chroma_cens_min11?: true
+  chroma_cens_skew?: true
+  chroma_cens_skew1?: true
+  chroma_cens_skew2?: true
+  chroma_cens_skew3?: true
+  chroma_cens_skew4?: true
+  chroma_cens_skew5?: true
+  chroma_cens_skew6?: true
+  chroma_cens_skew7?: true
+  chroma_cens_skew8?: true
+  chroma_cens_skew9?: true
+  chroma_cens_skew10?: true
+  chroma_cens_skew11?: true
+  chroma_cens_std?: true
+  chroma_cens_std1?: true
+  chroma_cens_std2?: true
+  chroma_cens_std3?: true
+  chroma_cens_std4?: true
+  chroma_cens_std5?: true
+  chroma_cens_std6?: true
+  chroma_cens_std7?: true
+  chroma_cens_std8?: true
+  chroma_cens_std9?: true
+  chroma_cens_std10?: true
+  chroma_cens_std11?: true
+  chroma_cqt_kurtosis?: true
+  chroma_cqt_kurtosis1?: true
+  chroma_cqt_kurtosis2?: true
+  chroma_cqt_kurtosis3?: true
+  chroma_cqt_kurtosis4?: true
+  chroma_cqt_kurtosis5?: true
+  chroma_cqt_kurtosis6?: true
+  chroma_cqt_kurtosis7?: true
+  chroma_cqt_kurtosis8?: true
+  chroma_cqt_kurtosis9?: true
+  chroma_cqt_kurtosis10?: true
+  chroma_cqt_kurtosis11?: true
+  chroma_cqt_max?: true
+  chroma_cqt_max1?: true
+  chroma_cqt_max2?: true
+  chroma_cqt_max3?: true
+  chroma_cqt_max4?: true
+  chroma_cqt_max5?: true
+  chroma_cqt_max6?: true
+  chroma_cqt_max7?: true
+  chroma_cqt_max8?: true
+  chroma_cqt_max9?: true
+  chroma_cqt_max10?: true
+  chroma_cqt_max11?: true
+  chroma_cqt_mean?: true
+  chroma_cqt_mean1?: true
+  chroma_cqt_mean2?: true
+  chroma_cqt_mean3?: true
+  chroma_cqt_mean4?: true
+  chroma_cqt_mean5?: true
+  chroma_cqt_mean6?: true
+  chroma_cqt_mean7?: true
+  chroma_cqt_mean8?: true
+  chroma_cqt_mean9?: true
+  chroma_cqt_mean10?: true
+  chroma_cqt_mean11?: true
+  chroma_cqt_median?: true
+  chroma_cqt_median1?: true
+  chroma_cqt_median2?: true
+  chroma_cqt_median3?: true
+  chroma_cqt_median4?: true
+  chroma_cqt_median5?: true
+  chroma_cqt_median6?: true
+  chroma_cqt_median7?: true
+  chroma_cqt_median8?: true
+  chroma_cqt_median9?: true
+  chroma_cqt_median10?: true
+  chroma_cqt_median11?: true
+  chroma_cqt_min?: true
+  chroma_cqt_min1?: true
+  chroma_cqt_min2?: true
+  chroma_cqt_min3?: true
+  chroma_cqt_min4?: true
+  chroma_cqt_min5?: true
+  chroma_cqt_min6?: true
+  chroma_cqt_min7?: true
+  chroma_cqt_min8?: true
+  chroma_cqt_min9?: true
+  chroma_cqt_min10?: true
+  chroma_cqt_min11?: true
+  chroma_cqt_skew?: true
+  chroma_cqt_skew1?: true
+  chroma_cqt_skew2?: true
+  chroma_cqt_skew3?: true
+  chroma_cqt_skew4?: true
+  chroma_cqt_skew5?: true
+  chroma_cqt_skew6?: true
+  chroma_cqt_skew7?: true
+  chroma_cqt_skew8?: true
+  chroma_cqt_skew9?: true
+  chroma_cqt_skew10?: true
+  chroma_cqt_skew11?: true
+  chroma_cqt_std?: true
+  chroma_cqt_std1?: true
+  chroma_cqt_std2?: true
+  chroma_cqt_std3?: true
+  chroma_cqt_std4?: true
+  chroma_cqt_std5?: true
+  chroma_cqt_std6?: true
+  chroma_cqt_std7?: true
+  chroma_cqt_std8?: true
+  chroma_cqt_std9?: true
+  chroma_cqt_std10?: true
+  chroma_cqt_std11?: true
+  chroma_stft_kurtosis?: true
+  chroma_stft_kurtosis1?: true
+  chroma_stft_kurtosis2?: true
+  chroma_stft_kurtosis3?: true
+  chroma_stft_kurtosis4?: true
+  chroma_stft_kurtosis5?: true
+  chroma_stft_kurtosis6?: true
+  chroma_stft_kurtosis7?: true
+  chroma_stft_kurtosis8?: true
+  chroma_stft_kurtosis9?: true
+  chroma_stft_kurtosis10?: true
+  chroma_stft_kurtosis11?: true
+  chroma_stft_max?: true
+  chroma_stft_max1?: true
+  chroma_stft_max2?: true
+  chroma_stft_max3?: true
+  chroma_stft_max4?: true
+  chroma_stft_max5?: true
+  chroma_stft_max6?: true
+  chroma_stft_max7?: true
+  chroma_stft_max8?: true
+  chroma_stft_max9?: true
+  chroma_stft_max10?: true
+  chroma_stft_max11?: true
+  chroma_stft_mean?: true
+  chroma_stft_mean1?: true
+  chroma_stft_mean2?: true
+  chroma_stft_mean3?: true
+  chroma_stft_mean4?: true
+  chroma_stft_mean5?: true
+  chroma_stft_mean6?: true
+  chroma_stft_mean7?: true
+  chroma_stft_mean8?: true
+  chroma_stft_mean9?: true
+  chroma_stft_mean10?: true
+  chroma_stft_mean11?: true
+  chroma_stft_median?: true
+  chroma_stft_median1?: true
+  chroma_stft_median2?: true
+  chroma_stft_median3?: true
+  chroma_stft_median4?: true
+  chroma_stft_median5?: true
+  chroma_stft_median6?: true
+  chroma_stft_median7?: true
+  chroma_stft_median8?: true
+  chroma_stft_median9?: true
+  chroma_stft_median10?: true
+  chroma_stft_median11?: true
+  chroma_stft_min?: true
+  chroma_stft_min1?: true
+  chroma_stft_min2?: true
+  chroma_stft_min3?: true
+  chroma_stft_min4?: true
+  chroma_stft_min5?: true
+  chroma_stft_min6?: true
+  chroma_stft_min7?: true
+  chroma_stft_min8?: true
+  chroma_stft_min9?: true
+  chroma_stft_min10?: true
+  chroma_stft_min11?: true
+  chroma_stft_skew?: true
+  chroma_stft_skew1?: true
+  chroma_stft_skew2?: true
+  chroma_stft_skew3?: true
+  chroma_stft_skew4?: true
+  chroma_stft_skew5?: true
+  chroma_stft_skew6?: true
+  chroma_stft_skew7?: true
+  chroma_stft_skew8?: true
+  chroma_stft_skew9?: true
+  chroma_stft_skew10?: true
+  chroma_stft_skew11?: true
+  chroma_stft_std?: true
+  chroma_stft_std1?: true
+  chroma_stft_std2?: true
+  chroma_stft_std3?: true
+  chroma_stft_std4?: true
+  chroma_stft_std5?: true
+  chroma_stft_std6?: true
+  chroma_stft_std7?: true
+  chroma_stft_std8?: true
+  chroma_stft_std9?: true
+  chroma_stft_std10?: true
+  chroma_stft_std11?: true
+  mfcc_kurtosis?: true
+  mfcc_kurtosis1?: true
+  mfcc_kurtosis2?: true
+  mfcc_kurtosis3?: true
+  mfcc_kurtosis4?: true
+  mfcc_kurtosis5?: true
+  mfcc_kurtosis6?: true
+  mfcc_kurtosis7?: true
+  mfcc_kurtosis8?: true
+  mfcc_kurtosis9?: true
+  mfcc_kurtosis10?: true
+  mfcc_kurtosis11?: true
+  mfcc_kurtosis12?: true
+  mfcc_kurtosis13?: true
+  mfcc_kurtosis14?: true
+  mfcc_kurtosis15?: true
+  mfcc_kurtosis16?: true
+  mfcc_kurtosis17?: true
+  mfcc_kurtosis18?: true
+  mfcc_kurtosis19?: true
+  mfcc_max?: true
+  mfcc_max1?: true
+  mfcc_max2?: true
+  mfcc_max3?: true
+  mfcc_max4?: true
+  mfcc_max5?: true
+  mfcc_max6?: true
+  mfcc_max7?: true
+  mfcc_max8?: true
+  mfcc_max9?: true
+  mfcc_max10?: true
+  mfcc_max11?: true
+  mfcc_max12?: true
+  mfcc_max13?: true
+  mfcc_max14?: true
+  mfcc_max15?: true
+  mfcc_max16?: true
+  mfcc_max17?: true
+  mfcc_max18?: true
+  mfcc_max19?: true
+  mfcc_mean?: true
+  mfcc_mean1?: true
+  mfcc_mean2?: true
+  mfcc_mean3?: true
+  mfcc_mean4?: true
+  mfcc_mean5?: true
+  mfcc_mean6?: true
+  mfcc_mean7?: true
+  mfcc_mean8?: true
+  mfcc_mean9?: true
+  mfcc_mean10?: true
+  mfcc_mean11?: true
+  mfcc_mean12?: true
+  mfcc_mean13?: true
+  mfcc_mean14?: true
+  mfcc_mean15?: true
+  mfcc_mean16?: true
+  mfcc_mean17?: true
+  mfcc_mean18?: true
+  mfcc_mean19?: true
+  mfcc_median?: true
+  mfcc_median1?: true
+  mfcc_median2?: true
+  mfcc_median3?: true
+  mfcc_median4?: true
+  mfcc_median5?: true
+  mfcc_median6?: true
+  mfcc_median7?: true
+  mfcc_median8?: true
+  mfcc_median9?: true
+  mfcc_median10?: true
+  mfcc_median11?: true
+  mfcc_median12?: true
+  mfcc_median13?: true
+  mfcc_median14?: true
+  mfcc_median15?: true
+  mfcc_median16?: true
+  mfcc_median17?: true
+  mfcc_median18?: true
+  mfcc_median19?: true
+  mfcc_min?: true
+  mfcc_min1?: true
+  mfcc_min2?: true
+  mfcc_min3?: true
+  mfcc_min4?: true
+  mfcc_min5?: true
+  mfcc_min6?: true
+  mfcc_min7?: true
+  mfcc_min8?: true
+  mfcc_min9?: true
+  mfcc_min10?: true
+  mfcc_min11?: true
+  mfcc_min12?: true
+  mfcc_min13?: true
+  mfcc_min14?: true
+  mfcc_min15?: true
+  mfcc_min16?: true
+  mfcc_min17?: true
+  mfcc_min18?: true
+  mfcc_min19?: true
+  mfcc_skew?: true
+  mfcc_skew1?: true
+  mfcc_skew2?: true
+  mfcc_skew3?: true
+  mfcc_skew4?: true
+  mfcc_skew5?: true
+  mfcc_skew6?: true
+  mfcc_skew7?: true
+  mfcc_skew8?: true
+  mfcc_skew9?: true
+  mfcc_skew10?: true
+  mfcc_skew11?: true
+  mfcc_skew12?: true
+  mfcc_skew13?: true
+  mfcc_skew14?: true
+  mfcc_skew15?: true
+  mfcc_skew16?: true
+  mfcc_skew17?: true
+  mfcc_skew18?: true
+  mfcc_skew19?: true
+  mfcc_std?: true
+  mfcc_std1?: true
+  mfcc_std2?: true
+  mfcc_std3?: true
+  mfcc_std4?: true
+  mfcc_std5?: true
+  mfcc_std6?: true
+  mfcc_std7?: true
+  mfcc_std8?: true
+  mfcc_std9?: true
+  mfcc_std10?: true
+  mfcc_std11?: true
+  mfcc_std12?: true
+  mfcc_std13?: true
+  mfcc_std14?: true
+  mfcc_std15?: true
+  mfcc_std16?: true
+  mfcc_std17?: true
+  mfcc_std18?: true
+  mfcc_std19?: true
+  rmse_kurtosis?: true
+  rmse_max?: true
+  rmse_mean?: true
+  rmse_median?: true
+  rmse_min?: true
+  rmse_skew?: true
+  rmse_std?: true
+  spectral_bandwidth_kurtosis?: true
+  spectral_bandwidth_max?: true
+  spectral_bandwidth_mean?: true
+  spectral_bandwidth_median?: true
+  spectral_bandwidth_min?: true
+  spectral_bandwidth_skew?: true
+  spectral_bandwidth_std?: true
+  spectral_centroid_kurtosis?: true
+  spectral_centroid_max?: true
+  spectral_centroid_mean?: true
+  spectral_centroid_median?: true
+  spectral_centroid_min?: true
+  spectral_centroid_skew?: true
+  spectral_centroid_std?: true
+  spectral_contrast_kurtosis?: true
+  spectral_contrast_kurtosis1?: true
+  spectral_contrast_kurtosis2?: true
+  spectral_contrast_kurtosis3?: true
+  spectral_contrast_kurtosis4?: true
+  spectral_contrast_kurtosis5?: true
+  spectral_contrast_kurtosis6?: true
+  spectral_contrast_max?: true
+  spectral_contrast_max1?: true
+  spectral_contrast_max2?: true
+  spectral_contrast_max3?: true
+  spectral_contrast_max4?: true
+  spectral_contrast_max5?: true
+  spectral_contrast_max6?: true
+  spectral_contrast_mean?: true
+  spectral_contrast_mean1?: true
+  spectral_contrast_mean2?: true
+  spectral_contrast_mean3?: true
+  spectral_contrast_mean4?: true
+  spectral_contrast_mean5?: true
+  spectral_contrast_mean6?: true
+  spectral_contrast_median?: true
+  spectral_contrast_median1?: true
+  spectral_contrast_median2?: true
+  spectral_contrast_median3?: true
+  spectral_contrast_median4?: true
+  spectral_contrast_median5?: true
+  spectral_contrast_median6?: true
+  spectral_contrast_min?: true
+  spectral_contrast_min1?: true
+  spectral_contrast_min2?: true
+  spectral_contrast_min3?: true
+  spectral_contrast_min4?: true
+  spectral_contrast_min5?: true
+  spectral_contrast_min6?: true
+  spectral_contrast_skew?: true
+  spectral_contrast_skew1?: true
+  spectral_contrast_skew2?: true
+  spectral_contrast_skew3?: true
+  spectral_contrast_skew4?: true
+  spectral_contrast_skew5?: true
+  spectral_contrast_skew6?: true
+  spectral_contrast_std?: true
+  spectral_contrast_std1?: true
+  spectral_contrast_std2?: true
+  spectral_contrast_std3?: true
+  spectral_contrast_std4?: true
+  spectral_contrast_std5?: true
+  spectral_contrast_std6?: true
+  spectral_rolloff_kurtosis?: true
+  spectral_rolloff_max?: true
+  spectral_rolloff_mean?: true
+  spectral_rolloff_median?: true
+  spectral_rolloff_min?: true
+  spectral_rolloff_skew?: true
+  spectral_rolloff_std?: true
+  tonnetz_kurtosis?: true
+  tonnetz_kurtosis1?: true
+  tonnetz_kurtosis2?: true
+  tonnetz_kurtosis3?: true
+  tonnetz_kurtosis4?: true
+  tonnetz_kurtosis5?: true
+  tonnetz_max?: true
+  tonnetz_max1?: true
+  tonnetz_max2?: true
+  tonnetz_max3?: true
+  tonnetz_max4?: true
+  tonnetz_max5?: true
+  tonnetz_mean?: true
+  tonnetz_mean1?: true
+  tonnetz_mean2?: true
+  tonnetz_mean3?: true
+  tonnetz_mean4?: true
+  tonnetz_mean5?: true
+  tonnetz_median?: true
+  tonnetz_median1?: true
+  tonnetz_median2?: true
+  tonnetz_median3?: true
+  tonnetz_median4?: true
+  tonnetz_median5?: true
+  tonnetz_min?: true
+  tonnetz_min1?: true
+  tonnetz_min2?: true
+  tonnetz_min3?: true
+  tonnetz_min4?: true
+  tonnetz_min5?: true
+  tonnetz_skew?: true
+  tonnetz_skew1?: true
+  tonnetz_skew2?: true
+  tonnetz_skew3?: true
+  tonnetz_skew4?: true
+  tonnetz_skew5?: true
+  tonnetz_std?: true
+  tonnetz_std1?: true
+  tonnetz_std2?: true
+  tonnetz_std3?: true
+  tonnetz_std4?: true
+  tonnetz_std5?: true
+  zcr_kurtosis?: true
+  zcr_max?: true
+  zcr_mean?: true
+  zcr_median?: true
+  zcr_min?: true
+  zcr_skew?: true
+  zcr_std?: true
+}
+
 export type TemporalFeatureMinAggregateInputType = {
   trackId?: true
+  chroma_cens_kurtosis?: true
+  chroma_cens_kurtosis1?: true
+  chroma_cens_kurtosis2?: true
+  chroma_cens_kurtosis3?: true
+  chroma_cens_kurtosis4?: true
+  chroma_cens_kurtosis5?: true
+  chroma_cens_kurtosis6?: true
+  chroma_cens_kurtosis7?: true
+  chroma_cens_kurtosis8?: true
+  chroma_cens_kurtosis9?: true
+  chroma_cens_kurtosis10?: true
+  chroma_cens_kurtosis11?: true
+  chroma_cens_max?: true
+  chroma_cens_max1?: true
+  chroma_cens_max2?: true
+  chroma_cens_max3?: true
+  chroma_cens_max4?: true
+  chroma_cens_max5?: true
+  chroma_cens_max6?: true
+  chroma_cens_max7?: true
+  chroma_cens_max8?: true
+  chroma_cens_max9?: true
+  chroma_cens_max10?: true
+  chroma_cens_max11?: true
+  chroma_cens_mean?: true
+  chroma_cens_mean1?: true
+  chroma_cens_mean2?: true
+  chroma_cens_mean3?: true
+  chroma_cens_mean4?: true
+  chroma_cens_mean5?: true
+  chroma_cens_mean6?: true
+  chroma_cens_mean7?: true
+  chroma_cens_mean8?: true
+  chroma_cens_mean9?: true
+  chroma_cens_mean10?: true
+  chroma_cens_mean11?: true
+  chroma_cens_median?: true
+  chroma_cens_median1?: true
+  chroma_cens_median2?: true
+  chroma_cens_median3?: true
+  chroma_cens_median4?: true
+  chroma_cens_median5?: true
+  chroma_cens_median6?: true
+  chroma_cens_median7?: true
+  chroma_cens_median8?: true
+  chroma_cens_median9?: true
+  chroma_cens_median10?: true
+  chroma_cens_median11?: true
+  chroma_cens_min?: true
+  chroma_cens_min1?: true
+  chroma_cens_min2?: true
+  chroma_cens_min3?: true
+  chroma_cens_min4?: true
+  chroma_cens_min5?: true
+  chroma_cens_min6?: true
+  chroma_cens_min7?: true
+  chroma_cens_min8?: true
+  chroma_cens_min9?: true
+  chroma_cens_min10?: true
+  chroma_cens_min11?: true
+  chroma_cens_skew?: true
+  chroma_cens_skew1?: true
+  chroma_cens_skew2?: true
+  chroma_cens_skew3?: true
+  chroma_cens_skew4?: true
+  chroma_cens_skew5?: true
+  chroma_cens_skew6?: true
+  chroma_cens_skew7?: true
+  chroma_cens_skew8?: true
+  chroma_cens_skew9?: true
+  chroma_cens_skew10?: true
+  chroma_cens_skew11?: true
+  chroma_cens_std?: true
+  chroma_cens_std1?: true
+  chroma_cens_std2?: true
+  chroma_cens_std3?: true
+  chroma_cens_std4?: true
+  chroma_cens_std5?: true
+  chroma_cens_std6?: true
+  chroma_cens_std7?: true
+  chroma_cens_std8?: true
+  chroma_cens_std9?: true
+  chroma_cens_std10?: true
+  chroma_cens_std11?: true
+  chroma_cqt_kurtosis?: true
+  chroma_cqt_kurtosis1?: true
+  chroma_cqt_kurtosis2?: true
+  chroma_cqt_kurtosis3?: true
+  chroma_cqt_kurtosis4?: true
+  chroma_cqt_kurtosis5?: true
+  chroma_cqt_kurtosis6?: true
+  chroma_cqt_kurtosis7?: true
+  chroma_cqt_kurtosis8?: true
+  chroma_cqt_kurtosis9?: true
+  chroma_cqt_kurtosis10?: true
+  chroma_cqt_kurtosis11?: true
+  chroma_cqt_max?: true
+  chroma_cqt_max1?: true
+  chroma_cqt_max2?: true
+  chroma_cqt_max3?: true
+  chroma_cqt_max4?: true
+  chroma_cqt_max5?: true
+  chroma_cqt_max6?: true
+  chroma_cqt_max7?: true
+  chroma_cqt_max8?: true
+  chroma_cqt_max9?: true
+  chroma_cqt_max10?: true
+  chroma_cqt_max11?: true
+  chroma_cqt_mean?: true
+  chroma_cqt_mean1?: true
+  chroma_cqt_mean2?: true
+  chroma_cqt_mean3?: true
+  chroma_cqt_mean4?: true
+  chroma_cqt_mean5?: true
+  chroma_cqt_mean6?: true
+  chroma_cqt_mean7?: true
+  chroma_cqt_mean8?: true
+  chroma_cqt_mean9?: true
+  chroma_cqt_mean10?: true
+  chroma_cqt_mean11?: true
+  chroma_cqt_median?: true
+  chroma_cqt_median1?: true
+  chroma_cqt_median2?: true
+  chroma_cqt_median3?: true
+  chroma_cqt_median4?: true
+  chroma_cqt_median5?: true
+  chroma_cqt_median6?: true
+  chroma_cqt_median7?: true
+  chroma_cqt_median8?: true
+  chroma_cqt_median9?: true
+  chroma_cqt_median10?: true
+  chroma_cqt_median11?: true
+  chroma_cqt_min?: true
+  chroma_cqt_min1?: true
+  chroma_cqt_min2?: true
+  chroma_cqt_min3?: true
+  chroma_cqt_min4?: true
+  chroma_cqt_min5?: true
+  chroma_cqt_min6?: true
+  chroma_cqt_min7?: true
+  chroma_cqt_min8?: true
+  chroma_cqt_min9?: true
+  chroma_cqt_min10?: true
+  chroma_cqt_min11?: true
+  chroma_cqt_skew?: true
+  chroma_cqt_skew1?: true
+  chroma_cqt_skew2?: true
+  chroma_cqt_skew3?: true
+  chroma_cqt_skew4?: true
+  chroma_cqt_skew5?: true
+  chroma_cqt_skew6?: true
+  chroma_cqt_skew7?: true
+  chroma_cqt_skew8?: true
+  chroma_cqt_skew9?: true
+  chroma_cqt_skew10?: true
+  chroma_cqt_skew11?: true
+  chroma_cqt_std?: true
+  chroma_cqt_std1?: true
+  chroma_cqt_std2?: true
+  chroma_cqt_std3?: true
+  chroma_cqt_std4?: true
+  chroma_cqt_std5?: true
+  chroma_cqt_std6?: true
+  chroma_cqt_std7?: true
+  chroma_cqt_std8?: true
+  chroma_cqt_std9?: true
+  chroma_cqt_std10?: true
+  chroma_cqt_std11?: true
+  chroma_stft_kurtosis?: true
+  chroma_stft_kurtosis1?: true
+  chroma_stft_kurtosis2?: true
+  chroma_stft_kurtosis3?: true
+  chroma_stft_kurtosis4?: true
+  chroma_stft_kurtosis5?: true
+  chroma_stft_kurtosis6?: true
+  chroma_stft_kurtosis7?: true
+  chroma_stft_kurtosis8?: true
+  chroma_stft_kurtosis9?: true
+  chroma_stft_kurtosis10?: true
+  chroma_stft_kurtosis11?: true
+  chroma_stft_max?: true
+  chroma_stft_max1?: true
+  chroma_stft_max2?: true
+  chroma_stft_max3?: true
+  chroma_stft_max4?: true
+  chroma_stft_max5?: true
+  chroma_stft_max6?: true
+  chroma_stft_max7?: true
+  chroma_stft_max8?: true
+  chroma_stft_max9?: true
+  chroma_stft_max10?: true
+  chroma_stft_max11?: true
+  chroma_stft_mean?: true
+  chroma_stft_mean1?: true
+  chroma_stft_mean2?: true
+  chroma_stft_mean3?: true
+  chroma_stft_mean4?: true
+  chroma_stft_mean5?: true
+  chroma_stft_mean6?: true
+  chroma_stft_mean7?: true
+  chroma_stft_mean8?: true
+  chroma_stft_mean9?: true
+  chroma_stft_mean10?: true
+  chroma_stft_mean11?: true
+  chroma_stft_median?: true
+  chroma_stft_median1?: true
+  chroma_stft_median2?: true
+  chroma_stft_median3?: true
+  chroma_stft_median4?: true
+  chroma_stft_median5?: true
+  chroma_stft_median6?: true
+  chroma_stft_median7?: true
+  chroma_stft_median8?: true
+  chroma_stft_median9?: true
+  chroma_stft_median10?: true
+  chroma_stft_median11?: true
+  chroma_stft_min?: true
+  chroma_stft_min1?: true
+  chroma_stft_min2?: true
+  chroma_stft_min3?: true
+  chroma_stft_min4?: true
+  chroma_stft_min5?: true
+  chroma_stft_min6?: true
+  chroma_stft_min7?: true
+  chroma_stft_min8?: true
+  chroma_stft_min9?: true
+  chroma_stft_min10?: true
+  chroma_stft_min11?: true
+  chroma_stft_skew?: true
+  chroma_stft_skew1?: true
+  chroma_stft_skew2?: true
+  chroma_stft_skew3?: true
+  chroma_stft_skew4?: true
+  chroma_stft_skew5?: true
+  chroma_stft_skew6?: true
+  chroma_stft_skew7?: true
+  chroma_stft_skew8?: true
+  chroma_stft_skew9?: true
+  chroma_stft_skew10?: true
+  chroma_stft_skew11?: true
+  chroma_stft_std?: true
+  chroma_stft_std1?: true
+  chroma_stft_std2?: true
+  chroma_stft_std3?: true
+  chroma_stft_std4?: true
+  chroma_stft_std5?: true
+  chroma_stft_std6?: true
+  chroma_stft_std7?: true
+  chroma_stft_std8?: true
+  chroma_stft_std9?: true
+  chroma_stft_std10?: true
+  chroma_stft_std11?: true
+  mfcc_kurtosis?: true
+  mfcc_kurtosis1?: true
+  mfcc_kurtosis2?: true
+  mfcc_kurtosis3?: true
+  mfcc_kurtosis4?: true
+  mfcc_kurtosis5?: true
+  mfcc_kurtosis6?: true
+  mfcc_kurtosis7?: true
+  mfcc_kurtosis8?: true
+  mfcc_kurtosis9?: true
+  mfcc_kurtosis10?: true
+  mfcc_kurtosis11?: true
+  mfcc_kurtosis12?: true
+  mfcc_kurtosis13?: true
+  mfcc_kurtosis14?: true
+  mfcc_kurtosis15?: true
+  mfcc_kurtosis16?: true
+  mfcc_kurtosis17?: true
+  mfcc_kurtosis18?: true
+  mfcc_kurtosis19?: true
+  mfcc_max?: true
+  mfcc_max1?: true
+  mfcc_max2?: true
+  mfcc_max3?: true
+  mfcc_max4?: true
+  mfcc_max5?: true
+  mfcc_max6?: true
+  mfcc_max7?: true
+  mfcc_max8?: true
+  mfcc_max9?: true
+  mfcc_max10?: true
+  mfcc_max11?: true
+  mfcc_max12?: true
+  mfcc_max13?: true
+  mfcc_max14?: true
+  mfcc_max15?: true
+  mfcc_max16?: true
+  mfcc_max17?: true
+  mfcc_max18?: true
+  mfcc_max19?: true
+  mfcc_mean?: true
+  mfcc_mean1?: true
+  mfcc_mean2?: true
+  mfcc_mean3?: true
+  mfcc_mean4?: true
+  mfcc_mean5?: true
+  mfcc_mean6?: true
+  mfcc_mean7?: true
+  mfcc_mean8?: true
+  mfcc_mean9?: true
+  mfcc_mean10?: true
+  mfcc_mean11?: true
+  mfcc_mean12?: true
+  mfcc_mean13?: true
+  mfcc_mean14?: true
+  mfcc_mean15?: true
+  mfcc_mean16?: true
+  mfcc_mean17?: true
+  mfcc_mean18?: true
+  mfcc_mean19?: true
+  mfcc_median?: true
+  mfcc_median1?: true
+  mfcc_median2?: true
+  mfcc_median3?: true
+  mfcc_median4?: true
+  mfcc_median5?: true
+  mfcc_median6?: true
+  mfcc_median7?: true
+  mfcc_median8?: true
+  mfcc_median9?: true
+  mfcc_median10?: true
+  mfcc_median11?: true
+  mfcc_median12?: true
+  mfcc_median13?: true
+  mfcc_median14?: true
+  mfcc_median15?: true
+  mfcc_median16?: true
+  mfcc_median17?: true
+  mfcc_median18?: true
+  mfcc_median19?: true
+  mfcc_min?: true
+  mfcc_min1?: true
+  mfcc_min2?: true
+  mfcc_min3?: true
+  mfcc_min4?: true
+  mfcc_min5?: true
+  mfcc_min6?: true
+  mfcc_min7?: true
+  mfcc_min8?: true
+  mfcc_min9?: true
+  mfcc_min10?: true
+  mfcc_min11?: true
+  mfcc_min12?: true
+  mfcc_min13?: true
+  mfcc_min14?: true
+  mfcc_min15?: true
+  mfcc_min16?: true
+  mfcc_min17?: true
+  mfcc_min18?: true
+  mfcc_min19?: true
+  mfcc_skew?: true
+  mfcc_skew1?: true
+  mfcc_skew2?: true
+  mfcc_skew3?: true
+  mfcc_skew4?: true
+  mfcc_skew5?: true
+  mfcc_skew6?: true
+  mfcc_skew7?: true
+  mfcc_skew8?: true
+  mfcc_skew9?: true
+  mfcc_skew10?: true
+  mfcc_skew11?: true
+  mfcc_skew12?: true
+  mfcc_skew13?: true
+  mfcc_skew14?: true
+  mfcc_skew15?: true
+  mfcc_skew16?: true
+  mfcc_skew17?: true
+  mfcc_skew18?: true
+  mfcc_skew19?: true
+  mfcc_std?: true
+  mfcc_std1?: true
+  mfcc_std2?: true
+  mfcc_std3?: true
+  mfcc_std4?: true
+  mfcc_std5?: true
+  mfcc_std6?: true
+  mfcc_std7?: true
+  mfcc_std8?: true
+  mfcc_std9?: true
+  mfcc_std10?: true
+  mfcc_std11?: true
+  mfcc_std12?: true
+  mfcc_std13?: true
+  mfcc_std14?: true
+  mfcc_std15?: true
+  mfcc_std16?: true
+  mfcc_std17?: true
+  mfcc_std18?: true
+  mfcc_std19?: true
+  rmse_kurtosis?: true
+  rmse_max?: true
+  rmse_mean?: true
+  rmse_median?: true
+  rmse_min?: true
+  rmse_skew?: true
+  rmse_std?: true
+  spectral_bandwidth_kurtosis?: true
+  spectral_bandwidth_max?: true
+  spectral_bandwidth_mean?: true
+  spectral_bandwidth_median?: true
+  spectral_bandwidth_min?: true
+  spectral_bandwidth_skew?: true
+  spectral_bandwidth_std?: true
+  spectral_centroid_kurtosis?: true
+  spectral_centroid_max?: true
+  spectral_centroid_mean?: true
+  spectral_centroid_median?: true
+  spectral_centroid_min?: true
+  spectral_centroid_skew?: true
+  spectral_centroid_std?: true
+  spectral_contrast_kurtosis?: true
+  spectral_contrast_kurtosis1?: true
+  spectral_contrast_kurtosis2?: true
+  spectral_contrast_kurtosis3?: true
+  spectral_contrast_kurtosis4?: true
+  spectral_contrast_kurtosis5?: true
+  spectral_contrast_kurtosis6?: true
+  spectral_contrast_max?: true
+  spectral_contrast_max1?: true
+  spectral_contrast_max2?: true
+  spectral_contrast_max3?: true
+  spectral_contrast_max4?: true
+  spectral_contrast_max5?: true
+  spectral_contrast_max6?: true
+  spectral_contrast_mean?: true
+  spectral_contrast_mean1?: true
+  spectral_contrast_mean2?: true
+  spectral_contrast_mean3?: true
+  spectral_contrast_mean4?: true
+  spectral_contrast_mean5?: true
+  spectral_contrast_mean6?: true
+  spectral_contrast_median?: true
+  spectral_contrast_median1?: true
+  spectral_contrast_median2?: true
+  spectral_contrast_median3?: true
+  spectral_contrast_median4?: true
+  spectral_contrast_median5?: true
+  spectral_contrast_median6?: true
+  spectral_contrast_min?: true
+  spectral_contrast_min1?: true
+  spectral_contrast_min2?: true
+  spectral_contrast_min3?: true
+  spectral_contrast_min4?: true
+  spectral_contrast_min5?: true
+  spectral_contrast_min6?: true
+  spectral_contrast_skew?: true
+  spectral_contrast_skew1?: true
+  spectral_contrast_skew2?: true
+  spectral_contrast_skew3?: true
+  spectral_contrast_skew4?: true
+  spectral_contrast_skew5?: true
+  spectral_contrast_skew6?: true
+  spectral_contrast_std?: true
+  spectral_contrast_std1?: true
+  spectral_contrast_std2?: true
+  spectral_contrast_std3?: true
+  spectral_contrast_std4?: true
+  spectral_contrast_std5?: true
+  spectral_contrast_std6?: true
+  spectral_rolloff_kurtosis?: true
+  spectral_rolloff_max?: true
+  spectral_rolloff_mean?: true
+  spectral_rolloff_median?: true
+  spectral_rolloff_min?: true
+  spectral_rolloff_skew?: true
+  spectral_rolloff_std?: true
+  tonnetz_kurtosis?: true
+  tonnetz_kurtosis1?: true
+  tonnetz_kurtosis2?: true
+  tonnetz_kurtosis3?: true
+  tonnetz_kurtosis4?: true
+  tonnetz_kurtosis5?: true
+  tonnetz_max?: true
+  tonnetz_max1?: true
+  tonnetz_max2?: true
+  tonnetz_max3?: true
+  tonnetz_max4?: true
+  tonnetz_max5?: true
+  tonnetz_mean?: true
+  tonnetz_mean1?: true
+  tonnetz_mean2?: true
+  tonnetz_mean3?: true
+  tonnetz_mean4?: true
+  tonnetz_mean5?: true
+  tonnetz_median?: true
+  tonnetz_median1?: true
+  tonnetz_median2?: true
+  tonnetz_median3?: true
+  tonnetz_median4?: true
+  tonnetz_median5?: true
+  tonnetz_min?: true
+  tonnetz_min1?: true
+  tonnetz_min2?: true
+  tonnetz_min3?: true
+  tonnetz_min4?: true
+  tonnetz_min5?: true
+  tonnetz_skew?: true
+  tonnetz_skew1?: true
+  tonnetz_skew2?: true
+  tonnetz_skew3?: true
+  tonnetz_skew4?: true
+  tonnetz_skew5?: true
+  tonnetz_std?: true
+  tonnetz_std1?: true
+  tonnetz_std2?: true
+  tonnetz_std3?: true
+  tonnetz_std4?: true
+  tonnetz_std5?: true
+  zcr_kurtosis?: true
+  zcr_max?: true
+  zcr_mean?: true
+  zcr_median?: true
+  zcr_min?: true
+  zcr_skew?: true
+  zcr_std?: true
 }
 
 export type TemporalFeatureMaxAggregateInputType = {
   trackId?: true
+  chroma_cens_kurtosis?: true
+  chroma_cens_kurtosis1?: true
+  chroma_cens_kurtosis2?: true
+  chroma_cens_kurtosis3?: true
+  chroma_cens_kurtosis4?: true
+  chroma_cens_kurtosis5?: true
+  chroma_cens_kurtosis6?: true
+  chroma_cens_kurtosis7?: true
+  chroma_cens_kurtosis8?: true
+  chroma_cens_kurtosis9?: true
+  chroma_cens_kurtosis10?: true
+  chroma_cens_kurtosis11?: true
+  chroma_cens_max?: true
+  chroma_cens_max1?: true
+  chroma_cens_max2?: true
+  chroma_cens_max3?: true
+  chroma_cens_max4?: true
+  chroma_cens_max5?: true
+  chroma_cens_max6?: true
+  chroma_cens_max7?: true
+  chroma_cens_max8?: true
+  chroma_cens_max9?: true
+  chroma_cens_max10?: true
+  chroma_cens_max11?: true
+  chroma_cens_mean?: true
+  chroma_cens_mean1?: true
+  chroma_cens_mean2?: true
+  chroma_cens_mean3?: true
+  chroma_cens_mean4?: true
+  chroma_cens_mean5?: true
+  chroma_cens_mean6?: true
+  chroma_cens_mean7?: true
+  chroma_cens_mean8?: true
+  chroma_cens_mean9?: true
+  chroma_cens_mean10?: true
+  chroma_cens_mean11?: true
+  chroma_cens_median?: true
+  chroma_cens_median1?: true
+  chroma_cens_median2?: true
+  chroma_cens_median3?: true
+  chroma_cens_median4?: true
+  chroma_cens_median5?: true
+  chroma_cens_median6?: true
+  chroma_cens_median7?: true
+  chroma_cens_median8?: true
+  chroma_cens_median9?: true
+  chroma_cens_median10?: true
+  chroma_cens_median11?: true
+  chroma_cens_min?: true
+  chroma_cens_min1?: true
+  chroma_cens_min2?: true
+  chroma_cens_min3?: true
+  chroma_cens_min4?: true
+  chroma_cens_min5?: true
+  chroma_cens_min6?: true
+  chroma_cens_min7?: true
+  chroma_cens_min8?: true
+  chroma_cens_min9?: true
+  chroma_cens_min10?: true
+  chroma_cens_min11?: true
+  chroma_cens_skew?: true
+  chroma_cens_skew1?: true
+  chroma_cens_skew2?: true
+  chroma_cens_skew3?: true
+  chroma_cens_skew4?: true
+  chroma_cens_skew5?: true
+  chroma_cens_skew6?: true
+  chroma_cens_skew7?: true
+  chroma_cens_skew8?: true
+  chroma_cens_skew9?: true
+  chroma_cens_skew10?: true
+  chroma_cens_skew11?: true
+  chroma_cens_std?: true
+  chroma_cens_std1?: true
+  chroma_cens_std2?: true
+  chroma_cens_std3?: true
+  chroma_cens_std4?: true
+  chroma_cens_std5?: true
+  chroma_cens_std6?: true
+  chroma_cens_std7?: true
+  chroma_cens_std8?: true
+  chroma_cens_std9?: true
+  chroma_cens_std10?: true
+  chroma_cens_std11?: true
+  chroma_cqt_kurtosis?: true
+  chroma_cqt_kurtosis1?: true
+  chroma_cqt_kurtosis2?: true
+  chroma_cqt_kurtosis3?: true
+  chroma_cqt_kurtosis4?: true
+  chroma_cqt_kurtosis5?: true
+  chroma_cqt_kurtosis6?: true
+  chroma_cqt_kurtosis7?: true
+  chroma_cqt_kurtosis8?: true
+  chroma_cqt_kurtosis9?: true
+  chroma_cqt_kurtosis10?: true
+  chroma_cqt_kurtosis11?: true
+  chroma_cqt_max?: true
+  chroma_cqt_max1?: true
+  chroma_cqt_max2?: true
+  chroma_cqt_max3?: true
+  chroma_cqt_max4?: true
+  chroma_cqt_max5?: true
+  chroma_cqt_max6?: true
+  chroma_cqt_max7?: true
+  chroma_cqt_max8?: true
+  chroma_cqt_max9?: true
+  chroma_cqt_max10?: true
+  chroma_cqt_max11?: true
+  chroma_cqt_mean?: true
+  chroma_cqt_mean1?: true
+  chroma_cqt_mean2?: true
+  chroma_cqt_mean3?: true
+  chroma_cqt_mean4?: true
+  chroma_cqt_mean5?: true
+  chroma_cqt_mean6?: true
+  chroma_cqt_mean7?: true
+  chroma_cqt_mean8?: true
+  chroma_cqt_mean9?: true
+  chroma_cqt_mean10?: true
+  chroma_cqt_mean11?: true
+  chroma_cqt_median?: true
+  chroma_cqt_median1?: true
+  chroma_cqt_median2?: true
+  chroma_cqt_median3?: true
+  chroma_cqt_median4?: true
+  chroma_cqt_median5?: true
+  chroma_cqt_median6?: true
+  chroma_cqt_median7?: true
+  chroma_cqt_median8?: true
+  chroma_cqt_median9?: true
+  chroma_cqt_median10?: true
+  chroma_cqt_median11?: true
+  chroma_cqt_min?: true
+  chroma_cqt_min1?: true
+  chroma_cqt_min2?: true
+  chroma_cqt_min3?: true
+  chroma_cqt_min4?: true
+  chroma_cqt_min5?: true
+  chroma_cqt_min6?: true
+  chroma_cqt_min7?: true
+  chroma_cqt_min8?: true
+  chroma_cqt_min9?: true
+  chroma_cqt_min10?: true
+  chroma_cqt_min11?: true
+  chroma_cqt_skew?: true
+  chroma_cqt_skew1?: true
+  chroma_cqt_skew2?: true
+  chroma_cqt_skew3?: true
+  chroma_cqt_skew4?: true
+  chroma_cqt_skew5?: true
+  chroma_cqt_skew6?: true
+  chroma_cqt_skew7?: true
+  chroma_cqt_skew8?: true
+  chroma_cqt_skew9?: true
+  chroma_cqt_skew10?: true
+  chroma_cqt_skew11?: true
+  chroma_cqt_std?: true
+  chroma_cqt_std1?: true
+  chroma_cqt_std2?: true
+  chroma_cqt_std3?: true
+  chroma_cqt_std4?: true
+  chroma_cqt_std5?: true
+  chroma_cqt_std6?: true
+  chroma_cqt_std7?: true
+  chroma_cqt_std8?: true
+  chroma_cqt_std9?: true
+  chroma_cqt_std10?: true
+  chroma_cqt_std11?: true
+  chroma_stft_kurtosis?: true
+  chroma_stft_kurtosis1?: true
+  chroma_stft_kurtosis2?: true
+  chroma_stft_kurtosis3?: true
+  chroma_stft_kurtosis4?: true
+  chroma_stft_kurtosis5?: true
+  chroma_stft_kurtosis6?: true
+  chroma_stft_kurtosis7?: true
+  chroma_stft_kurtosis8?: true
+  chroma_stft_kurtosis9?: true
+  chroma_stft_kurtosis10?: true
+  chroma_stft_kurtosis11?: true
+  chroma_stft_max?: true
+  chroma_stft_max1?: true
+  chroma_stft_max2?: true
+  chroma_stft_max3?: true
+  chroma_stft_max4?: true
+  chroma_stft_max5?: true
+  chroma_stft_max6?: true
+  chroma_stft_max7?: true
+  chroma_stft_max8?: true
+  chroma_stft_max9?: true
+  chroma_stft_max10?: true
+  chroma_stft_max11?: true
+  chroma_stft_mean?: true
+  chroma_stft_mean1?: true
+  chroma_stft_mean2?: true
+  chroma_stft_mean3?: true
+  chroma_stft_mean4?: true
+  chroma_stft_mean5?: true
+  chroma_stft_mean6?: true
+  chroma_stft_mean7?: true
+  chroma_stft_mean8?: true
+  chroma_stft_mean9?: true
+  chroma_stft_mean10?: true
+  chroma_stft_mean11?: true
+  chroma_stft_median?: true
+  chroma_stft_median1?: true
+  chroma_stft_median2?: true
+  chroma_stft_median3?: true
+  chroma_stft_median4?: true
+  chroma_stft_median5?: true
+  chroma_stft_median6?: true
+  chroma_stft_median7?: true
+  chroma_stft_median8?: true
+  chroma_stft_median9?: true
+  chroma_stft_median10?: true
+  chroma_stft_median11?: true
+  chroma_stft_min?: true
+  chroma_stft_min1?: true
+  chroma_stft_min2?: true
+  chroma_stft_min3?: true
+  chroma_stft_min4?: true
+  chroma_stft_min5?: true
+  chroma_stft_min6?: true
+  chroma_stft_min7?: true
+  chroma_stft_min8?: true
+  chroma_stft_min9?: true
+  chroma_stft_min10?: true
+  chroma_stft_min11?: true
+  chroma_stft_skew?: true
+  chroma_stft_skew1?: true
+  chroma_stft_skew2?: true
+  chroma_stft_skew3?: true
+  chroma_stft_skew4?: true
+  chroma_stft_skew5?: true
+  chroma_stft_skew6?: true
+  chroma_stft_skew7?: true
+  chroma_stft_skew8?: true
+  chroma_stft_skew9?: true
+  chroma_stft_skew10?: true
+  chroma_stft_skew11?: true
+  chroma_stft_std?: true
+  chroma_stft_std1?: true
+  chroma_stft_std2?: true
+  chroma_stft_std3?: true
+  chroma_stft_std4?: true
+  chroma_stft_std5?: true
+  chroma_stft_std6?: true
+  chroma_stft_std7?: true
+  chroma_stft_std8?: true
+  chroma_stft_std9?: true
+  chroma_stft_std10?: true
+  chroma_stft_std11?: true
+  mfcc_kurtosis?: true
+  mfcc_kurtosis1?: true
+  mfcc_kurtosis2?: true
+  mfcc_kurtosis3?: true
+  mfcc_kurtosis4?: true
+  mfcc_kurtosis5?: true
+  mfcc_kurtosis6?: true
+  mfcc_kurtosis7?: true
+  mfcc_kurtosis8?: true
+  mfcc_kurtosis9?: true
+  mfcc_kurtosis10?: true
+  mfcc_kurtosis11?: true
+  mfcc_kurtosis12?: true
+  mfcc_kurtosis13?: true
+  mfcc_kurtosis14?: true
+  mfcc_kurtosis15?: true
+  mfcc_kurtosis16?: true
+  mfcc_kurtosis17?: true
+  mfcc_kurtosis18?: true
+  mfcc_kurtosis19?: true
+  mfcc_max?: true
+  mfcc_max1?: true
+  mfcc_max2?: true
+  mfcc_max3?: true
+  mfcc_max4?: true
+  mfcc_max5?: true
+  mfcc_max6?: true
+  mfcc_max7?: true
+  mfcc_max8?: true
+  mfcc_max9?: true
+  mfcc_max10?: true
+  mfcc_max11?: true
+  mfcc_max12?: true
+  mfcc_max13?: true
+  mfcc_max14?: true
+  mfcc_max15?: true
+  mfcc_max16?: true
+  mfcc_max17?: true
+  mfcc_max18?: true
+  mfcc_max19?: true
+  mfcc_mean?: true
+  mfcc_mean1?: true
+  mfcc_mean2?: true
+  mfcc_mean3?: true
+  mfcc_mean4?: true
+  mfcc_mean5?: true
+  mfcc_mean6?: true
+  mfcc_mean7?: true
+  mfcc_mean8?: true
+  mfcc_mean9?: true
+  mfcc_mean10?: true
+  mfcc_mean11?: true
+  mfcc_mean12?: true
+  mfcc_mean13?: true
+  mfcc_mean14?: true
+  mfcc_mean15?: true
+  mfcc_mean16?: true
+  mfcc_mean17?: true
+  mfcc_mean18?: true
+  mfcc_mean19?: true
+  mfcc_median?: true
+  mfcc_median1?: true
+  mfcc_median2?: true
+  mfcc_median3?: true
+  mfcc_median4?: true
+  mfcc_median5?: true
+  mfcc_median6?: true
+  mfcc_median7?: true
+  mfcc_median8?: true
+  mfcc_median9?: true
+  mfcc_median10?: true
+  mfcc_median11?: true
+  mfcc_median12?: true
+  mfcc_median13?: true
+  mfcc_median14?: true
+  mfcc_median15?: true
+  mfcc_median16?: true
+  mfcc_median17?: true
+  mfcc_median18?: true
+  mfcc_median19?: true
+  mfcc_min?: true
+  mfcc_min1?: true
+  mfcc_min2?: true
+  mfcc_min3?: true
+  mfcc_min4?: true
+  mfcc_min5?: true
+  mfcc_min6?: true
+  mfcc_min7?: true
+  mfcc_min8?: true
+  mfcc_min9?: true
+  mfcc_min10?: true
+  mfcc_min11?: true
+  mfcc_min12?: true
+  mfcc_min13?: true
+  mfcc_min14?: true
+  mfcc_min15?: true
+  mfcc_min16?: true
+  mfcc_min17?: true
+  mfcc_min18?: true
+  mfcc_min19?: true
+  mfcc_skew?: true
+  mfcc_skew1?: true
+  mfcc_skew2?: true
+  mfcc_skew3?: true
+  mfcc_skew4?: true
+  mfcc_skew5?: true
+  mfcc_skew6?: true
+  mfcc_skew7?: true
+  mfcc_skew8?: true
+  mfcc_skew9?: true
+  mfcc_skew10?: true
+  mfcc_skew11?: true
+  mfcc_skew12?: true
+  mfcc_skew13?: true
+  mfcc_skew14?: true
+  mfcc_skew15?: true
+  mfcc_skew16?: true
+  mfcc_skew17?: true
+  mfcc_skew18?: true
+  mfcc_skew19?: true
+  mfcc_std?: true
+  mfcc_std1?: true
+  mfcc_std2?: true
+  mfcc_std3?: true
+  mfcc_std4?: true
+  mfcc_std5?: true
+  mfcc_std6?: true
+  mfcc_std7?: true
+  mfcc_std8?: true
+  mfcc_std9?: true
+  mfcc_std10?: true
+  mfcc_std11?: true
+  mfcc_std12?: true
+  mfcc_std13?: true
+  mfcc_std14?: true
+  mfcc_std15?: true
+  mfcc_std16?: true
+  mfcc_std17?: true
+  mfcc_std18?: true
+  mfcc_std19?: true
+  rmse_kurtosis?: true
+  rmse_max?: true
+  rmse_mean?: true
+  rmse_median?: true
+  rmse_min?: true
+  rmse_skew?: true
+  rmse_std?: true
+  spectral_bandwidth_kurtosis?: true
+  spectral_bandwidth_max?: true
+  spectral_bandwidth_mean?: true
+  spectral_bandwidth_median?: true
+  spectral_bandwidth_min?: true
+  spectral_bandwidth_skew?: true
+  spectral_bandwidth_std?: true
+  spectral_centroid_kurtosis?: true
+  spectral_centroid_max?: true
+  spectral_centroid_mean?: true
+  spectral_centroid_median?: true
+  spectral_centroid_min?: true
+  spectral_centroid_skew?: true
+  spectral_centroid_std?: true
+  spectral_contrast_kurtosis?: true
+  spectral_contrast_kurtosis1?: true
+  spectral_contrast_kurtosis2?: true
+  spectral_contrast_kurtosis3?: true
+  spectral_contrast_kurtosis4?: true
+  spectral_contrast_kurtosis5?: true
+  spectral_contrast_kurtosis6?: true
+  spectral_contrast_max?: true
+  spectral_contrast_max1?: true
+  spectral_contrast_max2?: true
+  spectral_contrast_max3?: true
+  spectral_contrast_max4?: true
+  spectral_contrast_max5?: true
+  spectral_contrast_max6?: true
+  spectral_contrast_mean?: true
+  spectral_contrast_mean1?: true
+  spectral_contrast_mean2?: true
+  spectral_contrast_mean3?: true
+  spectral_contrast_mean4?: true
+  spectral_contrast_mean5?: true
+  spectral_contrast_mean6?: true
+  spectral_contrast_median?: true
+  spectral_contrast_median1?: true
+  spectral_contrast_median2?: true
+  spectral_contrast_median3?: true
+  spectral_contrast_median4?: true
+  spectral_contrast_median5?: true
+  spectral_contrast_median6?: true
+  spectral_contrast_min?: true
+  spectral_contrast_min1?: true
+  spectral_contrast_min2?: true
+  spectral_contrast_min3?: true
+  spectral_contrast_min4?: true
+  spectral_contrast_min5?: true
+  spectral_contrast_min6?: true
+  spectral_contrast_skew?: true
+  spectral_contrast_skew1?: true
+  spectral_contrast_skew2?: true
+  spectral_contrast_skew3?: true
+  spectral_contrast_skew4?: true
+  spectral_contrast_skew5?: true
+  spectral_contrast_skew6?: true
+  spectral_contrast_std?: true
+  spectral_contrast_std1?: true
+  spectral_contrast_std2?: true
+  spectral_contrast_std3?: true
+  spectral_contrast_std4?: true
+  spectral_contrast_std5?: true
+  spectral_contrast_std6?: true
+  spectral_rolloff_kurtosis?: true
+  spectral_rolloff_max?: true
+  spectral_rolloff_mean?: true
+  spectral_rolloff_median?: true
+  spectral_rolloff_min?: true
+  spectral_rolloff_skew?: true
+  spectral_rolloff_std?: true
+  tonnetz_kurtosis?: true
+  tonnetz_kurtosis1?: true
+  tonnetz_kurtosis2?: true
+  tonnetz_kurtosis3?: true
+  tonnetz_kurtosis4?: true
+  tonnetz_kurtosis5?: true
+  tonnetz_max?: true
+  tonnetz_max1?: true
+  tonnetz_max2?: true
+  tonnetz_max3?: true
+  tonnetz_max4?: true
+  tonnetz_max5?: true
+  tonnetz_mean?: true
+  tonnetz_mean1?: true
+  tonnetz_mean2?: true
+  tonnetz_mean3?: true
+  tonnetz_mean4?: true
+  tonnetz_mean5?: true
+  tonnetz_median?: true
+  tonnetz_median1?: true
+  tonnetz_median2?: true
+  tonnetz_median3?: true
+  tonnetz_median4?: true
+  tonnetz_median5?: true
+  tonnetz_min?: true
+  tonnetz_min1?: true
+  tonnetz_min2?: true
+  tonnetz_min3?: true
+  tonnetz_min4?: true
+  tonnetz_min5?: true
+  tonnetz_skew?: true
+  tonnetz_skew1?: true
+  tonnetz_skew2?: true
+  tonnetz_skew3?: true
+  tonnetz_skew4?: true
+  tonnetz_skew5?: true
+  tonnetz_std?: true
+  tonnetz_std1?: true
+  tonnetz_std2?: true
+  tonnetz_std3?: true
+  tonnetz_std4?: true
+  tonnetz_std5?: true
+  zcr_kurtosis?: true
+  zcr_max?: true
+  zcr_mean?: true
+  zcr_median?: true
+  zcr_min?: true
+  zcr_skew?: true
+  zcr_std?: true
 }
 
 export type TemporalFeatureCountAggregateInputType = {
   trackId?: true
+  chroma_cens_kurtosis?: true
+  chroma_cens_kurtosis1?: true
+  chroma_cens_kurtosis2?: true
+  chroma_cens_kurtosis3?: true
+  chroma_cens_kurtosis4?: true
+  chroma_cens_kurtosis5?: true
+  chroma_cens_kurtosis6?: true
+  chroma_cens_kurtosis7?: true
+  chroma_cens_kurtosis8?: true
+  chroma_cens_kurtosis9?: true
+  chroma_cens_kurtosis10?: true
+  chroma_cens_kurtosis11?: true
+  chroma_cens_max?: true
+  chroma_cens_max1?: true
+  chroma_cens_max2?: true
+  chroma_cens_max3?: true
+  chroma_cens_max4?: true
+  chroma_cens_max5?: true
+  chroma_cens_max6?: true
+  chroma_cens_max7?: true
+  chroma_cens_max8?: true
+  chroma_cens_max9?: true
+  chroma_cens_max10?: true
+  chroma_cens_max11?: true
+  chroma_cens_mean?: true
+  chroma_cens_mean1?: true
+  chroma_cens_mean2?: true
+  chroma_cens_mean3?: true
+  chroma_cens_mean4?: true
+  chroma_cens_mean5?: true
+  chroma_cens_mean6?: true
+  chroma_cens_mean7?: true
+  chroma_cens_mean8?: true
+  chroma_cens_mean9?: true
+  chroma_cens_mean10?: true
+  chroma_cens_mean11?: true
+  chroma_cens_median?: true
+  chroma_cens_median1?: true
+  chroma_cens_median2?: true
+  chroma_cens_median3?: true
+  chroma_cens_median4?: true
+  chroma_cens_median5?: true
+  chroma_cens_median6?: true
+  chroma_cens_median7?: true
+  chroma_cens_median8?: true
+  chroma_cens_median9?: true
+  chroma_cens_median10?: true
+  chroma_cens_median11?: true
+  chroma_cens_min?: true
+  chroma_cens_min1?: true
+  chroma_cens_min2?: true
+  chroma_cens_min3?: true
+  chroma_cens_min4?: true
+  chroma_cens_min5?: true
+  chroma_cens_min6?: true
+  chroma_cens_min7?: true
+  chroma_cens_min8?: true
+  chroma_cens_min9?: true
+  chroma_cens_min10?: true
+  chroma_cens_min11?: true
+  chroma_cens_skew?: true
+  chroma_cens_skew1?: true
+  chroma_cens_skew2?: true
+  chroma_cens_skew3?: true
+  chroma_cens_skew4?: true
+  chroma_cens_skew5?: true
+  chroma_cens_skew6?: true
+  chroma_cens_skew7?: true
+  chroma_cens_skew8?: true
+  chroma_cens_skew9?: true
+  chroma_cens_skew10?: true
+  chroma_cens_skew11?: true
+  chroma_cens_std?: true
+  chroma_cens_std1?: true
+  chroma_cens_std2?: true
+  chroma_cens_std3?: true
+  chroma_cens_std4?: true
+  chroma_cens_std5?: true
+  chroma_cens_std6?: true
+  chroma_cens_std7?: true
+  chroma_cens_std8?: true
+  chroma_cens_std9?: true
+  chroma_cens_std10?: true
+  chroma_cens_std11?: true
+  chroma_cqt_kurtosis?: true
+  chroma_cqt_kurtosis1?: true
+  chroma_cqt_kurtosis2?: true
+  chroma_cqt_kurtosis3?: true
+  chroma_cqt_kurtosis4?: true
+  chroma_cqt_kurtosis5?: true
+  chroma_cqt_kurtosis6?: true
+  chroma_cqt_kurtosis7?: true
+  chroma_cqt_kurtosis8?: true
+  chroma_cqt_kurtosis9?: true
+  chroma_cqt_kurtosis10?: true
+  chroma_cqt_kurtosis11?: true
+  chroma_cqt_max?: true
+  chroma_cqt_max1?: true
+  chroma_cqt_max2?: true
+  chroma_cqt_max3?: true
+  chroma_cqt_max4?: true
+  chroma_cqt_max5?: true
+  chroma_cqt_max6?: true
+  chroma_cqt_max7?: true
+  chroma_cqt_max8?: true
+  chroma_cqt_max9?: true
+  chroma_cqt_max10?: true
+  chroma_cqt_max11?: true
+  chroma_cqt_mean?: true
+  chroma_cqt_mean1?: true
+  chroma_cqt_mean2?: true
+  chroma_cqt_mean3?: true
+  chroma_cqt_mean4?: true
+  chroma_cqt_mean5?: true
+  chroma_cqt_mean6?: true
+  chroma_cqt_mean7?: true
+  chroma_cqt_mean8?: true
+  chroma_cqt_mean9?: true
+  chroma_cqt_mean10?: true
+  chroma_cqt_mean11?: true
+  chroma_cqt_median?: true
+  chroma_cqt_median1?: true
+  chroma_cqt_median2?: true
+  chroma_cqt_median3?: true
+  chroma_cqt_median4?: true
+  chroma_cqt_median5?: true
+  chroma_cqt_median6?: true
+  chroma_cqt_median7?: true
+  chroma_cqt_median8?: true
+  chroma_cqt_median9?: true
+  chroma_cqt_median10?: true
+  chroma_cqt_median11?: true
+  chroma_cqt_min?: true
+  chroma_cqt_min1?: true
+  chroma_cqt_min2?: true
+  chroma_cqt_min3?: true
+  chroma_cqt_min4?: true
+  chroma_cqt_min5?: true
+  chroma_cqt_min6?: true
+  chroma_cqt_min7?: true
+  chroma_cqt_min8?: true
+  chroma_cqt_min9?: true
+  chroma_cqt_min10?: true
+  chroma_cqt_min11?: true
+  chroma_cqt_skew?: true
+  chroma_cqt_skew1?: true
+  chroma_cqt_skew2?: true
+  chroma_cqt_skew3?: true
+  chroma_cqt_skew4?: true
+  chroma_cqt_skew5?: true
+  chroma_cqt_skew6?: true
+  chroma_cqt_skew7?: true
+  chroma_cqt_skew8?: true
+  chroma_cqt_skew9?: true
+  chroma_cqt_skew10?: true
+  chroma_cqt_skew11?: true
+  chroma_cqt_std?: true
+  chroma_cqt_std1?: true
+  chroma_cqt_std2?: true
+  chroma_cqt_std3?: true
+  chroma_cqt_std4?: true
+  chroma_cqt_std5?: true
+  chroma_cqt_std6?: true
+  chroma_cqt_std7?: true
+  chroma_cqt_std8?: true
+  chroma_cqt_std9?: true
+  chroma_cqt_std10?: true
+  chroma_cqt_std11?: true
+  chroma_stft_kurtosis?: true
+  chroma_stft_kurtosis1?: true
+  chroma_stft_kurtosis2?: true
+  chroma_stft_kurtosis3?: true
+  chroma_stft_kurtosis4?: true
+  chroma_stft_kurtosis5?: true
+  chroma_stft_kurtosis6?: true
+  chroma_stft_kurtosis7?: true
+  chroma_stft_kurtosis8?: true
+  chroma_stft_kurtosis9?: true
+  chroma_stft_kurtosis10?: true
+  chroma_stft_kurtosis11?: true
+  chroma_stft_max?: true
+  chroma_stft_max1?: true
+  chroma_stft_max2?: true
+  chroma_stft_max3?: true
+  chroma_stft_max4?: true
+  chroma_stft_max5?: true
+  chroma_stft_max6?: true
+  chroma_stft_max7?: true
+  chroma_stft_max8?: true
+  chroma_stft_max9?: true
+  chroma_stft_max10?: true
+  chroma_stft_max11?: true
+  chroma_stft_mean?: true
+  chroma_stft_mean1?: true
+  chroma_stft_mean2?: true
+  chroma_stft_mean3?: true
+  chroma_stft_mean4?: true
+  chroma_stft_mean5?: true
+  chroma_stft_mean6?: true
+  chroma_stft_mean7?: true
+  chroma_stft_mean8?: true
+  chroma_stft_mean9?: true
+  chroma_stft_mean10?: true
+  chroma_stft_mean11?: true
+  chroma_stft_median?: true
+  chroma_stft_median1?: true
+  chroma_stft_median2?: true
+  chroma_stft_median3?: true
+  chroma_stft_median4?: true
+  chroma_stft_median5?: true
+  chroma_stft_median6?: true
+  chroma_stft_median7?: true
+  chroma_stft_median8?: true
+  chroma_stft_median9?: true
+  chroma_stft_median10?: true
+  chroma_stft_median11?: true
+  chroma_stft_min?: true
+  chroma_stft_min1?: true
+  chroma_stft_min2?: true
+  chroma_stft_min3?: true
+  chroma_stft_min4?: true
+  chroma_stft_min5?: true
+  chroma_stft_min6?: true
+  chroma_stft_min7?: true
+  chroma_stft_min8?: true
+  chroma_stft_min9?: true
+  chroma_stft_min10?: true
+  chroma_stft_min11?: true
+  chroma_stft_skew?: true
+  chroma_stft_skew1?: true
+  chroma_stft_skew2?: true
+  chroma_stft_skew3?: true
+  chroma_stft_skew4?: true
+  chroma_stft_skew5?: true
+  chroma_stft_skew6?: true
+  chroma_stft_skew7?: true
+  chroma_stft_skew8?: true
+  chroma_stft_skew9?: true
+  chroma_stft_skew10?: true
+  chroma_stft_skew11?: true
+  chroma_stft_std?: true
+  chroma_stft_std1?: true
+  chroma_stft_std2?: true
+  chroma_stft_std3?: true
+  chroma_stft_std4?: true
+  chroma_stft_std5?: true
+  chroma_stft_std6?: true
+  chroma_stft_std7?: true
+  chroma_stft_std8?: true
+  chroma_stft_std9?: true
+  chroma_stft_std10?: true
+  chroma_stft_std11?: true
+  mfcc_kurtosis?: true
+  mfcc_kurtosis1?: true
+  mfcc_kurtosis2?: true
+  mfcc_kurtosis3?: true
+  mfcc_kurtosis4?: true
+  mfcc_kurtosis5?: true
+  mfcc_kurtosis6?: true
+  mfcc_kurtosis7?: true
+  mfcc_kurtosis8?: true
+  mfcc_kurtosis9?: true
+  mfcc_kurtosis10?: true
+  mfcc_kurtosis11?: true
+  mfcc_kurtosis12?: true
+  mfcc_kurtosis13?: true
+  mfcc_kurtosis14?: true
+  mfcc_kurtosis15?: true
+  mfcc_kurtosis16?: true
+  mfcc_kurtosis17?: true
+  mfcc_kurtosis18?: true
+  mfcc_kurtosis19?: true
+  mfcc_max?: true
+  mfcc_max1?: true
+  mfcc_max2?: true
+  mfcc_max3?: true
+  mfcc_max4?: true
+  mfcc_max5?: true
+  mfcc_max6?: true
+  mfcc_max7?: true
+  mfcc_max8?: true
+  mfcc_max9?: true
+  mfcc_max10?: true
+  mfcc_max11?: true
+  mfcc_max12?: true
+  mfcc_max13?: true
+  mfcc_max14?: true
+  mfcc_max15?: true
+  mfcc_max16?: true
+  mfcc_max17?: true
+  mfcc_max18?: true
+  mfcc_max19?: true
+  mfcc_mean?: true
+  mfcc_mean1?: true
+  mfcc_mean2?: true
+  mfcc_mean3?: true
+  mfcc_mean4?: true
+  mfcc_mean5?: true
+  mfcc_mean6?: true
+  mfcc_mean7?: true
+  mfcc_mean8?: true
+  mfcc_mean9?: true
+  mfcc_mean10?: true
+  mfcc_mean11?: true
+  mfcc_mean12?: true
+  mfcc_mean13?: true
+  mfcc_mean14?: true
+  mfcc_mean15?: true
+  mfcc_mean16?: true
+  mfcc_mean17?: true
+  mfcc_mean18?: true
+  mfcc_mean19?: true
+  mfcc_median?: true
+  mfcc_median1?: true
+  mfcc_median2?: true
+  mfcc_median3?: true
+  mfcc_median4?: true
+  mfcc_median5?: true
+  mfcc_median6?: true
+  mfcc_median7?: true
+  mfcc_median8?: true
+  mfcc_median9?: true
+  mfcc_median10?: true
+  mfcc_median11?: true
+  mfcc_median12?: true
+  mfcc_median13?: true
+  mfcc_median14?: true
+  mfcc_median15?: true
+  mfcc_median16?: true
+  mfcc_median17?: true
+  mfcc_median18?: true
+  mfcc_median19?: true
+  mfcc_min?: true
+  mfcc_min1?: true
+  mfcc_min2?: true
+  mfcc_min3?: true
+  mfcc_min4?: true
+  mfcc_min5?: true
+  mfcc_min6?: true
+  mfcc_min7?: true
+  mfcc_min8?: true
+  mfcc_min9?: true
+  mfcc_min10?: true
+  mfcc_min11?: true
+  mfcc_min12?: true
+  mfcc_min13?: true
+  mfcc_min14?: true
+  mfcc_min15?: true
+  mfcc_min16?: true
+  mfcc_min17?: true
+  mfcc_min18?: true
+  mfcc_min19?: true
+  mfcc_skew?: true
+  mfcc_skew1?: true
+  mfcc_skew2?: true
+  mfcc_skew3?: true
+  mfcc_skew4?: true
+  mfcc_skew5?: true
+  mfcc_skew6?: true
+  mfcc_skew7?: true
+  mfcc_skew8?: true
+  mfcc_skew9?: true
+  mfcc_skew10?: true
+  mfcc_skew11?: true
+  mfcc_skew12?: true
+  mfcc_skew13?: true
+  mfcc_skew14?: true
+  mfcc_skew15?: true
+  mfcc_skew16?: true
+  mfcc_skew17?: true
+  mfcc_skew18?: true
+  mfcc_skew19?: true
+  mfcc_std?: true
+  mfcc_std1?: true
+  mfcc_std2?: true
+  mfcc_std3?: true
+  mfcc_std4?: true
+  mfcc_std5?: true
+  mfcc_std6?: true
+  mfcc_std7?: true
+  mfcc_std8?: true
+  mfcc_std9?: true
+  mfcc_std10?: true
+  mfcc_std11?: true
+  mfcc_std12?: true
+  mfcc_std13?: true
+  mfcc_std14?: true
+  mfcc_std15?: true
+  mfcc_std16?: true
+  mfcc_std17?: true
+  mfcc_std18?: true
+  mfcc_std19?: true
+  rmse_kurtosis?: true
+  rmse_max?: true
+  rmse_mean?: true
+  rmse_median?: true
+  rmse_min?: true
+  rmse_skew?: true
+  rmse_std?: true
+  spectral_bandwidth_kurtosis?: true
+  spectral_bandwidth_max?: true
+  spectral_bandwidth_mean?: true
+  spectral_bandwidth_median?: true
+  spectral_bandwidth_min?: true
+  spectral_bandwidth_skew?: true
+  spectral_bandwidth_std?: true
+  spectral_centroid_kurtosis?: true
+  spectral_centroid_max?: true
+  spectral_centroid_mean?: true
+  spectral_centroid_median?: true
+  spectral_centroid_min?: true
+  spectral_centroid_skew?: true
+  spectral_centroid_std?: true
+  spectral_contrast_kurtosis?: true
+  spectral_contrast_kurtosis1?: true
+  spectral_contrast_kurtosis2?: true
+  spectral_contrast_kurtosis3?: true
+  spectral_contrast_kurtosis4?: true
+  spectral_contrast_kurtosis5?: true
+  spectral_contrast_kurtosis6?: true
+  spectral_contrast_max?: true
+  spectral_contrast_max1?: true
+  spectral_contrast_max2?: true
+  spectral_contrast_max3?: true
+  spectral_contrast_max4?: true
+  spectral_contrast_max5?: true
+  spectral_contrast_max6?: true
+  spectral_contrast_mean?: true
+  spectral_contrast_mean1?: true
+  spectral_contrast_mean2?: true
+  spectral_contrast_mean3?: true
+  spectral_contrast_mean4?: true
+  spectral_contrast_mean5?: true
+  spectral_contrast_mean6?: true
+  spectral_contrast_median?: true
+  spectral_contrast_median1?: true
+  spectral_contrast_median2?: true
+  spectral_contrast_median3?: true
+  spectral_contrast_median4?: true
+  spectral_contrast_median5?: true
+  spectral_contrast_median6?: true
+  spectral_contrast_min?: true
+  spectral_contrast_min1?: true
+  spectral_contrast_min2?: true
+  spectral_contrast_min3?: true
+  spectral_contrast_min4?: true
+  spectral_contrast_min5?: true
+  spectral_contrast_min6?: true
+  spectral_contrast_skew?: true
+  spectral_contrast_skew1?: true
+  spectral_contrast_skew2?: true
+  spectral_contrast_skew3?: true
+  spectral_contrast_skew4?: true
+  spectral_contrast_skew5?: true
+  spectral_contrast_skew6?: true
+  spectral_contrast_std?: true
+  spectral_contrast_std1?: true
+  spectral_contrast_std2?: true
+  spectral_contrast_std3?: true
+  spectral_contrast_std4?: true
+  spectral_contrast_std5?: true
+  spectral_contrast_std6?: true
+  spectral_rolloff_kurtosis?: true
+  spectral_rolloff_max?: true
+  spectral_rolloff_mean?: true
+  spectral_rolloff_median?: true
+  spectral_rolloff_min?: true
+  spectral_rolloff_skew?: true
+  spectral_rolloff_std?: true
+  tonnetz_kurtosis?: true
+  tonnetz_kurtosis1?: true
+  tonnetz_kurtosis2?: true
+  tonnetz_kurtosis3?: true
+  tonnetz_kurtosis4?: true
+  tonnetz_kurtosis5?: true
+  tonnetz_max?: true
+  tonnetz_max1?: true
+  tonnetz_max2?: true
+  tonnetz_max3?: true
+  tonnetz_max4?: true
+  tonnetz_max5?: true
+  tonnetz_mean?: true
+  tonnetz_mean1?: true
+  tonnetz_mean2?: true
+  tonnetz_mean3?: true
+  tonnetz_mean4?: true
+  tonnetz_mean5?: true
+  tonnetz_median?: true
+  tonnetz_median1?: true
+  tonnetz_median2?: true
+  tonnetz_median3?: true
+  tonnetz_median4?: true
+  tonnetz_median5?: true
+  tonnetz_min?: true
+  tonnetz_min1?: true
+  tonnetz_min2?: true
+  tonnetz_min3?: true
+  tonnetz_min4?: true
+  tonnetz_min5?: true
+  tonnetz_skew?: true
+  tonnetz_skew1?: true
+  tonnetz_skew2?: true
+  tonnetz_skew3?: true
+  tonnetz_skew4?: true
+  tonnetz_skew5?: true
+  tonnetz_std?: true
+  tonnetz_std1?: true
+  tonnetz_std2?: true
+  tonnetz_std3?: true
+  tonnetz_std4?: true
+  tonnetz_std5?: true
+  zcr_kurtosis?: true
+  zcr_max?: true
+  zcr_mean?: true
+  zcr_median?: true
+  zcr_min?: true
+  zcr_skew?: true
+  zcr_std?: true
   _all?: true
 }
 
@@ -89,6 +5283,18 @@ export type TemporalFeatureAggregateArgs<ExtArgs extends runtime.Types.Extension
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: TemporalFeatureAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: TemporalFeatureSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: TemporalFeatureMinAggregateInputType
@@ -119,13 +5325,535 @@ export type TemporalFeatureGroupByArgs<ExtArgs extends runtime.Types.Extensions.
   take?: number
   skip?: number
   _count?: TemporalFeatureCountAggregateInputType | true
+  _avg?: TemporalFeatureAvgAggregateInputType
+  _sum?: TemporalFeatureSumAggregateInputType
   _min?: TemporalFeatureMinAggregateInputType
   _max?: TemporalFeatureMaxAggregateInputType
 }
 
 export type TemporalFeatureGroupByOutputType = {
   trackId: string
+  chroma_cens_kurtosis: number | null
+  chroma_cens_kurtosis1: number | null
+  chroma_cens_kurtosis2: number | null
+  chroma_cens_kurtosis3: number | null
+  chroma_cens_kurtosis4: number | null
+  chroma_cens_kurtosis5: number | null
+  chroma_cens_kurtosis6: number | null
+  chroma_cens_kurtosis7: number | null
+  chroma_cens_kurtosis8: number | null
+  chroma_cens_kurtosis9: number | null
+  chroma_cens_kurtosis10: number | null
+  chroma_cens_kurtosis11: number | null
+  chroma_cens_max: number | null
+  chroma_cens_max1: number | null
+  chroma_cens_max2: number | null
+  chroma_cens_max3: number | null
+  chroma_cens_max4: number | null
+  chroma_cens_max5: number | null
+  chroma_cens_max6: number | null
+  chroma_cens_max7: number | null
+  chroma_cens_max8: number | null
+  chroma_cens_max9: number | null
+  chroma_cens_max10: number | null
+  chroma_cens_max11: number | null
+  chroma_cens_mean: number | null
+  chroma_cens_mean1: number | null
+  chroma_cens_mean2: number | null
+  chroma_cens_mean3: number | null
+  chroma_cens_mean4: number | null
+  chroma_cens_mean5: number | null
+  chroma_cens_mean6: number | null
+  chroma_cens_mean7: number | null
+  chroma_cens_mean8: number | null
+  chroma_cens_mean9: number | null
+  chroma_cens_mean10: number | null
+  chroma_cens_mean11: number | null
+  chroma_cens_median: number | null
+  chroma_cens_median1: number | null
+  chroma_cens_median2: number | null
+  chroma_cens_median3: number | null
+  chroma_cens_median4: number | null
+  chroma_cens_median5: number | null
+  chroma_cens_median6: number | null
+  chroma_cens_median7: number | null
+  chroma_cens_median8: number | null
+  chroma_cens_median9: number | null
+  chroma_cens_median10: number | null
+  chroma_cens_median11: number | null
+  chroma_cens_min: number | null
+  chroma_cens_min1: number | null
+  chroma_cens_min2: number | null
+  chroma_cens_min3: number | null
+  chroma_cens_min4: number | null
+  chroma_cens_min5: number | null
+  chroma_cens_min6: number | null
+  chroma_cens_min7: number | null
+  chroma_cens_min8: number | null
+  chroma_cens_min9: number | null
+  chroma_cens_min10: number | null
+  chroma_cens_min11: number | null
+  chroma_cens_skew: number | null
+  chroma_cens_skew1: number | null
+  chroma_cens_skew2: number | null
+  chroma_cens_skew3: number | null
+  chroma_cens_skew4: number | null
+  chroma_cens_skew5: number | null
+  chroma_cens_skew6: number | null
+  chroma_cens_skew7: number | null
+  chroma_cens_skew8: number | null
+  chroma_cens_skew9: number | null
+  chroma_cens_skew10: number | null
+  chroma_cens_skew11: number | null
+  chroma_cens_std: number | null
+  chroma_cens_std1: number | null
+  chroma_cens_std2: number | null
+  chroma_cens_std3: number | null
+  chroma_cens_std4: number | null
+  chroma_cens_std5: number | null
+  chroma_cens_std6: number | null
+  chroma_cens_std7: number | null
+  chroma_cens_std8: number | null
+  chroma_cens_std9: number | null
+  chroma_cens_std10: number | null
+  chroma_cens_std11: number | null
+  chroma_cqt_kurtosis: number | null
+  chroma_cqt_kurtosis1: number | null
+  chroma_cqt_kurtosis2: number | null
+  chroma_cqt_kurtosis3: number | null
+  chroma_cqt_kurtosis4: number | null
+  chroma_cqt_kurtosis5: number | null
+  chroma_cqt_kurtosis6: number | null
+  chroma_cqt_kurtosis7: number | null
+  chroma_cqt_kurtosis8: number | null
+  chroma_cqt_kurtosis9: number | null
+  chroma_cqt_kurtosis10: number | null
+  chroma_cqt_kurtosis11: number | null
+  chroma_cqt_max: number | null
+  chroma_cqt_max1: number | null
+  chroma_cqt_max2: number | null
+  chroma_cqt_max3: number | null
+  chroma_cqt_max4: number | null
+  chroma_cqt_max5: number | null
+  chroma_cqt_max6: number | null
+  chroma_cqt_max7: number | null
+  chroma_cqt_max8: number | null
+  chroma_cqt_max9: number | null
+  chroma_cqt_max10: number | null
+  chroma_cqt_max11: number | null
+  chroma_cqt_mean: number | null
+  chroma_cqt_mean1: number | null
+  chroma_cqt_mean2: number | null
+  chroma_cqt_mean3: number | null
+  chroma_cqt_mean4: number | null
+  chroma_cqt_mean5: number | null
+  chroma_cqt_mean6: number | null
+  chroma_cqt_mean7: number | null
+  chroma_cqt_mean8: number | null
+  chroma_cqt_mean9: number | null
+  chroma_cqt_mean10: number | null
+  chroma_cqt_mean11: number | null
+  chroma_cqt_median: number | null
+  chroma_cqt_median1: number | null
+  chroma_cqt_median2: number | null
+  chroma_cqt_median3: number | null
+  chroma_cqt_median4: number | null
+  chroma_cqt_median5: number | null
+  chroma_cqt_median6: number | null
+  chroma_cqt_median7: number | null
+  chroma_cqt_median8: number | null
+  chroma_cqt_median9: number | null
+  chroma_cqt_median10: number | null
+  chroma_cqt_median11: number | null
+  chroma_cqt_min: number | null
+  chroma_cqt_min1: number | null
+  chroma_cqt_min2: number | null
+  chroma_cqt_min3: number | null
+  chroma_cqt_min4: number | null
+  chroma_cqt_min5: number | null
+  chroma_cqt_min6: number | null
+  chroma_cqt_min7: number | null
+  chroma_cqt_min8: number | null
+  chroma_cqt_min9: number | null
+  chroma_cqt_min10: number | null
+  chroma_cqt_min11: number | null
+  chroma_cqt_skew: number | null
+  chroma_cqt_skew1: number | null
+  chroma_cqt_skew2: number | null
+  chroma_cqt_skew3: number | null
+  chroma_cqt_skew4: number | null
+  chroma_cqt_skew5: number | null
+  chroma_cqt_skew6: number | null
+  chroma_cqt_skew7: number | null
+  chroma_cqt_skew8: number | null
+  chroma_cqt_skew9: number | null
+  chroma_cqt_skew10: number | null
+  chroma_cqt_skew11: number | null
+  chroma_cqt_std: number | null
+  chroma_cqt_std1: number | null
+  chroma_cqt_std2: number | null
+  chroma_cqt_std3: number | null
+  chroma_cqt_std4: number | null
+  chroma_cqt_std5: number | null
+  chroma_cqt_std6: number | null
+  chroma_cqt_std7: number | null
+  chroma_cqt_std8: number | null
+  chroma_cqt_std9: number | null
+  chroma_cqt_std10: number | null
+  chroma_cqt_std11: number | null
+  chroma_stft_kurtosis: number | null
+  chroma_stft_kurtosis1: number | null
+  chroma_stft_kurtosis2: number | null
+  chroma_stft_kurtosis3: number | null
+  chroma_stft_kurtosis4: number | null
+  chroma_stft_kurtosis5: number | null
+  chroma_stft_kurtosis6: number | null
+  chroma_stft_kurtosis7: number | null
+  chroma_stft_kurtosis8: number | null
+  chroma_stft_kurtosis9: number | null
+  chroma_stft_kurtosis10: number | null
+  chroma_stft_kurtosis11: number | null
+  chroma_stft_max: number | null
+  chroma_stft_max1: number | null
+  chroma_stft_max2: number | null
+  chroma_stft_max3: number | null
+  chroma_stft_max4: number | null
+  chroma_stft_max5: number | null
+  chroma_stft_max6: number | null
+  chroma_stft_max7: number | null
+  chroma_stft_max8: number | null
+  chroma_stft_max9: number | null
+  chroma_stft_max10: number | null
+  chroma_stft_max11: number | null
+  chroma_stft_mean: number | null
+  chroma_stft_mean1: number | null
+  chroma_stft_mean2: number | null
+  chroma_stft_mean3: number | null
+  chroma_stft_mean4: number | null
+  chroma_stft_mean5: number | null
+  chroma_stft_mean6: number | null
+  chroma_stft_mean7: number | null
+  chroma_stft_mean8: number | null
+  chroma_stft_mean9: number | null
+  chroma_stft_mean10: number | null
+  chroma_stft_mean11: number | null
+  chroma_stft_median: number | null
+  chroma_stft_median1: number | null
+  chroma_stft_median2: number | null
+  chroma_stft_median3: number | null
+  chroma_stft_median4: number | null
+  chroma_stft_median5: number | null
+  chroma_stft_median6: number | null
+  chroma_stft_median7: number | null
+  chroma_stft_median8: number | null
+  chroma_stft_median9: number | null
+  chroma_stft_median10: number | null
+  chroma_stft_median11: number | null
+  chroma_stft_min: number | null
+  chroma_stft_min1: number | null
+  chroma_stft_min2: number | null
+  chroma_stft_min3: number | null
+  chroma_stft_min4: number | null
+  chroma_stft_min5: number | null
+  chroma_stft_min6: number | null
+  chroma_stft_min7: number | null
+  chroma_stft_min8: number | null
+  chroma_stft_min9: number | null
+  chroma_stft_min10: number | null
+  chroma_stft_min11: number | null
+  chroma_stft_skew: number | null
+  chroma_stft_skew1: number | null
+  chroma_stft_skew2: number | null
+  chroma_stft_skew3: number | null
+  chroma_stft_skew4: number | null
+  chroma_stft_skew5: number | null
+  chroma_stft_skew6: number | null
+  chroma_stft_skew7: number | null
+  chroma_stft_skew8: number | null
+  chroma_stft_skew9: number | null
+  chroma_stft_skew10: number | null
+  chroma_stft_skew11: number | null
+  chroma_stft_std: number | null
+  chroma_stft_std1: number | null
+  chroma_stft_std2: number | null
+  chroma_stft_std3: number | null
+  chroma_stft_std4: number | null
+  chroma_stft_std5: number | null
+  chroma_stft_std6: number | null
+  chroma_stft_std7: number | null
+  chroma_stft_std8: number | null
+  chroma_stft_std9: number | null
+  chroma_stft_std10: number | null
+  chroma_stft_std11: number | null
+  mfcc_kurtosis: number | null
+  mfcc_kurtosis1: number | null
+  mfcc_kurtosis2: number | null
+  mfcc_kurtosis3: number | null
+  mfcc_kurtosis4: number | null
+  mfcc_kurtosis5: number | null
+  mfcc_kurtosis6: number | null
+  mfcc_kurtosis7: number | null
+  mfcc_kurtosis8: number | null
+  mfcc_kurtosis9: number | null
+  mfcc_kurtosis10: number | null
+  mfcc_kurtosis11: number | null
+  mfcc_kurtosis12: number | null
+  mfcc_kurtosis13: number | null
+  mfcc_kurtosis14: number | null
+  mfcc_kurtosis15: number | null
+  mfcc_kurtosis16: number | null
+  mfcc_kurtosis17: number | null
+  mfcc_kurtosis18: number | null
+  mfcc_kurtosis19: number | null
+  mfcc_max: number | null
+  mfcc_max1: number | null
+  mfcc_max2: number | null
+  mfcc_max3: number | null
+  mfcc_max4: number | null
+  mfcc_max5: number | null
+  mfcc_max6: number | null
+  mfcc_max7: number | null
+  mfcc_max8: number | null
+  mfcc_max9: number | null
+  mfcc_max10: number | null
+  mfcc_max11: number | null
+  mfcc_max12: number | null
+  mfcc_max13: number | null
+  mfcc_max14: number | null
+  mfcc_max15: number | null
+  mfcc_max16: number | null
+  mfcc_max17: number | null
+  mfcc_max18: number | null
+  mfcc_max19: number | null
+  mfcc_mean: number | null
+  mfcc_mean1: number | null
+  mfcc_mean2: number | null
+  mfcc_mean3: number | null
+  mfcc_mean4: number | null
+  mfcc_mean5: number | null
+  mfcc_mean6: number | null
+  mfcc_mean7: number | null
+  mfcc_mean8: number | null
+  mfcc_mean9: number | null
+  mfcc_mean10: number | null
+  mfcc_mean11: number | null
+  mfcc_mean12: number | null
+  mfcc_mean13: number | null
+  mfcc_mean14: number | null
+  mfcc_mean15: number | null
+  mfcc_mean16: number | null
+  mfcc_mean17: number | null
+  mfcc_mean18: number | null
+  mfcc_mean19: number | null
+  mfcc_median: number | null
+  mfcc_median1: number | null
+  mfcc_median2: number | null
+  mfcc_median3: number | null
+  mfcc_median4: number | null
+  mfcc_median5: number | null
+  mfcc_median6: number | null
+  mfcc_median7: number | null
+  mfcc_median8: number | null
+  mfcc_median9: number | null
+  mfcc_median10: number | null
+  mfcc_median11: number | null
+  mfcc_median12: number | null
+  mfcc_median13: number | null
+  mfcc_median14: number | null
+  mfcc_median15: number | null
+  mfcc_median16: number | null
+  mfcc_median17: number | null
+  mfcc_median18: number | null
+  mfcc_median19: number | null
+  mfcc_min: number | null
+  mfcc_min1: number | null
+  mfcc_min2: number | null
+  mfcc_min3: number | null
+  mfcc_min4: number | null
+  mfcc_min5: number | null
+  mfcc_min6: number | null
+  mfcc_min7: number | null
+  mfcc_min8: number | null
+  mfcc_min9: number | null
+  mfcc_min10: number | null
+  mfcc_min11: number | null
+  mfcc_min12: number | null
+  mfcc_min13: number | null
+  mfcc_min14: number | null
+  mfcc_min15: number | null
+  mfcc_min16: number | null
+  mfcc_min17: number | null
+  mfcc_min18: number | null
+  mfcc_min19: number | null
+  mfcc_skew: number | null
+  mfcc_skew1: number | null
+  mfcc_skew2: number | null
+  mfcc_skew3: number | null
+  mfcc_skew4: number | null
+  mfcc_skew5: number | null
+  mfcc_skew6: number | null
+  mfcc_skew7: number | null
+  mfcc_skew8: number | null
+  mfcc_skew9: number | null
+  mfcc_skew10: number | null
+  mfcc_skew11: number | null
+  mfcc_skew12: number | null
+  mfcc_skew13: number | null
+  mfcc_skew14: number | null
+  mfcc_skew15: number | null
+  mfcc_skew16: number | null
+  mfcc_skew17: number | null
+  mfcc_skew18: number | null
+  mfcc_skew19: number | null
+  mfcc_std: number | null
+  mfcc_std1: number | null
+  mfcc_std2: number | null
+  mfcc_std3: number | null
+  mfcc_std4: number | null
+  mfcc_std5: number | null
+  mfcc_std6: number | null
+  mfcc_std7: number | null
+  mfcc_std8: number | null
+  mfcc_std9: number | null
+  mfcc_std10: number | null
+  mfcc_std11: number | null
+  mfcc_std12: number | null
+  mfcc_std13: number | null
+  mfcc_std14: number | null
+  mfcc_std15: number | null
+  mfcc_std16: number | null
+  mfcc_std17: number | null
+  mfcc_std18: number | null
+  mfcc_std19: number | null
+  rmse_kurtosis: number | null
+  rmse_max: number | null
+  rmse_mean: number | null
+  rmse_median: number | null
+  rmse_min: number | null
+  rmse_skew: number | null
+  rmse_std: number | null
+  spectral_bandwidth_kurtosis: number | null
+  spectral_bandwidth_max: number | null
+  spectral_bandwidth_mean: number | null
+  spectral_bandwidth_median: number | null
+  spectral_bandwidth_min: number | null
+  spectral_bandwidth_skew: number | null
+  spectral_bandwidth_std: number | null
+  spectral_centroid_kurtosis: number | null
+  spectral_centroid_max: number | null
+  spectral_centroid_mean: number | null
+  spectral_centroid_median: number | null
+  spectral_centroid_min: number | null
+  spectral_centroid_skew: number | null
+  spectral_centroid_std: number | null
+  spectral_contrast_kurtosis: number | null
+  spectral_contrast_kurtosis1: number | null
+  spectral_contrast_kurtosis2: number | null
+  spectral_contrast_kurtosis3: number | null
+  spectral_contrast_kurtosis4: number | null
+  spectral_contrast_kurtosis5: number | null
+  spectral_contrast_kurtosis6: number | null
+  spectral_contrast_max: number | null
+  spectral_contrast_max1: number | null
+  spectral_contrast_max2: number | null
+  spectral_contrast_max3: number | null
+  spectral_contrast_max4: number | null
+  spectral_contrast_max5: number | null
+  spectral_contrast_max6: number | null
+  spectral_contrast_mean: number | null
+  spectral_contrast_mean1: number | null
+  spectral_contrast_mean2: number | null
+  spectral_contrast_mean3: number | null
+  spectral_contrast_mean4: number | null
+  spectral_contrast_mean5: number | null
+  spectral_contrast_mean6: number | null
+  spectral_contrast_median: number | null
+  spectral_contrast_median1: number | null
+  spectral_contrast_median2: number | null
+  spectral_contrast_median3: number | null
+  spectral_contrast_median4: number | null
+  spectral_contrast_median5: number | null
+  spectral_contrast_median6: number | null
+  spectral_contrast_min: number | null
+  spectral_contrast_min1: number | null
+  spectral_contrast_min2: number | null
+  spectral_contrast_min3: number | null
+  spectral_contrast_min4: number | null
+  spectral_contrast_min5: number | null
+  spectral_contrast_min6: number | null
+  spectral_contrast_skew: number | null
+  spectral_contrast_skew1: number | null
+  spectral_contrast_skew2: number | null
+  spectral_contrast_skew3: number | null
+  spectral_contrast_skew4: number | null
+  spectral_contrast_skew5: number | null
+  spectral_contrast_skew6: number | null
+  spectral_contrast_std: number | null
+  spectral_contrast_std1: number | null
+  spectral_contrast_std2: number | null
+  spectral_contrast_std3: number | null
+  spectral_contrast_std4: number | null
+  spectral_contrast_std5: number | null
+  spectral_contrast_std6: number | null
+  spectral_rolloff_kurtosis: number | null
+  spectral_rolloff_max: number | null
+  spectral_rolloff_mean: number | null
+  spectral_rolloff_median: number | null
+  spectral_rolloff_min: number | null
+  spectral_rolloff_skew: number | null
+  spectral_rolloff_std: number | null
+  tonnetz_kurtosis: number | null
+  tonnetz_kurtosis1: number | null
+  tonnetz_kurtosis2: number | null
+  tonnetz_kurtosis3: number | null
+  tonnetz_kurtosis4: number | null
+  tonnetz_kurtosis5: number | null
+  tonnetz_max: number | null
+  tonnetz_max1: number | null
+  tonnetz_max2: number | null
+  tonnetz_max3: number | null
+  tonnetz_max4: number | null
+  tonnetz_max5: number | null
+  tonnetz_mean: number | null
+  tonnetz_mean1: number | null
+  tonnetz_mean2: number | null
+  tonnetz_mean3: number | null
+  tonnetz_mean4: number | null
+  tonnetz_mean5: number | null
+  tonnetz_median: number | null
+  tonnetz_median1: number | null
+  tonnetz_median2: number | null
+  tonnetz_median3: number | null
+  tonnetz_median4: number | null
+  tonnetz_median5: number | null
+  tonnetz_min: number | null
+  tonnetz_min1: number | null
+  tonnetz_min2: number | null
+  tonnetz_min3: number | null
+  tonnetz_min4: number | null
+  tonnetz_min5: number | null
+  tonnetz_skew: number | null
+  tonnetz_skew1: number | null
+  tonnetz_skew2: number | null
+  tonnetz_skew3: number | null
+  tonnetz_skew4: number | null
+  tonnetz_skew5: number | null
+  tonnetz_std: number | null
+  tonnetz_std1: number | null
+  tonnetz_std2: number | null
+  tonnetz_std3: number | null
+  tonnetz_std4: number | null
+  tonnetz_std5: number | null
+  zcr_kurtosis: number | null
+  zcr_max: number | null
+  zcr_mean: number | null
+  zcr_median: number | null
+  zcr_min: number | null
+  zcr_skew: number | null
+  zcr_std: number | null
   _count: TemporalFeatureCountAggregateOutputType | null
+  _avg: TemporalFeatureAvgAggregateOutputType | null
+  _sum: TemporalFeatureSumAggregateOutputType | null
   _min: TemporalFeatureMinAggregateOutputType | null
   _max: TemporalFeatureMaxAggregateOutputType | null
 }
@@ -150,11 +5878,1047 @@ export type TemporalFeatureWhereInput = {
   OR?: Prisma.TemporalFeatureWhereInput[]
   NOT?: Prisma.TemporalFeatureWhereInput | Prisma.TemporalFeatureWhereInput[]
   trackId?: Prisma.UuidFilter<"TemporalFeature"> | string
+  chroma_cens_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
   track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }
 
 export type TemporalFeatureOrderByWithRelationInput = {
   trackId?: Prisma.SortOrder
+  chroma_cens_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std19?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_std?: Prisma.SortOrderInput | Prisma.SortOrder
   track?: Prisma.TrackOrderByWithRelationInput
 }
 
@@ -163,14 +6927,1052 @@ export type TemporalFeatureWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.TemporalFeatureWhereInput | Prisma.TemporalFeatureWhereInput[]
   OR?: Prisma.TemporalFeatureWhereInput[]
   NOT?: Prisma.TemporalFeatureWhereInput | Prisma.TemporalFeatureWhereInput[]
+  chroma_cens_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_max11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_median11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_min11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cens_std11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_max11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_median11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_min11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  chroma_stft_std11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_max19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_mean19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_median19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_min19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_skew19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std7?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std8?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std9?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std10?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std11?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std12?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std13?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std14?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std15?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std16?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std17?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std18?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  mfcc_std19?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  rmse_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_centroid_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std6?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_max5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_mean5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_median5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_min5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_skew5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std1?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std2?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std3?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std4?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  tonnetz_std5?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_kurtosis?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_max?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_mean?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_median?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_min?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_skew?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
+  zcr_std?: Prisma.FloatNullableFilter<"TemporalFeature"> | number | null
   track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }, "trackId">
 
 export type TemporalFeatureOrderByWithAggregationInput = {
   trackId?: Prisma.SortOrder
+  chroma_cens_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_kurtosis11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_max11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_mean11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_median11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_min11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_skew11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cens_std11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_kurtosis11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_max11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_mean11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_median11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_min11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_skew11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_cqt_std11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_kurtosis11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_max11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_mean11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_median11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_min11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_skew11?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std7?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std8?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std9?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std10?: Prisma.SortOrderInput | Prisma.SortOrder
+  chroma_stft_std11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_kurtosis19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_max19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_mean19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_median19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_min19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_skew19?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std7?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std8?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std9?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std10?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std11?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std12?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std13?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std14?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std15?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std16?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std17?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std18?: Prisma.SortOrderInput | Prisma.SortOrder
+  mfcc_std19?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  rmse_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_bandwidth_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_centroid_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_kurtosis6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_max6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_mean6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_median6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_min6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_skew6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_contrast_std6?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  spectral_rolloff_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_kurtosis5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_max5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_mean5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_median5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_min5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_skew5?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std1?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std2?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std3?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std4?: Prisma.SortOrderInput | Prisma.SortOrder
+  tonnetz_std5?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_kurtosis?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_max?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_mean?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_median?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_min?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_skew?: Prisma.SortOrderInput | Prisma.SortOrder
+  zcr_std?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.TemporalFeatureCountOrderByAggregateInput
+  _avg?: Prisma.TemporalFeatureAvgOrderByAggregateInput
   _max?: Prisma.TemporalFeatureMaxOrderByAggregateInput
   _min?: Prisma.TemporalFeatureMinOrderByAggregateInput
+  _sum?: Prisma.TemporalFeatureSumOrderByAggregateInput
 }
 
 export type TemporalFeatureScalarWhereWithAggregatesInput = {
@@ -178,34 +7980,4177 @@ export type TemporalFeatureScalarWhereWithAggregatesInput = {
   OR?: Prisma.TemporalFeatureScalarWhereWithAggregatesInput[]
   NOT?: Prisma.TemporalFeatureScalarWhereWithAggregatesInput | Prisma.TemporalFeatureScalarWhereWithAggregatesInput[]
   trackId?: Prisma.UuidWithAggregatesFilter<"TemporalFeature"> | string
+  chroma_cens_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_kurtosis11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_max11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_mean11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_median11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_min11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_skew11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cens_std11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_kurtosis11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_max11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_mean11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_median11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_min11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_skew11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_cqt_std11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_kurtosis11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_max11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_mean11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_median11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_min11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_skew11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  chroma_stft_std11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis12?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis13?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis14?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis15?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis16?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis17?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis18?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_kurtosis19?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max12?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max13?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max14?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max15?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max16?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max17?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max18?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_max19?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean12?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean13?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean14?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean15?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean16?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean17?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean18?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_mean19?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median12?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median13?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median14?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median15?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median16?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median17?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median18?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_median19?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min12?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min13?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min14?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min15?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min16?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min17?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min18?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_min19?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew12?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew13?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew14?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew15?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew16?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew17?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew18?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_skew19?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std7?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std8?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std9?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std10?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std11?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std12?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std13?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std14?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std15?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std16?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std17?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std18?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  mfcc_std19?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  rmse_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  rmse_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  rmse_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  rmse_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  rmse_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  rmse_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  rmse_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_bandwidth_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_centroid_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_centroid_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_centroid_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_centroid_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_centroid_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_centroid_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_centroid_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_kurtosis6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_max6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_mean6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_median6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_min6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_skew6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_contrast_std6?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  spectral_rolloff_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_kurtosis5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_max1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_max2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_max3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_max4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_max5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_mean1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_mean2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_mean3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_mean4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_mean5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_median1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_median2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_median3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_median4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_median5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_min1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_min2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_min3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_min4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_min5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_skew1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_skew2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_skew3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_skew4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_skew5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_std1?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_std2?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_std3?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_std4?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  tonnetz_std5?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  zcr_kurtosis?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  zcr_max?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  zcr_mean?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  zcr_median?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  zcr_min?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  zcr_skew?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
+  zcr_std?: Prisma.FloatNullableWithAggregatesFilter<"TemporalFeature"> | number | null
 }
 
 export type TemporalFeatureCreateInput = {
+  chroma_cens_kurtosis?: number | null
+  chroma_cens_kurtosis1?: number | null
+  chroma_cens_kurtosis2?: number | null
+  chroma_cens_kurtosis3?: number | null
+  chroma_cens_kurtosis4?: number | null
+  chroma_cens_kurtosis5?: number | null
+  chroma_cens_kurtosis6?: number | null
+  chroma_cens_kurtosis7?: number | null
+  chroma_cens_kurtosis8?: number | null
+  chroma_cens_kurtosis9?: number | null
+  chroma_cens_kurtosis10?: number | null
+  chroma_cens_kurtosis11?: number | null
+  chroma_cens_max?: number | null
+  chroma_cens_max1?: number | null
+  chroma_cens_max2?: number | null
+  chroma_cens_max3?: number | null
+  chroma_cens_max4?: number | null
+  chroma_cens_max5?: number | null
+  chroma_cens_max6?: number | null
+  chroma_cens_max7?: number | null
+  chroma_cens_max8?: number | null
+  chroma_cens_max9?: number | null
+  chroma_cens_max10?: number | null
+  chroma_cens_max11?: number | null
+  chroma_cens_mean?: number | null
+  chroma_cens_mean1?: number | null
+  chroma_cens_mean2?: number | null
+  chroma_cens_mean3?: number | null
+  chroma_cens_mean4?: number | null
+  chroma_cens_mean5?: number | null
+  chroma_cens_mean6?: number | null
+  chroma_cens_mean7?: number | null
+  chroma_cens_mean8?: number | null
+  chroma_cens_mean9?: number | null
+  chroma_cens_mean10?: number | null
+  chroma_cens_mean11?: number | null
+  chroma_cens_median?: number | null
+  chroma_cens_median1?: number | null
+  chroma_cens_median2?: number | null
+  chroma_cens_median3?: number | null
+  chroma_cens_median4?: number | null
+  chroma_cens_median5?: number | null
+  chroma_cens_median6?: number | null
+  chroma_cens_median7?: number | null
+  chroma_cens_median8?: number | null
+  chroma_cens_median9?: number | null
+  chroma_cens_median10?: number | null
+  chroma_cens_median11?: number | null
+  chroma_cens_min?: number | null
+  chroma_cens_min1?: number | null
+  chroma_cens_min2?: number | null
+  chroma_cens_min3?: number | null
+  chroma_cens_min4?: number | null
+  chroma_cens_min5?: number | null
+  chroma_cens_min6?: number | null
+  chroma_cens_min7?: number | null
+  chroma_cens_min8?: number | null
+  chroma_cens_min9?: number | null
+  chroma_cens_min10?: number | null
+  chroma_cens_min11?: number | null
+  chroma_cens_skew?: number | null
+  chroma_cens_skew1?: number | null
+  chroma_cens_skew2?: number | null
+  chroma_cens_skew3?: number | null
+  chroma_cens_skew4?: number | null
+  chroma_cens_skew5?: number | null
+  chroma_cens_skew6?: number | null
+  chroma_cens_skew7?: number | null
+  chroma_cens_skew8?: number | null
+  chroma_cens_skew9?: number | null
+  chroma_cens_skew10?: number | null
+  chroma_cens_skew11?: number | null
+  chroma_cens_std?: number | null
+  chroma_cens_std1?: number | null
+  chroma_cens_std2?: number | null
+  chroma_cens_std3?: number | null
+  chroma_cens_std4?: number | null
+  chroma_cens_std5?: number | null
+  chroma_cens_std6?: number | null
+  chroma_cens_std7?: number | null
+  chroma_cens_std8?: number | null
+  chroma_cens_std9?: number | null
+  chroma_cens_std10?: number | null
+  chroma_cens_std11?: number | null
+  chroma_cqt_kurtosis?: number | null
+  chroma_cqt_kurtosis1?: number | null
+  chroma_cqt_kurtosis2?: number | null
+  chroma_cqt_kurtosis3?: number | null
+  chroma_cqt_kurtosis4?: number | null
+  chroma_cqt_kurtosis5?: number | null
+  chroma_cqt_kurtosis6?: number | null
+  chroma_cqt_kurtosis7?: number | null
+  chroma_cqt_kurtosis8?: number | null
+  chroma_cqt_kurtosis9?: number | null
+  chroma_cqt_kurtosis10?: number | null
+  chroma_cqt_kurtosis11?: number | null
+  chroma_cqt_max?: number | null
+  chroma_cqt_max1?: number | null
+  chroma_cqt_max2?: number | null
+  chroma_cqt_max3?: number | null
+  chroma_cqt_max4?: number | null
+  chroma_cqt_max5?: number | null
+  chroma_cqt_max6?: number | null
+  chroma_cqt_max7?: number | null
+  chroma_cqt_max8?: number | null
+  chroma_cqt_max9?: number | null
+  chroma_cqt_max10?: number | null
+  chroma_cqt_max11?: number | null
+  chroma_cqt_mean?: number | null
+  chroma_cqt_mean1?: number | null
+  chroma_cqt_mean2?: number | null
+  chroma_cqt_mean3?: number | null
+  chroma_cqt_mean4?: number | null
+  chroma_cqt_mean5?: number | null
+  chroma_cqt_mean6?: number | null
+  chroma_cqt_mean7?: number | null
+  chroma_cqt_mean8?: number | null
+  chroma_cqt_mean9?: number | null
+  chroma_cqt_mean10?: number | null
+  chroma_cqt_mean11?: number | null
+  chroma_cqt_median?: number | null
+  chroma_cqt_median1?: number | null
+  chroma_cqt_median2?: number | null
+  chroma_cqt_median3?: number | null
+  chroma_cqt_median4?: number | null
+  chroma_cqt_median5?: number | null
+  chroma_cqt_median6?: number | null
+  chroma_cqt_median7?: number | null
+  chroma_cqt_median8?: number | null
+  chroma_cqt_median9?: number | null
+  chroma_cqt_median10?: number | null
+  chroma_cqt_median11?: number | null
+  chroma_cqt_min?: number | null
+  chroma_cqt_min1?: number | null
+  chroma_cqt_min2?: number | null
+  chroma_cqt_min3?: number | null
+  chroma_cqt_min4?: number | null
+  chroma_cqt_min5?: number | null
+  chroma_cqt_min6?: number | null
+  chroma_cqt_min7?: number | null
+  chroma_cqt_min8?: number | null
+  chroma_cqt_min9?: number | null
+  chroma_cqt_min10?: number | null
+  chroma_cqt_min11?: number | null
+  chroma_cqt_skew?: number | null
+  chroma_cqt_skew1?: number | null
+  chroma_cqt_skew2?: number | null
+  chroma_cqt_skew3?: number | null
+  chroma_cqt_skew4?: number | null
+  chroma_cqt_skew5?: number | null
+  chroma_cqt_skew6?: number | null
+  chroma_cqt_skew7?: number | null
+  chroma_cqt_skew8?: number | null
+  chroma_cqt_skew9?: number | null
+  chroma_cqt_skew10?: number | null
+  chroma_cqt_skew11?: number | null
+  chroma_cqt_std?: number | null
+  chroma_cqt_std1?: number | null
+  chroma_cqt_std2?: number | null
+  chroma_cqt_std3?: number | null
+  chroma_cqt_std4?: number | null
+  chroma_cqt_std5?: number | null
+  chroma_cqt_std6?: number | null
+  chroma_cqt_std7?: number | null
+  chroma_cqt_std8?: number | null
+  chroma_cqt_std9?: number | null
+  chroma_cqt_std10?: number | null
+  chroma_cqt_std11?: number | null
+  chroma_stft_kurtosis?: number | null
+  chroma_stft_kurtosis1?: number | null
+  chroma_stft_kurtosis2?: number | null
+  chroma_stft_kurtosis3?: number | null
+  chroma_stft_kurtosis4?: number | null
+  chroma_stft_kurtosis5?: number | null
+  chroma_stft_kurtosis6?: number | null
+  chroma_stft_kurtosis7?: number | null
+  chroma_stft_kurtosis8?: number | null
+  chroma_stft_kurtosis9?: number | null
+  chroma_stft_kurtosis10?: number | null
+  chroma_stft_kurtosis11?: number | null
+  chroma_stft_max?: number | null
+  chroma_stft_max1?: number | null
+  chroma_stft_max2?: number | null
+  chroma_stft_max3?: number | null
+  chroma_stft_max4?: number | null
+  chroma_stft_max5?: number | null
+  chroma_stft_max6?: number | null
+  chroma_stft_max7?: number | null
+  chroma_stft_max8?: number | null
+  chroma_stft_max9?: number | null
+  chroma_stft_max10?: number | null
+  chroma_stft_max11?: number | null
+  chroma_stft_mean?: number | null
+  chroma_stft_mean1?: number | null
+  chroma_stft_mean2?: number | null
+  chroma_stft_mean3?: number | null
+  chroma_stft_mean4?: number | null
+  chroma_stft_mean5?: number | null
+  chroma_stft_mean6?: number | null
+  chroma_stft_mean7?: number | null
+  chroma_stft_mean8?: number | null
+  chroma_stft_mean9?: number | null
+  chroma_stft_mean10?: number | null
+  chroma_stft_mean11?: number | null
+  chroma_stft_median?: number | null
+  chroma_stft_median1?: number | null
+  chroma_stft_median2?: number | null
+  chroma_stft_median3?: number | null
+  chroma_stft_median4?: number | null
+  chroma_stft_median5?: number | null
+  chroma_stft_median6?: number | null
+  chroma_stft_median7?: number | null
+  chroma_stft_median8?: number | null
+  chroma_stft_median9?: number | null
+  chroma_stft_median10?: number | null
+  chroma_stft_median11?: number | null
+  chroma_stft_min?: number | null
+  chroma_stft_min1?: number | null
+  chroma_stft_min2?: number | null
+  chroma_stft_min3?: number | null
+  chroma_stft_min4?: number | null
+  chroma_stft_min5?: number | null
+  chroma_stft_min6?: number | null
+  chroma_stft_min7?: number | null
+  chroma_stft_min8?: number | null
+  chroma_stft_min9?: number | null
+  chroma_stft_min10?: number | null
+  chroma_stft_min11?: number | null
+  chroma_stft_skew?: number | null
+  chroma_stft_skew1?: number | null
+  chroma_stft_skew2?: number | null
+  chroma_stft_skew3?: number | null
+  chroma_stft_skew4?: number | null
+  chroma_stft_skew5?: number | null
+  chroma_stft_skew6?: number | null
+  chroma_stft_skew7?: number | null
+  chroma_stft_skew8?: number | null
+  chroma_stft_skew9?: number | null
+  chroma_stft_skew10?: number | null
+  chroma_stft_skew11?: number | null
+  chroma_stft_std?: number | null
+  chroma_stft_std1?: number | null
+  chroma_stft_std2?: number | null
+  chroma_stft_std3?: number | null
+  chroma_stft_std4?: number | null
+  chroma_stft_std5?: number | null
+  chroma_stft_std6?: number | null
+  chroma_stft_std7?: number | null
+  chroma_stft_std8?: number | null
+  chroma_stft_std9?: number | null
+  chroma_stft_std10?: number | null
+  chroma_stft_std11?: number | null
+  mfcc_kurtosis?: number | null
+  mfcc_kurtosis1?: number | null
+  mfcc_kurtosis2?: number | null
+  mfcc_kurtosis3?: number | null
+  mfcc_kurtosis4?: number | null
+  mfcc_kurtosis5?: number | null
+  mfcc_kurtosis6?: number | null
+  mfcc_kurtosis7?: number | null
+  mfcc_kurtosis8?: number | null
+  mfcc_kurtosis9?: number | null
+  mfcc_kurtosis10?: number | null
+  mfcc_kurtosis11?: number | null
+  mfcc_kurtosis12?: number | null
+  mfcc_kurtosis13?: number | null
+  mfcc_kurtosis14?: number | null
+  mfcc_kurtosis15?: number | null
+  mfcc_kurtosis16?: number | null
+  mfcc_kurtosis17?: number | null
+  mfcc_kurtosis18?: number | null
+  mfcc_kurtosis19?: number | null
+  mfcc_max?: number | null
+  mfcc_max1?: number | null
+  mfcc_max2?: number | null
+  mfcc_max3?: number | null
+  mfcc_max4?: number | null
+  mfcc_max5?: number | null
+  mfcc_max6?: number | null
+  mfcc_max7?: number | null
+  mfcc_max8?: number | null
+  mfcc_max9?: number | null
+  mfcc_max10?: number | null
+  mfcc_max11?: number | null
+  mfcc_max12?: number | null
+  mfcc_max13?: number | null
+  mfcc_max14?: number | null
+  mfcc_max15?: number | null
+  mfcc_max16?: number | null
+  mfcc_max17?: number | null
+  mfcc_max18?: number | null
+  mfcc_max19?: number | null
+  mfcc_mean?: number | null
+  mfcc_mean1?: number | null
+  mfcc_mean2?: number | null
+  mfcc_mean3?: number | null
+  mfcc_mean4?: number | null
+  mfcc_mean5?: number | null
+  mfcc_mean6?: number | null
+  mfcc_mean7?: number | null
+  mfcc_mean8?: number | null
+  mfcc_mean9?: number | null
+  mfcc_mean10?: number | null
+  mfcc_mean11?: number | null
+  mfcc_mean12?: number | null
+  mfcc_mean13?: number | null
+  mfcc_mean14?: number | null
+  mfcc_mean15?: number | null
+  mfcc_mean16?: number | null
+  mfcc_mean17?: number | null
+  mfcc_mean18?: number | null
+  mfcc_mean19?: number | null
+  mfcc_median?: number | null
+  mfcc_median1?: number | null
+  mfcc_median2?: number | null
+  mfcc_median3?: number | null
+  mfcc_median4?: number | null
+  mfcc_median5?: number | null
+  mfcc_median6?: number | null
+  mfcc_median7?: number | null
+  mfcc_median8?: number | null
+  mfcc_median9?: number | null
+  mfcc_median10?: number | null
+  mfcc_median11?: number | null
+  mfcc_median12?: number | null
+  mfcc_median13?: number | null
+  mfcc_median14?: number | null
+  mfcc_median15?: number | null
+  mfcc_median16?: number | null
+  mfcc_median17?: number | null
+  mfcc_median18?: number | null
+  mfcc_median19?: number | null
+  mfcc_min?: number | null
+  mfcc_min1?: number | null
+  mfcc_min2?: number | null
+  mfcc_min3?: number | null
+  mfcc_min4?: number | null
+  mfcc_min5?: number | null
+  mfcc_min6?: number | null
+  mfcc_min7?: number | null
+  mfcc_min8?: number | null
+  mfcc_min9?: number | null
+  mfcc_min10?: number | null
+  mfcc_min11?: number | null
+  mfcc_min12?: number | null
+  mfcc_min13?: number | null
+  mfcc_min14?: number | null
+  mfcc_min15?: number | null
+  mfcc_min16?: number | null
+  mfcc_min17?: number | null
+  mfcc_min18?: number | null
+  mfcc_min19?: number | null
+  mfcc_skew?: number | null
+  mfcc_skew1?: number | null
+  mfcc_skew2?: number | null
+  mfcc_skew3?: number | null
+  mfcc_skew4?: number | null
+  mfcc_skew5?: number | null
+  mfcc_skew6?: number | null
+  mfcc_skew7?: number | null
+  mfcc_skew8?: number | null
+  mfcc_skew9?: number | null
+  mfcc_skew10?: number | null
+  mfcc_skew11?: number | null
+  mfcc_skew12?: number | null
+  mfcc_skew13?: number | null
+  mfcc_skew14?: number | null
+  mfcc_skew15?: number | null
+  mfcc_skew16?: number | null
+  mfcc_skew17?: number | null
+  mfcc_skew18?: number | null
+  mfcc_skew19?: number | null
+  mfcc_std?: number | null
+  mfcc_std1?: number | null
+  mfcc_std2?: number | null
+  mfcc_std3?: number | null
+  mfcc_std4?: number | null
+  mfcc_std5?: number | null
+  mfcc_std6?: number | null
+  mfcc_std7?: number | null
+  mfcc_std8?: number | null
+  mfcc_std9?: number | null
+  mfcc_std10?: number | null
+  mfcc_std11?: number | null
+  mfcc_std12?: number | null
+  mfcc_std13?: number | null
+  mfcc_std14?: number | null
+  mfcc_std15?: number | null
+  mfcc_std16?: number | null
+  mfcc_std17?: number | null
+  mfcc_std18?: number | null
+  mfcc_std19?: number | null
+  rmse_kurtosis?: number | null
+  rmse_max?: number | null
+  rmse_mean?: number | null
+  rmse_median?: number | null
+  rmse_min?: number | null
+  rmse_skew?: number | null
+  rmse_std?: number | null
+  spectral_bandwidth_kurtosis?: number | null
+  spectral_bandwidth_max?: number | null
+  spectral_bandwidth_mean?: number | null
+  spectral_bandwidth_median?: number | null
+  spectral_bandwidth_min?: number | null
+  spectral_bandwidth_skew?: number | null
+  spectral_bandwidth_std?: number | null
+  spectral_centroid_kurtosis?: number | null
+  spectral_centroid_max?: number | null
+  spectral_centroid_mean?: number | null
+  spectral_centroid_median?: number | null
+  spectral_centroid_min?: number | null
+  spectral_centroid_skew?: number | null
+  spectral_centroid_std?: number | null
+  spectral_contrast_kurtosis?: number | null
+  spectral_contrast_kurtosis1?: number | null
+  spectral_contrast_kurtosis2?: number | null
+  spectral_contrast_kurtosis3?: number | null
+  spectral_contrast_kurtosis4?: number | null
+  spectral_contrast_kurtosis5?: number | null
+  spectral_contrast_kurtosis6?: number | null
+  spectral_contrast_max?: number | null
+  spectral_contrast_max1?: number | null
+  spectral_contrast_max2?: number | null
+  spectral_contrast_max3?: number | null
+  spectral_contrast_max4?: number | null
+  spectral_contrast_max5?: number | null
+  spectral_contrast_max6?: number | null
+  spectral_contrast_mean?: number | null
+  spectral_contrast_mean1?: number | null
+  spectral_contrast_mean2?: number | null
+  spectral_contrast_mean3?: number | null
+  spectral_contrast_mean4?: number | null
+  spectral_contrast_mean5?: number | null
+  spectral_contrast_mean6?: number | null
+  spectral_contrast_median?: number | null
+  spectral_contrast_median1?: number | null
+  spectral_contrast_median2?: number | null
+  spectral_contrast_median3?: number | null
+  spectral_contrast_median4?: number | null
+  spectral_contrast_median5?: number | null
+  spectral_contrast_median6?: number | null
+  spectral_contrast_min?: number | null
+  spectral_contrast_min1?: number | null
+  spectral_contrast_min2?: number | null
+  spectral_contrast_min3?: number | null
+  spectral_contrast_min4?: number | null
+  spectral_contrast_min5?: number | null
+  spectral_contrast_min6?: number | null
+  spectral_contrast_skew?: number | null
+  spectral_contrast_skew1?: number | null
+  spectral_contrast_skew2?: number | null
+  spectral_contrast_skew3?: number | null
+  spectral_contrast_skew4?: number | null
+  spectral_contrast_skew5?: number | null
+  spectral_contrast_skew6?: number | null
+  spectral_contrast_std?: number | null
+  spectral_contrast_std1?: number | null
+  spectral_contrast_std2?: number | null
+  spectral_contrast_std3?: number | null
+  spectral_contrast_std4?: number | null
+  spectral_contrast_std5?: number | null
+  spectral_contrast_std6?: number | null
+  spectral_rolloff_kurtosis?: number | null
+  spectral_rolloff_max?: number | null
+  spectral_rolloff_mean?: number | null
+  spectral_rolloff_median?: number | null
+  spectral_rolloff_min?: number | null
+  spectral_rolloff_skew?: number | null
+  spectral_rolloff_std?: number | null
+  tonnetz_kurtosis?: number | null
+  tonnetz_kurtosis1?: number | null
+  tonnetz_kurtosis2?: number | null
+  tonnetz_kurtosis3?: number | null
+  tonnetz_kurtosis4?: number | null
+  tonnetz_kurtosis5?: number | null
+  tonnetz_max?: number | null
+  tonnetz_max1?: number | null
+  tonnetz_max2?: number | null
+  tonnetz_max3?: number | null
+  tonnetz_max4?: number | null
+  tonnetz_max5?: number | null
+  tonnetz_mean?: number | null
+  tonnetz_mean1?: number | null
+  tonnetz_mean2?: number | null
+  tonnetz_mean3?: number | null
+  tonnetz_mean4?: number | null
+  tonnetz_mean5?: number | null
+  tonnetz_median?: number | null
+  tonnetz_median1?: number | null
+  tonnetz_median2?: number | null
+  tonnetz_median3?: number | null
+  tonnetz_median4?: number | null
+  tonnetz_median5?: number | null
+  tonnetz_min?: number | null
+  tonnetz_min1?: number | null
+  tonnetz_min2?: number | null
+  tonnetz_min3?: number | null
+  tonnetz_min4?: number | null
+  tonnetz_min5?: number | null
+  tonnetz_skew?: number | null
+  tonnetz_skew1?: number | null
+  tonnetz_skew2?: number | null
+  tonnetz_skew3?: number | null
+  tonnetz_skew4?: number | null
+  tonnetz_skew5?: number | null
+  tonnetz_std?: number | null
+  tonnetz_std1?: number | null
+  tonnetz_std2?: number | null
+  tonnetz_std3?: number | null
+  tonnetz_std4?: number | null
+  tonnetz_std5?: number | null
+  zcr_kurtosis?: number | null
+  zcr_max?: number | null
+  zcr_mean?: number | null
+  zcr_median?: number | null
+  zcr_min?: number | null
+  zcr_skew?: number | null
+  zcr_std?: number | null
   track: Prisma.TrackCreateNestedOneWithoutTemporalFeatureInput
 }
 
 export type TemporalFeatureUncheckedCreateInput = {
   trackId: string
+  chroma_cens_kurtosis?: number | null
+  chroma_cens_kurtosis1?: number | null
+  chroma_cens_kurtosis2?: number | null
+  chroma_cens_kurtosis3?: number | null
+  chroma_cens_kurtosis4?: number | null
+  chroma_cens_kurtosis5?: number | null
+  chroma_cens_kurtosis6?: number | null
+  chroma_cens_kurtosis7?: number | null
+  chroma_cens_kurtosis8?: number | null
+  chroma_cens_kurtosis9?: number | null
+  chroma_cens_kurtosis10?: number | null
+  chroma_cens_kurtosis11?: number | null
+  chroma_cens_max?: number | null
+  chroma_cens_max1?: number | null
+  chroma_cens_max2?: number | null
+  chroma_cens_max3?: number | null
+  chroma_cens_max4?: number | null
+  chroma_cens_max5?: number | null
+  chroma_cens_max6?: number | null
+  chroma_cens_max7?: number | null
+  chroma_cens_max8?: number | null
+  chroma_cens_max9?: number | null
+  chroma_cens_max10?: number | null
+  chroma_cens_max11?: number | null
+  chroma_cens_mean?: number | null
+  chroma_cens_mean1?: number | null
+  chroma_cens_mean2?: number | null
+  chroma_cens_mean3?: number | null
+  chroma_cens_mean4?: number | null
+  chroma_cens_mean5?: number | null
+  chroma_cens_mean6?: number | null
+  chroma_cens_mean7?: number | null
+  chroma_cens_mean8?: number | null
+  chroma_cens_mean9?: number | null
+  chroma_cens_mean10?: number | null
+  chroma_cens_mean11?: number | null
+  chroma_cens_median?: number | null
+  chroma_cens_median1?: number | null
+  chroma_cens_median2?: number | null
+  chroma_cens_median3?: number | null
+  chroma_cens_median4?: number | null
+  chroma_cens_median5?: number | null
+  chroma_cens_median6?: number | null
+  chroma_cens_median7?: number | null
+  chroma_cens_median8?: number | null
+  chroma_cens_median9?: number | null
+  chroma_cens_median10?: number | null
+  chroma_cens_median11?: number | null
+  chroma_cens_min?: number | null
+  chroma_cens_min1?: number | null
+  chroma_cens_min2?: number | null
+  chroma_cens_min3?: number | null
+  chroma_cens_min4?: number | null
+  chroma_cens_min5?: number | null
+  chroma_cens_min6?: number | null
+  chroma_cens_min7?: number | null
+  chroma_cens_min8?: number | null
+  chroma_cens_min9?: number | null
+  chroma_cens_min10?: number | null
+  chroma_cens_min11?: number | null
+  chroma_cens_skew?: number | null
+  chroma_cens_skew1?: number | null
+  chroma_cens_skew2?: number | null
+  chroma_cens_skew3?: number | null
+  chroma_cens_skew4?: number | null
+  chroma_cens_skew5?: number | null
+  chroma_cens_skew6?: number | null
+  chroma_cens_skew7?: number | null
+  chroma_cens_skew8?: number | null
+  chroma_cens_skew9?: number | null
+  chroma_cens_skew10?: number | null
+  chroma_cens_skew11?: number | null
+  chroma_cens_std?: number | null
+  chroma_cens_std1?: number | null
+  chroma_cens_std2?: number | null
+  chroma_cens_std3?: number | null
+  chroma_cens_std4?: number | null
+  chroma_cens_std5?: number | null
+  chroma_cens_std6?: number | null
+  chroma_cens_std7?: number | null
+  chroma_cens_std8?: number | null
+  chroma_cens_std9?: number | null
+  chroma_cens_std10?: number | null
+  chroma_cens_std11?: number | null
+  chroma_cqt_kurtosis?: number | null
+  chroma_cqt_kurtosis1?: number | null
+  chroma_cqt_kurtosis2?: number | null
+  chroma_cqt_kurtosis3?: number | null
+  chroma_cqt_kurtosis4?: number | null
+  chroma_cqt_kurtosis5?: number | null
+  chroma_cqt_kurtosis6?: number | null
+  chroma_cqt_kurtosis7?: number | null
+  chroma_cqt_kurtosis8?: number | null
+  chroma_cqt_kurtosis9?: number | null
+  chroma_cqt_kurtosis10?: number | null
+  chroma_cqt_kurtosis11?: number | null
+  chroma_cqt_max?: number | null
+  chroma_cqt_max1?: number | null
+  chroma_cqt_max2?: number | null
+  chroma_cqt_max3?: number | null
+  chroma_cqt_max4?: number | null
+  chroma_cqt_max5?: number | null
+  chroma_cqt_max6?: number | null
+  chroma_cqt_max7?: number | null
+  chroma_cqt_max8?: number | null
+  chroma_cqt_max9?: number | null
+  chroma_cqt_max10?: number | null
+  chroma_cqt_max11?: number | null
+  chroma_cqt_mean?: number | null
+  chroma_cqt_mean1?: number | null
+  chroma_cqt_mean2?: number | null
+  chroma_cqt_mean3?: number | null
+  chroma_cqt_mean4?: number | null
+  chroma_cqt_mean5?: number | null
+  chroma_cqt_mean6?: number | null
+  chroma_cqt_mean7?: number | null
+  chroma_cqt_mean8?: number | null
+  chroma_cqt_mean9?: number | null
+  chroma_cqt_mean10?: number | null
+  chroma_cqt_mean11?: number | null
+  chroma_cqt_median?: number | null
+  chroma_cqt_median1?: number | null
+  chroma_cqt_median2?: number | null
+  chroma_cqt_median3?: number | null
+  chroma_cqt_median4?: number | null
+  chroma_cqt_median5?: number | null
+  chroma_cqt_median6?: number | null
+  chroma_cqt_median7?: number | null
+  chroma_cqt_median8?: number | null
+  chroma_cqt_median9?: number | null
+  chroma_cqt_median10?: number | null
+  chroma_cqt_median11?: number | null
+  chroma_cqt_min?: number | null
+  chroma_cqt_min1?: number | null
+  chroma_cqt_min2?: number | null
+  chroma_cqt_min3?: number | null
+  chroma_cqt_min4?: number | null
+  chroma_cqt_min5?: number | null
+  chroma_cqt_min6?: number | null
+  chroma_cqt_min7?: number | null
+  chroma_cqt_min8?: number | null
+  chroma_cqt_min9?: number | null
+  chroma_cqt_min10?: number | null
+  chroma_cqt_min11?: number | null
+  chroma_cqt_skew?: number | null
+  chroma_cqt_skew1?: number | null
+  chroma_cqt_skew2?: number | null
+  chroma_cqt_skew3?: number | null
+  chroma_cqt_skew4?: number | null
+  chroma_cqt_skew5?: number | null
+  chroma_cqt_skew6?: number | null
+  chroma_cqt_skew7?: number | null
+  chroma_cqt_skew8?: number | null
+  chroma_cqt_skew9?: number | null
+  chroma_cqt_skew10?: number | null
+  chroma_cqt_skew11?: number | null
+  chroma_cqt_std?: number | null
+  chroma_cqt_std1?: number | null
+  chroma_cqt_std2?: number | null
+  chroma_cqt_std3?: number | null
+  chroma_cqt_std4?: number | null
+  chroma_cqt_std5?: number | null
+  chroma_cqt_std6?: number | null
+  chroma_cqt_std7?: number | null
+  chroma_cqt_std8?: number | null
+  chroma_cqt_std9?: number | null
+  chroma_cqt_std10?: number | null
+  chroma_cqt_std11?: number | null
+  chroma_stft_kurtosis?: number | null
+  chroma_stft_kurtosis1?: number | null
+  chroma_stft_kurtosis2?: number | null
+  chroma_stft_kurtosis3?: number | null
+  chroma_stft_kurtosis4?: number | null
+  chroma_stft_kurtosis5?: number | null
+  chroma_stft_kurtosis6?: number | null
+  chroma_stft_kurtosis7?: number | null
+  chroma_stft_kurtosis8?: number | null
+  chroma_stft_kurtosis9?: number | null
+  chroma_stft_kurtosis10?: number | null
+  chroma_stft_kurtosis11?: number | null
+  chroma_stft_max?: number | null
+  chroma_stft_max1?: number | null
+  chroma_stft_max2?: number | null
+  chroma_stft_max3?: number | null
+  chroma_stft_max4?: number | null
+  chroma_stft_max5?: number | null
+  chroma_stft_max6?: number | null
+  chroma_stft_max7?: number | null
+  chroma_stft_max8?: number | null
+  chroma_stft_max9?: number | null
+  chroma_stft_max10?: number | null
+  chroma_stft_max11?: number | null
+  chroma_stft_mean?: number | null
+  chroma_stft_mean1?: number | null
+  chroma_stft_mean2?: number | null
+  chroma_stft_mean3?: number | null
+  chroma_stft_mean4?: number | null
+  chroma_stft_mean5?: number | null
+  chroma_stft_mean6?: number | null
+  chroma_stft_mean7?: number | null
+  chroma_stft_mean8?: number | null
+  chroma_stft_mean9?: number | null
+  chroma_stft_mean10?: number | null
+  chroma_stft_mean11?: number | null
+  chroma_stft_median?: number | null
+  chroma_stft_median1?: number | null
+  chroma_stft_median2?: number | null
+  chroma_stft_median3?: number | null
+  chroma_stft_median4?: number | null
+  chroma_stft_median5?: number | null
+  chroma_stft_median6?: number | null
+  chroma_stft_median7?: number | null
+  chroma_stft_median8?: number | null
+  chroma_stft_median9?: number | null
+  chroma_stft_median10?: number | null
+  chroma_stft_median11?: number | null
+  chroma_stft_min?: number | null
+  chroma_stft_min1?: number | null
+  chroma_stft_min2?: number | null
+  chroma_stft_min3?: number | null
+  chroma_stft_min4?: number | null
+  chroma_stft_min5?: number | null
+  chroma_stft_min6?: number | null
+  chroma_stft_min7?: number | null
+  chroma_stft_min8?: number | null
+  chroma_stft_min9?: number | null
+  chroma_stft_min10?: number | null
+  chroma_stft_min11?: number | null
+  chroma_stft_skew?: number | null
+  chroma_stft_skew1?: number | null
+  chroma_stft_skew2?: number | null
+  chroma_stft_skew3?: number | null
+  chroma_stft_skew4?: number | null
+  chroma_stft_skew5?: number | null
+  chroma_stft_skew6?: number | null
+  chroma_stft_skew7?: number | null
+  chroma_stft_skew8?: number | null
+  chroma_stft_skew9?: number | null
+  chroma_stft_skew10?: number | null
+  chroma_stft_skew11?: number | null
+  chroma_stft_std?: number | null
+  chroma_stft_std1?: number | null
+  chroma_stft_std2?: number | null
+  chroma_stft_std3?: number | null
+  chroma_stft_std4?: number | null
+  chroma_stft_std5?: number | null
+  chroma_stft_std6?: number | null
+  chroma_stft_std7?: number | null
+  chroma_stft_std8?: number | null
+  chroma_stft_std9?: number | null
+  chroma_stft_std10?: number | null
+  chroma_stft_std11?: number | null
+  mfcc_kurtosis?: number | null
+  mfcc_kurtosis1?: number | null
+  mfcc_kurtosis2?: number | null
+  mfcc_kurtosis3?: number | null
+  mfcc_kurtosis4?: number | null
+  mfcc_kurtosis5?: number | null
+  mfcc_kurtosis6?: number | null
+  mfcc_kurtosis7?: number | null
+  mfcc_kurtosis8?: number | null
+  mfcc_kurtosis9?: number | null
+  mfcc_kurtosis10?: number | null
+  mfcc_kurtosis11?: number | null
+  mfcc_kurtosis12?: number | null
+  mfcc_kurtosis13?: number | null
+  mfcc_kurtosis14?: number | null
+  mfcc_kurtosis15?: number | null
+  mfcc_kurtosis16?: number | null
+  mfcc_kurtosis17?: number | null
+  mfcc_kurtosis18?: number | null
+  mfcc_kurtosis19?: number | null
+  mfcc_max?: number | null
+  mfcc_max1?: number | null
+  mfcc_max2?: number | null
+  mfcc_max3?: number | null
+  mfcc_max4?: number | null
+  mfcc_max5?: number | null
+  mfcc_max6?: number | null
+  mfcc_max7?: number | null
+  mfcc_max8?: number | null
+  mfcc_max9?: number | null
+  mfcc_max10?: number | null
+  mfcc_max11?: number | null
+  mfcc_max12?: number | null
+  mfcc_max13?: number | null
+  mfcc_max14?: number | null
+  mfcc_max15?: number | null
+  mfcc_max16?: number | null
+  mfcc_max17?: number | null
+  mfcc_max18?: number | null
+  mfcc_max19?: number | null
+  mfcc_mean?: number | null
+  mfcc_mean1?: number | null
+  mfcc_mean2?: number | null
+  mfcc_mean3?: number | null
+  mfcc_mean4?: number | null
+  mfcc_mean5?: number | null
+  mfcc_mean6?: number | null
+  mfcc_mean7?: number | null
+  mfcc_mean8?: number | null
+  mfcc_mean9?: number | null
+  mfcc_mean10?: number | null
+  mfcc_mean11?: number | null
+  mfcc_mean12?: number | null
+  mfcc_mean13?: number | null
+  mfcc_mean14?: number | null
+  mfcc_mean15?: number | null
+  mfcc_mean16?: number | null
+  mfcc_mean17?: number | null
+  mfcc_mean18?: number | null
+  mfcc_mean19?: number | null
+  mfcc_median?: number | null
+  mfcc_median1?: number | null
+  mfcc_median2?: number | null
+  mfcc_median3?: number | null
+  mfcc_median4?: number | null
+  mfcc_median5?: number | null
+  mfcc_median6?: number | null
+  mfcc_median7?: number | null
+  mfcc_median8?: number | null
+  mfcc_median9?: number | null
+  mfcc_median10?: number | null
+  mfcc_median11?: number | null
+  mfcc_median12?: number | null
+  mfcc_median13?: number | null
+  mfcc_median14?: number | null
+  mfcc_median15?: number | null
+  mfcc_median16?: number | null
+  mfcc_median17?: number | null
+  mfcc_median18?: number | null
+  mfcc_median19?: number | null
+  mfcc_min?: number | null
+  mfcc_min1?: number | null
+  mfcc_min2?: number | null
+  mfcc_min3?: number | null
+  mfcc_min4?: number | null
+  mfcc_min5?: number | null
+  mfcc_min6?: number | null
+  mfcc_min7?: number | null
+  mfcc_min8?: number | null
+  mfcc_min9?: number | null
+  mfcc_min10?: number | null
+  mfcc_min11?: number | null
+  mfcc_min12?: number | null
+  mfcc_min13?: number | null
+  mfcc_min14?: number | null
+  mfcc_min15?: number | null
+  mfcc_min16?: number | null
+  mfcc_min17?: number | null
+  mfcc_min18?: number | null
+  mfcc_min19?: number | null
+  mfcc_skew?: number | null
+  mfcc_skew1?: number | null
+  mfcc_skew2?: number | null
+  mfcc_skew3?: number | null
+  mfcc_skew4?: number | null
+  mfcc_skew5?: number | null
+  mfcc_skew6?: number | null
+  mfcc_skew7?: number | null
+  mfcc_skew8?: number | null
+  mfcc_skew9?: number | null
+  mfcc_skew10?: number | null
+  mfcc_skew11?: number | null
+  mfcc_skew12?: number | null
+  mfcc_skew13?: number | null
+  mfcc_skew14?: number | null
+  mfcc_skew15?: number | null
+  mfcc_skew16?: number | null
+  mfcc_skew17?: number | null
+  mfcc_skew18?: number | null
+  mfcc_skew19?: number | null
+  mfcc_std?: number | null
+  mfcc_std1?: number | null
+  mfcc_std2?: number | null
+  mfcc_std3?: number | null
+  mfcc_std4?: number | null
+  mfcc_std5?: number | null
+  mfcc_std6?: number | null
+  mfcc_std7?: number | null
+  mfcc_std8?: number | null
+  mfcc_std9?: number | null
+  mfcc_std10?: number | null
+  mfcc_std11?: number | null
+  mfcc_std12?: number | null
+  mfcc_std13?: number | null
+  mfcc_std14?: number | null
+  mfcc_std15?: number | null
+  mfcc_std16?: number | null
+  mfcc_std17?: number | null
+  mfcc_std18?: number | null
+  mfcc_std19?: number | null
+  rmse_kurtosis?: number | null
+  rmse_max?: number | null
+  rmse_mean?: number | null
+  rmse_median?: number | null
+  rmse_min?: number | null
+  rmse_skew?: number | null
+  rmse_std?: number | null
+  spectral_bandwidth_kurtosis?: number | null
+  spectral_bandwidth_max?: number | null
+  spectral_bandwidth_mean?: number | null
+  spectral_bandwidth_median?: number | null
+  spectral_bandwidth_min?: number | null
+  spectral_bandwidth_skew?: number | null
+  spectral_bandwidth_std?: number | null
+  spectral_centroid_kurtosis?: number | null
+  spectral_centroid_max?: number | null
+  spectral_centroid_mean?: number | null
+  spectral_centroid_median?: number | null
+  spectral_centroid_min?: number | null
+  spectral_centroid_skew?: number | null
+  spectral_centroid_std?: number | null
+  spectral_contrast_kurtosis?: number | null
+  spectral_contrast_kurtosis1?: number | null
+  spectral_contrast_kurtosis2?: number | null
+  spectral_contrast_kurtosis3?: number | null
+  spectral_contrast_kurtosis4?: number | null
+  spectral_contrast_kurtosis5?: number | null
+  spectral_contrast_kurtosis6?: number | null
+  spectral_contrast_max?: number | null
+  spectral_contrast_max1?: number | null
+  spectral_contrast_max2?: number | null
+  spectral_contrast_max3?: number | null
+  spectral_contrast_max4?: number | null
+  spectral_contrast_max5?: number | null
+  spectral_contrast_max6?: number | null
+  spectral_contrast_mean?: number | null
+  spectral_contrast_mean1?: number | null
+  spectral_contrast_mean2?: number | null
+  spectral_contrast_mean3?: number | null
+  spectral_contrast_mean4?: number | null
+  spectral_contrast_mean5?: number | null
+  spectral_contrast_mean6?: number | null
+  spectral_contrast_median?: number | null
+  spectral_contrast_median1?: number | null
+  spectral_contrast_median2?: number | null
+  spectral_contrast_median3?: number | null
+  spectral_contrast_median4?: number | null
+  spectral_contrast_median5?: number | null
+  spectral_contrast_median6?: number | null
+  spectral_contrast_min?: number | null
+  spectral_contrast_min1?: number | null
+  spectral_contrast_min2?: number | null
+  spectral_contrast_min3?: number | null
+  spectral_contrast_min4?: number | null
+  spectral_contrast_min5?: number | null
+  spectral_contrast_min6?: number | null
+  spectral_contrast_skew?: number | null
+  spectral_contrast_skew1?: number | null
+  spectral_contrast_skew2?: number | null
+  spectral_contrast_skew3?: number | null
+  spectral_contrast_skew4?: number | null
+  spectral_contrast_skew5?: number | null
+  spectral_contrast_skew6?: number | null
+  spectral_contrast_std?: number | null
+  spectral_contrast_std1?: number | null
+  spectral_contrast_std2?: number | null
+  spectral_contrast_std3?: number | null
+  spectral_contrast_std4?: number | null
+  spectral_contrast_std5?: number | null
+  spectral_contrast_std6?: number | null
+  spectral_rolloff_kurtosis?: number | null
+  spectral_rolloff_max?: number | null
+  spectral_rolloff_mean?: number | null
+  spectral_rolloff_median?: number | null
+  spectral_rolloff_min?: number | null
+  spectral_rolloff_skew?: number | null
+  spectral_rolloff_std?: number | null
+  tonnetz_kurtosis?: number | null
+  tonnetz_kurtosis1?: number | null
+  tonnetz_kurtosis2?: number | null
+  tonnetz_kurtosis3?: number | null
+  tonnetz_kurtosis4?: number | null
+  tonnetz_kurtosis5?: number | null
+  tonnetz_max?: number | null
+  tonnetz_max1?: number | null
+  tonnetz_max2?: number | null
+  tonnetz_max3?: number | null
+  tonnetz_max4?: number | null
+  tonnetz_max5?: number | null
+  tonnetz_mean?: number | null
+  tonnetz_mean1?: number | null
+  tonnetz_mean2?: number | null
+  tonnetz_mean3?: number | null
+  tonnetz_mean4?: number | null
+  tonnetz_mean5?: number | null
+  tonnetz_median?: number | null
+  tonnetz_median1?: number | null
+  tonnetz_median2?: number | null
+  tonnetz_median3?: number | null
+  tonnetz_median4?: number | null
+  tonnetz_median5?: number | null
+  tonnetz_min?: number | null
+  tonnetz_min1?: number | null
+  tonnetz_min2?: number | null
+  tonnetz_min3?: number | null
+  tonnetz_min4?: number | null
+  tonnetz_min5?: number | null
+  tonnetz_skew?: number | null
+  tonnetz_skew1?: number | null
+  tonnetz_skew2?: number | null
+  tonnetz_skew3?: number | null
+  tonnetz_skew4?: number | null
+  tonnetz_skew5?: number | null
+  tonnetz_std?: number | null
+  tonnetz_std1?: number | null
+  tonnetz_std2?: number | null
+  tonnetz_std3?: number | null
+  tonnetz_std4?: number | null
+  tonnetz_std5?: number | null
+  zcr_kurtosis?: number | null
+  zcr_max?: number | null
+  zcr_mean?: number | null
+  zcr_median?: number | null
+  zcr_min?: number | null
+  zcr_skew?: number | null
+  zcr_std?: number | null
 }
 
 export type TemporalFeatureUpdateInput = {
+  chroma_cens_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   track?: Prisma.TrackUpdateOneRequiredWithoutTemporalFeatureNestedInput
 }
 
 export type TemporalFeatureUncheckedUpdateInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
+  chroma_cens_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
 }
 
 export type TemporalFeatureCreateManyInput = {
   trackId: string
+  chroma_cens_kurtosis?: number | null
+  chroma_cens_kurtosis1?: number | null
+  chroma_cens_kurtosis2?: number | null
+  chroma_cens_kurtosis3?: number | null
+  chroma_cens_kurtosis4?: number | null
+  chroma_cens_kurtosis5?: number | null
+  chroma_cens_kurtosis6?: number | null
+  chroma_cens_kurtosis7?: number | null
+  chroma_cens_kurtosis8?: number | null
+  chroma_cens_kurtosis9?: number | null
+  chroma_cens_kurtosis10?: number | null
+  chroma_cens_kurtosis11?: number | null
+  chroma_cens_max?: number | null
+  chroma_cens_max1?: number | null
+  chroma_cens_max2?: number | null
+  chroma_cens_max3?: number | null
+  chroma_cens_max4?: number | null
+  chroma_cens_max5?: number | null
+  chroma_cens_max6?: number | null
+  chroma_cens_max7?: number | null
+  chroma_cens_max8?: number | null
+  chroma_cens_max9?: number | null
+  chroma_cens_max10?: number | null
+  chroma_cens_max11?: number | null
+  chroma_cens_mean?: number | null
+  chroma_cens_mean1?: number | null
+  chroma_cens_mean2?: number | null
+  chroma_cens_mean3?: number | null
+  chroma_cens_mean4?: number | null
+  chroma_cens_mean5?: number | null
+  chroma_cens_mean6?: number | null
+  chroma_cens_mean7?: number | null
+  chroma_cens_mean8?: number | null
+  chroma_cens_mean9?: number | null
+  chroma_cens_mean10?: number | null
+  chroma_cens_mean11?: number | null
+  chroma_cens_median?: number | null
+  chroma_cens_median1?: number | null
+  chroma_cens_median2?: number | null
+  chroma_cens_median3?: number | null
+  chroma_cens_median4?: number | null
+  chroma_cens_median5?: number | null
+  chroma_cens_median6?: number | null
+  chroma_cens_median7?: number | null
+  chroma_cens_median8?: number | null
+  chroma_cens_median9?: number | null
+  chroma_cens_median10?: number | null
+  chroma_cens_median11?: number | null
+  chroma_cens_min?: number | null
+  chroma_cens_min1?: number | null
+  chroma_cens_min2?: number | null
+  chroma_cens_min3?: number | null
+  chroma_cens_min4?: number | null
+  chroma_cens_min5?: number | null
+  chroma_cens_min6?: number | null
+  chroma_cens_min7?: number | null
+  chroma_cens_min8?: number | null
+  chroma_cens_min9?: number | null
+  chroma_cens_min10?: number | null
+  chroma_cens_min11?: number | null
+  chroma_cens_skew?: number | null
+  chroma_cens_skew1?: number | null
+  chroma_cens_skew2?: number | null
+  chroma_cens_skew3?: number | null
+  chroma_cens_skew4?: number | null
+  chroma_cens_skew5?: number | null
+  chroma_cens_skew6?: number | null
+  chroma_cens_skew7?: number | null
+  chroma_cens_skew8?: number | null
+  chroma_cens_skew9?: number | null
+  chroma_cens_skew10?: number | null
+  chroma_cens_skew11?: number | null
+  chroma_cens_std?: number | null
+  chroma_cens_std1?: number | null
+  chroma_cens_std2?: number | null
+  chroma_cens_std3?: number | null
+  chroma_cens_std4?: number | null
+  chroma_cens_std5?: number | null
+  chroma_cens_std6?: number | null
+  chroma_cens_std7?: number | null
+  chroma_cens_std8?: number | null
+  chroma_cens_std9?: number | null
+  chroma_cens_std10?: number | null
+  chroma_cens_std11?: number | null
+  chroma_cqt_kurtosis?: number | null
+  chroma_cqt_kurtosis1?: number | null
+  chroma_cqt_kurtosis2?: number | null
+  chroma_cqt_kurtosis3?: number | null
+  chroma_cqt_kurtosis4?: number | null
+  chroma_cqt_kurtosis5?: number | null
+  chroma_cqt_kurtosis6?: number | null
+  chroma_cqt_kurtosis7?: number | null
+  chroma_cqt_kurtosis8?: number | null
+  chroma_cqt_kurtosis9?: number | null
+  chroma_cqt_kurtosis10?: number | null
+  chroma_cqt_kurtosis11?: number | null
+  chroma_cqt_max?: number | null
+  chroma_cqt_max1?: number | null
+  chroma_cqt_max2?: number | null
+  chroma_cqt_max3?: number | null
+  chroma_cqt_max4?: number | null
+  chroma_cqt_max5?: number | null
+  chroma_cqt_max6?: number | null
+  chroma_cqt_max7?: number | null
+  chroma_cqt_max8?: number | null
+  chroma_cqt_max9?: number | null
+  chroma_cqt_max10?: number | null
+  chroma_cqt_max11?: number | null
+  chroma_cqt_mean?: number | null
+  chroma_cqt_mean1?: number | null
+  chroma_cqt_mean2?: number | null
+  chroma_cqt_mean3?: number | null
+  chroma_cqt_mean4?: number | null
+  chroma_cqt_mean5?: number | null
+  chroma_cqt_mean6?: number | null
+  chroma_cqt_mean7?: number | null
+  chroma_cqt_mean8?: number | null
+  chroma_cqt_mean9?: number | null
+  chroma_cqt_mean10?: number | null
+  chroma_cqt_mean11?: number | null
+  chroma_cqt_median?: number | null
+  chroma_cqt_median1?: number | null
+  chroma_cqt_median2?: number | null
+  chroma_cqt_median3?: number | null
+  chroma_cqt_median4?: number | null
+  chroma_cqt_median5?: number | null
+  chroma_cqt_median6?: number | null
+  chroma_cqt_median7?: number | null
+  chroma_cqt_median8?: number | null
+  chroma_cqt_median9?: number | null
+  chroma_cqt_median10?: number | null
+  chroma_cqt_median11?: number | null
+  chroma_cqt_min?: number | null
+  chroma_cqt_min1?: number | null
+  chroma_cqt_min2?: number | null
+  chroma_cqt_min3?: number | null
+  chroma_cqt_min4?: number | null
+  chroma_cqt_min5?: number | null
+  chroma_cqt_min6?: number | null
+  chroma_cqt_min7?: number | null
+  chroma_cqt_min8?: number | null
+  chroma_cqt_min9?: number | null
+  chroma_cqt_min10?: number | null
+  chroma_cqt_min11?: number | null
+  chroma_cqt_skew?: number | null
+  chroma_cqt_skew1?: number | null
+  chroma_cqt_skew2?: number | null
+  chroma_cqt_skew3?: number | null
+  chroma_cqt_skew4?: number | null
+  chroma_cqt_skew5?: number | null
+  chroma_cqt_skew6?: number | null
+  chroma_cqt_skew7?: number | null
+  chroma_cqt_skew8?: number | null
+  chroma_cqt_skew9?: number | null
+  chroma_cqt_skew10?: number | null
+  chroma_cqt_skew11?: number | null
+  chroma_cqt_std?: number | null
+  chroma_cqt_std1?: number | null
+  chroma_cqt_std2?: number | null
+  chroma_cqt_std3?: number | null
+  chroma_cqt_std4?: number | null
+  chroma_cqt_std5?: number | null
+  chroma_cqt_std6?: number | null
+  chroma_cqt_std7?: number | null
+  chroma_cqt_std8?: number | null
+  chroma_cqt_std9?: number | null
+  chroma_cqt_std10?: number | null
+  chroma_cqt_std11?: number | null
+  chroma_stft_kurtosis?: number | null
+  chroma_stft_kurtosis1?: number | null
+  chroma_stft_kurtosis2?: number | null
+  chroma_stft_kurtosis3?: number | null
+  chroma_stft_kurtosis4?: number | null
+  chroma_stft_kurtosis5?: number | null
+  chroma_stft_kurtosis6?: number | null
+  chroma_stft_kurtosis7?: number | null
+  chroma_stft_kurtosis8?: number | null
+  chroma_stft_kurtosis9?: number | null
+  chroma_stft_kurtosis10?: number | null
+  chroma_stft_kurtosis11?: number | null
+  chroma_stft_max?: number | null
+  chroma_stft_max1?: number | null
+  chroma_stft_max2?: number | null
+  chroma_stft_max3?: number | null
+  chroma_stft_max4?: number | null
+  chroma_stft_max5?: number | null
+  chroma_stft_max6?: number | null
+  chroma_stft_max7?: number | null
+  chroma_stft_max8?: number | null
+  chroma_stft_max9?: number | null
+  chroma_stft_max10?: number | null
+  chroma_stft_max11?: number | null
+  chroma_stft_mean?: number | null
+  chroma_stft_mean1?: number | null
+  chroma_stft_mean2?: number | null
+  chroma_stft_mean3?: number | null
+  chroma_stft_mean4?: number | null
+  chroma_stft_mean5?: number | null
+  chroma_stft_mean6?: number | null
+  chroma_stft_mean7?: number | null
+  chroma_stft_mean8?: number | null
+  chroma_stft_mean9?: number | null
+  chroma_stft_mean10?: number | null
+  chroma_stft_mean11?: number | null
+  chroma_stft_median?: number | null
+  chroma_stft_median1?: number | null
+  chroma_stft_median2?: number | null
+  chroma_stft_median3?: number | null
+  chroma_stft_median4?: number | null
+  chroma_stft_median5?: number | null
+  chroma_stft_median6?: number | null
+  chroma_stft_median7?: number | null
+  chroma_stft_median8?: number | null
+  chroma_stft_median9?: number | null
+  chroma_stft_median10?: number | null
+  chroma_stft_median11?: number | null
+  chroma_stft_min?: number | null
+  chroma_stft_min1?: number | null
+  chroma_stft_min2?: number | null
+  chroma_stft_min3?: number | null
+  chroma_stft_min4?: number | null
+  chroma_stft_min5?: number | null
+  chroma_stft_min6?: number | null
+  chroma_stft_min7?: number | null
+  chroma_stft_min8?: number | null
+  chroma_stft_min9?: number | null
+  chroma_stft_min10?: number | null
+  chroma_stft_min11?: number | null
+  chroma_stft_skew?: number | null
+  chroma_stft_skew1?: number | null
+  chroma_stft_skew2?: number | null
+  chroma_stft_skew3?: number | null
+  chroma_stft_skew4?: number | null
+  chroma_stft_skew5?: number | null
+  chroma_stft_skew6?: number | null
+  chroma_stft_skew7?: number | null
+  chroma_stft_skew8?: number | null
+  chroma_stft_skew9?: number | null
+  chroma_stft_skew10?: number | null
+  chroma_stft_skew11?: number | null
+  chroma_stft_std?: number | null
+  chroma_stft_std1?: number | null
+  chroma_stft_std2?: number | null
+  chroma_stft_std3?: number | null
+  chroma_stft_std4?: number | null
+  chroma_stft_std5?: number | null
+  chroma_stft_std6?: number | null
+  chroma_stft_std7?: number | null
+  chroma_stft_std8?: number | null
+  chroma_stft_std9?: number | null
+  chroma_stft_std10?: number | null
+  chroma_stft_std11?: number | null
+  mfcc_kurtosis?: number | null
+  mfcc_kurtosis1?: number | null
+  mfcc_kurtosis2?: number | null
+  mfcc_kurtosis3?: number | null
+  mfcc_kurtosis4?: number | null
+  mfcc_kurtosis5?: number | null
+  mfcc_kurtosis6?: number | null
+  mfcc_kurtosis7?: number | null
+  mfcc_kurtosis8?: number | null
+  mfcc_kurtosis9?: number | null
+  mfcc_kurtosis10?: number | null
+  mfcc_kurtosis11?: number | null
+  mfcc_kurtosis12?: number | null
+  mfcc_kurtosis13?: number | null
+  mfcc_kurtosis14?: number | null
+  mfcc_kurtosis15?: number | null
+  mfcc_kurtosis16?: number | null
+  mfcc_kurtosis17?: number | null
+  mfcc_kurtosis18?: number | null
+  mfcc_kurtosis19?: number | null
+  mfcc_max?: number | null
+  mfcc_max1?: number | null
+  mfcc_max2?: number | null
+  mfcc_max3?: number | null
+  mfcc_max4?: number | null
+  mfcc_max5?: number | null
+  mfcc_max6?: number | null
+  mfcc_max7?: number | null
+  mfcc_max8?: number | null
+  mfcc_max9?: number | null
+  mfcc_max10?: number | null
+  mfcc_max11?: number | null
+  mfcc_max12?: number | null
+  mfcc_max13?: number | null
+  mfcc_max14?: number | null
+  mfcc_max15?: number | null
+  mfcc_max16?: number | null
+  mfcc_max17?: number | null
+  mfcc_max18?: number | null
+  mfcc_max19?: number | null
+  mfcc_mean?: number | null
+  mfcc_mean1?: number | null
+  mfcc_mean2?: number | null
+  mfcc_mean3?: number | null
+  mfcc_mean4?: number | null
+  mfcc_mean5?: number | null
+  mfcc_mean6?: number | null
+  mfcc_mean7?: number | null
+  mfcc_mean8?: number | null
+  mfcc_mean9?: number | null
+  mfcc_mean10?: number | null
+  mfcc_mean11?: number | null
+  mfcc_mean12?: number | null
+  mfcc_mean13?: number | null
+  mfcc_mean14?: number | null
+  mfcc_mean15?: number | null
+  mfcc_mean16?: number | null
+  mfcc_mean17?: number | null
+  mfcc_mean18?: number | null
+  mfcc_mean19?: number | null
+  mfcc_median?: number | null
+  mfcc_median1?: number | null
+  mfcc_median2?: number | null
+  mfcc_median3?: number | null
+  mfcc_median4?: number | null
+  mfcc_median5?: number | null
+  mfcc_median6?: number | null
+  mfcc_median7?: number | null
+  mfcc_median8?: number | null
+  mfcc_median9?: number | null
+  mfcc_median10?: number | null
+  mfcc_median11?: number | null
+  mfcc_median12?: number | null
+  mfcc_median13?: number | null
+  mfcc_median14?: number | null
+  mfcc_median15?: number | null
+  mfcc_median16?: number | null
+  mfcc_median17?: number | null
+  mfcc_median18?: number | null
+  mfcc_median19?: number | null
+  mfcc_min?: number | null
+  mfcc_min1?: number | null
+  mfcc_min2?: number | null
+  mfcc_min3?: number | null
+  mfcc_min4?: number | null
+  mfcc_min5?: number | null
+  mfcc_min6?: number | null
+  mfcc_min7?: number | null
+  mfcc_min8?: number | null
+  mfcc_min9?: number | null
+  mfcc_min10?: number | null
+  mfcc_min11?: number | null
+  mfcc_min12?: number | null
+  mfcc_min13?: number | null
+  mfcc_min14?: number | null
+  mfcc_min15?: number | null
+  mfcc_min16?: number | null
+  mfcc_min17?: number | null
+  mfcc_min18?: number | null
+  mfcc_min19?: number | null
+  mfcc_skew?: number | null
+  mfcc_skew1?: number | null
+  mfcc_skew2?: number | null
+  mfcc_skew3?: number | null
+  mfcc_skew4?: number | null
+  mfcc_skew5?: number | null
+  mfcc_skew6?: number | null
+  mfcc_skew7?: number | null
+  mfcc_skew8?: number | null
+  mfcc_skew9?: number | null
+  mfcc_skew10?: number | null
+  mfcc_skew11?: number | null
+  mfcc_skew12?: number | null
+  mfcc_skew13?: number | null
+  mfcc_skew14?: number | null
+  mfcc_skew15?: number | null
+  mfcc_skew16?: number | null
+  mfcc_skew17?: number | null
+  mfcc_skew18?: number | null
+  mfcc_skew19?: number | null
+  mfcc_std?: number | null
+  mfcc_std1?: number | null
+  mfcc_std2?: number | null
+  mfcc_std3?: number | null
+  mfcc_std4?: number | null
+  mfcc_std5?: number | null
+  mfcc_std6?: number | null
+  mfcc_std7?: number | null
+  mfcc_std8?: number | null
+  mfcc_std9?: number | null
+  mfcc_std10?: number | null
+  mfcc_std11?: number | null
+  mfcc_std12?: number | null
+  mfcc_std13?: number | null
+  mfcc_std14?: number | null
+  mfcc_std15?: number | null
+  mfcc_std16?: number | null
+  mfcc_std17?: number | null
+  mfcc_std18?: number | null
+  mfcc_std19?: number | null
+  rmse_kurtosis?: number | null
+  rmse_max?: number | null
+  rmse_mean?: number | null
+  rmse_median?: number | null
+  rmse_min?: number | null
+  rmse_skew?: number | null
+  rmse_std?: number | null
+  spectral_bandwidth_kurtosis?: number | null
+  spectral_bandwidth_max?: number | null
+  spectral_bandwidth_mean?: number | null
+  spectral_bandwidth_median?: number | null
+  spectral_bandwidth_min?: number | null
+  spectral_bandwidth_skew?: number | null
+  spectral_bandwidth_std?: number | null
+  spectral_centroid_kurtosis?: number | null
+  spectral_centroid_max?: number | null
+  spectral_centroid_mean?: number | null
+  spectral_centroid_median?: number | null
+  spectral_centroid_min?: number | null
+  spectral_centroid_skew?: number | null
+  spectral_centroid_std?: number | null
+  spectral_contrast_kurtosis?: number | null
+  spectral_contrast_kurtosis1?: number | null
+  spectral_contrast_kurtosis2?: number | null
+  spectral_contrast_kurtosis3?: number | null
+  spectral_contrast_kurtosis4?: number | null
+  spectral_contrast_kurtosis5?: number | null
+  spectral_contrast_kurtosis6?: number | null
+  spectral_contrast_max?: number | null
+  spectral_contrast_max1?: number | null
+  spectral_contrast_max2?: number | null
+  spectral_contrast_max3?: number | null
+  spectral_contrast_max4?: number | null
+  spectral_contrast_max5?: number | null
+  spectral_contrast_max6?: number | null
+  spectral_contrast_mean?: number | null
+  spectral_contrast_mean1?: number | null
+  spectral_contrast_mean2?: number | null
+  spectral_contrast_mean3?: number | null
+  spectral_contrast_mean4?: number | null
+  spectral_contrast_mean5?: number | null
+  spectral_contrast_mean6?: number | null
+  spectral_contrast_median?: number | null
+  spectral_contrast_median1?: number | null
+  spectral_contrast_median2?: number | null
+  spectral_contrast_median3?: number | null
+  spectral_contrast_median4?: number | null
+  spectral_contrast_median5?: number | null
+  spectral_contrast_median6?: number | null
+  spectral_contrast_min?: number | null
+  spectral_contrast_min1?: number | null
+  spectral_contrast_min2?: number | null
+  spectral_contrast_min3?: number | null
+  spectral_contrast_min4?: number | null
+  spectral_contrast_min5?: number | null
+  spectral_contrast_min6?: number | null
+  spectral_contrast_skew?: number | null
+  spectral_contrast_skew1?: number | null
+  spectral_contrast_skew2?: number | null
+  spectral_contrast_skew3?: number | null
+  spectral_contrast_skew4?: number | null
+  spectral_contrast_skew5?: number | null
+  spectral_contrast_skew6?: number | null
+  spectral_contrast_std?: number | null
+  spectral_contrast_std1?: number | null
+  spectral_contrast_std2?: number | null
+  spectral_contrast_std3?: number | null
+  spectral_contrast_std4?: number | null
+  spectral_contrast_std5?: number | null
+  spectral_contrast_std6?: number | null
+  spectral_rolloff_kurtosis?: number | null
+  spectral_rolloff_max?: number | null
+  spectral_rolloff_mean?: number | null
+  spectral_rolloff_median?: number | null
+  spectral_rolloff_min?: number | null
+  spectral_rolloff_skew?: number | null
+  spectral_rolloff_std?: number | null
+  tonnetz_kurtosis?: number | null
+  tonnetz_kurtosis1?: number | null
+  tonnetz_kurtosis2?: number | null
+  tonnetz_kurtosis3?: number | null
+  tonnetz_kurtosis4?: number | null
+  tonnetz_kurtosis5?: number | null
+  tonnetz_max?: number | null
+  tonnetz_max1?: number | null
+  tonnetz_max2?: number | null
+  tonnetz_max3?: number | null
+  tonnetz_max4?: number | null
+  tonnetz_max5?: number | null
+  tonnetz_mean?: number | null
+  tonnetz_mean1?: number | null
+  tonnetz_mean2?: number | null
+  tonnetz_mean3?: number | null
+  tonnetz_mean4?: number | null
+  tonnetz_mean5?: number | null
+  tonnetz_median?: number | null
+  tonnetz_median1?: number | null
+  tonnetz_median2?: number | null
+  tonnetz_median3?: number | null
+  tonnetz_median4?: number | null
+  tonnetz_median5?: number | null
+  tonnetz_min?: number | null
+  tonnetz_min1?: number | null
+  tonnetz_min2?: number | null
+  tonnetz_min3?: number | null
+  tonnetz_min4?: number | null
+  tonnetz_min5?: number | null
+  tonnetz_skew?: number | null
+  tonnetz_skew1?: number | null
+  tonnetz_skew2?: number | null
+  tonnetz_skew3?: number | null
+  tonnetz_skew4?: number | null
+  tonnetz_skew5?: number | null
+  tonnetz_std?: number | null
+  tonnetz_std1?: number | null
+  tonnetz_std2?: number | null
+  tonnetz_std3?: number | null
+  tonnetz_std4?: number | null
+  tonnetz_std5?: number | null
+  zcr_kurtosis?: number | null
+  zcr_max?: number | null
+  zcr_mean?: number | null
+  zcr_median?: number | null
+  zcr_min?: number | null
+  zcr_skew?: number | null
+  zcr_std?: number | null
 }
 
 export type TemporalFeatureUpdateManyMutationInput = {
-
+  chroma_cens_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
 }
 
 export type TemporalFeatureUncheckedUpdateManyInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
+  chroma_cens_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
 }
 
 export type TemporalFeatureNullableScalarRelationFilter = {
@@ -215,14 +12160,2610 @@ export type TemporalFeatureNullableScalarRelationFilter = {
 
 export type TemporalFeatureCountOrderByAggregateInput = {
   trackId?: Prisma.SortOrder
+  chroma_cens_kurtosis?: Prisma.SortOrder
+  chroma_cens_kurtosis1?: Prisma.SortOrder
+  chroma_cens_kurtosis2?: Prisma.SortOrder
+  chroma_cens_kurtosis3?: Prisma.SortOrder
+  chroma_cens_kurtosis4?: Prisma.SortOrder
+  chroma_cens_kurtosis5?: Prisma.SortOrder
+  chroma_cens_kurtosis6?: Prisma.SortOrder
+  chroma_cens_kurtosis7?: Prisma.SortOrder
+  chroma_cens_kurtosis8?: Prisma.SortOrder
+  chroma_cens_kurtosis9?: Prisma.SortOrder
+  chroma_cens_kurtosis10?: Prisma.SortOrder
+  chroma_cens_kurtosis11?: Prisma.SortOrder
+  chroma_cens_max?: Prisma.SortOrder
+  chroma_cens_max1?: Prisma.SortOrder
+  chroma_cens_max2?: Prisma.SortOrder
+  chroma_cens_max3?: Prisma.SortOrder
+  chroma_cens_max4?: Prisma.SortOrder
+  chroma_cens_max5?: Prisma.SortOrder
+  chroma_cens_max6?: Prisma.SortOrder
+  chroma_cens_max7?: Prisma.SortOrder
+  chroma_cens_max8?: Prisma.SortOrder
+  chroma_cens_max9?: Prisma.SortOrder
+  chroma_cens_max10?: Prisma.SortOrder
+  chroma_cens_max11?: Prisma.SortOrder
+  chroma_cens_mean?: Prisma.SortOrder
+  chroma_cens_mean1?: Prisma.SortOrder
+  chroma_cens_mean2?: Prisma.SortOrder
+  chroma_cens_mean3?: Prisma.SortOrder
+  chroma_cens_mean4?: Prisma.SortOrder
+  chroma_cens_mean5?: Prisma.SortOrder
+  chroma_cens_mean6?: Prisma.SortOrder
+  chroma_cens_mean7?: Prisma.SortOrder
+  chroma_cens_mean8?: Prisma.SortOrder
+  chroma_cens_mean9?: Prisma.SortOrder
+  chroma_cens_mean10?: Prisma.SortOrder
+  chroma_cens_mean11?: Prisma.SortOrder
+  chroma_cens_median?: Prisma.SortOrder
+  chroma_cens_median1?: Prisma.SortOrder
+  chroma_cens_median2?: Prisma.SortOrder
+  chroma_cens_median3?: Prisma.SortOrder
+  chroma_cens_median4?: Prisma.SortOrder
+  chroma_cens_median5?: Prisma.SortOrder
+  chroma_cens_median6?: Prisma.SortOrder
+  chroma_cens_median7?: Prisma.SortOrder
+  chroma_cens_median8?: Prisma.SortOrder
+  chroma_cens_median9?: Prisma.SortOrder
+  chroma_cens_median10?: Prisma.SortOrder
+  chroma_cens_median11?: Prisma.SortOrder
+  chroma_cens_min?: Prisma.SortOrder
+  chroma_cens_min1?: Prisma.SortOrder
+  chroma_cens_min2?: Prisma.SortOrder
+  chroma_cens_min3?: Prisma.SortOrder
+  chroma_cens_min4?: Prisma.SortOrder
+  chroma_cens_min5?: Prisma.SortOrder
+  chroma_cens_min6?: Prisma.SortOrder
+  chroma_cens_min7?: Prisma.SortOrder
+  chroma_cens_min8?: Prisma.SortOrder
+  chroma_cens_min9?: Prisma.SortOrder
+  chroma_cens_min10?: Prisma.SortOrder
+  chroma_cens_min11?: Prisma.SortOrder
+  chroma_cens_skew?: Prisma.SortOrder
+  chroma_cens_skew1?: Prisma.SortOrder
+  chroma_cens_skew2?: Prisma.SortOrder
+  chroma_cens_skew3?: Prisma.SortOrder
+  chroma_cens_skew4?: Prisma.SortOrder
+  chroma_cens_skew5?: Prisma.SortOrder
+  chroma_cens_skew6?: Prisma.SortOrder
+  chroma_cens_skew7?: Prisma.SortOrder
+  chroma_cens_skew8?: Prisma.SortOrder
+  chroma_cens_skew9?: Prisma.SortOrder
+  chroma_cens_skew10?: Prisma.SortOrder
+  chroma_cens_skew11?: Prisma.SortOrder
+  chroma_cens_std?: Prisma.SortOrder
+  chroma_cens_std1?: Prisma.SortOrder
+  chroma_cens_std2?: Prisma.SortOrder
+  chroma_cens_std3?: Prisma.SortOrder
+  chroma_cens_std4?: Prisma.SortOrder
+  chroma_cens_std5?: Prisma.SortOrder
+  chroma_cens_std6?: Prisma.SortOrder
+  chroma_cens_std7?: Prisma.SortOrder
+  chroma_cens_std8?: Prisma.SortOrder
+  chroma_cens_std9?: Prisma.SortOrder
+  chroma_cens_std10?: Prisma.SortOrder
+  chroma_cens_std11?: Prisma.SortOrder
+  chroma_cqt_kurtosis?: Prisma.SortOrder
+  chroma_cqt_kurtosis1?: Prisma.SortOrder
+  chroma_cqt_kurtosis2?: Prisma.SortOrder
+  chroma_cqt_kurtosis3?: Prisma.SortOrder
+  chroma_cqt_kurtosis4?: Prisma.SortOrder
+  chroma_cqt_kurtosis5?: Prisma.SortOrder
+  chroma_cqt_kurtosis6?: Prisma.SortOrder
+  chroma_cqt_kurtosis7?: Prisma.SortOrder
+  chroma_cqt_kurtosis8?: Prisma.SortOrder
+  chroma_cqt_kurtosis9?: Prisma.SortOrder
+  chroma_cqt_kurtosis10?: Prisma.SortOrder
+  chroma_cqt_kurtosis11?: Prisma.SortOrder
+  chroma_cqt_max?: Prisma.SortOrder
+  chroma_cqt_max1?: Prisma.SortOrder
+  chroma_cqt_max2?: Prisma.SortOrder
+  chroma_cqt_max3?: Prisma.SortOrder
+  chroma_cqt_max4?: Prisma.SortOrder
+  chroma_cqt_max5?: Prisma.SortOrder
+  chroma_cqt_max6?: Prisma.SortOrder
+  chroma_cqt_max7?: Prisma.SortOrder
+  chroma_cqt_max8?: Prisma.SortOrder
+  chroma_cqt_max9?: Prisma.SortOrder
+  chroma_cqt_max10?: Prisma.SortOrder
+  chroma_cqt_max11?: Prisma.SortOrder
+  chroma_cqt_mean?: Prisma.SortOrder
+  chroma_cqt_mean1?: Prisma.SortOrder
+  chroma_cqt_mean2?: Prisma.SortOrder
+  chroma_cqt_mean3?: Prisma.SortOrder
+  chroma_cqt_mean4?: Prisma.SortOrder
+  chroma_cqt_mean5?: Prisma.SortOrder
+  chroma_cqt_mean6?: Prisma.SortOrder
+  chroma_cqt_mean7?: Prisma.SortOrder
+  chroma_cqt_mean8?: Prisma.SortOrder
+  chroma_cqt_mean9?: Prisma.SortOrder
+  chroma_cqt_mean10?: Prisma.SortOrder
+  chroma_cqt_mean11?: Prisma.SortOrder
+  chroma_cqt_median?: Prisma.SortOrder
+  chroma_cqt_median1?: Prisma.SortOrder
+  chroma_cqt_median2?: Prisma.SortOrder
+  chroma_cqt_median3?: Prisma.SortOrder
+  chroma_cqt_median4?: Prisma.SortOrder
+  chroma_cqt_median5?: Prisma.SortOrder
+  chroma_cqt_median6?: Prisma.SortOrder
+  chroma_cqt_median7?: Prisma.SortOrder
+  chroma_cqt_median8?: Prisma.SortOrder
+  chroma_cqt_median9?: Prisma.SortOrder
+  chroma_cqt_median10?: Prisma.SortOrder
+  chroma_cqt_median11?: Prisma.SortOrder
+  chroma_cqt_min?: Prisma.SortOrder
+  chroma_cqt_min1?: Prisma.SortOrder
+  chroma_cqt_min2?: Prisma.SortOrder
+  chroma_cqt_min3?: Prisma.SortOrder
+  chroma_cqt_min4?: Prisma.SortOrder
+  chroma_cqt_min5?: Prisma.SortOrder
+  chroma_cqt_min6?: Prisma.SortOrder
+  chroma_cqt_min7?: Prisma.SortOrder
+  chroma_cqt_min8?: Prisma.SortOrder
+  chroma_cqt_min9?: Prisma.SortOrder
+  chroma_cqt_min10?: Prisma.SortOrder
+  chroma_cqt_min11?: Prisma.SortOrder
+  chroma_cqt_skew?: Prisma.SortOrder
+  chroma_cqt_skew1?: Prisma.SortOrder
+  chroma_cqt_skew2?: Prisma.SortOrder
+  chroma_cqt_skew3?: Prisma.SortOrder
+  chroma_cqt_skew4?: Prisma.SortOrder
+  chroma_cqt_skew5?: Prisma.SortOrder
+  chroma_cqt_skew6?: Prisma.SortOrder
+  chroma_cqt_skew7?: Prisma.SortOrder
+  chroma_cqt_skew8?: Prisma.SortOrder
+  chroma_cqt_skew9?: Prisma.SortOrder
+  chroma_cqt_skew10?: Prisma.SortOrder
+  chroma_cqt_skew11?: Prisma.SortOrder
+  chroma_cqt_std?: Prisma.SortOrder
+  chroma_cqt_std1?: Prisma.SortOrder
+  chroma_cqt_std2?: Prisma.SortOrder
+  chroma_cqt_std3?: Prisma.SortOrder
+  chroma_cqt_std4?: Prisma.SortOrder
+  chroma_cqt_std5?: Prisma.SortOrder
+  chroma_cqt_std6?: Prisma.SortOrder
+  chroma_cqt_std7?: Prisma.SortOrder
+  chroma_cqt_std8?: Prisma.SortOrder
+  chroma_cqt_std9?: Prisma.SortOrder
+  chroma_cqt_std10?: Prisma.SortOrder
+  chroma_cqt_std11?: Prisma.SortOrder
+  chroma_stft_kurtosis?: Prisma.SortOrder
+  chroma_stft_kurtosis1?: Prisma.SortOrder
+  chroma_stft_kurtosis2?: Prisma.SortOrder
+  chroma_stft_kurtosis3?: Prisma.SortOrder
+  chroma_stft_kurtosis4?: Prisma.SortOrder
+  chroma_stft_kurtosis5?: Prisma.SortOrder
+  chroma_stft_kurtosis6?: Prisma.SortOrder
+  chroma_stft_kurtosis7?: Prisma.SortOrder
+  chroma_stft_kurtosis8?: Prisma.SortOrder
+  chroma_stft_kurtosis9?: Prisma.SortOrder
+  chroma_stft_kurtosis10?: Prisma.SortOrder
+  chroma_stft_kurtosis11?: Prisma.SortOrder
+  chroma_stft_max?: Prisma.SortOrder
+  chroma_stft_max1?: Prisma.SortOrder
+  chroma_stft_max2?: Prisma.SortOrder
+  chroma_stft_max3?: Prisma.SortOrder
+  chroma_stft_max4?: Prisma.SortOrder
+  chroma_stft_max5?: Prisma.SortOrder
+  chroma_stft_max6?: Prisma.SortOrder
+  chroma_stft_max7?: Prisma.SortOrder
+  chroma_stft_max8?: Prisma.SortOrder
+  chroma_stft_max9?: Prisma.SortOrder
+  chroma_stft_max10?: Prisma.SortOrder
+  chroma_stft_max11?: Prisma.SortOrder
+  chroma_stft_mean?: Prisma.SortOrder
+  chroma_stft_mean1?: Prisma.SortOrder
+  chroma_stft_mean2?: Prisma.SortOrder
+  chroma_stft_mean3?: Prisma.SortOrder
+  chroma_stft_mean4?: Prisma.SortOrder
+  chroma_stft_mean5?: Prisma.SortOrder
+  chroma_stft_mean6?: Prisma.SortOrder
+  chroma_stft_mean7?: Prisma.SortOrder
+  chroma_stft_mean8?: Prisma.SortOrder
+  chroma_stft_mean9?: Prisma.SortOrder
+  chroma_stft_mean10?: Prisma.SortOrder
+  chroma_stft_mean11?: Prisma.SortOrder
+  chroma_stft_median?: Prisma.SortOrder
+  chroma_stft_median1?: Prisma.SortOrder
+  chroma_stft_median2?: Prisma.SortOrder
+  chroma_stft_median3?: Prisma.SortOrder
+  chroma_stft_median4?: Prisma.SortOrder
+  chroma_stft_median5?: Prisma.SortOrder
+  chroma_stft_median6?: Prisma.SortOrder
+  chroma_stft_median7?: Prisma.SortOrder
+  chroma_stft_median8?: Prisma.SortOrder
+  chroma_stft_median9?: Prisma.SortOrder
+  chroma_stft_median10?: Prisma.SortOrder
+  chroma_stft_median11?: Prisma.SortOrder
+  chroma_stft_min?: Prisma.SortOrder
+  chroma_stft_min1?: Prisma.SortOrder
+  chroma_stft_min2?: Prisma.SortOrder
+  chroma_stft_min3?: Prisma.SortOrder
+  chroma_stft_min4?: Prisma.SortOrder
+  chroma_stft_min5?: Prisma.SortOrder
+  chroma_stft_min6?: Prisma.SortOrder
+  chroma_stft_min7?: Prisma.SortOrder
+  chroma_stft_min8?: Prisma.SortOrder
+  chroma_stft_min9?: Prisma.SortOrder
+  chroma_stft_min10?: Prisma.SortOrder
+  chroma_stft_min11?: Prisma.SortOrder
+  chroma_stft_skew?: Prisma.SortOrder
+  chroma_stft_skew1?: Prisma.SortOrder
+  chroma_stft_skew2?: Prisma.SortOrder
+  chroma_stft_skew3?: Prisma.SortOrder
+  chroma_stft_skew4?: Prisma.SortOrder
+  chroma_stft_skew5?: Prisma.SortOrder
+  chroma_stft_skew6?: Prisma.SortOrder
+  chroma_stft_skew7?: Prisma.SortOrder
+  chroma_stft_skew8?: Prisma.SortOrder
+  chroma_stft_skew9?: Prisma.SortOrder
+  chroma_stft_skew10?: Prisma.SortOrder
+  chroma_stft_skew11?: Prisma.SortOrder
+  chroma_stft_std?: Prisma.SortOrder
+  chroma_stft_std1?: Prisma.SortOrder
+  chroma_stft_std2?: Prisma.SortOrder
+  chroma_stft_std3?: Prisma.SortOrder
+  chroma_stft_std4?: Prisma.SortOrder
+  chroma_stft_std5?: Prisma.SortOrder
+  chroma_stft_std6?: Prisma.SortOrder
+  chroma_stft_std7?: Prisma.SortOrder
+  chroma_stft_std8?: Prisma.SortOrder
+  chroma_stft_std9?: Prisma.SortOrder
+  chroma_stft_std10?: Prisma.SortOrder
+  chroma_stft_std11?: Prisma.SortOrder
+  mfcc_kurtosis?: Prisma.SortOrder
+  mfcc_kurtosis1?: Prisma.SortOrder
+  mfcc_kurtosis2?: Prisma.SortOrder
+  mfcc_kurtosis3?: Prisma.SortOrder
+  mfcc_kurtosis4?: Prisma.SortOrder
+  mfcc_kurtosis5?: Prisma.SortOrder
+  mfcc_kurtosis6?: Prisma.SortOrder
+  mfcc_kurtosis7?: Prisma.SortOrder
+  mfcc_kurtosis8?: Prisma.SortOrder
+  mfcc_kurtosis9?: Prisma.SortOrder
+  mfcc_kurtosis10?: Prisma.SortOrder
+  mfcc_kurtosis11?: Prisma.SortOrder
+  mfcc_kurtosis12?: Prisma.SortOrder
+  mfcc_kurtosis13?: Prisma.SortOrder
+  mfcc_kurtosis14?: Prisma.SortOrder
+  mfcc_kurtosis15?: Prisma.SortOrder
+  mfcc_kurtosis16?: Prisma.SortOrder
+  mfcc_kurtosis17?: Prisma.SortOrder
+  mfcc_kurtosis18?: Prisma.SortOrder
+  mfcc_kurtosis19?: Prisma.SortOrder
+  mfcc_max?: Prisma.SortOrder
+  mfcc_max1?: Prisma.SortOrder
+  mfcc_max2?: Prisma.SortOrder
+  mfcc_max3?: Prisma.SortOrder
+  mfcc_max4?: Prisma.SortOrder
+  mfcc_max5?: Prisma.SortOrder
+  mfcc_max6?: Prisma.SortOrder
+  mfcc_max7?: Prisma.SortOrder
+  mfcc_max8?: Prisma.SortOrder
+  mfcc_max9?: Prisma.SortOrder
+  mfcc_max10?: Prisma.SortOrder
+  mfcc_max11?: Prisma.SortOrder
+  mfcc_max12?: Prisma.SortOrder
+  mfcc_max13?: Prisma.SortOrder
+  mfcc_max14?: Prisma.SortOrder
+  mfcc_max15?: Prisma.SortOrder
+  mfcc_max16?: Prisma.SortOrder
+  mfcc_max17?: Prisma.SortOrder
+  mfcc_max18?: Prisma.SortOrder
+  mfcc_max19?: Prisma.SortOrder
+  mfcc_mean?: Prisma.SortOrder
+  mfcc_mean1?: Prisma.SortOrder
+  mfcc_mean2?: Prisma.SortOrder
+  mfcc_mean3?: Prisma.SortOrder
+  mfcc_mean4?: Prisma.SortOrder
+  mfcc_mean5?: Prisma.SortOrder
+  mfcc_mean6?: Prisma.SortOrder
+  mfcc_mean7?: Prisma.SortOrder
+  mfcc_mean8?: Prisma.SortOrder
+  mfcc_mean9?: Prisma.SortOrder
+  mfcc_mean10?: Prisma.SortOrder
+  mfcc_mean11?: Prisma.SortOrder
+  mfcc_mean12?: Prisma.SortOrder
+  mfcc_mean13?: Prisma.SortOrder
+  mfcc_mean14?: Prisma.SortOrder
+  mfcc_mean15?: Prisma.SortOrder
+  mfcc_mean16?: Prisma.SortOrder
+  mfcc_mean17?: Prisma.SortOrder
+  mfcc_mean18?: Prisma.SortOrder
+  mfcc_mean19?: Prisma.SortOrder
+  mfcc_median?: Prisma.SortOrder
+  mfcc_median1?: Prisma.SortOrder
+  mfcc_median2?: Prisma.SortOrder
+  mfcc_median3?: Prisma.SortOrder
+  mfcc_median4?: Prisma.SortOrder
+  mfcc_median5?: Prisma.SortOrder
+  mfcc_median6?: Prisma.SortOrder
+  mfcc_median7?: Prisma.SortOrder
+  mfcc_median8?: Prisma.SortOrder
+  mfcc_median9?: Prisma.SortOrder
+  mfcc_median10?: Prisma.SortOrder
+  mfcc_median11?: Prisma.SortOrder
+  mfcc_median12?: Prisma.SortOrder
+  mfcc_median13?: Prisma.SortOrder
+  mfcc_median14?: Prisma.SortOrder
+  mfcc_median15?: Prisma.SortOrder
+  mfcc_median16?: Prisma.SortOrder
+  mfcc_median17?: Prisma.SortOrder
+  mfcc_median18?: Prisma.SortOrder
+  mfcc_median19?: Prisma.SortOrder
+  mfcc_min?: Prisma.SortOrder
+  mfcc_min1?: Prisma.SortOrder
+  mfcc_min2?: Prisma.SortOrder
+  mfcc_min3?: Prisma.SortOrder
+  mfcc_min4?: Prisma.SortOrder
+  mfcc_min5?: Prisma.SortOrder
+  mfcc_min6?: Prisma.SortOrder
+  mfcc_min7?: Prisma.SortOrder
+  mfcc_min8?: Prisma.SortOrder
+  mfcc_min9?: Prisma.SortOrder
+  mfcc_min10?: Prisma.SortOrder
+  mfcc_min11?: Prisma.SortOrder
+  mfcc_min12?: Prisma.SortOrder
+  mfcc_min13?: Prisma.SortOrder
+  mfcc_min14?: Prisma.SortOrder
+  mfcc_min15?: Prisma.SortOrder
+  mfcc_min16?: Prisma.SortOrder
+  mfcc_min17?: Prisma.SortOrder
+  mfcc_min18?: Prisma.SortOrder
+  mfcc_min19?: Prisma.SortOrder
+  mfcc_skew?: Prisma.SortOrder
+  mfcc_skew1?: Prisma.SortOrder
+  mfcc_skew2?: Prisma.SortOrder
+  mfcc_skew3?: Prisma.SortOrder
+  mfcc_skew4?: Prisma.SortOrder
+  mfcc_skew5?: Prisma.SortOrder
+  mfcc_skew6?: Prisma.SortOrder
+  mfcc_skew7?: Prisma.SortOrder
+  mfcc_skew8?: Prisma.SortOrder
+  mfcc_skew9?: Prisma.SortOrder
+  mfcc_skew10?: Prisma.SortOrder
+  mfcc_skew11?: Prisma.SortOrder
+  mfcc_skew12?: Prisma.SortOrder
+  mfcc_skew13?: Prisma.SortOrder
+  mfcc_skew14?: Prisma.SortOrder
+  mfcc_skew15?: Prisma.SortOrder
+  mfcc_skew16?: Prisma.SortOrder
+  mfcc_skew17?: Prisma.SortOrder
+  mfcc_skew18?: Prisma.SortOrder
+  mfcc_skew19?: Prisma.SortOrder
+  mfcc_std?: Prisma.SortOrder
+  mfcc_std1?: Prisma.SortOrder
+  mfcc_std2?: Prisma.SortOrder
+  mfcc_std3?: Prisma.SortOrder
+  mfcc_std4?: Prisma.SortOrder
+  mfcc_std5?: Prisma.SortOrder
+  mfcc_std6?: Prisma.SortOrder
+  mfcc_std7?: Prisma.SortOrder
+  mfcc_std8?: Prisma.SortOrder
+  mfcc_std9?: Prisma.SortOrder
+  mfcc_std10?: Prisma.SortOrder
+  mfcc_std11?: Prisma.SortOrder
+  mfcc_std12?: Prisma.SortOrder
+  mfcc_std13?: Prisma.SortOrder
+  mfcc_std14?: Prisma.SortOrder
+  mfcc_std15?: Prisma.SortOrder
+  mfcc_std16?: Prisma.SortOrder
+  mfcc_std17?: Prisma.SortOrder
+  mfcc_std18?: Prisma.SortOrder
+  mfcc_std19?: Prisma.SortOrder
+  rmse_kurtosis?: Prisma.SortOrder
+  rmse_max?: Prisma.SortOrder
+  rmse_mean?: Prisma.SortOrder
+  rmse_median?: Prisma.SortOrder
+  rmse_min?: Prisma.SortOrder
+  rmse_skew?: Prisma.SortOrder
+  rmse_std?: Prisma.SortOrder
+  spectral_bandwidth_kurtosis?: Prisma.SortOrder
+  spectral_bandwidth_max?: Prisma.SortOrder
+  spectral_bandwidth_mean?: Prisma.SortOrder
+  spectral_bandwidth_median?: Prisma.SortOrder
+  spectral_bandwidth_min?: Prisma.SortOrder
+  spectral_bandwidth_skew?: Prisma.SortOrder
+  spectral_bandwidth_std?: Prisma.SortOrder
+  spectral_centroid_kurtosis?: Prisma.SortOrder
+  spectral_centroid_max?: Prisma.SortOrder
+  spectral_centroid_mean?: Prisma.SortOrder
+  spectral_centroid_median?: Prisma.SortOrder
+  spectral_centroid_min?: Prisma.SortOrder
+  spectral_centroid_skew?: Prisma.SortOrder
+  spectral_centroid_std?: Prisma.SortOrder
+  spectral_contrast_kurtosis?: Prisma.SortOrder
+  spectral_contrast_kurtosis1?: Prisma.SortOrder
+  spectral_contrast_kurtosis2?: Prisma.SortOrder
+  spectral_contrast_kurtosis3?: Prisma.SortOrder
+  spectral_contrast_kurtosis4?: Prisma.SortOrder
+  spectral_contrast_kurtosis5?: Prisma.SortOrder
+  spectral_contrast_kurtosis6?: Prisma.SortOrder
+  spectral_contrast_max?: Prisma.SortOrder
+  spectral_contrast_max1?: Prisma.SortOrder
+  spectral_contrast_max2?: Prisma.SortOrder
+  spectral_contrast_max3?: Prisma.SortOrder
+  spectral_contrast_max4?: Prisma.SortOrder
+  spectral_contrast_max5?: Prisma.SortOrder
+  spectral_contrast_max6?: Prisma.SortOrder
+  spectral_contrast_mean?: Prisma.SortOrder
+  spectral_contrast_mean1?: Prisma.SortOrder
+  spectral_contrast_mean2?: Prisma.SortOrder
+  spectral_contrast_mean3?: Prisma.SortOrder
+  spectral_contrast_mean4?: Prisma.SortOrder
+  spectral_contrast_mean5?: Prisma.SortOrder
+  spectral_contrast_mean6?: Prisma.SortOrder
+  spectral_contrast_median?: Prisma.SortOrder
+  spectral_contrast_median1?: Prisma.SortOrder
+  spectral_contrast_median2?: Prisma.SortOrder
+  spectral_contrast_median3?: Prisma.SortOrder
+  spectral_contrast_median4?: Prisma.SortOrder
+  spectral_contrast_median5?: Prisma.SortOrder
+  spectral_contrast_median6?: Prisma.SortOrder
+  spectral_contrast_min?: Prisma.SortOrder
+  spectral_contrast_min1?: Prisma.SortOrder
+  spectral_contrast_min2?: Prisma.SortOrder
+  spectral_contrast_min3?: Prisma.SortOrder
+  spectral_contrast_min4?: Prisma.SortOrder
+  spectral_contrast_min5?: Prisma.SortOrder
+  spectral_contrast_min6?: Prisma.SortOrder
+  spectral_contrast_skew?: Prisma.SortOrder
+  spectral_contrast_skew1?: Prisma.SortOrder
+  spectral_contrast_skew2?: Prisma.SortOrder
+  spectral_contrast_skew3?: Prisma.SortOrder
+  spectral_contrast_skew4?: Prisma.SortOrder
+  spectral_contrast_skew5?: Prisma.SortOrder
+  spectral_contrast_skew6?: Prisma.SortOrder
+  spectral_contrast_std?: Prisma.SortOrder
+  spectral_contrast_std1?: Prisma.SortOrder
+  spectral_contrast_std2?: Prisma.SortOrder
+  spectral_contrast_std3?: Prisma.SortOrder
+  spectral_contrast_std4?: Prisma.SortOrder
+  spectral_contrast_std5?: Prisma.SortOrder
+  spectral_contrast_std6?: Prisma.SortOrder
+  spectral_rolloff_kurtosis?: Prisma.SortOrder
+  spectral_rolloff_max?: Prisma.SortOrder
+  spectral_rolloff_mean?: Prisma.SortOrder
+  spectral_rolloff_median?: Prisma.SortOrder
+  spectral_rolloff_min?: Prisma.SortOrder
+  spectral_rolloff_skew?: Prisma.SortOrder
+  spectral_rolloff_std?: Prisma.SortOrder
+  tonnetz_kurtosis?: Prisma.SortOrder
+  tonnetz_kurtosis1?: Prisma.SortOrder
+  tonnetz_kurtosis2?: Prisma.SortOrder
+  tonnetz_kurtosis3?: Prisma.SortOrder
+  tonnetz_kurtosis4?: Prisma.SortOrder
+  tonnetz_kurtosis5?: Prisma.SortOrder
+  tonnetz_max?: Prisma.SortOrder
+  tonnetz_max1?: Prisma.SortOrder
+  tonnetz_max2?: Prisma.SortOrder
+  tonnetz_max3?: Prisma.SortOrder
+  tonnetz_max4?: Prisma.SortOrder
+  tonnetz_max5?: Prisma.SortOrder
+  tonnetz_mean?: Prisma.SortOrder
+  tonnetz_mean1?: Prisma.SortOrder
+  tonnetz_mean2?: Prisma.SortOrder
+  tonnetz_mean3?: Prisma.SortOrder
+  tonnetz_mean4?: Prisma.SortOrder
+  tonnetz_mean5?: Prisma.SortOrder
+  tonnetz_median?: Prisma.SortOrder
+  tonnetz_median1?: Prisma.SortOrder
+  tonnetz_median2?: Prisma.SortOrder
+  tonnetz_median3?: Prisma.SortOrder
+  tonnetz_median4?: Prisma.SortOrder
+  tonnetz_median5?: Prisma.SortOrder
+  tonnetz_min?: Prisma.SortOrder
+  tonnetz_min1?: Prisma.SortOrder
+  tonnetz_min2?: Prisma.SortOrder
+  tonnetz_min3?: Prisma.SortOrder
+  tonnetz_min4?: Prisma.SortOrder
+  tonnetz_min5?: Prisma.SortOrder
+  tonnetz_skew?: Prisma.SortOrder
+  tonnetz_skew1?: Prisma.SortOrder
+  tonnetz_skew2?: Prisma.SortOrder
+  tonnetz_skew3?: Prisma.SortOrder
+  tonnetz_skew4?: Prisma.SortOrder
+  tonnetz_skew5?: Prisma.SortOrder
+  tonnetz_std?: Prisma.SortOrder
+  tonnetz_std1?: Prisma.SortOrder
+  tonnetz_std2?: Prisma.SortOrder
+  tonnetz_std3?: Prisma.SortOrder
+  tonnetz_std4?: Prisma.SortOrder
+  tonnetz_std5?: Prisma.SortOrder
+  zcr_kurtosis?: Prisma.SortOrder
+  zcr_max?: Prisma.SortOrder
+  zcr_mean?: Prisma.SortOrder
+  zcr_median?: Prisma.SortOrder
+  zcr_min?: Prisma.SortOrder
+  zcr_skew?: Prisma.SortOrder
+  zcr_std?: Prisma.SortOrder
+}
+
+export type TemporalFeatureAvgOrderByAggregateInput = {
+  chroma_cens_kurtosis?: Prisma.SortOrder
+  chroma_cens_kurtosis1?: Prisma.SortOrder
+  chroma_cens_kurtosis2?: Prisma.SortOrder
+  chroma_cens_kurtosis3?: Prisma.SortOrder
+  chroma_cens_kurtosis4?: Prisma.SortOrder
+  chroma_cens_kurtosis5?: Prisma.SortOrder
+  chroma_cens_kurtosis6?: Prisma.SortOrder
+  chroma_cens_kurtosis7?: Prisma.SortOrder
+  chroma_cens_kurtosis8?: Prisma.SortOrder
+  chroma_cens_kurtosis9?: Prisma.SortOrder
+  chroma_cens_kurtosis10?: Prisma.SortOrder
+  chroma_cens_kurtosis11?: Prisma.SortOrder
+  chroma_cens_max?: Prisma.SortOrder
+  chroma_cens_max1?: Prisma.SortOrder
+  chroma_cens_max2?: Prisma.SortOrder
+  chroma_cens_max3?: Prisma.SortOrder
+  chroma_cens_max4?: Prisma.SortOrder
+  chroma_cens_max5?: Prisma.SortOrder
+  chroma_cens_max6?: Prisma.SortOrder
+  chroma_cens_max7?: Prisma.SortOrder
+  chroma_cens_max8?: Prisma.SortOrder
+  chroma_cens_max9?: Prisma.SortOrder
+  chroma_cens_max10?: Prisma.SortOrder
+  chroma_cens_max11?: Prisma.SortOrder
+  chroma_cens_mean?: Prisma.SortOrder
+  chroma_cens_mean1?: Prisma.SortOrder
+  chroma_cens_mean2?: Prisma.SortOrder
+  chroma_cens_mean3?: Prisma.SortOrder
+  chroma_cens_mean4?: Prisma.SortOrder
+  chroma_cens_mean5?: Prisma.SortOrder
+  chroma_cens_mean6?: Prisma.SortOrder
+  chroma_cens_mean7?: Prisma.SortOrder
+  chroma_cens_mean8?: Prisma.SortOrder
+  chroma_cens_mean9?: Prisma.SortOrder
+  chroma_cens_mean10?: Prisma.SortOrder
+  chroma_cens_mean11?: Prisma.SortOrder
+  chroma_cens_median?: Prisma.SortOrder
+  chroma_cens_median1?: Prisma.SortOrder
+  chroma_cens_median2?: Prisma.SortOrder
+  chroma_cens_median3?: Prisma.SortOrder
+  chroma_cens_median4?: Prisma.SortOrder
+  chroma_cens_median5?: Prisma.SortOrder
+  chroma_cens_median6?: Prisma.SortOrder
+  chroma_cens_median7?: Prisma.SortOrder
+  chroma_cens_median8?: Prisma.SortOrder
+  chroma_cens_median9?: Prisma.SortOrder
+  chroma_cens_median10?: Prisma.SortOrder
+  chroma_cens_median11?: Prisma.SortOrder
+  chroma_cens_min?: Prisma.SortOrder
+  chroma_cens_min1?: Prisma.SortOrder
+  chroma_cens_min2?: Prisma.SortOrder
+  chroma_cens_min3?: Prisma.SortOrder
+  chroma_cens_min4?: Prisma.SortOrder
+  chroma_cens_min5?: Prisma.SortOrder
+  chroma_cens_min6?: Prisma.SortOrder
+  chroma_cens_min7?: Prisma.SortOrder
+  chroma_cens_min8?: Prisma.SortOrder
+  chroma_cens_min9?: Prisma.SortOrder
+  chroma_cens_min10?: Prisma.SortOrder
+  chroma_cens_min11?: Prisma.SortOrder
+  chroma_cens_skew?: Prisma.SortOrder
+  chroma_cens_skew1?: Prisma.SortOrder
+  chroma_cens_skew2?: Prisma.SortOrder
+  chroma_cens_skew3?: Prisma.SortOrder
+  chroma_cens_skew4?: Prisma.SortOrder
+  chroma_cens_skew5?: Prisma.SortOrder
+  chroma_cens_skew6?: Prisma.SortOrder
+  chroma_cens_skew7?: Prisma.SortOrder
+  chroma_cens_skew8?: Prisma.SortOrder
+  chroma_cens_skew9?: Prisma.SortOrder
+  chroma_cens_skew10?: Prisma.SortOrder
+  chroma_cens_skew11?: Prisma.SortOrder
+  chroma_cens_std?: Prisma.SortOrder
+  chroma_cens_std1?: Prisma.SortOrder
+  chroma_cens_std2?: Prisma.SortOrder
+  chroma_cens_std3?: Prisma.SortOrder
+  chroma_cens_std4?: Prisma.SortOrder
+  chroma_cens_std5?: Prisma.SortOrder
+  chroma_cens_std6?: Prisma.SortOrder
+  chroma_cens_std7?: Prisma.SortOrder
+  chroma_cens_std8?: Prisma.SortOrder
+  chroma_cens_std9?: Prisma.SortOrder
+  chroma_cens_std10?: Prisma.SortOrder
+  chroma_cens_std11?: Prisma.SortOrder
+  chroma_cqt_kurtosis?: Prisma.SortOrder
+  chroma_cqt_kurtosis1?: Prisma.SortOrder
+  chroma_cqt_kurtosis2?: Prisma.SortOrder
+  chroma_cqt_kurtosis3?: Prisma.SortOrder
+  chroma_cqt_kurtosis4?: Prisma.SortOrder
+  chroma_cqt_kurtosis5?: Prisma.SortOrder
+  chroma_cqt_kurtosis6?: Prisma.SortOrder
+  chroma_cqt_kurtosis7?: Prisma.SortOrder
+  chroma_cqt_kurtosis8?: Prisma.SortOrder
+  chroma_cqt_kurtosis9?: Prisma.SortOrder
+  chroma_cqt_kurtosis10?: Prisma.SortOrder
+  chroma_cqt_kurtosis11?: Prisma.SortOrder
+  chroma_cqt_max?: Prisma.SortOrder
+  chroma_cqt_max1?: Prisma.SortOrder
+  chroma_cqt_max2?: Prisma.SortOrder
+  chroma_cqt_max3?: Prisma.SortOrder
+  chroma_cqt_max4?: Prisma.SortOrder
+  chroma_cqt_max5?: Prisma.SortOrder
+  chroma_cqt_max6?: Prisma.SortOrder
+  chroma_cqt_max7?: Prisma.SortOrder
+  chroma_cqt_max8?: Prisma.SortOrder
+  chroma_cqt_max9?: Prisma.SortOrder
+  chroma_cqt_max10?: Prisma.SortOrder
+  chroma_cqt_max11?: Prisma.SortOrder
+  chroma_cqt_mean?: Prisma.SortOrder
+  chroma_cqt_mean1?: Prisma.SortOrder
+  chroma_cqt_mean2?: Prisma.SortOrder
+  chroma_cqt_mean3?: Prisma.SortOrder
+  chroma_cqt_mean4?: Prisma.SortOrder
+  chroma_cqt_mean5?: Prisma.SortOrder
+  chroma_cqt_mean6?: Prisma.SortOrder
+  chroma_cqt_mean7?: Prisma.SortOrder
+  chroma_cqt_mean8?: Prisma.SortOrder
+  chroma_cqt_mean9?: Prisma.SortOrder
+  chroma_cqt_mean10?: Prisma.SortOrder
+  chroma_cqt_mean11?: Prisma.SortOrder
+  chroma_cqt_median?: Prisma.SortOrder
+  chroma_cqt_median1?: Prisma.SortOrder
+  chroma_cqt_median2?: Prisma.SortOrder
+  chroma_cqt_median3?: Prisma.SortOrder
+  chroma_cqt_median4?: Prisma.SortOrder
+  chroma_cqt_median5?: Prisma.SortOrder
+  chroma_cqt_median6?: Prisma.SortOrder
+  chroma_cqt_median7?: Prisma.SortOrder
+  chroma_cqt_median8?: Prisma.SortOrder
+  chroma_cqt_median9?: Prisma.SortOrder
+  chroma_cqt_median10?: Prisma.SortOrder
+  chroma_cqt_median11?: Prisma.SortOrder
+  chroma_cqt_min?: Prisma.SortOrder
+  chroma_cqt_min1?: Prisma.SortOrder
+  chroma_cqt_min2?: Prisma.SortOrder
+  chroma_cqt_min3?: Prisma.SortOrder
+  chroma_cqt_min4?: Prisma.SortOrder
+  chroma_cqt_min5?: Prisma.SortOrder
+  chroma_cqt_min6?: Prisma.SortOrder
+  chroma_cqt_min7?: Prisma.SortOrder
+  chroma_cqt_min8?: Prisma.SortOrder
+  chroma_cqt_min9?: Prisma.SortOrder
+  chroma_cqt_min10?: Prisma.SortOrder
+  chroma_cqt_min11?: Prisma.SortOrder
+  chroma_cqt_skew?: Prisma.SortOrder
+  chroma_cqt_skew1?: Prisma.SortOrder
+  chroma_cqt_skew2?: Prisma.SortOrder
+  chroma_cqt_skew3?: Prisma.SortOrder
+  chroma_cqt_skew4?: Prisma.SortOrder
+  chroma_cqt_skew5?: Prisma.SortOrder
+  chroma_cqt_skew6?: Prisma.SortOrder
+  chroma_cqt_skew7?: Prisma.SortOrder
+  chroma_cqt_skew8?: Prisma.SortOrder
+  chroma_cqt_skew9?: Prisma.SortOrder
+  chroma_cqt_skew10?: Prisma.SortOrder
+  chroma_cqt_skew11?: Prisma.SortOrder
+  chroma_cqt_std?: Prisma.SortOrder
+  chroma_cqt_std1?: Prisma.SortOrder
+  chroma_cqt_std2?: Prisma.SortOrder
+  chroma_cqt_std3?: Prisma.SortOrder
+  chroma_cqt_std4?: Prisma.SortOrder
+  chroma_cqt_std5?: Prisma.SortOrder
+  chroma_cqt_std6?: Prisma.SortOrder
+  chroma_cqt_std7?: Prisma.SortOrder
+  chroma_cqt_std8?: Prisma.SortOrder
+  chroma_cqt_std9?: Prisma.SortOrder
+  chroma_cqt_std10?: Prisma.SortOrder
+  chroma_cqt_std11?: Prisma.SortOrder
+  chroma_stft_kurtosis?: Prisma.SortOrder
+  chroma_stft_kurtosis1?: Prisma.SortOrder
+  chroma_stft_kurtosis2?: Prisma.SortOrder
+  chroma_stft_kurtosis3?: Prisma.SortOrder
+  chroma_stft_kurtosis4?: Prisma.SortOrder
+  chroma_stft_kurtosis5?: Prisma.SortOrder
+  chroma_stft_kurtosis6?: Prisma.SortOrder
+  chroma_stft_kurtosis7?: Prisma.SortOrder
+  chroma_stft_kurtosis8?: Prisma.SortOrder
+  chroma_stft_kurtosis9?: Prisma.SortOrder
+  chroma_stft_kurtosis10?: Prisma.SortOrder
+  chroma_stft_kurtosis11?: Prisma.SortOrder
+  chroma_stft_max?: Prisma.SortOrder
+  chroma_stft_max1?: Prisma.SortOrder
+  chroma_stft_max2?: Prisma.SortOrder
+  chroma_stft_max3?: Prisma.SortOrder
+  chroma_stft_max4?: Prisma.SortOrder
+  chroma_stft_max5?: Prisma.SortOrder
+  chroma_stft_max6?: Prisma.SortOrder
+  chroma_stft_max7?: Prisma.SortOrder
+  chroma_stft_max8?: Prisma.SortOrder
+  chroma_stft_max9?: Prisma.SortOrder
+  chroma_stft_max10?: Prisma.SortOrder
+  chroma_stft_max11?: Prisma.SortOrder
+  chroma_stft_mean?: Prisma.SortOrder
+  chroma_stft_mean1?: Prisma.SortOrder
+  chroma_stft_mean2?: Prisma.SortOrder
+  chroma_stft_mean3?: Prisma.SortOrder
+  chroma_stft_mean4?: Prisma.SortOrder
+  chroma_stft_mean5?: Prisma.SortOrder
+  chroma_stft_mean6?: Prisma.SortOrder
+  chroma_stft_mean7?: Prisma.SortOrder
+  chroma_stft_mean8?: Prisma.SortOrder
+  chroma_stft_mean9?: Prisma.SortOrder
+  chroma_stft_mean10?: Prisma.SortOrder
+  chroma_stft_mean11?: Prisma.SortOrder
+  chroma_stft_median?: Prisma.SortOrder
+  chroma_stft_median1?: Prisma.SortOrder
+  chroma_stft_median2?: Prisma.SortOrder
+  chroma_stft_median3?: Prisma.SortOrder
+  chroma_stft_median4?: Prisma.SortOrder
+  chroma_stft_median5?: Prisma.SortOrder
+  chroma_stft_median6?: Prisma.SortOrder
+  chroma_stft_median7?: Prisma.SortOrder
+  chroma_stft_median8?: Prisma.SortOrder
+  chroma_stft_median9?: Prisma.SortOrder
+  chroma_stft_median10?: Prisma.SortOrder
+  chroma_stft_median11?: Prisma.SortOrder
+  chroma_stft_min?: Prisma.SortOrder
+  chroma_stft_min1?: Prisma.SortOrder
+  chroma_stft_min2?: Prisma.SortOrder
+  chroma_stft_min3?: Prisma.SortOrder
+  chroma_stft_min4?: Prisma.SortOrder
+  chroma_stft_min5?: Prisma.SortOrder
+  chroma_stft_min6?: Prisma.SortOrder
+  chroma_stft_min7?: Prisma.SortOrder
+  chroma_stft_min8?: Prisma.SortOrder
+  chroma_stft_min9?: Prisma.SortOrder
+  chroma_stft_min10?: Prisma.SortOrder
+  chroma_stft_min11?: Prisma.SortOrder
+  chroma_stft_skew?: Prisma.SortOrder
+  chroma_stft_skew1?: Prisma.SortOrder
+  chroma_stft_skew2?: Prisma.SortOrder
+  chroma_stft_skew3?: Prisma.SortOrder
+  chroma_stft_skew4?: Prisma.SortOrder
+  chroma_stft_skew5?: Prisma.SortOrder
+  chroma_stft_skew6?: Prisma.SortOrder
+  chroma_stft_skew7?: Prisma.SortOrder
+  chroma_stft_skew8?: Prisma.SortOrder
+  chroma_stft_skew9?: Prisma.SortOrder
+  chroma_stft_skew10?: Prisma.SortOrder
+  chroma_stft_skew11?: Prisma.SortOrder
+  chroma_stft_std?: Prisma.SortOrder
+  chroma_stft_std1?: Prisma.SortOrder
+  chroma_stft_std2?: Prisma.SortOrder
+  chroma_stft_std3?: Prisma.SortOrder
+  chroma_stft_std4?: Prisma.SortOrder
+  chroma_stft_std5?: Prisma.SortOrder
+  chroma_stft_std6?: Prisma.SortOrder
+  chroma_stft_std7?: Prisma.SortOrder
+  chroma_stft_std8?: Prisma.SortOrder
+  chroma_stft_std9?: Prisma.SortOrder
+  chroma_stft_std10?: Prisma.SortOrder
+  chroma_stft_std11?: Prisma.SortOrder
+  mfcc_kurtosis?: Prisma.SortOrder
+  mfcc_kurtosis1?: Prisma.SortOrder
+  mfcc_kurtosis2?: Prisma.SortOrder
+  mfcc_kurtosis3?: Prisma.SortOrder
+  mfcc_kurtosis4?: Prisma.SortOrder
+  mfcc_kurtosis5?: Prisma.SortOrder
+  mfcc_kurtosis6?: Prisma.SortOrder
+  mfcc_kurtosis7?: Prisma.SortOrder
+  mfcc_kurtosis8?: Prisma.SortOrder
+  mfcc_kurtosis9?: Prisma.SortOrder
+  mfcc_kurtosis10?: Prisma.SortOrder
+  mfcc_kurtosis11?: Prisma.SortOrder
+  mfcc_kurtosis12?: Prisma.SortOrder
+  mfcc_kurtosis13?: Prisma.SortOrder
+  mfcc_kurtosis14?: Prisma.SortOrder
+  mfcc_kurtosis15?: Prisma.SortOrder
+  mfcc_kurtosis16?: Prisma.SortOrder
+  mfcc_kurtosis17?: Prisma.SortOrder
+  mfcc_kurtosis18?: Prisma.SortOrder
+  mfcc_kurtosis19?: Prisma.SortOrder
+  mfcc_max?: Prisma.SortOrder
+  mfcc_max1?: Prisma.SortOrder
+  mfcc_max2?: Prisma.SortOrder
+  mfcc_max3?: Prisma.SortOrder
+  mfcc_max4?: Prisma.SortOrder
+  mfcc_max5?: Prisma.SortOrder
+  mfcc_max6?: Prisma.SortOrder
+  mfcc_max7?: Prisma.SortOrder
+  mfcc_max8?: Prisma.SortOrder
+  mfcc_max9?: Prisma.SortOrder
+  mfcc_max10?: Prisma.SortOrder
+  mfcc_max11?: Prisma.SortOrder
+  mfcc_max12?: Prisma.SortOrder
+  mfcc_max13?: Prisma.SortOrder
+  mfcc_max14?: Prisma.SortOrder
+  mfcc_max15?: Prisma.SortOrder
+  mfcc_max16?: Prisma.SortOrder
+  mfcc_max17?: Prisma.SortOrder
+  mfcc_max18?: Prisma.SortOrder
+  mfcc_max19?: Prisma.SortOrder
+  mfcc_mean?: Prisma.SortOrder
+  mfcc_mean1?: Prisma.SortOrder
+  mfcc_mean2?: Prisma.SortOrder
+  mfcc_mean3?: Prisma.SortOrder
+  mfcc_mean4?: Prisma.SortOrder
+  mfcc_mean5?: Prisma.SortOrder
+  mfcc_mean6?: Prisma.SortOrder
+  mfcc_mean7?: Prisma.SortOrder
+  mfcc_mean8?: Prisma.SortOrder
+  mfcc_mean9?: Prisma.SortOrder
+  mfcc_mean10?: Prisma.SortOrder
+  mfcc_mean11?: Prisma.SortOrder
+  mfcc_mean12?: Prisma.SortOrder
+  mfcc_mean13?: Prisma.SortOrder
+  mfcc_mean14?: Prisma.SortOrder
+  mfcc_mean15?: Prisma.SortOrder
+  mfcc_mean16?: Prisma.SortOrder
+  mfcc_mean17?: Prisma.SortOrder
+  mfcc_mean18?: Prisma.SortOrder
+  mfcc_mean19?: Prisma.SortOrder
+  mfcc_median?: Prisma.SortOrder
+  mfcc_median1?: Prisma.SortOrder
+  mfcc_median2?: Prisma.SortOrder
+  mfcc_median3?: Prisma.SortOrder
+  mfcc_median4?: Prisma.SortOrder
+  mfcc_median5?: Prisma.SortOrder
+  mfcc_median6?: Prisma.SortOrder
+  mfcc_median7?: Prisma.SortOrder
+  mfcc_median8?: Prisma.SortOrder
+  mfcc_median9?: Prisma.SortOrder
+  mfcc_median10?: Prisma.SortOrder
+  mfcc_median11?: Prisma.SortOrder
+  mfcc_median12?: Prisma.SortOrder
+  mfcc_median13?: Prisma.SortOrder
+  mfcc_median14?: Prisma.SortOrder
+  mfcc_median15?: Prisma.SortOrder
+  mfcc_median16?: Prisma.SortOrder
+  mfcc_median17?: Prisma.SortOrder
+  mfcc_median18?: Prisma.SortOrder
+  mfcc_median19?: Prisma.SortOrder
+  mfcc_min?: Prisma.SortOrder
+  mfcc_min1?: Prisma.SortOrder
+  mfcc_min2?: Prisma.SortOrder
+  mfcc_min3?: Prisma.SortOrder
+  mfcc_min4?: Prisma.SortOrder
+  mfcc_min5?: Prisma.SortOrder
+  mfcc_min6?: Prisma.SortOrder
+  mfcc_min7?: Prisma.SortOrder
+  mfcc_min8?: Prisma.SortOrder
+  mfcc_min9?: Prisma.SortOrder
+  mfcc_min10?: Prisma.SortOrder
+  mfcc_min11?: Prisma.SortOrder
+  mfcc_min12?: Prisma.SortOrder
+  mfcc_min13?: Prisma.SortOrder
+  mfcc_min14?: Prisma.SortOrder
+  mfcc_min15?: Prisma.SortOrder
+  mfcc_min16?: Prisma.SortOrder
+  mfcc_min17?: Prisma.SortOrder
+  mfcc_min18?: Prisma.SortOrder
+  mfcc_min19?: Prisma.SortOrder
+  mfcc_skew?: Prisma.SortOrder
+  mfcc_skew1?: Prisma.SortOrder
+  mfcc_skew2?: Prisma.SortOrder
+  mfcc_skew3?: Prisma.SortOrder
+  mfcc_skew4?: Prisma.SortOrder
+  mfcc_skew5?: Prisma.SortOrder
+  mfcc_skew6?: Prisma.SortOrder
+  mfcc_skew7?: Prisma.SortOrder
+  mfcc_skew8?: Prisma.SortOrder
+  mfcc_skew9?: Prisma.SortOrder
+  mfcc_skew10?: Prisma.SortOrder
+  mfcc_skew11?: Prisma.SortOrder
+  mfcc_skew12?: Prisma.SortOrder
+  mfcc_skew13?: Prisma.SortOrder
+  mfcc_skew14?: Prisma.SortOrder
+  mfcc_skew15?: Prisma.SortOrder
+  mfcc_skew16?: Prisma.SortOrder
+  mfcc_skew17?: Prisma.SortOrder
+  mfcc_skew18?: Prisma.SortOrder
+  mfcc_skew19?: Prisma.SortOrder
+  mfcc_std?: Prisma.SortOrder
+  mfcc_std1?: Prisma.SortOrder
+  mfcc_std2?: Prisma.SortOrder
+  mfcc_std3?: Prisma.SortOrder
+  mfcc_std4?: Prisma.SortOrder
+  mfcc_std5?: Prisma.SortOrder
+  mfcc_std6?: Prisma.SortOrder
+  mfcc_std7?: Prisma.SortOrder
+  mfcc_std8?: Prisma.SortOrder
+  mfcc_std9?: Prisma.SortOrder
+  mfcc_std10?: Prisma.SortOrder
+  mfcc_std11?: Prisma.SortOrder
+  mfcc_std12?: Prisma.SortOrder
+  mfcc_std13?: Prisma.SortOrder
+  mfcc_std14?: Prisma.SortOrder
+  mfcc_std15?: Prisma.SortOrder
+  mfcc_std16?: Prisma.SortOrder
+  mfcc_std17?: Prisma.SortOrder
+  mfcc_std18?: Prisma.SortOrder
+  mfcc_std19?: Prisma.SortOrder
+  rmse_kurtosis?: Prisma.SortOrder
+  rmse_max?: Prisma.SortOrder
+  rmse_mean?: Prisma.SortOrder
+  rmse_median?: Prisma.SortOrder
+  rmse_min?: Prisma.SortOrder
+  rmse_skew?: Prisma.SortOrder
+  rmse_std?: Prisma.SortOrder
+  spectral_bandwidth_kurtosis?: Prisma.SortOrder
+  spectral_bandwidth_max?: Prisma.SortOrder
+  spectral_bandwidth_mean?: Prisma.SortOrder
+  spectral_bandwidth_median?: Prisma.SortOrder
+  spectral_bandwidth_min?: Prisma.SortOrder
+  spectral_bandwidth_skew?: Prisma.SortOrder
+  spectral_bandwidth_std?: Prisma.SortOrder
+  spectral_centroid_kurtosis?: Prisma.SortOrder
+  spectral_centroid_max?: Prisma.SortOrder
+  spectral_centroid_mean?: Prisma.SortOrder
+  spectral_centroid_median?: Prisma.SortOrder
+  spectral_centroid_min?: Prisma.SortOrder
+  spectral_centroid_skew?: Prisma.SortOrder
+  spectral_centroid_std?: Prisma.SortOrder
+  spectral_contrast_kurtosis?: Prisma.SortOrder
+  spectral_contrast_kurtosis1?: Prisma.SortOrder
+  spectral_contrast_kurtosis2?: Prisma.SortOrder
+  spectral_contrast_kurtosis3?: Prisma.SortOrder
+  spectral_contrast_kurtosis4?: Prisma.SortOrder
+  spectral_contrast_kurtosis5?: Prisma.SortOrder
+  spectral_contrast_kurtosis6?: Prisma.SortOrder
+  spectral_contrast_max?: Prisma.SortOrder
+  spectral_contrast_max1?: Prisma.SortOrder
+  spectral_contrast_max2?: Prisma.SortOrder
+  spectral_contrast_max3?: Prisma.SortOrder
+  spectral_contrast_max4?: Prisma.SortOrder
+  spectral_contrast_max5?: Prisma.SortOrder
+  spectral_contrast_max6?: Prisma.SortOrder
+  spectral_contrast_mean?: Prisma.SortOrder
+  spectral_contrast_mean1?: Prisma.SortOrder
+  spectral_contrast_mean2?: Prisma.SortOrder
+  spectral_contrast_mean3?: Prisma.SortOrder
+  spectral_contrast_mean4?: Prisma.SortOrder
+  spectral_contrast_mean5?: Prisma.SortOrder
+  spectral_contrast_mean6?: Prisma.SortOrder
+  spectral_contrast_median?: Prisma.SortOrder
+  spectral_contrast_median1?: Prisma.SortOrder
+  spectral_contrast_median2?: Prisma.SortOrder
+  spectral_contrast_median3?: Prisma.SortOrder
+  spectral_contrast_median4?: Prisma.SortOrder
+  spectral_contrast_median5?: Prisma.SortOrder
+  spectral_contrast_median6?: Prisma.SortOrder
+  spectral_contrast_min?: Prisma.SortOrder
+  spectral_contrast_min1?: Prisma.SortOrder
+  spectral_contrast_min2?: Prisma.SortOrder
+  spectral_contrast_min3?: Prisma.SortOrder
+  spectral_contrast_min4?: Prisma.SortOrder
+  spectral_contrast_min5?: Prisma.SortOrder
+  spectral_contrast_min6?: Prisma.SortOrder
+  spectral_contrast_skew?: Prisma.SortOrder
+  spectral_contrast_skew1?: Prisma.SortOrder
+  spectral_contrast_skew2?: Prisma.SortOrder
+  spectral_contrast_skew3?: Prisma.SortOrder
+  spectral_contrast_skew4?: Prisma.SortOrder
+  spectral_contrast_skew5?: Prisma.SortOrder
+  spectral_contrast_skew6?: Prisma.SortOrder
+  spectral_contrast_std?: Prisma.SortOrder
+  spectral_contrast_std1?: Prisma.SortOrder
+  spectral_contrast_std2?: Prisma.SortOrder
+  spectral_contrast_std3?: Prisma.SortOrder
+  spectral_contrast_std4?: Prisma.SortOrder
+  spectral_contrast_std5?: Prisma.SortOrder
+  spectral_contrast_std6?: Prisma.SortOrder
+  spectral_rolloff_kurtosis?: Prisma.SortOrder
+  spectral_rolloff_max?: Prisma.SortOrder
+  spectral_rolloff_mean?: Prisma.SortOrder
+  spectral_rolloff_median?: Prisma.SortOrder
+  spectral_rolloff_min?: Prisma.SortOrder
+  spectral_rolloff_skew?: Prisma.SortOrder
+  spectral_rolloff_std?: Prisma.SortOrder
+  tonnetz_kurtosis?: Prisma.SortOrder
+  tonnetz_kurtosis1?: Prisma.SortOrder
+  tonnetz_kurtosis2?: Prisma.SortOrder
+  tonnetz_kurtosis3?: Prisma.SortOrder
+  tonnetz_kurtosis4?: Prisma.SortOrder
+  tonnetz_kurtosis5?: Prisma.SortOrder
+  tonnetz_max?: Prisma.SortOrder
+  tonnetz_max1?: Prisma.SortOrder
+  tonnetz_max2?: Prisma.SortOrder
+  tonnetz_max3?: Prisma.SortOrder
+  tonnetz_max4?: Prisma.SortOrder
+  tonnetz_max5?: Prisma.SortOrder
+  tonnetz_mean?: Prisma.SortOrder
+  tonnetz_mean1?: Prisma.SortOrder
+  tonnetz_mean2?: Prisma.SortOrder
+  tonnetz_mean3?: Prisma.SortOrder
+  tonnetz_mean4?: Prisma.SortOrder
+  tonnetz_mean5?: Prisma.SortOrder
+  tonnetz_median?: Prisma.SortOrder
+  tonnetz_median1?: Prisma.SortOrder
+  tonnetz_median2?: Prisma.SortOrder
+  tonnetz_median3?: Prisma.SortOrder
+  tonnetz_median4?: Prisma.SortOrder
+  tonnetz_median5?: Prisma.SortOrder
+  tonnetz_min?: Prisma.SortOrder
+  tonnetz_min1?: Prisma.SortOrder
+  tonnetz_min2?: Prisma.SortOrder
+  tonnetz_min3?: Prisma.SortOrder
+  tonnetz_min4?: Prisma.SortOrder
+  tonnetz_min5?: Prisma.SortOrder
+  tonnetz_skew?: Prisma.SortOrder
+  tonnetz_skew1?: Prisma.SortOrder
+  tonnetz_skew2?: Prisma.SortOrder
+  tonnetz_skew3?: Prisma.SortOrder
+  tonnetz_skew4?: Prisma.SortOrder
+  tonnetz_skew5?: Prisma.SortOrder
+  tonnetz_std?: Prisma.SortOrder
+  tonnetz_std1?: Prisma.SortOrder
+  tonnetz_std2?: Prisma.SortOrder
+  tonnetz_std3?: Prisma.SortOrder
+  tonnetz_std4?: Prisma.SortOrder
+  tonnetz_std5?: Prisma.SortOrder
+  zcr_kurtosis?: Prisma.SortOrder
+  zcr_max?: Prisma.SortOrder
+  zcr_mean?: Prisma.SortOrder
+  zcr_median?: Prisma.SortOrder
+  zcr_min?: Prisma.SortOrder
+  zcr_skew?: Prisma.SortOrder
+  zcr_std?: Prisma.SortOrder
 }
 
 export type TemporalFeatureMaxOrderByAggregateInput = {
   trackId?: Prisma.SortOrder
+  chroma_cens_kurtosis?: Prisma.SortOrder
+  chroma_cens_kurtosis1?: Prisma.SortOrder
+  chroma_cens_kurtosis2?: Prisma.SortOrder
+  chroma_cens_kurtosis3?: Prisma.SortOrder
+  chroma_cens_kurtosis4?: Prisma.SortOrder
+  chroma_cens_kurtosis5?: Prisma.SortOrder
+  chroma_cens_kurtosis6?: Prisma.SortOrder
+  chroma_cens_kurtosis7?: Prisma.SortOrder
+  chroma_cens_kurtosis8?: Prisma.SortOrder
+  chroma_cens_kurtosis9?: Prisma.SortOrder
+  chroma_cens_kurtosis10?: Prisma.SortOrder
+  chroma_cens_kurtosis11?: Prisma.SortOrder
+  chroma_cens_max?: Prisma.SortOrder
+  chroma_cens_max1?: Prisma.SortOrder
+  chroma_cens_max2?: Prisma.SortOrder
+  chroma_cens_max3?: Prisma.SortOrder
+  chroma_cens_max4?: Prisma.SortOrder
+  chroma_cens_max5?: Prisma.SortOrder
+  chroma_cens_max6?: Prisma.SortOrder
+  chroma_cens_max7?: Prisma.SortOrder
+  chroma_cens_max8?: Prisma.SortOrder
+  chroma_cens_max9?: Prisma.SortOrder
+  chroma_cens_max10?: Prisma.SortOrder
+  chroma_cens_max11?: Prisma.SortOrder
+  chroma_cens_mean?: Prisma.SortOrder
+  chroma_cens_mean1?: Prisma.SortOrder
+  chroma_cens_mean2?: Prisma.SortOrder
+  chroma_cens_mean3?: Prisma.SortOrder
+  chroma_cens_mean4?: Prisma.SortOrder
+  chroma_cens_mean5?: Prisma.SortOrder
+  chroma_cens_mean6?: Prisma.SortOrder
+  chroma_cens_mean7?: Prisma.SortOrder
+  chroma_cens_mean8?: Prisma.SortOrder
+  chroma_cens_mean9?: Prisma.SortOrder
+  chroma_cens_mean10?: Prisma.SortOrder
+  chroma_cens_mean11?: Prisma.SortOrder
+  chroma_cens_median?: Prisma.SortOrder
+  chroma_cens_median1?: Prisma.SortOrder
+  chroma_cens_median2?: Prisma.SortOrder
+  chroma_cens_median3?: Prisma.SortOrder
+  chroma_cens_median4?: Prisma.SortOrder
+  chroma_cens_median5?: Prisma.SortOrder
+  chroma_cens_median6?: Prisma.SortOrder
+  chroma_cens_median7?: Prisma.SortOrder
+  chroma_cens_median8?: Prisma.SortOrder
+  chroma_cens_median9?: Prisma.SortOrder
+  chroma_cens_median10?: Prisma.SortOrder
+  chroma_cens_median11?: Prisma.SortOrder
+  chroma_cens_min?: Prisma.SortOrder
+  chroma_cens_min1?: Prisma.SortOrder
+  chroma_cens_min2?: Prisma.SortOrder
+  chroma_cens_min3?: Prisma.SortOrder
+  chroma_cens_min4?: Prisma.SortOrder
+  chroma_cens_min5?: Prisma.SortOrder
+  chroma_cens_min6?: Prisma.SortOrder
+  chroma_cens_min7?: Prisma.SortOrder
+  chroma_cens_min8?: Prisma.SortOrder
+  chroma_cens_min9?: Prisma.SortOrder
+  chroma_cens_min10?: Prisma.SortOrder
+  chroma_cens_min11?: Prisma.SortOrder
+  chroma_cens_skew?: Prisma.SortOrder
+  chroma_cens_skew1?: Prisma.SortOrder
+  chroma_cens_skew2?: Prisma.SortOrder
+  chroma_cens_skew3?: Prisma.SortOrder
+  chroma_cens_skew4?: Prisma.SortOrder
+  chroma_cens_skew5?: Prisma.SortOrder
+  chroma_cens_skew6?: Prisma.SortOrder
+  chroma_cens_skew7?: Prisma.SortOrder
+  chroma_cens_skew8?: Prisma.SortOrder
+  chroma_cens_skew9?: Prisma.SortOrder
+  chroma_cens_skew10?: Prisma.SortOrder
+  chroma_cens_skew11?: Prisma.SortOrder
+  chroma_cens_std?: Prisma.SortOrder
+  chroma_cens_std1?: Prisma.SortOrder
+  chroma_cens_std2?: Prisma.SortOrder
+  chroma_cens_std3?: Prisma.SortOrder
+  chroma_cens_std4?: Prisma.SortOrder
+  chroma_cens_std5?: Prisma.SortOrder
+  chroma_cens_std6?: Prisma.SortOrder
+  chroma_cens_std7?: Prisma.SortOrder
+  chroma_cens_std8?: Prisma.SortOrder
+  chroma_cens_std9?: Prisma.SortOrder
+  chroma_cens_std10?: Prisma.SortOrder
+  chroma_cens_std11?: Prisma.SortOrder
+  chroma_cqt_kurtosis?: Prisma.SortOrder
+  chroma_cqt_kurtosis1?: Prisma.SortOrder
+  chroma_cqt_kurtosis2?: Prisma.SortOrder
+  chroma_cqt_kurtosis3?: Prisma.SortOrder
+  chroma_cqt_kurtosis4?: Prisma.SortOrder
+  chroma_cqt_kurtosis5?: Prisma.SortOrder
+  chroma_cqt_kurtosis6?: Prisma.SortOrder
+  chroma_cqt_kurtosis7?: Prisma.SortOrder
+  chroma_cqt_kurtosis8?: Prisma.SortOrder
+  chroma_cqt_kurtosis9?: Prisma.SortOrder
+  chroma_cqt_kurtosis10?: Prisma.SortOrder
+  chroma_cqt_kurtosis11?: Prisma.SortOrder
+  chroma_cqt_max?: Prisma.SortOrder
+  chroma_cqt_max1?: Prisma.SortOrder
+  chroma_cqt_max2?: Prisma.SortOrder
+  chroma_cqt_max3?: Prisma.SortOrder
+  chroma_cqt_max4?: Prisma.SortOrder
+  chroma_cqt_max5?: Prisma.SortOrder
+  chroma_cqt_max6?: Prisma.SortOrder
+  chroma_cqt_max7?: Prisma.SortOrder
+  chroma_cqt_max8?: Prisma.SortOrder
+  chroma_cqt_max9?: Prisma.SortOrder
+  chroma_cqt_max10?: Prisma.SortOrder
+  chroma_cqt_max11?: Prisma.SortOrder
+  chroma_cqt_mean?: Prisma.SortOrder
+  chroma_cqt_mean1?: Prisma.SortOrder
+  chroma_cqt_mean2?: Prisma.SortOrder
+  chroma_cqt_mean3?: Prisma.SortOrder
+  chroma_cqt_mean4?: Prisma.SortOrder
+  chroma_cqt_mean5?: Prisma.SortOrder
+  chroma_cqt_mean6?: Prisma.SortOrder
+  chroma_cqt_mean7?: Prisma.SortOrder
+  chroma_cqt_mean8?: Prisma.SortOrder
+  chroma_cqt_mean9?: Prisma.SortOrder
+  chroma_cqt_mean10?: Prisma.SortOrder
+  chroma_cqt_mean11?: Prisma.SortOrder
+  chroma_cqt_median?: Prisma.SortOrder
+  chroma_cqt_median1?: Prisma.SortOrder
+  chroma_cqt_median2?: Prisma.SortOrder
+  chroma_cqt_median3?: Prisma.SortOrder
+  chroma_cqt_median4?: Prisma.SortOrder
+  chroma_cqt_median5?: Prisma.SortOrder
+  chroma_cqt_median6?: Prisma.SortOrder
+  chroma_cqt_median7?: Prisma.SortOrder
+  chroma_cqt_median8?: Prisma.SortOrder
+  chroma_cqt_median9?: Prisma.SortOrder
+  chroma_cqt_median10?: Prisma.SortOrder
+  chroma_cqt_median11?: Prisma.SortOrder
+  chroma_cqt_min?: Prisma.SortOrder
+  chroma_cqt_min1?: Prisma.SortOrder
+  chroma_cqt_min2?: Prisma.SortOrder
+  chroma_cqt_min3?: Prisma.SortOrder
+  chroma_cqt_min4?: Prisma.SortOrder
+  chroma_cqt_min5?: Prisma.SortOrder
+  chroma_cqt_min6?: Prisma.SortOrder
+  chroma_cqt_min7?: Prisma.SortOrder
+  chroma_cqt_min8?: Prisma.SortOrder
+  chroma_cqt_min9?: Prisma.SortOrder
+  chroma_cqt_min10?: Prisma.SortOrder
+  chroma_cqt_min11?: Prisma.SortOrder
+  chroma_cqt_skew?: Prisma.SortOrder
+  chroma_cqt_skew1?: Prisma.SortOrder
+  chroma_cqt_skew2?: Prisma.SortOrder
+  chroma_cqt_skew3?: Prisma.SortOrder
+  chroma_cqt_skew4?: Prisma.SortOrder
+  chroma_cqt_skew5?: Prisma.SortOrder
+  chroma_cqt_skew6?: Prisma.SortOrder
+  chroma_cqt_skew7?: Prisma.SortOrder
+  chroma_cqt_skew8?: Prisma.SortOrder
+  chroma_cqt_skew9?: Prisma.SortOrder
+  chroma_cqt_skew10?: Prisma.SortOrder
+  chroma_cqt_skew11?: Prisma.SortOrder
+  chroma_cqt_std?: Prisma.SortOrder
+  chroma_cqt_std1?: Prisma.SortOrder
+  chroma_cqt_std2?: Prisma.SortOrder
+  chroma_cqt_std3?: Prisma.SortOrder
+  chroma_cqt_std4?: Prisma.SortOrder
+  chroma_cqt_std5?: Prisma.SortOrder
+  chroma_cqt_std6?: Prisma.SortOrder
+  chroma_cqt_std7?: Prisma.SortOrder
+  chroma_cqt_std8?: Prisma.SortOrder
+  chroma_cqt_std9?: Prisma.SortOrder
+  chroma_cqt_std10?: Prisma.SortOrder
+  chroma_cqt_std11?: Prisma.SortOrder
+  chroma_stft_kurtosis?: Prisma.SortOrder
+  chroma_stft_kurtosis1?: Prisma.SortOrder
+  chroma_stft_kurtosis2?: Prisma.SortOrder
+  chroma_stft_kurtosis3?: Prisma.SortOrder
+  chroma_stft_kurtosis4?: Prisma.SortOrder
+  chroma_stft_kurtosis5?: Prisma.SortOrder
+  chroma_stft_kurtosis6?: Prisma.SortOrder
+  chroma_stft_kurtosis7?: Prisma.SortOrder
+  chroma_stft_kurtosis8?: Prisma.SortOrder
+  chroma_stft_kurtosis9?: Prisma.SortOrder
+  chroma_stft_kurtosis10?: Prisma.SortOrder
+  chroma_stft_kurtosis11?: Prisma.SortOrder
+  chroma_stft_max?: Prisma.SortOrder
+  chroma_stft_max1?: Prisma.SortOrder
+  chroma_stft_max2?: Prisma.SortOrder
+  chroma_stft_max3?: Prisma.SortOrder
+  chroma_stft_max4?: Prisma.SortOrder
+  chroma_stft_max5?: Prisma.SortOrder
+  chroma_stft_max6?: Prisma.SortOrder
+  chroma_stft_max7?: Prisma.SortOrder
+  chroma_stft_max8?: Prisma.SortOrder
+  chroma_stft_max9?: Prisma.SortOrder
+  chroma_stft_max10?: Prisma.SortOrder
+  chroma_stft_max11?: Prisma.SortOrder
+  chroma_stft_mean?: Prisma.SortOrder
+  chroma_stft_mean1?: Prisma.SortOrder
+  chroma_stft_mean2?: Prisma.SortOrder
+  chroma_stft_mean3?: Prisma.SortOrder
+  chroma_stft_mean4?: Prisma.SortOrder
+  chroma_stft_mean5?: Prisma.SortOrder
+  chroma_stft_mean6?: Prisma.SortOrder
+  chroma_stft_mean7?: Prisma.SortOrder
+  chroma_stft_mean8?: Prisma.SortOrder
+  chroma_stft_mean9?: Prisma.SortOrder
+  chroma_stft_mean10?: Prisma.SortOrder
+  chroma_stft_mean11?: Prisma.SortOrder
+  chroma_stft_median?: Prisma.SortOrder
+  chroma_stft_median1?: Prisma.SortOrder
+  chroma_stft_median2?: Prisma.SortOrder
+  chroma_stft_median3?: Prisma.SortOrder
+  chroma_stft_median4?: Prisma.SortOrder
+  chroma_stft_median5?: Prisma.SortOrder
+  chroma_stft_median6?: Prisma.SortOrder
+  chroma_stft_median7?: Prisma.SortOrder
+  chroma_stft_median8?: Prisma.SortOrder
+  chroma_stft_median9?: Prisma.SortOrder
+  chroma_stft_median10?: Prisma.SortOrder
+  chroma_stft_median11?: Prisma.SortOrder
+  chroma_stft_min?: Prisma.SortOrder
+  chroma_stft_min1?: Prisma.SortOrder
+  chroma_stft_min2?: Prisma.SortOrder
+  chroma_stft_min3?: Prisma.SortOrder
+  chroma_stft_min4?: Prisma.SortOrder
+  chroma_stft_min5?: Prisma.SortOrder
+  chroma_stft_min6?: Prisma.SortOrder
+  chroma_stft_min7?: Prisma.SortOrder
+  chroma_stft_min8?: Prisma.SortOrder
+  chroma_stft_min9?: Prisma.SortOrder
+  chroma_stft_min10?: Prisma.SortOrder
+  chroma_stft_min11?: Prisma.SortOrder
+  chroma_stft_skew?: Prisma.SortOrder
+  chroma_stft_skew1?: Prisma.SortOrder
+  chroma_stft_skew2?: Prisma.SortOrder
+  chroma_stft_skew3?: Prisma.SortOrder
+  chroma_stft_skew4?: Prisma.SortOrder
+  chroma_stft_skew5?: Prisma.SortOrder
+  chroma_stft_skew6?: Prisma.SortOrder
+  chroma_stft_skew7?: Prisma.SortOrder
+  chroma_stft_skew8?: Prisma.SortOrder
+  chroma_stft_skew9?: Prisma.SortOrder
+  chroma_stft_skew10?: Prisma.SortOrder
+  chroma_stft_skew11?: Prisma.SortOrder
+  chroma_stft_std?: Prisma.SortOrder
+  chroma_stft_std1?: Prisma.SortOrder
+  chroma_stft_std2?: Prisma.SortOrder
+  chroma_stft_std3?: Prisma.SortOrder
+  chroma_stft_std4?: Prisma.SortOrder
+  chroma_stft_std5?: Prisma.SortOrder
+  chroma_stft_std6?: Prisma.SortOrder
+  chroma_stft_std7?: Prisma.SortOrder
+  chroma_stft_std8?: Prisma.SortOrder
+  chroma_stft_std9?: Prisma.SortOrder
+  chroma_stft_std10?: Prisma.SortOrder
+  chroma_stft_std11?: Prisma.SortOrder
+  mfcc_kurtosis?: Prisma.SortOrder
+  mfcc_kurtosis1?: Prisma.SortOrder
+  mfcc_kurtosis2?: Prisma.SortOrder
+  mfcc_kurtosis3?: Prisma.SortOrder
+  mfcc_kurtosis4?: Prisma.SortOrder
+  mfcc_kurtosis5?: Prisma.SortOrder
+  mfcc_kurtosis6?: Prisma.SortOrder
+  mfcc_kurtosis7?: Prisma.SortOrder
+  mfcc_kurtosis8?: Prisma.SortOrder
+  mfcc_kurtosis9?: Prisma.SortOrder
+  mfcc_kurtosis10?: Prisma.SortOrder
+  mfcc_kurtosis11?: Prisma.SortOrder
+  mfcc_kurtosis12?: Prisma.SortOrder
+  mfcc_kurtosis13?: Prisma.SortOrder
+  mfcc_kurtosis14?: Prisma.SortOrder
+  mfcc_kurtosis15?: Prisma.SortOrder
+  mfcc_kurtosis16?: Prisma.SortOrder
+  mfcc_kurtosis17?: Prisma.SortOrder
+  mfcc_kurtosis18?: Prisma.SortOrder
+  mfcc_kurtosis19?: Prisma.SortOrder
+  mfcc_max?: Prisma.SortOrder
+  mfcc_max1?: Prisma.SortOrder
+  mfcc_max2?: Prisma.SortOrder
+  mfcc_max3?: Prisma.SortOrder
+  mfcc_max4?: Prisma.SortOrder
+  mfcc_max5?: Prisma.SortOrder
+  mfcc_max6?: Prisma.SortOrder
+  mfcc_max7?: Prisma.SortOrder
+  mfcc_max8?: Prisma.SortOrder
+  mfcc_max9?: Prisma.SortOrder
+  mfcc_max10?: Prisma.SortOrder
+  mfcc_max11?: Prisma.SortOrder
+  mfcc_max12?: Prisma.SortOrder
+  mfcc_max13?: Prisma.SortOrder
+  mfcc_max14?: Prisma.SortOrder
+  mfcc_max15?: Prisma.SortOrder
+  mfcc_max16?: Prisma.SortOrder
+  mfcc_max17?: Prisma.SortOrder
+  mfcc_max18?: Prisma.SortOrder
+  mfcc_max19?: Prisma.SortOrder
+  mfcc_mean?: Prisma.SortOrder
+  mfcc_mean1?: Prisma.SortOrder
+  mfcc_mean2?: Prisma.SortOrder
+  mfcc_mean3?: Prisma.SortOrder
+  mfcc_mean4?: Prisma.SortOrder
+  mfcc_mean5?: Prisma.SortOrder
+  mfcc_mean6?: Prisma.SortOrder
+  mfcc_mean7?: Prisma.SortOrder
+  mfcc_mean8?: Prisma.SortOrder
+  mfcc_mean9?: Prisma.SortOrder
+  mfcc_mean10?: Prisma.SortOrder
+  mfcc_mean11?: Prisma.SortOrder
+  mfcc_mean12?: Prisma.SortOrder
+  mfcc_mean13?: Prisma.SortOrder
+  mfcc_mean14?: Prisma.SortOrder
+  mfcc_mean15?: Prisma.SortOrder
+  mfcc_mean16?: Prisma.SortOrder
+  mfcc_mean17?: Prisma.SortOrder
+  mfcc_mean18?: Prisma.SortOrder
+  mfcc_mean19?: Prisma.SortOrder
+  mfcc_median?: Prisma.SortOrder
+  mfcc_median1?: Prisma.SortOrder
+  mfcc_median2?: Prisma.SortOrder
+  mfcc_median3?: Prisma.SortOrder
+  mfcc_median4?: Prisma.SortOrder
+  mfcc_median5?: Prisma.SortOrder
+  mfcc_median6?: Prisma.SortOrder
+  mfcc_median7?: Prisma.SortOrder
+  mfcc_median8?: Prisma.SortOrder
+  mfcc_median9?: Prisma.SortOrder
+  mfcc_median10?: Prisma.SortOrder
+  mfcc_median11?: Prisma.SortOrder
+  mfcc_median12?: Prisma.SortOrder
+  mfcc_median13?: Prisma.SortOrder
+  mfcc_median14?: Prisma.SortOrder
+  mfcc_median15?: Prisma.SortOrder
+  mfcc_median16?: Prisma.SortOrder
+  mfcc_median17?: Prisma.SortOrder
+  mfcc_median18?: Prisma.SortOrder
+  mfcc_median19?: Prisma.SortOrder
+  mfcc_min?: Prisma.SortOrder
+  mfcc_min1?: Prisma.SortOrder
+  mfcc_min2?: Prisma.SortOrder
+  mfcc_min3?: Prisma.SortOrder
+  mfcc_min4?: Prisma.SortOrder
+  mfcc_min5?: Prisma.SortOrder
+  mfcc_min6?: Prisma.SortOrder
+  mfcc_min7?: Prisma.SortOrder
+  mfcc_min8?: Prisma.SortOrder
+  mfcc_min9?: Prisma.SortOrder
+  mfcc_min10?: Prisma.SortOrder
+  mfcc_min11?: Prisma.SortOrder
+  mfcc_min12?: Prisma.SortOrder
+  mfcc_min13?: Prisma.SortOrder
+  mfcc_min14?: Prisma.SortOrder
+  mfcc_min15?: Prisma.SortOrder
+  mfcc_min16?: Prisma.SortOrder
+  mfcc_min17?: Prisma.SortOrder
+  mfcc_min18?: Prisma.SortOrder
+  mfcc_min19?: Prisma.SortOrder
+  mfcc_skew?: Prisma.SortOrder
+  mfcc_skew1?: Prisma.SortOrder
+  mfcc_skew2?: Prisma.SortOrder
+  mfcc_skew3?: Prisma.SortOrder
+  mfcc_skew4?: Prisma.SortOrder
+  mfcc_skew5?: Prisma.SortOrder
+  mfcc_skew6?: Prisma.SortOrder
+  mfcc_skew7?: Prisma.SortOrder
+  mfcc_skew8?: Prisma.SortOrder
+  mfcc_skew9?: Prisma.SortOrder
+  mfcc_skew10?: Prisma.SortOrder
+  mfcc_skew11?: Prisma.SortOrder
+  mfcc_skew12?: Prisma.SortOrder
+  mfcc_skew13?: Prisma.SortOrder
+  mfcc_skew14?: Prisma.SortOrder
+  mfcc_skew15?: Prisma.SortOrder
+  mfcc_skew16?: Prisma.SortOrder
+  mfcc_skew17?: Prisma.SortOrder
+  mfcc_skew18?: Prisma.SortOrder
+  mfcc_skew19?: Prisma.SortOrder
+  mfcc_std?: Prisma.SortOrder
+  mfcc_std1?: Prisma.SortOrder
+  mfcc_std2?: Prisma.SortOrder
+  mfcc_std3?: Prisma.SortOrder
+  mfcc_std4?: Prisma.SortOrder
+  mfcc_std5?: Prisma.SortOrder
+  mfcc_std6?: Prisma.SortOrder
+  mfcc_std7?: Prisma.SortOrder
+  mfcc_std8?: Prisma.SortOrder
+  mfcc_std9?: Prisma.SortOrder
+  mfcc_std10?: Prisma.SortOrder
+  mfcc_std11?: Prisma.SortOrder
+  mfcc_std12?: Prisma.SortOrder
+  mfcc_std13?: Prisma.SortOrder
+  mfcc_std14?: Prisma.SortOrder
+  mfcc_std15?: Prisma.SortOrder
+  mfcc_std16?: Prisma.SortOrder
+  mfcc_std17?: Prisma.SortOrder
+  mfcc_std18?: Prisma.SortOrder
+  mfcc_std19?: Prisma.SortOrder
+  rmse_kurtosis?: Prisma.SortOrder
+  rmse_max?: Prisma.SortOrder
+  rmse_mean?: Prisma.SortOrder
+  rmse_median?: Prisma.SortOrder
+  rmse_min?: Prisma.SortOrder
+  rmse_skew?: Prisma.SortOrder
+  rmse_std?: Prisma.SortOrder
+  spectral_bandwidth_kurtosis?: Prisma.SortOrder
+  spectral_bandwidth_max?: Prisma.SortOrder
+  spectral_bandwidth_mean?: Prisma.SortOrder
+  spectral_bandwidth_median?: Prisma.SortOrder
+  spectral_bandwidth_min?: Prisma.SortOrder
+  spectral_bandwidth_skew?: Prisma.SortOrder
+  spectral_bandwidth_std?: Prisma.SortOrder
+  spectral_centroid_kurtosis?: Prisma.SortOrder
+  spectral_centroid_max?: Prisma.SortOrder
+  spectral_centroid_mean?: Prisma.SortOrder
+  spectral_centroid_median?: Prisma.SortOrder
+  spectral_centroid_min?: Prisma.SortOrder
+  spectral_centroid_skew?: Prisma.SortOrder
+  spectral_centroid_std?: Prisma.SortOrder
+  spectral_contrast_kurtosis?: Prisma.SortOrder
+  spectral_contrast_kurtosis1?: Prisma.SortOrder
+  spectral_contrast_kurtosis2?: Prisma.SortOrder
+  spectral_contrast_kurtosis3?: Prisma.SortOrder
+  spectral_contrast_kurtosis4?: Prisma.SortOrder
+  spectral_contrast_kurtosis5?: Prisma.SortOrder
+  spectral_contrast_kurtosis6?: Prisma.SortOrder
+  spectral_contrast_max?: Prisma.SortOrder
+  spectral_contrast_max1?: Prisma.SortOrder
+  spectral_contrast_max2?: Prisma.SortOrder
+  spectral_contrast_max3?: Prisma.SortOrder
+  spectral_contrast_max4?: Prisma.SortOrder
+  spectral_contrast_max5?: Prisma.SortOrder
+  spectral_contrast_max6?: Prisma.SortOrder
+  spectral_contrast_mean?: Prisma.SortOrder
+  spectral_contrast_mean1?: Prisma.SortOrder
+  spectral_contrast_mean2?: Prisma.SortOrder
+  spectral_contrast_mean3?: Prisma.SortOrder
+  spectral_contrast_mean4?: Prisma.SortOrder
+  spectral_contrast_mean5?: Prisma.SortOrder
+  spectral_contrast_mean6?: Prisma.SortOrder
+  spectral_contrast_median?: Prisma.SortOrder
+  spectral_contrast_median1?: Prisma.SortOrder
+  spectral_contrast_median2?: Prisma.SortOrder
+  spectral_contrast_median3?: Prisma.SortOrder
+  spectral_contrast_median4?: Prisma.SortOrder
+  spectral_contrast_median5?: Prisma.SortOrder
+  spectral_contrast_median6?: Prisma.SortOrder
+  spectral_contrast_min?: Prisma.SortOrder
+  spectral_contrast_min1?: Prisma.SortOrder
+  spectral_contrast_min2?: Prisma.SortOrder
+  spectral_contrast_min3?: Prisma.SortOrder
+  spectral_contrast_min4?: Prisma.SortOrder
+  spectral_contrast_min5?: Prisma.SortOrder
+  spectral_contrast_min6?: Prisma.SortOrder
+  spectral_contrast_skew?: Prisma.SortOrder
+  spectral_contrast_skew1?: Prisma.SortOrder
+  spectral_contrast_skew2?: Prisma.SortOrder
+  spectral_contrast_skew3?: Prisma.SortOrder
+  spectral_contrast_skew4?: Prisma.SortOrder
+  spectral_contrast_skew5?: Prisma.SortOrder
+  spectral_contrast_skew6?: Prisma.SortOrder
+  spectral_contrast_std?: Prisma.SortOrder
+  spectral_contrast_std1?: Prisma.SortOrder
+  spectral_contrast_std2?: Prisma.SortOrder
+  spectral_contrast_std3?: Prisma.SortOrder
+  spectral_contrast_std4?: Prisma.SortOrder
+  spectral_contrast_std5?: Prisma.SortOrder
+  spectral_contrast_std6?: Prisma.SortOrder
+  spectral_rolloff_kurtosis?: Prisma.SortOrder
+  spectral_rolloff_max?: Prisma.SortOrder
+  spectral_rolloff_mean?: Prisma.SortOrder
+  spectral_rolloff_median?: Prisma.SortOrder
+  spectral_rolloff_min?: Prisma.SortOrder
+  spectral_rolloff_skew?: Prisma.SortOrder
+  spectral_rolloff_std?: Prisma.SortOrder
+  tonnetz_kurtosis?: Prisma.SortOrder
+  tonnetz_kurtosis1?: Prisma.SortOrder
+  tonnetz_kurtosis2?: Prisma.SortOrder
+  tonnetz_kurtosis3?: Prisma.SortOrder
+  tonnetz_kurtosis4?: Prisma.SortOrder
+  tonnetz_kurtosis5?: Prisma.SortOrder
+  tonnetz_max?: Prisma.SortOrder
+  tonnetz_max1?: Prisma.SortOrder
+  tonnetz_max2?: Prisma.SortOrder
+  tonnetz_max3?: Prisma.SortOrder
+  tonnetz_max4?: Prisma.SortOrder
+  tonnetz_max5?: Prisma.SortOrder
+  tonnetz_mean?: Prisma.SortOrder
+  tonnetz_mean1?: Prisma.SortOrder
+  tonnetz_mean2?: Prisma.SortOrder
+  tonnetz_mean3?: Prisma.SortOrder
+  tonnetz_mean4?: Prisma.SortOrder
+  tonnetz_mean5?: Prisma.SortOrder
+  tonnetz_median?: Prisma.SortOrder
+  tonnetz_median1?: Prisma.SortOrder
+  tonnetz_median2?: Prisma.SortOrder
+  tonnetz_median3?: Prisma.SortOrder
+  tonnetz_median4?: Prisma.SortOrder
+  tonnetz_median5?: Prisma.SortOrder
+  tonnetz_min?: Prisma.SortOrder
+  tonnetz_min1?: Prisma.SortOrder
+  tonnetz_min2?: Prisma.SortOrder
+  tonnetz_min3?: Prisma.SortOrder
+  tonnetz_min4?: Prisma.SortOrder
+  tonnetz_min5?: Prisma.SortOrder
+  tonnetz_skew?: Prisma.SortOrder
+  tonnetz_skew1?: Prisma.SortOrder
+  tonnetz_skew2?: Prisma.SortOrder
+  tonnetz_skew3?: Prisma.SortOrder
+  tonnetz_skew4?: Prisma.SortOrder
+  tonnetz_skew5?: Prisma.SortOrder
+  tonnetz_std?: Prisma.SortOrder
+  tonnetz_std1?: Prisma.SortOrder
+  tonnetz_std2?: Prisma.SortOrder
+  tonnetz_std3?: Prisma.SortOrder
+  tonnetz_std4?: Prisma.SortOrder
+  tonnetz_std5?: Prisma.SortOrder
+  zcr_kurtosis?: Prisma.SortOrder
+  zcr_max?: Prisma.SortOrder
+  zcr_mean?: Prisma.SortOrder
+  zcr_median?: Prisma.SortOrder
+  zcr_min?: Prisma.SortOrder
+  zcr_skew?: Prisma.SortOrder
+  zcr_std?: Prisma.SortOrder
 }
 
 export type TemporalFeatureMinOrderByAggregateInput = {
   trackId?: Prisma.SortOrder
+  chroma_cens_kurtosis?: Prisma.SortOrder
+  chroma_cens_kurtosis1?: Prisma.SortOrder
+  chroma_cens_kurtosis2?: Prisma.SortOrder
+  chroma_cens_kurtosis3?: Prisma.SortOrder
+  chroma_cens_kurtosis4?: Prisma.SortOrder
+  chroma_cens_kurtosis5?: Prisma.SortOrder
+  chroma_cens_kurtosis6?: Prisma.SortOrder
+  chroma_cens_kurtosis7?: Prisma.SortOrder
+  chroma_cens_kurtosis8?: Prisma.SortOrder
+  chroma_cens_kurtosis9?: Prisma.SortOrder
+  chroma_cens_kurtosis10?: Prisma.SortOrder
+  chroma_cens_kurtosis11?: Prisma.SortOrder
+  chroma_cens_max?: Prisma.SortOrder
+  chroma_cens_max1?: Prisma.SortOrder
+  chroma_cens_max2?: Prisma.SortOrder
+  chroma_cens_max3?: Prisma.SortOrder
+  chroma_cens_max4?: Prisma.SortOrder
+  chroma_cens_max5?: Prisma.SortOrder
+  chroma_cens_max6?: Prisma.SortOrder
+  chroma_cens_max7?: Prisma.SortOrder
+  chroma_cens_max8?: Prisma.SortOrder
+  chroma_cens_max9?: Prisma.SortOrder
+  chroma_cens_max10?: Prisma.SortOrder
+  chroma_cens_max11?: Prisma.SortOrder
+  chroma_cens_mean?: Prisma.SortOrder
+  chroma_cens_mean1?: Prisma.SortOrder
+  chroma_cens_mean2?: Prisma.SortOrder
+  chroma_cens_mean3?: Prisma.SortOrder
+  chroma_cens_mean4?: Prisma.SortOrder
+  chroma_cens_mean5?: Prisma.SortOrder
+  chroma_cens_mean6?: Prisma.SortOrder
+  chroma_cens_mean7?: Prisma.SortOrder
+  chroma_cens_mean8?: Prisma.SortOrder
+  chroma_cens_mean9?: Prisma.SortOrder
+  chroma_cens_mean10?: Prisma.SortOrder
+  chroma_cens_mean11?: Prisma.SortOrder
+  chroma_cens_median?: Prisma.SortOrder
+  chroma_cens_median1?: Prisma.SortOrder
+  chroma_cens_median2?: Prisma.SortOrder
+  chroma_cens_median3?: Prisma.SortOrder
+  chroma_cens_median4?: Prisma.SortOrder
+  chroma_cens_median5?: Prisma.SortOrder
+  chroma_cens_median6?: Prisma.SortOrder
+  chroma_cens_median7?: Prisma.SortOrder
+  chroma_cens_median8?: Prisma.SortOrder
+  chroma_cens_median9?: Prisma.SortOrder
+  chroma_cens_median10?: Prisma.SortOrder
+  chroma_cens_median11?: Prisma.SortOrder
+  chroma_cens_min?: Prisma.SortOrder
+  chroma_cens_min1?: Prisma.SortOrder
+  chroma_cens_min2?: Prisma.SortOrder
+  chroma_cens_min3?: Prisma.SortOrder
+  chroma_cens_min4?: Prisma.SortOrder
+  chroma_cens_min5?: Prisma.SortOrder
+  chroma_cens_min6?: Prisma.SortOrder
+  chroma_cens_min7?: Prisma.SortOrder
+  chroma_cens_min8?: Prisma.SortOrder
+  chroma_cens_min9?: Prisma.SortOrder
+  chroma_cens_min10?: Prisma.SortOrder
+  chroma_cens_min11?: Prisma.SortOrder
+  chroma_cens_skew?: Prisma.SortOrder
+  chroma_cens_skew1?: Prisma.SortOrder
+  chroma_cens_skew2?: Prisma.SortOrder
+  chroma_cens_skew3?: Prisma.SortOrder
+  chroma_cens_skew4?: Prisma.SortOrder
+  chroma_cens_skew5?: Prisma.SortOrder
+  chroma_cens_skew6?: Prisma.SortOrder
+  chroma_cens_skew7?: Prisma.SortOrder
+  chroma_cens_skew8?: Prisma.SortOrder
+  chroma_cens_skew9?: Prisma.SortOrder
+  chroma_cens_skew10?: Prisma.SortOrder
+  chroma_cens_skew11?: Prisma.SortOrder
+  chroma_cens_std?: Prisma.SortOrder
+  chroma_cens_std1?: Prisma.SortOrder
+  chroma_cens_std2?: Prisma.SortOrder
+  chroma_cens_std3?: Prisma.SortOrder
+  chroma_cens_std4?: Prisma.SortOrder
+  chroma_cens_std5?: Prisma.SortOrder
+  chroma_cens_std6?: Prisma.SortOrder
+  chroma_cens_std7?: Prisma.SortOrder
+  chroma_cens_std8?: Prisma.SortOrder
+  chroma_cens_std9?: Prisma.SortOrder
+  chroma_cens_std10?: Prisma.SortOrder
+  chroma_cens_std11?: Prisma.SortOrder
+  chroma_cqt_kurtosis?: Prisma.SortOrder
+  chroma_cqt_kurtosis1?: Prisma.SortOrder
+  chroma_cqt_kurtosis2?: Prisma.SortOrder
+  chroma_cqt_kurtosis3?: Prisma.SortOrder
+  chroma_cqt_kurtosis4?: Prisma.SortOrder
+  chroma_cqt_kurtosis5?: Prisma.SortOrder
+  chroma_cqt_kurtosis6?: Prisma.SortOrder
+  chroma_cqt_kurtosis7?: Prisma.SortOrder
+  chroma_cqt_kurtosis8?: Prisma.SortOrder
+  chroma_cqt_kurtosis9?: Prisma.SortOrder
+  chroma_cqt_kurtosis10?: Prisma.SortOrder
+  chroma_cqt_kurtosis11?: Prisma.SortOrder
+  chroma_cqt_max?: Prisma.SortOrder
+  chroma_cqt_max1?: Prisma.SortOrder
+  chroma_cqt_max2?: Prisma.SortOrder
+  chroma_cqt_max3?: Prisma.SortOrder
+  chroma_cqt_max4?: Prisma.SortOrder
+  chroma_cqt_max5?: Prisma.SortOrder
+  chroma_cqt_max6?: Prisma.SortOrder
+  chroma_cqt_max7?: Prisma.SortOrder
+  chroma_cqt_max8?: Prisma.SortOrder
+  chroma_cqt_max9?: Prisma.SortOrder
+  chroma_cqt_max10?: Prisma.SortOrder
+  chroma_cqt_max11?: Prisma.SortOrder
+  chroma_cqt_mean?: Prisma.SortOrder
+  chroma_cqt_mean1?: Prisma.SortOrder
+  chroma_cqt_mean2?: Prisma.SortOrder
+  chroma_cqt_mean3?: Prisma.SortOrder
+  chroma_cqt_mean4?: Prisma.SortOrder
+  chroma_cqt_mean5?: Prisma.SortOrder
+  chroma_cqt_mean6?: Prisma.SortOrder
+  chroma_cqt_mean7?: Prisma.SortOrder
+  chroma_cqt_mean8?: Prisma.SortOrder
+  chroma_cqt_mean9?: Prisma.SortOrder
+  chroma_cqt_mean10?: Prisma.SortOrder
+  chroma_cqt_mean11?: Prisma.SortOrder
+  chroma_cqt_median?: Prisma.SortOrder
+  chroma_cqt_median1?: Prisma.SortOrder
+  chroma_cqt_median2?: Prisma.SortOrder
+  chroma_cqt_median3?: Prisma.SortOrder
+  chroma_cqt_median4?: Prisma.SortOrder
+  chroma_cqt_median5?: Prisma.SortOrder
+  chroma_cqt_median6?: Prisma.SortOrder
+  chroma_cqt_median7?: Prisma.SortOrder
+  chroma_cqt_median8?: Prisma.SortOrder
+  chroma_cqt_median9?: Prisma.SortOrder
+  chroma_cqt_median10?: Prisma.SortOrder
+  chroma_cqt_median11?: Prisma.SortOrder
+  chroma_cqt_min?: Prisma.SortOrder
+  chroma_cqt_min1?: Prisma.SortOrder
+  chroma_cqt_min2?: Prisma.SortOrder
+  chroma_cqt_min3?: Prisma.SortOrder
+  chroma_cqt_min4?: Prisma.SortOrder
+  chroma_cqt_min5?: Prisma.SortOrder
+  chroma_cqt_min6?: Prisma.SortOrder
+  chroma_cqt_min7?: Prisma.SortOrder
+  chroma_cqt_min8?: Prisma.SortOrder
+  chroma_cqt_min9?: Prisma.SortOrder
+  chroma_cqt_min10?: Prisma.SortOrder
+  chroma_cqt_min11?: Prisma.SortOrder
+  chroma_cqt_skew?: Prisma.SortOrder
+  chroma_cqt_skew1?: Prisma.SortOrder
+  chroma_cqt_skew2?: Prisma.SortOrder
+  chroma_cqt_skew3?: Prisma.SortOrder
+  chroma_cqt_skew4?: Prisma.SortOrder
+  chroma_cqt_skew5?: Prisma.SortOrder
+  chroma_cqt_skew6?: Prisma.SortOrder
+  chroma_cqt_skew7?: Prisma.SortOrder
+  chroma_cqt_skew8?: Prisma.SortOrder
+  chroma_cqt_skew9?: Prisma.SortOrder
+  chroma_cqt_skew10?: Prisma.SortOrder
+  chroma_cqt_skew11?: Prisma.SortOrder
+  chroma_cqt_std?: Prisma.SortOrder
+  chroma_cqt_std1?: Prisma.SortOrder
+  chroma_cqt_std2?: Prisma.SortOrder
+  chroma_cqt_std3?: Prisma.SortOrder
+  chroma_cqt_std4?: Prisma.SortOrder
+  chroma_cqt_std5?: Prisma.SortOrder
+  chroma_cqt_std6?: Prisma.SortOrder
+  chroma_cqt_std7?: Prisma.SortOrder
+  chroma_cqt_std8?: Prisma.SortOrder
+  chroma_cqt_std9?: Prisma.SortOrder
+  chroma_cqt_std10?: Prisma.SortOrder
+  chroma_cqt_std11?: Prisma.SortOrder
+  chroma_stft_kurtosis?: Prisma.SortOrder
+  chroma_stft_kurtosis1?: Prisma.SortOrder
+  chroma_stft_kurtosis2?: Prisma.SortOrder
+  chroma_stft_kurtosis3?: Prisma.SortOrder
+  chroma_stft_kurtosis4?: Prisma.SortOrder
+  chroma_stft_kurtosis5?: Prisma.SortOrder
+  chroma_stft_kurtosis6?: Prisma.SortOrder
+  chroma_stft_kurtosis7?: Prisma.SortOrder
+  chroma_stft_kurtosis8?: Prisma.SortOrder
+  chroma_stft_kurtosis9?: Prisma.SortOrder
+  chroma_stft_kurtosis10?: Prisma.SortOrder
+  chroma_stft_kurtosis11?: Prisma.SortOrder
+  chroma_stft_max?: Prisma.SortOrder
+  chroma_stft_max1?: Prisma.SortOrder
+  chroma_stft_max2?: Prisma.SortOrder
+  chroma_stft_max3?: Prisma.SortOrder
+  chroma_stft_max4?: Prisma.SortOrder
+  chroma_stft_max5?: Prisma.SortOrder
+  chroma_stft_max6?: Prisma.SortOrder
+  chroma_stft_max7?: Prisma.SortOrder
+  chroma_stft_max8?: Prisma.SortOrder
+  chroma_stft_max9?: Prisma.SortOrder
+  chroma_stft_max10?: Prisma.SortOrder
+  chroma_stft_max11?: Prisma.SortOrder
+  chroma_stft_mean?: Prisma.SortOrder
+  chroma_stft_mean1?: Prisma.SortOrder
+  chroma_stft_mean2?: Prisma.SortOrder
+  chroma_stft_mean3?: Prisma.SortOrder
+  chroma_stft_mean4?: Prisma.SortOrder
+  chroma_stft_mean5?: Prisma.SortOrder
+  chroma_stft_mean6?: Prisma.SortOrder
+  chroma_stft_mean7?: Prisma.SortOrder
+  chroma_stft_mean8?: Prisma.SortOrder
+  chroma_stft_mean9?: Prisma.SortOrder
+  chroma_stft_mean10?: Prisma.SortOrder
+  chroma_stft_mean11?: Prisma.SortOrder
+  chroma_stft_median?: Prisma.SortOrder
+  chroma_stft_median1?: Prisma.SortOrder
+  chroma_stft_median2?: Prisma.SortOrder
+  chroma_stft_median3?: Prisma.SortOrder
+  chroma_stft_median4?: Prisma.SortOrder
+  chroma_stft_median5?: Prisma.SortOrder
+  chroma_stft_median6?: Prisma.SortOrder
+  chroma_stft_median7?: Prisma.SortOrder
+  chroma_stft_median8?: Prisma.SortOrder
+  chroma_stft_median9?: Prisma.SortOrder
+  chroma_stft_median10?: Prisma.SortOrder
+  chroma_stft_median11?: Prisma.SortOrder
+  chroma_stft_min?: Prisma.SortOrder
+  chroma_stft_min1?: Prisma.SortOrder
+  chroma_stft_min2?: Prisma.SortOrder
+  chroma_stft_min3?: Prisma.SortOrder
+  chroma_stft_min4?: Prisma.SortOrder
+  chroma_stft_min5?: Prisma.SortOrder
+  chroma_stft_min6?: Prisma.SortOrder
+  chroma_stft_min7?: Prisma.SortOrder
+  chroma_stft_min8?: Prisma.SortOrder
+  chroma_stft_min9?: Prisma.SortOrder
+  chroma_stft_min10?: Prisma.SortOrder
+  chroma_stft_min11?: Prisma.SortOrder
+  chroma_stft_skew?: Prisma.SortOrder
+  chroma_stft_skew1?: Prisma.SortOrder
+  chroma_stft_skew2?: Prisma.SortOrder
+  chroma_stft_skew3?: Prisma.SortOrder
+  chroma_stft_skew4?: Prisma.SortOrder
+  chroma_stft_skew5?: Prisma.SortOrder
+  chroma_stft_skew6?: Prisma.SortOrder
+  chroma_stft_skew7?: Prisma.SortOrder
+  chroma_stft_skew8?: Prisma.SortOrder
+  chroma_stft_skew9?: Prisma.SortOrder
+  chroma_stft_skew10?: Prisma.SortOrder
+  chroma_stft_skew11?: Prisma.SortOrder
+  chroma_stft_std?: Prisma.SortOrder
+  chroma_stft_std1?: Prisma.SortOrder
+  chroma_stft_std2?: Prisma.SortOrder
+  chroma_stft_std3?: Prisma.SortOrder
+  chroma_stft_std4?: Prisma.SortOrder
+  chroma_stft_std5?: Prisma.SortOrder
+  chroma_stft_std6?: Prisma.SortOrder
+  chroma_stft_std7?: Prisma.SortOrder
+  chroma_stft_std8?: Prisma.SortOrder
+  chroma_stft_std9?: Prisma.SortOrder
+  chroma_stft_std10?: Prisma.SortOrder
+  chroma_stft_std11?: Prisma.SortOrder
+  mfcc_kurtosis?: Prisma.SortOrder
+  mfcc_kurtosis1?: Prisma.SortOrder
+  mfcc_kurtosis2?: Prisma.SortOrder
+  mfcc_kurtosis3?: Prisma.SortOrder
+  mfcc_kurtosis4?: Prisma.SortOrder
+  mfcc_kurtosis5?: Prisma.SortOrder
+  mfcc_kurtosis6?: Prisma.SortOrder
+  mfcc_kurtosis7?: Prisma.SortOrder
+  mfcc_kurtosis8?: Prisma.SortOrder
+  mfcc_kurtosis9?: Prisma.SortOrder
+  mfcc_kurtosis10?: Prisma.SortOrder
+  mfcc_kurtosis11?: Prisma.SortOrder
+  mfcc_kurtosis12?: Prisma.SortOrder
+  mfcc_kurtosis13?: Prisma.SortOrder
+  mfcc_kurtosis14?: Prisma.SortOrder
+  mfcc_kurtosis15?: Prisma.SortOrder
+  mfcc_kurtosis16?: Prisma.SortOrder
+  mfcc_kurtosis17?: Prisma.SortOrder
+  mfcc_kurtosis18?: Prisma.SortOrder
+  mfcc_kurtosis19?: Prisma.SortOrder
+  mfcc_max?: Prisma.SortOrder
+  mfcc_max1?: Prisma.SortOrder
+  mfcc_max2?: Prisma.SortOrder
+  mfcc_max3?: Prisma.SortOrder
+  mfcc_max4?: Prisma.SortOrder
+  mfcc_max5?: Prisma.SortOrder
+  mfcc_max6?: Prisma.SortOrder
+  mfcc_max7?: Prisma.SortOrder
+  mfcc_max8?: Prisma.SortOrder
+  mfcc_max9?: Prisma.SortOrder
+  mfcc_max10?: Prisma.SortOrder
+  mfcc_max11?: Prisma.SortOrder
+  mfcc_max12?: Prisma.SortOrder
+  mfcc_max13?: Prisma.SortOrder
+  mfcc_max14?: Prisma.SortOrder
+  mfcc_max15?: Prisma.SortOrder
+  mfcc_max16?: Prisma.SortOrder
+  mfcc_max17?: Prisma.SortOrder
+  mfcc_max18?: Prisma.SortOrder
+  mfcc_max19?: Prisma.SortOrder
+  mfcc_mean?: Prisma.SortOrder
+  mfcc_mean1?: Prisma.SortOrder
+  mfcc_mean2?: Prisma.SortOrder
+  mfcc_mean3?: Prisma.SortOrder
+  mfcc_mean4?: Prisma.SortOrder
+  mfcc_mean5?: Prisma.SortOrder
+  mfcc_mean6?: Prisma.SortOrder
+  mfcc_mean7?: Prisma.SortOrder
+  mfcc_mean8?: Prisma.SortOrder
+  mfcc_mean9?: Prisma.SortOrder
+  mfcc_mean10?: Prisma.SortOrder
+  mfcc_mean11?: Prisma.SortOrder
+  mfcc_mean12?: Prisma.SortOrder
+  mfcc_mean13?: Prisma.SortOrder
+  mfcc_mean14?: Prisma.SortOrder
+  mfcc_mean15?: Prisma.SortOrder
+  mfcc_mean16?: Prisma.SortOrder
+  mfcc_mean17?: Prisma.SortOrder
+  mfcc_mean18?: Prisma.SortOrder
+  mfcc_mean19?: Prisma.SortOrder
+  mfcc_median?: Prisma.SortOrder
+  mfcc_median1?: Prisma.SortOrder
+  mfcc_median2?: Prisma.SortOrder
+  mfcc_median3?: Prisma.SortOrder
+  mfcc_median4?: Prisma.SortOrder
+  mfcc_median5?: Prisma.SortOrder
+  mfcc_median6?: Prisma.SortOrder
+  mfcc_median7?: Prisma.SortOrder
+  mfcc_median8?: Prisma.SortOrder
+  mfcc_median9?: Prisma.SortOrder
+  mfcc_median10?: Prisma.SortOrder
+  mfcc_median11?: Prisma.SortOrder
+  mfcc_median12?: Prisma.SortOrder
+  mfcc_median13?: Prisma.SortOrder
+  mfcc_median14?: Prisma.SortOrder
+  mfcc_median15?: Prisma.SortOrder
+  mfcc_median16?: Prisma.SortOrder
+  mfcc_median17?: Prisma.SortOrder
+  mfcc_median18?: Prisma.SortOrder
+  mfcc_median19?: Prisma.SortOrder
+  mfcc_min?: Prisma.SortOrder
+  mfcc_min1?: Prisma.SortOrder
+  mfcc_min2?: Prisma.SortOrder
+  mfcc_min3?: Prisma.SortOrder
+  mfcc_min4?: Prisma.SortOrder
+  mfcc_min5?: Prisma.SortOrder
+  mfcc_min6?: Prisma.SortOrder
+  mfcc_min7?: Prisma.SortOrder
+  mfcc_min8?: Prisma.SortOrder
+  mfcc_min9?: Prisma.SortOrder
+  mfcc_min10?: Prisma.SortOrder
+  mfcc_min11?: Prisma.SortOrder
+  mfcc_min12?: Prisma.SortOrder
+  mfcc_min13?: Prisma.SortOrder
+  mfcc_min14?: Prisma.SortOrder
+  mfcc_min15?: Prisma.SortOrder
+  mfcc_min16?: Prisma.SortOrder
+  mfcc_min17?: Prisma.SortOrder
+  mfcc_min18?: Prisma.SortOrder
+  mfcc_min19?: Prisma.SortOrder
+  mfcc_skew?: Prisma.SortOrder
+  mfcc_skew1?: Prisma.SortOrder
+  mfcc_skew2?: Prisma.SortOrder
+  mfcc_skew3?: Prisma.SortOrder
+  mfcc_skew4?: Prisma.SortOrder
+  mfcc_skew5?: Prisma.SortOrder
+  mfcc_skew6?: Prisma.SortOrder
+  mfcc_skew7?: Prisma.SortOrder
+  mfcc_skew8?: Prisma.SortOrder
+  mfcc_skew9?: Prisma.SortOrder
+  mfcc_skew10?: Prisma.SortOrder
+  mfcc_skew11?: Prisma.SortOrder
+  mfcc_skew12?: Prisma.SortOrder
+  mfcc_skew13?: Prisma.SortOrder
+  mfcc_skew14?: Prisma.SortOrder
+  mfcc_skew15?: Prisma.SortOrder
+  mfcc_skew16?: Prisma.SortOrder
+  mfcc_skew17?: Prisma.SortOrder
+  mfcc_skew18?: Prisma.SortOrder
+  mfcc_skew19?: Prisma.SortOrder
+  mfcc_std?: Prisma.SortOrder
+  mfcc_std1?: Prisma.SortOrder
+  mfcc_std2?: Prisma.SortOrder
+  mfcc_std3?: Prisma.SortOrder
+  mfcc_std4?: Prisma.SortOrder
+  mfcc_std5?: Prisma.SortOrder
+  mfcc_std6?: Prisma.SortOrder
+  mfcc_std7?: Prisma.SortOrder
+  mfcc_std8?: Prisma.SortOrder
+  mfcc_std9?: Prisma.SortOrder
+  mfcc_std10?: Prisma.SortOrder
+  mfcc_std11?: Prisma.SortOrder
+  mfcc_std12?: Prisma.SortOrder
+  mfcc_std13?: Prisma.SortOrder
+  mfcc_std14?: Prisma.SortOrder
+  mfcc_std15?: Prisma.SortOrder
+  mfcc_std16?: Prisma.SortOrder
+  mfcc_std17?: Prisma.SortOrder
+  mfcc_std18?: Prisma.SortOrder
+  mfcc_std19?: Prisma.SortOrder
+  rmse_kurtosis?: Prisma.SortOrder
+  rmse_max?: Prisma.SortOrder
+  rmse_mean?: Prisma.SortOrder
+  rmse_median?: Prisma.SortOrder
+  rmse_min?: Prisma.SortOrder
+  rmse_skew?: Prisma.SortOrder
+  rmse_std?: Prisma.SortOrder
+  spectral_bandwidth_kurtosis?: Prisma.SortOrder
+  spectral_bandwidth_max?: Prisma.SortOrder
+  spectral_bandwidth_mean?: Prisma.SortOrder
+  spectral_bandwidth_median?: Prisma.SortOrder
+  spectral_bandwidth_min?: Prisma.SortOrder
+  spectral_bandwidth_skew?: Prisma.SortOrder
+  spectral_bandwidth_std?: Prisma.SortOrder
+  spectral_centroid_kurtosis?: Prisma.SortOrder
+  spectral_centroid_max?: Prisma.SortOrder
+  spectral_centroid_mean?: Prisma.SortOrder
+  spectral_centroid_median?: Prisma.SortOrder
+  spectral_centroid_min?: Prisma.SortOrder
+  spectral_centroid_skew?: Prisma.SortOrder
+  spectral_centroid_std?: Prisma.SortOrder
+  spectral_contrast_kurtosis?: Prisma.SortOrder
+  spectral_contrast_kurtosis1?: Prisma.SortOrder
+  spectral_contrast_kurtosis2?: Prisma.SortOrder
+  spectral_contrast_kurtosis3?: Prisma.SortOrder
+  spectral_contrast_kurtosis4?: Prisma.SortOrder
+  spectral_contrast_kurtosis5?: Prisma.SortOrder
+  spectral_contrast_kurtosis6?: Prisma.SortOrder
+  spectral_contrast_max?: Prisma.SortOrder
+  spectral_contrast_max1?: Prisma.SortOrder
+  spectral_contrast_max2?: Prisma.SortOrder
+  spectral_contrast_max3?: Prisma.SortOrder
+  spectral_contrast_max4?: Prisma.SortOrder
+  spectral_contrast_max5?: Prisma.SortOrder
+  spectral_contrast_max6?: Prisma.SortOrder
+  spectral_contrast_mean?: Prisma.SortOrder
+  spectral_contrast_mean1?: Prisma.SortOrder
+  spectral_contrast_mean2?: Prisma.SortOrder
+  spectral_contrast_mean3?: Prisma.SortOrder
+  spectral_contrast_mean4?: Prisma.SortOrder
+  spectral_contrast_mean5?: Prisma.SortOrder
+  spectral_contrast_mean6?: Prisma.SortOrder
+  spectral_contrast_median?: Prisma.SortOrder
+  spectral_contrast_median1?: Prisma.SortOrder
+  spectral_contrast_median2?: Prisma.SortOrder
+  spectral_contrast_median3?: Prisma.SortOrder
+  spectral_contrast_median4?: Prisma.SortOrder
+  spectral_contrast_median5?: Prisma.SortOrder
+  spectral_contrast_median6?: Prisma.SortOrder
+  spectral_contrast_min?: Prisma.SortOrder
+  spectral_contrast_min1?: Prisma.SortOrder
+  spectral_contrast_min2?: Prisma.SortOrder
+  spectral_contrast_min3?: Prisma.SortOrder
+  spectral_contrast_min4?: Prisma.SortOrder
+  spectral_contrast_min5?: Prisma.SortOrder
+  spectral_contrast_min6?: Prisma.SortOrder
+  spectral_contrast_skew?: Prisma.SortOrder
+  spectral_contrast_skew1?: Prisma.SortOrder
+  spectral_contrast_skew2?: Prisma.SortOrder
+  spectral_contrast_skew3?: Prisma.SortOrder
+  spectral_contrast_skew4?: Prisma.SortOrder
+  spectral_contrast_skew5?: Prisma.SortOrder
+  spectral_contrast_skew6?: Prisma.SortOrder
+  spectral_contrast_std?: Prisma.SortOrder
+  spectral_contrast_std1?: Prisma.SortOrder
+  spectral_contrast_std2?: Prisma.SortOrder
+  spectral_contrast_std3?: Prisma.SortOrder
+  spectral_contrast_std4?: Prisma.SortOrder
+  spectral_contrast_std5?: Prisma.SortOrder
+  spectral_contrast_std6?: Prisma.SortOrder
+  spectral_rolloff_kurtosis?: Prisma.SortOrder
+  spectral_rolloff_max?: Prisma.SortOrder
+  spectral_rolloff_mean?: Prisma.SortOrder
+  spectral_rolloff_median?: Prisma.SortOrder
+  spectral_rolloff_min?: Prisma.SortOrder
+  spectral_rolloff_skew?: Prisma.SortOrder
+  spectral_rolloff_std?: Prisma.SortOrder
+  tonnetz_kurtosis?: Prisma.SortOrder
+  tonnetz_kurtosis1?: Prisma.SortOrder
+  tonnetz_kurtosis2?: Prisma.SortOrder
+  tonnetz_kurtosis3?: Prisma.SortOrder
+  tonnetz_kurtosis4?: Prisma.SortOrder
+  tonnetz_kurtosis5?: Prisma.SortOrder
+  tonnetz_max?: Prisma.SortOrder
+  tonnetz_max1?: Prisma.SortOrder
+  tonnetz_max2?: Prisma.SortOrder
+  tonnetz_max3?: Prisma.SortOrder
+  tonnetz_max4?: Prisma.SortOrder
+  tonnetz_max5?: Prisma.SortOrder
+  tonnetz_mean?: Prisma.SortOrder
+  tonnetz_mean1?: Prisma.SortOrder
+  tonnetz_mean2?: Prisma.SortOrder
+  tonnetz_mean3?: Prisma.SortOrder
+  tonnetz_mean4?: Prisma.SortOrder
+  tonnetz_mean5?: Prisma.SortOrder
+  tonnetz_median?: Prisma.SortOrder
+  tonnetz_median1?: Prisma.SortOrder
+  tonnetz_median2?: Prisma.SortOrder
+  tonnetz_median3?: Prisma.SortOrder
+  tonnetz_median4?: Prisma.SortOrder
+  tonnetz_median5?: Prisma.SortOrder
+  tonnetz_min?: Prisma.SortOrder
+  tonnetz_min1?: Prisma.SortOrder
+  tonnetz_min2?: Prisma.SortOrder
+  tonnetz_min3?: Prisma.SortOrder
+  tonnetz_min4?: Prisma.SortOrder
+  tonnetz_min5?: Prisma.SortOrder
+  tonnetz_skew?: Prisma.SortOrder
+  tonnetz_skew1?: Prisma.SortOrder
+  tonnetz_skew2?: Prisma.SortOrder
+  tonnetz_skew3?: Prisma.SortOrder
+  tonnetz_skew4?: Prisma.SortOrder
+  tonnetz_skew5?: Prisma.SortOrder
+  tonnetz_std?: Prisma.SortOrder
+  tonnetz_std1?: Prisma.SortOrder
+  tonnetz_std2?: Prisma.SortOrder
+  tonnetz_std3?: Prisma.SortOrder
+  tonnetz_std4?: Prisma.SortOrder
+  tonnetz_std5?: Prisma.SortOrder
+  zcr_kurtosis?: Prisma.SortOrder
+  zcr_max?: Prisma.SortOrder
+  zcr_mean?: Prisma.SortOrder
+  zcr_median?: Prisma.SortOrder
+  zcr_min?: Prisma.SortOrder
+  zcr_skew?: Prisma.SortOrder
+  zcr_std?: Prisma.SortOrder
+}
+
+export type TemporalFeatureSumOrderByAggregateInput = {
+  chroma_cens_kurtosis?: Prisma.SortOrder
+  chroma_cens_kurtosis1?: Prisma.SortOrder
+  chroma_cens_kurtosis2?: Prisma.SortOrder
+  chroma_cens_kurtosis3?: Prisma.SortOrder
+  chroma_cens_kurtosis4?: Prisma.SortOrder
+  chroma_cens_kurtosis5?: Prisma.SortOrder
+  chroma_cens_kurtosis6?: Prisma.SortOrder
+  chroma_cens_kurtosis7?: Prisma.SortOrder
+  chroma_cens_kurtosis8?: Prisma.SortOrder
+  chroma_cens_kurtosis9?: Prisma.SortOrder
+  chroma_cens_kurtosis10?: Prisma.SortOrder
+  chroma_cens_kurtosis11?: Prisma.SortOrder
+  chroma_cens_max?: Prisma.SortOrder
+  chroma_cens_max1?: Prisma.SortOrder
+  chroma_cens_max2?: Prisma.SortOrder
+  chroma_cens_max3?: Prisma.SortOrder
+  chroma_cens_max4?: Prisma.SortOrder
+  chroma_cens_max5?: Prisma.SortOrder
+  chroma_cens_max6?: Prisma.SortOrder
+  chroma_cens_max7?: Prisma.SortOrder
+  chroma_cens_max8?: Prisma.SortOrder
+  chroma_cens_max9?: Prisma.SortOrder
+  chroma_cens_max10?: Prisma.SortOrder
+  chroma_cens_max11?: Prisma.SortOrder
+  chroma_cens_mean?: Prisma.SortOrder
+  chroma_cens_mean1?: Prisma.SortOrder
+  chroma_cens_mean2?: Prisma.SortOrder
+  chroma_cens_mean3?: Prisma.SortOrder
+  chroma_cens_mean4?: Prisma.SortOrder
+  chroma_cens_mean5?: Prisma.SortOrder
+  chroma_cens_mean6?: Prisma.SortOrder
+  chroma_cens_mean7?: Prisma.SortOrder
+  chroma_cens_mean8?: Prisma.SortOrder
+  chroma_cens_mean9?: Prisma.SortOrder
+  chroma_cens_mean10?: Prisma.SortOrder
+  chroma_cens_mean11?: Prisma.SortOrder
+  chroma_cens_median?: Prisma.SortOrder
+  chroma_cens_median1?: Prisma.SortOrder
+  chroma_cens_median2?: Prisma.SortOrder
+  chroma_cens_median3?: Prisma.SortOrder
+  chroma_cens_median4?: Prisma.SortOrder
+  chroma_cens_median5?: Prisma.SortOrder
+  chroma_cens_median6?: Prisma.SortOrder
+  chroma_cens_median7?: Prisma.SortOrder
+  chroma_cens_median8?: Prisma.SortOrder
+  chroma_cens_median9?: Prisma.SortOrder
+  chroma_cens_median10?: Prisma.SortOrder
+  chroma_cens_median11?: Prisma.SortOrder
+  chroma_cens_min?: Prisma.SortOrder
+  chroma_cens_min1?: Prisma.SortOrder
+  chroma_cens_min2?: Prisma.SortOrder
+  chroma_cens_min3?: Prisma.SortOrder
+  chroma_cens_min4?: Prisma.SortOrder
+  chroma_cens_min5?: Prisma.SortOrder
+  chroma_cens_min6?: Prisma.SortOrder
+  chroma_cens_min7?: Prisma.SortOrder
+  chroma_cens_min8?: Prisma.SortOrder
+  chroma_cens_min9?: Prisma.SortOrder
+  chroma_cens_min10?: Prisma.SortOrder
+  chroma_cens_min11?: Prisma.SortOrder
+  chroma_cens_skew?: Prisma.SortOrder
+  chroma_cens_skew1?: Prisma.SortOrder
+  chroma_cens_skew2?: Prisma.SortOrder
+  chroma_cens_skew3?: Prisma.SortOrder
+  chroma_cens_skew4?: Prisma.SortOrder
+  chroma_cens_skew5?: Prisma.SortOrder
+  chroma_cens_skew6?: Prisma.SortOrder
+  chroma_cens_skew7?: Prisma.SortOrder
+  chroma_cens_skew8?: Prisma.SortOrder
+  chroma_cens_skew9?: Prisma.SortOrder
+  chroma_cens_skew10?: Prisma.SortOrder
+  chroma_cens_skew11?: Prisma.SortOrder
+  chroma_cens_std?: Prisma.SortOrder
+  chroma_cens_std1?: Prisma.SortOrder
+  chroma_cens_std2?: Prisma.SortOrder
+  chroma_cens_std3?: Prisma.SortOrder
+  chroma_cens_std4?: Prisma.SortOrder
+  chroma_cens_std5?: Prisma.SortOrder
+  chroma_cens_std6?: Prisma.SortOrder
+  chroma_cens_std7?: Prisma.SortOrder
+  chroma_cens_std8?: Prisma.SortOrder
+  chroma_cens_std9?: Prisma.SortOrder
+  chroma_cens_std10?: Prisma.SortOrder
+  chroma_cens_std11?: Prisma.SortOrder
+  chroma_cqt_kurtosis?: Prisma.SortOrder
+  chroma_cqt_kurtosis1?: Prisma.SortOrder
+  chroma_cqt_kurtosis2?: Prisma.SortOrder
+  chroma_cqt_kurtosis3?: Prisma.SortOrder
+  chroma_cqt_kurtosis4?: Prisma.SortOrder
+  chroma_cqt_kurtosis5?: Prisma.SortOrder
+  chroma_cqt_kurtosis6?: Prisma.SortOrder
+  chroma_cqt_kurtosis7?: Prisma.SortOrder
+  chroma_cqt_kurtosis8?: Prisma.SortOrder
+  chroma_cqt_kurtosis9?: Prisma.SortOrder
+  chroma_cqt_kurtosis10?: Prisma.SortOrder
+  chroma_cqt_kurtosis11?: Prisma.SortOrder
+  chroma_cqt_max?: Prisma.SortOrder
+  chroma_cqt_max1?: Prisma.SortOrder
+  chroma_cqt_max2?: Prisma.SortOrder
+  chroma_cqt_max3?: Prisma.SortOrder
+  chroma_cqt_max4?: Prisma.SortOrder
+  chroma_cqt_max5?: Prisma.SortOrder
+  chroma_cqt_max6?: Prisma.SortOrder
+  chroma_cqt_max7?: Prisma.SortOrder
+  chroma_cqt_max8?: Prisma.SortOrder
+  chroma_cqt_max9?: Prisma.SortOrder
+  chroma_cqt_max10?: Prisma.SortOrder
+  chroma_cqt_max11?: Prisma.SortOrder
+  chroma_cqt_mean?: Prisma.SortOrder
+  chroma_cqt_mean1?: Prisma.SortOrder
+  chroma_cqt_mean2?: Prisma.SortOrder
+  chroma_cqt_mean3?: Prisma.SortOrder
+  chroma_cqt_mean4?: Prisma.SortOrder
+  chroma_cqt_mean5?: Prisma.SortOrder
+  chroma_cqt_mean6?: Prisma.SortOrder
+  chroma_cqt_mean7?: Prisma.SortOrder
+  chroma_cqt_mean8?: Prisma.SortOrder
+  chroma_cqt_mean9?: Prisma.SortOrder
+  chroma_cqt_mean10?: Prisma.SortOrder
+  chroma_cqt_mean11?: Prisma.SortOrder
+  chroma_cqt_median?: Prisma.SortOrder
+  chroma_cqt_median1?: Prisma.SortOrder
+  chroma_cqt_median2?: Prisma.SortOrder
+  chroma_cqt_median3?: Prisma.SortOrder
+  chroma_cqt_median4?: Prisma.SortOrder
+  chroma_cqt_median5?: Prisma.SortOrder
+  chroma_cqt_median6?: Prisma.SortOrder
+  chroma_cqt_median7?: Prisma.SortOrder
+  chroma_cqt_median8?: Prisma.SortOrder
+  chroma_cqt_median9?: Prisma.SortOrder
+  chroma_cqt_median10?: Prisma.SortOrder
+  chroma_cqt_median11?: Prisma.SortOrder
+  chroma_cqt_min?: Prisma.SortOrder
+  chroma_cqt_min1?: Prisma.SortOrder
+  chroma_cqt_min2?: Prisma.SortOrder
+  chroma_cqt_min3?: Prisma.SortOrder
+  chroma_cqt_min4?: Prisma.SortOrder
+  chroma_cqt_min5?: Prisma.SortOrder
+  chroma_cqt_min6?: Prisma.SortOrder
+  chroma_cqt_min7?: Prisma.SortOrder
+  chroma_cqt_min8?: Prisma.SortOrder
+  chroma_cqt_min9?: Prisma.SortOrder
+  chroma_cqt_min10?: Prisma.SortOrder
+  chroma_cqt_min11?: Prisma.SortOrder
+  chroma_cqt_skew?: Prisma.SortOrder
+  chroma_cqt_skew1?: Prisma.SortOrder
+  chroma_cqt_skew2?: Prisma.SortOrder
+  chroma_cqt_skew3?: Prisma.SortOrder
+  chroma_cqt_skew4?: Prisma.SortOrder
+  chroma_cqt_skew5?: Prisma.SortOrder
+  chroma_cqt_skew6?: Prisma.SortOrder
+  chroma_cqt_skew7?: Prisma.SortOrder
+  chroma_cqt_skew8?: Prisma.SortOrder
+  chroma_cqt_skew9?: Prisma.SortOrder
+  chroma_cqt_skew10?: Prisma.SortOrder
+  chroma_cqt_skew11?: Prisma.SortOrder
+  chroma_cqt_std?: Prisma.SortOrder
+  chroma_cqt_std1?: Prisma.SortOrder
+  chroma_cqt_std2?: Prisma.SortOrder
+  chroma_cqt_std3?: Prisma.SortOrder
+  chroma_cqt_std4?: Prisma.SortOrder
+  chroma_cqt_std5?: Prisma.SortOrder
+  chroma_cqt_std6?: Prisma.SortOrder
+  chroma_cqt_std7?: Prisma.SortOrder
+  chroma_cqt_std8?: Prisma.SortOrder
+  chroma_cqt_std9?: Prisma.SortOrder
+  chroma_cqt_std10?: Prisma.SortOrder
+  chroma_cqt_std11?: Prisma.SortOrder
+  chroma_stft_kurtosis?: Prisma.SortOrder
+  chroma_stft_kurtosis1?: Prisma.SortOrder
+  chroma_stft_kurtosis2?: Prisma.SortOrder
+  chroma_stft_kurtosis3?: Prisma.SortOrder
+  chroma_stft_kurtosis4?: Prisma.SortOrder
+  chroma_stft_kurtosis5?: Prisma.SortOrder
+  chroma_stft_kurtosis6?: Prisma.SortOrder
+  chroma_stft_kurtosis7?: Prisma.SortOrder
+  chroma_stft_kurtosis8?: Prisma.SortOrder
+  chroma_stft_kurtosis9?: Prisma.SortOrder
+  chroma_stft_kurtosis10?: Prisma.SortOrder
+  chroma_stft_kurtosis11?: Prisma.SortOrder
+  chroma_stft_max?: Prisma.SortOrder
+  chroma_stft_max1?: Prisma.SortOrder
+  chroma_stft_max2?: Prisma.SortOrder
+  chroma_stft_max3?: Prisma.SortOrder
+  chroma_stft_max4?: Prisma.SortOrder
+  chroma_stft_max5?: Prisma.SortOrder
+  chroma_stft_max6?: Prisma.SortOrder
+  chroma_stft_max7?: Prisma.SortOrder
+  chroma_stft_max8?: Prisma.SortOrder
+  chroma_stft_max9?: Prisma.SortOrder
+  chroma_stft_max10?: Prisma.SortOrder
+  chroma_stft_max11?: Prisma.SortOrder
+  chroma_stft_mean?: Prisma.SortOrder
+  chroma_stft_mean1?: Prisma.SortOrder
+  chroma_stft_mean2?: Prisma.SortOrder
+  chroma_stft_mean3?: Prisma.SortOrder
+  chroma_stft_mean4?: Prisma.SortOrder
+  chroma_stft_mean5?: Prisma.SortOrder
+  chroma_stft_mean6?: Prisma.SortOrder
+  chroma_stft_mean7?: Prisma.SortOrder
+  chroma_stft_mean8?: Prisma.SortOrder
+  chroma_stft_mean9?: Prisma.SortOrder
+  chroma_stft_mean10?: Prisma.SortOrder
+  chroma_stft_mean11?: Prisma.SortOrder
+  chroma_stft_median?: Prisma.SortOrder
+  chroma_stft_median1?: Prisma.SortOrder
+  chroma_stft_median2?: Prisma.SortOrder
+  chroma_stft_median3?: Prisma.SortOrder
+  chroma_stft_median4?: Prisma.SortOrder
+  chroma_stft_median5?: Prisma.SortOrder
+  chroma_stft_median6?: Prisma.SortOrder
+  chroma_stft_median7?: Prisma.SortOrder
+  chroma_stft_median8?: Prisma.SortOrder
+  chroma_stft_median9?: Prisma.SortOrder
+  chroma_stft_median10?: Prisma.SortOrder
+  chroma_stft_median11?: Prisma.SortOrder
+  chroma_stft_min?: Prisma.SortOrder
+  chroma_stft_min1?: Prisma.SortOrder
+  chroma_stft_min2?: Prisma.SortOrder
+  chroma_stft_min3?: Prisma.SortOrder
+  chroma_stft_min4?: Prisma.SortOrder
+  chroma_stft_min5?: Prisma.SortOrder
+  chroma_stft_min6?: Prisma.SortOrder
+  chroma_stft_min7?: Prisma.SortOrder
+  chroma_stft_min8?: Prisma.SortOrder
+  chroma_stft_min9?: Prisma.SortOrder
+  chroma_stft_min10?: Prisma.SortOrder
+  chroma_stft_min11?: Prisma.SortOrder
+  chroma_stft_skew?: Prisma.SortOrder
+  chroma_stft_skew1?: Prisma.SortOrder
+  chroma_stft_skew2?: Prisma.SortOrder
+  chroma_stft_skew3?: Prisma.SortOrder
+  chroma_stft_skew4?: Prisma.SortOrder
+  chroma_stft_skew5?: Prisma.SortOrder
+  chroma_stft_skew6?: Prisma.SortOrder
+  chroma_stft_skew7?: Prisma.SortOrder
+  chroma_stft_skew8?: Prisma.SortOrder
+  chroma_stft_skew9?: Prisma.SortOrder
+  chroma_stft_skew10?: Prisma.SortOrder
+  chroma_stft_skew11?: Prisma.SortOrder
+  chroma_stft_std?: Prisma.SortOrder
+  chroma_stft_std1?: Prisma.SortOrder
+  chroma_stft_std2?: Prisma.SortOrder
+  chroma_stft_std3?: Prisma.SortOrder
+  chroma_stft_std4?: Prisma.SortOrder
+  chroma_stft_std5?: Prisma.SortOrder
+  chroma_stft_std6?: Prisma.SortOrder
+  chroma_stft_std7?: Prisma.SortOrder
+  chroma_stft_std8?: Prisma.SortOrder
+  chroma_stft_std9?: Prisma.SortOrder
+  chroma_stft_std10?: Prisma.SortOrder
+  chroma_stft_std11?: Prisma.SortOrder
+  mfcc_kurtosis?: Prisma.SortOrder
+  mfcc_kurtosis1?: Prisma.SortOrder
+  mfcc_kurtosis2?: Prisma.SortOrder
+  mfcc_kurtosis3?: Prisma.SortOrder
+  mfcc_kurtosis4?: Prisma.SortOrder
+  mfcc_kurtosis5?: Prisma.SortOrder
+  mfcc_kurtosis6?: Prisma.SortOrder
+  mfcc_kurtosis7?: Prisma.SortOrder
+  mfcc_kurtosis8?: Prisma.SortOrder
+  mfcc_kurtosis9?: Prisma.SortOrder
+  mfcc_kurtosis10?: Prisma.SortOrder
+  mfcc_kurtosis11?: Prisma.SortOrder
+  mfcc_kurtosis12?: Prisma.SortOrder
+  mfcc_kurtosis13?: Prisma.SortOrder
+  mfcc_kurtosis14?: Prisma.SortOrder
+  mfcc_kurtosis15?: Prisma.SortOrder
+  mfcc_kurtosis16?: Prisma.SortOrder
+  mfcc_kurtosis17?: Prisma.SortOrder
+  mfcc_kurtosis18?: Prisma.SortOrder
+  mfcc_kurtosis19?: Prisma.SortOrder
+  mfcc_max?: Prisma.SortOrder
+  mfcc_max1?: Prisma.SortOrder
+  mfcc_max2?: Prisma.SortOrder
+  mfcc_max3?: Prisma.SortOrder
+  mfcc_max4?: Prisma.SortOrder
+  mfcc_max5?: Prisma.SortOrder
+  mfcc_max6?: Prisma.SortOrder
+  mfcc_max7?: Prisma.SortOrder
+  mfcc_max8?: Prisma.SortOrder
+  mfcc_max9?: Prisma.SortOrder
+  mfcc_max10?: Prisma.SortOrder
+  mfcc_max11?: Prisma.SortOrder
+  mfcc_max12?: Prisma.SortOrder
+  mfcc_max13?: Prisma.SortOrder
+  mfcc_max14?: Prisma.SortOrder
+  mfcc_max15?: Prisma.SortOrder
+  mfcc_max16?: Prisma.SortOrder
+  mfcc_max17?: Prisma.SortOrder
+  mfcc_max18?: Prisma.SortOrder
+  mfcc_max19?: Prisma.SortOrder
+  mfcc_mean?: Prisma.SortOrder
+  mfcc_mean1?: Prisma.SortOrder
+  mfcc_mean2?: Prisma.SortOrder
+  mfcc_mean3?: Prisma.SortOrder
+  mfcc_mean4?: Prisma.SortOrder
+  mfcc_mean5?: Prisma.SortOrder
+  mfcc_mean6?: Prisma.SortOrder
+  mfcc_mean7?: Prisma.SortOrder
+  mfcc_mean8?: Prisma.SortOrder
+  mfcc_mean9?: Prisma.SortOrder
+  mfcc_mean10?: Prisma.SortOrder
+  mfcc_mean11?: Prisma.SortOrder
+  mfcc_mean12?: Prisma.SortOrder
+  mfcc_mean13?: Prisma.SortOrder
+  mfcc_mean14?: Prisma.SortOrder
+  mfcc_mean15?: Prisma.SortOrder
+  mfcc_mean16?: Prisma.SortOrder
+  mfcc_mean17?: Prisma.SortOrder
+  mfcc_mean18?: Prisma.SortOrder
+  mfcc_mean19?: Prisma.SortOrder
+  mfcc_median?: Prisma.SortOrder
+  mfcc_median1?: Prisma.SortOrder
+  mfcc_median2?: Prisma.SortOrder
+  mfcc_median3?: Prisma.SortOrder
+  mfcc_median4?: Prisma.SortOrder
+  mfcc_median5?: Prisma.SortOrder
+  mfcc_median6?: Prisma.SortOrder
+  mfcc_median7?: Prisma.SortOrder
+  mfcc_median8?: Prisma.SortOrder
+  mfcc_median9?: Prisma.SortOrder
+  mfcc_median10?: Prisma.SortOrder
+  mfcc_median11?: Prisma.SortOrder
+  mfcc_median12?: Prisma.SortOrder
+  mfcc_median13?: Prisma.SortOrder
+  mfcc_median14?: Prisma.SortOrder
+  mfcc_median15?: Prisma.SortOrder
+  mfcc_median16?: Prisma.SortOrder
+  mfcc_median17?: Prisma.SortOrder
+  mfcc_median18?: Prisma.SortOrder
+  mfcc_median19?: Prisma.SortOrder
+  mfcc_min?: Prisma.SortOrder
+  mfcc_min1?: Prisma.SortOrder
+  mfcc_min2?: Prisma.SortOrder
+  mfcc_min3?: Prisma.SortOrder
+  mfcc_min4?: Prisma.SortOrder
+  mfcc_min5?: Prisma.SortOrder
+  mfcc_min6?: Prisma.SortOrder
+  mfcc_min7?: Prisma.SortOrder
+  mfcc_min8?: Prisma.SortOrder
+  mfcc_min9?: Prisma.SortOrder
+  mfcc_min10?: Prisma.SortOrder
+  mfcc_min11?: Prisma.SortOrder
+  mfcc_min12?: Prisma.SortOrder
+  mfcc_min13?: Prisma.SortOrder
+  mfcc_min14?: Prisma.SortOrder
+  mfcc_min15?: Prisma.SortOrder
+  mfcc_min16?: Prisma.SortOrder
+  mfcc_min17?: Prisma.SortOrder
+  mfcc_min18?: Prisma.SortOrder
+  mfcc_min19?: Prisma.SortOrder
+  mfcc_skew?: Prisma.SortOrder
+  mfcc_skew1?: Prisma.SortOrder
+  mfcc_skew2?: Prisma.SortOrder
+  mfcc_skew3?: Prisma.SortOrder
+  mfcc_skew4?: Prisma.SortOrder
+  mfcc_skew5?: Prisma.SortOrder
+  mfcc_skew6?: Prisma.SortOrder
+  mfcc_skew7?: Prisma.SortOrder
+  mfcc_skew8?: Prisma.SortOrder
+  mfcc_skew9?: Prisma.SortOrder
+  mfcc_skew10?: Prisma.SortOrder
+  mfcc_skew11?: Prisma.SortOrder
+  mfcc_skew12?: Prisma.SortOrder
+  mfcc_skew13?: Prisma.SortOrder
+  mfcc_skew14?: Prisma.SortOrder
+  mfcc_skew15?: Prisma.SortOrder
+  mfcc_skew16?: Prisma.SortOrder
+  mfcc_skew17?: Prisma.SortOrder
+  mfcc_skew18?: Prisma.SortOrder
+  mfcc_skew19?: Prisma.SortOrder
+  mfcc_std?: Prisma.SortOrder
+  mfcc_std1?: Prisma.SortOrder
+  mfcc_std2?: Prisma.SortOrder
+  mfcc_std3?: Prisma.SortOrder
+  mfcc_std4?: Prisma.SortOrder
+  mfcc_std5?: Prisma.SortOrder
+  mfcc_std6?: Prisma.SortOrder
+  mfcc_std7?: Prisma.SortOrder
+  mfcc_std8?: Prisma.SortOrder
+  mfcc_std9?: Prisma.SortOrder
+  mfcc_std10?: Prisma.SortOrder
+  mfcc_std11?: Prisma.SortOrder
+  mfcc_std12?: Prisma.SortOrder
+  mfcc_std13?: Prisma.SortOrder
+  mfcc_std14?: Prisma.SortOrder
+  mfcc_std15?: Prisma.SortOrder
+  mfcc_std16?: Prisma.SortOrder
+  mfcc_std17?: Prisma.SortOrder
+  mfcc_std18?: Prisma.SortOrder
+  mfcc_std19?: Prisma.SortOrder
+  rmse_kurtosis?: Prisma.SortOrder
+  rmse_max?: Prisma.SortOrder
+  rmse_mean?: Prisma.SortOrder
+  rmse_median?: Prisma.SortOrder
+  rmse_min?: Prisma.SortOrder
+  rmse_skew?: Prisma.SortOrder
+  rmse_std?: Prisma.SortOrder
+  spectral_bandwidth_kurtosis?: Prisma.SortOrder
+  spectral_bandwidth_max?: Prisma.SortOrder
+  spectral_bandwidth_mean?: Prisma.SortOrder
+  spectral_bandwidth_median?: Prisma.SortOrder
+  spectral_bandwidth_min?: Prisma.SortOrder
+  spectral_bandwidth_skew?: Prisma.SortOrder
+  spectral_bandwidth_std?: Prisma.SortOrder
+  spectral_centroid_kurtosis?: Prisma.SortOrder
+  spectral_centroid_max?: Prisma.SortOrder
+  spectral_centroid_mean?: Prisma.SortOrder
+  spectral_centroid_median?: Prisma.SortOrder
+  spectral_centroid_min?: Prisma.SortOrder
+  spectral_centroid_skew?: Prisma.SortOrder
+  spectral_centroid_std?: Prisma.SortOrder
+  spectral_contrast_kurtosis?: Prisma.SortOrder
+  spectral_contrast_kurtosis1?: Prisma.SortOrder
+  spectral_contrast_kurtosis2?: Prisma.SortOrder
+  spectral_contrast_kurtosis3?: Prisma.SortOrder
+  spectral_contrast_kurtosis4?: Prisma.SortOrder
+  spectral_contrast_kurtosis5?: Prisma.SortOrder
+  spectral_contrast_kurtosis6?: Prisma.SortOrder
+  spectral_contrast_max?: Prisma.SortOrder
+  spectral_contrast_max1?: Prisma.SortOrder
+  spectral_contrast_max2?: Prisma.SortOrder
+  spectral_contrast_max3?: Prisma.SortOrder
+  spectral_contrast_max4?: Prisma.SortOrder
+  spectral_contrast_max5?: Prisma.SortOrder
+  spectral_contrast_max6?: Prisma.SortOrder
+  spectral_contrast_mean?: Prisma.SortOrder
+  spectral_contrast_mean1?: Prisma.SortOrder
+  spectral_contrast_mean2?: Prisma.SortOrder
+  spectral_contrast_mean3?: Prisma.SortOrder
+  spectral_contrast_mean4?: Prisma.SortOrder
+  spectral_contrast_mean5?: Prisma.SortOrder
+  spectral_contrast_mean6?: Prisma.SortOrder
+  spectral_contrast_median?: Prisma.SortOrder
+  spectral_contrast_median1?: Prisma.SortOrder
+  spectral_contrast_median2?: Prisma.SortOrder
+  spectral_contrast_median3?: Prisma.SortOrder
+  spectral_contrast_median4?: Prisma.SortOrder
+  spectral_contrast_median5?: Prisma.SortOrder
+  spectral_contrast_median6?: Prisma.SortOrder
+  spectral_contrast_min?: Prisma.SortOrder
+  spectral_contrast_min1?: Prisma.SortOrder
+  spectral_contrast_min2?: Prisma.SortOrder
+  spectral_contrast_min3?: Prisma.SortOrder
+  spectral_contrast_min4?: Prisma.SortOrder
+  spectral_contrast_min5?: Prisma.SortOrder
+  spectral_contrast_min6?: Prisma.SortOrder
+  spectral_contrast_skew?: Prisma.SortOrder
+  spectral_contrast_skew1?: Prisma.SortOrder
+  spectral_contrast_skew2?: Prisma.SortOrder
+  spectral_contrast_skew3?: Prisma.SortOrder
+  spectral_contrast_skew4?: Prisma.SortOrder
+  spectral_contrast_skew5?: Prisma.SortOrder
+  spectral_contrast_skew6?: Prisma.SortOrder
+  spectral_contrast_std?: Prisma.SortOrder
+  spectral_contrast_std1?: Prisma.SortOrder
+  spectral_contrast_std2?: Prisma.SortOrder
+  spectral_contrast_std3?: Prisma.SortOrder
+  spectral_contrast_std4?: Prisma.SortOrder
+  spectral_contrast_std5?: Prisma.SortOrder
+  spectral_contrast_std6?: Prisma.SortOrder
+  spectral_rolloff_kurtosis?: Prisma.SortOrder
+  spectral_rolloff_max?: Prisma.SortOrder
+  spectral_rolloff_mean?: Prisma.SortOrder
+  spectral_rolloff_median?: Prisma.SortOrder
+  spectral_rolloff_min?: Prisma.SortOrder
+  spectral_rolloff_skew?: Prisma.SortOrder
+  spectral_rolloff_std?: Prisma.SortOrder
+  tonnetz_kurtosis?: Prisma.SortOrder
+  tonnetz_kurtosis1?: Prisma.SortOrder
+  tonnetz_kurtosis2?: Prisma.SortOrder
+  tonnetz_kurtosis3?: Prisma.SortOrder
+  tonnetz_kurtosis4?: Prisma.SortOrder
+  tonnetz_kurtosis5?: Prisma.SortOrder
+  tonnetz_max?: Prisma.SortOrder
+  tonnetz_max1?: Prisma.SortOrder
+  tonnetz_max2?: Prisma.SortOrder
+  tonnetz_max3?: Prisma.SortOrder
+  tonnetz_max4?: Prisma.SortOrder
+  tonnetz_max5?: Prisma.SortOrder
+  tonnetz_mean?: Prisma.SortOrder
+  tonnetz_mean1?: Prisma.SortOrder
+  tonnetz_mean2?: Prisma.SortOrder
+  tonnetz_mean3?: Prisma.SortOrder
+  tonnetz_mean4?: Prisma.SortOrder
+  tonnetz_mean5?: Prisma.SortOrder
+  tonnetz_median?: Prisma.SortOrder
+  tonnetz_median1?: Prisma.SortOrder
+  tonnetz_median2?: Prisma.SortOrder
+  tonnetz_median3?: Prisma.SortOrder
+  tonnetz_median4?: Prisma.SortOrder
+  tonnetz_median5?: Prisma.SortOrder
+  tonnetz_min?: Prisma.SortOrder
+  tonnetz_min1?: Prisma.SortOrder
+  tonnetz_min2?: Prisma.SortOrder
+  tonnetz_min3?: Prisma.SortOrder
+  tonnetz_min4?: Prisma.SortOrder
+  tonnetz_min5?: Prisma.SortOrder
+  tonnetz_skew?: Prisma.SortOrder
+  tonnetz_skew1?: Prisma.SortOrder
+  tonnetz_skew2?: Prisma.SortOrder
+  tonnetz_skew3?: Prisma.SortOrder
+  tonnetz_skew4?: Prisma.SortOrder
+  tonnetz_skew5?: Prisma.SortOrder
+  tonnetz_std?: Prisma.SortOrder
+  tonnetz_std1?: Prisma.SortOrder
+  tonnetz_std2?: Prisma.SortOrder
+  tonnetz_std3?: Prisma.SortOrder
+  tonnetz_std4?: Prisma.SortOrder
+  tonnetz_std5?: Prisma.SortOrder
+  zcr_kurtosis?: Prisma.SortOrder
+  zcr_max?: Prisma.SortOrder
+  zcr_mean?: Prisma.SortOrder
+  zcr_median?: Prisma.SortOrder
+  zcr_min?: Prisma.SortOrder
+  zcr_skew?: Prisma.SortOrder
+  zcr_std?: Prisma.SortOrder
 }
 
 export type TemporalFeatureCreateNestedOneWithoutTrackInput = {
@@ -258,11 +14799,1045 @@ export type TemporalFeatureUncheckedUpdateOneWithoutTrackNestedInput = {
 }
 
 export type TemporalFeatureCreateWithoutTrackInput = {
-
+  chroma_cens_kurtosis?: number | null
+  chroma_cens_kurtosis1?: number | null
+  chroma_cens_kurtosis2?: number | null
+  chroma_cens_kurtosis3?: number | null
+  chroma_cens_kurtosis4?: number | null
+  chroma_cens_kurtosis5?: number | null
+  chroma_cens_kurtosis6?: number | null
+  chroma_cens_kurtosis7?: number | null
+  chroma_cens_kurtosis8?: number | null
+  chroma_cens_kurtosis9?: number | null
+  chroma_cens_kurtosis10?: number | null
+  chroma_cens_kurtosis11?: number | null
+  chroma_cens_max?: number | null
+  chroma_cens_max1?: number | null
+  chroma_cens_max2?: number | null
+  chroma_cens_max3?: number | null
+  chroma_cens_max4?: number | null
+  chroma_cens_max5?: number | null
+  chroma_cens_max6?: number | null
+  chroma_cens_max7?: number | null
+  chroma_cens_max8?: number | null
+  chroma_cens_max9?: number | null
+  chroma_cens_max10?: number | null
+  chroma_cens_max11?: number | null
+  chroma_cens_mean?: number | null
+  chroma_cens_mean1?: number | null
+  chroma_cens_mean2?: number | null
+  chroma_cens_mean3?: number | null
+  chroma_cens_mean4?: number | null
+  chroma_cens_mean5?: number | null
+  chroma_cens_mean6?: number | null
+  chroma_cens_mean7?: number | null
+  chroma_cens_mean8?: number | null
+  chroma_cens_mean9?: number | null
+  chroma_cens_mean10?: number | null
+  chroma_cens_mean11?: number | null
+  chroma_cens_median?: number | null
+  chroma_cens_median1?: number | null
+  chroma_cens_median2?: number | null
+  chroma_cens_median3?: number | null
+  chroma_cens_median4?: number | null
+  chroma_cens_median5?: number | null
+  chroma_cens_median6?: number | null
+  chroma_cens_median7?: number | null
+  chroma_cens_median8?: number | null
+  chroma_cens_median9?: number | null
+  chroma_cens_median10?: number | null
+  chroma_cens_median11?: number | null
+  chroma_cens_min?: number | null
+  chroma_cens_min1?: number | null
+  chroma_cens_min2?: number | null
+  chroma_cens_min3?: number | null
+  chroma_cens_min4?: number | null
+  chroma_cens_min5?: number | null
+  chroma_cens_min6?: number | null
+  chroma_cens_min7?: number | null
+  chroma_cens_min8?: number | null
+  chroma_cens_min9?: number | null
+  chroma_cens_min10?: number | null
+  chroma_cens_min11?: number | null
+  chroma_cens_skew?: number | null
+  chroma_cens_skew1?: number | null
+  chroma_cens_skew2?: number | null
+  chroma_cens_skew3?: number | null
+  chroma_cens_skew4?: number | null
+  chroma_cens_skew5?: number | null
+  chroma_cens_skew6?: number | null
+  chroma_cens_skew7?: number | null
+  chroma_cens_skew8?: number | null
+  chroma_cens_skew9?: number | null
+  chroma_cens_skew10?: number | null
+  chroma_cens_skew11?: number | null
+  chroma_cens_std?: number | null
+  chroma_cens_std1?: number | null
+  chroma_cens_std2?: number | null
+  chroma_cens_std3?: number | null
+  chroma_cens_std4?: number | null
+  chroma_cens_std5?: number | null
+  chroma_cens_std6?: number | null
+  chroma_cens_std7?: number | null
+  chroma_cens_std8?: number | null
+  chroma_cens_std9?: number | null
+  chroma_cens_std10?: number | null
+  chroma_cens_std11?: number | null
+  chroma_cqt_kurtosis?: number | null
+  chroma_cqt_kurtosis1?: number | null
+  chroma_cqt_kurtosis2?: number | null
+  chroma_cqt_kurtosis3?: number | null
+  chroma_cqt_kurtosis4?: number | null
+  chroma_cqt_kurtosis5?: number | null
+  chroma_cqt_kurtosis6?: number | null
+  chroma_cqt_kurtosis7?: number | null
+  chroma_cqt_kurtosis8?: number | null
+  chroma_cqt_kurtosis9?: number | null
+  chroma_cqt_kurtosis10?: number | null
+  chroma_cqt_kurtosis11?: number | null
+  chroma_cqt_max?: number | null
+  chroma_cqt_max1?: number | null
+  chroma_cqt_max2?: number | null
+  chroma_cqt_max3?: number | null
+  chroma_cqt_max4?: number | null
+  chroma_cqt_max5?: number | null
+  chroma_cqt_max6?: number | null
+  chroma_cqt_max7?: number | null
+  chroma_cqt_max8?: number | null
+  chroma_cqt_max9?: number | null
+  chroma_cqt_max10?: number | null
+  chroma_cqt_max11?: number | null
+  chroma_cqt_mean?: number | null
+  chroma_cqt_mean1?: number | null
+  chroma_cqt_mean2?: number | null
+  chroma_cqt_mean3?: number | null
+  chroma_cqt_mean4?: number | null
+  chroma_cqt_mean5?: number | null
+  chroma_cqt_mean6?: number | null
+  chroma_cqt_mean7?: number | null
+  chroma_cqt_mean8?: number | null
+  chroma_cqt_mean9?: number | null
+  chroma_cqt_mean10?: number | null
+  chroma_cqt_mean11?: number | null
+  chroma_cqt_median?: number | null
+  chroma_cqt_median1?: number | null
+  chroma_cqt_median2?: number | null
+  chroma_cqt_median3?: number | null
+  chroma_cqt_median4?: number | null
+  chroma_cqt_median5?: number | null
+  chroma_cqt_median6?: number | null
+  chroma_cqt_median7?: number | null
+  chroma_cqt_median8?: number | null
+  chroma_cqt_median9?: number | null
+  chroma_cqt_median10?: number | null
+  chroma_cqt_median11?: number | null
+  chroma_cqt_min?: number | null
+  chroma_cqt_min1?: number | null
+  chroma_cqt_min2?: number | null
+  chroma_cqt_min3?: number | null
+  chroma_cqt_min4?: number | null
+  chroma_cqt_min5?: number | null
+  chroma_cqt_min6?: number | null
+  chroma_cqt_min7?: number | null
+  chroma_cqt_min8?: number | null
+  chroma_cqt_min9?: number | null
+  chroma_cqt_min10?: number | null
+  chroma_cqt_min11?: number | null
+  chroma_cqt_skew?: number | null
+  chroma_cqt_skew1?: number | null
+  chroma_cqt_skew2?: number | null
+  chroma_cqt_skew3?: number | null
+  chroma_cqt_skew4?: number | null
+  chroma_cqt_skew5?: number | null
+  chroma_cqt_skew6?: number | null
+  chroma_cqt_skew7?: number | null
+  chroma_cqt_skew8?: number | null
+  chroma_cqt_skew9?: number | null
+  chroma_cqt_skew10?: number | null
+  chroma_cqt_skew11?: number | null
+  chroma_cqt_std?: number | null
+  chroma_cqt_std1?: number | null
+  chroma_cqt_std2?: number | null
+  chroma_cqt_std3?: number | null
+  chroma_cqt_std4?: number | null
+  chroma_cqt_std5?: number | null
+  chroma_cqt_std6?: number | null
+  chroma_cqt_std7?: number | null
+  chroma_cqt_std8?: number | null
+  chroma_cqt_std9?: number | null
+  chroma_cqt_std10?: number | null
+  chroma_cqt_std11?: number | null
+  chroma_stft_kurtosis?: number | null
+  chroma_stft_kurtosis1?: number | null
+  chroma_stft_kurtosis2?: number | null
+  chroma_stft_kurtosis3?: number | null
+  chroma_stft_kurtosis4?: number | null
+  chroma_stft_kurtosis5?: number | null
+  chroma_stft_kurtosis6?: number | null
+  chroma_stft_kurtosis7?: number | null
+  chroma_stft_kurtosis8?: number | null
+  chroma_stft_kurtosis9?: number | null
+  chroma_stft_kurtosis10?: number | null
+  chroma_stft_kurtosis11?: number | null
+  chroma_stft_max?: number | null
+  chroma_stft_max1?: number | null
+  chroma_stft_max2?: number | null
+  chroma_stft_max3?: number | null
+  chroma_stft_max4?: number | null
+  chroma_stft_max5?: number | null
+  chroma_stft_max6?: number | null
+  chroma_stft_max7?: number | null
+  chroma_stft_max8?: number | null
+  chroma_stft_max9?: number | null
+  chroma_stft_max10?: number | null
+  chroma_stft_max11?: number | null
+  chroma_stft_mean?: number | null
+  chroma_stft_mean1?: number | null
+  chroma_stft_mean2?: number | null
+  chroma_stft_mean3?: number | null
+  chroma_stft_mean4?: number | null
+  chroma_stft_mean5?: number | null
+  chroma_stft_mean6?: number | null
+  chroma_stft_mean7?: number | null
+  chroma_stft_mean8?: number | null
+  chroma_stft_mean9?: number | null
+  chroma_stft_mean10?: number | null
+  chroma_stft_mean11?: number | null
+  chroma_stft_median?: number | null
+  chroma_stft_median1?: number | null
+  chroma_stft_median2?: number | null
+  chroma_stft_median3?: number | null
+  chroma_stft_median4?: number | null
+  chroma_stft_median5?: number | null
+  chroma_stft_median6?: number | null
+  chroma_stft_median7?: number | null
+  chroma_stft_median8?: number | null
+  chroma_stft_median9?: number | null
+  chroma_stft_median10?: number | null
+  chroma_stft_median11?: number | null
+  chroma_stft_min?: number | null
+  chroma_stft_min1?: number | null
+  chroma_stft_min2?: number | null
+  chroma_stft_min3?: number | null
+  chroma_stft_min4?: number | null
+  chroma_stft_min5?: number | null
+  chroma_stft_min6?: number | null
+  chroma_stft_min7?: number | null
+  chroma_stft_min8?: number | null
+  chroma_stft_min9?: number | null
+  chroma_stft_min10?: number | null
+  chroma_stft_min11?: number | null
+  chroma_stft_skew?: number | null
+  chroma_stft_skew1?: number | null
+  chroma_stft_skew2?: number | null
+  chroma_stft_skew3?: number | null
+  chroma_stft_skew4?: number | null
+  chroma_stft_skew5?: number | null
+  chroma_stft_skew6?: number | null
+  chroma_stft_skew7?: number | null
+  chroma_stft_skew8?: number | null
+  chroma_stft_skew9?: number | null
+  chroma_stft_skew10?: number | null
+  chroma_stft_skew11?: number | null
+  chroma_stft_std?: number | null
+  chroma_stft_std1?: number | null
+  chroma_stft_std2?: number | null
+  chroma_stft_std3?: number | null
+  chroma_stft_std4?: number | null
+  chroma_stft_std5?: number | null
+  chroma_stft_std6?: number | null
+  chroma_stft_std7?: number | null
+  chroma_stft_std8?: number | null
+  chroma_stft_std9?: number | null
+  chroma_stft_std10?: number | null
+  chroma_stft_std11?: number | null
+  mfcc_kurtosis?: number | null
+  mfcc_kurtosis1?: number | null
+  mfcc_kurtosis2?: number | null
+  mfcc_kurtosis3?: number | null
+  mfcc_kurtosis4?: number | null
+  mfcc_kurtosis5?: number | null
+  mfcc_kurtosis6?: number | null
+  mfcc_kurtosis7?: number | null
+  mfcc_kurtosis8?: number | null
+  mfcc_kurtosis9?: number | null
+  mfcc_kurtosis10?: number | null
+  mfcc_kurtosis11?: number | null
+  mfcc_kurtosis12?: number | null
+  mfcc_kurtosis13?: number | null
+  mfcc_kurtosis14?: number | null
+  mfcc_kurtosis15?: number | null
+  mfcc_kurtosis16?: number | null
+  mfcc_kurtosis17?: number | null
+  mfcc_kurtosis18?: number | null
+  mfcc_kurtosis19?: number | null
+  mfcc_max?: number | null
+  mfcc_max1?: number | null
+  mfcc_max2?: number | null
+  mfcc_max3?: number | null
+  mfcc_max4?: number | null
+  mfcc_max5?: number | null
+  mfcc_max6?: number | null
+  mfcc_max7?: number | null
+  mfcc_max8?: number | null
+  mfcc_max9?: number | null
+  mfcc_max10?: number | null
+  mfcc_max11?: number | null
+  mfcc_max12?: number | null
+  mfcc_max13?: number | null
+  mfcc_max14?: number | null
+  mfcc_max15?: number | null
+  mfcc_max16?: number | null
+  mfcc_max17?: number | null
+  mfcc_max18?: number | null
+  mfcc_max19?: number | null
+  mfcc_mean?: number | null
+  mfcc_mean1?: number | null
+  mfcc_mean2?: number | null
+  mfcc_mean3?: number | null
+  mfcc_mean4?: number | null
+  mfcc_mean5?: number | null
+  mfcc_mean6?: number | null
+  mfcc_mean7?: number | null
+  mfcc_mean8?: number | null
+  mfcc_mean9?: number | null
+  mfcc_mean10?: number | null
+  mfcc_mean11?: number | null
+  mfcc_mean12?: number | null
+  mfcc_mean13?: number | null
+  mfcc_mean14?: number | null
+  mfcc_mean15?: number | null
+  mfcc_mean16?: number | null
+  mfcc_mean17?: number | null
+  mfcc_mean18?: number | null
+  mfcc_mean19?: number | null
+  mfcc_median?: number | null
+  mfcc_median1?: number | null
+  mfcc_median2?: number | null
+  mfcc_median3?: number | null
+  mfcc_median4?: number | null
+  mfcc_median5?: number | null
+  mfcc_median6?: number | null
+  mfcc_median7?: number | null
+  mfcc_median8?: number | null
+  mfcc_median9?: number | null
+  mfcc_median10?: number | null
+  mfcc_median11?: number | null
+  mfcc_median12?: number | null
+  mfcc_median13?: number | null
+  mfcc_median14?: number | null
+  mfcc_median15?: number | null
+  mfcc_median16?: number | null
+  mfcc_median17?: number | null
+  mfcc_median18?: number | null
+  mfcc_median19?: number | null
+  mfcc_min?: number | null
+  mfcc_min1?: number | null
+  mfcc_min2?: number | null
+  mfcc_min3?: number | null
+  mfcc_min4?: number | null
+  mfcc_min5?: number | null
+  mfcc_min6?: number | null
+  mfcc_min7?: number | null
+  mfcc_min8?: number | null
+  mfcc_min9?: number | null
+  mfcc_min10?: number | null
+  mfcc_min11?: number | null
+  mfcc_min12?: number | null
+  mfcc_min13?: number | null
+  mfcc_min14?: number | null
+  mfcc_min15?: number | null
+  mfcc_min16?: number | null
+  mfcc_min17?: number | null
+  mfcc_min18?: number | null
+  mfcc_min19?: number | null
+  mfcc_skew?: number | null
+  mfcc_skew1?: number | null
+  mfcc_skew2?: number | null
+  mfcc_skew3?: number | null
+  mfcc_skew4?: number | null
+  mfcc_skew5?: number | null
+  mfcc_skew6?: number | null
+  mfcc_skew7?: number | null
+  mfcc_skew8?: number | null
+  mfcc_skew9?: number | null
+  mfcc_skew10?: number | null
+  mfcc_skew11?: number | null
+  mfcc_skew12?: number | null
+  mfcc_skew13?: number | null
+  mfcc_skew14?: number | null
+  mfcc_skew15?: number | null
+  mfcc_skew16?: number | null
+  mfcc_skew17?: number | null
+  mfcc_skew18?: number | null
+  mfcc_skew19?: number | null
+  mfcc_std?: number | null
+  mfcc_std1?: number | null
+  mfcc_std2?: number | null
+  mfcc_std3?: number | null
+  mfcc_std4?: number | null
+  mfcc_std5?: number | null
+  mfcc_std6?: number | null
+  mfcc_std7?: number | null
+  mfcc_std8?: number | null
+  mfcc_std9?: number | null
+  mfcc_std10?: number | null
+  mfcc_std11?: number | null
+  mfcc_std12?: number | null
+  mfcc_std13?: number | null
+  mfcc_std14?: number | null
+  mfcc_std15?: number | null
+  mfcc_std16?: number | null
+  mfcc_std17?: number | null
+  mfcc_std18?: number | null
+  mfcc_std19?: number | null
+  rmse_kurtosis?: number | null
+  rmse_max?: number | null
+  rmse_mean?: number | null
+  rmse_median?: number | null
+  rmse_min?: number | null
+  rmse_skew?: number | null
+  rmse_std?: number | null
+  spectral_bandwidth_kurtosis?: number | null
+  spectral_bandwidth_max?: number | null
+  spectral_bandwidth_mean?: number | null
+  spectral_bandwidth_median?: number | null
+  spectral_bandwidth_min?: number | null
+  spectral_bandwidth_skew?: number | null
+  spectral_bandwidth_std?: number | null
+  spectral_centroid_kurtosis?: number | null
+  spectral_centroid_max?: number | null
+  spectral_centroid_mean?: number | null
+  spectral_centroid_median?: number | null
+  spectral_centroid_min?: number | null
+  spectral_centroid_skew?: number | null
+  spectral_centroid_std?: number | null
+  spectral_contrast_kurtosis?: number | null
+  spectral_contrast_kurtosis1?: number | null
+  spectral_contrast_kurtosis2?: number | null
+  spectral_contrast_kurtosis3?: number | null
+  spectral_contrast_kurtosis4?: number | null
+  spectral_contrast_kurtosis5?: number | null
+  spectral_contrast_kurtosis6?: number | null
+  spectral_contrast_max?: number | null
+  spectral_contrast_max1?: number | null
+  spectral_contrast_max2?: number | null
+  spectral_contrast_max3?: number | null
+  spectral_contrast_max4?: number | null
+  spectral_contrast_max5?: number | null
+  spectral_contrast_max6?: number | null
+  spectral_contrast_mean?: number | null
+  spectral_contrast_mean1?: number | null
+  spectral_contrast_mean2?: number | null
+  spectral_contrast_mean3?: number | null
+  spectral_contrast_mean4?: number | null
+  spectral_contrast_mean5?: number | null
+  spectral_contrast_mean6?: number | null
+  spectral_contrast_median?: number | null
+  spectral_contrast_median1?: number | null
+  spectral_contrast_median2?: number | null
+  spectral_contrast_median3?: number | null
+  spectral_contrast_median4?: number | null
+  spectral_contrast_median5?: number | null
+  spectral_contrast_median6?: number | null
+  spectral_contrast_min?: number | null
+  spectral_contrast_min1?: number | null
+  spectral_contrast_min2?: number | null
+  spectral_contrast_min3?: number | null
+  spectral_contrast_min4?: number | null
+  spectral_contrast_min5?: number | null
+  spectral_contrast_min6?: number | null
+  spectral_contrast_skew?: number | null
+  spectral_contrast_skew1?: number | null
+  spectral_contrast_skew2?: number | null
+  spectral_contrast_skew3?: number | null
+  spectral_contrast_skew4?: number | null
+  spectral_contrast_skew5?: number | null
+  spectral_contrast_skew6?: number | null
+  spectral_contrast_std?: number | null
+  spectral_contrast_std1?: number | null
+  spectral_contrast_std2?: number | null
+  spectral_contrast_std3?: number | null
+  spectral_contrast_std4?: number | null
+  spectral_contrast_std5?: number | null
+  spectral_contrast_std6?: number | null
+  spectral_rolloff_kurtosis?: number | null
+  spectral_rolloff_max?: number | null
+  spectral_rolloff_mean?: number | null
+  spectral_rolloff_median?: number | null
+  spectral_rolloff_min?: number | null
+  spectral_rolloff_skew?: number | null
+  spectral_rolloff_std?: number | null
+  tonnetz_kurtosis?: number | null
+  tonnetz_kurtosis1?: number | null
+  tonnetz_kurtosis2?: number | null
+  tonnetz_kurtosis3?: number | null
+  tonnetz_kurtosis4?: number | null
+  tonnetz_kurtosis5?: number | null
+  tonnetz_max?: number | null
+  tonnetz_max1?: number | null
+  tonnetz_max2?: number | null
+  tonnetz_max3?: number | null
+  tonnetz_max4?: number | null
+  tonnetz_max5?: number | null
+  tonnetz_mean?: number | null
+  tonnetz_mean1?: number | null
+  tonnetz_mean2?: number | null
+  tonnetz_mean3?: number | null
+  tonnetz_mean4?: number | null
+  tonnetz_mean5?: number | null
+  tonnetz_median?: number | null
+  tonnetz_median1?: number | null
+  tonnetz_median2?: number | null
+  tonnetz_median3?: number | null
+  tonnetz_median4?: number | null
+  tonnetz_median5?: number | null
+  tonnetz_min?: number | null
+  tonnetz_min1?: number | null
+  tonnetz_min2?: number | null
+  tonnetz_min3?: number | null
+  tonnetz_min4?: number | null
+  tonnetz_min5?: number | null
+  tonnetz_skew?: number | null
+  tonnetz_skew1?: number | null
+  tonnetz_skew2?: number | null
+  tonnetz_skew3?: number | null
+  tonnetz_skew4?: number | null
+  tonnetz_skew5?: number | null
+  tonnetz_std?: number | null
+  tonnetz_std1?: number | null
+  tonnetz_std2?: number | null
+  tonnetz_std3?: number | null
+  tonnetz_std4?: number | null
+  tonnetz_std5?: number | null
+  zcr_kurtosis?: number | null
+  zcr_max?: number | null
+  zcr_mean?: number | null
+  zcr_median?: number | null
+  zcr_min?: number | null
+  zcr_skew?: number | null
+  zcr_std?: number | null
 }
 
 export type TemporalFeatureUncheckedCreateWithoutTrackInput = {
-
+  chroma_cens_kurtosis?: number | null
+  chroma_cens_kurtosis1?: number | null
+  chroma_cens_kurtosis2?: number | null
+  chroma_cens_kurtosis3?: number | null
+  chroma_cens_kurtosis4?: number | null
+  chroma_cens_kurtosis5?: number | null
+  chroma_cens_kurtosis6?: number | null
+  chroma_cens_kurtosis7?: number | null
+  chroma_cens_kurtosis8?: number | null
+  chroma_cens_kurtosis9?: number | null
+  chroma_cens_kurtosis10?: number | null
+  chroma_cens_kurtosis11?: number | null
+  chroma_cens_max?: number | null
+  chroma_cens_max1?: number | null
+  chroma_cens_max2?: number | null
+  chroma_cens_max3?: number | null
+  chroma_cens_max4?: number | null
+  chroma_cens_max5?: number | null
+  chroma_cens_max6?: number | null
+  chroma_cens_max7?: number | null
+  chroma_cens_max8?: number | null
+  chroma_cens_max9?: number | null
+  chroma_cens_max10?: number | null
+  chroma_cens_max11?: number | null
+  chroma_cens_mean?: number | null
+  chroma_cens_mean1?: number | null
+  chroma_cens_mean2?: number | null
+  chroma_cens_mean3?: number | null
+  chroma_cens_mean4?: number | null
+  chroma_cens_mean5?: number | null
+  chroma_cens_mean6?: number | null
+  chroma_cens_mean7?: number | null
+  chroma_cens_mean8?: number | null
+  chroma_cens_mean9?: number | null
+  chroma_cens_mean10?: number | null
+  chroma_cens_mean11?: number | null
+  chroma_cens_median?: number | null
+  chroma_cens_median1?: number | null
+  chroma_cens_median2?: number | null
+  chroma_cens_median3?: number | null
+  chroma_cens_median4?: number | null
+  chroma_cens_median5?: number | null
+  chroma_cens_median6?: number | null
+  chroma_cens_median7?: number | null
+  chroma_cens_median8?: number | null
+  chroma_cens_median9?: number | null
+  chroma_cens_median10?: number | null
+  chroma_cens_median11?: number | null
+  chroma_cens_min?: number | null
+  chroma_cens_min1?: number | null
+  chroma_cens_min2?: number | null
+  chroma_cens_min3?: number | null
+  chroma_cens_min4?: number | null
+  chroma_cens_min5?: number | null
+  chroma_cens_min6?: number | null
+  chroma_cens_min7?: number | null
+  chroma_cens_min8?: number | null
+  chroma_cens_min9?: number | null
+  chroma_cens_min10?: number | null
+  chroma_cens_min11?: number | null
+  chroma_cens_skew?: number | null
+  chroma_cens_skew1?: number | null
+  chroma_cens_skew2?: number | null
+  chroma_cens_skew3?: number | null
+  chroma_cens_skew4?: number | null
+  chroma_cens_skew5?: number | null
+  chroma_cens_skew6?: number | null
+  chroma_cens_skew7?: number | null
+  chroma_cens_skew8?: number | null
+  chroma_cens_skew9?: number | null
+  chroma_cens_skew10?: number | null
+  chroma_cens_skew11?: number | null
+  chroma_cens_std?: number | null
+  chroma_cens_std1?: number | null
+  chroma_cens_std2?: number | null
+  chroma_cens_std3?: number | null
+  chroma_cens_std4?: number | null
+  chroma_cens_std5?: number | null
+  chroma_cens_std6?: number | null
+  chroma_cens_std7?: number | null
+  chroma_cens_std8?: number | null
+  chroma_cens_std9?: number | null
+  chroma_cens_std10?: number | null
+  chroma_cens_std11?: number | null
+  chroma_cqt_kurtosis?: number | null
+  chroma_cqt_kurtosis1?: number | null
+  chroma_cqt_kurtosis2?: number | null
+  chroma_cqt_kurtosis3?: number | null
+  chroma_cqt_kurtosis4?: number | null
+  chroma_cqt_kurtosis5?: number | null
+  chroma_cqt_kurtosis6?: number | null
+  chroma_cqt_kurtosis7?: number | null
+  chroma_cqt_kurtosis8?: number | null
+  chroma_cqt_kurtosis9?: number | null
+  chroma_cqt_kurtosis10?: number | null
+  chroma_cqt_kurtosis11?: number | null
+  chroma_cqt_max?: number | null
+  chroma_cqt_max1?: number | null
+  chroma_cqt_max2?: number | null
+  chroma_cqt_max3?: number | null
+  chroma_cqt_max4?: number | null
+  chroma_cqt_max5?: number | null
+  chroma_cqt_max6?: number | null
+  chroma_cqt_max7?: number | null
+  chroma_cqt_max8?: number | null
+  chroma_cqt_max9?: number | null
+  chroma_cqt_max10?: number | null
+  chroma_cqt_max11?: number | null
+  chroma_cqt_mean?: number | null
+  chroma_cqt_mean1?: number | null
+  chroma_cqt_mean2?: number | null
+  chroma_cqt_mean3?: number | null
+  chroma_cqt_mean4?: number | null
+  chroma_cqt_mean5?: number | null
+  chroma_cqt_mean6?: number | null
+  chroma_cqt_mean7?: number | null
+  chroma_cqt_mean8?: number | null
+  chroma_cqt_mean9?: number | null
+  chroma_cqt_mean10?: number | null
+  chroma_cqt_mean11?: number | null
+  chroma_cqt_median?: number | null
+  chroma_cqt_median1?: number | null
+  chroma_cqt_median2?: number | null
+  chroma_cqt_median3?: number | null
+  chroma_cqt_median4?: number | null
+  chroma_cqt_median5?: number | null
+  chroma_cqt_median6?: number | null
+  chroma_cqt_median7?: number | null
+  chroma_cqt_median8?: number | null
+  chroma_cqt_median9?: number | null
+  chroma_cqt_median10?: number | null
+  chroma_cqt_median11?: number | null
+  chroma_cqt_min?: number | null
+  chroma_cqt_min1?: number | null
+  chroma_cqt_min2?: number | null
+  chroma_cqt_min3?: number | null
+  chroma_cqt_min4?: number | null
+  chroma_cqt_min5?: number | null
+  chroma_cqt_min6?: number | null
+  chroma_cqt_min7?: number | null
+  chroma_cqt_min8?: number | null
+  chroma_cqt_min9?: number | null
+  chroma_cqt_min10?: number | null
+  chroma_cqt_min11?: number | null
+  chroma_cqt_skew?: number | null
+  chroma_cqt_skew1?: number | null
+  chroma_cqt_skew2?: number | null
+  chroma_cqt_skew3?: number | null
+  chroma_cqt_skew4?: number | null
+  chroma_cqt_skew5?: number | null
+  chroma_cqt_skew6?: number | null
+  chroma_cqt_skew7?: number | null
+  chroma_cqt_skew8?: number | null
+  chroma_cqt_skew9?: number | null
+  chroma_cqt_skew10?: number | null
+  chroma_cqt_skew11?: number | null
+  chroma_cqt_std?: number | null
+  chroma_cqt_std1?: number | null
+  chroma_cqt_std2?: number | null
+  chroma_cqt_std3?: number | null
+  chroma_cqt_std4?: number | null
+  chroma_cqt_std5?: number | null
+  chroma_cqt_std6?: number | null
+  chroma_cqt_std7?: number | null
+  chroma_cqt_std8?: number | null
+  chroma_cqt_std9?: number | null
+  chroma_cqt_std10?: number | null
+  chroma_cqt_std11?: number | null
+  chroma_stft_kurtosis?: number | null
+  chroma_stft_kurtosis1?: number | null
+  chroma_stft_kurtosis2?: number | null
+  chroma_stft_kurtosis3?: number | null
+  chroma_stft_kurtosis4?: number | null
+  chroma_stft_kurtosis5?: number | null
+  chroma_stft_kurtosis6?: number | null
+  chroma_stft_kurtosis7?: number | null
+  chroma_stft_kurtosis8?: number | null
+  chroma_stft_kurtosis9?: number | null
+  chroma_stft_kurtosis10?: number | null
+  chroma_stft_kurtosis11?: number | null
+  chroma_stft_max?: number | null
+  chroma_stft_max1?: number | null
+  chroma_stft_max2?: number | null
+  chroma_stft_max3?: number | null
+  chroma_stft_max4?: number | null
+  chroma_stft_max5?: number | null
+  chroma_stft_max6?: number | null
+  chroma_stft_max7?: number | null
+  chroma_stft_max8?: number | null
+  chroma_stft_max9?: number | null
+  chroma_stft_max10?: number | null
+  chroma_stft_max11?: number | null
+  chroma_stft_mean?: number | null
+  chroma_stft_mean1?: number | null
+  chroma_stft_mean2?: number | null
+  chroma_stft_mean3?: number | null
+  chroma_stft_mean4?: number | null
+  chroma_stft_mean5?: number | null
+  chroma_stft_mean6?: number | null
+  chroma_stft_mean7?: number | null
+  chroma_stft_mean8?: number | null
+  chroma_stft_mean9?: number | null
+  chroma_stft_mean10?: number | null
+  chroma_stft_mean11?: number | null
+  chroma_stft_median?: number | null
+  chroma_stft_median1?: number | null
+  chroma_stft_median2?: number | null
+  chroma_stft_median3?: number | null
+  chroma_stft_median4?: number | null
+  chroma_stft_median5?: number | null
+  chroma_stft_median6?: number | null
+  chroma_stft_median7?: number | null
+  chroma_stft_median8?: number | null
+  chroma_stft_median9?: number | null
+  chroma_stft_median10?: number | null
+  chroma_stft_median11?: number | null
+  chroma_stft_min?: number | null
+  chroma_stft_min1?: number | null
+  chroma_stft_min2?: number | null
+  chroma_stft_min3?: number | null
+  chroma_stft_min4?: number | null
+  chroma_stft_min5?: number | null
+  chroma_stft_min6?: number | null
+  chroma_stft_min7?: number | null
+  chroma_stft_min8?: number | null
+  chroma_stft_min9?: number | null
+  chroma_stft_min10?: number | null
+  chroma_stft_min11?: number | null
+  chroma_stft_skew?: number | null
+  chroma_stft_skew1?: number | null
+  chroma_stft_skew2?: number | null
+  chroma_stft_skew3?: number | null
+  chroma_stft_skew4?: number | null
+  chroma_stft_skew5?: number | null
+  chroma_stft_skew6?: number | null
+  chroma_stft_skew7?: number | null
+  chroma_stft_skew8?: number | null
+  chroma_stft_skew9?: number | null
+  chroma_stft_skew10?: number | null
+  chroma_stft_skew11?: number | null
+  chroma_stft_std?: number | null
+  chroma_stft_std1?: number | null
+  chroma_stft_std2?: number | null
+  chroma_stft_std3?: number | null
+  chroma_stft_std4?: number | null
+  chroma_stft_std5?: number | null
+  chroma_stft_std6?: number | null
+  chroma_stft_std7?: number | null
+  chroma_stft_std8?: number | null
+  chroma_stft_std9?: number | null
+  chroma_stft_std10?: number | null
+  chroma_stft_std11?: number | null
+  mfcc_kurtosis?: number | null
+  mfcc_kurtosis1?: number | null
+  mfcc_kurtosis2?: number | null
+  mfcc_kurtosis3?: number | null
+  mfcc_kurtosis4?: number | null
+  mfcc_kurtosis5?: number | null
+  mfcc_kurtosis6?: number | null
+  mfcc_kurtosis7?: number | null
+  mfcc_kurtosis8?: number | null
+  mfcc_kurtosis9?: number | null
+  mfcc_kurtosis10?: number | null
+  mfcc_kurtosis11?: number | null
+  mfcc_kurtosis12?: number | null
+  mfcc_kurtosis13?: number | null
+  mfcc_kurtosis14?: number | null
+  mfcc_kurtosis15?: number | null
+  mfcc_kurtosis16?: number | null
+  mfcc_kurtosis17?: number | null
+  mfcc_kurtosis18?: number | null
+  mfcc_kurtosis19?: number | null
+  mfcc_max?: number | null
+  mfcc_max1?: number | null
+  mfcc_max2?: number | null
+  mfcc_max3?: number | null
+  mfcc_max4?: number | null
+  mfcc_max5?: number | null
+  mfcc_max6?: number | null
+  mfcc_max7?: number | null
+  mfcc_max8?: number | null
+  mfcc_max9?: number | null
+  mfcc_max10?: number | null
+  mfcc_max11?: number | null
+  mfcc_max12?: number | null
+  mfcc_max13?: number | null
+  mfcc_max14?: number | null
+  mfcc_max15?: number | null
+  mfcc_max16?: number | null
+  mfcc_max17?: number | null
+  mfcc_max18?: number | null
+  mfcc_max19?: number | null
+  mfcc_mean?: number | null
+  mfcc_mean1?: number | null
+  mfcc_mean2?: number | null
+  mfcc_mean3?: number | null
+  mfcc_mean4?: number | null
+  mfcc_mean5?: number | null
+  mfcc_mean6?: number | null
+  mfcc_mean7?: number | null
+  mfcc_mean8?: number | null
+  mfcc_mean9?: number | null
+  mfcc_mean10?: number | null
+  mfcc_mean11?: number | null
+  mfcc_mean12?: number | null
+  mfcc_mean13?: number | null
+  mfcc_mean14?: number | null
+  mfcc_mean15?: number | null
+  mfcc_mean16?: number | null
+  mfcc_mean17?: number | null
+  mfcc_mean18?: number | null
+  mfcc_mean19?: number | null
+  mfcc_median?: number | null
+  mfcc_median1?: number | null
+  mfcc_median2?: number | null
+  mfcc_median3?: number | null
+  mfcc_median4?: number | null
+  mfcc_median5?: number | null
+  mfcc_median6?: number | null
+  mfcc_median7?: number | null
+  mfcc_median8?: number | null
+  mfcc_median9?: number | null
+  mfcc_median10?: number | null
+  mfcc_median11?: number | null
+  mfcc_median12?: number | null
+  mfcc_median13?: number | null
+  mfcc_median14?: number | null
+  mfcc_median15?: number | null
+  mfcc_median16?: number | null
+  mfcc_median17?: number | null
+  mfcc_median18?: number | null
+  mfcc_median19?: number | null
+  mfcc_min?: number | null
+  mfcc_min1?: number | null
+  mfcc_min2?: number | null
+  mfcc_min3?: number | null
+  mfcc_min4?: number | null
+  mfcc_min5?: number | null
+  mfcc_min6?: number | null
+  mfcc_min7?: number | null
+  mfcc_min8?: number | null
+  mfcc_min9?: number | null
+  mfcc_min10?: number | null
+  mfcc_min11?: number | null
+  mfcc_min12?: number | null
+  mfcc_min13?: number | null
+  mfcc_min14?: number | null
+  mfcc_min15?: number | null
+  mfcc_min16?: number | null
+  mfcc_min17?: number | null
+  mfcc_min18?: number | null
+  mfcc_min19?: number | null
+  mfcc_skew?: number | null
+  mfcc_skew1?: number | null
+  mfcc_skew2?: number | null
+  mfcc_skew3?: number | null
+  mfcc_skew4?: number | null
+  mfcc_skew5?: number | null
+  mfcc_skew6?: number | null
+  mfcc_skew7?: number | null
+  mfcc_skew8?: number | null
+  mfcc_skew9?: number | null
+  mfcc_skew10?: number | null
+  mfcc_skew11?: number | null
+  mfcc_skew12?: number | null
+  mfcc_skew13?: number | null
+  mfcc_skew14?: number | null
+  mfcc_skew15?: number | null
+  mfcc_skew16?: number | null
+  mfcc_skew17?: number | null
+  mfcc_skew18?: number | null
+  mfcc_skew19?: number | null
+  mfcc_std?: number | null
+  mfcc_std1?: number | null
+  mfcc_std2?: number | null
+  mfcc_std3?: number | null
+  mfcc_std4?: number | null
+  mfcc_std5?: number | null
+  mfcc_std6?: number | null
+  mfcc_std7?: number | null
+  mfcc_std8?: number | null
+  mfcc_std9?: number | null
+  mfcc_std10?: number | null
+  mfcc_std11?: number | null
+  mfcc_std12?: number | null
+  mfcc_std13?: number | null
+  mfcc_std14?: number | null
+  mfcc_std15?: number | null
+  mfcc_std16?: number | null
+  mfcc_std17?: number | null
+  mfcc_std18?: number | null
+  mfcc_std19?: number | null
+  rmse_kurtosis?: number | null
+  rmse_max?: number | null
+  rmse_mean?: number | null
+  rmse_median?: number | null
+  rmse_min?: number | null
+  rmse_skew?: number | null
+  rmse_std?: number | null
+  spectral_bandwidth_kurtosis?: number | null
+  spectral_bandwidth_max?: number | null
+  spectral_bandwidth_mean?: number | null
+  spectral_bandwidth_median?: number | null
+  spectral_bandwidth_min?: number | null
+  spectral_bandwidth_skew?: number | null
+  spectral_bandwidth_std?: number | null
+  spectral_centroid_kurtosis?: number | null
+  spectral_centroid_max?: number | null
+  spectral_centroid_mean?: number | null
+  spectral_centroid_median?: number | null
+  spectral_centroid_min?: number | null
+  spectral_centroid_skew?: number | null
+  spectral_centroid_std?: number | null
+  spectral_contrast_kurtosis?: number | null
+  spectral_contrast_kurtosis1?: number | null
+  spectral_contrast_kurtosis2?: number | null
+  spectral_contrast_kurtosis3?: number | null
+  spectral_contrast_kurtosis4?: number | null
+  spectral_contrast_kurtosis5?: number | null
+  spectral_contrast_kurtosis6?: number | null
+  spectral_contrast_max?: number | null
+  spectral_contrast_max1?: number | null
+  spectral_contrast_max2?: number | null
+  spectral_contrast_max3?: number | null
+  spectral_contrast_max4?: number | null
+  spectral_contrast_max5?: number | null
+  spectral_contrast_max6?: number | null
+  spectral_contrast_mean?: number | null
+  spectral_contrast_mean1?: number | null
+  spectral_contrast_mean2?: number | null
+  spectral_contrast_mean3?: number | null
+  spectral_contrast_mean4?: number | null
+  spectral_contrast_mean5?: number | null
+  spectral_contrast_mean6?: number | null
+  spectral_contrast_median?: number | null
+  spectral_contrast_median1?: number | null
+  spectral_contrast_median2?: number | null
+  spectral_contrast_median3?: number | null
+  spectral_contrast_median4?: number | null
+  spectral_contrast_median5?: number | null
+  spectral_contrast_median6?: number | null
+  spectral_contrast_min?: number | null
+  spectral_contrast_min1?: number | null
+  spectral_contrast_min2?: number | null
+  spectral_contrast_min3?: number | null
+  spectral_contrast_min4?: number | null
+  spectral_contrast_min5?: number | null
+  spectral_contrast_min6?: number | null
+  spectral_contrast_skew?: number | null
+  spectral_contrast_skew1?: number | null
+  spectral_contrast_skew2?: number | null
+  spectral_contrast_skew3?: number | null
+  spectral_contrast_skew4?: number | null
+  spectral_contrast_skew5?: number | null
+  spectral_contrast_skew6?: number | null
+  spectral_contrast_std?: number | null
+  spectral_contrast_std1?: number | null
+  spectral_contrast_std2?: number | null
+  spectral_contrast_std3?: number | null
+  spectral_contrast_std4?: number | null
+  spectral_contrast_std5?: number | null
+  spectral_contrast_std6?: number | null
+  spectral_rolloff_kurtosis?: number | null
+  spectral_rolloff_max?: number | null
+  spectral_rolloff_mean?: number | null
+  spectral_rolloff_median?: number | null
+  spectral_rolloff_min?: number | null
+  spectral_rolloff_skew?: number | null
+  spectral_rolloff_std?: number | null
+  tonnetz_kurtosis?: number | null
+  tonnetz_kurtosis1?: number | null
+  tonnetz_kurtosis2?: number | null
+  tonnetz_kurtosis3?: number | null
+  tonnetz_kurtosis4?: number | null
+  tonnetz_kurtosis5?: number | null
+  tonnetz_max?: number | null
+  tonnetz_max1?: number | null
+  tonnetz_max2?: number | null
+  tonnetz_max3?: number | null
+  tonnetz_max4?: number | null
+  tonnetz_max5?: number | null
+  tonnetz_mean?: number | null
+  tonnetz_mean1?: number | null
+  tonnetz_mean2?: number | null
+  tonnetz_mean3?: number | null
+  tonnetz_mean4?: number | null
+  tonnetz_mean5?: number | null
+  tonnetz_median?: number | null
+  tonnetz_median1?: number | null
+  tonnetz_median2?: number | null
+  tonnetz_median3?: number | null
+  tonnetz_median4?: number | null
+  tonnetz_median5?: number | null
+  tonnetz_min?: number | null
+  tonnetz_min1?: number | null
+  tonnetz_min2?: number | null
+  tonnetz_min3?: number | null
+  tonnetz_min4?: number | null
+  tonnetz_min5?: number | null
+  tonnetz_skew?: number | null
+  tonnetz_skew1?: number | null
+  tonnetz_skew2?: number | null
+  tonnetz_skew3?: number | null
+  tonnetz_skew4?: number | null
+  tonnetz_skew5?: number | null
+  tonnetz_std?: number | null
+  tonnetz_std1?: number | null
+  tonnetz_std2?: number | null
+  tonnetz_std3?: number | null
+  tonnetz_std4?: number | null
+  tonnetz_std5?: number | null
+  zcr_kurtosis?: number | null
+  zcr_max?: number | null
+  zcr_mean?: number | null
+  zcr_median?: number | null
+  zcr_min?: number | null
+  zcr_skew?: number | null
+  zcr_std?: number | null
 }
 
 export type TemporalFeatureCreateOrConnectWithoutTrackInput = {
@@ -282,35 +15857,3141 @@ export type TemporalFeatureUpdateToOneWithWhereWithoutTrackInput = {
 }
 
 export type TemporalFeatureUpdateWithoutTrackInput = {
-
+  chroma_cens_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
 }
 
 export type TemporalFeatureUncheckedUpdateWithoutTrackInput = {
-
+  chroma_cens_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cens_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_cqt_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  chroma_stft_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_kurtosis19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_max19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_mean19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_median19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_min19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_skew19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std7?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std8?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std9?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std10?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std11?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std12?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std13?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std14?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std15?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std16?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std17?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std18?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  mfcc_std19?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  rmse_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_bandwidth_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_centroid_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_kurtosis6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_max6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_mean6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_median6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_min6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_skew6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_contrast_std6?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  spectral_rolloff_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_kurtosis5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_max5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_mean5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_median5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_min5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_skew5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std1?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std2?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std3?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std4?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  tonnetz_std5?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_kurtosis?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_max?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_mean?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_median?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_min?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_skew?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  zcr_std?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
 }
 
 
 
 export type TemporalFeatureSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
+  chroma_cens_kurtosis?: boolean
+  chroma_cens_kurtosis1?: boolean
+  chroma_cens_kurtosis2?: boolean
+  chroma_cens_kurtosis3?: boolean
+  chroma_cens_kurtosis4?: boolean
+  chroma_cens_kurtosis5?: boolean
+  chroma_cens_kurtosis6?: boolean
+  chroma_cens_kurtosis7?: boolean
+  chroma_cens_kurtosis8?: boolean
+  chroma_cens_kurtosis9?: boolean
+  chroma_cens_kurtosis10?: boolean
+  chroma_cens_kurtosis11?: boolean
+  chroma_cens_max?: boolean
+  chroma_cens_max1?: boolean
+  chroma_cens_max2?: boolean
+  chroma_cens_max3?: boolean
+  chroma_cens_max4?: boolean
+  chroma_cens_max5?: boolean
+  chroma_cens_max6?: boolean
+  chroma_cens_max7?: boolean
+  chroma_cens_max8?: boolean
+  chroma_cens_max9?: boolean
+  chroma_cens_max10?: boolean
+  chroma_cens_max11?: boolean
+  chroma_cens_mean?: boolean
+  chroma_cens_mean1?: boolean
+  chroma_cens_mean2?: boolean
+  chroma_cens_mean3?: boolean
+  chroma_cens_mean4?: boolean
+  chroma_cens_mean5?: boolean
+  chroma_cens_mean6?: boolean
+  chroma_cens_mean7?: boolean
+  chroma_cens_mean8?: boolean
+  chroma_cens_mean9?: boolean
+  chroma_cens_mean10?: boolean
+  chroma_cens_mean11?: boolean
+  chroma_cens_median?: boolean
+  chroma_cens_median1?: boolean
+  chroma_cens_median2?: boolean
+  chroma_cens_median3?: boolean
+  chroma_cens_median4?: boolean
+  chroma_cens_median5?: boolean
+  chroma_cens_median6?: boolean
+  chroma_cens_median7?: boolean
+  chroma_cens_median8?: boolean
+  chroma_cens_median9?: boolean
+  chroma_cens_median10?: boolean
+  chroma_cens_median11?: boolean
+  chroma_cens_min?: boolean
+  chroma_cens_min1?: boolean
+  chroma_cens_min2?: boolean
+  chroma_cens_min3?: boolean
+  chroma_cens_min4?: boolean
+  chroma_cens_min5?: boolean
+  chroma_cens_min6?: boolean
+  chroma_cens_min7?: boolean
+  chroma_cens_min8?: boolean
+  chroma_cens_min9?: boolean
+  chroma_cens_min10?: boolean
+  chroma_cens_min11?: boolean
+  chroma_cens_skew?: boolean
+  chroma_cens_skew1?: boolean
+  chroma_cens_skew2?: boolean
+  chroma_cens_skew3?: boolean
+  chroma_cens_skew4?: boolean
+  chroma_cens_skew5?: boolean
+  chroma_cens_skew6?: boolean
+  chroma_cens_skew7?: boolean
+  chroma_cens_skew8?: boolean
+  chroma_cens_skew9?: boolean
+  chroma_cens_skew10?: boolean
+  chroma_cens_skew11?: boolean
+  chroma_cens_std?: boolean
+  chroma_cens_std1?: boolean
+  chroma_cens_std2?: boolean
+  chroma_cens_std3?: boolean
+  chroma_cens_std4?: boolean
+  chroma_cens_std5?: boolean
+  chroma_cens_std6?: boolean
+  chroma_cens_std7?: boolean
+  chroma_cens_std8?: boolean
+  chroma_cens_std9?: boolean
+  chroma_cens_std10?: boolean
+  chroma_cens_std11?: boolean
+  chroma_cqt_kurtosis?: boolean
+  chroma_cqt_kurtosis1?: boolean
+  chroma_cqt_kurtosis2?: boolean
+  chroma_cqt_kurtosis3?: boolean
+  chroma_cqt_kurtosis4?: boolean
+  chroma_cqt_kurtosis5?: boolean
+  chroma_cqt_kurtosis6?: boolean
+  chroma_cqt_kurtosis7?: boolean
+  chroma_cqt_kurtosis8?: boolean
+  chroma_cqt_kurtosis9?: boolean
+  chroma_cqt_kurtosis10?: boolean
+  chroma_cqt_kurtosis11?: boolean
+  chroma_cqt_max?: boolean
+  chroma_cqt_max1?: boolean
+  chroma_cqt_max2?: boolean
+  chroma_cqt_max3?: boolean
+  chroma_cqt_max4?: boolean
+  chroma_cqt_max5?: boolean
+  chroma_cqt_max6?: boolean
+  chroma_cqt_max7?: boolean
+  chroma_cqt_max8?: boolean
+  chroma_cqt_max9?: boolean
+  chroma_cqt_max10?: boolean
+  chroma_cqt_max11?: boolean
+  chroma_cqt_mean?: boolean
+  chroma_cqt_mean1?: boolean
+  chroma_cqt_mean2?: boolean
+  chroma_cqt_mean3?: boolean
+  chroma_cqt_mean4?: boolean
+  chroma_cqt_mean5?: boolean
+  chroma_cqt_mean6?: boolean
+  chroma_cqt_mean7?: boolean
+  chroma_cqt_mean8?: boolean
+  chroma_cqt_mean9?: boolean
+  chroma_cqt_mean10?: boolean
+  chroma_cqt_mean11?: boolean
+  chroma_cqt_median?: boolean
+  chroma_cqt_median1?: boolean
+  chroma_cqt_median2?: boolean
+  chroma_cqt_median3?: boolean
+  chroma_cqt_median4?: boolean
+  chroma_cqt_median5?: boolean
+  chroma_cqt_median6?: boolean
+  chroma_cqt_median7?: boolean
+  chroma_cqt_median8?: boolean
+  chroma_cqt_median9?: boolean
+  chroma_cqt_median10?: boolean
+  chroma_cqt_median11?: boolean
+  chroma_cqt_min?: boolean
+  chroma_cqt_min1?: boolean
+  chroma_cqt_min2?: boolean
+  chroma_cqt_min3?: boolean
+  chroma_cqt_min4?: boolean
+  chroma_cqt_min5?: boolean
+  chroma_cqt_min6?: boolean
+  chroma_cqt_min7?: boolean
+  chroma_cqt_min8?: boolean
+  chroma_cqt_min9?: boolean
+  chroma_cqt_min10?: boolean
+  chroma_cqt_min11?: boolean
+  chroma_cqt_skew?: boolean
+  chroma_cqt_skew1?: boolean
+  chroma_cqt_skew2?: boolean
+  chroma_cqt_skew3?: boolean
+  chroma_cqt_skew4?: boolean
+  chroma_cqt_skew5?: boolean
+  chroma_cqt_skew6?: boolean
+  chroma_cqt_skew7?: boolean
+  chroma_cqt_skew8?: boolean
+  chroma_cqt_skew9?: boolean
+  chroma_cqt_skew10?: boolean
+  chroma_cqt_skew11?: boolean
+  chroma_cqt_std?: boolean
+  chroma_cqt_std1?: boolean
+  chroma_cqt_std2?: boolean
+  chroma_cqt_std3?: boolean
+  chroma_cqt_std4?: boolean
+  chroma_cqt_std5?: boolean
+  chroma_cqt_std6?: boolean
+  chroma_cqt_std7?: boolean
+  chroma_cqt_std8?: boolean
+  chroma_cqt_std9?: boolean
+  chroma_cqt_std10?: boolean
+  chroma_cqt_std11?: boolean
+  chroma_stft_kurtosis?: boolean
+  chroma_stft_kurtosis1?: boolean
+  chroma_stft_kurtosis2?: boolean
+  chroma_stft_kurtosis3?: boolean
+  chroma_stft_kurtosis4?: boolean
+  chroma_stft_kurtosis5?: boolean
+  chroma_stft_kurtosis6?: boolean
+  chroma_stft_kurtosis7?: boolean
+  chroma_stft_kurtosis8?: boolean
+  chroma_stft_kurtosis9?: boolean
+  chroma_stft_kurtosis10?: boolean
+  chroma_stft_kurtosis11?: boolean
+  chroma_stft_max?: boolean
+  chroma_stft_max1?: boolean
+  chroma_stft_max2?: boolean
+  chroma_stft_max3?: boolean
+  chroma_stft_max4?: boolean
+  chroma_stft_max5?: boolean
+  chroma_stft_max6?: boolean
+  chroma_stft_max7?: boolean
+  chroma_stft_max8?: boolean
+  chroma_stft_max9?: boolean
+  chroma_stft_max10?: boolean
+  chroma_stft_max11?: boolean
+  chroma_stft_mean?: boolean
+  chroma_stft_mean1?: boolean
+  chroma_stft_mean2?: boolean
+  chroma_stft_mean3?: boolean
+  chroma_stft_mean4?: boolean
+  chroma_stft_mean5?: boolean
+  chroma_stft_mean6?: boolean
+  chroma_stft_mean7?: boolean
+  chroma_stft_mean8?: boolean
+  chroma_stft_mean9?: boolean
+  chroma_stft_mean10?: boolean
+  chroma_stft_mean11?: boolean
+  chroma_stft_median?: boolean
+  chroma_stft_median1?: boolean
+  chroma_stft_median2?: boolean
+  chroma_stft_median3?: boolean
+  chroma_stft_median4?: boolean
+  chroma_stft_median5?: boolean
+  chroma_stft_median6?: boolean
+  chroma_stft_median7?: boolean
+  chroma_stft_median8?: boolean
+  chroma_stft_median9?: boolean
+  chroma_stft_median10?: boolean
+  chroma_stft_median11?: boolean
+  chroma_stft_min?: boolean
+  chroma_stft_min1?: boolean
+  chroma_stft_min2?: boolean
+  chroma_stft_min3?: boolean
+  chroma_stft_min4?: boolean
+  chroma_stft_min5?: boolean
+  chroma_stft_min6?: boolean
+  chroma_stft_min7?: boolean
+  chroma_stft_min8?: boolean
+  chroma_stft_min9?: boolean
+  chroma_stft_min10?: boolean
+  chroma_stft_min11?: boolean
+  chroma_stft_skew?: boolean
+  chroma_stft_skew1?: boolean
+  chroma_stft_skew2?: boolean
+  chroma_stft_skew3?: boolean
+  chroma_stft_skew4?: boolean
+  chroma_stft_skew5?: boolean
+  chroma_stft_skew6?: boolean
+  chroma_stft_skew7?: boolean
+  chroma_stft_skew8?: boolean
+  chroma_stft_skew9?: boolean
+  chroma_stft_skew10?: boolean
+  chroma_stft_skew11?: boolean
+  chroma_stft_std?: boolean
+  chroma_stft_std1?: boolean
+  chroma_stft_std2?: boolean
+  chroma_stft_std3?: boolean
+  chroma_stft_std4?: boolean
+  chroma_stft_std5?: boolean
+  chroma_stft_std6?: boolean
+  chroma_stft_std7?: boolean
+  chroma_stft_std8?: boolean
+  chroma_stft_std9?: boolean
+  chroma_stft_std10?: boolean
+  chroma_stft_std11?: boolean
+  mfcc_kurtosis?: boolean
+  mfcc_kurtosis1?: boolean
+  mfcc_kurtosis2?: boolean
+  mfcc_kurtosis3?: boolean
+  mfcc_kurtosis4?: boolean
+  mfcc_kurtosis5?: boolean
+  mfcc_kurtosis6?: boolean
+  mfcc_kurtosis7?: boolean
+  mfcc_kurtosis8?: boolean
+  mfcc_kurtosis9?: boolean
+  mfcc_kurtosis10?: boolean
+  mfcc_kurtosis11?: boolean
+  mfcc_kurtosis12?: boolean
+  mfcc_kurtosis13?: boolean
+  mfcc_kurtosis14?: boolean
+  mfcc_kurtosis15?: boolean
+  mfcc_kurtosis16?: boolean
+  mfcc_kurtosis17?: boolean
+  mfcc_kurtosis18?: boolean
+  mfcc_kurtosis19?: boolean
+  mfcc_max?: boolean
+  mfcc_max1?: boolean
+  mfcc_max2?: boolean
+  mfcc_max3?: boolean
+  mfcc_max4?: boolean
+  mfcc_max5?: boolean
+  mfcc_max6?: boolean
+  mfcc_max7?: boolean
+  mfcc_max8?: boolean
+  mfcc_max9?: boolean
+  mfcc_max10?: boolean
+  mfcc_max11?: boolean
+  mfcc_max12?: boolean
+  mfcc_max13?: boolean
+  mfcc_max14?: boolean
+  mfcc_max15?: boolean
+  mfcc_max16?: boolean
+  mfcc_max17?: boolean
+  mfcc_max18?: boolean
+  mfcc_max19?: boolean
+  mfcc_mean?: boolean
+  mfcc_mean1?: boolean
+  mfcc_mean2?: boolean
+  mfcc_mean3?: boolean
+  mfcc_mean4?: boolean
+  mfcc_mean5?: boolean
+  mfcc_mean6?: boolean
+  mfcc_mean7?: boolean
+  mfcc_mean8?: boolean
+  mfcc_mean9?: boolean
+  mfcc_mean10?: boolean
+  mfcc_mean11?: boolean
+  mfcc_mean12?: boolean
+  mfcc_mean13?: boolean
+  mfcc_mean14?: boolean
+  mfcc_mean15?: boolean
+  mfcc_mean16?: boolean
+  mfcc_mean17?: boolean
+  mfcc_mean18?: boolean
+  mfcc_mean19?: boolean
+  mfcc_median?: boolean
+  mfcc_median1?: boolean
+  mfcc_median2?: boolean
+  mfcc_median3?: boolean
+  mfcc_median4?: boolean
+  mfcc_median5?: boolean
+  mfcc_median6?: boolean
+  mfcc_median7?: boolean
+  mfcc_median8?: boolean
+  mfcc_median9?: boolean
+  mfcc_median10?: boolean
+  mfcc_median11?: boolean
+  mfcc_median12?: boolean
+  mfcc_median13?: boolean
+  mfcc_median14?: boolean
+  mfcc_median15?: boolean
+  mfcc_median16?: boolean
+  mfcc_median17?: boolean
+  mfcc_median18?: boolean
+  mfcc_median19?: boolean
+  mfcc_min?: boolean
+  mfcc_min1?: boolean
+  mfcc_min2?: boolean
+  mfcc_min3?: boolean
+  mfcc_min4?: boolean
+  mfcc_min5?: boolean
+  mfcc_min6?: boolean
+  mfcc_min7?: boolean
+  mfcc_min8?: boolean
+  mfcc_min9?: boolean
+  mfcc_min10?: boolean
+  mfcc_min11?: boolean
+  mfcc_min12?: boolean
+  mfcc_min13?: boolean
+  mfcc_min14?: boolean
+  mfcc_min15?: boolean
+  mfcc_min16?: boolean
+  mfcc_min17?: boolean
+  mfcc_min18?: boolean
+  mfcc_min19?: boolean
+  mfcc_skew?: boolean
+  mfcc_skew1?: boolean
+  mfcc_skew2?: boolean
+  mfcc_skew3?: boolean
+  mfcc_skew4?: boolean
+  mfcc_skew5?: boolean
+  mfcc_skew6?: boolean
+  mfcc_skew7?: boolean
+  mfcc_skew8?: boolean
+  mfcc_skew9?: boolean
+  mfcc_skew10?: boolean
+  mfcc_skew11?: boolean
+  mfcc_skew12?: boolean
+  mfcc_skew13?: boolean
+  mfcc_skew14?: boolean
+  mfcc_skew15?: boolean
+  mfcc_skew16?: boolean
+  mfcc_skew17?: boolean
+  mfcc_skew18?: boolean
+  mfcc_skew19?: boolean
+  mfcc_std?: boolean
+  mfcc_std1?: boolean
+  mfcc_std2?: boolean
+  mfcc_std3?: boolean
+  mfcc_std4?: boolean
+  mfcc_std5?: boolean
+  mfcc_std6?: boolean
+  mfcc_std7?: boolean
+  mfcc_std8?: boolean
+  mfcc_std9?: boolean
+  mfcc_std10?: boolean
+  mfcc_std11?: boolean
+  mfcc_std12?: boolean
+  mfcc_std13?: boolean
+  mfcc_std14?: boolean
+  mfcc_std15?: boolean
+  mfcc_std16?: boolean
+  mfcc_std17?: boolean
+  mfcc_std18?: boolean
+  mfcc_std19?: boolean
+  rmse_kurtosis?: boolean
+  rmse_max?: boolean
+  rmse_mean?: boolean
+  rmse_median?: boolean
+  rmse_min?: boolean
+  rmse_skew?: boolean
+  rmse_std?: boolean
+  spectral_bandwidth_kurtosis?: boolean
+  spectral_bandwidth_max?: boolean
+  spectral_bandwidth_mean?: boolean
+  spectral_bandwidth_median?: boolean
+  spectral_bandwidth_min?: boolean
+  spectral_bandwidth_skew?: boolean
+  spectral_bandwidth_std?: boolean
+  spectral_centroid_kurtosis?: boolean
+  spectral_centroid_max?: boolean
+  spectral_centroid_mean?: boolean
+  spectral_centroid_median?: boolean
+  spectral_centroid_min?: boolean
+  spectral_centroid_skew?: boolean
+  spectral_centroid_std?: boolean
+  spectral_contrast_kurtosis?: boolean
+  spectral_contrast_kurtosis1?: boolean
+  spectral_contrast_kurtosis2?: boolean
+  spectral_contrast_kurtosis3?: boolean
+  spectral_contrast_kurtosis4?: boolean
+  spectral_contrast_kurtosis5?: boolean
+  spectral_contrast_kurtosis6?: boolean
+  spectral_contrast_max?: boolean
+  spectral_contrast_max1?: boolean
+  spectral_contrast_max2?: boolean
+  spectral_contrast_max3?: boolean
+  spectral_contrast_max4?: boolean
+  spectral_contrast_max5?: boolean
+  spectral_contrast_max6?: boolean
+  spectral_contrast_mean?: boolean
+  spectral_contrast_mean1?: boolean
+  spectral_contrast_mean2?: boolean
+  spectral_contrast_mean3?: boolean
+  spectral_contrast_mean4?: boolean
+  spectral_contrast_mean5?: boolean
+  spectral_contrast_mean6?: boolean
+  spectral_contrast_median?: boolean
+  spectral_contrast_median1?: boolean
+  spectral_contrast_median2?: boolean
+  spectral_contrast_median3?: boolean
+  spectral_contrast_median4?: boolean
+  spectral_contrast_median5?: boolean
+  spectral_contrast_median6?: boolean
+  spectral_contrast_min?: boolean
+  spectral_contrast_min1?: boolean
+  spectral_contrast_min2?: boolean
+  spectral_contrast_min3?: boolean
+  spectral_contrast_min4?: boolean
+  spectral_contrast_min5?: boolean
+  spectral_contrast_min6?: boolean
+  spectral_contrast_skew?: boolean
+  spectral_contrast_skew1?: boolean
+  spectral_contrast_skew2?: boolean
+  spectral_contrast_skew3?: boolean
+  spectral_contrast_skew4?: boolean
+  spectral_contrast_skew5?: boolean
+  spectral_contrast_skew6?: boolean
+  spectral_contrast_std?: boolean
+  spectral_contrast_std1?: boolean
+  spectral_contrast_std2?: boolean
+  spectral_contrast_std3?: boolean
+  spectral_contrast_std4?: boolean
+  spectral_contrast_std5?: boolean
+  spectral_contrast_std6?: boolean
+  spectral_rolloff_kurtosis?: boolean
+  spectral_rolloff_max?: boolean
+  spectral_rolloff_mean?: boolean
+  spectral_rolloff_median?: boolean
+  spectral_rolloff_min?: boolean
+  spectral_rolloff_skew?: boolean
+  spectral_rolloff_std?: boolean
+  tonnetz_kurtosis?: boolean
+  tonnetz_kurtosis1?: boolean
+  tonnetz_kurtosis2?: boolean
+  tonnetz_kurtosis3?: boolean
+  tonnetz_kurtosis4?: boolean
+  tonnetz_kurtosis5?: boolean
+  tonnetz_max?: boolean
+  tonnetz_max1?: boolean
+  tonnetz_max2?: boolean
+  tonnetz_max3?: boolean
+  tonnetz_max4?: boolean
+  tonnetz_max5?: boolean
+  tonnetz_mean?: boolean
+  tonnetz_mean1?: boolean
+  tonnetz_mean2?: boolean
+  tonnetz_mean3?: boolean
+  tonnetz_mean4?: boolean
+  tonnetz_mean5?: boolean
+  tonnetz_median?: boolean
+  tonnetz_median1?: boolean
+  tonnetz_median2?: boolean
+  tonnetz_median3?: boolean
+  tonnetz_median4?: boolean
+  tonnetz_median5?: boolean
+  tonnetz_min?: boolean
+  tonnetz_min1?: boolean
+  tonnetz_min2?: boolean
+  tonnetz_min3?: boolean
+  tonnetz_min4?: boolean
+  tonnetz_min5?: boolean
+  tonnetz_skew?: boolean
+  tonnetz_skew1?: boolean
+  tonnetz_skew2?: boolean
+  tonnetz_skew3?: boolean
+  tonnetz_skew4?: boolean
+  tonnetz_skew5?: boolean
+  tonnetz_std?: boolean
+  tonnetz_std1?: boolean
+  tonnetz_std2?: boolean
+  tonnetz_std3?: boolean
+  tonnetz_std4?: boolean
+  tonnetz_std5?: boolean
+  zcr_kurtosis?: boolean
+  zcr_max?: boolean
+  zcr_mean?: boolean
+  zcr_median?: boolean
+  zcr_min?: boolean
+  zcr_skew?: boolean
+  zcr_std?: boolean
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["temporalFeature"]>
 
 export type TemporalFeatureSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
+  chroma_cens_kurtosis?: boolean
+  chroma_cens_kurtosis1?: boolean
+  chroma_cens_kurtosis2?: boolean
+  chroma_cens_kurtosis3?: boolean
+  chroma_cens_kurtosis4?: boolean
+  chroma_cens_kurtosis5?: boolean
+  chroma_cens_kurtosis6?: boolean
+  chroma_cens_kurtosis7?: boolean
+  chroma_cens_kurtosis8?: boolean
+  chroma_cens_kurtosis9?: boolean
+  chroma_cens_kurtosis10?: boolean
+  chroma_cens_kurtosis11?: boolean
+  chroma_cens_max?: boolean
+  chroma_cens_max1?: boolean
+  chroma_cens_max2?: boolean
+  chroma_cens_max3?: boolean
+  chroma_cens_max4?: boolean
+  chroma_cens_max5?: boolean
+  chroma_cens_max6?: boolean
+  chroma_cens_max7?: boolean
+  chroma_cens_max8?: boolean
+  chroma_cens_max9?: boolean
+  chroma_cens_max10?: boolean
+  chroma_cens_max11?: boolean
+  chroma_cens_mean?: boolean
+  chroma_cens_mean1?: boolean
+  chroma_cens_mean2?: boolean
+  chroma_cens_mean3?: boolean
+  chroma_cens_mean4?: boolean
+  chroma_cens_mean5?: boolean
+  chroma_cens_mean6?: boolean
+  chroma_cens_mean7?: boolean
+  chroma_cens_mean8?: boolean
+  chroma_cens_mean9?: boolean
+  chroma_cens_mean10?: boolean
+  chroma_cens_mean11?: boolean
+  chroma_cens_median?: boolean
+  chroma_cens_median1?: boolean
+  chroma_cens_median2?: boolean
+  chroma_cens_median3?: boolean
+  chroma_cens_median4?: boolean
+  chroma_cens_median5?: boolean
+  chroma_cens_median6?: boolean
+  chroma_cens_median7?: boolean
+  chroma_cens_median8?: boolean
+  chroma_cens_median9?: boolean
+  chroma_cens_median10?: boolean
+  chroma_cens_median11?: boolean
+  chroma_cens_min?: boolean
+  chroma_cens_min1?: boolean
+  chroma_cens_min2?: boolean
+  chroma_cens_min3?: boolean
+  chroma_cens_min4?: boolean
+  chroma_cens_min5?: boolean
+  chroma_cens_min6?: boolean
+  chroma_cens_min7?: boolean
+  chroma_cens_min8?: boolean
+  chroma_cens_min9?: boolean
+  chroma_cens_min10?: boolean
+  chroma_cens_min11?: boolean
+  chroma_cens_skew?: boolean
+  chroma_cens_skew1?: boolean
+  chroma_cens_skew2?: boolean
+  chroma_cens_skew3?: boolean
+  chroma_cens_skew4?: boolean
+  chroma_cens_skew5?: boolean
+  chroma_cens_skew6?: boolean
+  chroma_cens_skew7?: boolean
+  chroma_cens_skew8?: boolean
+  chroma_cens_skew9?: boolean
+  chroma_cens_skew10?: boolean
+  chroma_cens_skew11?: boolean
+  chroma_cens_std?: boolean
+  chroma_cens_std1?: boolean
+  chroma_cens_std2?: boolean
+  chroma_cens_std3?: boolean
+  chroma_cens_std4?: boolean
+  chroma_cens_std5?: boolean
+  chroma_cens_std6?: boolean
+  chroma_cens_std7?: boolean
+  chroma_cens_std8?: boolean
+  chroma_cens_std9?: boolean
+  chroma_cens_std10?: boolean
+  chroma_cens_std11?: boolean
+  chroma_cqt_kurtosis?: boolean
+  chroma_cqt_kurtosis1?: boolean
+  chroma_cqt_kurtosis2?: boolean
+  chroma_cqt_kurtosis3?: boolean
+  chroma_cqt_kurtosis4?: boolean
+  chroma_cqt_kurtosis5?: boolean
+  chroma_cqt_kurtosis6?: boolean
+  chroma_cqt_kurtosis7?: boolean
+  chroma_cqt_kurtosis8?: boolean
+  chroma_cqt_kurtosis9?: boolean
+  chroma_cqt_kurtosis10?: boolean
+  chroma_cqt_kurtosis11?: boolean
+  chroma_cqt_max?: boolean
+  chroma_cqt_max1?: boolean
+  chroma_cqt_max2?: boolean
+  chroma_cqt_max3?: boolean
+  chroma_cqt_max4?: boolean
+  chroma_cqt_max5?: boolean
+  chroma_cqt_max6?: boolean
+  chroma_cqt_max7?: boolean
+  chroma_cqt_max8?: boolean
+  chroma_cqt_max9?: boolean
+  chroma_cqt_max10?: boolean
+  chroma_cqt_max11?: boolean
+  chroma_cqt_mean?: boolean
+  chroma_cqt_mean1?: boolean
+  chroma_cqt_mean2?: boolean
+  chroma_cqt_mean3?: boolean
+  chroma_cqt_mean4?: boolean
+  chroma_cqt_mean5?: boolean
+  chroma_cqt_mean6?: boolean
+  chroma_cqt_mean7?: boolean
+  chroma_cqt_mean8?: boolean
+  chroma_cqt_mean9?: boolean
+  chroma_cqt_mean10?: boolean
+  chroma_cqt_mean11?: boolean
+  chroma_cqt_median?: boolean
+  chroma_cqt_median1?: boolean
+  chroma_cqt_median2?: boolean
+  chroma_cqt_median3?: boolean
+  chroma_cqt_median4?: boolean
+  chroma_cqt_median5?: boolean
+  chroma_cqt_median6?: boolean
+  chroma_cqt_median7?: boolean
+  chroma_cqt_median8?: boolean
+  chroma_cqt_median9?: boolean
+  chroma_cqt_median10?: boolean
+  chroma_cqt_median11?: boolean
+  chroma_cqt_min?: boolean
+  chroma_cqt_min1?: boolean
+  chroma_cqt_min2?: boolean
+  chroma_cqt_min3?: boolean
+  chroma_cqt_min4?: boolean
+  chroma_cqt_min5?: boolean
+  chroma_cqt_min6?: boolean
+  chroma_cqt_min7?: boolean
+  chroma_cqt_min8?: boolean
+  chroma_cqt_min9?: boolean
+  chroma_cqt_min10?: boolean
+  chroma_cqt_min11?: boolean
+  chroma_cqt_skew?: boolean
+  chroma_cqt_skew1?: boolean
+  chroma_cqt_skew2?: boolean
+  chroma_cqt_skew3?: boolean
+  chroma_cqt_skew4?: boolean
+  chroma_cqt_skew5?: boolean
+  chroma_cqt_skew6?: boolean
+  chroma_cqt_skew7?: boolean
+  chroma_cqt_skew8?: boolean
+  chroma_cqt_skew9?: boolean
+  chroma_cqt_skew10?: boolean
+  chroma_cqt_skew11?: boolean
+  chroma_cqt_std?: boolean
+  chroma_cqt_std1?: boolean
+  chroma_cqt_std2?: boolean
+  chroma_cqt_std3?: boolean
+  chroma_cqt_std4?: boolean
+  chroma_cqt_std5?: boolean
+  chroma_cqt_std6?: boolean
+  chroma_cqt_std7?: boolean
+  chroma_cqt_std8?: boolean
+  chroma_cqt_std9?: boolean
+  chroma_cqt_std10?: boolean
+  chroma_cqt_std11?: boolean
+  chroma_stft_kurtosis?: boolean
+  chroma_stft_kurtosis1?: boolean
+  chroma_stft_kurtosis2?: boolean
+  chroma_stft_kurtosis3?: boolean
+  chroma_stft_kurtosis4?: boolean
+  chroma_stft_kurtosis5?: boolean
+  chroma_stft_kurtosis6?: boolean
+  chroma_stft_kurtosis7?: boolean
+  chroma_stft_kurtosis8?: boolean
+  chroma_stft_kurtosis9?: boolean
+  chroma_stft_kurtosis10?: boolean
+  chroma_stft_kurtosis11?: boolean
+  chroma_stft_max?: boolean
+  chroma_stft_max1?: boolean
+  chroma_stft_max2?: boolean
+  chroma_stft_max3?: boolean
+  chroma_stft_max4?: boolean
+  chroma_stft_max5?: boolean
+  chroma_stft_max6?: boolean
+  chroma_stft_max7?: boolean
+  chroma_stft_max8?: boolean
+  chroma_stft_max9?: boolean
+  chroma_stft_max10?: boolean
+  chroma_stft_max11?: boolean
+  chroma_stft_mean?: boolean
+  chroma_stft_mean1?: boolean
+  chroma_stft_mean2?: boolean
+  chroma_stft_mean3?: boolean
+  chroma_stft_mean4?: boolean
+  chroma_stft_mean5?: boolean
+  chroma_stft_mean6?: boolean
+  chroma_stft_mean7?: boolean
+  chroma_stft_mean8?: boolean
+  chroma_stft_mean9?: boolean
+  chroma_stft_mean10?: boolean
+  chroma_stft_mean11?: boolean
+  chroma_stft_median?: boolean
+  chroma_stft_median1?: boolean
+  chroma_stft_median2?: boolean
+  chroma_stft_median3?: boolean
+  chroma_stft_median4?: boolean
+  chroma_stft_median5?: boolean
+  chroma_stft_median6?: boolean
+  chroma_stft_median7?: boolean
+  chroma_stft_median8?: boolean
+  chroma_stft_median9?: boolean
+  chroma_stft_median10?: boolean
+  chroma_stft_median11?: boolean
+  chroma_stft_min?: boolean
+  chroma_stft_min1?: boolean
+  chroma_stft_min2?: boolean
+  chroma_stft_min3?: boolean
+  chroma_stft_min4?: boolean
+  chroma_stft_min5?: boolean
+  chroma_stft_min6?: boolean
+  chroma_stft_min7?: boolean
+  chroma_stft_min8?: boolean
+  chroma_stft_min9?: boolean
+  chroma_stft_min10?: boolean
+  chroma_stft_min11?: boolean
+  chroma_stft_skew?: boolean
+  chroma_stft_skew1?: boolean
+  chroma_stft_skew2?: boolean
+  chroma_stft_skew3?: boolean
+  chroma_stft_skew4?: boolean
+  chroma_stft_skew5?: boolean
+  chroma_stft_skew6?: boolean
+  chroma_stft_skew7?: boolean
+  chroma_stft_skew8?: boolean
+  chroma_stft_skew9?: boolean
+  chroma_stft_skew10?: boolean
+  chroma_stft_skew11?: boolean
+  chroma_stft_std?: boolean
+  chroma_stft_std1?: boolean
+  chroma_stft_std2?: boolean
+  chroma_stft_std3?: boolean
+  chroma_stft_std4?: boolean
+  chroma_stft_std5?: boolean
+  chroma_stft_std6?: boolean
+  chroma_stft_std7?: boolean
+  chroma_stft_std8?: boolean
+  chroma_stft_std9?: boolean
+  chroma_stft_std10?: boolean
+  chroma_stft_std11?: boolean
+  mfcc_kurtosis?: boolean
+  mfcc_kurtosis1?: boolean
+  mfcc_kurtosis2?: boolean
+  mfcc_kurtosis3?: boolean
+  mfcc_kurtosis4?: boolean
+  mfcc_kurtosis5?: boolean
+  mfcc_kurtosis6?: boolean
+  mfcc_kurtosis7?: boolean
+  mfcc_kurtosis8?: boolean
+  mfcc_kurtosis9?: boolean
+  mfcc_kurtosis10?: boolean
+  mfcc_kurtosis11?: boolean
+  mfcc_kurtosis12?: boolean
+  mfcc_kurtosis13?: boolean
+  mfcc_kurtosis14?: boolean
+  mfcc_kurtosis15?: boolean
+  mfcc_kurtosis16?: boolean
+  mfcc_kurtosis17?: boolean
+  mfcc_kurtosis18?: boolean
+  mfcc_kurtosis19?: boolean
+  mfcc_max?: boolean
+  mfcc_max1?: boolean
+  mfcc_max2?: boolean
+  mfcc_max3?: boolean
+  mfcc_max4?: boolean
+  mfcc_max5?: boolean
+  mfcc_max6?: boolean
+  mfcc_max7?: boolean
+  mfcc_max8?: boolean
+  mfcc_max9?: boolean
+  mfcc_max10?: boolean
+  mfcc_max11?: boolean
+  mfcc_max12?: boolean
+  mfcc_max13?: boolean
+  mfcc_max14?: boolean
+  mfcc_max15?: boolean
+  mfcc_max16?: boolean
+  mfcc_max17?: boolean
+  mfcc_max18?: boolean
+  mfcc_max19?: boolean
+  mfcc_mean?: boolean
+  mfcc_mean1?: boolean
+  mfcc_mean2?: boolean
+  mfcc_mean3?: boolean
+  mfcc_mean4?: boolean
+  mfcc_mean5?: boolean
+  mfcc_mean6?: boolean
+  mfcc_mean7?: boolean
+  mfcc_mean8?: boolean
+  mfcc_mean9?: boolean
+  mfcc_mean10?: boolean
+  mfcc_mean11?: boolean
+  mfcc_mean12?: boolean
+  mfcc_mean13?: boolean
+  mfcc_mean14?: boolean
+  mfcc_mean15?: boolean
+  mfcc_mean16?: boolean
+  mfcc_mean17?: boolean
+  mfcc_mean18?: boolean
+  mfcc_mean19?: boolean
+  mfcc_median?: boolean
+  mfcc_median1?: boolean
+  mfcc_median2?: boolean
+  mfcc_median3?: boolean
+  mfcc_median4?: boolean
+  mfcc_median5?: boolean
+  mfcc_median6?: boolean
+  mfcc_median7?: boolean
+  mfcc_median8?: boolean
+  mfcc_median9?: boolean
+  mfcc_median10?: boolean
+  mfcc_median11?: boolean
+  mfcc_median12?: boolean
+  mfcc_median13?: boolean
+  mfcc_median14?: boolean
+  mfcc_median15?: boolean
+  mfcc_median16?: boolean
+  mfcc_median17?: boolean
+  mfcc_median18?: boolean
+  mfcc_median19?: boolean
+  mfcc_min?: boolean
+  mfcc_min1?: boolean
+  mfcc_min2?: boolean
+  mfcc_min3?: boolean
+  mfcc_min4?: boolean
+  mfcc_min5?: boolean
+  mfcc_min6?: boolean
+  mfcc_min7?: boolean
+  mfcc_min8?: boolean
+  mfcc_min9?: boolean
+  mfcc_min10?: boolean
+  mfcc_min11?: boolean
+  mfcc_min12?: boolean
+  mfcc_min13?: boolean
+  mfcc_min14?: boolean
+  mfcc_min15?: boolean
+  mfcc_min16?: boolean
+  mfcc_min17?: boolean
+  mfcc_min18?: boolean
+  mfcc_min19?: boolean
+  mfcc_skew?: boolean
+  mfcc_skew1?: boolean
+  mfcc_skew2?: boolean
+  mfcc_skew3?: boolean
+  mfcc_skew4?: boolean
+  mfcc_skew5?: boolean
+  mfcc_skew6?: boolean
+  mfcc_skew7?: boolean
+  mfcc_skew8?: boolean
+  mfcc_skew9?: boolean
+  mfcc_skew10?: boolean
+  mfcc_skew11?: boolean
+  mfcc_skew12?: boolean
+  mfcc_skew13?: boolean
+  mfcc_skew14?: boolean
+  mfcc_skew15?: boolean
+  mfcc_skew16?: boolean
+  mfcc_skew17?: boolean
+  mfcc_skew18?: boolean
+  mfcc_skew19?: boolean
+  mfcc_std?: boolean
+  mfcc_std1?: boolean
+  mfcc_std2?: boolean
+  mfcc_std3?: boolean
+  mfcc_std4?: boolean
+  mfcc_std5?: boolean
+  mfcc_std6?: boolean
+  mfcc_std7?: boolean
+  mfcc_std8?: boolean
+  mfcc_std9?: boolean
+  mfcc_std10?: boolean
+  mfcc_std11?: boolean
+  mfcc_std12?: boolean
+  mfcc_std13?: boolean
+  mfcc_std14?: boolean
+  mfcc_std15?: boolean
+  mfcc_std16?: boolean
+  mfcc_std17?: boolean
+  mfcc_std18?: boolean
+  mfcc_std19?: boolean
+  rmse_kurtosis?: boolean
+  rmse_max?: boolean
+  rmse_mean?: boolean
+  rmse_median?: boolean
+  rmse_min?: boolean
+  rmse_skew?: boolean
+  rmse_std?: boolean
+  spectral_bandwidth_kurtosis?: boolean
+  spectral_bandwidth_max?: boolean
+  spectral_bandwidth_mean?: boolean
+  spectral_bandwidth_median?: boolean
+  spectral_bandwidth_min?: boolean
+  spectral_bandwidth_skew?: boolean
+  spectral_bandwidth_std?: boolean
+  spectral_centroid_kurtosis?: boolean
+  spectral_centroid_max?: boolean
+  spectral_centroid_mean?: boolean
+  spectral_centroid_median?: boolean
+  spectral_centroid_min?: boolean
+  spectral_centroid_skew?: boolean
+  spectral_centroid_std?: boolean
+  spectral_contrast_kurtosis?: boolean
+  spectral_contrast_kurtosis1?: boolean
+  spectral_contrast_kurtosis2?: boolean
+  spectral_contrast_kurtosis3?: boolean
+  spectral_contrast_kurtosis4?: boolean
+  spectral_contrast_kurtosis5?: boolean
+  spectral_contrast_kurtosis6?: boolean
+  spectral_contrast_max?: boolean
+  spectral_contrast_max1?: boolean
+  spectral_contrast_max2?: boolean
+  spectral_contrast_max3?: boolean
+  spectral_contrast_max4?: boolean
+  spectral_contrast_max5?: boolean
+  spectral_contrast_max6?: boolean
+  spectral_contrast_mean?: boolean
+  spectral_contrast_mean1?: boolean
+  spectral_contrast_mean2?: boolean
+  spectral_contrast_mean3?: boolean
+  spectral_contrast_mean4?: boolean
+  spectral_contrast_mean5?: boolean
+  spectral_contrast_mean6?: boolean
+  spectral_contrast_median?: boolean
+  spectral_contrast_median1?: boolean
+  spectral_contrast_median2?: boolean
+  spectral_contrast_median3?: boolean
+  spectral_contrast_median4?: boolean
+  spectral_contrast_median5?: boolean
+  spectral_contrast_median6?: boolean
+  spectral_contrast_min?: boolean
+  spectral_contrast_min1?: boolean
+  spectral_contrast_min2?: boolean
+  spectral_contrast_min3?: boolean
+  spectral_contrast_min4?: boolean
+  spectral_contrast_min5?: boolean
+  spectral_contrast_min6?: boolean
+  spectral_contrast_skew?: boolean
+  spectral_contrast_skew1?: boolean
+  spectral_contrast_skew2?: boolean
+  spectral_contrast_skew3?: boolean
+  spectral_contrast_skew4?: boolean
+  spectral_contrast_skew5?: boolean
+  spectral_contrast_skew6?: boolean
+  spectral_contrast_std?: boolean
+  spectral_contrast_std1?: boolean
+  spectral_contrast_std2?: boolean
+  spectral_contrast_std3?: boolean
+  spectral_contrast_std4?: boolean
+  spectral_contrast_std5?: boolean
+  spectral_contrast_std6?: boolean
+  spectral_rolloff_kurtosis?: boolean
+  spectral_rolloff_max?: boolean
+  spectral_rolloff_mean?: boolean
+  spectral_rolloff_median?: boolean
+  spectral_rolloff_min?: boolean
+  spectral_rolloff_skew?: boolean
+  spectral_rolloff_std?: boolean
+  tonnetz_kurtosis?: boolean
+  tonnetz_kurtosis1?: boolean
+  tonnetz_kurtosis2?: boolean
+  tonnetz_kurtosis3?: boolean
+  tonnetz_kurtosis4?: boolean
+  tonnetz_kurtosis5?: boolean
+  tonnetz_max?: boolean
+  tonnetz_max1?: boolean
+  tonnetz_max2?: boolean
+  tonnetz_max3?: boolean
+  tonnetz_max4?: boolean
+  tonnetz_max5?: boolean
+  tonnetz_mean?: boolean
+  tonnetz_mean1?: boolean
+  tonnetz_mean2?: boolean
+  tonnetz_mean3?: boolean
+  tonnetz_mean4?: boolean
+  tonnetz_mean5?: boolean
+  tonnetz_median?: boolean
+  tonnetz_median1?: boolean
+  tonnetz_median2?: boolean
+  tonnetz_median3?: boolean
+  tonnetz_median4?: boolean
+  tonnetz_median5?: boolean
+  tonnetz_min?: boolean
+  tonnetz_min1?: boolean
+  tonnetz_min2?: boolean
+  tonnetz_min3?: boolean
+  tonnetz_min4?: boolean
+  tonnetz_min5?: boolean
+  tonnetz_skew?: boolean
+  tonnetz_skew1?: boolean
+  tonnetz_skew2?: boolean
+  tonnetz_skew3?: boolean
+  tonnetz_skew4?: boolean
+  tonnetz_skew5?: boolean
+  tonnetz_std?: boolean
+  tonnetz_std1?: boolean
+  tonnetz_std2?: boolean
+  tonnetz_std3?: boolean
+  tonnetz_std4?: boolean
+  tonnetz_std5?: boolean
+  zcr_kurtosis?: boolean
+  zcr_max?: boolean
+  zcr_mean?: boolean
+  zcr_median?: boolean
+  zcr_min?: boolean
+  zcr_skew?: boolean
+  zcr_std?: boolean
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["temporalFeature"]>
 
 export type TemporalFeatureSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
+  chroma_cens_kurtosis?: boolean
+  chroma_cens_kurtosis1?: boolean
+  chroma_cens_kurtosis2?: boolean
+  chroma_cens_kurtosis3?: boolean
+  chroma_cens_kurtosis4?: boolean
+  chroma_cens_kurtosis5?: boolean
+  chroma_cens_kurtosis6?: boolean
+  chroma_cens_kurtosis7?: boolean
+  chroma_cens_kurtosis8?: boolean
+  chroma_cens_kurtosis9?: boolean
+  chroma_cens_kurtosis10?: boolean
+  chroma_cens_kurtosis11?: boolean
+  chroma_cens_max?: boolean
+  chroma_cens_max1?: boolean
+  chroma_cens_max2?: boolean
+  chroma_cens_max3?: boolean
+  chroma_cens_max4?: boolean
+  chroma_cens_max5?: boolean
+  chroma_cens_max6?: boolean
+  chroma_cens_max7?: boolean
+  chroma_cens_max8?: boolean
+  chroma_cens_max9?: boolean
+  chroma_cens_max10?: boolean
+  chroma_cens_max11?: boolean
+  chroma_cens_mean?: boolean
+  chroma_cens_mean1?: boolean
+  chroma_cens_mean2?: boolean
+  chroma_cens_mean3?: boolean
+  chroma_cens_mean4?: boolean
+  chroma_cens_mean5?: boolean
+  chroma_cens_mean6?: boolean
+  chroma_cens_mean7?: boolean
+  chroma_cens_mean8?: boolean
+  chroma_cens_mean9?: boolean
+  chroma_cens_mean10?: boolean
+  chroma_cens_mean11?: boolean
+  chroma_cens_median?: boolean
+  chroma_cens_median1?: boolean
+  chroma_cens_median2?: boolean
+  chroma_cens_median3?: boolean
+  chroma_cens_median4?: boolean
+  chroma_cens_median5?: boolean
+  chroma_cens_median6?: boolean
+  chroma_cens_median7?: boolean
+  chroma_cens_median8?: boolean
+  chroma_cens_median9?: boolean
+  chroma_cens_median10?: boolean
+  chroma_cens_median11?: boolean
+  chroma_cens_min?: boolean
+  chroma_cens_min1?: boolean
+  chroma_cens_min2?: boolean
+  chroma_cens_min3?: boolean
+  chroma_cens_min4?: boolean
+  chroma_cens_min5?: boolean
+  chroma_cens_min6?: boolean
+  chroma_cens_min7?: boolean
+  chroma_cens_min8?: boolean
+  chroma_cens_min9?: boolean
+  chroma_cens_min10?: boolean
+  chroma_cens_min11?: boolean
+  chroma_cens_skew?: boolean
+  chroma_cens_skew1?: boolean
+  chroma_cens_skew2?: boolean
+  chroma_cens_skew3?: boolean
+  chroma_cens_skew4?: boolean
+  chroma_cens_skew5?: boolean
+  chroma_cens_skew6?: boolean
+  chroma_cens_skew7?: boolean
+  chroma_cens_skew8?: boolean
+  chroma_cens_skew9?: boolean
+  chroma_cens_skew10?: boolean
+  chroma_cens_skew11?: boolean
+  chroma_cens_std?: boolean
+  chroma_cens_std1?: boolean
+  chroma_cens_std2?: boolean
+  chroma_cens_std3?: boolean
+  chroma_cens_std4?: boolean
+  chroma_cens_std5?: boolean
+  chroma_cens_std6?: boolean
+  chroma_cens_std7?: boolean
+  chroma_cens_std8?: boolean
+  chroma_cens_std9?: boolean
+  chroma_cens_std10?: boolean
+  chroma_cens_std11?: boolean
+  chroma_cqt_kurtosis?: boolean
+  chroma_cqt_kurtosis1?: boolean
+  chroma_cqt_kurtosis2?: boolean
+  chroma_cqt_kurtosis3?: boolean
+  chroma_cqt_kurtosis4?: boolean
+  chroma_cqt_kurtosis5?: boolean
+  chroma_cqt_kurtosis6?: boolean
+  chroma_cqt_kurtosis7?: boolean
+  chroma_cqt_kurtosis8?: boolean
+  chroma_cqt_kurtosis9?: boolean
+  chroma_cqt_kurtosis10?: boolean
+  chroma_cqt_kurtosis11?: boolean
+  chroma_cqt_max?: boolean
+  chroma_cqt_max1?: boolean
+  chroma_cqt_max2?: boolean
+  chroma_cqt_max3?: boolean
+  chroma_cqt_max4?: boolean
+  chroma_cqt_max5?: boolean
+  chroma_cqt_max6?: boolean
+  chroma_cqt_max7?: boolean
+  chroma_cqt_max8?: boolean
+  chroma_cqt_max9?: boolean
+  chroma_cqt_max10?: boolean
+  chroma_cqt_max11?: boolean
+  chroma_cqt_mean?: boolean
+  chroma_cqt_mean1?: boolean
+  chroma_cqt_mean2?: boolean
+  chroma_cqt_mean3?: boolean
+  chroma_cqt_mean4?: boolean
+  chroma_cqt_mean5?: boolean
+  chroma_cqt_mean6?: boolean
+  chroma_cqt_mean7?: boolean
+  chroma_cqt_mean8?: boolean
+  chroma_cqt_mean9?: boolean
+  chroma_cqt_mean10?: boolean
+  chroma_cqt_mean11?: boolean
+  chroma_cqt_median?: boolean
+  chroma_cqt_median1?: boolean
+  chroma_cqt_median2?: boolean
+  chroma_cqt_median3?: boolean
+  chroma_cqt_median4?: boolean
+  chroma_cqt_median5?: boolean
+  chroma_cqt_median6?: boolean
+  chroma_cqt_median7?: boolean
+  chroma_cqt_median8?: boolean
+  chroma_cqt_median9?: boolean
+  chroma_cqt_median10?: boolean
+  chroma_cqt_median11?: boolean
+  chroma_cqt_min?: boolean
+  chroma_cqt_min1?: boolean
+  chroma_cqt_min2?: boolean
+  chroma_cqt_min3?: boolean
+  chroma_cqt_min4?: boolean
+  chroma_cqt_min5?: boolean
+  chroma_cqt_min6?: boolean
+  chroma_cqt_min7?: boolean
+  chroma_cqt_min8?: boolean
+  chroma_cqt_min9?: boolean
+  chroma_cqt_min10?: boolean
+  chroma_cqt_min11?: boolean
+  chroma_cqt_skew?: boolean
+  chroma_cqt_skew1?: boolean
+  chroma_cqt_skew2?: boolean
+  chroma_cqt_skew3?: boolean
+  chroma_cqt_skew4?: boolean
+  chroma_cqt_skew5?: boolean
+  chroma_cqt_skew6?: boolean
+  chroma_cqt_skew7?: boolean
+  chroma_cqt_skew8?: boolean
+  chroma_cqt_skew9?: boolean
+  chroma_cqt_skew10?: boolean
+  chroma_cqt_skew11?: boolean
+  chroma_cqt_std?: boolean
+  chroma_cqt_std1?: boolean
+  chroma_cqt_std2?: boolean
+  chroma_cqt_std3?: boolean
+  chroma_cqt_std4?: boolean
+  chroma_cqt_std5?: boolean
+  chroma_cqt_std6?: boolean
+  chroma_cqt_std7?: boolean
+  chroma_cqt_std8?: boolean
+  chroma_cqt_std9?: boolean
+  chroma_cqt_std10?: boolean
+  chroma_cqt_std11?: boolean
+  chroma_stft_kurtosis?: boolean
+  chroma_stft_kurtosis1?: boolean
+  chroma_stft_kurtosis2?: boolean
+  chroma_stft_kurtosis3?: boolean
+  chroma_stft_kurtosis4?: boolean
+  chroma_stft_kurtosis5?: boolean
+  chroma_stft_kurtosis6?: boolean
+  chroma_stft_kurtosis7?: boolean
+  chroma_stft_kurtosis8?: boolean
+  chroma_stft_kurtosis9?: boolean
+  chroma_stft_kurtosis10?: boolean
+  chroma_stft_kurtosis11?: boolean
+  chroma_stft_max?: boolean
+  chroma_stft_max1?: boolean
+  chroma_stft_max2?: boolean
+  chroma_stft_max3?: boolean
+  chroma_stft_max4?: boolean
+  chroma_stft_max5?: boolean
+  chroma_stft_max6?: boolean
+  chroma_stft_max7?: boolean
+  chroma_stft_max8?: boolean
+  chroma_stft_max9?: boolean
+  chroma_stft_max10?: boolean
+  chroma_stft_max11?: boolean
+  chroma_stft_mean?: boolean
+  chroma_stft_mean1?: boolean
+  chroma_stft_mean2?: boolean
+  chroma_stft_mean3?: boolean
+  chroma_stft_mean4?: boolean
+  chroma_stft_mean5?: boolean
+  chroma_stft_mean6?: boolean
+  chroma_stft_mean7?: boolean
+  chroma_stft_mean8?: boolean
+  chroma_stft_mean9?: boolean
+  chroma_stft_mean10?: boolean
+  chroma_stft_mean11?: boolean
+  chroma_stft_median?: boolean
+  chroma_stft_median1?: boolean
+  chroma_stft_median2?: boolean
+  chroma_stft_median3?: boolean
+  chroma_stft_median4?: boolean
+  chroma_stft_median5?: boolean
+  chroma_stft_median6?: boolean
+  chroma_stft_median7?: boolean
+  chroma_stft_median8?: boolean
+  chroma_stft_median9?: boolean
+  chroma_stft_median10?: boolean
+  chroma_stft_median11?: boolean
+  chroma_stft_min?: boolean
+  chroma_stft_min1?: boolean
+  chroma_stft_min2?: boolean
+  chroma_stft_min3?: boolean
+  chroma_stft_min4?: boolean
+  chroma_stft_min5?: boolean
+  chroma_stft_min6?: boolean
+  chroma_stft_min7?: boolean
+  chroma_stft_min8?: boolean
+  chroma_stft_min9?: boolean
+  chroma_stft_min10?: boolean
+  chroma_stft_min11?: boolean
+  chroma_stft_skew?: boolean
+  chroma_stft_skew1?: boolean
+  chroma_stft_skew2?: boolean
+  chroma_stft_skew3?: boolean
+  chroma_stft_skew4?: boolean
+  chroma_stft_skew5?: boolean
+  chroma_stft_skew6?: boolean
+  chroma_stft_skew7?: boolean
+  chroma_stft_skew8?: boolean
+  chroma_stft_skew9?: boolean
+  chroma_stft_skew10?: boolean
+  chroma_stft_skew11?: boolean
+  chroma_stft_std?: boolean
+  chroma_stft_std1?: boolean
+  chroma_stft_std2?: boolean
+  chroma_stft_std3?: boolean
+  chroma_stft_std4?: boolean
+  chroma_stft_std5?: boolean
+  chroma_stft_std6?: boolean
+  chroma_stft_std7?: boolean
+  chroma_stft_std8?: boolean
+  chroma_stft_std9?: boolean
+  chroma_stft_std10?: boolean
+  chroma_stft_std11?: boolean
+  mfcc_kurtosis?: boolean
+  mfcc_kurtosis1?: boolean
+  mfcc_kurtosis2?: boolean
+  mfcc_kurtosis3?: boolean
+  mfcc_kurtosis4?: boolean
+  mfcc_kurtosis5?: boolean
+  mfcc_kurtosis6?: boolean
+  mfcc_kurtosis7?: boolean
+  mfcc_kurtosis8?: boolean
+  mfcc_kurtosis9?: boolean
+  mfcc_kurtosis10?: boolean
+  mfcc_kurtosis11?: boolean
+  mfcc_kurtosis12?: boolean
+  mfcc_kurtosis13?: boolean
+  mfcc_kurtosis14?: boolean
+  mfcc_kurtosis15?: boolean
+  mfcc_kurtosis16?: boolean
+  mfcc_kurtosis17?: boolean
+  mfcc_kurtosis18?: boolean
+  mfcc_kurtosis19?: boolean
+  mfcc_max?: boolean
+  mfcc_max1?: boolean
+  mfcc_max2?: boolean
+  mfcc_max3?: boolean
+  mfcc_max4?: boolean
+  mfcc_max5?: boolean
+  mfcc_max6?: boolean
+  mfcc_max7?: boolean
+  mfcc_max8?: boolean
+  mfcc_max9?: boolean
+  mfcc_max10?: boolean
+  mfcc_max11?: boolean
+  mfcc_max12?: boolean
+  mfcc_max13?: boolean
+  mfcc_max14?: boolean
+  mfcc_max15?: boolean
+  mfcc_max16?: boolean
+  mfcc_max17?: boolean
+  mfcc_max18?: boolean
+  mfcc_max19?: boolean
+  mfcc_mean?: boolean
+  mfcc_mean1?: boolean
+  mfcc_mean2?: boolean
+  mfcc_mean3?: boolean
+  mfcc_mean4?: boolean
+  mfcc_mean5?: boolean
+  mfcc_mean6?: boolean
+  mfcc_mean7?: boolean
+  mfcc_mean8?: boolean
+  mfcc_mean9?: boolean
+  mfcc_mean10?: boolean
+  mfcc_mean11?: boolean
+  mfcc_mean12?: boolean
+  mfcc_mean13?: boolean
+  mfcc_mean14?: boolean
+  mfcc_mean15?: boolean
+  mfcc_mean16?: boolean
+  mfcc_mean17?: boolean
+  mfcc_mean18?: boolean
+  mfcc_mean19?: boolean
+  mfcc_median?: boolean
+  mfcc_median1?: boolean
+  mfcc_median2?: boolean
+  mfcc_median3?: boolean
+  mfcc_median4?: boolean
+  mfcc_median5?: boolean
+  mfcc_median6?: boolean
+  mfcc_median7?: boolean
+  mfcc_median8?: boolean
+  mfcc_median9?: boolean
+  mfcc_median10?: boolean
+  mfcc_median11?: boolean
+  mfcc_median12?: boolean
+  mfcc_median13?: boolean
+  mfcc_median14?: boolean
+  mfcc_median15?: boolean
+  mfcc_median16?: boolean
+  mfcc_median17?: boolean
+  mfcc_median18?: boolean
+  mfcc_median19?: boolean
+  mfcc_min?: boolean
+  mfcc_min1?: boolean
+  mfcc_min2?: boolean
+  mfcc_min3?: boolean
+  mfcc_min4?: boolean
+  mfcc_min5?: boolean
+  mfcc_min6?: boolean
+  mfcc_min7?: boolean
+  mfcc_min8?: boolean
+  mfcc_min9?: boolean
+  mfcc_min10?: boolean
+  mfcc_min11?: boolean
+  mfcc_min12?: boolean
+  mfcc_min13?: boolean
+  mfcc_min14?: boolean
+  mfcc_min15?: boolean
+  mfcc_min16?: boolean
+  mfcc_min17?: boolean
+  mfcc_min18?: boolean
+  mfcc_min19?: boolean
+  mfcc_skew?: boolean
+  mfcc_skew1?: boolean
+  mfcc_skew2?: boolean
+  mfcc_skew3?: boolean
+  mfcc_skew4?: boolean
+  mfcc_skew5?: boolean
+  mfcc_skew6?: boolean
+  mfcc_skew7?: boolean
+  mfcc_skew8?: boolean
+  mfcc_skew9?: boolean
+  mfcc_skew10?: boolean
+  mfcc_skew11?: boolean
+  mfcc_skew12?: boolean
+  mfcc_skew13?: boolean
+  mfcc_skew14?: boolean
+  mfcc_skew15?: boolean
+  mfcc_skew16?: boolean
+  mfcc_skew17?: boolean
+  mfcc_skew18?: boolean
+  mfcc_skew19?: boolean
+  mfcc_std?: boolean
+  mfcc_std1?: boolean
+  mfcc_std2?: boolean
+  mfcc_std3?: boolean
+  mfcc_std4?: boolean
+  mfcc_std5?: boolean
+  mfcc_std6?: boolean
+  mfcc_std7?: boolean
+  mfcc_std8?: boolean
+  mfcc_std9?: boolean
+  mfcc_std10?: boolean
+  mfcc_std11?: boolean
+  mfcc_std12?: boolean
+  mfcc_std13?: boolean
+  mfcc_std14?: boolean
+  mfcc_std15?: boolean
+  mfcc_std16?: boolean
+  mfcc_std17?: boolean
+  mfcc_std18?: boolean
+  mfcc_std19?: boolean
+  rmse_kurtosis?: boolean
+  rmse_max?: boolean
+  rmse_mean?: boolean
+  rmse_median?: boolean
+  rmse_min?: boolean
+  rmse_skew?: boolean
+  rmse_std?: boolean
+  spectral_bandwidth_kurtosis?: boolean
+  spectral_bandwidth_max?: boolean
+  spectral_bandwidth_mean?: boolean
+  spectral_bandwidth_median?: boolean
+  spectral_bandwidth_min?: boolean
+  spectral_bandwidth_skew?: boolean
+  spectral_bandwidth_std?: boolean
+  spectral_centroid_kurtosis?: boolean
+  spectral_centroid_max?: boolean
+  spectral_centroid_mean?: boolean
+  spectral_centroid_median?: boolean
+  spectral_centroid_min?: boolean
+  spectral_centroid_skew?: boolean
+  spectral_centroid_std?: boolean
+  spectral_contrast_kurtosis?: boolean
+  spectral_contrast_kurtosis1?: boolean
+  spectral_contrast_kurtosis2?: boolean
+  spectral_contrast_kurtosis3?: boolean
+  spectral_contrast_kurtosis4?: boolean
+  spectral_contrast_kurtosis5?: boolean
+  spectral_contrast_kurtosis6?: boolean
+  spectral_contrast_max?: boolean
+  spectral_contrast_max1?: boolean
+  spectral_contrast_max2?: boolean
+  spectral_contrast_max3?: boolean
+  spectral_contrast_max4?: boolean
+  spectral_contrast_max5?: boolean
+  spectral_contrast_max6?: boolean
+  spectral_contrast_mean?: boolean
+  spectral_contrast_mean1?: boolean
+  spectral_contrast_mean2?: boolean
+  spectral_contrast_mean3?: boolean
+  spectral_contrast_mean4?: boolean
+  spectral_contrast_mean5?: boolean
+  spectral_contrast_mean6?: boolean
+  spectral_contrast_median?: boolean
+  spectral_contrast_median1?: boolean
+  spectral_contrast_median2?: boolean
+  spectral_contrast_median3?: boolean
+  spectral_contrast_median4?: boolean
+  spectral_contrast_median5?: boolean
+  spectral_contrast_median6?: boolean
+  spectral_contrast_min?: boolean
+  spectral_contrast_min1?: boolean
+  spectral_contrast_min2?: boolean
+  spectral_contrast_min3?: boolean
+  spectral_contrast_min4?: boolean
+  spectral_contrast_min5?: boolean
+  spectral_contrast_min6?: boolean
+  spectral_contrast_skew?: boolean
+  spectral_contrast_skew1?: boolean
+  spectral_contrast_skew2?: boolean
+  spectral_contrast_skew3?: boolean
+  spectral_contrast_skew4?: boolean
+  spectral_contrast_skew5?: boolean
+  spectral_contrast_skew6?: boolean
+  spectral_contrast_std?: boolean
+  spectral_contrast_std1?: boolean
+  spectral_contrast_std2?: boolean
+  spectral_contrast_std3?: boolean
+  spectral_contrast_std4?: boolean
+  spectral_contrast_std5?: boolean
+  spectral_contrast_std6?: boolean
+  spectral_rolloff_kurtosis?: boolean
+  spectral_rolloff_max?: boolean
+  spectral_rolloff_mean?: boolean
+  spectral_rolloff_median?: boolean
+  spectral_rolloff_min?: boolean
+  spectral_rolloff_skew?: boolean
+  spectral_rolloff_std?: boolean
+  tonnetz_kurtosis?: boolean
+  tonnetz_kurtosis1?: boolean
+  tonnetz_kurtosis2?: boolean
+  tonnetz_kurtosis3?: boolean
+  tonnetz_kurtosis4?: boolean
+  tonnetz_kurtosis5?: boolean
+  tonnetz_max?: boolean
+  tonnetz_max1?: boolean
+  tonnetz_max2?: boolean
+  tonnetz_max3?: boolean
+  tonnetz_max4?: boolean
+  tonnetz_max5?: boolean
+  tonnetz_mean?: boolean
+  tonnetz_mean1?: boolean
+  tonnetz_mean2?: boolean
+  tonnetz_mean3?: boolean
+  tonnetz_mean4?: boolean
+  tonnetz_mean5?: boolean
+  tonnetz_median?: boolean
+  tonnetz_median1?: boolean
+  tonnetz_median2?: boolean
+  tonnetz_median3?: boolean
+  tonnetz_median4?: boolean
+  tonnetz_median5?: boolean
+  tonnetz_min?: boolean
+  tonnetz_min1?: boolean
+  tonnetz_min2?: boolean
+  tonnetz_min3?: boolean
+  tonnetz_min4?: boolean
+  tonnetz_min5?: boolean
+  tonnetz_skew?: boolean
+  tonnetz_skew1?: boolean
+  tonnetz_skew2?: boolean
+  tonnetz_skew3?: boolean
+  tonnetz_skew4?: boolean
+  tonnetz_skew5?: boolean
+  tonnetz_std?: boolean
+  tonnetz_std1?: boolean
+  tonnetz_std2?: boolean
+  tonnetz_std3?: boolean
+  tonnetz_std4?: boolean
+  tonnetz_std5?: boolean
+  zcr_kurtosis?: boolean
+  zcr_max?: boolean
+  zcr_mean?: boolean
+  zcr_median?: boolean
+  zcr_min?: boolean
+  zcr_skew?: boolean
+  zcr_std?: boolean
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["temporalFeature"]>
 
 export type TemporalFeatureSelectScalar = {
   trackId?: boolean
+  chroma_cens_kurtosis?: boolean
+  chroma_cens_kurtosis1?: boolean
+  chroma_cens_kurtosis2?: boolean
+  chroma_cens_kurtosis3?: boolean
+  chroma_cens_kurtosis4?: boolean
+  chroma_cens_kurtosis5?: boolean
+  chroma_cens_kurtosis6?: boolean
+  chroma_cens_kurtosis7?: boolean
+  chroma_cens_kurtosis8?: boolean
+  chroma_cens_kurtosis9?: boolean
+  chroma_cens_kurtosis10?: boolean
+  chroma_cens_kurtosis11?: boolean
+  chroma_cens_max?: boolean
+  chroma_cens_max1?: boolean
+  chroma_cens_max2?: boolean
+  chroma_cens_max3?: boolean
+  chroma_cens_max4?: boolean
+  chroma_cens_max5?: boolean
+  chroma_cens_max6?: boolean
+  chroma_cens_max7?: boolean
+  chroma_cens_max8?: boolean
+  chroma_cens_max9?: boolean
+  chroma_cens_max10?: boolean
+  chroma_cens_max11?: boolean
+  chroma_cens_mean?: boolean
+  chroma_cens_mean1?: boolean
+  chroma_cens_mean2?: boolean
+  chroma_cens_mean3?: boolean
+  chroma_cens_mean4?: boolean
+  chroma_cens_mean5?: boolean
+  chroma_cens_mean6?: boolean
+  chroma_cens_mean7?: boolean
+  chroma_cens_mean8?: boolean
+  chroma_cens_mean9?: boolean
+  chroma_cens_mean10?: boolean
+  chroma_cens_mean11?: boolean
+  chroma_cens_median?: boolean
+  chroma_cens_median1?: boolean
+  chroma_cens_median2?: boolean
+  chroma_cens_median3?: boolean
+  chroma_cens_median4?: boolean
+  chroma_cens_median5?: boolean
+  chroma_cens_median6?: boolean
+  chroma_cens_median7?: boolean
+  chroma_cens_median8?: boolean
+  chroma_cens_median9?: boolean
+  chroma_cens_median10?: boolean
+  chroma_cens_median11?: boolean
+  chroma_cens_min?: boolean
+  chroma_cens_min1?: boolean
+  chroma_cens_min2?: boolean
+  chroma_cens_min3?: boolean
+  chroma_cens_min4?: boolean
+  chroma_cens_min5?: boolean
+  chroma_cens_min6?: boolean
+  chroma_cens_min7?: boolean
+  chroma_cens_min8?: boolean
+  chroma_cens_min9?: boolean
+  chroma_cens_min10?: boolean
+  chroma_cens_min11?: boolean
+  chroma_cens_skew?: boolean
+  chroma_cens_skew1?: boolean
+  chroma_cens_skew2?: boolean
+  chroma_cens_skew3?: boolean
+  chroma_cens_skew4?: boolean
+  chroma_cens_skew5?: boolean
+  chroma_cens_skew6?: boolean
+  chroma_cens_skew7?: boolean
+  chroma_cens_skew8?: boolean
+  chroma_cens_skew9?: boolean
+  chroma_cens_skew10?: boolean
+  chroma_cens_skew11?: boolean
+  chroma_cens_std?: boolean
+  chroma_cens_std1?: boolean
+  chroma_cens_std2?: boolean
+  chroma_cens_std3?: boolean
+  chroma_cens_std4?: boolean
+  chroma_cens_std5?: boolean
+  chroma_cens_std6?: boolean
+  chroma_cens_std7?: boolean
+  chroma_cens_std8?: boolean
+  chroma_cens_std9?: boolean
+  chroma_cens_std10?: boolean
+  chroma_cens_std11?: boolean
+  chroma_cqt_kurtosis?: boolean
+  chroma_cqt_kurtosis1?: boolean
+  chroma_cqt_kurtosis2?: boolean
+  chroma_cqt_kurtosis3?: boolean
+  chroma_cqt_kurtosis4?: boolean
+  chroma_cqt_kurtosis5?: boolean
+  chroma_cqt_kurtosis6?: boolean
+  chroma_cqt_kurtosis7?: boolean
+  chroma_cqt_kurtosis8?: boolean
+  chroma_cqt_kurtosis9?: boolean
+  chroma_cqt_kurtosis10?: boolean
+  chroma_cqt_kurtosis11?: boolean
+  chroma_cqt_max?: boolean
+  chroma_cqt_max1?: boolean
+  chroma_cqt_max2?: boolean
+  chroma_cqt_max3?: boolean
+  chroma_cqt_max4?: boolean
+  chroma_cqt_max5?: boolean
+  chroma_cqt_max6?: boolean
+  chroma_cqt_max7?: boolean
+  chroma_cqt_max8?: boolean
+  chroma_cqt_max9?: boolean
+  chroma_cqt_max10?: boolean
+  chroma_cqt_max11?: boolean
+  chroma_cqt_mean?: boolean
+  chroma_cqt_mean1?: boolean
+  chroma_cqt_mean2?: boolean
+  chroma_cqt_mean3?: boolean
+  chroma_cqt_mean4?: boolean
+  chroma_cqt_mean5?: boolean
+  chroma_cqt_mean6?: boolean
+  chroma_cqt_mean7?: boolean
+  chroma_cqt_mean8?: boolean
+  chroma_cqt_mean9?: boolean
+  chroma_cqt_mean10?: boolean
+  chroma_cqt_mean11?: boolean
+  chroma_cqt_median?: boolean
+  chroma_cqt_median1?: boolean
+  chroma_cqt_median2?: boolean
+  chroma_cqt_median3?: boolean
+  chroma_cqt_median4?: boolean
+  chroma_cqt_median5?: boolean
+  chroma_cqt_median6?: boolean
+  chroma_cqt_median7?: boolean
+  chroma_cqt_median8?: boolean
+  chroma_cqt_median9?: boolean
+  chroma_cqt_median10?: boolean
+  chroma_cqt_median11?: boolean
+  chroma_cqt_min?: boolean
+  chroma_cqt_min1?: boolean
+  chroma_cqt_min2?: boolean
+  chroma_cqt_min3?: boolean
+  chroma_cqt_min4?: boolean
+  chroma_cqt_min5?: boolean
+  chroma_cqt_min6?: boolean
+  chroma_cqt_min7?: boolean
+  chroma_cqt_min8?: boolean
+  chroma_cqt_min9?: boolean
+  chroma_cqt_min10?: boolean
+  chroma_cqt_min11?: boolean
+  chroma_cqt_skew?: boolean
+  chroma_cqt_skew1?: boolean
+  chroma_cqt_skew2?: boolean
+  chroma_cqt_skew3?: boolean
+  chroma_cqt_skew4?: boolean
+  chroma_cqt_skew5?: boolean
+  chroma_cqt_skew6?: boolean
+  chroma_cqt_skew7?: boolean
+  chroma_cqt_skew8?: boolean
+  chroma_cqt_skew9?: boolean
+  chroma_cqt_skew10?: boolean
+  chroma_cqt_skew11?: boolean
+  chroma_cqt_std?: boolean
+  chroma_cqt_std1?: boolean
+  chroma_cqt_std2?: boolean
+  chroma_cqt_std3?: boolean
+  chroma_cqt_std4?: boolean
+  chroma_cqt_std5?: boolean
+  chroma_cqt_std6?: boolean
+  chroma_cqt_std7?: boolean
+  chroma_cqt_std8?: boolean
+  chroma_cqt_std9?: boolean
+  chroma_cqt_std10?: boolean
+  chroma_cqt_std11?: boolean
+  chroma_stft_kurtosis?: boolean
+  chroma_stft_kurtosis1?: boolean
+  chroma_stft_kurtosis2?: boolean
+  chroma_stft_kurtosis3?: boolean
+  chroma_stft_kurtosis4?: boolean
+  chroma_stft_kurtosis5?: boolean
+  chroma_stft_kurtosis6?: boolean
+  chroma_stft_kurtosis7?: boolean
+  chroma_stft_kurtosis8?: boolean
+  chroma_stft_kurtosis9?: boolean
+  chroma_stft_kurtosis10?: boolean
+  chroma_stft_kurtosis11?: boolean
+  chroma_stft_max?: boolean
+  chroma_stft_max1?: boolean
+  chroma_stft_max2?: boolean
+  chroma_stft_max3?: boolean
+  chroma_stft_max4?: boolean
+  chroma_stft_max5?: boolean
+  chroma_stft_max6?: boolean
+  chroma_stft_max7?: boolean
+  chroma_stft_max8?: boolean
+  chroma_stft_max9?: boolean
+  chroma_stft_max10?: boolean
+  chroma_stft_max11?: boolean
+  chroma_stft_mean?: boolean
+  chroma_stft_mean1?: boolean
+  chroma_stft_mean2?: boolean
+  chroma_stft_mean3?: boolean
+  chroma_stft_mean4?: boolean
+  chroma_stft_mean5?: boolean
+  chroma_stft_mean6?: boolean
+  chroma_stft_mean7?: boolean
+  chroma_stft_mean8?: boolean
+  chroma_stft_mean9?: boolean
+  chroma_stft_mean10?: boolean
+  chroma_stft_mean11?: boolean
+  chroma_stft_median?: boolean
+  chroma_stft_median1?: boolean
+  chroma_stft_median2?: boolean
+  chroma_stft_median3?: boolean
+  chroma_stft_median4?: boolean
+  chroma_stft_median5?: boolean
+  chroma_stft_median6?: boolean
+  chroma_stft_median7?: boolean
+  chroma_stft_median8?: boolean
+  chroma_stft_median9?: boolean
+  chroma_stft_median10?: boolean
+  chroma_stft_median11?: boolean
+  chroma_stft_min?: boolean
+  chroma_stft_min1?: boolean
+  chroma_stft_min2?: boolean
+  chroma_stft_min3?: boolean
+  chroma_stft_min4?: boolean
+  chroma_stft_min5?: boolean
+  chroma_stft_min6?: boolean
+  chroma_stft_min7?: boolean
+  chroma_stft_min8?: boolean
+  chroma_stft_min9?: boolean
+  chroma_stft_min10?: boolean
+  chroma_stft_min11?: boolean
+  chroma_stft_skew?: boolean
+  chroma_stft_skew1?: boolean
+  chroma_stft_skew2?: boolean
+  chroma_stft_skew3?: boolean
+  chroma_stft_skew4?: boolean
+  chroma_stft_skew5?: boolean
+  chroma_stft_skew6?: boolean
+  chroma_stft_skew7?: boolean
+  chroma_stft_skew8?: boolean
+  chroma_stft_skew9?: boolean
+  chroma_stft_skew10?: boolean
+  chroma_stft_skew11?: boolean
+  chroma_stft_std?: boolean
+  chroma_stft_std1?: boolean
+  chroma_stft_std2?: boolean
+  chroma_stft_std3?: boolean
+  chroma_stft_std4?: boolean
+  chroma_stft_std5?: boolean
+  chroma_stft_std6?: boolean
+  chroma_stft_std7?: boolean
+  chroma_stft_std8?: boolean
+  chroma_stft_std9?: boolean
+  chroma_stft_std10?: boolean
+  chroma_stft_std11?: boolean
+  mfcc_kurtosis?: boolean
+  mfcc_kurtosis1?: boolean
+  mfcc_kurtosis2?: boolean
+  mfcc_kurtosis3?: boolean
+  mfcc_kurtosis4?: boolean
+  mfcc_kurtosis5?: boolean
+  mfcc_kurtosis6?: boolean
+  mfcc_kurtosis7?: boolean
+  mfcc_kurtosis8?: boolean
+  mfcc_kurtosis9?: boolean
+  mfcc_kurtosis10?: boolean
+  mfcc_kurtosis11?: boolean
+  mfcc_kurtosis12?: boolean
+  mfcc_kurtosis13?: boolean
+  mfcc_kurtosis14?: boolean
+  mfcc_kurtosis15?: boolean
+  mfcc_kurtosis16?: boolean
+  mfcc_kurtosis17?: boolean
+  mfcc_kurtosis18?: boolean
+  mfcc_kurtosis19?: boolean
+  mfcc_max?: boolean
+  mfcc_max1?: boolean
+  mfcc_max2?: boolean
+  mfcc_max3?: boolean
+  mfcc_max4?: boolean
+  mfcc_max5?: boolean
+  mfcc_max6?: boolean
+  mfcc_max7?: boolean
+  mfcc_max8?: boolean
+  mfcc_max9?: boolean
+  mfcc_max10?: boolean
+  mfcc_max11?: boolean
+  mfcc_max12?: boolean
+  mfcc_max13?: boolean
+  mfcc_max14?: boolean
+  mfcc_max15?: boolean
+  mfcc_max16?: boolean
+  mfcc_max17?: boolean
+  mfcc_max18?: boolean
+  mfcc_max19?: boolean
+  mfcc_mean?: boolean
+  mfcc_mean1?: boolean
+  mfcc_mean2?: boolean
+  mfcc_mean3?: boolean
+  mfcc_mean4?: boolean
+  mfcc_mean5?: boolean
+  mfcc_mean6?: boolean
+  mfcc_mean7?: boolean
+  mfcc_mean8?: boolean
+  mfcc_mean9?: boolean
+  mfcc_mean10?: boolean
+  mfcc_mean11?: boolean
+  mfcc_mean12?: boolean
+  mfcc_mean13?: boolean
+  mfcc_mean14?: boolean
+  mfcc_mean15?: boolean
+  mfcc_mean16?: boolean
+  mfcc_mean17?: boolean
+  mfcc_mean18?: boolean
+  mfcc_mean19?: boolean
+  mfcc_median?: boolean
+  mfcc_median1?: boolean
+  mfcc_median2?: boolean
+  mfcc_median3?: boolean
+  mfcc_median4?: boolean
+  mfcc_median5?: boolean
+  mfcc_median6?: boolean
+  mfcc_median7?: boolean
+  mfcc_median8?: boolean
+  mfcc_median9?: boolean
+  mfcc_median10?: boolean
+  mfcc_median11?: boolean
+  mfcc_median12?: boolean
+  mfcc_median13?: boolean
+  mfcc_median14?: boolean
+  mfcc_median15?: boolean
+  mfcc_median16?: boolean
+  mfcc_median17?: boolean
+  mfcc_median18?: boolean
+  mfcc_median19?: boolean
+  mfcc_min?: boolean
+  mfcc_min1?: boolean
+  mfcc_min2?: boolean
+  mfcc_min3?: boolean
+  mfcc_min4?: boolean
+  mfcc_min5?: boolean
+  mfcc_min6?: boolean
+  mfcc_min7?: boolean
+  mfcc_min8?: boolean
+  mfcc_min9?: boolean
+  mfcc_min10?: boolean
+  mfcc_min11?: boolean
+  mfcc_min12?: boolean
+  mfcc_min13?: boolean
+  mfcc_min14?: boolean
+  mfcc_min15?: boolean
+  mfcc_min16?: boolean
+  mfcc_min17?: boolean
+  mfcc_min18?: boolean
+  mfcc_min19?: boolean
+  mfcc_skew?: boolean
+  mfcc_skew1?: boolean
+  mfcc_skew2?: boolean
+  mfcc_skew3?: boolean
+  mfcc_skew4?: boolean
+  mfcc_skew5?: boolean
+  mfcc_skew6?: boolean
+  mfcc_skew7?: boolean
+  mfcc_skew8?: boolean
+  mfcc_skew9?: boolean
+  mfcc_skew10?: boolean
+  mfcc_skew11?: boolean
+  mfcc_skew12?: boolean
+  mfcc_skew13?: boolean
+  mfcc_skew14?: boolean
+  mfcc_skew15?: boolean
+  mfcc_skew16?: boolean
+  mfcc_skew17?: boolean
+  mfcc_skew18?: boolean
+  mfcc_skew19?: boolean
+  mfcc_std?: boolean
+  mfcc_std1?: boolean
+  mfcc_std2?: boolean
+  mfcc_std3?: boolean
+  mfcc_std4?: boolean
+  mfcc_std5?: boolean
+  mfcc_std6?: boolean
+  mfcc_std7?: boolean
+  mfcc_std8?: boolean
+  mfcc_std9?: boolean
+  mfcc_std10?: boolean
+  mfcc_std11?: boolean
+  mfcc_std12?: boolean
+  mfcc_std13?: boolean
+  mfcc_std14?: boolean
+  mfcc_std15?: boolean
+  mfcc_std16?: boolean
+  mfcc_std17?: boolean
+  mfcc_std18?: boolean
+  mfcc_std19?: boolean
+  rmse_kurtosis?: boolean
+  rmse_max?: boolean
+  rmse_mean?: boolean
+  rmse_median?: boolean
+  rmse_min?: boolean
+  rmse_skew?: boolean
+  rmse_std?: boolean
+  spectral_bandwidth_kurtosis?: boolean
+  spectral_bandwidth_max?: boolean
+  spectral_bandwidth_mean?: boolean
+  spectral_bandwidth_median?: boolean
+  spectral_bandwidth_min?: boolean
+  spectral_bandwidth_skew?: boolean
+  spectral_bandwidth_std?: boolean
+  spectral_centroid_kurtosis?: boolean
+  spectral_centroid_max?: boolean
+  spectral_centroid_mean?: boolean
+  spectral_centroid_median?: boolean
+  spectral_centroid_min?: boolean
+  spectral_centroid_skew?: boolean
+  spectral_centroid_std?: boolean
+  spectral_contrast_kurtosis?: boolean
+  spectral_contrast_kurtosis1?: boolean
+  spectral_contrast_kurtosis2?: boolean
+  spectral_contrast_kurtosis3?: boolean
+  spectral_contrast_kurtosis4?: boolean
+  spectral_contrast_kurtosis5?: boolean
+  spectral_contrast_kurtosis6?: boolean
+  spectral_contrast_max?: boolean
+  spectral_contrast_max1?: boolean
+  spectral_contrast_max2?: boolean
+  spectral_contrast_max3?: boolean
+  spectral_contrast_max4?: boolean
+  spectral_contrast_max5?: boolean
+  spectral_contrast_max6?: boolean
+  spectral_contrast_mean?: boolean
+  spectral_contrast_mean1?: boolean
+  spectral_contrast_mean2?: boolean
+  spectral_contrast_mean3?: boolean
+  spectral_contrast_mean4?: boolean
+  spectral_contrast_mean5?: boolean
+  spectral_contrast_mean6?: boolean
+  spectral_contrast_median?: boolean
+  spectral_contrast_median1?: boolean
+  spectral_contrast_median2?: boolean
+  spectral_contrast_median3?: boolean
+  spectral_contrast_median4?: boolean
+  spectral_contrast_median5?: boolean
+  spectral_contrast_median6?: boolean
+  spectral_contrast_min?: boolean
+  spectral_contrast_min1?: boolean
+  spectral_contrast_min2?: boolean
+  spectral_contrast_min3?: boolean
+  spectral_contrast_min4?: boolean
+  spectral_contrast_min5?: boolean
+  spectral_contrast_min6?: boolean
+  spectral_contrast_skew?: boolean
+  spectral_contrast_skew1?: boolean
+  spectral_contrast_skew2?: boolean
+  spectral_contrast_skew3?: boolean
+  spectral_contrast_skew4?: boolean
+  spectral_contrast_skew5?: boolean
+  spectral_contrast_skew6?: boolean
+  spectral_contrast_std?: boolean
+  spectral_contrast_std1?: boolean
+  spectral_contrast_std2?: boolean
+  spectral_contrast_std3?: boolean
+  spectral_contrast_std4?: boolean
+  spectral_contrast_std5?: boolean
+  spectral_contrast_std6?: boolean
+  spectral_rolloff_kurtosis?: boolean
+  spectral_rolloff_max?: boolean
+  spectral_rolloff_mean?: boolean
+  spectral_rolloff_median?: boolean
+  spectral_rolloff_min?: boolean
+  spectral_rolloff_skew?: boolean
+  spectral_rolloff_std?: boolean
+  tonnetz_kurtosis?: boolean
+  tonnetz_kurtosis1?: boolean
+  tonnetz_kurtosis2?: boolean
+  tonnetz_kurtosis3?: boolean
+  tonnetz_kurtosis4?: boolean
+  tonnetz_kurtosis5?: boolean
+  tonnetz_max?: boolean
+  tonnetz_max1?: boolean
+  tonnetz_max2?: boolean
+  tonnetz_max3?: boolean
+  tonnetz_max4?: boolean
+  tonnetz_max5?: boolean
+  tonnetz_mean?: boolean
+  tonnetz_mean1?: boolean
+  tonnetz_mean2?: boolean
+  tonnetz_mean3?: boolean
+  tonnetz_mean4?: boolean
+  tonnetz_mean5?: boolean
+  tonnetz_median?: boolean
+  tonnetz_median1?: boolean
+  tonnetz_median2?: boolean
+  tonnetz_median3?: boolean
+  tonnetz_median4?: boolean
+  tonnetz_median5?: boolean
+  tonnetz_min?: boolean
+  tonnetz_min1?: boolean
+  tonnetz_min2?: boolean
+  tonnetz_min3?: boolean
+  tonnetz_min4?: boolean
+  tonnetz_min5?: boolean
+  tonnetz_skew?: boolean
+  tonnetz_skew1?: boolean
+  tonnetz_skew2?: boolean
+  tonnetz_skew3?: boolean
+  tonnetz_skew4?: boolean
+  tonnetz_skew5?: boolean
+  tonnetz_std?: boolean
+  tonnetz_std1?: boolean
+  tonnetz_std2?: boolean
+  tonnetz_std3?: boolean
+  tonnetz_std4?: boolean
+  tonnetz_std5?: boolean
+  zcr_kurtosis?: boolean
+  zcr_max?: boolean
+  zcr_mean?: boolean
+  zcr_median?: boolean
+  zcr_min?: boolean
+  zcr_skew?: boolean
+  zcr_std?: boolean
 }
 
-export type TemporalFeatureOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId", ExtArgs["result"]["temporalFeature"]>
+export type TemporalFeatureOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "chroma_cens_kurtosis" | "chroma_cens_kurtosis1" | "chroma_cens_kurtosis2" | "chroma_cens_kurtosis3" | "chroma_cens_kurtosis4" | "chroma_cens_kurtosis5" | "chroma_cens_kurtosis6" | "chroma_cens_kurtosis7" | "chroma_cens_kurtosis8" | "chroma_cens_kurtosis9" | "chroma_cens_kurtosis10" | "chroma_cens_kurtosis11" | "chroma_cens_max" | "chroma_cens_max1" | "chroma_cens_max2" | "chroma_cens_max3" | "chroma_cens_max4" | "chroma_cens_max5" | "chroma_cens_max6" | "chroma_cens_max7" | "chroma_cens_max8" | "chroma_cens_max9" | "chroma_cens_max10" | "chroma_cens_max11" | "chroma_cens_mean" | "chroma_cens_mean1" | "chroma_cens_mean2" | "chroma_cens_mean3" | "chroma_cens_mean4" | "chroma_cens_mean5" | "chroma_cens_mean6" | "chroma_cens_mean7" | "chroma_cens_mean8" | "chroma_cens_mean9" | "chroma_cens_mean10" | "chroma_cens_mean11" | "chroma_cens_median" | "chroma_cens_median1" | "chroma_cens_median2" | "chroma_cens_median3" | "chroma_cens_median4" | "chroma_cens_median5" | "chroma_cens_median6" | "chroma_cens_median7" | "chroma_cens_median8" | "chroma_cens_median9" | "chroma_cens_median10" | "chroma_cens_median11" | "chroma_cens_min" | "chroma_cens_min1" | "chroma_cens_min2" | "chroma_cens_min3" | "chroma_cens_min4" | "chroma_cens_min5" | "chroma_cens_min6" | "chroma_cens_min7" | "chroma_cens_min8" | "chroma_cens_min9" | "chroma_cens_min10" | "chroma_cens_min11" | "chroma_cens_skew" | "chroma_cens_skew1" | "chroma_cens_skew2" | "chroma_cens_skew3" | "chroma_cens_skew4" | "chroma_cens_skew5" | "chroma_cens_skew6" | "chroma_cens_skew7" | "chroma_cens_skew8" | "chroma_cens_skew9" | "chroma_cens_skew10" | "chroma_cens_skew11" | "chroma_cens_std" | "chroma_cens_std1" | "chroma_cens_std2" | "chroma_cens_std3" | "chroma_cens_std4" | "chroma_cens_std5" | "chroma_cens_std6" | "chroma_cens_std7" | "chroma_cens_std8" | "chroma_cens_std9" | "chroma_cens_std10" | "chroma_cens_std11" | "chroma_cqt_kurtosis" | "chroma_cqt_kurtosis1" | "chroma_cqt_kurtosis2" | "chroma_cqt_kurtosis3" | "chroma_cqt_kurtosis4" | "chroma_cqt_kurtosis5" | "chroma_cqt_kurtosis6" | "chroma_cqt_kurtosis7" | "chroma_cqt_kurtosis8" | "chroma_cqt_kurtosis9" | "chroma_cqt_kurtosis10" | "chroma_cqt_kurtosis11" | "chroma_cqt_max" | "chroma_cqt_max1" | "chroma_cqt_max2" | "chroma_cqt_max3" | "chroma_cqt_max4" | "chroma_cqt_max5" | "chroma_cqt_max6" | "chroma_cqt_max7" | "chroma_cqt_max8" | "chroma_cqt_max9" | "chroma_cqt_max10" | "chroma_cqt_max11" | "chroma_cqt_mean" | "chroma_cqt_mean1" | "chroma_cqt_mean2" | "chroma_cqt_mean3" | "chroma_cqt_mean4" | "chroma_cqt_mean5" | "chroma_cqt_mean6" | "chroma_cqt_mean7" | "chroma_cqt_mean8" | "chroma_cqt_mean9" | "chroma_cqt_mean10" | "chroma_cqt_mean11" | "chroma_cqt_median" | "chroma_cqt_median1" | "chroma_cqt_median2" | "chroma_cqt_median3" | "chroma_cqt_median4" | "chroma_cqt_median5" | "chroma_cqt_median6" | "chroma_cqt_median7" | "chroma_cqt_median8" | "chroma_cqt_median9" | "chroma_cqt_median10" | "chroma_cqt_median11" | "chroma_cqt_min" | "chroma_cqt_min1" | "chroma_cqt_min2" | "chroma_cqt_min3" | "chroma_cqt_min4" | "chroma_cqt_min5" | "chroma_cqt_min6" | "chroma_cqt_min7" | "chroma_cqt_min8" | "chroma_cqt_min9" | "chroma_cqt_min10" | "chroma_cqt_min11" | "chroma_cqt_skew" | "chroma_cqt_skew1" | "chroma_cqt_skew2" | "chroma_cqt_skew3" | "chroma_cqt_skew4" | "chroma_cqt_skew5" | "chroma_cqt_skew6" | "chroma_cqt_skew7" | "chroma_cqt_skew8" | "chroma_cqt_skew9" | "chroma_cqt_skew10" | "chroma_cqt_skew11" | "chroma_cqt_std" | "chroma_cqt_std1" | "chroma_cqt_std2" | "chroma_cqt_std3" | "chroma_cqt_std4" | "chroma_cqt_std5" | "chroma_cqt_std6" | "chroma_cqt_std7" | "chroma_cqt_std8" | "chroma_cqt_std9" | "chroma_cqt_std10" | "chroma_cqt_std11" | "chroma_stft_kurtosis" | "chroma_stft_kurtosis1" | "chroma_stft_kurtosis2" | "chroma_stft_kurtosis3" | "chroma_stft_kurtosis4" | "chroma_stft_kurtosis5" | "chroma_stft_kurtosis6" | "chroma_stft_kurtosis7" | "chroma_stft_kurtosis8" | "chroma_stft_kurtosis9" | "chroma_stft_kurtosis10" | "chroma_stft_kurtosis11" | "chroma_stft_max" | "chroma_stft_max1" | "chroma_stft_max2" | "chroma_stft_max3" | "chroma_stft_max4" | "chroma_stft_max5" | "chroma_stft_max6" | "chroma_stft_max7" | "chroma_stft_max8" | "chroma_stft_max9" | "chroma_stft_max10" | "chroma_stft_max11" | "chroma_stft_mean" | "chroma_stft_mean1" | "chroma_stft_mean2" | "chroma_stft_mean3" | "chroma_stft_mean4" | "chroma_stft_mean5" | "chroma_stft_mean6" | "chroma_stft_mean7" | "chroma_stft_mean8" | "chroma_stft_mean9" | "chroma_stft_mean10" | "chroma_stft_mean11" | "chroma_stft_median" | "chroma_stft_median1" | "chroma_stft_median2" | "chroma_stft_median3" | "chroma_stft_median4" | "chroma_stft_median5" | "chroma_stft_median6" | "chroma_stft_median7" | "chroma_stft_median8" | "chroma_stft_median9" | "chroma_stft_median10" | "chroma_stft_median11" | "chroma_stft_min" | "chroma_stft_min1" | "chroma_stft_min2" | "chroma_stft_min3" | "chroma_stft_min4" | "chroma_stft_min5" | "chroma_stft_min6" | "chroma_stft_min7" | "chroma_stft_min8" | "chroma_stft_min9" | "chroma_stft_min10" | "chroma_stft_min11" | "chroma_stft_skew" | "chroma_stft_skew1" | "chroma_stft_skew2" | "chroma_stft_skew3" | "chroma_stft_skew4" | "chroma_stft_skew5" | "chroma_stft_skew6" | "chroma_stft_skew7" | "chroma_stft_skew8" | "chroma_stft_skew9" | "chroma_stft_skew10" | "chroma_stft_skew11" | "chroma_stft_std" | "chroma_stft_std1" | "chroma_stft_std2" | "chroma_stft_std3" | "chroma_stft_std4" | "chroma_stft_std5" | "chroma_stft_std6" | "chroma_stft_std7" | "chroma_stft_std8" | "chroma_stft_std9" | "chroma_stft_std10" | "chroma_stft_std11" | "mfcc_kurtosis" | "mfcc_kurtosis1" | "mfcc_kurtosis2" | "mfcc_kurtosis3" | "mfcc_kurtosis4" | "mfcc_kurtosis5" | "mfcc_kurtosis6" | "mfcc_kurtosis7" | "mfcc_kurtosis8" | "mfcc_kurtosis9" | "mfcc_kurtosis10" | "mfcc_kurtosis11" | "mfcc_kurtosis12" | "mfcc_kurtosis13" | "mfcc_kurtosis14" | "mfcc_kurtosis15" | "mfcc_kurtosis16" | "mfcc_kurtosis17" | "mfcc_kurtosis18" | "mfcc_kurtosis19" | "mfcc_max" | "mfcc_max1" | "mfcc_max2" | "mfcc_max3" | "mfcc_max4" | "mfcc_max5" | "mfcc_max6" | "mfcc_max7" | "mfcc_max8" | "mfcc_max9" | "mfcc_max10" | "mfcc_max11" | "mfcc_max12" | "mfcc_max13" | "mfcc_max14" | "mfcc_max15" | "mfcc_max16" | "mfcc_max17" | "mfcc_max18" | "mfcc_max19" | "mfcc_mean" | "mfcc_mean1" | "mfcc_mean2" | "mfcc_mean3" | "mfcc_mean4" | "mfcc_mean5" | "mfcc_mean6" | "mfcc_mean7" | "mfcc_mean8" | "mfcc_mean9" | "mfcc_mean10" | "mfcc_mean11" | "mfcc_mean12" | "mfcc_mean13" | "mfcc_mean14" | "mfcc_mean15" | "mfcc_mean16" | "mfcc_mean17" | "mfcc_mean18" | "mfcc_mean19" | "mfcc_median" | "mfcc_median1" | "mfcc_median2" | "mfcc_median3" | "mfcc_median4" | "mfcc_median5" | "mfcc_median6" | "mfcc_median7" | "mfcc_median8" | "mfcc_median9" | "mfcc_median10" | "mfcc_median11" | "mfcc_median12" | "mfcc_median13" | "mfcc_median14" | "mfcc_median15" | "mfcc_median16" | "mfcc_median17" | "mfcc_median18" | "mfcc_median19" | "mfcc_min" | "mfcc_min1" | "mfcc_min2" | "mfcc_min3" | "mfcc_min4" | "mfcc_min5" | "mfcc_min6" | "mfcc_min7" | "mfcc_min8" | "mfcc_min9" | "mfcc_min10" | "mfcc_min11" | "mfcc_min12" | "mfcc_min13" | "mfcc_min14" | "mfcc_min15" | "mfcc_min16" | "mfcc_min17" | "mfcc_min18" | "mfcc_min19" | "mfcc_skew" | "mfcc_skew1" | "mfcc_skew2" | "mfcc_skew3" | "mfcc_skew4" | "mfcc_skew5" | "mfcc_skew6" | "mfcc_skew7" | "mfcc_skew8" | "mfcc_skew9" | "mfcc_skew10" | "mfcc_skew11" | "mfcc_skew12" | "mfcc_skew13" | "mfcc_skew14" | "mfcc_skew15" | "mfcc_skew16" | "mfcc_skew17" | "mfcc_skew18" | "mfcc_skew19" | "mfcc_std" | "mfcc_std1" | "mfcc_std2" | "mfcc_std3" | "mfcc_std4" | "mfcc_std5" | "mfcc_std6" | "mfcc_std7" | "mfcc_std8" | "mfcc_std9" | "mfcc_std10" | "mfcc_std11" | "mfcc_std12" | "mfcc_std13" | "mfcc_std14" | "mfcc_std15" | "mfcc_std16" | "mfcc_std17" | "mfcc_std18" | "mfcc_std19" | "rmse_kurtosis" | "rmse_max" | "rmse_mean" | "rmse_median" | "rmse_min" | "rmse_skew" | "rmse_std" | "spectral_bandwidth_kurtosis" | "spectral_bandwidth_max" | "spectral_bandwidth_mean" | "spectral_bandwidth_median" | "spectral_bandwidth_min" | "spectral_bandwidth_skew" | "spectral_bandwidth_std" | "spectral_centroid_kurtosis" | "spectral_centroid_max" | "spectral_centroid_mean" | "spectral_centroid_median" | "spectral_centroid_min" | "spectral_centroid_skew" | "spectral_centroid_std" | "spectral_contrast_kurtosis" | "spectral_contrast_kurtosis1" | "spectral_contrast_kurtosis2" | "spectral_contrast_kurtosis3" | "spectral_contrast_kurtosis4" | "spectral_contrast_kurtosis5" | "spectral_contrast_kurtosis6" | "spectral_contrast_max" | "spectral_contrast_max1" | "spectral_contrast_max2" | "spectral_contrast_max3" | "spectral_contrast_max4" | "spectral_contrast_max5" | "spectral_contrast_max6" | "spectral_contrast_mean" | "spectral_contrast_mean1" | "spectral_contrast_mean2" | "spectral_contrast_mean3" | "spectral_contrast_mean4" | "spectral_contrast_mean5" | "spectral_contrast_mean6" | "spectral_contrast_median" | "spectral_contrast_median1" | "spectral_contrast_median2" | "spectral_contrast_median3" | "spectral_contrast_median4" | "spectral_contrast_median5" | "spectral_contrast_median6" | "spectral_contrast_min" | "spectral_contrast_min1" | "spectral_contrast_min2" | "spectral_contrast_min3" | "spectral_contrast_min4" | "spectral_contrast_min5" | "spectral_contrast_min6" | "spectral_contrast_skew" | "spectral_contrast_skew1" | "spectral_contrast_skew2" | "spectral_contrast_skew3" | "spectral_contrast_skew4" | "spectral_contrast_skew5" | "spectral_contrast_skew6" | "spectral_contrast_std" | "spectral_contrast_std1" | "spectral_contrast_std2" | "spectral_contrast_std3" | "spectral_contrast_std4" | "spectral_contrast_std5" | "spectral_contrast_std6" | "spectral_rolloff_kurtosis" | "spectral_rolloff_max" | "spectral_rolloff_mean" | "spectral_rolloff_median" | "spectral_rolloff_min" | "spectral_rolloff_skew" | "spectral_rolloff_std" | "tonnetz_kurtosis" | "tonnetz_kurtosis1" | "tonnetz_kurtosis2" | "tonnetz_kurtosis3" | "tonnetz_kurtosis4" | "tonnetz_kurtosis5" | "tonnetz_max" | "tonnetz_max1" | "tonnetz_max2" | "tonnetz_max3" | "tonnetz_max4" | "tonnetz_max5" | "tonnetz_mean" | "tonnetz_mean1" | "tonnetz_mean2" | "tonnetz_mean3" | "tonnetz_mean4" | "tonnetz_mean5" | "tonnetz_median" | "tonnetz_median1" | "tonnetz_median2" | "tonnetz_median3" | "tonnetz_median4" | "tonnetz_median5" | "tonnetz_min" | "tonnetz_min1" | "tonnetz_min2" | "tonnetz_min3" | "tonnetz_min4" | "tonnetz_min5" | "tonnetz_skew" | "tonnetz_skew1" | "tonnetz_skew2" | "tonnetz_skew3" | "tonnetz_skew4" | "tonnetz_skew5" | "tonnetz_std" | "tonnetz_std1" | "tonnetz_std2" | "tonnetz_std3" | "tonnetz_std4" | "tonnetz_std5" | "zcr_kurtosis" | "zcr_max" | "zcr_mean" | "zcr_median" | "zcr_min" | "zcr_skew" | "zcr_std", ExtArgs["result"]["temporalFeature"]>
 export type TemporalFeatureInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
@@ -328,6 +19009,524 @@ export type $TemporalFeaturePayload<ExtArgs extends runtime.Types.Extensions.Int
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     trackId: string
+    chroma_cens_kurtosis: number | null
+    chroma_cens_kurtosis1: number | null
+    chroma_cens_kurtosis2: number | null
+    chroma_cens_kurtosis3: number | null
+    chroma_cens_kurtosis4: number | null
+    chroma_cens_kurtosis5: number | null
+    chroma_cens_kurtosis6: number | null
+    chroma_cens_kurtosis7: number | null
+    chroma_cens_kurtosis8: number | null
+    chroma_cens_kurtosis9: number | null
+    chroma_cens_kurtosis10: number | null
+    chroma_cens_kurtosis11: number | null
+    chroma_cens_max: number | null
+    chroma_cens_max1: number | null
+    chroma_cens_max2: number | null
+    chroma_cens_max3: number | null
+    chroma_cens_max4: number | null
+    chroma_cens_max5: number | null
+    chroma_cens_max6: number | null
+    chroma_cens_max7: number | null
+    chroma_cens_max8: number | null
+    chroma_cens_max9: number | null
+    chroma_cens_max10: number | null
+    chroma_cens_max11: number | null
+    chroma_cens_mean: number | null
+    chroma_cens_mean1: number | null
+    chroma_cens_mean2: number | null
+    chroma_cens_mean3: number | null
+    chroma_cens_mean4: number | null
+    chroma_cens_mean5: number | null
+    chroma_cens_mean6: number | null
+    chroma_cens_mean7: number | null
+    chroma_cens_mean8: number | null
+    chroma_cens_mean9: number | null
+    chroma_cens_mean10: number | null
+    chroma_cens_mean11: number | null
+    chroma_cens_median: number | null
+    chroma_cens_median1: number | null
+    chroma_cens_median2: number | null
+    chroma_cens_median3: number | null
+    chroma_cens_median4: number | null
+    chroma_cens_median5: number | null
+    chroma_cens_median6: number | null
+    chroma_cens_median7: number | null
+    chroma_cens_median8: number | null
+    chroma_cens_median9: number | null
+    chroma_cens_median10: number | null
+    chroma_cens_median11: number | null
+    chroma_cens_min: number | null
+    chroma_cens_min1: number | null
+    chroma_cens_min2: number | null
+    chroma_cens_min3: number | null
+    chroma_cens_min4: number | null
+    chroma_cens_min5: number | null
+    chroma_cens_min6: number | null
+    chroma_cens_min7: number | null
+    chroma_cens_min8: number | null
+    chroma_cens_min9: number | null
+    chroma_cens_min10: number | null
+    chroma_cens_min11: number | null
+    chroma_cens_skew: number | null
+    chroma_cens_skew1: number | null
+    chroma_cens_skew2: number | null
+    chroma_cens_skew3: number | null
+    chroma_cens_skew4: number | null
+    chroma_cens_skew5: number | null
+    chroma_cens_skew6: number | null
+    chroma_cens_skew7: number | null
+    chroma_cens_skew8: number | null
+    chroma_cens_skew9: number | null
+    chroma_cens_skew10: number | null
+    chroma_cens_skew11: number | null
+    chroma_cens_std: number | null
+    chroma_cens_std1: number | null
+    chroma_cens_std2: number | null
+    chroma_cens_std3: number | null
+    chroma_cens_std4: number | null
+    chroma_cens_std5: number | null
+    chroma_cens_std6: number | null
+    chroma_cens_std7: number | null
+    chroma_cens_std8: number | null
+    chroma_cens_std9: number | null
+    chroma_cens_std10: number | null
+    chroma_cens_std11: number | null
+    chroma_cqt_kurtosis: number | null
+    chroma_cqt_kurtosis1: number | null
+    chroma_cqt_kurtosis2: number | null
+    chroma_cqt_kurtosis3: number | null
+    chroma_cqt_kurtosis4: number | null
+    chroma_cqt_kurtosis5: number | null
+    chroma_cqt_kurtosis6: number | null
+    chroma_cqt_kurtosis7: number | null
+    chroma_cqt_kurtosis8: number | null
+    chroma_cqt_kurtosis9: number | null
+    chroma_cqt_kurtosis10: number | null
+    chroma_cqt_kurtosis11: number | null
+    chroma_cqt_max: number | null
+    chroma_cqt_max1: number | null
+    chroma_cqt_max2: number | null
+    chroma_cqt_max3: number | null
+    chroma_cqt_max4: number | null
+    chroma_cqt_max5: number | null
+    chroma_cqt_max6: number | null
+    chroma_cqt_max7: number | null
+    chroma_cqt_max8: number | null
+    chroma_cqt_max9: number | null
+    chroma_cqt_max10: number | null
+    chroma_cqt_max11: number | null
+    chroma_cqt_mean: number | null
+    chroma_cqt_mean1: number | null
+    chroma_cqt_mean2: number | null
+    chroma_cqt_mean3: number | null
+    chroma_cqt_mean4: number | null
+    chroma_cqt_mean5: number | null
+    chroma_cqt_mean6: number | null
+    chroma_cqt_mean7: number | null
+    chroma_cqt_mean8: number | null
+    chroma_cqt_mean9: number | null
+    chroma_cqt_mean10: number | null
+    chroma_cqt_mean11: number | null
+    chroma_cqt_median: number | null
+    chroma_cqt_median1: number | null
+    chroma_cqt_median2: number | null
+    chroma_cqt_median3: number | null
+    chroma_cqt_median4: number | null
+    chroma_cqt_median5: number | null
+    chroma_cqt_median6: number | null
+    chroma_cqt_median7: number | null
+    chroma_cqt_median8: number | null
+    chroma_cqt_median9: number | null
+    chroma_cqt_median10: number | null
+    chroma_cqt_median11: number | null
+    chroma_cqt_min: number | null
+    chroma_cqt_min1: number | null
+    chroma_cqt_min2: number | null
+    chroma_cqt_min3: number | null
+    chroma_cqt_min4: number | null
+    chroma_cqt_min5: number | null
+    chroma_cqt_min6: number | null
+    chroma_cqt_min7: number | null
+    chroma_cqt_min8: number | null
+    chroma_cqt_min9: number | null
+    chroma_cqt_min10: number | null
+    chroma_cqt_min11: number | null
+    chroma_cqt_skew: number | null
+    chroma_cqt_skew1: number | null
+    chroma_cqt_skew2: number | null
+    chroma_cqt_skew3: number | null
+    chroma_cqt_skew4: number | null
+    chroma_cqt_skew5: number | null
+    chroma_cqt_skew6: number | null
+    chroma_cqt_skew7: number | null
+    chroma_cqt_skew8: number | null
+    chroma_cqt_skew9: number | null
+    chroma_cqt_skew10: number | null
+    chroma_cqt_skew11: number | null
+    chroma_cqt_std: number | null
+    chroma_cqt_std1: number | null
+    chroma_cqt_std2: number | null
+    chroma_cqt_std3: number | null
+    chroma_cqt_std4: number | null
+    chroma_cqt_std5: number | null
+    chroma_cqt_std6: number | null
+    chroma_cqt_std7: number | null
+    chroma_cqt_std8: number | null
+    chroma_cqt_std9: number | null
+    chroma_cqt_std10: number | null
+    chroma_cqt_std11: number | null
+    chroma_stft_kurtosis: number | null
+    chroma_stft_kurtosis1: number | null
+    chroma_stft_kurtosis2: number | null
+    chroma_stft_kurtosis3: number | null
+    chroma_stft_kurtosis4: number | null
+    chroma_stft_kurtosis5: number | null
+    chroma_stft_kurtosis6: number | null
+    chroma_stft_kurtosis7: number | null
+    chroma_stft_kurtosis8: number | null
+    chroma_stft_kurtosis9: number | null
+    chroma_stft_kurtosis10: number | null
+    chroma_stft_kurtosis11: number | null
+    chroma_stft_max: number | null
+    chroma_stft_max1: number | null
+    chroma_stft_max2: number | null
+    chroma_stft_max3: number | null
+    chroma_stft_max4: number | null
+    chroma_stft_max5: number | null
+    chroma_stft_max6: number | null
+    chroma_stft_max7: number | null
+    chroma_stft_max8: number | null
+    chroma_stft_max9: number | null
+    chroma_stft_max10: number | null
+    chroma_stft_max11: number | null
+    chroma_stft_mean: number | null
+    chroma_stft_mean1: number | null
+    chroma_stft_mean2: number | null
+    chroma_stft_mean3: number | null
+    chroma_stft_mean4: number | null
+    chroma_stft_mean5: number | null
+    chroma_stft_mean6: number | null
+    chroma_stft_mean7: number | null
+    chroma_stft_mean8: number | null
+    chroma_stft_mean9: number | null
+    chroma_stft_mean10: number | null
+    chroma_stft_mean11: number | null
+    chroma_stft_median: number | null
+    chroma_stft_median1: number | null
+    chroma_stft_median2: number | null
+    chroma_stft_median3: number | null
+    chroma_stft_median4: number | null
+    chroma_stft_median5: number | null
+    chroma_stft_median6: number | null
+    chroma_stft_median7: number | null
+    chroma_stft_median8: number | null
+    chroma_stft_median9: number | null
+    chroma_stft_median10: number | null
+    chroma_stft_median11: number | null
+    chroma_stft_min: number | null
+    chroma_stft_min1: number | null
+    chroma_stft_min2: number | null
+    chroma_stft_min3: number | null
+    chroma_stft_min4: number | null
+    chroma_stft_min5: number | null
+    chroma_stft_min6: number | null
+    chroma_stft_min7: number | null
+    chroma_stft_min8: number | null
+    chroma_stft_min9: number | null
+    chroma_stft_min10: number | null
+    chroma_stft_min11: number | null
+    chroma_stft_skew: number | null
+    chroma_stft_skew1: number | null
+    chroma_stft_skew2: number | null
+    chroma_stft_skew3: number | null
+    chroma_stft_skew4: number | null
+    chroma_stft_skew5: number | null
+    chroma_stft_skew6: number | null
+    chroma_stft_skew7: number | null
+    chroma_stft_skew8: number | null
+    chroma_stft_skew9: number | null
+    chroma_stft_skew10: number | null
+    chroma_stft_skew11: number | null
+    chroma_stft_std: number | null
+    chroma_stft_std1: number | null
+    chroma_stft_std2: number | null
+    chroma_stft_std3: number | null
+    chroma_stft_std4: number | null
+    chroma_stft_std5: number | null
+    chroma_stft_std6: number | null
+    chroma_stft_std7: number | null
+    chroma_stft_std8: number | null
+    chroma_stft_std9: number | null
+    chroma_stft_std10: number | null
+    chroma_stft_std11: number | null
+    mfcc_kurtosis: number | null
+    mfcc_kurtosis1: number | null
+    mfcc_kurtosis2: number | null
+    mfcc_kurtosis3: number | null
+    mfcc_kurtosis4: number | null
+    mfcc_kurtosis5: number | null
+    mfcc_kurtosis6: number | null
+    mfcc_kurtosis7: number | null
+    mfcc_kurtosis8: number | null
+    mfcc_kurtosis9: number | null
+    mfcc_kurtosis10: number | null
+    mfcc_kurtosis11: number | null
+    mfcc_kurtosis12: number | null
+    mfcc_kurtosis13: number | null
+    mfcc_kurtosis14: number | null
+    mfcc_kurtosis15: number | null
+    mfcc_kurtosis16: number | null
+    mfcc_kurtosis17: number | null
+    mfcc_kurtosis18: number | null
+    mfcc_kurtosis19: number | null
+    mfcc_max: number | null
+    mfcc_max1: number | null
+    mfcc_max2: number | null
+    mfcc_max3: number | null
+    mfcc_max4: number | null
+    mfcc_max5: number | null
+    mfcc_max6: number | null
+    mfcc_max7: number | null
+    mfcc_max8: number | null
+    mfcc_max9: number | null
+    mfcc_max10: number | null
+    mfcc_max11: number | null
+    mfcc_max12: number | null
+    mfcc_max13: number | null
+    mfcc_max14: number | null
+    mfcc_max15: number | null
+    mfcc_max16: number | null
+    mfcc_max17: number | null
+    mfcc_max18: number | null
+    mfcc_max19: number | null
+    mfcc_mean: number | null
+    mfcc_mean1: number | null
+    mfcc_mean2: number | null
+    mfcc_mean3: number | null
+    mfcc_mean4: number | null
+    mfcc_mean5: number | null
+    mfcc_mean6: number | null
+    mfcc_mean7: number | null
+    mfcc_mean8: number | null
+    mfcc_mean9: number | null
+    mfcc_mean10: number | null
+    mfcc_mean11: number | null
+    mfcc_mean12: number | null
+    mfcc_mean13: number | null
+    mfcc_mean14: number | null
+    mfcc_mean15: number | null
+    mfcc_mean16: number | null
+    mfcc_mean17: number | null
+    mfcc_mean18: number | null
+    mfcc_mean19: number | null
+    mfcc_median: number | null
+    mfcc_median1: number | null
+    mfcc_median2: number | null
+    mfcc_median3: number | null
+    mfcc_median4: number | null
+    mfcc_median5: number | null
+    mfcc_median6: number | null
+    mfcc_median7: number | null
+    mfcc_median8: number | null
+    mfcc_median9: number | null
+    mfcc_median10: number | null
+    mfcc_median11: number | null
+    mfcc_median12: number | null
+    mfcc_median13: number | null
+    mfcc_median14: number | null
+    mfcc_median15: number | null
+    mfcc_median16: number | null
+    mfcc_median17: number | null
+    mfcc_median18: number | null
+    mfcc_median19: number | null
+    mfcc_min: number | null
+    mfcc_min1: number | null
+    mfcc_min2: number | null
+    mfcc_min3: number | null
+    mfcc_min4: number | null
+    mfcc_min5: number | null
+    mfcc_min6: number | null
+    mfcc_min7: number | null
+    mfcc_min8: number | null
+    mfcc_min9: number | null
+    mfcc_min10: number | null
+    mfcc_min11: number | null
+    mfcc_min12: number | null
+    mfcc_min13: number | null
+    mfcc_min14: number | null
+    mfcc_min15: number | null
+    mfcc_min16: number | null
+    mfcc_min17: number | null
+    mfcc_min18: number | null
+    mfcc_min19: number | null
+    mfcc_skew: number | null
+    mfcc_skew1: number | null
+    mfcc_skew2: number | null
+    mfcc_skew3: number | null
+    mfcc_skew4: number | null
+    mfcc_skew5: number | null
+    mfcc_skew6: number | null
+    mfcc_skew7: number | null
+    mfcc_skew8: number | null
+    mfcc_skew9: number | null
+    mfcc_skew10: number | null
+    mfcc_skew11: number | null
+    mfcc_skew12: number | null
+    mfcc_skew13: number | null
+    mfcc_skew14: number | null
+    mfcc_skew15: number | null
+    mfcc_skew16: number | null
+    mfcc_skew17: number | null
+    mfcc_skew18: number | null
+    mfcc_skew19: number | null
+    mfcc_std: number | null
+    mfcc_std1: number | null
+    mfcc_std2: number | null
+    mfcc_std3: number | null
+    mfcc_std4: number | null
+    mfcc_std5: number | null
+    mfcc_std6: number | null
+    mfcc_std7: number | null
+    mfcc_std8: number | null
+    mfcc_std9: number | null
+    mfcc_std10: number | null
+    mfcc_std11: number | null
+    mfcc_std12: number | null
+    mfcc_std13: number | null
+    mfcc_std14: number | null
+    mfcc_std15: number | null
+    mfcc_std16: number | null
+    mfcc_std17: number | null
+    mfcc_std18: number | null
+    mfcc_std19: number | null
+    rmse_kurtosis: number | null
+    rmse_max: number | null
+    rmse_mean: number | null
+    rmse_median: number | null
+    rmse_min: number | null
+    rmse_skew: number | null
+    rmse_std: number | null
+    spectral_bandwidth_kurtosis: number | null
+    spectral_bandwidth_max: number | null
+    spectral_bandwidth_mean: number | null
+    spectral_bandwidth_median: number | null
+    spectral_bandwidth_min: number | null
+    spectral_bandwidth_skew: number | null
+    spectral_bandwidth_std: number | null
+    spectral_centroid_kurtosis: number | null
+    spectral_centroid_max: number | null
+    spectral_centroid_mean: number | null
+    spectral_centroid_median: number | null
+    spectral_centroid_min: number | null
+    spectral_centroid_skew: number | null
+    spectral_centroid_std: number | null
+    spectral_contrast_kurtosis: number | null
+    spectral_contrast_kurtosis1: number | null
+    spectral_contrast_kurtosis2: number | null
+    spectral_contrast_kurtosis3: number | null
+    spectral_contrast_kurtosis4: number | null
+    spectral_contrast_kurtosis5: number | null
+    spectral_contrast_kurtosis6: number | null
+    spectral_contrast_max: number | null
+    spectral_contrast_max1: number | null
+    spectral_contrast_max2: number | null
+    spectral_contrast_max3: number | null
+    spectral_contrast_max4: number | null
+    spectral_contrast_max5: number | null
+    spectral_contrast_max6: number | null
+    spectral_contrast_mean: number | null
+    spectral_contrast_mean1: number | null
+    spectral_contrast_mean2: number | null
+    spectral_contrast_mean3: number | null
+    spectral_contrast_mean4: number | null
+    spectral_contrast_mean5: number | null
+    spectral_contrast_mean6: number | null
+    spectral_contrast_median: number | null
+    spectral_contrast_median1: number | null
+    spectral_contrast_median2: number | null
+    spectral_contrast_median3: number | null
+    spectral_contrast_median4: number | null
+    spectral_contrast_median5: number | null
+    spectral_contrast_median6: number | null
+    spectral_contrast_min: number | null
+    spectral_contrast_min1: number | null
+    spectral_contrast_min2: number | null
+    spectral_contrast_min3: number | null
+    spectral_contrast_min4: number | null
+    spectral_contrast_min5: number | null
+    spectral_contrast_min6: number | null
+    spectral_contrast_skew: number | null
+    spectral_contrast_skew1: number | null
+    spectral_contrast_skew2: number | null
+    spectral_contrast_skew3: number | null
+    spectral_contrast_skew4: number | null
+    spectral_contrast_skew5: number | null
+    spectral_contrast_skew6: number | null
+    spectral_contrast_std: number | null
+    spectral_contrast_std1: number | null
+    spectral_contrast_std2: number | null
+    spectral_contrast_std3: number | null
+    spectral_contrast_std4: number | null
+    spectral_contrast_std5: number | null
+    spectral_contrast_std6: number | null
+    spectral_rolloff_kurtosis: number | null
+    spectral_rolloff_max: number | null
+    spectral_rolloff_mean: number | null
+    spectral_rolloff_median: number | null
+    spectral_rolloff_min: number | null
+    spectral_rolloff_skew: number | null
+    spectral_rolloff_std: number | null
+    tonnetz_kurtosis: number | null
+    tonnetz_kurtosis1: number | null
+    tonnetz_kurtosis2: number | null
+    tonnetz_kurtosis3: number | null
+    tonnetz_kurtosis4: number | null
+    tonnetz_kurtosis5: number | null
+    tonnetz_max: number | null
+    tonnetz_max1: number | null
+    tonnetz_max2: number | null
+    tonnetz_max3: number | null
+    tonnetz_max4: number | null
+    tonnetz_max5: number | null
+    tonnetz_mean: number | null
+    tonnetz_mean1: number | null
+    tonnetz_mean2: number | null
+    tonnetz_mean3: number | null
+    tonnetz_mean4: number | null
+    tonnetz_mean5: number | null
+    tonnetz_median: number | null
+    tonnetz_median1: number | null
+    tonnetz_median2: number | null
+    tonnetz_median3: number | null
+    tonnetz_median4: number | null
+    tonnetz_median5: number | null
+    tonnetz_min: number | null
+    tonnetz_min1: number | null
+    tonnetz_min2: number | null
+    tonnetz_min3: number | null
+    tonnetz_min4: number | null
+    tonnetz_min5: number | null
+    tonnetz_skew: number | null
+    tonnetz_skew1: number | null
+    tonnetz_skew2: number | null
+    tonnetz_skew3: number | null
+    tonnetz_skew4: number | null
+    tonnetz_skew5: number | null
+    tonnetz_std: number | null
+    tonnetz_std1: number | null
+    tonnetz_std2: number | null
+    tonnetz_std3: number | null
+    tonnetz_std4: number | null
+    tonnetz_std5: number | null
+    zcr_kurtosis: number | null
+    zcr_max: number | null
+    zcr_mean: number | null
+    zcr_median: number | null
+    zcr_min: number | null
+    zcr_skew: number | null
+    zcr_std: number | null
   }, ExtArgs["result"]["temporalFeature"]>
   composites: {}
 }
@@ -753,6 +19952,524 @@ export interface Prisma__TemporalFeatureClient<T, Null = never, ExtArgs extends 
  */
 export interface TemporalFeatureFieldRefs {
   readonly trackId: Prisma.FieldRef<"TemporalFeature", 'String'>
+  readonly chroma_cens_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_kurtosis11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_max11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_mean11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_median11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_min11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_skew11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cens_std11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_kurtosis11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_max11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_mean11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_median11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_min11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_skew11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_cqt_std11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_kurtosis11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_max11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_mean11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_median11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_min11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_skew11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly chroma_stft_std11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis12: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis13: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis14: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis15: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis16: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis17: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis18: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_kurtosis19: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max12: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max13: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max14: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max15: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max16: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max17: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max18: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_max19: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean12: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean13: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean14: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean15: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean16: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean17: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean18: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_mean19: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median12: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median13: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median14: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median15: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median16: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median17: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median18: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_median19: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min12: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min13: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min14: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min15: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min16: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min17: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min18: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_min19: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew12: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew13: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew14: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew15: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew16: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew17: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew18: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_skew19: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std7: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std8: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std9: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std10: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std11: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std12: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std13: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std14: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std15: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std16: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std17: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std18: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly mfcc_std19: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly rmse_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly rmse_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly rmse_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly rmse_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly rmse_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly rmse_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly rmse_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_bandwidth_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_bandwidth_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_bandwidth_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_bandwidth_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_bandwidth_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_bandwidth_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_bandwidth_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_centroid_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_centroid_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_centroid_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_centroid_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_centroid_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_centroid_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_centroid_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_kurtosis1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_kurtosis2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_kurtosis3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_kurtosis4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_kurtosis5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_kurtosis6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_max1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_max2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_max3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_max4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_max5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_max6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_mean1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_mean2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_mean3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_mean4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_mean5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_mean6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_median1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_median2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_median3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_median4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_median5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_median6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_min1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_min2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_min3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_min4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_min5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_min6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_skew1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_skew2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_skew3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_skew4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_skew5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_skew6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_std1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_std2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_std3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_std4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_std5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_contrast_std6: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_rolloff_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_rolloff_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_rolloff_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_rolloff_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_rolloff_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_rolloff_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly spectral_rolloff_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_kurtosis1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_kurtosis2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_kurtosis3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_kurtosis4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_kurtosis5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_max1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_max2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_max3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_max4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_max5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_mean1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_mean2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_mean3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_mean4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_mean5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_median1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_median2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_median3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_median4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_median5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_min1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_min2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_min3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_min4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_min5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_skew1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_skew2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_skew3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_skew4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_skew5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_std1: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_std2: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_std3: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_std4: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly tonnetz_std5: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly zcr_kurtosis: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly zcr_max: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly zcr_mean: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly zcr_median: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly zcr_min: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly zcr_skew: Prisma.FieldRef<"TemporalFeature", 'Float'>
+  readonly zcr_std: Prisma.FieldRef<"TemporalFeature", 'Float'>
 }
     
 
