@@ -1,8 +1,10 @@
 SET synchronous_commit = off;
-SET work_mem = '256MB';
-SET maintenance_work_mem = '1GB';
-SET temp_buffers = '256MB';
 SET jit = off;
+SET maintenance_work_mem = '2GB';
+SET work_mem = '256MB';
+SET temp_buffers = '256MB';
+SET max_parallel_workers_per_gather = 4;
+SET max_parallel_maintenance_workers = 4;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- ====================================================================================
 -- HELPERS
