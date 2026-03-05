@@ -1,5 +1,5 @@
-import { $ } from "bun";
 import "dotenv/config";
+import { runSqlCommand } from "./run-psql";
 
 const RESET_SCHEMA_SQL = `
 DROP SCHEMA IF EXISTS public CASCADE;
@@ -15,7 +15,7 @@ const resetDatabase = async (): Promise<void> => {
   }
 
   console.log("Resetting database schema...");
-  await $`psql ${databaseUrl} -v ON_ERROR_STOP=1 -c ${RESET_SCHEMA_SQL}`;
+  await runSqlCommand(databaseUrl, RESET_SCHEMA_SQL);
   console.log("Database schema reset completed.");
 };
 
