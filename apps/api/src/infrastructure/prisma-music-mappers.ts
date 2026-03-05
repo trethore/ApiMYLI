@@ -1,11 +1,14 @@
 import type {
   Account,
-  Album,
+  AlbumArtist,
+  Album as PrismaAlbum,
   Prisma,
   TrackArtistFeat,
   TrackArtistMain,
 } from "@prisma/generated/prisma/client";
+import type { Album } from "packages/domain/src/entities/album";
 import type { Playlist as PlaylistEntity } from "packages/domain/src/entities/playlist";
+import type { PlaylistSummary } from "packages/domain/src/entities/playlist-summary";
 import type { ArtistSummary, Track } from "packages/domain/src/entities/track";
 
 const toNullableNumber = (value: bigint | number | null | undefined): number | null => {
@@ -70,15 +73,60 @@ export const playlistInclude = (currentAccountId?: string | null) =>
     },
   }) satisfies Prisma.PlaylistInclude;
 
+export const albumInclude = () =>
+  ({
+    albumArtists: {
+      include: {
+        artist: {
+          include: {
+            account: true,
+          },
+        },
+      },
+    },
+  }) satisfies Prisma.AlbumInclude;
+
+export const playlistSummaryInclude = () =>
+  ({
+    playlistAccounts: {
+      include: {
+        account: true,
+      },
+    },
+    _count: {
+      select: {
+        playlistTracks: true,
+      },
+    },
+  }) satisfies Prisma.PlaylistInclude;
+
 type PrismaTrackWithRelations = Prisma.TrackGetPayload<{
   include: ReturnType<typeof trackInclude>;
+}>;
+
+type PrismaAlbumWithRelations = Prisma.AlbumGetPayload<{
+  include: ReturnType<typeof albumInclude>;
 }>;
 
 type PrismaPlaylistWithRelations = Prisma.PlaylistGetPayload<{
   include: ReturnType<typeof playlistInclude>;
 }>;
 
+type PrismaPlaylistSummaryWithRelations = Prisma.PlaylistGetPayload<{
+  include: ReturnType<typeof playlistSummaryInclude>;
+}>;
+
 type ArtistRelation =
+  | (AlbumArtist & {
+      artist: {
+        artistId: string;
+        artistImageFile: string | null;
+        account: {
+          name: string | null;
+          login: string | null;
+        };
+      };
+    })
   | (TrackArtistMain & {
       artist: {
         artistId: string;
@@ -100,17 +148,31 @@ type ArtistRelation =
       };
     });
 
-const toArtistSummary = (artistRelation: ArtistRelation): ArtistSummary => ({
+export const toArtistSummary = (artistRelation: ArtistRelation): ArtistSummary => ({
   artistId: artistRelation.artist.artistId,
   name: artistRelation.artist.account.name ?? artistRelation.artist.account.login,
   imageUrl: artistRelation.artist.artistImageFile,
 });
 
-const toAlbumSummary = (album: Album) => ({
+export const toAlbumSummary = (album: PrismaAlbum) => ({
   albumId: album.albumId,
   title: album.albumTitle,
   imageUrl: album.albumImageFile,
   type: album.albumType,
+});
+
+export const toAlbum = (album: PrismaAlbumWithRelations): Album => ({
+  albumId: album.albumId,
+  title: album.albumTitle,
+  imageUrl: album.albumImageFile,
+  type: album.albumType,
+  dateReleased: album.albumDateReleased,
+  tracksCount: album.albumTracksCount,
+  listens: toNullableNumber(album.albumListens),
+  favorites: toNullableNumber(album.albumFavorites),
+  comments: toNullableNumber(album.albumComments),
+  producer: album.albumProducer,
+  artists: album.albumArtists.map(toArtistSummary),
 });
 
 export const toTrack = (track: PrismaTrackWithRelations): Track => ({
@@ -152,4 +214,21 @@ export const toPlaylist = (
     : false,
   trackCount: playlist.playlistTracks.length,
   tracks: playlist.playlistTracks.map((playlistTrack) => toTrack(playlistTrack.track)),
+});
+
+export const toPlaylistSummary = (
+  playlist: PrismaPlaylistSummaryWithRelations,
+  currentAccountId?: string | null,
+): PlaylistSummary => ({
+  playlistId: playlist.playlistId,
+  name: playlist.playlistName,
+  ownerDisplayName: playlist.playlistAccounts[0]?.account
+    ? toOwnerDisplayName(playlist.playlistAccounts[0].account)
+    : null,
+  isEditable: currentAccountId
+    ? playlist.playlistAccounts.some(
+        (playlistAccount) => playlistAccount.accountId === currentAccountId,
+      )
+    : false,
+  trackCount: playlist._count.playlistTracks,
 });

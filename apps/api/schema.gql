@@ -1,6 +1,10 @@
 type Artist {
   artistId: ID!
+  name: String
+  imageUrl: String
+  imageUrls: [String!]!
   artistBio: String
+  artistMembers: String
   artistLocation: String
   artistLatitude: Float
   artistLongitude: Float
@@ -8,6 +12,9 @@ type Artist {
   artistActiveYearEnd: Int
   artistFavorites: Float
   artistComments: Float
+  tags: [String!]!
+  albumCount: Int
+  trackCount: Int
 }
 
 type ArtistSummary {
@@ -21,6 +28,20 @@ type AlbumSummary {
   title: String
   imageUrl: String
   type: String
+}
+
+type Album {
+  albumId: ID!
+  title: String
+  imageUrl: String
+  type: String
+  dateReleased: String
+  tracksCount: Int
+  listens: Float
+  favorites: Float
+  comments: Float
+  producer: String
+  artists: [ArtistSummary!]!
 }
 
 type Track {
@@ -49,6 +70,31 @@ type Playlist {
   isEditable: Boolean!
   trackCount: Int!
   tracks: [Track!]!
+}
+
+type PlaylistSummary {
+  playlistId: ID!
+  name: String
+  ownerDisplayName: String
+  isEditable: Boolean!
+  trackCount: Int!
+}
+
+enum PinnedItemType {
+  TRACK
+  ALBUM
+  ARTIST
+  PLAYLIST
+}
+
+type PinnedItem {
+  slot: Int!
+  itemType: PinnedItemType!
+  pinnedAt: String!
+  track: Track
+  album: Album
+  artist: ArtistSummary
+  playlist: PlaylistSummary
 }
 
 type Account {
@@ -108,12 +154,15 @@ input LoginInput {
 type Query {
   hello: String!
   account(accountId: String!): Account
+  artist(artistId: String!): Artist
+  artistAlbums(artistId: String!): [Album!]!
   track(trackId: String!): Track
   albumTracks(albumId: String!): [Track!]!
   artistTopTracks(artistId: String!, limit: Int): [Track!]!
   likedTracks: [Track!]!
   playlist(playlistId: String!): Playlist
   myPlaylists: [Playlist!]!
+  myPinnedItems: [PinnedItem!]!
 }
 
 type Mutation {
@@ -125,6 +174,11 @@ type Mutation {
   logout: Boolean!
   likeTrack(trackId: String!): Track
   unlikeTrack(trackId: String!): Track
+  pinTrack(slot: Int!, trackId: String!): PinnedItem
+  pinAlbum(slot: Int!, albumId: String!): PinnedItem
+  pinArtist(slot: Int!, artistId: String!): PinnedItem
+  pinPlaylist(slot: Int!, playlistId: String!): PinnedItem
+  unpinItem(slot: Int!): Boolean!
   createPlaylist(input: CreatePlaylistInput!): Playlist!
   updatePlaylist(playlistId: String!, input: UpdatePlaylistInput!): Playlist
   deletePlaylist(playlistId: String!): Boolean!
