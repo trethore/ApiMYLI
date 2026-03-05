@@ -1,4 +1,8 @@
 SET synchronous_commit = off;
+SET work_mem = '256MB';
+SET maintenance_work_mem = '1GB';
+SET temp_buffers = '256MB';
+SET jit = off;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- ====================================================================================
 -- HELPERS
