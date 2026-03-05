@@ -1,4 +1,6 @@
 import { createSchema } from "graphql-yoga";
+import { getArtistById } from "packages/application/src/use-cases/artist/get-artist-by-id";
+import { listArtistAlbums } from "packages/application/src/use-cases/artist/list-artist-albums";
 import { createPlaylist } from "packages/application/src/use-cases/playlist/create-playlist";
 import { deletePlaylist } from "packages/application/src/use-cases/playlist/delete-playlist";
 import { getPlaylistById } from "packages/application/src/use-cases/playlist/get-playlist-by-id";
@@ -6,6 +8,12 @@ import { listMyPlaylists } from "packages/application/src/use-cases/playlist/lis
 import { updatePlaylist } from "packages/application/src/use-cases/playlist/update-playlist";
 import { addTrackToPlaylist } from "packages/application/src/use-cases/playlist/add-track-to-playlist";
 import { removeTrackFromPlaylist } from "packages/application/src/use-cases/playlist/remove-track-from-playlist";
+import { listPinnedItems } from "packages/application/src/use-cases/pin/list-pinned-items";
+import { pinAlbum } from "packages/application/src/use-cases/pin/pin-album";
+import { pinArtist } from "packages/application/src/use-cases/pin/pin-artist";
+import { pinPlaylist } from "packages/application/src/use-cases/pin/pin-playlist";
+import { pinTrack } from "packages/application/src/use-cases/pin/pin-track";
+import { unpinItem } from "packages/application/src/use-cases/pin/unpin-item";
 import { createAccount } from "packages/application/src/use-cases/account/create-account";
 import { deleteAccount } from "packages/application/src/use-cases/account/delete-account";
 import { getAccountById } from "packages/application/src/use-cases/account/get-account-by-id";
@@ -23,18 +31,28 @@ import { recordTrackListen } from "packages/application/src/use-cases/track/reco
 import { unlikeTrack } from "packages/application/src/use-cases/track/unlike-track";
 import type { AuthTokenServicePort } from "packages/application/src/ports/security/auth-token-service-port";
 import type { PasswordHasherPort } from "packages/application/src/ports/security/password-hasher-port";
+import type { Album } from "packages/domain/src/entities/album";
 import type { Account } from "packages/domain/src/entities/account";
+import type { Artist as ArtistEntity } from "packages/domain/src/entities/artist";
 import type { ArtistProfile } from "packages/domain/src/entities/artist-profile";
 import type { Playlist } from "packages/domain/src/entities/playlist";
+import type { PlaylistSummary } from "packages/domain/src/entities/playlist-summary";
+import type { PinnedItem } from "packages/domain/src/entities/pinned-item";
 import type { AlbumSummary, ArtistSummary, Track } from "packages/domain/src/entities/track";
+import type { ArtistCatalogRepository } from "packages/domain/src/repositories/artist-catalog-repository";
 import type { PlaylistRepository } from "packages/domain/src/repositories/playlist-repository";
 import type { AccountRepository } from "packages/domain/src/repositories/account-repository";
+import type { PinnedItemRepository } from "packages/domain/src/repositories/pinned-item-repository";
 import type { TrackCatalogRepository } from "packages/domain/src/repositories/track-catalog-repository";
 import type { TrackLibraryRepository } from "packages/domain/src/repositories/track-library-repository";
 
 type GraphqlArtist = {
   artistId: string;
+  name: string | null;
+  imageUrl: string | null;
+  imageUrls: string[];
   artistBio?: string | null;
+  artistMembers?: string | null;
   artistLocation?: string | null;
   artistLatitude?: number | null;
   artistLongitude?: number | null;
@@ -42,6 +60,9 @@ type GraphqlArtist = {
   artistActiveYearEnd?: number | null;
   artistFavorites?: number | null;
   artistComments?: number | null;
+  tags: string[];
+  albumCount: number | null;
+  trackCount: number | null;
 };
 
 type GraphqlAccount = {
@@ -64,6 +85,20 @@ type GraphqlAlbumSummary = {
   title: string | null;
   imageUrl: string | null;
   type: string | null;
+};
+
+type GraphqlAlbum = {
+  albumId: string;
+  title: string | null;
+  imageUrl: string | null;
+  type: string | null;
+  dateReleased: string | null;
+  tracksCount: number | null;
+  listens: number | null;
+  favorites: number | null;
+  comments: number | null;
+  producer: string | null;
+  artists: GraphqlArtistSummary[];
 };
 
 type GraphqlTrack = {
@@ -92,6 +127,24 @@ type GraphqlPlaylist = {
   isEditable: boolean;
   trackCount: number;
   tracks: GraphqlTrack[];
+};
+
+type GraphqlPlaylistSummary = {
+  playlistId: string;
+  name: string | null;
+  ownerDisplayName: string | null;
+  isEditable: boolean;
+  trackCount: number;
+};
+
+type GraphqlPinnedItem = {
+  slot: number;
+  itemType: string;
+  pinnedAt: string;
+  track: GraphqlTrack | null;
+  album: GraphqlAlbum | null;
+  artist: GraphqlArtistSummary | null;
+  playlist: GraphqlPlaylistSummary | null;
 };
 
 type CreateAccountInput = {
@@ -131,6 +184,8 @@ type UpdatePlaylistInput = {
 
 type GraphqlContextServices = {
   accountRepository: AccountRepository;
+  artistCatalogRepository: ArtistCatalogRepository;
+  pinnedItemRepository: PinnedItemRepository;
   trackCatalogRepository: TrackCatalogRepository;
   trackLibraryRepository: TrackLibraryRepository;
   playlistRepository: PlaylistRepository;
@@ -143,9 +198,13 @@ type GraphqlContext = {
   services: GraphqlContextServices;
 };
 
-const toGraphqlArtist = (artist: ArtistProfile): GraphqlArtist => ({
+const toGraphqlArtistProfile = (account: Account, artist: ArtistProfile): GraphqlArtist => ({
   artistId: artist.artistId,
+  name: account.name ?? account.login ?? null,
+  imageUrl: null,
+  imageUrls: [],
   artistBio: artist.artistBio,
+  artistMembers: null,
   artistLocation: artist.artistLocation,
   artistLatitude: artist.artistLatitude,
   artistLongitude: artist.artistLongitude,
@@ -153,6 +212,28 @@ const toGraphqlArtist = (artist: ArtistProfile): GraphqlArtist => ({
   artistActiveYearEnd: artist.artistActiveYearEnd,
   artistFavorites: artist.artistFavorites,
   artistComments: artist.artistComments,
+  tags: [],
+  albumCount: null,
+  trackCount: null,
+});
+
+const toGraphqlArtist = (artist: ArtistEntity): GraphqlArtist => ({
+  artistId: artist.artistId,
+  name: artist.name,
+  imageUrl: artist.imageUrl,
+  imageUrls: artist.images,
+  artistBio: artist.bio,
+  artistMembers: artist.members,
+  artistLocation: artist.location,
+  artistLatitude: artist.latitude,
+  artistLongitude: artist.longitude,
+  artistActiveYearBegin: artist.activeYearBegin,
+  artistActiveYearEnd: artist.activeYearEnd,
+  artistFavorites: artist.favorites,
+  artistComments: artist.comments,
+  tags: artist.tags,
+  albumCount: artist.albumCount,
+  trackCount: artist.trackCount,
 });
 
 const toGraphqlAccount = (account: Account): GraphqlAccount => ({
@@ -161,7 +242,7 @@ const toGraphqlAccount = (account: Account): GraphqlAccount => ({
   email: account.email ?? null,
   name: account.name ?? null,
   isArtist: account.isArtist,
-  artist: account.artist ? toGraphqlArtist(account.artist) : null,
+  artist: account.artist ? toGraphqlArtistProfile(account, account.artist) : null,
 });
 
 const toGraphqlArtistSummary = (artist: ArtistSummary): GraphqlArtistSummary => ({
@@ -175,6 +256,20 @@ const toGraphqlAlbumSummary = (album: AlbumSummary): GraphqlAlbumSummary => ({
   title: album.title,
   imageUrl: album.imageUrl,
   type: album.type,
+});
+
+const toGraphqlAlbum = (album: Album): GraphqlAlbum => ({
+  albumId: album.albumId,
+  title: album.title,
+  imageUrl: album.imageUrl,
+  type: album.type,
+  dateReleased: album.dateReleased ? album.dateReleased.toISOString() : null,
+  tracksCount: album.tracksCount,
+  listens: album.listens,
+  favorites: album.favorites,
+  comments: album.comments,
+  producer: album.producer,
+  artists: album.artists.map(toGraphqlArtistSummary),
 });
 
 const toGraphqlTrack = (track: Track): GraphqlTrack => ({
@@ -205,6 +300,24 @@ const toGraphqlPlaylist = (playlist: Playlist): GraphqlPlaylist => ({
   tracks: playlist.tracks.map(toGraphqlTrack),
 });
 
+const toGraphqlPlaylistSummary = (playlist: PlaylistSummary): GraphqlPlaylistSummary => ({
+  playlistId: playlist.playlistId,
+  name: playlist.name,
+  ownerDisplayName: playlist.ownerDisplayName,
+  isEditable: playlist.isEditable,
+  trackCount: playlist.trackCount,
+});
+
+const toGraphqlPinnedItem = (pinnedItem: PinnedItem): GraphqlPinnedItem => ({
+  slot: pinnedItem.slot,
+  itemType: pinnedItem.itemType,
+  pinnedAt: pinnedItem.pinnedAt.toISOString(),
+  track: pinnedItem.track ? toGraphqlTrack(pinnedItem.track) : null,
+  album: pinnedItem.album ? toGraphqlAlbum(pinnedItem.album) : null,
+  artist: pinnedItem.artist ? toGraphqlArtistSummary(pinnedItem.artist) : null,
+  playlist: pinnedItem.playlist ? toGraphqlPlaylistSummary(pinnedItem.playlist) : null,
+});
+
 const getOptionalAuthenticatedAccountId = async (
   context: GraphqlContext,
 ): Promise<string | null> => {
@@ -219,7 +332,11 @@ export const schema = createSchema({
   typeDefs: /* GraphQL */ `
     type Artist {
       artistId: ID!
+      name: String
+      imageUrl: String
+      imageUrls: [String!]!
       artistBio: String
+      artistMembers: String
       artistLocation: String
       artistLatitude: Float
       artistLongitude: Float
@@ -227,6 +344,9 @@ export const schema = createSchema({
       artistActiveYearEnd: Int
       artistFavorites: Float
       artistComments: Float
+      tags: [String!]!
+      albumCount: Int
+      trackCount: Int
     }
 
     type ArtistSummary {
@@ -240,6 +360,20 @@ export const schema = createSchema({
       title: String
       imageUrl: String
       type: String
+    }
+
+    type Album {
+      albumId: ID!
+      title: String
+      imageUrl: String
+      type: String
+      dateReleased: String
+      tracksCount: Int
+      listens: Float
+      favorites: Float
+      comments: Float
+      producer: String
+      artists: [ArtistSummary!]!
     }
 
     type Track {
@@ -268,6 +402,31 @@ export const schema = createSchema({
       isEditable: Boolean!
       trackCount: Int!
       tracks: [Track!]!
+    }
+
+    type PlaylistSummary {
+      playlistId: ID!
+      name: String
+      ownerDisplayName: String
+      isEditable: Boolean!
+      trackCount: Int!
+    }
+
+    enum PinnedItemType {
+      TRACK
+      ALBUM
+      ARTIST
+      PLAYLIST
+    }
+
+    type PinnedItem {
+      slot: Int!
+      itemType: PinnedItemType!
+      pinnedAt: String!
+      track: Track
+      album: Album
+      artist: ArtistSummary
+      playlist: PlaylistSummary
     }
 
     type Account {
@@ -327,12 +486,15 @@ export const schema = createSchema({
     type Query {
       hello: String!
       account(accountId: String!): Account
+      artist(artistId: String!): Artist
+      artistAlbums(artistId: String!): [Album!]!
       track(trackId: String!): Track
       albumTracks(albumId: String!): [Track!]!
       artistTopTracks(artistId: String!, limit: Int): [Track!]!
       likedTracks: [Track!]!
       playlist(playlistId: String!): Playlist
       myPlaylists: [Playlist!]!
+      myPinnedItems: [PinnedItem!]!
     }
 
     type Mutation {
@@ -344,6 +506,11 @@ export const schema = createSchema({
       logout: Boolean!
       likeTrack(trackId: String!): Track
       unlikeTrack(trackId: String!): Track
+      pinTrack(slot: Int!, trackId: String!): PinnedItem
+      pinAlbum(slot: Int!, albumId: String!): PinnedItem
+      pinArtist(slot: Int!, artistId: String!): PinnedItem
+      pinPlaylist(slot: Int!, playlistId: String!): PinnedItem
+      unpinItem(slot: Int!): Boolean!
       createPlaylist(input: CreatePlaylistInput!): Playlist!
       updatePlaylist(playlistId: String!, input: UpdatePlaylistInput!): Playlist
       deletePlaylist(playlistId: String!): Boolean!
@@ -371,6 +538,20 @@ export const schema = createSchema({
         );
 
         return account ? toGraphqlAccount(account) : null;
+      },
+      artist: async (_parent: unknown, args: { artistId: string }, context: GraphqlContext) => {
+        const artist = await getArtistById(context.services.artistCatalogRepository, args.artistId);
+
+        return artist ? toGraphqlArtist(artist) : null;
+      },
+      artistAlbums: async (
+        _parent: unknown,
+        args: { artistId: string },
+        context: GraphqlContext,
+      ) => {
+        const albums = await listArtistAlbums(context.services.artistCatalogRepository, args.artistId);
+
+        return albums.map(toGraphqlAlbum);
       },
       track: async (_parent: unknown, args: { trackId: string }, context: GraphqlContext) => {
         const currentAccountId = await getOptionalAuthenticatedAccountId(context);
@@ -441,6 +622,19 @@ export const schema = createSchema({
 
         return playlists.map(toGraphqlPlaylist);
       },
+      myPinnedItems: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const pinnedItems = await listPinnedItems(
+          context.services.pinnedItemRepository,
+          currentAccountId,
+        );
+
+        return pinnedItems.map(toGraphqlPinnedItem);
+      },
     },
     Mutation: {
       createAccount: async (
@@ -502,7 +696,13 @@ export const schema = createSchema({
           args.input,
         );
 
-        return artist ? toGraphqlArtist(artist) : null;
+        if (!artist) {
+          return null;
+        }
+
+        const account = await context.services.accountRepository.findById(args.accountId);
+
+        return account ? toGraphqlArtistProfile(account, artist) : null;
       },
       deleteAccount: async (
         _parent: unknown,
@@ -578,6 +778,94 @@ export const schema = createSchema({
         );
 
         return track ? toGraphqlTrack(track) : null;
+      },
+      pinTrack: async (
+        _parent: unknown,
+        args: { slot: number; trackId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const pinnedItem = await pinTrack(
+          context.services.pinnedItemRepository,
+          currentAccountId,
+          args.slot,
+          args.trackId,
+        );
+
+        return pinnedItem ? toGraphqlPinnedItem(pinnedItem) : null;
+      },
+      pinAlbum: async (
+        _parent: unknown,
+        args: { slot: number; albumId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const pinnedItem = await pinAlbum(
+          context.services.pinnedItemRepository,
+          currentAccountId,
+          args.slot,
+          args.albumId,
+        );
+
+        return pinnedItem ? toGraphqlPinnedItem(pinnedItem) : null;
+      },
+      pinArtist: async (
+        _parent: unknown,
+        args: { slot: number; artistId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const pinnedItem = await pinArtist(
+          context.services.pinnedItemRepository,
+          currentAccountId,
+          args.slot,
+          args.artistId,
+        );
+
+        return pinnedItem ? toGraphqlPinnedItem(pinnedItem) : null;
+      },
+      pinPlaylist: async (
+        _parent: unknown,
+        args: { slot: number; playlistId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const pinnedItem = await pinPlaylist(
+          context.services.pinnedItemRepository,
+          currentAccountId,
+          args.slot,
+          args.playlistId,
+        );
+
+        return pinnedItem ? toGraphqlPinnedItem(pinnedItem) : null;
+      },
+      unpinItem: async (
+        _parent: unknown,
+        args: { slot: number },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        return unpinItem(context.services.pinnedItemRepository, currentAccountId, args.slot);
       },
       createPlaylist: async (
         _parent: unknown,
