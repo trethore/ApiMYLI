@@ -10,6 +10,9 @@ services:
       - "${POSTGRES_PORT:-5433}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./apps/api/seed:/workspace/seed:ro
+      - ./apps/api/data:/workspace/data:ro
+      - ./apps/api/prisma:/workspace/prisma:ro
 
   redis:
     image: redis:7-alpine

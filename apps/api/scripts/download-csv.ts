@@ -5,10 +5,11 @@ import { resolve } from "node:path";
 import { $ } from "bun";
 
 const GOOGLE_DRIVE_URL =
-  "https://drive.google.com/file/d/1j6ApZCLpCaTTLtD3yOldOnYV_O8CgLAK/view?usp=drive_link";
+  "https://drive.google.com/file/d/1QnnM25W0oCaXgiSOlIwKxZ3NPFUczArF/view?usp=drive_link";
 const DATA_DIRECTORY_PATH = resolve(import.meta.dir, "../data");
 const ARCHIVE_PATH = resolve(DATA_DIRECTORY_PATH, "seed-csv.zip");
 
+const BYTES_PER_KILOBYTE = 1024;
 const PROGRESS_UPDATE_INTERVAL_MS = 100;
 
 const extractGoogleDriveFileId = (url: string): string => {
@@ -26,19 +27,19 @@ const buildGoogleDriveDownloadUrl = (fileId: string): string => {
 };
 
 const formatBytes = (bytes: number): string => {
-  if (bytes < 1024) {
+  if (bytes < BYTES_PER_KILOBYTE) {
     return `${bytes} B`;
   }
 
-  if (bytes < 1024 * 1024) {
-    return `${(bytes / 1024).toFixed(1)} KB`;
+  if (bytes < BYTES_PER_KILOBYTE * BYTES_PER_KILOBYTE) {
+    return `${(bytes / BYTES_PER_KILOBYTE).toFixed(1)} KB`;
   }
 
-  if (bytes < 1024 * 1024 * 1024) {
-    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  if (bytes < BYTES_PER_KILOBYTE * BYTES_PER_KILOBYTE * BYTES_PER_KILOBYTE) {
+    return `${(bytes / (BYTES_PER_KILOBYTE * BYTES_PER_KILOBYTE)).toFixed(1)} MB`;
   }
 
-  return `${(bytes / (1024 * 1024 * 1024)).toFixed(1)} GB`;
+  return `${(bytes / (BYTES_PER_KILOBYTE * BYTES_PER_KILOBYTE * BYTES_PER_KILOBYTE)).toFixed(1)} GB`;
 };
 
 const parseContentLength = (contentLengthHeader: string | null): number | null => {
