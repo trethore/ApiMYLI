@@ -6,7 +6,12 @@ import { redis } from "@/redis";
 
 const yoga = createYoga({
   schema,
-  context: { prisma, redis },
+  context: async ({ request }) => {
+    const authHeader = request.headers.get("authorization");
+    const authToken = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+
+    return { prisma, redis, authToken };
+  },
 });
 
 const port = Number(Bun.env.PORT ?? 4000);

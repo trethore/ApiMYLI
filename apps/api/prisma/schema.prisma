@@ -14,11 +14,12 @@ datasource db {
 // ============================================================================
 
 model Account {
-  accountId String    @id @default(dbgenerated("uuid_generate_v4()")) @map("account_id") @db.Uuid
-  login     String?   @unique @db.VarChar(255)
-  password  String?   @db.VarChar(255)
-  name      String?   @db.VarChar(255)
-  email     String?   @db.VarChar(255)
+  accountId String   @id @default(dbgenerated("uuid_generate_v4()")) @map("account_id") @db.Uuid
+  login     String?  @unique @db.VarChar(255)
+  password  String?  @db.VarChar(255)
+  name      String?  @db.VarChar(255)
+  email     String?  @unique @db.VarChar(255)
+  isArtist  Boolean  @default(false) @map("is_artist")
   createdAt DateTime? @map("created_at") @db.Timestamp(6)
 
   artist Artist?

@@ -104,6 +104,7 @@ export const AccountScalarFieldEnum = {
   password: 'password',
   name: 'name',
   email: 'email',
+  isArtist: 'isArtist',
   createdAt: 'createdAt'
 } as const
 
