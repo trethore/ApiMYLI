@@ -35,7 +35,9 @@ export default function RegisterPage() {
       <main className="flex-1 flex items-center justify-center p-4">
         <Card className="w-full max-w-md bg-background-secondary border-border">
           <CardHeader>
-            <CardTitle className="text-2xl font-[family-name:var(--font-protest-strike)] text-center text-primary">Rejoignez MUSE</CardTitle>
+            <CardTitle className="text-2xl font-[family-name:var(--font-protest-strike)] text-center text-primary">
+              Rejoignez MUSE
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -60,7 +62,7 @@ export default function RegisterPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                   className="bg-input text-foreground border-input"
+                  className="bg-input text-foreground border-input"
                 />
               </div>
               <div className="space-y-2">
@@ -72,7 +74,7 @@ export default function RegisterPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                     className="bg-input text-foreground border-input pr-10"
+                    className="bg-input text-foreground border-input pr-10"
                   />
                   <button
                     type="button"
@@ -92,12 +94,15 @@ export default function RegisterPage() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
-                     className="bg-input text-foreground border-input pr-10"
+                    className="bg-input text-foreground border-input pr-10"
                   />
                 </div>
               </div>
               {error && <p className="text-red-500 text-sm">{error}</p>}
-              <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button
+                type="submit"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+              >
                 S'inscrire
               </Button>
             </form>

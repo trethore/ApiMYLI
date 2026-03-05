@@ -1,4 +1,3 @@
-
 export type ContentType = "Album" | "Single" | "Artiste" | "Playlist";
 
 export interface ContentItem {

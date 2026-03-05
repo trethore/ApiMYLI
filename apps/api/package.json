@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "bun --hot src/index.ts",
     "start": "bun src/index.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "schema:generate": "bun scripts/generate-schema.ts",
     "seed:csv": "bun scripts/seed-csv.ts",
     "prisma:generate": "prisma generate",

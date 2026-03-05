@@ -32,23 +32,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={`${alexandria.variable} ${protestStrike.variable} antialiased font-[family-name:var(--font-alexandria)]`}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <AuthProvider>
-              <PlayerProvider>
-                <PlaylistProvider>
-                    {children}
-                    <PlayerPadding />
-                    <Player />
-                </PlaylistProvider>
-              </PlayerProvider>
-            </AuthProvider>
-          </ThemeProvider>
+      <body
+        className={`${alexandria.variable} ${protestStrike.variable} antialiased font-[family-name:var(--font-alexandria)]`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AuthProvider>
+            <PlayerProvider>
+              <PlaylistProvider>
+                {children}
+                <PlayerPadding />
+                <Player />
+              </PlaylistProvider>
+            </PlayerProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

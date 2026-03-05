@@ -1,8 +1,11 @@
 import "dotenv/config";
 import { createYoga } from "graphql-yoga";
 import { schema } from "@/presentation/schema";
+import { createAppServices } from "@/main/app-services";
 import { prisma } from "@/prisma";
 import { redis } from "@/redis";
+
+const services = createAppServices(prisma, redis);
 
 const yoga = createYoga({
   schema,
@@ -10,7 +13,7 @@ const yoga = createYoga({
     const authHeader = request.headers.get("authorization");
     const authToken = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
 
-    return { prisma, redis, authToken };
+    return { authToken, services };
   },
 });
 

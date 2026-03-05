@@ -1,4 +1,3 @@
-
 interface SectionTitleProps {
   title: string;
   className?: string;

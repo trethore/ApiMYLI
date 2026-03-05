@@ -2,7 +2,12 @@ import type { AccountRepository } from "packages/domain/src/repositories/account
 
 export const deleteAccount = async (
   repository: AccountRepository,
-  id: string,
+  currentAccountId: string,
+  targetAccountId: string,
 ): Promise<boolean> => {
-  return repository.delete(id);
+  if (currentAccountId !== targetAccountId) {
+    throw new Error("Unauthorized");
+  }
+
+  return repository.delete(targetAccountId);
 };
