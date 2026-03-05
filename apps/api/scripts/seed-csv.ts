@@ -5,8 +5,8 @@ import { resolve } from "node:path";
 import { $ } from "bun";
 
 const GOOGLE_DRIVE_URL =
-  "https://drive.google.com/file/d/1QCGaCi6WB9FI4paqV4mGlH30FmymDCUl/view?usp=drive_link";
-const DATA_DIRECTORY_PATH = resolve(import.meta.dir, "../../data");
+  "https://drive.google.com/file/d/1j6ApZCLpCaTTLtD3yOldOnYV_O8CgLAK/view?usp=drive_link";
+const DATA_DIRECTORY_PATH = resolve(import.meta.dir, "../data");
 const ARCHIVE_PATH = resolve(DATA_DIRECTORY_PATH, "seed-csv.zip");
 
 const PROGRESS_UPDATE_INTERVAL_MS = 100;

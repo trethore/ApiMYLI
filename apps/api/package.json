@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "bun --hot src/index.ts",
     "start": "bun src/index.ts",
-    "schema:generate": "bun src/main/generate-schema.ts",
-    "seed:csv": "bun src/main/seed-csv.ts",
+    "schema:generate": "bun scripts/generate-schema.ts",
+    "seed:csv": "bun scripts/seed-csv.ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev && prisma generate"
   },
