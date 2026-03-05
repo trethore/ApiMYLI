@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --fix",
     "schema:generate": "bun scripts/generate-schema.ts",
     "seed": "bun seed/seed.ts",
-    "seed:csv": "bun scripts/seed-csv.ts",
+    "seed:download": "bun scripts/download-csv.ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev && prisma generate"
   },
