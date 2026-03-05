@@ -33,6 +33,9 @@ interface AuthContextType {
   updateUser: (data: { login?: string; name?: string; email?: string; password?: string }) => Promise<void>;
   deleteAccount: () => Promise<void>;
   clearError: () => void;
+  isAuthPopupOpen: boolean;
+  setAuthPopupOpen: (isOpen: boolean) => void;
+  requireAuth: (action: () => void) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -49,6 +52,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isAuthPopupOpen, setAuthPopupOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -152,6 +156,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const clearError = () => setError(null);
 
+  const requireAuth = (action: () => void) => {
+    if (user && token) {
+      action();
+    } else {
+      setAuthPopupOpen(true);
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -166,6 +178,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         updateUser,
         deleteAccount,
         clearError,
+        isAuthPopupOpen,
+        setAuthPopupOpen,
+        requireAuth,
       }}
     >
       {children}

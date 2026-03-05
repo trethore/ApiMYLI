@@ -6,6 +6,7 @@ import { PlayerProvider } from "@/context/PlayerContext";
 import { PlaylistProvider } from "@/context/PlaylistContext";
 import Player from "@/components/Player";
 import PlayerPadding from "@/components/PlayerPadding";
+import AuthRequiredPopup from "@/components/AuthRequiredPopup";
 import "./globals.css";
 
 const alexandria = Alexandria({
@@ -45,6 +46,7 @@ export default function RootLayout({
             <PlayerProvider>
               <PlaylistProvider>
                 {children}
+                <AuthRequiredPopup />
                 <PlayerPadding />
                 <Player />
               </PlaylistProvider>

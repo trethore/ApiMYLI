@@ -1,30 +1,40 @@
 import ContentCard from "@/components/ContentCard";
+import TrackCard from "@/components/TrackCard";
+import { Music } from "@/types/music";
 
-// Using the same type definition as ContentCard for items
 interface ContentItem {
-  name: string;
-  type: "Album" | "Single" | "Artiste" | "Playlist";
+  id?: string;
+  name?: string;
+  title?: string;
+  type?: string;
   imageUrl?: string;
-  link: string;
+  image?: string;
+  link?: string;
+  [key: string]: any;
 }
 
 interface ContentGridProps {
-  items?: readonly ContentItem[] | ContentItem[]; // Made items optional to prevent undefined errors
+  items?: readonly ContentItem[] | ContentItem[];
 }
 
 export default function ContentGrid({ items = [] }: ContentGridProps) {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      {items?.map((item, index) => (
-        <ContentCard
-          key={index}
-          name={item.name}
-          type={item.type}
-          imageUrl={item.imageUrl}
-          link={item.link}
-          priority={index < 2} // Keep priority for first 2 items
-        />
-      ))}
+      {items?.map((item, index) => {
+        if (item.type === "Track") {
+          return <TrackCard key={item.id || index} track={item as unknown as Music} priority={index < 2} />;
+        }
+        return (
+          <ContentCard
+            key={item.id || index}
+            name={item.name || item.title || "Unknown"}
+            type={item.type as any}
+            imageUrl={item.imageUrl || item.image}
+            link={item.link || "/"}
+            priority={index < 2}
+          />
+        );
+      })}
     </div>
   );
 }

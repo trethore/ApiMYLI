@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import LikeButton from "@/components/LikeButton";
+import PinActionSubMenu from "@/components/PinActionSubMenu";
 import { usePlayer } from "@/context/PlayerContext";
 import { usePlaylist } from "@/context/PlaylistContext";
 import { usePathname } from "next/navigation";
@@ -162,6 +163,8 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
                 </DropdownMenuSubContent>
               </DropdownMenuPortal>
             </DropdownMenuSub>
+            
+            <PinActionSubMenu itemId={music.id} itemType="track" />
 
             <DropdownMenuItem className="cursor-pointer">Voir l'artiste</DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">Voir l'album</DropdownMenuItem>

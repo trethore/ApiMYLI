@@ -1,102 +1,112 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode, useEffect, useCallback } from "react";
 import { Album, Music } from "@/types/music";
+import { useAuth } from "@/context/AuthContext";
+import {
+  getMyPlaylistsQuery,
+  createPlaylistMutation,
+  deletePlaylistMutation,
+  updatePlaylistMutation,
+  addTrackToPlaylistMutation,
+  removeTrackFromPlaylistMutation,
+  toMusic,
+  formatImageUrl,
+} from "@/lib/api-client";
 
 interface PlaylistContextType {
   playlists: Album[];
-  createPlaylist: (name: string, imageUrl?: string) => void;
-  updatePlaylist: (id: string, name: string, imageUrl?: string) => void;
-  deletePlaylist: (id: string) => void;
-  addTrackToPlaylist: (playlistId: string, track: Music) => void;
-  removeTrackFromPlaylist: (playlistId: string, trackId: string) => void;
+  createPlaylist: (name: string, imageUrl?: string) => Promise<void>;
+  updatePlaylist: (id: string, name: string, imageUrl?: string) => Promise<void>;
+  deletePlaylist: (id: string) => Promise<void>;
+  addTrackToPlaylist: (playlistId: string, track: Music) => Promise<void>;
+  removeTrackFromPlaylist: (playlistId: string, trackId: string) => Promise<void>;
   isOwnedPlaylist: (id: string) => boolean;
 }
 
 const PlaylistContext = createContext<PlaylistContextType | undefined>(undefined);
 
-// Initial mock data
-const initialPlaylists: Album[] = [
-  {
-    id: "user-playlist-1",
-    name: "My Favorite Mix",
-    artist: "User",
-    image: "/placeholder-album.jpg",
-    type: "Playlist",
-    tracks: [
-      {
-        id: "p1-t1",
-        title: "Track 1",
-        artist: ["Artist A"],
-        album: "Album A",
-        duration: "3:00",
-        isLiked: true,
-      },
-      {
-        id: "p1-t2",
-        title: "Track 2",
-        artist: ["Artist B"],
-        album: "Album B",
-        duration: "3:30",
-        isLiked: false,
-      },
-    ],
-  },
-];
-
 export const PlaylistProvider = ({ children }: { children: ReactNode }) => {
-  const [playlists, setPlaylists] = useState<Album[]>(initialPlaylists);
+  const [playlists, setPlaylists] = useState<Album[]>([]);
+  const { token } = useAuth();
 
-  const createPlaylist = (name: string, imageUrl?: string) => {
-    const newPlaylist: Album = {
-      id: `user-playlist-${Date.now()}`,
-      name,
-      artist: "User", // Mock user ownership
-      image: imageUrl || "/placeholder-album.jpg",
-      type: "Playlist",
-      tracks: [],
-    };
-    setPlaylists([...playlists, newPlaylist]);
+  const loadPlaylists = useCallback(async () => {
+    if (token) {
+      try {
+        const data = await getMyPlaylistsQuery(token);
+        const mapped: Album[] = data.map((p) => ({
+          id: p.playlistId,
+          name: p.name || "Ma Playlist",
+          artist: p.ownerDisplayName || "User",
+          image: p.tracks?.[0]?.imageUrl ? formatImageUrl(p.tracks[0].imageUrl) : "/placeholder-album.jpg",
+          type: "Playlist" as const,
+          tracks: p.tracks.map(toMusic),
+        }));
+        setPlaylists(mapped);
+      } catch (err) {
+        console.error("Failed to load playlists", err);
+      }
+    } else {
+      setPlaylists([]);
+    }
+  }, [token]);
+
+  useEffect(() => {
+    loadPlaylists();
+  }, [loadPlaylists]);
+
+  const createPlaylist = async (name: string, imageUrl?: string) => {
+    if (!token) return;
+    try {
+      await createPlaylistMutation(name, token);
+      await loadPlaylists();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const updatePlaylist = (id: string, name: string, imageUrl?: string) => {
-    setPlaylists(
-      playlists.map((p) => (p.id === id ? { ...p, name, image: imageUrl || p.image } : p)),
-    );
+  const updatePlaylist = async (id: string, name: string, imageUrl?: string) => {
+    if (!token) return;
+    try {
+      await updatePlaylistMutation(id, name, token);
+      await loadPlaylists();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const deletePlaylist = (id: string) => {
-    setPlaylists(playlists.filter((p) => p.id !== id));
+  const deletePlaylist = async (id: string) => {
+    if (!token) return;
+    try {
+      await deletePlaylistMutation(id, token);
+      await loadPlaylists();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const addTrackToPlaylist = (playlistId: string, track: Music) => {
-    setPlaylists(
-      playlists.map((p) => {
-        if (p.id === playlistId) {
-          // Prevent duplicates
-          if (!p.tracks.some((t) => t.id === track.id)) {
-            return { ...p, tracks: [...p.tracks, track] };
-          }
-        }
-        return p;
-      }),
-    );
+  const addTrackToPlaylist = async (playlistId: string, track: Music) => {
+    if (!token) return;
+    try {
+      await addTrackToPlaylistMutation(playlistId, track.id, token);
+      await loadPlaylists();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const removeTrackFromPlaylist = (playlistId: string, trackId: string) => {
-    setPlaylists(
-      playlists.map((p) => {
-        if (p.id === playlistId) {
-          return { ...p, tracks: p.tracks.filter((t) => t.id !== trackId) };
-        }
-        return p;
-      }),
-    );
+  const removeTrackFromPlaylist = async (playlistId: string, trackId: string) => {
+    if (!token) return;
+    try {
+      await removeTrackFromPlaylistMutation(playlistId, trackId, token);
+      await loadPlaylists();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  // Simple check for mock data
   const isOwnedPlaylist = (id: string) => {
-    return id.startsWith("user-playlist");
+    return playlists.some((p) => p.id === id);
   };
 
   return (

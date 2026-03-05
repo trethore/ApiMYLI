@@ -15,83 +15,131 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePlaylist } from "@/context/PlaylistContext";
+import { useAuth } from "@/context/AuthContext";
+import { usePlayer } from "@/context/PlayerContext";
+import { useRouter } from "next/navigation";
+import { getLikedTracksQuery, getMyPinnedItemsQuery, getMyTrackHistoryQuery, toMusic } from "@/lib/api-client";
+import { Music } from "@/types/music";
+
+type ContentType = "Album" | "Single" | "Artiste" | "Playlist" | "Track";
+type Content = {
+  id: string;
+  name?: string;
+  title?: string;
+  type: ContentType;
+  imageUrl?: string;
+  image?: string;
+  link?: string;
+  artist?: string | string[];
+  duration?: string;
+  isLiked?: boolean;
+  tracks?: unknown[];
+  stats?: unknown;
+  popularTracks?: unknown[];
+  albums?: unknown[];
+  singles?: unknown[];
+};
+type ContentList = Content[];
 
 export default function Library() {
-  type ContentType = "Album" | "Single" | "Artiste" | "Playlist";
-  type Content = {
-    name: string;
-    type: ContentType;
-    imageUrl: string;
-    link: string;
-  };
-  type ContentList = Content[];
-
-  const pinnedContent: ContentList = [
-    {
-      name: "Album 1",
-      type: "Album",
-      imageUrl: "/placeholder-album.jpg",
-      link: "/album/album-1",
-    },
-    {
-      name: "Single Hit",
-      type: "Single",
-      imageUrl: "/placeholder-album.jpg",
-      link: "/album/single-hit-1",
-    },
-    {
-      name: "Top Artist",
-      type: "Artiste",
-      imageUrl: "/placeholder-album.jpg",
-      link: "/artist/artist-top-1",
-    },
-    {
-      name: "Morning Playlist",
-      type: "Playlist",
-      imageUrl: "/placeholder-album.jpg",
-      link: "/playlist/playlist-morning-1",
-    },
-  ];
-
-  const likedContent: ContentList = [
-    {
-      name: "Liked Song 1",
-      type: "Single",
-      imageUrl: "/placeholder-album.jpg",
-      link: "/album/album-liked-1",
-    },
-    {
-      name: "Best Album",
-      type: "Album",
-      imageUrl: "/placeholder-album.jpg",
-      link: "/album/album-best-1",
-    },
-    {
-      name: "Favorite Artist",
-      type: "Artiste",
-      imageUrl: "/placeholder-album.jpg",
-      link: "/artist/artist-fav-1",
-    },
-    {
-      name: "Chill Vibes",
-      type: "Playlist",
-      imageUrl: "/placeholder-album.jpg",
-      link: "/playlist/playlist-chill-1",
-    },
-    {
-      name: "Workout Mix",
-      type: "Playlist",
-      imageUrl: "/placeholder-album.jpg",
-      link: "/playlist/playlist-workout-1",
-    },
-  ];
-
-  // Access PlaylistContext
   const { playlists, createPlaylist } = usePlaylist();
+  const { isAuthenticated, token } = useAuth();
+  const { history } = usePlayer();
+  const router = useRouter();
+
   const [newPlaylistName, setNewPlaylistName] = useState("");
   const [isCreateOpen, setIsCreateOpen] = useState(false);
+  const [likedTracks, setLikedTracks] = useState<(Music & { type: "Track" })[]>([]);
+  const [pinnedContent, setPinnedContent] = useState<ContentList>([]);
+  const [historyContent, setHistoryContent] = useState<ContentList>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fallback local history if not authenticated
+  const localHistoryContent = history.map((t) => ({ ...t, type: "Track" as const })).reverse().slice(0, 10);
+
+  useEffect(() => {
+    const fetchLibraryData = async () => {
+      const localToken = localStorage.getItem("muse_token");
+      if (!isAuthenticated && !localToken) {
+        router.push("/login");
+        return;
+      }
+
+      const activeToken = token || (localToken as string);
+      if (activeToken) {
+        try {
+          const [likedRes, pinnedRes, historyRes] = await Promise.all([
+            getLikedTracksQuery(activeToken),
+            getMyPinnedItemsQuery(activeToken),
+            getMyTrackHistoryQuery(4, activeToken),
+          ]);
+
+          setLikedTracks(likedRes.map((t) => ({ ...toMusic(t), type: "Track" as const })));
+
+          // Format Pinned Items
+          const formattedPinned = pinnedRes
+            .sort((a, b) => a.slot - b.slot)
+            .map((item) => {
+              if (item.itemType === "TRACK" && item.track) {
+                const m = toMusic(item.track);
+                return { ...m, type: "Track" as const };
+              }
+              if (item.itemType === "ALBUM" && item.album) {
+                return {
+                  id: item.album.albumId,
+                  name: item.album.title || "Album Inconnu",
+                  type: "Album" as const,
+                  image: item.album.imageUrl || "/placeholder-album.jpg",
+                  link: `/album/${item.album.albumId}`,
+                  artist: item.album.artists.map((a) => a.name).join(", "),
+                };
+              }
+              if (item.itemType === "ARTIST" && item.artist) {
+                return {
+                  id: item.artist.artistId,
+                  name: item.artist.name || "Artiste Inconnu",
+                  type: "Artiste" as const,
+                  image: item.artist.imageUrl || "/placeholder-artist.jpg",
+                  link: `/artist/${item.artist.artistId}`,
+                };
+              }
+              if (item.itemType === "PLAYLIST" && item.playlist) {
+                return {
+                  id: item.playlist.playlistId,
+                  name: item.playlist.name || "Playlist",
+                  type: "Playlist" as const,
+                  image: "/placeholder-album.jpg", // API lacks playlist image atm
+                  link: `/playlist/${item.playlist.playlistId}`,
+                };
+              }
+              return null;
+            })
+            .filter(Boolean) as ContentList;
+          setPinnedContent(formattedPinned);
+
+          // Format History
+          const formattedHistory = historyRes.map((h) => {
+            const m = toMusic(h.track);
+            return { ...m, type: "Track" as const };
+          });
+          setHistoryContent(formattedHistory);
+        } catch (err) {
+          console.error("Failed to load library data", err);
+          setHistoryContent(localHistoryContent);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchLibraryData();
+  }, [isAuthenticated, router, token, history]);
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   const handleCreate = () => {
     if (newPlaylistName.trim()) {
@@ -144,14 +192,20 @@ export default function Library() {
             </Dialog>
           </div>
 
+          {!loading && pinnedContent.length > 0 && (
+            <div>
+              <SectionTitle title="Épinglés" className="mt-0" />
+              <ContentGrid items={pinnedContent as any} />
+            </div>
+          )}
+
           <div>
             <SectionTitle title="Mes Playlists" className="mt-0" />
             {playlists.length > 0 ? (
               <ContentGrid
-                items={playlists.map((p: any) => ({
-                  name: p.name,
+                items={playlists.map((p) => ({
+                  ...p,
                   type: "Playlist",
-                  imageUrl: p.image,
                   link: `/playlist/${p.id}`,
                 }))}
               />
@@ -160,68 +214,20 @@ export default function Library() {
             )}
           </div>
 
-          <div>
-            <SectionTitle title="Épinglés" className="mt-0" />
-            <ContentGrid items={pinnedContent} />
-          </div>
-
-          <div>
-            <SectionTitle title="Historique" className="mt-0" />
-            <CoverCarousel
-              items={[
-                {
-                  id: "hist-1",
-                  title: "Last Played Track",
-                  artist: ["Artist A"],
-                  album: "Album A",
-                  image: "/placeholder-music.jpg",
-                  duration: "3:00",
-                  isLiked: true,
-                  type: "Track",
-                },
-                {
-                  id: "hist-2",
-                  name: "Recently Viewed Album",
-                  artist: "Artist B",
-                  image: "/placeholder-album.jpg",
-                  type: "Album",
-                  tracks: [],
-                },
-                {
-                  id: "hist-3",
-                  name: "Artist C",
-                  image: "/placeholder-artist.jpg",
-                  stats: { totalListeners: "500k" },
-                  popularTracks: [],
-                  albums: [],
-                  singles: [],
-                  type: "Artist",
-                },
-                {
-                  id: "hist-4",
-                  title: "Song D",
-                  artist: ["Artist D"],
-                  album: "Album D",
-                  image: "/placeholder-music.jpg",
-                  duration: "4:00",
-                  isLiked: false,
-                  type: "Track",
-                },
-                {
-                  id: "hist-5",
-                  name: "Playlist E",
-                  artist: "User",
-                  image: "/placeholder-album.jpg",
-                  type: "Playlist",
-                  tracks: [],
-                },
-              ]}
-            />
-          </div>
+          {historyContent.length > 0 && (
+            <div>
+              <SectionTitle title="Historique" className="mt-0" />
+              <CoverCarousel items={historyContent as any} />
+            </div>
+          )}
 
           <div>
             <SectionTitle title="Titres Likés" className="mt-0" />
-            <ContentGrid items={likedContent} />
+            {likedTracks.length > 0 ? (
+              <ContentGrid items={likedTracks} />
+            ) : (
+              <p className="text-muted-foreground mt-4">Vous n'avez pas de titres likés.</p>
+            )}
           </div>
         </div>
       </main>

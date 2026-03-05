@@ -29,12 +29,8 @@ interface CoverCarouselProps {
 }
 
 import ContentCard from "@/components/ContentCard";
-
-// ... imports remain the same, ensure ContentCard is imported
-
+import TrackCard from "@/components/TrackCard";
 import SectionTitle from "@/components/SectionTitle";
-
-// ... imports
 
 export default function CoverCarousel({ items, title, className }: CoverCarouselProps) {
   if (!items || items.length === 0) return null;
@@ -56,12 +52,16 @@ export default function CoverCarousel({ items, title, className }: CoverCarousel
               className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
             >
               <div className="p-1">
-                <ContentCard
-                  name={getName(item)}
-                  imageUrl={getImage(item)}
-                  link={getLink(item)}
-                  type={getType(item)}
-                />
+                {getType(item) === "Track" ? (
+                  <TrackCard track={item as Music} priority={index < 2} />
+                ) : (
+                  <ContentCard
+                    name={getName(item)}
+                    imageUrl={getImage(item)}
+                    link={getLink(item)}
+                    type={getType(item)}
+                  />
+                )}
               </div>
             </CarouselItem>
           ))}

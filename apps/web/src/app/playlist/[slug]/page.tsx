@@ -1,12 +1,14 @@
 "use client";
+
 import Nav from "@/components/Nav";
-import { Music } from "@/types/music";
 import MusicItem from "@/components/MusicItem";
+import { Music } from "@/types/music";
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Play, Edit, Trash2 } from "lucide-react";
 import Image from "next/image";
 import LikeButton from "@/components/LikeButton";
 import SectionTitle from "@/components/SectionTitle";
+import PinActionSubMenu from "@/components/PinActionSubMenu";
 import { usePlaylist } from "@/context/PlaylistContext";
 import { use, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -15,7 +17,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
   DialogFooter,
 } from "@/components/ui/dialog";
 import {
@@ -29,64 +30,125 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAuth } from "@/context/AuthContext";
+import { usePlayer } from "@/context/PlayerContext";
+import { getPlaylistQuery, toMusic } from "@/lib/api-client";
+import { ApiPlaylist } from "@/lib/api-client";
 
 export default function PlaylistPage({ params }: { params: Promise<{ slug: string }> }) {
   const router = useRouter();
-  const slug = use(params).slug;
-  const { playlists, isOwnedPlaylist, deletePlaylist, updatePlaylist } = usePlaylist();
+  const { slug } = use(params);
+  const playlistId = slug;
 
-  // State for Edit Dialog
+  const { token, requireAuth } = useAuth();
+  const { playlists, deletePlaylist, updatePlaylist } = usePlaylist();
+  const { playTrack, setQueueList } = usePlayer();
+
+  const [playlist, setPlaylist] = useState<ApiPlaylist | null>(null);
+  const [tracks, setTracks] = useState<Music[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Derived state
+  const [displayName, setDisplayName] = useState(slug.replace(/-/g, " "));
+  const [displayImage, setDisplayImage] = useState("/placeholder-album.jpg");
+  const [displayOwner, setDisplayOwner] = useState("Utilisateur inconnu");
+  const [isOwned, setIsOwned] = useState(false);
+
+  // Edit Dialog State
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [editName, setEditName] = useState("");
   const [editImage, setEditImage] = useState("");
 
-  // Find if this is a user playlist
-  const userPlaylist = playlists.find((p) => p.id === slug);
-  const isOwned = isOwnedPlaylist(slug);
-
-  // Initialize edit state when playlist is found
   useEffect(() => {
-    if (userPlaylist) {
-      setEditName(userPlaylist.name);
-      setEditImage(userPlaylist.image || "");
-    }
-  }, [userPlaylist]);
+    const fetchPlaylist = async () => {
+      try {
+        setLoading(true);
+        const data = await getPlaylistQuery(playlistId, token);
+        if (data) {
+          setPlaylist(data);
+          if (data.tracks) {
+            setTracks(data.tracks.map(toMusic));
+          }
 
-  // Mock Data Fallback (if not a user playlist)
-  const mockTracks: Music[] = Array.from({ length: 20 }).map((_, i) => ({
-    id: `track-${i}`,
-    title: `Playlist Track ${i + 1}`,
-    artist: ["Artist Name", ...(i % 2 === 0 ? ["Feat. Artist"] : [])],
-    album: "Various Artists",
-    image: "/placeholder-music.jpg",
-    duration: "3:45",
-    isLiked: i % 3 === 0,
-  }));
+          if (data.name) {
+            setDisplayName(data.name);
+            setEditName(data.name);
+          }
+          if (data.ownerDisplayName) setDisplayOwner(data.ownerDisplayName);
+          if (data.isEditable) setIsOwned(true);
 
-  const fallbackPlaylist = {
-    id: slug,
-    name: slug.replace(/-/g, " "),
-    artist: "Muse",
-    image: "/placeholder-album.jpg",
-    type: "Playlist" as const,
-    tracks: mockTracks,
-  };
+          const contextMatch = playlists.find((p) => p.id === playlistId);
+          if (contextMatch?.image) {
+            setDisplayImage(contextMatch.image);
+            setEditImage(contextMatch.image);
+          }
+        }
+      } catch (err) {
+        console.error("Error fetching playlist", err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const playlist = userPlaylist || fallbackPlaylist;
+    fetchPlaylist();
+  }, [playlistId, token, playlists]);
 
-  const handleEdit = () => {
+  const handleEdit = async () => {
     if (editName.trim()) {
-      updatePlaylist(playlist.id, editName, editImage);
+      await updatePlaylist(playlistId, editName, editImage);
       setIsEditOpen(false);
+      setDisplayName(editName);
+      if (editImage) setDisplayImage(editImage);
     }
   };
 
-  const handleDelete = () => {
-    deletePlaylist(playlist.id);
+  const handleDelete = async () => {
+    await deletePlaylist(playlistId);
     router.push("/library");
   };
+
+  const handlePlayPlaylist = () => {
+    requireAuth(() => {
+      if (tracks.length > 0) {
+        playTrack(tracks[0]);
+        setQueueList(tracks.slice(1));
+      }
+    });
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col font-sans bg-background text-foreground pb-24 lg:pb-0">
+        <Nav />
+        <main className="flex-1 p-4 lg:p-8 flex items-center justify-center max-w-5xl mx-auto w-full">
+          <p className="text-muted-foreground">Chargement...</p>
+        </main>
+      </div>
+    );
+  }
+
+  if (!playlist) {
+    return (
+      <div className="min-h-screen flex flex-col font-sans bg-background text-foreground pb-24 lg:pb-0">
+        <Nav />
+        <main className="flex-1 p-4 lg:p-8 flex flex-col items-center justify-center max-w-5xl mx-auto w-full text-center">
+          <SectionTitle title="Playlist introuvable" />
+          <p className="text-muted-foreground mt-4">La playlist que vous cherchez n'existe pas ou a été supprimée.</p>
+          <Button className="mt-6" onClick={() => router.push("/library")}>
+            Retour à la bibliothèque
+          </Button>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-background text-foreground pb-24 lg:pb-0">
@@ -96,10 +158,9 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
         <div className="flex flex-col items-center mb-8">
           {/* Playlist Image - Centered */}
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 shadow-xl rounded-lg overflow-hidden mb-6 group">
-            {/* Placeholder gradient if no image */}
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] opacity-80" />
-            {playlist.image && playlist.image !== "/placeholder-album.jpg" && (
-              <Image src={playlist.image} alt={playlist.name} fill className="object-cover z-10" />
+            {displayImage && displayImage !== "/placeholder-album.jpg" && (
+              <Image src={displayImage} alt={displayName} fill className="object-cover z-10" />
             )}
             {/* Hover Edit Overlay for Image */}
             {isOwned && (
@@ -116,11 +177,11 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
           <div className="w-full flex justify-between px-2 sm:px-8">
             <div className="flex flex-col text-left">
               <SectionTitle
-                title={playlist.name}
+                title={displayName}
                 className="mt-0 text-2xl sm:text-4xl leading-tight"
               />
               <p className="text-lg text-muted-foreground font-medium flex items-center gap-2">
-                Playlist par {playlist.artist}
+                Playlist par {displayOwner}
                 {isOwned && (
                   <Button
                     variant="ghost"
@@ -133,7 +194,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                 )}
               </p>
               <p className="text-sm text-muted-foreground/80 lowercase mt-1">
-                {playlist.type} • {playlist.tracks.length} titres
+                Playlist • {tracks.length} titres
               </p>
             </div>
 
@@ -143,7 +204,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                 size={28}
                 className="rounded-full hover:bg-secondary/20 h-10 w-10 flex-shrink-0"
                 iconClassName="w-7 h-7 cursor-pointer"
-                itemId={playlist.id}
+                itemId={playlistId}
                 itemType="playlist"
               />
               {isOwned && (
@@ -162,7 +223,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                       <AlertDialogTitle>Êtes-vous sûr ?</AlertDialogTitle>
                       <AlertDialogDescription>
                         Cette action est irréversible. Cela supprimera définitivement votre playlist
-                        "{playlist.name}".
+                        "{displayName}".
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
@@ -177,21 +238,30 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                   </AlertDialogContent>
                 </AlertDialog>
               )}
-              <Button
-                size="icon"
-                variant="ghost"
-                className="rounded-full hover:bg-secondary/20 hover:text-foreground transition-colors cursor-pointer flex-shrink-0"
-              >
-                <MoreHorizontal size={28} />
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    className="rounded-full hover:bg-secondary/20 hover:text-foreground transition-colors cursor-pointer flex-shrink-0"
+                  >
+                    <MoreHorizontal size={28} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <PinActionSubMenu itemId={playlistId} itemType="playlist" />
+                  <DropdownMenuItem className="cursor-pointer">Partager</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
 
-          {/* Play Button (Optional but common) */}
+          {/* Play Button */}
           <div className="w-full px-2 sm:px-8 mt-6">
             <Button
+              onClick={handlePlayPlaylist}
               className="w-full sm:w-auto text-foreground font-bold text-lg py-6 rounded-full flex items-center gap-2 bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] hover:cursor-pointer disabled:opacity-50"
-              disabled={playlist.tracks.length === 0}
+              disabled={tracks.length === 0}
             >
               <Play className="fill-current" /> Lecture
             </Button>
@@ -201,8 +271,8 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
         {/* Tracklist */}
         <div className="bg-background/50 rounded-xl p-2 sm:p-4">
           <div className="flex flex-col gap-1">
-            {playlist.tracks.length > 0 ? (
-              playlist.tracks.map((track, index) => (
+            {tracks.length > 0 ? (
+              tracks.map((track, index) => (
                 <MusicItem key={track.id} music={track} index={index} showImage={true} />
               ))
             ) : (

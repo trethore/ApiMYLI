@@ -2,6 +2,8 @@
 
 import React, { createContext, useContext, useState, useRef, useEffect } from "react";
 import { Music } from "@/types/music";
+import { useAuth } from "@/context/AuthContext";
+import { recordTrackListenMutation } from "@/lib/api-client";
 
 interface PlayerContextType {
   currentTrack: Music | null;
@@ -21,6 +23,7 @@ interface PlayerContextType {
   playNext: () => void;
   playPrevious: () => void;
   clearPlayer: () => void;
+  setQueueList: (tracks: Music[]) => void;
 }
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
@@ -33,6 +36,8 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   const [duration, setDuration] = useState(0);
   const [queue, setQueue] = useState<Music[]>([]);
   const [history, setHistory] = useState<Music[]>([]);
+
+  const { token, isAuthenticated } = useAuth();
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -95,6 +100,10 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         setCurrentTrack(track);
         audioRef.current.play();
         setIsPlaying(true);
+
+        if (isAuthenticated && token) {
+           recordTrackListenMutation(track.id, token).catch(console.error);
+        }
       } else {
         console.warn("No audio source available for this track");
       }
@@ -131,6 +140,10 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
 
   const clearQueue = () => {
     setQueue([]);
+  };
+
+  const setQueueList = (tracks: Music[]) => {
+    setQueue(tracks);
   };
 
   const playNext = () => {
@@ -204,6 +217,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         addToQueue,
         removeFromQueue,
         clearQueue,
+        setQueueList,
         playNext,
         playPrevious,
         clearPlayer,
