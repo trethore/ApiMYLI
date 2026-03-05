@@ -37,6 +37,7 @@ FROM stg_artist;
 INSERT INTO artist (
   artist_id,
   artist_bio,
+  artist_members,
   artist_image_file,
   artist_images,
   artist_location,
@@ -50,6 +51,7 @@ INSERT INTO artist (
 SELECT
   new_uuid,
   artist_bio,
+  artist_members,
   artist_image_file,
   artist_images,
   artist_location,

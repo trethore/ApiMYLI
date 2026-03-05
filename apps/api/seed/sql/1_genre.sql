@@ -13,8 +13,8 @@ CREATE TEMP TABLE stg_genre (
 
 ALTER TABLE stg_genre ADD COLUMN new_uuid UUID DEFAULT uuid_generate_v4();
 
-INSERT INTO genre (genre_id, title, top_level)
-SELECT new_uuid, title, top_level FROM stg_genre;
+INSERT INTO genre (genre_id, title, top_level, tracks_count)
+SELECT new_uuid, title, top_level, tracks_count FROM stg_genre;
 
 INSERT INTO _legacy_id_map (table_name, old_id, new_uuid)
 SELECT 'genre', genre_id, new_uuid FROM stg_genre;

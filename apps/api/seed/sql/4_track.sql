@@ -59,6 +59,7 @@ ALTER TABLE stg_track ADD COLUMN new_uuid UUID DEFAULT uuid_generate_v4();
 INSERT INTO track (
   track_id,
   album_id,
+  track_genre_top,
   track_title,
   track_url,
   track_file,
@@ -80,6 +81,7 @@ INSERT INTO track (
 SELECT
   t.new_uuid,
   m_alb.new_uuid,
+  t.track_genre_top,
   t.track_title,
   r.track_url,
   r.track_file,
@@ -141,4 +143,14 @@ SELECT
 FROM cleaned_ids c
 JOIN _legacy_id_map m ON m.old_id = c.genre_old_id AND m.table_name = 'genre'
 JOIN track t ON t.track_id = c.track_uuid
+ON CONFLICT DO NOTHING;
+
+INSERT INTO track_genre (track_id, genre_id)
+SELECT DISTINCT
+  t.new_uuid,
+  m.new_uuid
+FROM stg_track t
+JOIN _legacy_id_map m ON m.old_id = trim(t.track_genre_top) AND m.table_name = 'genre'
+JOIN track tr ON tr.track_id = t.new_uuid
+WHERE t.track_genre_top IS NOT NULL AND btrim(t.track_genre_top) <> ''
 ON CONFLICT DO NOTHING;
