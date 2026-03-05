@@ -148,6 +148,11 @@ export type TrackAccountLike = Prisma.TrackAccountLikeModel
  */
 export type TrackAccountListen = Prisma.TrackAccountListenModel
 /**
+ * Model TrackListenHistoryItem
+ * 
+ */
+export type TrackListenHistoryItem = Prisma.TrackListenHistoryItemModel
+/**
  * Model AccountPinnedItem
  * 
  */

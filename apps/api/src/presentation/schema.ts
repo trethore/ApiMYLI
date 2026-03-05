@@ -26,6 +26,7 @@ import { getTrackById } from "packages/application/src/use-cases/track/get-track
 import { likeTrack } from "packages/application/src/use-cases/track/like-track";
 import { listArtistTopTracks } from "packages/application/src/use-cases/track/list-artist-top-tracks";
 import { listLikedTracks } from "packages/application/src/use-cases/track/list-liked-tracks";
+import { listTrackListenHistory } from "packages/application/src/use-cases/track/list-track-listen-history";
 import { listTracksByAlbum } from "packages/application/src/use-cases/track/list-tracks-by-album";
 import { recordTrackListen } from "packages/application/src/use-cases/track/record-track-listen";
 import { unlikeTrack } from "packages/application/src/use-cases/track/unlike-track";
@@ -38,6 +39,7 @@ import type { ArtistProfile } from "packages/domain/src/entities/artist-profile"
 import type { Playlist } from "packages/domain/src/entities/playlist";
 import type { PlaylistSummary } from "packages/domain/src/entities/playlist-summary";
 import type { PinnedItem } from "packages/domain/src/entities/pinned-item";
+import type { TrackListenHistoryItem } from "packages/domain/src/entities/track-listen-history-item";
 import type { AlbumSummary, ArtistSummary, Track } from "packages/domain/src/entities/track";
 import type { ArtistCatalogRepository } from "packages/domain/src/repositories/artist-catalog-repository";
 import type { PlaylistRepository } from "packages/domain/src/repositories/playlist-repository";
@@ -145,6 +147,12 @@ type GraphqlPinnedItem = {
   album: GraphqlAlbum | null;
   artist: GraphqlArtistSummary | null;
   playlist: GraphqlPlaylistSummary | null;
+};
+
+type GraphqlTrackListenHistoryItem = {
+  listenHistoryItemId: string;
+  listenedAt: string;
+  track: GraphqlTrack;
 };
 
 type CreateAccountInput = {
@@ -318,6 +326,14 @@ const toGraphqlPinnedItem = (pinnedItem: PinnedItem): GraphqlPinnedItem => ({
   playlist: pinnedItem.playlist ? toGraphqlPlaylistSummary(pinnedItem.playlist) : null,
 });
 
+const toGraphqlTrackListenHistoryItem = (
+  historyItem: TrackListenHistoryItem,
+): GraphqlTrackListenHistoryItem => ({
+  listenHistoryItemId: historyItem.listenHistoryItemId,
+  listenedAt: historyItem.listenedAt.toISOString(),
+  track: toGraphqlTrack(historyItem.track),
+});
+
 const getOptionalAuthenticatedAccountId = async (
   context: GraphqlContext,
 ): Promise<string | null> => {
@@ -429,6 +445,12 @@ export const schema = createSchema({
       playlist: PlaylistSummary
     }
 
+    type TrackListenHistoryItem {
+      listenHistoryItemId: ID!
+      listenedAt: String!
+      track: Track!
+    }
+
     type Account {
       accountId: ID!
       login: String
@@ -492,6 +514,7 @@ export const schema = createSchema({
       albumTracks(albumId: String!): [Track!]!
       artistTopTracks(artistId: String!, limit: Int): [Track!]!
       likedTracks: [Track!]!
+      myTrackHistory(limit: Int): [TrackListenHistoryItem!]!
       playlist(playlistId: String!): Playlist
       myPlaylists: [Playlist!]!
       myPinnedItems: [PinnedItem!]!
@@ -597,6 +620,24 @@ export const schema = createSchema({
         const tracks = await listLikedTracks(context.services.trackLibraryRepository, currentAccountId);
 
         return tracks.map(toGraphqlTrack);
+      },
+      myTrackHistory: async (
+        _parent: unknown,
+        args: { limit?: number | null },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const historyItems = await listTrackListenHistory(
+          context.services.trackLibraryRepository,
+          currentAccountId,
+          args.limit ?? undefined,
+        );
+
+        return historyItems.map(toGraphqlTrackListenHistoryItem);
       },
       playlist: async (
         _parent: unknown,
