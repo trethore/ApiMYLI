@@ -1,33 +1,65 @@
 "use client";
 
 import { useAuth } from "@/context/AuthContext";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import Nav from "@/components/Nav";
 import Link from "next/link";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2, Check, X } from "lucide-react";
+
+type PasswordRule = {
+  label: string;
+  test: (pw: string) => boolean;
+};
+
+const PASSWORD_RULES: PasswordRule[] = [
+  { label: "Au moins 12 caractères", test: (pw) => pw.length >= 12 },
+  { label: "Au moins une majuscule (A-Z)", test: (pw) => /[A-Z]/.test(pw) },
+  { label: "Au moins une minuscule (a-z)", test: (pw) => /[a-z]/.test(pw) },
+  { label: "Au moins un chiffre (0-9)", test: (pw) => /[0-9]/.test(pw) },
+  {
+    label: "Au moins un caractère spécial (!@#$%^&*)",
+    test: (pw) => /[!@#$%^&*]/.test(pw),
+  },
+];
 
 export default function RegisterPage() {
-  const { register } = useAuth();
+  const { register, isLoading, error, clearError } = useAuth();
   const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
+  const [localError, setLocalError] = useState("");
+  const [passwordTouched, setPasswordTouched] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const passwordChecks = useMemo(
+    () => PASSWORD_RULES.map((rule) => ({ ...rule, valid: rule.test(password) })),
+    [password],
+  );
+  const allRulesValid = passwordChecks.every((r) => r.valid);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
-    if (password !== confirmPassword) {
-      setError("Les mots de passe ne correspondent pas.");
+    setLocalError("");
+    clearError();
+
+    if (!allRulesValid) {
+      setLocalError("Le mot de passe ne respecte pas toutes les règles.");
       return;
     }
-    register(username, email);
+    if (password !== confirmPassword) {
+      setLocalError("Les mots de passe ne correspondent pas.");
+      return;
+    }
+    await register(username, email, password, name);
   };
+
+  const displayError = localError || error;
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-background text-foreground">
@@ -41,6 +73,8 @@ export default function RegisterPage() {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
+
+              {/* Pseudo */}
               <div className="space-y-2">
                 <Label htmlFor="username">Pseudo</Label>
                 <Input
@@ -53,6 +87,22 @@ export default function RegisterPage() {
                   className="bg-input text-foreground border-input"
                 />
               </div>
+
+              {/* Nom */}
+              <div className="space-y-2">
+                <Label htmlFor="name">Nom</Label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Martin Dupont"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="bg-input text-foreground border-input"
+                />
+              </div>
+
+              {/* Email */}
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -65,6 +115,8 @@ export default function RegisterPage() {
                   className="bg-input text-foreground border-input"
                 />
               </div>
+
+              {/* Mot de passe */}
               <div className="space-y-2">
                 <Label htmlFor="password">Mot de passe</Label>
                 <div className="relative">
@@ -72,7 +124,10 @@ export default function RegisterPage() {
                     id="password"
                     type={showPassword ? "text" : "password"}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      setPasswordTouched(true);
+                    }}
                     required
                     className="bg-input text-foreground border-input pr-10"
                   />
@@ -84,7 +139,30 @@ export default function RegisterPage() {
                     {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                   </button>
                 </div>
+
+                {/* Règles de mot de passe */}
+                {passwordTouched && (
+                  <ul className="mt-2 space-y-1 text-xs">
+                    {passwordChecks.map((rule) => (
+                      <li
+                        key={rule.label}
+                        className={`flex items-center gap-1.5 transition-colors ${
+                          rule.valid ? "text-muted-foreground" : "text-pink-500"
+                        }`}
+                      >
+                        {rule.valid ? (
+                          <Check size={12} className="shrink-0 text-green-500" />
+                        ) : (
+                          <X size={12} className="shrink-0 text-pink-500" />
+                        )}
+                        {rule.label}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
+
+              {/* Confirmer le mot de passe */}
               <div className="space-y-2">
                 <Label htmlFor="confirmPassword">Confirmer le mot de passe</Label>
                 <div className="relative">
@@ -98,12 +176,26 @@ export default function RegisterPage() {
                   />
                 </div>
               </div>
-              {error && <p className="text-red-500 text-sm">{error}</p>}
+
+              {displayError && (
+                <p className="text-sm text-destructive bg-destructive/10 border border-destructive/30 rounded-md px-3 py-2">
+                  {displayError}
+                </p>
+              )}
+
               <Button
                 type="submit"
+                disabled={isLoading}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                S'inscrire
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Inscription…
+                  </>
+                ) : (
+                  "S'inscrire"
+                )}
               </Button>
             </form>
           </CardContent>

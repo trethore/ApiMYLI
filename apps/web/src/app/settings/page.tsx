@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun, User, LogOut, Trash2 } from "lucide-react";
+import { Moon, Sun, User, LogOut, Trash2, Loader2 } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -40,49 +40,49 @@ import SectionTitle from "@/components/SectionTitle";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
 import { usePlayer } from "@/context/PlayerContext";
 
 export default function Settings() {
   const { setTheme } = useTheme();
-  const { isAuthenticated, user, logout, updateUser } = useAuth();
+  const { isAuthenticated, user, logout, updateUser, deleteAccount, isLoading, error, clearError } =
+    useAuth();
   const { clearPlayer } = usePlayer();
   const router = useRouter();
 
-  const [editUsername, setEditUsername] = useState("");
+  const [editLogin, setEditLogin] = useState("");
+  const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
-
-  const [deletePassword, setDeletePassword] = useState("");
+  const [editError, setEditError] = useState("");
 
   useEffect(() => {
     if (!isAuthenticated) {
       router.push("/register");
     } else if (user) {
-      setEditUsername(user.username);
+      setEditLogin(user.login);
+      setEditName(user.name);
       setEditEmail(user.email);
     }
   }, [isAuthenticated, router, user]);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     clearPlayer();
-    logout();
+    await logout();
   };
 
-  const handleEditProfile = (e: React.FormEvent) => {
+  const handleEditProfile = async (e: React.FormEvent) => {
     e.preventDefault();
-    updateUser({ username: editUsername, email: editEmail });
-    setIsEditDialogOpen(false);
+    setEditError("");
+    clearError();
+    await updateUser({ login: editLogin, name: editName });
+    if (!error) {
+      setIsEditDialogOpen(false);
+    }
   };
 
-  const handleDeleteAccount = () => {
-    // Mock validation
-    if (deletePassword) {
-      handleLogout(); // Logout and clear player
-      alert("Compte supprimé (simulation)");
-    } else {
-      alert("Mot de passe requis");
-    }
+  const handleDeleteAccount = async () => {
+    clearPlayer();
+    await deleteAccount();
   };
 
   if (!isAuthenticated) {
@@ -101,7 +101,7 @@ export default function Settings() {
             <CardTitle className="flex items-center gap-2 text-xl text-primary font-[family-name:var(--font-protest-strike)] font-light">
               <Sun className="w-5 h-5 " /> Apparence
             </CardTitle>
-            <CardDescription>Gérez le thème de l'application.</CardDescription>
+            <CardDescription>Gérez le thème de l&apos;application.</CardDescription>
           </CardHeader>
           <CardContent className="flex items-center justify-between">
             <span>Thème</span>
@@ -133,10 +133,24 @@ export default function Settings() {
           <CardContent className="space-y-4">
             <div className="grid gap-2">
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Pseudo:</span>
-                <span className="font-medium">{user?.username}</span>
+                <span className="text-muted-foreground">Pseudo :</span>
+                <span className="font-medium">{user?.login}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Nom :</span>
+                <span className="font-medium">{user?.name}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Email :</span>
+                <span className="font-medium">{user?.email}</span>
               </div>
             </div>
+
+            {error && (
+              <p className="text-sm text-destructive bg-destructive/10 border border-destructive/30 rounded-md px-3 py-2">
+                {error}
+              </p>
+            )}
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               {/* Edit Profile Dialog */}
@@ -151,26 +165,46 @@ export default function Settings() {
                   </DialogHeader>
                   <form onSubmit={handleEditProfile} className="space-y-4 py-4">
                     <div className="space-y-2">
-                      <Label htmlFor="username">Pseudo</Label>
+                      <Label htmlFor="edit-login">Pseudo</Label>
                       <Input
-                        id="username"
-                        value={editUsername}
-                        onChange={(e) => setEditUsername(e.target.value)}
-                        className="col-span-3"
+                        id="edit-login"
+                        value={editLogin}
+                        onChange={(e) => setEditLogin(e.target.value)}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="edit-name">Nom</Label>
                       <Input
-                        id="email"
-                        value={editEmail}
-                        onChange={(e) => setEditEmail(e.target.value)}
-                        className="col-span-3"
-                        disabled // Often emails are immutable
+                        id="edit-name"
+                        value={editName}
+                        onChange={(e) => setEditName(e.target.value)}
                       />
                     </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="edit-email">Email</Label>
+                      <Input
+                        id="edit-email"
+                        value={editEmail}
+                        onChange={(e) => setEditEmail(e.target.value)}
+                        disabled
+                        className="opacity-60 cursor-not-allowed"
+                      />
+                      <p className="text-xs text-muted-foreground">L&apos;email ne peut pas être modifié.</p>
+                    </div>
+                    {editError && (
+                      <p className="text-sm text-destructive">{editError}</p>
+                    )}
                     <DialogFooter>
-                      <Button type="submit">Sauvegarder</Button>
+                      <Button type="submit" disabled={isLoading}>
+                        {isLoading ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Sauvegarde…
+                          </>
+                        ) : (
+                          "Sauvegarder"
+                        )}
+                      </Button>
                     </DialogFooter>
                   </form>
                 </DialogContent>
@@ -216,32 +250,24 @@ export default function Settings() {
                 <AlertDialogHeader>
                   <AlertDialogTitle>Absolument sûr ?</AlertDialogTitle>
                   <AlertDialogDescription>
-                    Cette action est irréversible. Toutes vos données seront perdues. Veuillez
-                    entrer votre mot de passe pour confirmer.
+                    Cette action est irréversible. Toutes vos données seront perdues.
                   </AlertDialogDescription>
                 </AlertDialogHeader>
-                <div className="py-4">
-                  <Input
-                    type="password"
-                    placeholder="Votre mot de passe"
-                    value={deletePassword}
-                    onChange={(e) => setDeletePassword(e.target.value)}
-                  />
-                </div>
                 <AlertDialogFooter>
                   <AlertDialogCancel>Annuler</AlertDialogCancel>
                   <AlertDialogAction
-                    onClick={(e) => {
-                      if (!deletePassword) {
-                        e.preventDefault();
-                        alert("Veuillez entrer votre mot de passe");
-                      } else {
-                        handleDeleteAccount();
-                      }
-                    }}
+                    onClick={handleDeleteAccount}
+                    disabled={isLoading}
                     className="bg-destructive hover:bg-destructive/90"
                   >
-                    Supprimer mon compte
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Suppression…
+                      </>
+                    ) : (
+                      "Supprimer mon compte"
+                    )}
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
