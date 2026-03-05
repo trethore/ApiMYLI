@@ -278,7 +278,7 @@ export type AlbumWhereInput = {
   albumProducer?: Prisma.StringNullableFilter<"Album"> | string | null
   tracks?: Prisma.TrackListRelationFilter
   albumArtists?: Prisma.AlbumArtistListRelationFilter
-  pinnedItems?: Prisma.UserPinnedItemListRelationFilter
+  pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
 }
 
 export type AlbumOrderByWithRelationInput = {
@@ -295,7 +295,7 @@ export type AlbumOrderByWithRelationInput = {
   albumProducer?: Prisma.SortOrderInput | Prisma.SortOrder
   tracks?: Prisma.TrackOrderByRelationAggregateInput
   albumArtists?: Prisma.AlbumArtistOrderByRelationAggregateInput
-  pinnedItems?: Prisma.UserPinnedItemOrderByRelationAggregateInput
+  pinnedItems?: Prisma.AccountPinnedItemOrderByRelationAggregateInput
 }
 
 export type AlbumWhereUniqueInput = Prisma.AtLeast<{
@@ -315,7 +315,7 @@ export type AlbumWhereUniqueInput = Prisma.AtLeast<{
   albumProducer?: Prisma.StringNullableFilter<"Album"> | string | null
   tracks?: Prisma.TrackListRelationFilter
   albumArtists?: Prisma.AlbumArtistListRelationFilter
-  pinnedItems?: Prisma.UserPinnedItemListRelationFilter
+  pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
 }, "albumId">
 
 export type AlbumOrderByWithAggregationInput = {
@@ -368,7 +368,7 @@ export type AlbumCreateInput = {
   albumProducer?: string | null
   tracks?: Prisma.TrackCreateNestedManyWithoutAlbumInput
   albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutAlbumInput
-  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutAlbumInput
+  pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAlbumInput
 }
 
 export type AlbumUncheckedCreateInput = {
@@ -385,7 +385,7 @@ export type AlbumUncheckedCreateInput = {
   albumProducer?: string | null
   tracks?: Prisma.TrackUncheckedCreateNestedManyWithoutAlbumInput
   albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutAlbumInput
-  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
 }
 
 export type AlbumUpdateInput = {
@@ -402,7 +402,7 @@ export type AlbumUpdateInput = {
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUpdateManyWithoutAlbumNestedInput
   albumArtists?: Prisma.AlbumArtistUpdateManyWithoutAlbumNestedInput
-  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutAlbumNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAlbumNestedInput
 }
 
 export type AlbumUncheckedUpdateInput = {
@@ -419,7 +419,7 @@ export type AlbumUncheckedUpdateInput = {
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUncheckedUpdateManyWithoutAlbumNestedInput
   albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutAlbumNestedInput
-  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
 }
 
 export type AlbumCreateManyInput = {
@@ -589,7 +589,7 @@ export type AlbumCreateWithoutTracksInput = {
   albumComments?: bigint | number | null
   albumProducer?: string | null
   albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutAlbumInput
-  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutAlbumInput
+  pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAlbumInput
 }
 
 export type AlbumUncheckedCreateWithoutTracksInput = {
@@ -605,7 +605,7 @@ export type AlbumUncheckedCreateWithoutTracksInput = {
   albumComments?: bigint | number | null
   albumProducer?: string | null
   albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutAlbumInput
-  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
 }
 
 export type AlbumCreateOrConnectWithoutTracksInput = {
@@ -637,7 +637,7 @@ export type AlbumUpdateWithoutTracksInput = {
   albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   albumArtists?: Prisma.AlbumArtistUpdateManyWithoutAlbumNestedInput
-  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutAlbumNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAlbumNestedInput
 }
 
 export type AlbumUncheckedUpdateWithoutTracksInput = {
@@ -653,7 +653,7 @@ export type AlbumUncheckedUpdateWithoutTracksInput = {
   albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutAlbumNestedInput
-  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
 }
 
 export type AlbumCreateWithoutAlbumArtistsInput = {
@@ -669,7 +669,7 @@ export type AlbumCreateWithoutAlbumArtistsInput = {
   albumComments?: bigint | number | null
   albumProducer?: string | null
   tracks?: Prisma.TrackCreateNestedManyWithoutAlbumInput
-  pinnedItems?: Prisma.UserPinnedItemCreateNestedManyWithoutAlbumInput
+  pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAlbumInput
 }
 
 export type AlbumUncheckedCreateWithoutAlbumArtistsInput = {
@@ -685,7 +685,7 @@ export type AlbumUncheckedCreateWithoutAlbumArtistsInput = {
   albumComments?: bigint | number | null
   albumProducer?: string | null
   tracks?: Prisma.TrackUncheckedCreateNestedManyWithoutAlbumInput
-  pinnedItems?: Prisma.UserPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
 }
 
 export type AlbumCreateOrConnectWithoutAlbumArtistsInput = {
@@ -717,7 +717,7 @@ export type AlbumUpdateWithoutAlbumArtistsInput = {
   albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUpdateManyWithoutAlbumNestedInput
-  pinnedItems?: Prisma.UserPinnedItemUpdateManyWithoutAlbumNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAlbumNestedInput
 }
 
 export type AlbumUncheckedUpdateWithoutAlbumArtistsInput = {
@@ -733,7 +733,7 @@ export type AlbumUncheckedUpdateWithoutAlbumArtistsInput = {
   albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUncheckedUpdateManyWithoutAlbumNestedInput
-  pinnedItems?: Prisma.UserPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
 }
 
 export type AlbumCreateWithoutPinnedItemsInput = {
@@ -861,7 +861,7 @@ export type AlbumCountOutputTypeCountAlbumArtistsArgs<ExtArgs extends runtime.Ty
  * AlbumCountOutputType without action
  */
 export type AlbumCountOutputTypeCountPinnedItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.UserPinnedItemWhereInput
+  where?: Prisma.AccountPinnedItemWhereInput
 }
 
 
@@ -940,7 +940,7 @@ export type $AlbumPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   objects: {
     tracks: Prisma.$TrackPayload<ExtArgs>[]
     albumArtists: Prisma.$AlbumArtistPayload<ExtArgs>[]
-    pinnedItems: Prisma.$UserPinnedItemPayload<ExtArgs>[]
+    pinnedItems: Prisma.$AccountPinnedItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     albumId: string
@@ -1350,7 +1350,7 @@ export interface Prisma__AlbumClient<T, Null = never, ExtArgs extends runtime.Ty
   readonly [Symbol.toStringTag]: "PrismaPromise"
   tracks<T extends Prisma.Album$tracksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Album$tracksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   albumArtists<T extends Prisma.Album$albumArtistsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Album$albumArtistsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AlbumArtistPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  pinnedItems<T extends Prisma.Album$pinnedItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Album$pinnedItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserPinnedItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pinnedItems<T extends Prisma.Album$pinnedItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Album$pinnedItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPinnedItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1831,23 +1831,23 @@ export type Album$albumArtistsArgs<ExtArgs extends runtime.Types.Extensions.Inte
  */
 export type Album$pinnedItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the UserPinnedItem
+   * Select specific fields to fetch from the AccountPinnedItem
    */
-  select?: Prisma.UserPinnedItemSelect<ExtArgs> | null
+  select?: Prisma.AccountPinnedItemSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the UserPinnedItem
+   * Omit specific fields from the AccountPinnedItem
    */
-  omit?: Prisma.UserPinnedItemOmit<ExtArgs> | null
+  omit?: Prisma.AccountPinnedItemOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.UserPinnedItemInclude<ExtArgs> | null
-  where?: Prisma.UserPinnedItemWhereInput
-  orderBy?: Prisma.UserPinnedItemOrderByWithRelationInput | Prisma.UserPinnedItemOrderByWithRelationInput[]
-  cursor?: Prisma.UserPinnedItemWhereUniqueInput
+  include?: Prisma.AccountPinnedItemInclude<ExtArgs> | null
+  where?: Prisma.AccountPinnedItemWhereInput
+  orderBy?: Prisma.AccountPinnedItemOrderByWithRelationInput | Prisma.AccountPinnedItemOrderByWithRelationInput[]
+  cursor?: Prisma.AccountPinnedItemWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.UserPinnedItemScalarFieldEnum | Prisma.UserPinnedItemScalarFieldEnum[]
+  distinct?: Prisma.AccountPinnedItemScalarFieldEnum | Prisma.AccountPinnedItemScalarFieldEnum[]
 }
 
 /**

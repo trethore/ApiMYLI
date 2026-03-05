@@ -10,6 +10,47 @@ type Artist {
   artistComments: Float
 }
 
+type ArtistSummary {
+  artistId: ID!
+  name: String
+  imageUrl: String
+}
+
+type AlbumSummary {
+  albumId: ID!
+  title: String
+  imageUrl: String
+  type: String
+}
+
+type Track {
+  trackId: ID!
+  title: String
+  imageUrl: String
+  audioSrc: String
+  durationSeconds: Int
+  trackNumber: Int
+  discNumber: Int
+  isExplicit: Boolean!
+  isInstrumental: Boolean!
+  listens: Float
+  favorites: Float
+  comments: Float
+  album: AlbumSummary
+  mainArtists: [ArtistSummary!]!
+  featArtists: [ArtistSummary!]!
+  isLiked: Boolean!
+}
+
+type Playlist {
+  playlistId: ID!
+  name: String
+  ownerDisplayName: String
+  isEditable: Boolean!
+  trackCount: Int!
+  tracks: [Track!]!
+}
+
 type Account {
   accountId: ID!
   login: String
@@ -51,6 +92,14 @@ input UpdateAccountInput {
   isArtist: Boolean
 }
 
+input CreatePlaylistInput {
+  name: String!
+}
+
+input UpdatePlaylistInput {
+  name: String
+}
+
 input LoginInput {
   email: String!
   password: String!
@@ -59,6 +108,12 @@ input LoginInput {
 type Query {
   hello: String!
   account(accountId: String!): Account
+  track(trackId: String!): Track
+  albumTracks(albumId: String!): [Track!]!
+  artistTopTracks(artistId: String!, limit: Int): [Track!]!
+  likedTracks: [Track!]!
+  playlist(playlistId: String!): Playlist
+  myPlaylists: [Playlist!]!
 }
 
 type Mutation {
@@ -68,4 +123,12 @@ type Mutation {
   deleteAccount(accountId: String!): Boolean!
   login(input: LoginInput!): AuthPayload
   logout: Boolean!
+  likeTrack(trackId: String!): Track
+  unlikeTrack(trackId: String!): Track
+  createPlaylist(input: CreatePlaylistInput!): Playlist!
+  updatePlaylist(playlistId: String!, input: UpdatePlaylistInput!): Playlist
+  deletePlaylist(playlistId: String!): Boolean!
+  addTrackToPlaylist(playlistId: String!, trackId: String!): Playlist
+  removeTrackFromPlaylist(playlistId: String!, trackId: String!): Playlist
+  recordTrackListen(trackId: String!): Boolean!
 }

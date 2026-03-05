@@ -183,7 +183,7 @@ export type TrackCommentWhereInput = {
   content?: Prisma.StringNullableFilter<"TrackComment"> | string | null
   createdAt?: Prisma.DateTimeNullableFilter<"TrackComment"> | Date | string | null
   track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
-  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  account?: Prisma.XOR<Prisma.AccountNullableScalarRelationFilter, Prisma.AccountWhereInput> | null
 }
 
 export type TrackCommentOrderByWithRelationInput = {
@@ -193,7 +193,7 @@ export type TrackCommentOrderByWithRelationInput = {
   content?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
   track?: Prisma.TrackOrderByWithRelationInput
-  user?: Prisma.UserOrderByWithRelationInput
+  account?: Prisma.AccountOrderByWithRelationInput
 }
 
 export type TrackCommentWhereUniqueInput = Prisma.AtLeast<{
@@ -206,7 +206,7 @@ export type TrackCommentWhereUniqueInput = Prisma.AtLeast<{
   content?: Prisma.StringNullableFilter<"TrackComment"> | string | null
   createdAt?: Prisma.DateTimeNullableFilter<"TrackComment"> | Date | string | null
   track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
-  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
+  account?: Prisma.XOR<Prisma.AccountNullableScalarRelationFilter, Prisma.AccountWhereInput> | null
 }, "commentId">
 
 export type TrackCommentOrderByWithAggregationInput = {
@@ -236,7 +236,7 @@ export type TrackCommentCreateInput = {
   content?: string | null
   createdAt?: Date | string | null
   track: Prisma.TrackCreateNestedOneWithoutCommentsInput
-  user?: Prisma.UserCreateNestedOneWithoutTrackCommentsInput
+  account?: Prisma.AccountCreateNestedOneWithoutTrackCommentsInput
 }
 
 export type TrackCommentUncheckedCreateInput = {
@@ -252,7 +252,7 @@ export type TrackCommentUpdateInput = {
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   track?: Prisma.TrackUpdateOneRequiredWithoutCommentsNestedInput
-  user?: Prisma.UserUpdateOneWithoutTrackCommentsNestedInput
+  account?: Prisma.AccountUpdateOneWithoutTrackCommentsNestedInput
 }
 
 export type TrackCommentUncheckedUpdateInput = {
@@ -319,6 +319,48 @@ export type TrackCommentMinOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
 }
 
+export type TrackCommentCreateNestedManyWithoutAccountInput = {
+  create?: Prisma.XOR<Prisma.TrackCommentCreateWithoutAccountInput, Prisma.TrackCommentUncheckedCreateWithoutAccountInput> | Prisma.TrackCommentCreateWithoutAccountInput[] | Prisma.TrackCommentUncheckedCreateWithoutAccountInput[]
+  connectOrCreate?: Prisma.TrackCommentCreateOrConnectWithoutAccountInput | Prisma.TrackCommentCreateOrConnectWithoutAccountInput[]
+  createMany?: Prisma.TrackCommentCreateManyAccountInputEnvelope
+  connect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+}
+
+export type TrackCommentUncheckedCreateNestedManyWithoutAccountInput = {
+  create?: Prisma.XOR<Prisma.TrackCommentCreateWithoutAccountInput, Prisma.TrackCommentUncheckedCreateWithoutAccountInput> | Prisma.TrackCommentCreateWithoutAccountInput[] | Prisma.TrackCommentUncheckedCreateWithoutAccountInput[]
+  connectOrCreate?: Prisma.TrackCommentCreateOrConnectWithoutAccountInput | Prisma.TrackCommentCreateOrConnectWithoutAccountInput[]
+  createMany?: Prisma.TrackCommentCreateManyAccountInputEnvelope
+  connect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+}
+
+export type TrackCommentUpdateManyWithoutAccountNestedInput = {
+  create?: Prisma.XOR<Prisma.TrackCommentCreateWithoutAccountInput, Prisma.TrackCommentUncheckedCreateWithoutAccountInput> | Prisma.TrackCommentCreateWithoutAccountInput[] | Prisma.TrackCommentUncheckedCreateWithoutAccountInput[]
+  connectOrCreate?: Prisma.TrackCommentCreateOrConnectWithoutAccountInput | Prisma.TrackCommentCreateOrConnectWithoutAccountInput[]
+  upsert?: Prisma.TrackCommentUpsertWithWhereUniqueWithoutAccountInput | Prisma.TrackCommentUpsertWithWhereUniqueWithoutAccountInput[]
+  createMany?: Prisma.TrackCommentCreateManyAccountInputEnvelope
+  set?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+  disconnect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+  delete?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+  connect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+  update?: Prisma.TrackCommentUpdateWithWhereUniqueWithoutAccountInput | Prisma.TrackCommentUpdateWithWhereUniqueWithoutAccountInput[]
+  updateMany?: Prisma.TrackCommentUpdateManyWithWhereWithoutAccountInput | Prisma.TrackCommentUpdateManyWithWhereWithoutAccountInput[]
+  deleteMany?: Prisma.TrackCommentScalarWhereInput | Prisma.TrackCommentScalarWhereInput[]
+}
+
+export type TrackCommentUncheckedUpdateManyWithoutAccountNestedInput = {
+  create?: Prisma.XOR<Prisma.TrackCommentCreateWithoutAccountInput, Prisma.TrackCommentUncheckedCreateWithoutAccountInput> | Prisma.TrackCommentCreateWithoutAccountInput[] | Prisma.TrackCommentUncheckedCreateWithoutAccountInput[]
+  connectOrCreate?: Prisma.TrackCommentCreateOrConnectWithoutAccountInput | Prisma.TrackCommentCreateOrConnectWithoutAccountInput[]
+  upsert?: Prisma.TrackCommentUpsertWithWhereUniqueWithoutAccountInput | Prisma.TrackCommentUpsertWithWhereUniqueWithoutAccountInput[]
+  createMany?: Prisma.TrackCommentCreateManyAccountInputEnvelope
+  set?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+  disconnect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+  delete?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+  connect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+  update?: Prisma.TrackCommentUpdateWithWhereUniqueWithoutAccountInput | Prisma.TrackCommentUpdateWithWhereUniqueWithoutAccountInput[]
+  updateMany?: Prisma.TrackCommentUpdateManyWithWhereWithoutAccountInput | Prisma.TrackCommentUpdateManyWithWhereWithoutAccountInput[]
+  deleteMany?: Prisma.TrackCommentScalarWhereInput | Prisma.TrackCommentScalarWhereInput[]
+}
+
 export type TrackCommentCreateNestedManyWithoutTrackInput = {
   create?: Prisma.XOR<Prisma.TrackCommentCreateWithoutTrackInput, Prisma.TrackCommentUncheckedCreateWithoutTrackInput> | Prisma.TrackCommentCreateWithoutTrackInput[] | Prisma.TrackCommentUncheckedCreateWithoutTrackInput[]
   connectOrCreate?: Prisma.TrackCommentCreateOrConnectWithoutTrackInput | Prisma.TrackCommentCreateOrConnectWithoutTrackInput[]
@@ -361,53 +403,62 @@ export type TrackCommentUncheckedUpdateManyWithoutTrackNestedInput = {
   deleteMany?: Prisma.TrackCommentScalarWhereInput | Prisma.TrackCommentScalarWhereInput[]
 }
 
-export type TrackCommentCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.TrackCommentCreateWithoutUserInput, Prisma.TrackCommentUncheckedCreateWithoutUserInput> | Prisma.TrackCommentCreateWithoutUserInput[] | Prisma.TrackCommentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.TrackCommentCreateOrConnectWithoutUserInput | Prisma.TrackCommentCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.TrackCommentCreateManyUserInputEnvelope
-  connect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+export type TrackCommentCreateWithoutAccountInput = {
+  commentId?: string
+  content?: string | null
+  createdAt?: Date | string | null
+  track: Prisma.TrackCreateNestedOneWithoutCommentsInput
 }
 
-export type TrackCommentUncheckedCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.TrackCommentCreateWithoutUserInput, Prisma.TrackCommentUncheckedCreateWithoutUserInput> | Prisma.TrackCommentCreateWithoutUserInput[] | Prisma.TrackCommentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.TrackCommentCreateOrConnectWithoutUserInput | Prisma.TrackCommentCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.TrackCommentCreateManyUserInputEnvelope
-  connect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
+export type TrackCommentUncheckedCreateWithoutAccountInput = {
+  commentId?: string
+  trackId: string
+  content?: string | null
+  createdAt?: Date | string | null
 }
 
-export type TrackCommentUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.TrackCommentCreateWithoutUserInput, Prisma.TrackCommentUncheckedCreateWithoutUserInput> | Prisma.TrackCommentCreateWithoutUserInput[] | Prisma.TrackCommentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.TrackCommentCreateOrConnectWithoutUserInput | Prisma.TrackCommentCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.TrackCommentUpsertWithWhereUniqueWithoutUserInput | Prisma.TrackCommentUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.TrackCommentCreateManyUserInputEnvelope
-  set?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
-  disconnect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
-  delete?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
-  connect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
-  update?: Prisma.TrackCommentUpdateWithWhereUniqueWithoutUserInput | Prisma.TrackCommentUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.TrackCommentUpdateManyWithWhereWithoutUserInput | Prisma.TrackCommentUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.TrackCommentScalarWhereInput | Prisma.TrackCommentScalarWhereInput[]
+export type TrackCommentCreateOrConnectWithoutAccountInput = {
+  where: Prisma.TrackCommentWhereUniqueInput
+  create: Prisma.XOR<Prisma.TrackCommentCreateWithoutAccountInput, Prisma.TrackCommentUncheckedCreateWithoutAccountInput>
 }
 
-export type TrackCommentUncheckedUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.TrackCommentCreateWithoutUserInput, Prisma.TrackCommentUncheckedCreateWithoutUserInput> | Prisma.TrackCommentCreateWithoutUserInput[] | Prisma.TrackCommentUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.TrackCommentCreateOrConnectWithoutUserInput | Prisma.TrackCommentCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.TrackCommentUpsertWithWhereUniqueWithoutUserInput | Prisma.TrackCommentUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.TrackCommentCreateManyUserInputEnvelope
-  set?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
-  disconnect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
-  delete?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
-  connect?: Prisma.TrackCommentWhereUniqueInput | Prisma.TrackCommentWhereUniqueInput[]
-  update?: Prisma.TrackCommentUpdateWithWhereUniqueWithoutUserInput | Prisma.TrackCommentUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.TrackCommentUpdateManyWithWhereWithoutUserInput | Prisma.TrackCommentUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.TrackCommentScalarWhereInput | Prisma.TrackCommentScalarWhereInput[]
+export type TrackCommentCreateManyAccountInputEnvelope = {
+  data: Prisma.TrackCommentCreateManyAccountInput | Prisma.TrackCommentCreateManyAccountInput[]
+  skipDuplicates?: boolean
+}
+
+export type TrackCommentUpsertWithWhereUniqueWithoutAccountInput = {
+  where: Prisma.TrackCommentWhereUniqueInput
+  update: Prisma.XOR<Prisma.TrackCommentUpdateWithoutAccountInput, Prisma.TrackCommentUncheckedUpdateWithoutAccountInput>
+  create: Prisma.XOR<Prisma.TrackCommentCreateWithoutAccountInput, Prisma.TrackCommentUncheckedCreateWithoutAccountInput>
+}
+
+export type TrackCommentUpdateWithWhereUniqueWithoutAccountInput = {
+  where: Prisma.TrackCommentWhereUniqueInput
+  data: Prisma.XOR<Prisma.TrackCommentUpdateWithoutAccountInput, Prisma.TrackCommentUncheckedUpdateWithoutAccountInput>
+}
+
+export type TrackCommentUpdateManyWithWhereWithoutAccountInput = {
+  where: Prisma.TrackCommentScalarWhereInput
+  data: Prisma.XOR<Prisma.TrackCommentUpdateManyMutationInput, Prisma.TrackCommentUncheckedUpdateManyWithoutAccountInput>
+}
+
+export type TrackCommentScalarWhereInput = {
+  AND?: Prisma.TrackCommentScalarWhereInput | Prisma.TrackCommentScalarWhereInput[]
+  OR?: Prisma.TrackCommentScalarWhereInput[]
+  NOT?: Prisma.TrackCommentScalarWhereInput | Prisma.TrackCommentScalarWhereInput[]
+  commentId?: Prisma.UuidFilter<"TrackComment"> | string
+  trackId?: Prisma.UuidFilter<"TrackComment"> | string
+  accountId?: Prisma.UuidNullableFilter<"TrackComment"> | string | null
+  content?: Prisma.StringNullableFilter<"TrackComment"> | string | null
+  createdAt?: Prisma.DateTimeNullableFilter<"TrackComment"> | Date | string | null
 }
 
 export type TrackCommentCreateWithoutTrackInput = {
   commentId?: string
   content?: string | null
   createdAt?: Date | string | null
-  user?: Prisma.UserCreateNestedOneWithoutTrackCommentsInput
+  account?: Prisma.AccountCreateNestedOneWithoutTrackCommentsInput
 }
 
 export type TrackCommentUncheckedCreateWithoutTrackInput = {
@@ -443,55 +494,32 @@ export type TrackCommentUpdateManyWithWhereWithoutTrackInput = {
   data: Prisma.XOR<Prisma.TrackCommentUpdateManyMutationInput, Prisma.TrackCommentUncheckedUpdateManyWithoutTrackInput>
 }
 
-export type TrackCommentScalarWhereInput = {
-  AND?: Prisma.TrackCommentScalarWhereInput | Prisma.TrackCommentScalarWhereInput[]
-  OR?: Prisma.TrackCommentScalarWhereInput[]
-  NOT?: Prisma.TrackCommentScalarWhereInput | Prisma.TrackCommentScalarWhereInput[]
-  commentId?: Prisma.UuidFilter<"TrackComment"> | string
-  trackId?: Prisma.UuidFilter<"TrackComment"> | string
-  accountId?: Prisma.UuidNullableFilter<"TrackComment"> | string | null
-  content?: Prisma.StringNullableFilter<"TrackComment"> | string | null
-  createdAt?: Prisma.DateTimeNullableFilter<"TrackComment"> | Date | string | null
-}
-
-export type TrackCommentCreateWithoutUserInput = {
-  commentId?: string
-  content?: string | null
-  createdAt?: Date | string | null
-  track: Prisma.TrackCreateNestedOneWithoutCommentsInput
-}
-
-export type TrackCommentUncheckedCreateWithoutUserInput = {
+export type TrackCommentCreateManyAccountInput = {
   commentId?: string
   trackId: string
   content?: string | null
   createdAt?: Date | string | null
 }
 
-export type TrackCommentCreateOrConnectWithoutUserInput = {
-  where: Prisma.TrackCommentWhereUniqueInput
-  create: Prisma.XOR<Prisma.TrackCommentCreateWithoutUserInput, Prisma.TrackCommentUncheckedCreateWithoutUserInput>
+export type TrackCommentUpdateWithoutAccountInput = {
+  commentId?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  track?: Prisma.TrackUpdateOneRequiredWithoutCommentsNestedInput
 }
 
-export type TrackCommentCreateManyUserInputEnvelope = {
-  data: Prisma.TrackCommentCreateManyUserInput | Prisma.TrackCommentCreateManyUserInput[]
-  skipDuplicates?: boolean
+export type TrackCommentUncheckedUpdateWithoutAccountInput = {
+  commentId?: Prisma.StringFieldUpdateOperationsInput | string
+  trackId?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type TrackCommentUpsertWithWhereUniqueWithoutUserInput = {
-  where: Prisma.TrackCommentWhereUniqueInput
-  update: Prisma.XOR<Prisma.TrackCommentUpdateWithoutUserInput, Prisma.TrackCommentUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.TrackCommentCreateWithoutUserInput, Prisma.TrackCommentUncheckedCreateWithoutUserInput>
-}
-
-export type TrackCommentUpdateWithWhereUniqueWithoutUserInput = {
-  where: Prisma.TrackCommentWhereUniqueInput
-  data: Prisma.XOR<Prisma.TrackCommentUpdateWithoutUserInput, Prisma.TrackCommentUncheckedUpdateWithoutUserInput>
-}
-
-export type TrackCommentUpdateManyWithWhereWithoutUserInput = {
-  where: Prisma.TrackCommentScalarWhereInput
-  data: Prisma.XOR<Prisma.TrackCommentUpdateManyMutationInput, Prisma.TrackCommentUncheckedUpdateManyWithoutUserInput>
+export type TrackCommentUncheckedUpdateManyWithoutAccountInput = {
+  commentId?: Prisma.StringFieldUpdateOperationsInput | string
+  trackId?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type TrackCommentCreateManyTrackInput = {
@@ -505,7 +533,7 @@ export type TrackCommentUpdateWithoutTrackInput = {
   commentId?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  user?: Prisma.UserUpdateOneWithoutTrackCommentsNestedInput
+  account?: Prisma.AccountUpdateOneWithoutTrackCommentsNestedInput
 }
 
 export type TrackCommentUncheckedUpdateWithoutTrackInput = {
@@ -522,34 +550,6 @@ export type TrackCommentUncheckedUpdateManyWithoutTrackInput = {
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type TrackCommentCreateManyUserInput = {
-  commentId?: string
-  trackId: string
-  content?: string | null
-  createdAt?: Date | string | null
-}
-
-export type TrackCommentUpdateWithoutUserInput = {
-  commentId?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  track?: Prisma.TrackUpdateOneRequiredWithoutCommentsNestedInput
-}
-
-export type TrackCommentUncheckedUpdateWithoutUserInput = {
-  commentId?: Prisma.StringFieldUpdateOperationsInput | string
-  trackId?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-}
-
-export type TrackCommentUncheckedUpdateManyWithoutUserInput = {
-  commentId?: Prisma.StringFieldUpdateOperationsInput | string
-  trackId?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-}
-
 
 
 export type TrackCommentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -559,7 +559,7 @@ export type TrackCommentSelect<ExtArgs extends runtime.Types.Extensions.Internal
   content?: boolean
   createdAt?: boolean
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.TrackComment$userArgs<ExtArgs>
+  account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
 }, ExtArgs["result"]["trackComment"]>
 
 export type TrackCommentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -569,7 +569,7 @@ export type TrackCommentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   content?: boolean
   createdAt?: boolean
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.TrackComment$userArgs<ExtArgs>
+  account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
 }, ExtArgs["result"]["trackComment"]>
 
 export type TrackCommentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -579,7 +579,7 @@ export type TrackCommentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   content?: boolean
   createdAt?: boolean
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.TrackComment$userArgs<ExtArgs>
+  account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
 }, ExtArgs["result"]["trackComment"]>
 
 export type TrackCommentSelectScalar = {
@@ -593,22 +593,22 @@ export type TrackCommentSelectScalar = {
 export type TrackCommentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"commentId" | "trackId" | "accountId" | "content" | "createdAt", ExtArgs["result"]["trackComment"]>
 export type TrackCommentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.TrackComment$userArgs<ExtArgs>
+  account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
 }
 export type TrackCommentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.TrackComment$userArgs<ExtArgs>
+  account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
 }
 export type TrackCommentIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
-  user?: boolean | Prisma.TrackComment$userArgs<ExtArgs>
+  account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
 }
 
 export type $TrackCommentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "TrackComment"
   objects: {
     track: Prisma.$TrackPayload<ExtArgs>
-    user: Prisma.$UserPayload<ExtArgs> | null
+    account: Prisma.$AccountPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     commentId: string
@@ -1011,7 +1011,7 @@ readonly fields: TrackCommentFieldRefs;
 export interface Prisma__TrackCommentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  user<T extends Prisma.TrackComment$userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackComment$userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  account<T extends Prisma.TrackComment$accountArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackComment$accountArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1442,22 +1442,22 @@ export type TrackCommentDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.
 }
 
 /**
- * TrackComment.user
+ * TrackComment.account
  */
-export type TrackComment$userArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type TrackComment$accountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the User
+   * Select specific fields to fetch from the Account
    */
-  select?: Prisma.UserSelect<ExtArgs> | null
+  select?: Prisma.AccountSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the User
+   * Omit specific fields from the Account
    */
-  omit?: Prisma.UserOmit<ExtArgs> | null
+  omit?: Prisma.AccountOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.UserInclude<ExtArgs> | null
-  where?: Prisma.UserWhereInput
+  include?: Prisma.AccountInclude<ExtArgs> | null
+  where?: Prisma.AccountWhereInput
 }
 
 /**

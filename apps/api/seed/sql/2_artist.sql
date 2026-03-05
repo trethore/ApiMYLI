@@ -24,11 +24,12 @@ CREATE TEMP TABLE stg_artist (
 
 ALTER TABLE stg_artist ADD COLUMN new_uuid UUID DEFAULT uuid_generate_v4();
 
-INSERT INTO account (account_id, login, name, email, is_artist, created_at)
+INSERT INTO account (account_id, login, name, pseudo, email, is_artist, created_at)
 SELECT
   new_uuid,
   'artist_' || artist_id,
   artist_name,
+  'artist_' || artist_id,
   'artist_' || artist_id || '@example.com',
   true,
   NOW()
