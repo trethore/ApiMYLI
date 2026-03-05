@@ -1,13 +1,70 @@
-type User {
+type Artist {
+  artistId: ID!
+  artistBio: String
+  artistLocation: String
+  artistLatitude: Float
+  artistLongitude: Float
+  artistActiveYearBegin: Int
+  artistActiveYearEnd: Int
+  artistFavorites: Float
+  artistComments: Float
+}
+
+type Account {
   accountId: ID!
-  pseudo: String
+  login: String
+  email: String
+  name: String
+  isArtist: Boolean!
+  artist: Artist
+}
+
+type AuthPayload {
+  token: String!
+  account: Account!
 }
 
 type Query {
   hello: String!
-  users: [User!]!
+  account(accountId: String!): Account
 }
 
 type Mutation {
-  createUser(accountId: String!, pseudo: String): User!
+  createAccount(input: CreateAccountInput!): Account!
+  updateAccount(accountId: String!, input: UpdateAccountInput!): Account
+  deleteAccount(accountId: String!): Boolean!
+  login(input: LoginInput!): AuthPayload
+  logout: Boolean!
+}
+
+input CreateAccountInput {
+  login: String!
+  email: String!
+  password: String!
+  name: String!
+  isArtist: Boolean
+}
+
+input UpdateArtistInput {
+  artistBio: String
+  artistLocation: String
+  artistLatitude: Float
+  artistLongitude: Float
+  artistActiveYearBegin: Int
+  artistActiveYearEnd: Int
+  artistFavorites: Float
+  artistComments: Float
+}
+
+input UpdateAccountInput {
+  login: String
+  email: String
+  password: String
+  name: String
+  isArtist: Boolean
+}
+
+input LoginInput {
+  email: String!
+  password: String!
 }

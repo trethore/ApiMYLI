@@ -30,6 +30,7 @@ export type AccountMinAggregateOutputType = {
   password: string | null
   name: string | null
   email: string | null
+  isArtist: boolean | null
   createdAt: Date | null
 }
 
@@ -39,6 +40,7 @@ export type AccountMaxAggregateOutputType = {
   password: string | null
   name: string | null
   email: string | null
+  isArtist: boolean | null
   createdAt: Date | null
 }
 
@@ -48,6 +50,7 @@ export type AccountCountAggregateOutputType = {
   password: number
   name: number
   email: number
+  isArtist: number
   createdAt: number
   _all: number
 }
@@ -59,6 +62,7 @@ export type AccountMinAggregateInputType = {
   password?: true
   name?: true
   email?: true
+  isArtist?: true
   createdAt?: true
 }
 
@@ -68,6 +72,7 @@ export type AccountMaxAggregateInputType = {
   password?: true
   name?: true
   email?: true
+  isArtist?: true
   createdAt?: true
 }
 
@@ -77,6 +82,7 @@ export type AccountCountAggregateInputType = {
   password?: true
   name?: true
   email?: true
+  isArtist?: true
   createdAt?: true
   _all?: true
 }
@@ -159,6 +165,7 @@ export type AccountGroupByOutputType = {
   password: string | null
   name: string | null
   email: string | null
+  isArtist: boolean
   createdAt: Date | null
   _count: AccountCountAggregateOutputType | null
   _min: AccountMinAggregateOutputType | null
@@ -189,6 +196,7 @@ export type AccountWhereInput = {
   password?: Prisma.StringNullableFilter<"Account"> | string | null
   name?: Prisma.StringNullableFilter<"Account"> | string | null
   email?: Prisma.StringNullableFilter<"Account"> | string | null
+  isArtist?: Prisma.BoolFilter<"Account"> | boolean
   createdAt?: Prisma.DateTimeNullableFilter<"Account"> | Date | string | null
   artist?: Prisma.XOR<Prisma.ArtistNullableScalarRelationFilter, Prisma.ArtistWhereInput> | null
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
@@ -200,6 +208,7 @@ export type AccountOrderByWithRelationInput = {
   password?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
+  isArtist?: Prisma.SortOrder
   createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
   artist?: Prisma.ArtistOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
@@ -214,6 +223,7 @@ export type AccountWhereUniqueInput = Prisma.AtLeast<{
   password?: Prisma.StringNullableFilter<"Account"> | string | null
   name?: Prisma.StringNullableFilter<"Account"> | string | null
   email?: Prisma.StringNullableFilter<"Account"> | string | null
+  isArtist?: Prisma.BoolFilter<"Account"> | boolean
   createdAt?: Prisma.DateTimeNullableFilter<"Account"> | Date | string | null
   artist?: Prisma.XOR<Prisma.ArtistNullableScalarRelationFilter, Prisma.ArtistWhereInput> | null
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
@@ -225,6 +235,7 @@ export type AccountOrderByWithAggregationInput = {
   password?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
+  isArtist?: Prisma.SortOrder
   createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.AccountCountOrderByAggregateInput
   _max?: Prisma.AccountMaxOrderByAggregateInput
@@ -240,6 +251,7 @@ export type AccountScalarWhereWithAggregatesInput = {
   password?: Prisma.StringNullableWithAggregatesFilter<"Account"> | string | null
   name?: Prisma.StringNullableWithAggregatesFilter<"Account"> | string | null
   email?: Prisma.StringNullableWithAggregatesFilter<"Account"> | string | null
+  isArtist?: Prisma.BoolWithAggregatesFilter<"Account"> | boolean
   createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Account"> | Date | string | null
 }
 
@@ -249,6 +261,7 @@ export type AccountCreateInput = {
   password?: string | null
   name?: string | null
   email?: string | null
+  isArtist?: boolean
   createdAt?: Date | string | null
   artist?: Prisma.ArtistCreateNestedOneWithoutAccountInput
   user?: Prisma.UserCreateNestedOneWithoutAccountInput
@@ -260,6 +273,7 @@ export type AccountUncheckedCreateInput = {
   password?: string | null
   name?: string | null
   email?: string | null
+  isArtist?: boolean
   createdAt?: Date | string | null
   artist?: Prisma.ArtistUncheckedCreateNestedOneWithoutAccountInput
   user?: Prisma.UserUncheckedCreateNestedOneWithoutAccountInput
@@ -271,6 +285,7 @@ export type AccountUpdateInput = {
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   artist?: Prisma.ArtistUpdateOneWithoutAccountNestedInput
   user?: Prisma.UserUpdateOneWithoutAccountNestedInput
@@ -282,6 +297,7 @@ export type AccountUncheckedUpdateInput = {
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   artist?: Prisma.ArtistUncheckedUpdateOneWithoutAccountNestedInput
   user?: Prisma.UserUncheckedUpdateOneWithoutAccountNestedInput
@@ -293,6 +309,7 @@ export type AccountCreateManyInput = {
   password?: string | null
   name?: string | null
   email?: string | null
+  isArtist?: boolean
   createdAt?: Date | string | null
 }
 
@@ -302,6 +319,7 @@ export type AccountUpdateManyMutationInput = {
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
@@ -311,6 +329,7 @@ export type AccountUncheckedUpdateManyInput = {
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
@@ -320,6 +339,7 @@ export type AccountCountOrderByAggregateInput = {
   password?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  isArtist?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -329,6 +349,7 @@ export type AccountMaxOrderByAggregateInput = {
   password?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  isArtist?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -338,6 +359,7 @@ export type AccountMinOrderByAggregateInput = {
   password?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  isArtist?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -352,6 +374,10 @@ export type StringFieldUpdateOperationsInput = {
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -392,6 +418,7 @@ export type AccountCreateWithoutArtistInput = {
   password?: string | null
   name?: string | null
   email?: string | null
+  isArtist?: boolean
   createdAt?: Date | string | null
   user?: Prisma.UserCreateNestedOneWithoutAccountInput
 }
@@ -402,6 +429,7 @@ export type AccountUncheckedCreateWithoutArtistInput = {
   password?: string | null
   name?: string | null
   email?: string | null
+  isArtist?: boolean
   createdAt?: Date | string | null
   user?: Prisma.UserUncheckedCreateNestedOneWithoutAccountInput
 }
@@ -428,6 +456,7 @@ export type AccountUpdateWithoutArtistInput = {
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   user?: Prisma.UserUpdateOneWithoutAccountNestedInput
 }
@@ -438,6 +467,7 @@ export type AccountUncheckedUpdateWithoutArtistInput = {
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   user?: Prisma.UserUncheckedUpdateOneWithoutAccountNestedInput
 }
@@ -448,6 +478,7 @@ export type AccountCreateWithoutUserInput = {
   password?: string | null
   name?: string | null
   email?: string | null
+  isArtist?: boolean
   createdAt?: Date | string | null
   artist?: Prisma.ArtistCreateNestedOneWithoutAccountInput
 }
@@ -458,6 +489,7 @@ export type AccountUncheckedCreateWithoutUserInput = {
   password?: string | null
   name?: string | null
   email?: string | null
+  isArtist?: boolean
   createdAt?: Date | string | null
   artist?: Prisma.ArtistUncheckedCreateNestedOneWithoutAccountInput
 }
@@ -484,6 +516,7 @@ export type AccountUpdateWithoutUserInput = {
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   artist?: Prisma.ArtistUpdateOneWithoutAccountNestedInput
 }
@@ -494,6 +527,7 @@ export type AccountUncheckedUpdateWithoutUserInput = {
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   artist?: Prisma.ArtistUncheckedUpdateOneWithoutAccountNestedInput
 }
@@ -506,6 +540,7 @@ export type AccountSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   password?: boolean
   name?: boolean
   email?: boolean
+  isArtist?: boolean
   createdAt?: boolean
   artist?: boolean | Prisma.Account$artistArgs<ExtArgs>
   user?: boolean | Prisma.Account$userArgs<ExtArgs>
@@ -517,6 +552,7 @@ export type AccountSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   password?: boolean
   name?: boolean
   email?: boolean
+  isArtist?: boolean
   createdAt?: boolean
 }, ExtArgs["result"]["account"]>
 
@@ -526,6 +562,7 @@ export type AccountSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   password?: boolean
   name?: boolean
   email?: boolean
+  isArtist?: boolean
   createdAt?: boolean
 }, ExtArgs["result"]["account"]>
 
@@ -535,10 +572,11 @@ export type AccountSelectScalar = {
   password?: boolean
   name?: boolean
   email?: boolean
+  isArtist?: boolean
   createdAt?: boolean
 }
 
-export type AccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"accountId" | "login" | "password" | "name" | "email" | "createdAt", ExtArgs["result"]["account"]>
+export type AccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"accountId" | "login" | "password" | "name" | "email" | "isArtist" | "createdAt", ExtArgs["result"]["account"]>
 export type AccountInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   artist?: boolean | Prisma.Account$artistArgs<ExtArgs>
   user?: boolean | Prisma.Account$userArgs<ExtArgs>
@@ -558,6 +596,7 @@ export type $AccountPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     password: string | null
     name: string | null
     email: string | null
+    isArtist: boolean
     createdAt: Date | null
   }, ExtArgs["result"]["account"]>
   composites: {}
@@ -989,6 +1028,7 @@ export interface AccountFieldRefs {
   readonly password: Prisma.FieldRef<"Account", 'String'>
   readonly name: Prisma.FieldRef<"Account", 'String'>
   readonly email: Prisma.FieldRef<"Account", 'String'>
+  readonly isArtist: Prisma.FieldRef<"Account", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Account", 'DateTime'>
 }
     
