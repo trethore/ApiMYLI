@@ -14,8 +14,9 @@ const listSqlFiles = async (sqlDirectoryPath: string): Promise<string[]> => {
     .sort((leftPath, rightPath) => basename(leftPath).localeCompare(basename(rightPath)));
 };
 
-const runSqlFile = async (databaseUrl: string, filePath: string): Promise<void> => {
-  await $`psql ${databaseUrl} -v ON_ERROR_STOP=1 -f ${filePath}`;
+const runSqlFiles = async (databaseUrl: string, filePaths: string[]): Promise<void> => {
+  const fileArguments: string[] = filePaths.flatMap((filePath) => ["-f", filePath]);
+  await $`psql ${databaseUrl} -v ON_ERROR_STOP=1 ${fileArguments}`;
 };
 
 const runSeed = async (): Promise<void> => {
@@ -32,11 +33,13 @@ const runSeed = async (): Promise<void> => {
     return;
   }
 
+  console.log("Running seed scripts:");
   for (const sqlFile of sqlFiles) {
     const fileName = basename(sqlFile);
-    console.log(`Running ${fileName}...`);
-    await runSqlFile(databaseUrl, sqlFile);
+    console.log(`- ${fileName}`);
   }
+
+  await runSqlFiles(databaseUrl, sqlFiles);
 
   console.log("Seed scripts executed successfully.");
 };
