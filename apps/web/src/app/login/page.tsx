@@ -29,7 +29,9 @@ export default function LoginPage() {
       <main className="flex-1 flex items-center justify-center p-4">
         <Card className="w-full max-w-md bg-background-secondary border-border">
           <CardHeader>
-            <CardTitle className="text-2xl font-[family-name:var(--font-protest-strike)] text-center text-primary">Connectez-vous à MUSE</CardTitle>
+            <CardTitle className="text-2xl font-[family-name:var(--font-protest-strike)] text-center text-primary">
+              Connectez-vous à MUSE
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -54,7 +56,7 @@ export default function LoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                     className="bg-input text-foreground border-input pr-10"
+                    className="bg-input text-foreground border-input pr-10"
                   />
                   <button
                     type="button"
@@ -65,7 +67,10 @@ export default function LoginPage() {
                   </button>
                 </div>
               </div>
-              <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button
+                type="submit"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+              >
                 Se connecter
               </Button>
             </form>

@@ -3,7 +3,12 @@ import type { AccountRepository } from "packages/domain/src/repositories/account
 
 export const getAccountById = async (
   repository: AccountRepository,
-  id: string,
+  currentAccountId: string,
+  targetAccountId: string,
 ): Promise<Account | null> => {
-  return repository.findById(id);
+  if (currentAccountId !== targetAccountId) {
+    throw new Error("Unauthorized");
+  }
+
+  return repository.findById(targetAccountId);
 };

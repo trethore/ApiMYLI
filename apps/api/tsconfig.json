@@ -11,8 +11,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@prisma/*": ["prisma/*"]
+      "@prisma/*": ["prisma/*"],
+      "packages/*": ["../../packages/*"]
     }
   },
-  "include": ["src/**/*.ts", "prisma/**/*.ts"]
+  "include": ["src/**/*.ts", "scripts/**/*.ts", "prisma/**/*.ts"]
 }

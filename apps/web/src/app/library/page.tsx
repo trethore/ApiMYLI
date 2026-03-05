@@ -30,62 +30,62 @@ export default function Library() {
 
   const pinnedContent: ContentList = [
     {
-       name: "Album 1",
-       type: "Album",
-       imageUrl: "/placeholder-album.jpg",
-       link: "/album/album-1"
+      name: "Album 1",
+      type: "Album",
+      imageUrl: "/placeholder-album.jpg",
+      link: "/album/album-1",
     },
     {
-       name: "Single Hit",
-       type: "Single",
-       imageUrl: "/placeholder-album.jpg",
-       link: "/album/single-hit-1"
+      name: "Single Hit",
+      type: "Single",
+      imageUrl: "/placeholder-album.jpg",
+      link: "/album/single-hit-1",
     },
     {
-       name: "Top Artist",
-       type: "Artiste",
-       imageUrl: "/placeholder-album.jpg",
-       link: "/artist/artist-top-1"
+      name: "Top Artist",
+      type: "Artiste",
+      imageUrl: "/placeholder-album.jpg",
+      link: "/artist/artist-top-1",
     },
     {
-       name: "Morning Playlist",
-       type: "Playlist",
-       imageUrl: "/placeholder-album.jpg",
-       link: "/playlist/playlist-morning-1"
-    }
+      name: "Morning Playlist",
+      type: "Playlist",
+      imageUrl: "/placeholder-album.jpg",
+      link: "/playlist/playlist-morning-1",
+    },
   ];
 
   const likedContent: ContentList = [
     {
-       name: "Liked Song 1",
-       type: "Single",
-       imageUrl: "/placeholder-album.jpg",
-       link: "/album/album-liked-1"
+      name: "Liked Song 1",
+      type: "Single",
+      imageUrl: "/placeholder-album.jpg",
+      link: "/album/album-liked-1",
     },
     {
-       name: "Best Album",
-       type: "Album",
-       imageUrl: "/placeholder-album.jpg",
-       link: "/album/album-best-1"
+      name: "Best Album",
+      type: "Album",
+      imageUrl: "/placeholder-album.jpg",
+      link: "/album/album-best-1",
     },
     {
-       name: "Favorite Artist",
-       type: "Artiste",
-       imageUrl: "/placeholder-album.jpg",
-       link: "/artist/artist-fav-1"
+      name: "Favorite Artist",
+      type: "Artiste",
+      imageUrl: "/placeholder-album.jpg",
+      link: "/artist/artist-fav-1",
     },
     {
-       name: "Chill Vibes",
-       type: "Playlist",
-       imageUrl: "/placeholder-album.jpg",
-       link: "/playlist/playlist-chill-1"
+      name: "Chill Vibes",
+      type: "Playlist",
+      imageUrl: "/placeholder-album.jpg",
+      link: "/playlist/playlist-chill-1",
     },
     {
-       name: "Workout Mix",
-       type: "Playlist",
-       imageUrl: "/placeholder-album.jpg",
-       link: "/playlist/playlist-workout-1"
-    }
+      name: "Workout Mix",
+      type: "Playlist",
+      imageUrl: "/placeholder-album.jpg",
+      link: "/playlist/playlist-workout-1",
+    },
   ];
 
   // Access PlaylistContext
@@ -109,7 +109,9 @@ export default function Library() {
         <div className="flex flex-col gap-8">
           {/* Header Action Row */}
           <div className="flex items-center justify-between">
-            <h1 className="text-4xl font-bold font-[family-name:var(--font-protest-strike)]">Ma Bibliothèque</h1>
+            <h1 className="text-4xl font-bold font-[family-name:var(--font-protest-strike)]">
+              Ma Bibliothèque
+            </h1>
             <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] text-foreground font-bold hover:scale-105 transition-transform flex items-center gap-2">
@@ -128,12 +130,14 @@ export default function Library() {
                       placeholder="Ma super playlist..."
                       value={newPlaylistName}
                       onChange={(e) => setNewPlaylistName(e.target.value)}
-                      onKeyDown={(e) => e.key === 'Enter' && handleCreate()}
+                      onKeyDown={(e) => e.key === "Enter" && handleCreate()}
                     />
                   </div>
                 </div>
                 <DialogFooter>
-                  <Button variant="outline" onClick={() => setIsCreateOpen(false)}>Annuler</Button>
+                  <Button variant="outline" onClick={() => setIsCreateOpen(false)}>
+                    Annuler
+                  </Button>
                   <Button onClick={handleCreate}>Créer</Button>
                 </DialogFooter>
               </DialogContent>
@@ -141,37 +145,80 @@ export default function Library() {
           </div>
 
           <div>
-             <SectionTitle title="Mes Playlists" className="mt-0" />
-             {playlists.length > 0 ? (
-                 <ContentGrid items={playlists.map((p: any) => ({
-                     name: p.name,
-                     type: "Playlist",
-                     imageUrl: p.image,
-                     link: `/playlist/${p.id}`
-                 }))} />
-             ) : (
-                 <p className="text-muted-foreground mt-4">Vous n'avez pas encore de playlist.</p>
-             )}
+            <SectionTitle title="Mes Playlists" className="mt-0" />
+            {playlists.length > 0 ? (
+              <ContentGrid
+                items={playlists.map((p: any) => ({
+                  name: p.name,
+                  type: "Playlist",
+                  imageUrl: p.image,
+                  link: `/playlist/${p.id}`,
+                }))}
+              />
+            ) : (
+              <p className="text-muted-foreground mt-4">Vous n'avez pas encore de playlist.</p>
+            )}
           </div>
 
           <div>
             <SectionTitle title="Épinglés" className="mt-0" />
             <ContentGrid items={pinnedContent} />
           </div>
-          
+
           <div>
             <SectionTitle title="Historique" className="mt-0" />
-            <CoverCarousel 
+            <CoverCarousel
               items={[
-                  { id: "hist-1", title: "Last Played Track", artist: ["Artist A"], album: "Album A", image: "/placeholder-music.jpg", duration: "3:00", isLiked: true, type: "Track" },
-                  { id: "hist-2", name: "Recently Viewed Album", artist: "Artist B", image: "/placeholder-album.jpg", type: "Album", tracks: [] },
-                  { id: "hist-3", name: "Artist C", image: "/placeholder-artist.jpg", stats: { totalListeners: "500k" }, popularTracks: [], albums: [], singles: [], type: "Artist" },
-                  { id: "hist-4", title: "Song D", artist: ["Artist D"], album: "Album D", image: "/placeholder-music.jpg", duration: "4:00", isLiked: false, type: "Track" },
-                  { id: "hist-5", name: "Playlist E", artist: "User", image: "/placeholder-album.jpg", type: "Playlist", tracks: [] },
-              ]} 
+                {
+                  id: "hist-1",
+                  title: "Last Played Track",
+                  artist: ["Artist A"],
+                  album: "Album A",
+                  image: "/placeholder-music.jpg",
+                  duration: "3:00",
+                  isLiked: true,
+                  type: "Track",
+                },
+                {
+                  id: "hist-2",
+                  name: "Recently Viewed Album",
+                  artist: "Artist B",
+                  image: "/placeholder-album.jpg",
+                  type: "Album",
+                  tracks: [],
+                },
+                {
+                  id: "hist-3",
+                  name: "Artist C",
+                  image: "/placeholder-artist.jpg",
+                  stats: { totalListeners: "500k" },
+                  popularTracks: [],
+                  albums: [],
+                  singles: [],
+                  type: "Artist",
+                },
+                {
+                  id: "hist-4",
+                  title: "Song D",
+                  artist: ["Artist D"],
+                  album: "Album D",
+                  image: "/placeholder-music.jpg",
+                  duration: "4:00",
+                  isLiked: false,
+                  type: "Track",
+                },
+                {
+                  id: "hist-5",
+                  name: "Playlist E",
+                  artist: "User",
+                  image: "/placeholder-album.jpg",
+                  type: "Playlist",
+                  tracks: [],
+                },
+              ]}
             />
           </div>
-          
+
           <div>
             <SectionTitle title="Titres Likés" className="mt-0" />
             <ContentGrid items={likedContent} />

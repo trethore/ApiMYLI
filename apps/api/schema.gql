@@ -24,19 +24,6 @@ type AuthPayload {
   account: Account!
 }
 
-type Query {
-  hello: String!
-  account(accountId: String!): Account
-}
-
-type Mutation {
-  createAccount(input: CreateAccountInput!): Account!
-  updateAccount(accountId: String!, input: UpdateAccountInput!): Account
-  deleteAccount(accountId: String!): Boolean!
-  login(input: LoginInput!): AuthPayload
-  logout: Boolean!
-}
-
 input CreateAccountInput {
   login: String!
   email: String!
@@ -67,4 +54,18 @@ input UpdateAccountInput {
 input LoginInput {
   email: String!
   password: String!
+}
+
+type Query {
+  hello: String!
+  account(accountId: String!): Account
+}
+
+type Mutation {
+  createAccount(input: CreateAccountInput!): Account!
+  updateAccount(accountId: String!, input: UpdateAccountInput!): Account
+  updateArtist(accountId: String!, input: UpdateArtistInput!): Artist
+  deleteAccount(accountId: String!): Boolean!
+  login(input: LoginInput!): AuthPayload
+  logout: Boolean!
 }

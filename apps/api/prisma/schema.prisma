@@ -39,29 +39,31 @@ model Artist {
   artistFavorites       BigInt? @map("artist_favorites")
   artistComments        BigInt? @map("artist_comments")
 
-  account        Account          @relation(fields: [artistId], references: [accountId])
-  artistTags     ArtistTag[]
-  albumArtists   AlbumArtist[]
-  mainTracks     TrackArtistMain[]
-  featTracks     TrackArtistFeat[]
-  rankArtists    RankArtist[]
+  account      Account           @relation(fields: [artistId], references: [accountId])
+  artistTags   ArtistTag[]
+  albumArtists AlbumArtist[]
+  mainTracks   TrackArtistMain[]
+  featTracks   TrackArtistFeat[]
+  pinnedItems  UserPinnedItem[]  @relation("PinnedArtist")
+  rankArtists  RankArtist[]
 
   @@map("artist")
 }
 
 model Album {
-  albumId           String  @id @default(dbgenerated("uuid_generate_v4()")) @map("album_id") @db.Uuid
-  albumTitle        String? @map("album_title")
-  albumType         String? @map("album_type") @db.VarChar(255)
-  albumTracksCount  Int?    @map("album_tracks_count")
+  albumId           String    @id @default(dbgenerated("uuid_generate_v4()")) @map("album_id") @db.Uuid
+  albumTitle        String?   @map("album_title")
+  albumType         String?   @map("album_type") @db.VarChar(255)
+  albumTracksCount  Int?      @map("album_tracks_count")
   albumDateReleased DateTime? @map("album_date_released") @db.Date
-  albumListens      BigInt? @map("album_listens")
-  albumFavorites    BigInt? @map("album_favorites")
-  albumComments     BigInt? @map("album_comments")
-  albumProducer     String? @map("album_producer") @db.VarChar(255)
+  albumListens      BigInt?   @map("album_listens")
+  albumFavorites    BigInt?   @map("album_favorites")
+  albumComments     BigInt?   @map("album_comments")
+  albumProducer     String?   @map("album_producer") @db.VarChar(255)
 
   tracks       Track[]
   albumArtists AlbumArtist[]
+  pinnedItems  UserPinnedItem[] @relation("PinnedAlbum")
 
   @@map("album")
 }
@@ -81,22 +83,22 @@ model Genre {
 }
 
 model Track {
-  trackId         String   @id @default(dbgenerated("uuid_generate_v4()")) @map("track_id") @db.Uuid
-  albumId         String?  @map("album_id") @db.Uuid
-  trackTitle      String?  @map("track_title") @db.VarChar(255)
-  trackDuration   BigInt?  @map("track_duration")
-  trackNumber     Int?     @map("track_number")
-  trackDiscNumber Int?     @map("track_disc_number")
-  trackExplicit   Boolean? @map("track_explicit")
-  trackInstrumental Boolean? @map("track_instrumental")
-  trackListens    BigInt?  @map("track_listens")
-  trackFavorites  BigInt?  @map("track_favorites")
-  trackInterest   Float?   @map("track_interest")
-  trackComments   BigInt?  @map("track_comments")
-  trackDateCreated DateTime? @map("track_date_created") @db.Date
-  trackComposer   String?  @map("track_composer") @db.VarChar(255)
-  trackLyricist   String?  @map("track_lyricist") @db.VarChar(255)
-  trackPublisher  String?  @map("track_publisher") @db.VarChar(255)
+  trackId           String    @id @default(dbgenerated("uuid_generate_v4()")) @map("track_id") @db.Uuid
+  albumId           String?   @map("album_id") @db.Uuid
+  trackTitle        String?   @map("track_title") @db.VarChar(255)
+  trackDuration     BigInt?   @map("track_duration")
+  trackNumber       Int?      @map("track_number")
+  trackDiscNumber   Int?      @map("track_disc_number")
+  trackExplicit     Boolean?  @map("track_explicit")
+  trackInstrumental Boolean?  @map("track_instrumental")
+  trackListens      BigInt?   @map("track_listens")
+  trackFavorites    BigInt?   @map("track_favorites")
+  trackInterest     Float?    @map("track_interest")
+  trackComments     BigInt?   @map("track_comments")
+  trackDateCreated  DateTime? @map("track_date_created") @db.Date
+  trackComposer     String?   @map("track_composer") @db.VarChar(255)
+  trackLyricist     String?   @map("track_lyricist") @db.VarChar(255)
+  trackPublisher    String?   @map("track_publisher") @db.VarChar(255)
 
   album           Album?            @relation(fields: [albumId], references: [albumId])
   audioFeature    AudioFeature?
@@ -110,6 +112,7 @@ model Track {
   rankTracks      RankTrack[]
   userLikes       TrackUserLike[]
   userListens     TrackUserListen[]
+  pinnedItems     UserPinnedItem[]  @relation("PinnedTrack")
   comments        TrackComment[]
 
   @@map("track")
@@ -155,6 +158,7 @@ model Playlist {
 
   playlistTracks PlaylistTrack[]
   playlistUsers  PlaylistUser[]
+  pinnedItems    UserPinnedItem[] @relation("PinnedPlaylist")
 
   @@map("playlist")
 }
@@ -174,10 +178,10 @@ model License {
 // ============================================================================
 
 model RankTrack {
-  trackId           String   @map("track_id") @db.Uuid
-  ranksDate         DateTime @default(now()) @map("ranks_date") @db.Timestamp(6)
-  rankSongCurrency  BigInt?  @map("rank_song_currency")
-  rankSongHotttnesss BigInt? @map("rank_song_hotttnesss")
+  trackId            String   @map("track_id") @db.Uuid
+  ranksDate          DateTime @default(now()) @map("ranks_date") @db.Timestamp(6)
+  rankSongCurrency   BigInt?  @map("rank_song_currency")
+  rankSongHotttnesss BigInt?  @map("rank_song_hotttnesss")
 
   track Track @relation(fields: [trackId], references: [trackId])
 
@@ -298,12 +302,13 @@ model User {
   accountId String  @id @map("account_id") @db.Uuid
   pseudo    String? @db.VarChar(255)
 
-  account          Account          @relation(fields: [accountId], references: [accountId])
+  account          Account           @relation(fields: [accountId], references: [accountId])
   preference       Preference?
   preferenceVector PreferenceVector?
   playlistUsers    PlaylistUser[]
   trackLikes       TrackUserLike[]
   trackListens     TrackUserListen[]
+  pinnedItems      UserPinnedItem[]
   trackComments    TrackComment[]
 
   @@map("user")
@@ -337,8 +342,8 @@ model Preference {
 }
 
 model PreferenceVector {
-  accountId String                          @id @map("account_id") @db.Uuid
-  embedding Unsupported("VECTOR(71)")?      @map("embedding")
+  accountId String                     @id @map("account_id") @db.Uuid
+  embedding Unsupported("VECTOR(71)")? @map("embedding")
 
   user User @relation(fields: [accountId], references: [accountId])
 
@@ -379,9 +384,10 @@ model TrackUserLike {
 }
 
 model TrackUserListen {
-  trackId   String @map("track_id") @db.Uuid
-  accountId String @map("account_id") @db.Uuid
-  count     Int?   @default(1)
+  trackId    String   @map("track_id") @db.Uuid
+  accountId  String   @map("account_id") @db.Uuid
+  count      Int?     @default(1)
+  listenedAt DateTime @default(now()) @map("listened_at") @db.Timestamp(6)
 
   track Track @relation(fields: [trackId], references: [trackId])
   user  User  @relation(fields: [accountId], references: [accountId])
@@ -390,10 +396,39 @@ model TrackUserListen {
   @@map("track_user_listen")
 }
 
+enum PinnedItemType {
+  TRACK
+  ALBUM
+  ARTIST
+  PLAYLIST
+
+  @@map("pinned_item_type")
+}
+
+model UserPinnedItem {
+  accountId  String         @map("account_id") @db.Uuid
+  slot       Int
+  itemType   PinnedItemType @map("item_type")
+  trackId    String?        @map("track_id") @db.Uuid
+  albumId    String?        @map("album_id") @db.Uuid
+  artistId   String?        @map("artist_id") @db.Uuid
+  playlistId String?        @map("playlist_id") @db.Uuid
+  pinnedAt   DateTime       @default(now()) @map("pinned_at") @db.Timestamp(6)
+
+  user     User      @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
+  track    Track?    @relation("PinnedTrack", fields: [trackId], references: [trackId], onDelete: Cascade)
+  album    Album?    @relation("PinnedAlbum", fields: [albumId], references: [albumId], onDelete: Cascade)
+  artist   Artist?   @relation("PinnedArtist", fields: [artistId], references: [artistId], onDelete: Cascade)
+  playlist Playlist? @relation("PinnedPlaylist", fields: [playlistId], references: [playlistId], onDelete: Cascade)
+
+  @@id([accountId, slot])
+  @@map("user_pinned_item")
+}
+
 model TrackComment {
-  commentId String   @id @default(dbgenerated("uuid_generate_v4()")) @map("comment_id") @db.Uuid
-  trackId   String   @map("track_id") @db.Uuid
-  accountId String?  @map("account_id") @db.Uuid
+  commentId String    @id @default(dbgenerated("uuid_generate_v4()")) @map("comment_id") @db.Uuid
+  trackId   String    @map("track_id") @db.Uuid
+  accountId String?   @map("account_id") @db.Uuid
   content   String?
   createdAt DateTime? @default(now()) @map("created_at") @db.Timestamp(6)
 

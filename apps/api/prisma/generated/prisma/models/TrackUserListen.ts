@@ -38,18 +38,21 @@ export type TrackUserListenMinAggregateOutputType = {
   trackId: string | null
   accountId: string | null
   count: number | null
+  listenedAt: Date | null
 }
 
 export type TrackUserListenMaxAggregateOutputType = {
   trackId: string | null
   accountId: string | null
   count: number | null
+  listenedAt: Date | null
 }
 
 export type TrackUserListenCountAggregateOutputType = {
   trackId: number
   accountId: number
   count: number
+  listenedAt: number
   _all: number
 }
 
@@ -66,18 +69,21 @@ export type TrackUserListenMinAggregateInputType = {
   trackId?: true
   accountId?: true
   count?: true
+  listenedAt?: true
 }
 
 export type TrackUserListenMaxAggregateInputType = {
   trackId?: true
   accountId?: true
   count?: true
+  listenedAt?: true
 }
 
 export type TrackUserListenCountAggregateInputType = {
   trackId?: true
   accountId?: true
   count?: true
+  listenedAt?: true
   _all?: true
 }
 
@@ -171,6 +177,7 @@ export type TrackUserListenGroupByOutputType = {
   trackId: string
   accountId: string
   count: number | null
+  listenedAt: Date
   _count: TrackUserListenCountAggregateOutputType | null
   _avg: TrackUserListenAvgAggregateOutputType | null
   _sum: TrackUserListenSumAggregateOutputType | null
@@ -200,6 +207,7 @@ export type TrackUserListenWhereInput = {
   trackId?: Prisma.UuidFilter<"TrackUserListen"> | string
   accountId?: Prisma.UuidFilter<"TrackUserListen"> | string
   count?: Prisma.IntNullableFilter<"TrackUserListen"> | number | null
+  listenedAt?: Prisma.DateTimeFilter<"TrackUserListen"> | Date | string
   track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
@@ -208,6 +216,7 @@ export type TrackUserListenOrderByWithRelationInput = {
   trackId?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   count?: Prisma.SortOrderInput | Prisma.SortOrder
+  listenedAt?: Prisma.SortOrder
   track?: Prisma.TrackOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
 }
@@ -220,6 +229,7 @@ export type TrackUserListenWhereUniqueInput = Prisma.AtLeast<{
   trackId?: Prisma.UuidFilter<"TrackUserListen"> | string
   accountId?: Prisma.UuidFilter<"TrackUserListen"> | string
   count?: Prisma.IntNullableFilter<"TrackUserListen"> | number | null
+  listenedAt?: Prisma.DateTimeFilter<"TrackUserListen"> | Date | string
   track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "trackId_accountId">
@@ -228,6 +238,7 @@ export type TrackUserListenOrderByWithAggregationInput = {
   trackId?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   count?: Prisma.SortOrderInput | Prisma.SortOrder
+  listenedAt?: Prisma.SortOrder
   _count?: Prisma.TrackUserListenCountOrderByAggregateInput
   _avg?: Prisma.TrackUserListenAvgOrderByAggregateInput
   _max?: Prisma.TrackUserListenMaxOrderByAggregateInput
@@ -242,10 +253,12 @@ export type TrackUserListenScalarWhereWithAggregatesInput = {
   trackId?: Prisma.UuidWithAggregatesFilter<"TrackUserListen"> | string
   accountId?: Prisma.UuidWithAggregatesFilter<"TrackUserListen"> | string
   count?: Prisma.IntNullableWithAggregatesFilter<"TrackUserListen"> | number | null
+  listenedAt?: Prisma.DateTimeWithAggregatesFilter<"TrackUserListen"> | Date | string
 }
 
 export type TrackUserListenCreateInput = {
   count?: number | null
+  listenedAt?: Date | string
   track: Prisma.TrackCreateNestedOneWithoutUserListensInput
   user: Prisma.UserCreateNestedOneWithoutTrackListensInput
 }
@@ -254,10 +267,12 @@ export type TrackUserListenUncheckedCreateInput = {
   trackId: string
   accountId: string
   count?: number | null
+  listenedAt?: Date | string
 }
 
 export type TrackUserListenUpdateInput = {
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   track?: Prisma.TrackUpdateOneRequiredWithoutUserListensNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutTrackListensNestedInput
 }
@@ -266,22 +281,26 @@ export type TrackUserListenUncheckedUpdateInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type TrackUserListenCreateManyInput = {
   trackId: string
   accountId: string
   count?: number | null
+  listenedAt?: Date | string
 }
 
 export type TrackUserListenUpdateManyMutationInput = {
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type TrackUserListenUncheckedUpdateManyInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type TrackUserListenListRelationFilter = {
@@ -303,6 +322,7 @@ export type TrackUserListenCountOrderByAggregateInput = {
   trackId?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   count?: Prisma.SortOrder
+  listenedAt?: Prisma.SortOrder
 }
 
 export type TrackUserListenAvgOrderByAggregateInput = {
@@ -313,12 +333,14 @@ export type TrackUserListenMaxOrderByAggregateInput = {
   trackId?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   count?: Prisma.SortOrder
+  listenedAt?: Prisma.SortOrder
 }
 
 export type TrackUserListenMinOrderByAggregateInput = {
   trackId?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   count?: Prisma.SortOrder
+  listenedAt?: Prisma.SortOrder
 }
 
 export type TrackUserListenSumOrderByAggregateInput = {
@@ -411,12 +433,14 @@ export type TrackUserListenUncheckedUpdateManyWithoutUserNestedInput = {
 
 export type TrackUserListenCreateWithoutTrackInput = {
   count?: number | null
+  listenedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutTrackListensInput
 }
 
 export type TrackUserListenUncheckedCreateWithoutTrackInput = {
   accountId: string
   count?: number | null
+  listenedAt?: Date | string
 }
 
 export type TrackUserListenCreateOrConnectWithoutTrackInput = {
@@ -452,16 +476,19 @@ export type TrackUserListenScalarWhereInput = {
   trackId?: Prisma.UuidFilter<"TrackUserListen"> | string
   accountId?: Prisma.UuidFilter<"TrackUserListen"> | string
   count?: Prisma.IntNullableFilter<"TrackUserListen"> | number | null
+  listenedAt?: Prisma.DateTimeFilter<"TrackUserListen"> | Date | string
 }
 
 export type TrackUserListenCreateWithoutUserInput = {
   count?: number | null
+  listenedAt?: Date | string
   track: Prisma.TrackCreateNestedOneWithoutUserListensInput
 }
 
 export type TrackUserListenUncheckedCreateWithoutUserInput = {
   trackId: string
   count?: number | null
+  listenedAt?: Date | string
 }
 
 export type TrackUserListenCreateOrConnectWithoutUserInput = {
@@ -493,41 +520,49 @@ export type TrackUserListenUpdateManyWithWhereWithoutUserInput = {
 export type TrackUserListenCreateManyTrackInput = {
   accountId: string
   count?: number | null
+  listenedAt?: Date | string
 }
 
 export type TrackUserListenUpdateWithoutTrackInput = {
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutTrackListensNestedInput
 }
 
 export type TrackUserListenUncheckedUpdateWithoutTrackInput = {
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type TrackUserListenUncheckedUpdateManyWithoutTrackInput = {
   accountId?: Prisma.StringFieldUpdateOperationsInput | string
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type TrackUserListenCreateManyUserInput = {
   trackId: string
   count?: number | null
+  listenedAt?: Date | string
 }
 
 export type TrackUserListenUpdateWithoutUserInput = {
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   track?: Prisma.TrackUpdateOneRequiredWithoutUserListensNestedInput
 }
 
 export type TrackUserListenUncheckedUpdateWithoutUserInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type TrackUserListenUncheckedUpdateManyWithoutUserInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -536,6 +571,7 @@ export type TrackUserListenSelect<ExtArgs extends runtime.Types.Extensions.Inter
   trackId?: boolean
   accountId?: boolean
   count?: boolean
+  listenedAt?: boolean
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackUserListen"]>
@@ -544,6 +580,7 @@ export type TrackUserListenSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   trackId?: boolean
   accountId?: boolean
   count?: boolean
+  listenedAt?: boolean
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackUserListen"]>
@@ -552,6 +589,7 @@ export type TrackUserListenSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   trackId?: boolean
   accountId?: boolean
   count?: boolean
+  listenedAt?: boolean
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackUserListen"]>
@@ -560,9 +598,10 @@ export type TrackUserListenSelectScalar = {
   trackId?: boolean
   accountId?: boolean
   count?: boolean
+  listenedAt?: boolean
 }
 
-export type TrackUserListenOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "accountId" | "count", ExtArgs["result"]["trackUserListen"]>
+export type TrackUserListenOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "accountId" | "count" | "listenedAt", ExtArgs["result"]["trackUserListen"]>
 export type TrackUserListenInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -586,6 +625,7 @@ export type $TrackUserListenPayload<ExtArgs extends runtime.Types.Extensions.Int
     trackId: string
     accountId: string
     count: number | null
+    listenedAt: Date
   }, ExtArgs["result"]["trackUserListen"]>
   composites: {}
 }
@@ -1014,6 +1054,7 @@ export interface TrackUserListenFieldRefs {
   readonly trackId: Prisma.FieldRef<"TrackUserListen", 'String'>
   readonly accountId: Prisma.FieldRef<"TrackUserListen", 'String'>
   readonly count: Prisma.FieldRef<"TrackUserListen", 'Int'>
+  readonly listenedAt: Prisma.FieldRef<"TrackUserListen", 'DateTime'>
 }
     
 

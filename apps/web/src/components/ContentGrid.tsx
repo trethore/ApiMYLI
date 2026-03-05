@@ -16,13 +16,13 @@ export default function ContentGrid({ items = [] }: ContentGridProps) {
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
       {items?.map((item, index) => (
-        <ContentCard 
-            key={index}
-            name={item.name}
-            type={item.type}
-            imageUrl={item.imageUrl}
-            link={item.link}
-            priority={index < 2} // Keep priority for first 2 items
+        <ContentCard
+          key={index}
+          name={item.name}
+          type={item.type}
+          imageUrl={item.imageUrl}
+          link={item.link}
+          priority={index < 2} // Keep priority for first 2 items
         />
       ))}
     </div>

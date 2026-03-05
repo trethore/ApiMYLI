@@ -217,17 +217,17 @@ export type AccountOrderByWithRelationInput = {
 export type AccountWhereUniqueInput = Prisma.AtLeast<{
   accountId?: string
   login?: string
+  email?: string
   AND?: Prisma.AccountWhereInput | Prisma.AccountWhereInput[]
   OR?: Prisma.AccountWhereInput[]
   NOT?: Prisma.AccountWhereInput | Prisma.AccountWhereInput[]
   password?: Prisma.StringNullableFilter<"Account"> | string | null
   name?: Prisma.StringNullableFilter<"Account"> | string | null
-  email?: Prisma.StringNullableFilter<"Account"> | string | null
   isArtist?: Prisma.BoolFilter<"Account"> | boolean
   createdAt?: Prisma.DateTimeNullableFilter<"Account"> | Date | string | null
   artist?: Prisma.XOR<Prisma.ArtistNullableScalarRelationFilter, Prisma.ArtistWhereInput> | null
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-}, "accountId" | "login">
+}, "accountId" | "login" | "email">
 
 export type AccountOrderByWithAggregationInput = {
   accountId?: Prisma.SortOrder

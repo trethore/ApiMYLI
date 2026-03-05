@@ -411,6 +411,7 @@ export const ModelName = {
   PlaylistUser: 'PlaylistUser',
   TrackUserLike: 'TrackUserLike',
   TrackUserListen: 'TrackUserListen',
+  UserPinnedItem: 'UserPinnedItem',
   TrackComment: 'TrackComment'
 } as const
 
@@ -427,7 +428,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "user" | "preference" | "preferenceVector" | "genrePreference" | "playlistUser" | "trackUserLike" | "trackUserListen" | "trackComment"
+    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "user" | "preference" | "preferenceVector" | "genrePreference" | "playlistUser" | "trackUserLike" | "trackUserListen" | "userPinnedItem" | "trackComment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2429,6 +2430,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    UserPinnedItem: {
+      payload: Prisma.$UserPinnedItemPayload<ExtArgs>
+      fields: Prisma.UserPinnedItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.UserPinnedItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.UserPinnedItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+        }
+        findFirst: {
+          args: Prisma.UserPinnedItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.UserPinnedItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+        }
+        findMany: {
+          args: Prisma.UserPinnedItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>[]
+        }
+        create: {
+          args: Prisma.UserPinnedItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+        }
+        createMany: {
+          args: Prisma.UserPinnedItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.UserPinnedItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>[]
+        }
+        delete: {
+          args: Prisma.UserPinnedItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+        }
+        update: {
+          args: Prisma.UserPinnedItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.UserPinnedItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.UserPinnedItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UserPinnedItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.UserPinnedItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPinnedItemPayload>
+        }
+        aggregate: {
+          args: Prisma.UserPinnedItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUserPinnedItem>
+        }
+        groupBy: {
+          args: Prisma.UserPinnedItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserPinnedItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.UserPinnedItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserPinnedItemCountAggregateOutputType> | number
+        }
+      }
+    }
     TrackComment: {
       payload: Prisma.$TrackCommentPayload<ExtArgs>
       fields: Prisma.TrackCommentFieldRefs
@@ -2816,10 +2891,25 @@ export type TrackUserLikeScalarFieldEnum = (typeof TrackUserLikeScalarFieldEnum)
 export const TrackUserListenScalarFieldEnum = {
   trackId: 'trackId',
   accountId: 'accountId',
-  count: 'count'
+  count: 'count',
+  listenedAt: 'listenedAt'
 } as const
 
 export type TrackUserListenScalarFieldEnum = (typeof TrackUserListenScalarFieldEnum)[keyof typeof TrackUserListenScalarFieldEnum]
+
+
+export const UserPinnedItemScalarFieldEnum = {
+  accountId: 'accountId',
+  slot: 'slot',
+  itemType: 'itemType',
+  trackId: 'trackId',
+  albumId: 'albumId',
+  artistId: 'artistId',
+  playlistId: 'playlistId',
+  pinnedAt: 'pinnedAt'
+} as const
+
+export type UserPinnedItemScalarFieldEnum = (typeof UserPinnedItemScalarFieldEnum)[keyof typeof UserPinnedItemScalarFieldEnum]
 
 
 export const TrackCommentScalarFieldEnum = {
@@ -2937,6 +3027,20 @@ export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'BigInt[]'
  */
 export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PinnedItemType'
+ */
+export type EnumPinnedItemTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PinnedItemType'>
+    
+
+
+/**
+ * Reference to a field of type 'PinnedItemType[]'
+ */
+export type ListEnumPinnedItemTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PinnedItemType[]'>
     
 
 /**
@@ -3061,6 +3165,7 @@ export type GlobalOmitConfig = {
   playlistUser?: Prisma.PlaylistUserOmit
   trackUserLike?: Prisma.TrackUserLikeOmit
   trackUserListen?: Prisma.TrackUserListenOmit
+  userPinnedItem?: Prisma.UserPinnedItemOmit
   trackComment?: Prisma.TrackCommentOmit
 }
 

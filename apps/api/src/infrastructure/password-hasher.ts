@@ -1,4 +1,5 @@
 import { argon2id, hash as argon2hash, verify as argon2verify } from "argon2";
+import type { PasswordHasherPort } from "packages/application/src/ports/security/password-hasher-port";
 
 const getPepper = (): string => {
   const pepper = Bun.env.PASSWORD_PEPPER;
@@ -10,10 +11,7 @@ const getPepper = (): string => {
   return pepper;
 };
 
-const getPositiveIntFromEnv = (
-  key: string,
-  defaultValue: number,
-): number => {
+const getPositiveIntFromEnv = (key: string, defaultValue: number): number => {
   const rawValue = Bun.env[key];
 
   if (!rawValue) {
@@ -37,7 +35,7 @@ const getArgon2Config = () => {
   };
 };
 
-export const hashPassword = async (password: string): Promise<string> => {
+const hashPassword = async (password: string): Promise<string> => {
   const pepper = getPepper();
   const argon2Config = getArgon2Config();
 
@@ -47,8 +45,13 @@ export const hashPassword = async (password: string): Promise<string> => {
   });
 };
 
-export const verifyPassword = async (password: string, hash: string): Promise<boolean> => {
+const verifyPassword = async (password: string, hash: string): Promise<boolean> => {
   const pepper = getPepper();
 
   return argon2verify(hash, `${password}${pepper}`);
+};
+
+export const argon2PasswordHasher: PasswordHasherPort = {
+  hash: hashPassword,
+  verify: verifyPassword,
 };
