@@ -3,7 +3,7 @@ import type { AccountRepository } from "packages/domain/src/repositories/account
 
 export const getAccountById = async (
   repository: AccountRepository,
-  id: string
+  id: string,
 ): Promise<Account | null> => {
   return repository.findById(id);
 };

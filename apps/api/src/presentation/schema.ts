@@ -1,7 +1,11 @@
 import type {
   Account as PrismaAccount,
+  Artist as PrismaArtist,
+  Prisma,
   PrismaClient,
 } from "@prisma/generated/prisma/client";
+import { createSchema } from "graphql-yoga";
+import type Redis from "ioredis";
 import { createAuthToken, revokeAuthToken, verifyAuthToken } from "@/infrastructure/auth";
 import { hashPassword, verifyPassword } from "@/infrastructure/password-hasher";
 
@@ -11,8 +15,6 @@ const validatePassword = (pw: string) => {
     throw new Error("Password must be at least 12 characters long and include at least one uppercase letter and one special character.");
   }
 };
-import { createSchema } from "graphql-yoga";
-import type Redis from "ioredis";
 
 type GraphqlArtist = {
   artistId: string;
@@ -35,34 +37,174 @@ type GraphqlAccount = {
   artist?: GraphqlArtist | null;
 };
 
+type CreateAccountInput = {
+  login: string;
+  email: string;
+  password: string;
+  name: string;
+  isArtist?: boolean | null;
+};
+
+type UpdateAccountInput = {
+  login?: string | null;
+  email?: string | null;
+  password?: string | null;
+  name?: string | null;
+  isArtist?: boolean | null;
+};
+
+type UpdateArtistInput = {
+  artistBio?: string | null;
+  artistLocation?: string | null;
+  artistLatitude?: number | null;
+  artistLongitude?: number | null;
+  artistActiveYearBegin?: number | null;
+  artistActiveYearEnd?: number | null;
+  artistFavorites?: number | null;
+  artistComments?: number | null;
+};
+
 type GraphqlContext = {
   prisma: PrismaClient;
   redis: Redis;
   authToken: string | null;
 };
 
+type PrismaAccountWithArtist = PrismaAccount & {
+  artist?: PrismaArtist | null;
+};
+
+const toNullableNumber = (
+  value: bigint | number | null | undefined,
+): number | null => {
+  if (value === null || value === undefined) {
+    return null;
+  }
+
+  return Number(value);
+};
+
+const toGraphqlArtist = (artist: PrismaArtist): GraphqlArtist => ({
+  artistId: artist.artistId,
+  artistBio: artist.artistBio,
+  artistLocation: artist.artistLocation,
+  artistLatitude: artist.artistLatitude,
+  artistLongitude: artist.artistLongitude,
+  artistActiveYearBegin: artist.artistActiveYearBegin,
+  artistActiveYearEnd: artist.artistActiveYearEnd,
+  artistFavorites: toNullableNumber(artist.artistFavorites),
+  artistComments: toNullableNumber(artist.artistComments),
+});
+
 const toGraphqlAccount = (
-  account: PrismaAccount & { artist?: any }
+  account: PrismaAccountWithArtist
 ): GraphqlAccount => ({
   accountId: account.accountId,
   login: account.login ?? null,
   email: account.email ?? null,
   name: account.name ?? null,
   isArtist: account.isArtist,
-  artist: account.artist
-    ? {
-        artistId: account.artist.artistId,
-        artistBio: account.artist.artistBio,
-        artistLocation: account.artist.artistLocation,
-        artistLatitude: account.artist.artistLatitude,
-        artistLongitude: account.artist.artistLongitude,
-        artistActiveYearBegin: account.artist.artistActiveYearBegin,
-        artistActiveYearEnd: account.artist.artistActiveYearEnd,
-        artistFavorites: account.artist.artistFavorites,
-        artistComments: account.artist.artistComments,
-      }
-    : null,
+  artist: account.artist ? toGraphqlArtist(account.artist) : null,
 });
+
+const ensureLoginAvailable = async (
+  prisma: PrismaClient,
+  login: string,
+  currentAccountId?: string,
+): Promise<void> => {
+  const existingAccount = await prisma.account.findUnique({
+    where: { login },
+  });
+
+  if (
+    existingAccount &&
+    (!currentAccountId || existingAccount.accountId !== currentAccountId)
+  ) {
+    throw new Error("Login already in use");
+  }
+};
+
+const ensureEmailAvailable = async (
+  prisma: PrismaClient,
+  email: string,
+  currentAccountId?: string,
+): Promise<void> => {
+  const existingAccount = await prisma.account.findFirst({
+    where: { email },
+  });
+
+  if (
+    existingAccount &&
+    (!currentAccountId || existingAccount.accountId !== currentAccountId)
+  ) {
+    throw new Error("Email already in use");
+  }
+};
+
+const resolvePasswordHash = async (
+  password: string | null | undefined,
+): Promise<string | null | undefined> => {
+  if (password === undefined) {
+    return undefined;
+  }
+
+  if (password === null) {
+    return null;
+  }
+
+  validatePassword(password);
+  return hashPassword(password);
+};
+
+const buildCreateAccountData = (
+  input: CreateAccountInput,
+  passwordHash: string,
+): Prisma.AccountCreateInput => {
+  const accountData: Prisma.AccountCreateInput = {
+    login: input.login,
+    email: input.email,
+    password: passwordHash,
+    name: input.name,
+    isArtist: input.isArtist ?? false,
+  };
+
+  if (input.isArtist) {
+    accountData.artist = { create: {} };
+  }
+
+  return accountData;
+};
+
+const buildUpdateAccountData = async (
+  input: UpdateAccountInput,
+): Promise<Prisma.AccountUpdateInput> => {
+  const passwordHash = await resolvePasswordHash(input.password);
+  const isArtist = input.isArtist ?? undefined;
+
+  const updateData: Prisma.AccountUpdateInput = {
+    login: input.login ?? undefined,
+    email: input.email ?? undefined,
+    name: input.name ?? undefined,
+    isArtist,
+  };
+
+  if (passwordHash !== undefined) {
+    updateData.password = passwordHash;
+  }
+
+  if (isArtist !== undefined) {
+    updateData.artist = isArtist
+      ? {
+          upsert: {
+            create: {},
+            update: {},
+          },
+        }
+      : { delete: true };
+  }
+
+  return updateData;
+};
 
 const requireAuth = async (context: GraphqlContext): Promise<string> => {
   if (!context.authToken) {
@@ -176,12 +318,7 @@ export const schema = createSchema({
       createAccount: async (
         _parent: unknown,
         args: {
-          input: {
-            login: string;
-            email: string;
-            password: string;
-            name: string;
-          };
+          input: CreateAccountInput;
         },
         context: GraphqlContext,
       ) => {
@@ -189,36 +326,17 @@ export const schema = createSchema({
         if (!login || login.trim() === "") {
           throw new Error("Login is required");
         }
-        // unique login check
-        const existing = await context.prisma.account.findUnique({
-          where: { login },
-        });
-        if (existing) {
-          throw new Error("Login already in use");
-        }
-        // unique email check
-        const existingEmail = await context.prisma.account.findFirst({
-          where: { email: args.input.email },
-        });
-        if (existingEmail) {
-          throw new Error("Email already in use");
-        }
+
+        await ensureLoginAvailable(context.prisma, login);
+        await ensureEmailAvailable(context.prisma, args.input.email);
 
         validatePassword(args.input.password);
         const passwordHash = await hashPassword(args.input.password);
+        const accountData = buildCreateAccountData(args.input, passwordHash);
 
-        const accountData: any = {
-            login,
-            email: args.input.email,
-            password: passwordHash,
-            name: args.input.name,
-            isArtist: args.input.isArtist ?? false,
-        };
-        if (args.input.isArtist) {
-          accountData.artist = { create: {} };
-        }
         const account = await context.prisma.account.create({
           data: accountData,
+          include: { artist: true },
         });
 
         return toGraphqlAccount(account);
@@ -227,77 +345,40 @@ export const schema = createSchema({
         _parent: unknown,
         args: {
           accountId: string;
-          input: {
-            login?: string | null;
-            email?: string | null;
-            password?: string | null;
-            name?: string | null;
-          };
+          input: UpdateAccountInput;
         },
         context: GraphqlContext,
       ) => {
         await requireAuth(context);
 
         if (args.input.login) {
-          const other = await context.prisma.account.findUnique({
-            where: { login: args.input.login },
-          });
-          if (other && other.accountId !== args.accountId) {
-            throw new Error("Login already in use");
-          }
+          await ensureLoginAvailable(context.prisma, args.input.login, args.accountId);
         }
+
         if (args.input.email) {
-          const otherEmail = await context.prisma.account.findFirst({
-            where: { email: args.input.email },
-          });
-          if (otherEmail && otherEmail.accountId !== args.accountId) {
-            throw new Error("Email already in use");
-          }
+          await ensureEmailAvailable(context.prisma, args.input.email, args.accountId);
         }
 
-        let passwordHash: string | undefined | null;
-        if (args.input.password !== undefined) {
-          if (args.input.password === null) {
-            passwordHash = null;
-          } else {
-            validatePassword(args.input.password);
-            passwordHash = await hashPassword(args.input.password);
-          }
-        }
+        const updateData = await buildUpdateAccountData(args.input);
 
-        const updateData: any = {
-            login: args.input.login ?? undefined,
-            email: args.input.email ?? undefined,
-            password: passwordHash,
-            name: args.input.name ?? undefined,
-            isArtist: args.input.isArtist ?? undefined,
-        };
-        if (args.input.isArtist !== undefined) {
-          if (args.input.isArtist) {
-            updateData.artist = { upsert: {
-              create: {},
-              update: {},
-            } };
-          } else {
-            updateData.artist = { delete: true };
-          }
-        }
         const account = await context.prisma.account.update({
           where: { accountId: args.accountId },
           data: updateData,
+          include: { artist: true },
         });
 
         return toGraphqlAccount(account);
       },
       updateArtist: async (
         _parent: unknown,
-        args: { accountId: string; input: Record<string, any> },
+        args: { accountId: string; input: UpdateArtistInput },
         context: GraphqlContext,
       ) => {
         await requireAuth(context);
+        const artistUpdateData: Prisma.ArtistUpdateInput = args.input;
         const artist = await context.prisma.artist.update({
           where: { artistId: args.accountId },
-          data: args.input,
+          data: artistUpdateData,
         });
         return artist;
       },
@@ -319,9 +400,10 @@ export const schema = createSchema({
       ) => {
         const account = await context.prisma.account.findFirst({
           where: { email: args.input.email },
+          include: { artist: true },
         });
 
-        if (!account || !account.password) {
+        if (!account?.password) {
           return null;
         }
 
