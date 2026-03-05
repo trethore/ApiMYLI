@@ -31,6 +31,8 @@ model Account {
 model Artist {
   artistId              String  @id @map("artist_id") @db.Uuid
   artistBio             String? @map("artist_bio")
+  artistImageFile       String? @map("artist_image_file")
+  artistImages          String? @map("artist_images")
   artistLocation        String? @map("artist_location")
   artistLatitude        Float?  @map("artist_latitude")
   artistLongitude       Float?  @map("artist_longitude")
@@ -53,6 +55,8 @@ model Artist {
 model Album {
   albumId           String    @id @default(dbgenerated("uuid_generate_v4()")) @map("album_id") @db.Uuid
   albumTitle        String?   @map("album_title")
+  albumImageFile    String?   @map("album_image_file")
+  albumImages       String?   @map("album_images")
   albumType         String?   @map("album_type") @db.VarChar(255)
   albumTracksCount  Int?      @map("album_tracks_count")
   albumDateReleased DateTime? @map("album_date_released") @db.Date
@@ -86,6 +90,9 @@ model Track {
   trackId           String    @id @default(dbgenerated("uuid_generate_v4()")) @map("track_id") @db.Uuid
   albumId           String?   @map("album_id") @db.Uuid
   trackTitle        String?   @map("track_title") @db.VarChar(255)
+  trackUrl          String?   @map("track_url")
+  trackFile         String?   @map("track_file")
+  trackImageFile    String?   @map("track_image_file")
   trackDuration     BigInt?   @map("track_duration")
   trackNumber       Int?      @map("track_number")
   trackDiscNumber   Int?      @map("track_disc_number")

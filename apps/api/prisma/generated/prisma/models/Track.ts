@@ -50,6 +50,9 @@ export type TrackMinAggregateOutputType = {
   trackId: string | null
   albumId: string | null
   trackTitle: string | null
+  trackUrl: string | null
+  trackFile: string | null
+  trackImageFile: string | null
   trackDuration: bigint | null
   trackNumber: number | null
   trackDiscNumber: number | null
@@ -69,6 +72,9 @@ export type TrackMaxAggregateOutputType = {
   trackId: string | null
   albumId: string | null
   trackTitle: string | null
+  trackUrl: string | null
+  trackFile: string | null
+  trackImageFile: string | null
   trackDuration: bigint | null
   trackNumber: number | null
   trackDiscNumber: number | null
@@ -88,6 +94,9 @@ export type TrackCountAggregateOutputType = {
   trackId: number
   albumId: number
   trackTitle: number
+  trackUrl: number
+  trackFile: number
+  trackImageFile: number
   trackDuration: number
   trackNumber: number
   trackDiscNumber: number
@@ -129,6 +138,9 @@ export type TrackMinAggregateInputType = {
   trackId?: true
   albumId?: true
   trackTitle?: true
+  trackUrl?: true
+  trackFile?: true
+  trackImageFile?: true
   trackDuration?: true
   trackNumber?: true
   trackDiscNumber?: true
@@ -148,6 +160,9 @@ export type TrackMaxAggregateInputType = {
   trackId?: true
   albumId?: true
   trackTitle?: true
+  trackUrl?: true
+  trackFile?: true
+  trackImageFile?: true
   trackDuration?: true
   trackNumber?: true
   trackDiscNumber?: true
@@ -167,6 +182,9 @@ export type TrackCountAggregateInputType = {
   trackId?: true
   albumId?: true
   trackTitle?: true
+  trackUrl?: true
+  trackFile?: true
+  trackImageFile?: true
   trackDuration?: true
   trackNumber?: true
   trackDiscNumber?: true
@@ -273,6 +291,9 @@ export type TrackGroupByOutputType = {
   trackId: string
   albumId: string | null
   trackTitle: string | null
+  trackUrl: string | null
+  trackFile: string | null
+  trackImageFile: string | null
   trackDuration: bigint | null
   trackNumber: number | null
   trackDiscNumber: number | null
@@ -315,6 +336,9 @@ export type TrackWhereInput = {
   trackId?: Prisma.UuidFilter<"Track"> | string
   albumId?: Prisma.UuidNullableFilter<"Track"> | string | null
   trackTitle?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackUrl?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackFile?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackImageFile?: Prisma.StringNullableFilter<"Track"> | string | null
   trackDuration?: Prisma.BigIntNullableFilter<"Track"> | bigint | number | null
   trackNumber?: Prisma.IntNullableFilter<"Track"> | number | null
   trackDiscNumber?: Prisma.IntNullableFilter<"Track"> | number | null
@@ -348,6 +372,9 @@ export type TrackOrderByWithRelationInput = {
   trackId?: Prisma.SortOrder
   albumId?: Prisma.SortOrderInput | Prisma.SortOrder
   trackTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackFile?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackImageFile?: Prisma.SortOrderInput | Prisma.SortOrder
   trackDuration?: Prisma.SortOrderInput | Prisma.SortOrder
   trackNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   trackDiscNumber?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -384,6 +411,9 @@ export type TrackWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.TrackWhereInput | Prisma.TrackWhereInput[]
   albumId?: Prisma.UuidNullableFilter<"Track"> | string | null
   trackTitle?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackUrl?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackFile?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackImageFile?: Prisma.StringNullableFilter<"Track"> | string | null
   trackDuration?: Prisma.BigIntNullableFilter<"Track"> | bigint | number | null
   trackNumber?: Prisma.IntNullableFilter<"Track"> | number | null
   trackDiscNumber?: Prisma.IntNullableFilter<"Track"> | number | null
@@ -417,6 +447,9 @@ export type TrackOrderByWithAggregationInput = {
   trackId?: Prisma.SortOrder
   albumId?: Prisma.SortOrderInput | Prisma.SortOrder
   trackTitle?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackFile?: Prisma.SortOrderInput | Prisma.SortOrder
+  trackImageFile?: Prisma.SortOrderInput | Prisma.SortOrder
   trackDuration?: Prisma.SortOrderInput | Prisma.SortOrder
   trackNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   trackDiscNumber?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -444,6 +477,9 @@ export type TrackScalarWhereWithAggregatesInput = {
   trackId?: Prisma.UuidWithAggregatesFilter<"Track"> | string
   albumId?: Prisma.UuidNullableWithAggregatesFilter<"Track"> | string | null
   trackTitle?: Prisma.StringNullableWithAggregatesFilter<"Track"> | string | null
+  trackUrl?: Prisma.StringNullableWithAggregatesFilter<"Track"> | string | null
+  trackFile?: Prisma.StringNullableWithAggregatesFilter<"Track"> | string | null
+  trackImageFile?: Prisma.StringNullableWithAggregatesFilter<"Track"> | string | null
   trackDuration?: Prisma.BigIntNullableWithAggregatesFilter<"Track"> | bigint | number | null
   trackNumber?: Prisma.IntNullableWithAggregatesFilter<"Track"> | number | null
   trackDiscNumber?: Prisma.IntNullableWithAggregatesFilter<"Track"> | number | null
@@ -462,6 +498,9 @@ export type TrackScalarWhereWithAggregatesInput = {
 export type TrackCreateInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -495,6 +534,9 @@ export type TrackUncheckedCreateInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -526,6 +568,9 @@ export type TrackUncheckedCreateInput = {
 export type TrackUpdateInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -559,6 +604,9 @@ export type TrackUncheckedUpdateInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -591,6 +639,9 @@ export type TrackCreateManyInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -609,6 +660,9 @@ export type TrackCreateManyInput = {
 export type TrackUpdateManyMutationInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -628,6 +682,9 @@ export type TrackUncheckedUpdateManyInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -657,6 +714,9 @@ export type TrackCountOrderByAggregateInput = {
   trackId?: Prisma.SortOrder
   albumId?: Prisma.SortOrder
   trackTitle?: Prisma.SortOrder
+  trackUrl?: Prisma.SortOrder
+  trackFile?: Prisma.SortOrder
+  trackImageFile?: Prisma.SortOrder
   trackDuration?: Prisma.SortOrder
   trackNumber?: Prisma.SortOrder
   trackDiscNumber?: Prisma.SortOrder
@@ -686,6 +746,9 @@ export type TrackMaxOrderByAggregateInput = {
   trackId?: Prisma.SortOrder
   albumId?: Prisma.SortOrder
   trackTitle?: Prisma.SortOrder
+  trackUrl?: Prisma.SortOrder
+  trackFile?: Prisma.SortOrder
+  trackImageFile?: Prisma.SortOrder
   trackDuration?: Prisma.SortOrder
   trackNumber?: Prisma.SortOrder
   trackDiscNumber?: Prisma.SortOrder
@@ -705,6 +768,9 @@ export type TrackMinOrderByAggregateInput = {
   trackId?: Prisma.SortOrder
   albumId?: Prisma.SortOrder
   trackTitle?: Prisma.SortOrder
+  trackUrl?: Prisma.SortOrder
+  trackFile?: Prisma.SortOrder
+  trackImageFile?: Prisma.SortOrder
   trackDuration?: Prisma.SortOrder
   trackNumber?: Prisma.SortOrder
   trackDiscNumber?: Prisma.SortOrder
@@ -973,6 +1039,9 @@ export type TrackUpdateOneRequiredWithoutCommentsNestedInput = {
 export type TrackCreateWithoutAlbumInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1004,6 +1073,9 @@ export type TrackCreateWithoutAlbumInput = {
 export type TrackUncheckedCreateWithoutAlbumInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1065,6 +1137,9 @@ export type TrackScalarWhereInput = {
   trackId?: Prisma.UuidFilter<"Track"> | string
   albumId?: Prisma.UuidNullableFilter<"Track"> | string | null
   trackTitle?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackUrl?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackFile?: Prisma.StringNullableFilter<"Track"> | string | null
+  trackImageFile?: Prisma.StringNullableFilter<"Track"> | string | null
   trackDuration?: Prisma.BigIntNullableFilter<"Track"> | bigint | number | null
   trackNumber?: Prisma.IntNullableFilter<"Track"> | number | null
   trackDiscNumber?: Prisma.IntNullableFilter<"Track"> | number | null
@@ -1083,6 +1158,9 @@ export type TrackScalarWhereInput = {
 export type TrackCreateWithoutAudioFeatureInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1115,6 +1193,9 @@ export type TrackUncheckedCreateWithoutAudioFeatureInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1161,6 +1242,9 @@ export type TrackUpdateToOneWithWhereWithoutAudioFeatureInput = {
 export type TrackUpdateWithoutAudioFeatureInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1193,6 +1277,9 @@ export type TrackUncheckedUpdateWithoutAudioFeatureInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1223,6 +1310,9 @@ export type TrackUncheckedUpdateWithoutAudioFeatureInput = {
 export type TrackCreateWithoutTemporalFeatureInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1255,6 +1345,9 @@ export type TrackUncheckedCreateWithoutTemporalFeatureInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1301,6 +1394,9 @@ export type TrackUpdateToOneWithWhereWithoutTemporalFeatureInput = {
 export type TrackUpdateWithoutTemporalFeatureInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1333,6 +1429,9 @@ export type TrackUncheckedUpdateWithoutTemporalFeatureInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1363,6 +1462,9 @@ export type TrackUncheckedUpdateWithoutTemporalFeatureInput = {
 export type TrackCreateWithoutRankTracksInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1395,6 +1497,9 @@ export type TrackUncheckedCreateWithoutRankTracksInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1441,6 +1546,9 @@ export type TrackUpdateToOneWithWhereWithoutRankTracksInput = {
 export type TrackUpdateWithoutRankTracksInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1473,6 +1581,9 @@ export type TrackUncheckedUpdateWithoutRankTracksInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1503,6 +1614,9 @@ export type TrackUncheckedUpdateWithoutRankTracksInput = {
 export type TrackCreateWithoutTrackGenresInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1535,6 +1649,9 @@ export type TrackUncheckedCreateWithoutTrackGenresInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1581,6 +1698,9 @@ export type TrackUpdateToOneWithWhereWithoutTrackGenresInput = {
 export type TrackUpdateWithoutTrackGenresInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1613,6 +1733,9 @@ export type TrackUncheckedUpdateWithoutTrackGenresInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1643,6 +1766,9 @@ export type TrackUncheckedUpdateWithoutTrackGenresInput = {
 export type TrackCreateWithoutTrackTagsInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1675,6 +1801,9 @@ export type TrackUncheckedCreateWithoutTrackTagsInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1721,6 +1850,9 @@ export type TrackUpdateToOneWithWhereWithoutTrackTagsInput = {
 export type TrackUpdateWithoutTrackTagsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1753,6 +1885,9 @@ export type TrackUncheckedUpdateWithoutTrackTagsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1783,6 +1918,9 @@ export type TrackUncheckedUpdateWithoutTrackTagsInput = {
 export type TrackCreateWithoutMainArtistsInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1815,6 +1953,9 @@ export type TrackUncheckedCreateWithoutMainArtistsInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1861,6 +2002,9 @@ export type TrackUpdateToOneWithWhereWithoutMainArtistsInput = {
 export type TrackUpdateWithoutMainArtistsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1893,6 +2037,9 @@ export type TrackUncheckedUpdateWithoutMainArtistsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1923,6 +2070,9 @@ export type TrackUncheckedUpdateWithoutMainArtistsInput = {
 export type TrackCreateWithoutFeatArtistsInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -1955,6 +2105,9 @@ export type TrackUncheckedCreateWithoutFeatArtistsInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2001,6 +2154,9 @@ export type TrackUpdateToOneWithWhereWithoutFeatArtistsInput = {
 export type TrackUpdateWithoutFeatArtistsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2033,6 +2189,9 @@ export type TrackUncheckedUpdateWithoutFeatArtistsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2063,6 +2222,9 @@ export type TrackUncheckedUpdateWithoutFeatArtistsInput = {
 export type TrackCreateWithoutTrackLicensesInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2095,6 +2257,9 @@ export type TrackUncheckedCreateWithoutTrackLicensesInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2141,6 +2306,9 @@ export type TrackUpdateToOneWithWhereWithoutTrackLicensesInput = {
 export type TrackUpdateWithoutTrackLicensesInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2173,6 +2341,9 @@ export type TrackUncheckedUpdateWithoutTrackLicensesInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2203,6 +2374,9 @@ export type TrackUncheckedUpdateWithoutTrackLicensesInput = {
 export type TrackCreateWithoutPlaylistTracksInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2235,6 +2409,9 @@ export type TrackUncheckedCreateWithoutPlaylistTracksInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2281,6 +2458,9 @@ export type TrackUpdateToOneWithWhereWithoutPlaylistTracksInput = {
 export type TrackUpdateWithoutPlaylistTracksInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2313,6 +2493,9 @@ export type TrackUncheckedUpdateWithoutPlaylistTracksInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2343,6 +2526,9 @@ export type TrackUncheckedUpdateWithoutPlaylistTracksInput = {
 export type TrackCreateWithoutUserLikesInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2375,6 +2561,9 @@ export type TrackUncheckedCreateWithoutUserLikesInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2421,6 +2610,9 @@ export type TrackUpdateToOneWithWhereWithoutUserLikesInput = {
 export type TrackUpdateWithoutUserLikesInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2453,6 +2645,9 @@ export type TrackUncheckedUpdateWithoutUserLikesInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2483,6 +2678,9 @@ export type TrackUncheckedUpdateWithoutUserLikesInput = {
 export type TrackCreateWithoutUserListensInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2515,6 +2713,9 @@ export type TrackUncheckedCreateWithoutUserListensInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2561,6 +2762,9 @@ export type TrackUpdateToOneWithWhereWithoutUserListensInput = {
 export type TrackUpdateWithoutUserListensInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2593,6 +2797,9 @@ export type TrackUncheckedUpdateWithoutUserListensInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2623,6 +2830,9 @@ export type TrackUncheckedUpdateWithoutUserListensInput = {
 export type TrackCreateWithoutPinnedItemsInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2655,6 +2865,9 @@ export type TrackUncheckedCreateWithoutPinnedItemsInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2701,6 +2914,9 @@ export type TrackUpdateToOneWithWhereWithoutPinnedItemsInput = {
 export type TrackUpdateWithoutPinnedItemsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2733,6 +2949,9 @@ export type TrackUncheckedUpdateWithoutPinnedItemsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2763,6 +2982,9 @@ export type TrackUncheckedUpdateWithoutPinnedItemsInput = {
 export type TrackCreateWithoutCommentsInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2795,6 +3017,9 @@ export type TrackUncheckedCreateWithoutCommentsInput = {
   trackId?: string
   albumId?: string | null
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2841,6 +3066,9 @@ export type TrackUpdateToOneWithWhereWithoutCommentsInput = {
 export type TrackUpdateWithoutCommentsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2873,6 +3101,9 @@ export type TrackUncheckedUpdateWithoutCommentsInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   albumId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2903,6 +3134,9 @@ export type TrackUncheckedUpdateWithoutCommentsInput = {
 export type TrackCreateManyAlbumInput = {
   trackId?: string
   trackTitle?: string | null
+  trackUrl?: string | null
+  trackFile?: string | null
+  trackImageFile?: string | null
   trackDuration?: bigint | number | null
   trackNumber?: number | null
   trackDiscNumber?: number | null
@@ -2921,6 +3155,9 @@ export type TrackCreateManyAlbumInput = {
 export type TrackUpdateWithoutAlbumInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2952,6 +3189,9 @@ export type TrackUpdateWithoutAlbumInput = {
 export type TrackUncheckedUpdateWithoutAlbumInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -2983,6 +3223,9 @@ export type TrackUncheckedUpdateWithoutAlbumInput = {
 export type TrackUncheckedUpdateManyWithoutAlbumInput = {
   trackId?: Prisma.StringFieldUpdateOperationsInput | string
   trackTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trackImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trackDuration?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   trackNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trackDiscNumber?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -3123,6 +3366,9 @@ export type TrackSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   trackId?: boolean
   albumId?: boolean
   trackTitle?: boolean
+  trackUrl?: boolean
+  trackFile?: boolean
+  trackImageFile?: boolean
   trackDuration?: boolean
   trackNumber?: boolean
   trackDiscNumber?: boolean
@@ -3157,6 +3403,9 @@ export type TrackSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   trackId?: boolean
   albumId?: boolean
   trackTitle?: boolean
+  trackUrl?: boolean
+  trackFile?: boolean
+  trackImageFile?: boolean
   trackDuration?: boolean
   trackNumber?: boolean
   trackDiscNumber?: boolean
@@ -3177,6 +3426,9 @@ export type TrackSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   trackId?: boolean
   albumId?: boolean
   trackTitle?: boolean
+  trackUrl?: boolean
+  trackFile?: boolean
+  trackImageFile?: boolean
   trackDuration?: boolean
   trackNumber?: boolean
   trackDiscNumber?: boolean
@@ -3197,6 +3449,9 @@ export type TrackSelectScalar = {
   trackId?: boolean
   albumId?: boolean
   trackTitle?: boolean
+  trackUrl?: boolean
+  trackFile?: boolean
+  trackImageFile?: boolean
   trackDuration?: boolean
   trackNumber?: boolean
   trackDiscNumber?: boolean
@@ -3212,7 +3467,7 @@ export type TrackSelectScalar = {
   trackPublisher?: boolean
 }
 
-export type TrackOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "albumId" | "trackTitle" | "trackDuration" | "trackNumber" | "trackDiscNumber" | "trackExplicit" | "trackInstrumental" | "trackListens" | "trackFavorites" | "trackInterest" | "trackComments" | "trackDateCreated" | "trackComposer" | "trackLyricist" | "trackPublisher", ExtArgs["result"]["track"]>
+export type TrackOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "albumId" | "trackTitle" | "trackUrl" | "trackFile" | "trackImageFile" | "trackDuration" | "trackNumber" | "trackDiscNumber" | "trackExplicit" | "trackInstrumental" | "trackListens" | "trackFavorites" | "trackInterest" | "trackComments" | "trackDateCreated" | "trackComposer" | "trackLyricist" | "trackPublisher", ExtArgs["result"]["track"]>
 export type TrackInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   album?: boolean | Prisma.Track$albumArgs<ExtArgs>
   audioFeature?: boolean | Prisma.Track$audioFeatureArgs<ExtArgs>
@@ -3259,6 +3514,9 @@ export type $TrackPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     trackId: string
     albumId: string | null
     trackTitle: string | null
+    trackUrl: string | null
+    trackFile: string | null
+    trackImageFile: string | null
     trackDuration: bigint | null
     trackNumber: number | null
     trackDiscNumber: number | null
@@ -3712,6 +3970,9 @@ export interface TrackFieldRefs {
   readonly trackId: Prisma.FieldRef<"Track", 'String'>
   readonly albumId: Prisma.FieldRef<"Track", 'String'>
   readonly trackTitle: Prisma.FieldRef<"Track", 'String'>
+  readonly trackUrl: Prisma.FieldRef<"Track", 'String'>
+  readonly trackFile: Prisma.FieldRef<"Track", 'String'>
+  readonly trackImageFile: Prisma.FieldRef<"Track", 'String'>
   readonly trackDuration: Prisma.FieldRef<"Track", 'BigInt'>
   readonly trackNumber: Prisma.FieldRef<"Track", 'Int'>
   readonly trackDiscNumber: Prisma.FieldRef<"Track", 'Int'>

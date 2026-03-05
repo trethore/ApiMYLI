@@ -2633,6 +2633,8 @@ export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeo
 export const ArtistScalarFieldEnum = {
   artistId: 'artistId',
   artistBio: 'artistBio',
+  artistImageFile: 'artistImageFile',
+  artistImages: 'artistImages',
   artistLocation: 'artistLocation',
   artistLatitude: 'artistLatitude',
   artistLongitude: 'artistLongitude',
@@ -2648,6 +2650,8 @@ export type ArtistScalarFieldEnum = (typeof ArtistScalarFieldEnum)[keyof typeof 
 export const AlbumScalarFieldEnum = {
   albumId: 'albumId',
   albumTitle: 'albumTitle',
+  albumImageFile: 'albumImageFile',
+  albumImages: 'albumImages',
   albumType: 'albumType',
   albumTracksCount: 'albumTracksCount',
   albumDateReleased: 'albumDateReleased',
@@ -2674,6 +2678,9 @@ export const TrackScalarFieldEnum = {
   trackId: 'trackId',
   albumId: 'albumId',
   trackTitle: 'trackTitle',
+  trackUrl: 'trackUrl',
+  trackFile: 'trackFile',
+  trackImageFile: 'trackImageFile',
   trackDuration: 'trackDuration',
   trackNumber: 'trackNumber',
   trackDiscNumber: 'trackDiscNumber',
