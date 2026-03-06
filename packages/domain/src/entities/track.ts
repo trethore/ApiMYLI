@@ -28,4 +28,5 @@ export type Track = {
   mainArtists: ArtistSummary[];
   featArtists: ArtistSummary[];
   isLiked: boolean;
+  audioFeatures?: any; // Added for Recommendations
 };

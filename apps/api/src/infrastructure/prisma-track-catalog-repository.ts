@@ -66,4 +66,38 @@ export const createPrismaTrackCatalogRepository = (
     });
     return tracks.map(toTrack);
   },
+  getTracksWithFeatures: async (trackIds: string[], currentAccountId?: string | null): Promise<Track[]> => {
+    const tracks = await prisma.track.findMany({
+      where: {
+        trackId: { in: trackIds },
+        audioFeature: { isNot: null },
+      },
+      include: trackInclude(currentAccountId),
+    });
+    return tracks.map(toTrack);
+  },
+  getRandomTracks: async (limit: number, excludedIds: string[], currentAccountId?: string | null): Promise<Track[]> => {
+    // Prisma does not have native ORDER BY RANDOM(). 
+    // Usually we fetch IDs, shuffle, then take 'limit'.
+    const allTrackIds = await prisma.track.findMany({
+      where: {
+        trackId: { notIn: excludedIds },
+        audioFeature: { isNot: null }, // Prefer tracks that have features for a better radio
+      },
+      select: { trackId: true },
+    });
+
+    // Shuffle and pick
+    const shuffled = allTrackIds.sort(() => 0.5 - Math.random());
+    const selectedIds = shuffled.slice(0, limit).map((t) => t.trackId);
+
+    if (selectedIds.length === 0) return [];
+
+    const tracks = await prisma.track.findMany({
+      where: { trackId: { in: selectedIds } },
+      include: trackInclude(currentAccountId),
+    });
+
+    return tracks.map(toTrack);
+  },
 });

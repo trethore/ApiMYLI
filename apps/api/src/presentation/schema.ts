@@ -31,6 +31,7 @@ import { listTracksByAlbum } from "packages/application/src/use-cases/track/list
 import { recordTrackListen } from "packages/application/src/use-cases/track/record-track-listen";
 import { unlikeTrack } from "packages/application/src/use-cases/track/unlike-track";
 import { searchGlobal } from "packages/application/src/use-cases/search/search-global";
+import { createGetRecommendations } from "packages/application/src/use-cases/recommendation/get-recommendations";
 import type { AuthTokenServicePort } from "packages/application/src/ports/security/auth-token-service-port";
 import type { PasswordHasherPort } from "packages/application/src/ports/security/password-hasher-port";
 import type { Album } from "packages/domain/src/entities/album";
@@ -520,6 +521,7 @@ export const schema = createSchema({
       myPlaylists: [Playlist!]!
       myPinnedItems: [PinnedItem!]!
       search(query: String!, limit: Int): SearchResults!
+      recommendations(seedTrackIds: [String!]!, blacklistedTrackIds: [String!]!, limit: Int!, randomness: Int!): [Track!]!
     }
 
     type SearchResults {
@@ -708,6 +710,24 @@ export const schema = createSchema({
           artists: results.artists.map(toGraphqlArtist),
           playlists: results.playlists.map(toGraphqlPlaylist),
         };
+      },
+      recommendations: async (
+        _parent: unknown,
+        args: { seedTrackIds: string[]; blacklistedTrackIds: string[]; limit: number; randomness: number },
+        context: GraphqlContext
+      ) => {
+        const currentAccountId = await getOptionalAuthenticatedAccountId(context);
+        const getRecommendations = createGetRecommendations(context.services.trackCatalogRepository);
+        
+        const recommendedTracks = await getRecommendations({
+          seedTrackIds: args.seedTrackIds,
+          blacklistedTrackIds: args.blacklistedTrackIds,
+          limit: args.limit,
+          randomness: args.randomness,
+          currentAccountId,
+        });
+
+        return recommendedTracks.map(toGraphqlTrack);
       },
     },
     Mutation: {

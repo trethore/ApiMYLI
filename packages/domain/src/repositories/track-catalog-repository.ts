@@ -9,4 +9,6 @@ export type TrackCatalogRepository = {
     limit?: number,
   ): Promise<Track[]>;
   searchTracks(query: string, currentAccountId?: string | null, limit?: number): Promise<Track[]>;
+  getTracksWithFeatures(trackIds: string[], currentAccountId?: string | null): Promise<Track[]>;
+  getRandomTracks(limit: number, excludedIds: string[], currentAccountId?: string | null): Promise<Track[]>;
 };

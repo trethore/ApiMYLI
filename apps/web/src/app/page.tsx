@@ -10,12 +10,17 @@ import CoverCarousel from "@/components/CoverCarousel";
 import { useAuth } from "@/context/AuthContext";
 import { usePlayer } from "@/context/PlayerContext";
 import { useRouter } from "next/navigation";
-import { getMyPinnedItemsQuery, getMyTrackHistoryQuery, toMusic, ApiPinnedItem } from "@/lib/api-client";
+import {
+  getMyPinnedItemsQuery,
+  getMyTrackHistoryQuery,
+  getRecommendationsQuery,
+  toMusic,
+} from "@/lib/api-client";
 import { Music } from "@/types/music";
 
 export default function Home() {
   const { isAuthenticated, requireAuth, token } = useAuth();
-  const { history } = usePlayer();
+  const { history, clearPlayer, setQueueList, playTrack } = usePlayer();
   const router = useRouter();
 
   // ... existing types ...
@@ -41,11 +46,11 @@ export default function Home() {
 
   const [pinnedContent, setPinnedContent] = useState<ContentList>([]);
   const [historyContent, setHistoryContent] = useState<ContentList>([]);
-  const [recoContent, setRecoContent] = useState<ContentList[]>([]);
+  const [recommendedContent, setRecommendedContent] = useState<ContentList>([]);
+  const [basedOnHistoryRecos, setBasedOnHistoryRecos] = useState<
+    { seedName: string; items: ContentList }[]
+  >([]);
   const [loading, setLoading] = useState(true);
-
-  // Fallback local history if not authenticated
-  const localHistoryContent = history.map((t) => ({ ...t, type: "Track" as const })).reverse().slice(0, 10);
 
   useEffect(() => {
     const fetchHomeData = async () => {
@@ -105,15 +110,58 @@ export default function Home() {
           });
 
           setHistoryContent(formattedHistory);
+
+          if (formattedHistory.length > 0) {
+            const historyIds = formattedHistory.map((h) => h.id);
+
+            // 1. Recommandé pour vous (Radio style)
+            const mainRecos = await getRecommendationsQuery(
+              historyIds.slice(0, 12),
+              historyIds,
+              20,
+              20, // 20% randomness
+              token,
+            );
+            setRecommendedContent(
+              mainRecos.map((t) => ({ ...toMusic(t), type: "Track" as const })),
+            );
+
+            // 2. Up to 4 'Based on' carousels
+            // Shuffle history to pick 4 distinct items
+            const shuffledHistory = [...formattedHistory].sort(() => 0.5 - Math.random());
+            const seedTracks = shuffledHistory.slice(0, Math.min(4, shuffledHistory.length));
+
+            const dynamicRecos = [];
+            for (const track of seedTracks) {
+              const recs = await getRecommendationsQuery(
+                [track.id],
+                historyIds,
+                10,
+                10, // 10% randomness for highly related
+                token,
+              );
+              if (recs.length > 0) {
+                dynamicRecos.push({
+                  seedName: track.title || "Titre inconnu",
+                  items: recs.map((t) => ({ ...toMusic(t), type: "Track" as const })),
+                });
+              }
+            }
+            setBasedOnHistoryRecos(dynamicRecos);
+          }
         } catch (err) {
           console.error("Failed to load home data", err);
           // When auth fails, clear them entirely instead of falling back to local history
           setPinnedContent([]);
           setHistoryContent([]);
+          setRecommendedContent([]);
+          setBasedOnHistoryRecos([]);
         }
       } else {
         setPinnedContent([]);
         setHistoryContent([]);
+        setRecommendedContent([]);
+        setBasedOnHistoryRecos([]);
       }
       setLoading(false);
     };
@@ -121,42 +169,50 @@ export default function Home() {
     fetchHomeData();
   }, [isAuthenticated, token, history]);
 
-  useEffect(() => {
-    if (!loading) {
-      setRecoContent([pinnedContent]); // Just for visual demo of infinite scroll
-    }
-  }, [pinnedContent, loading]);
-
   const contentRef = useRef<HTMLDivElement>(null);
 
-  function LoadNewReco() {
-    if (pinnedContent.length > 0) {
-      setRecoContent((prev) => [...prev, pinnedContent, pinnedContent, pinnedContent]);
-    }
-  }
-
-  const loaderRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            LoadNewReco();
-          }
-        });
-      },
-      { threshold: 1.0 },
-    );
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
-    return () => {
-      if (loaderRef.current) {
-        observer.unobserve(loaderRef.current);
+  const handleLancerRadio = async () => {
+    if (!token) return;
+    try {
+      const historyIds = history.slice(-12).map((t) => t.id);
+      const recs = await getRecommendationsQuery(
+        historyIds,
+        historyIds,
+        20,
+        20, // 20% randomness
+        token,
+      );
+      if (recs.length > 0) {
+        const musicList = recs.map(toMusic);
+        clearPlayer();
+        setQueueList(musicList.slice(1));
+        playTrack(musicList[0]);
       }
-    };
-  }, []);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleDecouvrir = async () => {
+    try {
+      const historyIds = history.map((t) => t.id);
+      const recs = await getRecommendationsQuery(
+        [],
+        historyIds, // Still blacklist current history though
+        20,
+        100, // 100% randomness
+        token,
+      );
+      if (recs.length > 0) {
+        const musicList = recs.map(toMusic);
+        clearPlayer();
+        setQueueList(musicList.slice(1));
+        playTrack(musicList[0]);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-background text-foreground">
@@ -169,17 +225,14 @@ export default function Home() {
             <Button
               className="flex-1 rounded-none bg-transparent hover:bg-white/20 text-foreground border-r-2 border-[var(--color-background)] hover:cursor-pointer"
               size="lg"
-              onClick={() => {
-                requireAuth(() => {
-                  console.log("Lancer la radio");
-                });
-              }}
+              onClick={() => requireAuth(handleLancerRadio)}
             >
               <MdPlayArrow className="mr-2 h-5 w-5" /> Lancer la radio
             </Button>
             <Button
-              className="flex-1 rounded-none bg-transparent hover:bg-white/20 text-foreground border-l-2 border-[var(--color-background)] hover:cursor-pointer"
+              className="flex-1 rounded-none bg-transparent hover:bg-white/20 text-foreground hover:cursor-pointer"
               size="lg"
+              onClick={() => requireAuth(handleDecouvrir)}
             >
               <MdShuffle className="mr-2 h-5 w-5" /> Découvrir
             </Button>
@@ -192,159 +245,27 @@ export default function Home() {
             </>
           )}
 
-          <CoverCarousel
-            title="Recommandé pour vous"
-            items={[
-              {
-                id: "reco-1",
-                title: "Midnight Vibes",
-                artist: ["The Weeknd"],
-                album: "After Hours",
-                image: "/placeholder-music.jpg",
-                duration: "3:20",
-                isLiked: false,
-                type: "Track",
-              },
-              {
-                id: "reco-2",
-                name: "Summer Hits",
-                artist: "Various",
-                image: "/placeholder-album.jpg",
-                type: "Playlist",
-                tracks: [],
-              },
-              {
-                id: "reco-3",
-                name: "Dua Lipa",
-                image: "/placeholder-artist.jpg",
-                stats: { totalListeners: "1M" },
-                popularTracks: [],
-                albums: [],
-                singles: [],
-                type: "Artist",
-              },
-              {
-                id: "reco-4",
-                name: "Future Nostalgia",
-                artist: "Dua Lipa",
-                image: "/placeholder-album.jpg",
-                type: "Album",
-                tracks: [],
-              },
-              {
-                id: "reco-5",
-                title: "Blinding Lights",
-                artist: ["The Weeknd"],
-                album: "After Hours",
-                image: "/placeholder-music.jpg",
-                duration: "3:20",
-                isLiked: true,
-                type: "Track",
-              },
-            ]}
-          />
+          {isAuthenticated && !loading && recommendedContent.length > 0 && (
+            <CoverCarousel title="Recommandé pour vous" items={recommendedContent as any} />
+          )}
 
-          <CoverCarousel
-            title="Parce que vous avez aimé The Weeknd"
-            items={[
-              {
-                id: "wknd-1",
-                title: "Starboy",
-                artist: ["The Weeknd"],
-                album: "Starboy",
-                image: "/placeholder-music.jpg",
-                duration: "3:50",
-                isLiked: true,
-                type: "Track",
-              },
-              {
-                id: "wknd-2",
-                name: "Dawn FM",
-                artist: "The Weeknd",
-                image: "/placeholder-album.jpg",
-                type: "Album",
-                tracks: [],
-              },
-              {
-                id: "wknd-3",
-                name: "Ariana Grande",
-                image: "/placeholder-artist.jpg",
-                stats: { totalListeners: "2M" },
-                popularTracks: [],
-                albums: [],
-                singles: [],
-                type: "Artist",
-              },
-              {
-                id: "wknd-4",
-                title: "Die For You",
-                artist: ["The Weeknd"],
-                album: "Starboy",
-                image: "/placeholder-music.jpg",
-                duration: "4:20",
-                isLiked: false,
-                type: "Track",
-              },
-            ]}
-          />
-
-          <CoverCarousel
-            title="Parce que vous avez aimé Pop"
-            items={[
-              {
-                id: "pop-1",
-                title: "Levitating",
-                artist: ["Dua Lipa"],
-                album: "Future Nostalgia",
-                image: "/placeholder-music.jpg",
-                duration: "3:23",
-                isLiked: true,
-                type: "Track",
-              },
-              {
-                id: "pop-2",
-                name: "Disco",
-                artist: "Kylie Minogue",
-                image: "/placeholder-album.jpg",
-                type: "Album",
-                tracks: [],
-              },
-              {
-                id: "pop-3",
-                name: "Harry Styles",
-                image: "/placeholder-artist.jpg",
-                stats: { totalListeners: "1.5M" },
-                popularTracks: [],
-                albums: [],
-                singles: [],
-                type: "Artist",
-              },
-              {
-                id: "pop-4",
-                title: "As It Was",
-                artist: ["Harry Styles"],
-                album: "Harry's House",
-                image: "/placeholder-music.jpg",
-                duration: "2:47",
-                isLiked: false,
-                type: "Track",
-              },
-            ]}
-          />
-
-          {isAuthenticated && historyContent.length > 0 && (
+          {isAuthenticated && !loading && historyContent.length > 0 && (
             <>
               <SectionTitle title="Historique" />
               <CoverCarousel items={historyContent as any} />
             </>
           )}
 
-          <SectionTitle title="Pour vous" />
-          {recoContent.map((reco, index) => (
-            <ContentGrid key={index} items={reco} />
-          ))}
+          {isAuthenticated &&
+            !loading &&
+            basedOnHistoryRecos.map((section, idx) => (
+              <CoverCarousel
+                key={idx}
+                title={`Car vous avez écouté : ${section.seedName}`}
+                items={section.items as any}
+              />
+            ))}
         </div>
-        <div ref={loaderRef} className="h-1 w-1" />
       </main>
     </div>
   );

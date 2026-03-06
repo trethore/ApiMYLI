@@ -873,3 +873,34 @@ export async function globalSearchQuery(queryText: string, limit: number = 5, to
   const data = await gql<{ search: ApiSearchResults }>(query, { queryText, limit }, token);
   return data.search;
 }
+
+export async function getRecommendationsQuery(
+  seedTrackIds: string[],
+  blacklistedTrackIds: string[],
+  limit: number,
+  randomness: number,
+  token?: string | null
+): Promise<ApiTrack[]> {
+  const query = /* GraphQL */ `
+    query GetRecommendations($seedTrackIds: [String!]!, $blacklistedTrackIds: [String!]!, $limit: Int!, $randomness: Int!) {
+      recommendations(seedTrackIds: $seedTrackIds, blacklistedTrackIds: $blacklistedTrackIds, limit: $limit, randomness: $randomness) {
+        trackId
+        title
+        imageUrl
+        audioSrc
+        durationSeconds
+        isLiked
+        mainArtists {
+          artistId
+          name
+        }
+        album {
+          title
+          albumId
+        }
+      }
+    }
+  `;
+  const data = await gql<{ recommendations: ApiTrack[] }>(query, { seedTrackIds, blacklistedTrackIds, limit, randomness }, token);
+  return data.recommendations;
+}

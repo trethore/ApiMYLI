@@ -52,6 +52,7 @@ export const trackInclude = (currentAccountId?: string | null) =>
       },
     },
     accountLikes: trackAccountLikesArgs(currentAccountId),
+    audioFeature: true,
   }) satisfies Prisma.TrackInclude;
 
 export const playlistInclude = (currentAccountId?: string | null) =>
@@ -192,6 +193,7 @@ export const toTrack = (track: PrismaTrackWithRelations): Track => ({
   mainArtists: track.mainArtists.map(toArtistSummary),
   featArtists: track.featArtists.map(toArtistSummary),
   isLiked: track.accountLikes.length > 0,
+  audioFeatures: track.audioFeature || undefined,
 });
 
 const toOwnerDisplayName = (account: Account): string | null => {
