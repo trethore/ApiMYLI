@@ -1,6 +1,7 @@
 -- ====================================================================================
 -- MINIMAL INSERTS FOR REMAINING TABLES
 -- ====================================================================================
+
 CREATE TEMP TABLE stg_account_track_pair AS
 WITH account_numbered AS (
   SELECT
@@ -38,7 +39,9 @@ WITH candidate_feat AS (
     row_number() OVER (PARTITION BY t.track_id ORDER BY aa.artist_id) AS rn
   FROM track t
   JOIN album_artist aa ON aa.album_id = t.album_id
-  LEFT JOIN track_artist_main tam ON tam.track_id = t.track_id AND tam.artist_id = aa.artist_id
+  LEFT JOIN track_artist_main tam
+    ON tam.track_id = t.track_id
+   AND tam.artist_id = aa.artist_id
   WHERE tam.track_id IS NULL
 ),
 feat_sample AS (
@@ -86,14 +89,20 @@ DO UPDATE SET
   count = EXCLUDED.count,
   listened_at = EXCLUDED.listened_at;
 
-INSERT INTO track_listen_history_item (listen_history_item_id, track_id, account_id, listened_at)
+INSERT INTO track_listen_history_item (
+  listen_history_item_id,
+  track_id,
+  account_id,
+  listened_at
+)
 SELECT
   uuid_generate_v4(),
   p.track_id,
   p.account_id,
-  (NOW() - (p.rn % 30) * INTERVAL '1 day') - gs.offset * INTERVAL '1 minute'
+  (NOW() - (p.rn % 30) * INTERVAL '1 day')
+    - gs.minute_offset * INTERVAL '1 minute'
 FROM stg_account_track_pair p
-JOIN LATERAL generate_series(0, ((p.rn - 1) % 20)) AS gs(offset) ON TRUE;
+JOIN LATERAL generate_series(0, ((p.rn - 1) % 20)) AS gs(minute_offset) ON TRUE;
 
 UPDATE track t
 SET track_listens = stats.total_listens
@@ -115,7 +124,10 @@ ON CONFLICT (playlist_id, track_id) DO NOTHING;
 
 INSERT INTO track_comment (comment_id, track_id, account_id, content, created_at)
 SELECT
-  uuid_generate_v5('6ba7b810-9dad-11d1-80b4-00c04fd430c8'::UUID, p.account_id::TEXT || ':' || p.track_id::TEXT),
+  uuid_generate_v5(
+    '6ba7b810-9dad-11d1-80b4-00c04fd430c8'::UUID,
+    p.account_id::TEXT || ':' || p.track_id::TEXT
+  ),
   p.track_id,
   p.account_id,
   'Seed comment ' || p.rn,

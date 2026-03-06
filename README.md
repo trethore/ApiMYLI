@@ -13,6 +13,7 @@ We use turborepo to make a monorepo that follow a Clean Architecture direction
 ├── apps/
 │   ├── api/                    # GraphQL API application
 │   └── web/                    # Next.js web application
+├── docs/                       # Docs
 ├── packages/                   # Shared packages (workspace modules)
 ├── docker-compose.yml          # PostgreSQL and Redis services
 ├── package.json                # Root workspace configuration
@@ -45,6 +46,9 @@ bun install
 
 # Run database migrations (first time only)
 bun run --filter api prisma:migrate
+
+# Seed the database
+bun run --filter api seed
 ```
 
 ### Run
@@ -58,6 +62,8 @@ bun run --filter api prisma:migrate
 | `bun run schema:generate` | Generate `schema.gql` from GraphQL schema     |
 | `bun run prisma:generate` | Generate Prisma client from schema            |
 | `bun run prisma:migrate`  | Run database migrations and regenerate client |
+| `bun run db:full-reset`   | Reset the database to an empty defaut         |
+| `bun run seed`            | Seed the database                             |
 
 The API server runs at `http://localhost:4000/graphql` by default.
 
@@ -103,6 +109,10 @@ docker compose ps       # Check service status
 - React 19 with server components.
 - Tailwind CSS v4 for styling.
 - shadcn/ui for UI components.
+
+## Docs
+
+- [API](docs/API.md)
 
 ## License
 

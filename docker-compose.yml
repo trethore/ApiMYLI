@@ -6,6 +6,11 @@ services:
       POSTGRES_USER: myli
       POSTGRES_PASSWORD: myli
       POSTGRES_DB: myli
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myli -d myli"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
     ports:
       - "${POSTGRES_PORT:-5433}:5432"
     volumes:

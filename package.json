@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "bun run --filter api lint && bun run --filter web lint",
     "lint:fix": "bun run --filter api lint:fix && bun run --filter web lint -- --fix",
-    "db:full-reset": "docker compose down -v && docker compose up -d && bun run --filter api prisma:migrate",
+    "db:full-reset": "docker compose down -v && docker compose up -d --wait && bun run --filter api prisma:migrate",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
