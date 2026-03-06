@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "files.freemusicarchive.org",
+      },
+      {
+        protocol: "https",
+        hostname: "freemusicarchive.org",
+      },
     ],
   },
 };

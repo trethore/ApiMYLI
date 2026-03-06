@@ -22,11 +22,11 @@ export default function ContentGrid({ items = [] }: ContentGridProps) {
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
       {items?.map((item, index) => {
         if (item.type === "Track") {
-          return <TrackCard key={item.id || index} track={item as unknown as Music} priority={index < 2} />;
+          return <TrackCard key={`${item.id}-${index}`} track={item as unknown as Music} priority={index < 2} />;
         }
         return (
           <ContentCard
-            key={item.id || index}
+            key={`${item.id}-${index}`}
             name={item.name || item.title || "Unknown"}
             type={item.type as any}
             imageUrl={item.imageUrl || item.image}

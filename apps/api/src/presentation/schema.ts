@@ -30,6 +30,7 @@ import { listTrackListenHistory } from "packages/application/src/use-cases/track
 import { listTracksByAlbum } from "packages/application/src/use-cases/track/list-tracks-by-album";
 import { recordTrackListen } from "packages/application/src/use-cases/track/record-track-listen";
 import { unlikeTrack } from "packages/application/src/use-cases/track/unlike-track";
+import { searchGlobal } from "packages/application/src/use-cases/search/search-global";
 import type { AuthTokenServicePort } from "packages/application/src/ports/security/auth-token-service-port";
 import type { PasswordHasherPort } from "packages/application/src/ports/security/password-hasher-port";
 import type { Album } from "packages/domain/src/entities/album";
@@ -518,6 +519,14 @@ export const schema = createSchema({
       playlist(playlistId: String!): Playlist
       myPlaylists: [Playlist!]!
       myPinnedItems: [PinnedItem!]!
+      search(query: String!, limit: Int): SearchResults!
+    }
+
+    type SearchResults {
+      tracks: [Track!]!
+      albums: [Album!]!
+      artists: [Artist!]!
+      playlists: [Playlist!]!
     }
 
     type Mutation {
@@ -675,6 +684,30 @@ export const schema = createSchema({
         );
 
         return pinnedItems.map(toGraphqlPinnedItem);
+      },
+      search: async (
+        _parent: unknown,
+        args: { query: string; limit?: number | null },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getOptionalAuthenticatedAccountId(context);
+        const limit = args.limit && args.limit > 0 ? args.limit : 10;
+        
+        const results = await searchGlobal(
+          context.services.artistCatalogRepository,
+          context.services.trackCatalogRepository,
+          context.services.playlistRepository,
+          args.query,
+          limit,
+          currentAccountId,
+        );
+
+        return {
+          tracks: results.tracks.map(toGraphqlTrack),
+          albums: results.albums.map(toGraphqlAlbum),
+          artists: results.artists.map(toGraphqlArtist),
+          playlists: results.playlists.map(toGraphqlPlaylist),
+        };
       },
     },
     Mutation: {

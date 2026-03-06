@@ -2,7 +2,9 @@ export interface Music {
   id: string;
   title: string;
   artist: string[];
+  artistIds?: string[];
   album: string;
+  albumId?: string;
   image?: string;
   duration: string;
   isLiked: boolean;

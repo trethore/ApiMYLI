@@ -8,4 +8,5 @@ export type TrackCatalogRepository = {
     currentAccountId?: string | null,
     limit?: number,
   ): Promise<Track[]>;
+  searchTracks(query: string, currentAccountId?: string | null, limit?: number): Promise<Track[]>;
 };

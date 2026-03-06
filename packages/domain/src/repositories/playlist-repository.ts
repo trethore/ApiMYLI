@@ -16,4 +16,5 @@ export type PlaylistRepository = {
   delete(accountId: string, playlistId: string): Promise<boolean>;
   addTrack(accountId: string, playlistId: string, trackId: string): Promise<Playlist | null>;
   removeTrack(accountId: string, playlistId: string, trackId: string): Promise<Playlist | null>;
+  searchPlaylists(query: string, currentAccountId?: string | null, limit?: number): Promise<Playlist[]>;
 };

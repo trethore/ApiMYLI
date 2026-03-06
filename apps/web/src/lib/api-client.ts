@@ -77,6 +77,7 @@ export type ApiAlbumSummary = {
   title: string | null;
   imageUrl: string | null;
   type: string | null;
+  artists?: { name: string }[];
 };
 
 export type ApiTrack = {
@@ -138,6 +139,8 @@ export type ApiTrackListenHistoryItem = {
 
 export type ApiArtist = {
   artistId: string;
+  name: string | null;
+  imageUrl: string | null;
   artistBio: string | null;
   artistLocation: string | null;
   artistLatitude: number | null;
@@ -173,7 +176,9 @@ export function toMusic(apiTrack: ApiTrack): Music {
     id: apiTrack.trackId,
     title: apiTrack.title || "Unknown",
     artist: apiTrack.mainArtists.map(a => a.name || "Unknown"),
+    artistIds: apiTrack.mainArtists.map(a => a.artistId),
     album: apiTrack.album?.title || "Unknown Album",
+    albumId: apiTrack.album?.albumId,
     image: formatImageUrl(apiTrack.imageUrl),
     duration,
     isLiked: apiTrack.isLiked,
@@ -428,6 +433,8 @@ export async function getArtistQuery(artistId: string, token?: string | null): P
     query GetArtist($artistId: String!) {
       artist(artistId: $artistId) {
         artistId
+        name
+        imageUrl
         artistBio
         artistLocation
         artistLatitude
@@ -813,4 +820,56 @@ export async function unpinItemMutation(slot: number, token: string): Promise<bo
   `;
   const data = await gql<{ unpinItem: boolean }>(query, { slot }, token);
   return data.unpinItem;
+}
+
+export type ApiSearchResults = {
+  tracks: ApiTrack[];
+  albums: ApiAlbumSummary[];
+  artists: ApiArtistSummary[];
+  playlists: ApiPlaylistSummary[];
+};
+
+export async function globalSearchQuery(queryText: string, limit: number = 5, token?: string | null): Promise<ApiSearchResults> {
+  const query = /* GraphQL */ `
+    query SearchGlobal($queryText: String!, $limit: Int) {
+      search(query: $queryText, limit: $limit) {
+        tracks {
+          trackId
+          title
+          imageUrl
+          audioSrc
+          durationSeconds
+          isLiked
+          mainArtists {
+            artistId
+            name
+          }
+          album {
+            title
+            albumId
+          }
+        }
+        albums {
+          albumId
+          title
+          imageUrl
+          type
+          artists {
+            name
+          }
+        }
+        artists {
+          artistId
+          name
+          imageUrl
+        }
+        playlists {
+          playlistId
+          name
+        }
+      }
+    }
+  `;
+  const data = await gql<{ search: ApiSearchResults }>(query, { queryText, limit }, token);
+  return data.search;
 }

@@ -10,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { toast } from "sonner"; // Assuming sonner is used, or replace with console/alert
+import { useToast } from "@/context/ToastContext";
 
 interface PinActionSubMenuProps {
   itemId: string;
@@ -19,6 +19,7 @@ interface PinActionSubMenuProps {
 
 export default function PinActionSubMenu({ itemId, itemType }: PinActionSubMenuProps) {
   const { token, requireAuth } = useAuth();
+  const { showToast } = useToast();
 
   const handlePin = async (slot: number) => {
     requireAuth(async () => {
@@ -39,11 +40,10 @@ export default function PinActionSubMenu({ itemId, itemType }: PinActionSubMenuP
             await pinPlaylistMutation(slot, itemId, token);
             break;
         }
-        toast.success(`Épinglé à l'emplacement ${slot}`);
-        // Optionally refresh the page or context if needed to update Home/Library immediately
+        showToast(`Épinglé à l'emplacement ${slot} avec succès !`);
       } catch (err: any) {
         console.error("Failed to pin item", err);
-        toast.error(`Erreur: ${err.message || "Impossible d'épingler l'élément"}`);
+        showToast(`Emplacement ${slot} pris : Veuillez le libérer d'abord.`);
       }
     });
   };
@@ -53,10 +53,10 @@ export default function PinActionSubMenu({ itemId, itemType }: PinActionSubMenuP
       try {
         if (!token) return;
         await unpinItemMutation(slot, token);
-        toast.success(`Emplacement ${slot} libéré`);
+        showToast(`Emplacement ${slot} libéré avec succès !`);
       } catch (err: any) {
         console.error("Failed to unpin item", err);
-        toast.error(`Erreur: ${err.message || "Impossible de désépingler"}`);
+        showToast(`Erreur : Impossible de libérer l'emplacement ${slot}.`);
       }
     });
   };

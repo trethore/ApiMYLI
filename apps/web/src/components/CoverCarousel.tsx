@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Music, Album, Artist } from "@/types/music";
-import Image from "next/image";
+import Image from "@/components/ImageWithFallback";
 import Link from "next/link";
 import { Play } from "lucide-react";
 
@@ -48,7 +48,7 @@ export default function CoverCarousel({ items, title, className }: CoverCarousel
         <CarouselContent className="-ml-2 md:-ml-4">
           {items.map((item, index) => (
             <CarouselItem
-              key={item.id || index}
+              key={`${item.id}-${index}`}
               className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
             >
               <div className="p-1">

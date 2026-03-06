@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { MdHome, MdLibraryMusic, MdSearch, MdPerson } from "react-icons/md";
 import MuseLogo from "./SVG/MuseLogo";
+import SearchBar from "./SearchBar";
 import { useAuth } from "@/context/AuthContext";
 import { useTheme } from "next-themes";
 import {
@@ -17,52 +18,7 @@ export default function Nav() {
   const { isAuthenticated } = useAuth();
   const { theme, setTheme } = useTheme();
 
-  const UserMenu = () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger className="p-2 hover:text-primary-bis text-foreground outline-none cursor-pointer">
-        <div className="w-[20px] h-[20px]">
-          <MdPerson className="w-full h-full" />
-        </div>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48 bg-card text-card-foreground border-border">
-        {isAuthenticated ? (
-          <>
-            <DropdownMenuItem asChild>
-              <Link href="/settings" className="w-full cursor-pointer">Compte</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
-              Mode {theme === "dark" ? "clair" : "sombre"}
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
-            </DropdownMenuItem>
-          </>
-        ) : (
-          <>
-            <DropdownMenuItem asChild>
-              <Link href="/login" className="w-full cursor-pointer">Connexion</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/register" className="w-full cursor-pointer">Inscription</Link>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
-              Mode {theme === "dark" ? "clair" : "sombre"}
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
-            </DropdownMenuItem>
-          </>
-        )}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
+
 
   return (
     <>
@@ -83,7 +39,50 @@ export default function Nav() {
             <MdSearch className="w-full h-full" />
           </div>
         </Link>
-        <UserMenu />
+        <DropdownMenu>
+          <DropdownMenuTrigger className="p-2 hover:text-primary-bis text-foreground outline-none cursor-pointer">
+            <div className="w-[20px] h-[20px]">
+              <MdPerson className="w-full h-full" />
+            </div>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-48 bg-card text-card-foreground border-border z-50">
+            {isAuthenticated ? (
+              <>
+                <DropdownMenuItem asChild>
+                  <Link href="/settings" className="w-full cursor-pointer">Compte</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
+                  Mode {theme === "dark" ? "clair" : "sombre"}
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
+                </DropdownMenuItem>
+              </>
+            ) : (
+              <>
+                <DropdownMenuItem asChild>
+                  <Link href="/login" className="w-full cursor-pointer">Connexion</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/register" className="w-full cursor-pointer">Inscription</Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
+                  Mode {theme === "dark" ? "clair" : "sombre"}
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
+                </DropdownMenuItem>
+              </>
+            )}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </nav>
 
       {/* Desktop Nav (>= lg) */}
@@ -107,18 +106,52 @@ export default function Nav() {
               <MdLibraryMusic className="w-full h-full" />
             </div>
           </Link>
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Rechercher..."
-              className="pl-10 pr-4 py-2 rounded-full bg-background-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary w-64"
-            />
-            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-foreground-secondary">
-              <MdSearch className="w-full h-full" />
-            </div>
-          </div>
+          <SearchBar />
 
-          <UserMenu />
+          <DropdownMenu>
+            <DropdownMenuTrigger className="p-2 hover:text-primary-bis text-foreground outline-none cursor-pointer">
+              <div className="w-[20px] h-[20px]">
+                <MdPerson className="w-full h-full" />
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48 bg-card text-card-foreground border-border z-50">
+              {isAuthenticated ? (
+                <>
+                  <DropdownMenuItem asChild>
+                    <Link href="/settings" className="w-full cursor-pointer">Compte</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
+                    Mode {theme === "dark" ? "clair" : "sombre"}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
+                  </DropdownMenuItem>
+                </>
+              ) : (
+                <>
+                  <DropdownMenuItem asChild>
+                    <Link href="/login" className="w-full cursor-pointer">Connexion</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/register" className="w-full cursor-pointer">Inscription</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
+                    Mode {theme === "dark" ? "clair" : "sombre"}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
+                  </DropdownMenuItem>
+                </>
+              )}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
         <span></span>
       </nav>

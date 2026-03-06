@@ -55,4 +55,15 @@ export const createPrismaTrackCatalogRepository = (
 
     return tracks.map(toTrack);
   },
+  searchTracks: async (query: string, currentAccountId?: string | null, limit = 10): Promise<Track[]> => {
+    const tracks = await prisma.track.findMany({
+      where: {
+        trackTitle: { contains: query, mode: "insensitive" },
+      },
+      include: trackInclude(currentAccountId),
+      take: limit,
+      orderBy: { trackListens: "desc" },
+    });
+    return tracks.map(toTrack);
+  },
 });

@@ -110,4 +110,84 @@ export const createPrismaArtistCatalogRepository = (
 
     return albums.map(toAlbum);
   },
+  searchArtists: async (query: string, limit = 10): Promise<Artist[]> => {
+    const artists = await prisma.artist.findMany({
+      where: {
+        OR: [
+          { account: { name: { contains: query, mode: "insensitive" } } },
+          { account: { login: { contains: query, mode: "insensitive" } } },
+        ],
+      },
+      include: {
+        account: true,
+        artistTags: {
+          include: {
+            tag: true,
+          },
+        },
+      },
+      take: limit,
+      orderBy: {
+        artistFavorites: "desc",
+      },
+    });
+
+    return Promise.all(
+      artists.map(async (artist) => {
+        const [albumCount, trackCount] = await Promise.all([
+          prisma.album.count({
+            where: {
+              albumArtists: {
+                some: { artistId: artist.artistId },
+              },
+            },
+          }),
+          prisma.track.count({
+            where: {
+              OR: [
+                { mainArtists: { some: { artistId: artist.artistId } } },
+                { featArtists: { some: { artistId: artist.artistId } } },
+              ],
+            },
+          }),
+        ]);
+
+        return {
+          artistId: artist.artistId,
+          name: artist.account.name ?? artist.account.login,
+          imageUrl: artist.artistImageFile,
+          images: parseImages(artist.artistImages),
+          bio: artist.artistBio,
+          members: artist.artistMembers,
+          location: artist.artistLocation,
+          latitude: artist.artistLatitude,
+          longitude: artist.artistLongitude,
+          activeYearBegin: artist.artistActiveYearBegin,
+          activeYearEnd: artist.artistActiveYearEnd,
+          favorites: toNullableNumber(artist.artistFavorites),
+          comments: toNullableNumber(artist.artistComments),
+          tags: artist.artistTags
+            .map((artistTag) => artistTag.tag.tagName)
+            .filter((tagName): tagName is string => Boolean(tagName))
+            .sort((leftTag, rightTag) => leftTag.localeCompare(rightTag)),
+          albumCount,
+          trackCount,
+        };
+      })
+    );
+  },
+  searchAlbums: async (query: string, limit = 10): Promise<Album[]> => {
+    const albums = await prisma.album.findMany({
+      where: {
+        albumTitle: { contains: query, mode: "insensitive" },
+      },
+      include: albumInclude(),
+      orderBy: {
+        albumFavorites: "desc",
+      },
+      take: limit,
+    });
+
+    return albums.map(toAlbum);
+  },
 });

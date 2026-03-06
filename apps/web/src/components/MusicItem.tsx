@@ -2,14 +2,14 @@
 
 import { Music } from "@/types/music";
 import { MoreHorizontal, Play } from "lucide-react";
-import Image from "next/image";
+import Image from "@/components/ImageWithFallback";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import LikeButton from "@/components/LikeButton";
 import PinActionSubMenu from "@/components/PinActionSubMenu";
 import { usePlayer } from "@/context/PlayerContext";
 import { usePlaylist } from "@/context/PlaylistContext";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,6 +31,7 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
   const { playTrack, addToQueue } = usePlayer();
   const { playlists, isOwnedPlaylist, removeTrackFromPlaylist, addTrackToPlaylist } = usePlaylist();
   const pathname = usePathname();
+  const router = useRouter();
 
   // Determine if we are currently inside an owned playlist
   const isPlaylistRoute = pathname.startsWith("/playlist/");
@@ -97,7 +98,7 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
               <span key={i}>
                 {/* Note: since music.artist is an array of strings currently, we simulate an ID link or simply link to the name as an ID for now until the API brings proper IDs */}
                 <Link
-                  href={`/artist/${artist.toLowerCase().replace(/ /g, "-")}`}
+                  href={`/artist/${music.artistIds?.[i] || artist.toLowerCase().replace(/ /g, "-")}`}
                   className="hover:text-foreground hover:underline"
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -166,8 +167,28 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
             
             <PinActionSubMenu itemId={music.id} itemType="track" />
 
-            <DropdownMenuItem className="cursor-pointer">Voir l'artiste</DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">Voir l'album</DropdownMenuItem>
+            <DropdownMenuItem 
+              className="cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (music.artistIds && music.artistIds.length > 0) {
+                  router.push(`/artist/${music.artistIds[0]}`);
+                }
+              }}
+            >
+              Voir l'artiste
+            </DropdownMenuItem>
+            {music.albumId && (
+              <DropdownMenuItem 
+                className="cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  router.push(`/album/${music.albumId}`);
+                }}
+              >
+                Voir l'album
+              </DropdownMenuItem>
+            )}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

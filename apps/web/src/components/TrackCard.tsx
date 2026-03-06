@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ImageWithFallback";
 import { Play } from "lucide-react";
 import { usePlayer } from "@/context/PlayerContext";
 import { Music } from "@/types/music";

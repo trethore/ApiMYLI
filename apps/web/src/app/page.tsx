@@ -53,7 +53,7 @@ export default function Home() {
         try {
           const [pinnedRes, historyRes] = await Promise.all([
             getMyPinnedItemsQuery(token),
-            getMyTrackHistoryQuery(4, token),
+            getMyTrackHistoryQuery(12, token),
           ]);
 
           // Format Pinned Items

@@ -40,7 +40,7 @@ export const PlaylistProvider = ({ children }: { children: ReactNode }) => {
           artist: p.ownerDisplayName || "User",
           image: p.tracks?.[0]?.imageUrl ? formatImageUrl(p.tracks[0].imageUrl) : "/placeholder-album.jpg",
           type: "Playlist" as const,
-          tracks: p.tracks.map(toMusic),
+          tracks: p.tracks ? p.tracks.map(toMusic) : [],
         }));
         setPlaylists(mapped);
       } catch (err) {

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { likeTrackMutation, unlikeTrackMutation } from "@/lib/api-client";
+import { useAuth } from "@/context/AuthContext";
 
 interface LikeButtonProps {
   initialIsLiked?: boolean;
@@ -22,14 +24,33 @@ export default function LikeButton({
   itemId,
   itemType,
 }: LikeButtonProps) {
+  const { token, requireAuth } = useAuth();
   const [isLiked, setIsLiked] = useState(initialIsLiked);
 
   const toggleLike = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering parent click
-    const newState = !isLiked;
-    setIsLiked(newState);
-    console.log(`${newState ? "like" : "dislike"} ${itemType} ${itemId}`);
-    // TODO: Call API to toggle like for itemId
+    
+    // Pour l'instant on ne supporte en back-end QUE le like/unlike des tracks
+    if (itemType !== "track") {
+      console.warn("Liking is ONLY supported for music tracks currently.");
+      return;
+    }
+    
+    requireAuth(async () => {
+      const newState = !isLiked;
+      setIsLiked(newState); // Optimistic UI
+      
+      try {
+        if (newState) {
+          await likeTrackMutation(itemId, token!);
+        } else {
+          await unlikeTrackMutation(itemId, token!);
+        }
+      } catch (err) {
+        console.error("Failed to like/unlike track", err);
+        setIsLiked(!newState); // revert if failed
+      }
+    });
   };
 
   return (

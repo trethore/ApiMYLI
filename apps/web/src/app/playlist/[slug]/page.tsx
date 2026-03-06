@@ -5,11 +5,11 @@ import MusicItem from "@/components/MusicItem";
 import { Music } from "@/types/music";
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Play, Edit, Trash2 } from "lucide-react";
-import Image from "next/image";
-import LikeButton from "@/components/LikeButton";
+import Image from "@/components/ImageWithFallback";
 import SectionTitle from "@/components/SectionTitle";
 import PinActionSubMenu from "@/components/PinActionSubMenu";
 import { usePlaylist } from "@/context/PlaylistContext";
+import { useToast } from "@/context/ToastContext";
 import { use, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -66,6 +66,12 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [editName, setEditName] = useState("");
   const [editImage, setEditImage] = useState("");
+  const { showToast } = useToast();
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    showToast("Lien copié !");
+  };
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -199,14 +205,6 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
             </div>
 
             <div className="flex items-center gap-2">
-              <LikeButton
-                initialIsLiked={true}
-                size={28}
-                className="rounded-full hover:bg-secondary/20 h-10 w-10 flex-shrink-0"
-                iconClassName="w-7 h-7 cursor-pointer"
-                itemId={playlistId}
-                itemType="playlist"
-              />
               {isOwned && (
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
@@ -250,7 +248,12 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <PinActionSubMenu itemId={playlistId} itemType="playlist" />
-                  <DropdownMenuItem className="cursor-pointer">Partager</DropdownMenuItem>
+                  <DropdownMenuItem 
+                    className="cursor-pointer"
+                    onClick={handleShare}
+                  >
+                    Partager
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>

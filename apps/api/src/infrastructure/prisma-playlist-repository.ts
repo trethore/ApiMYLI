@@ -182,4 +182,14 @@ export const createPrismaPlaylistRepository = (prisma: PrismaClient): PlaylistRe
       return readPlaylist(transaction, playlistId, accountId);
     });
   },
+  searchPlaylists: async (query: string, currentAccountId?: string | null, limit = 10): Promise<Playlist[]> => {
+    const playlists = await prisma.playlist.findMany({
+      where: {
+        playlistName: { contains: query, mode: "insensitive" },
+      },
+      include: playlistInclude(currentAccountId),
+      take: limit,
+    });
+    return playlists.map((playlist) => toPlaylist(playlist, currentAccountId));
+  },
 });

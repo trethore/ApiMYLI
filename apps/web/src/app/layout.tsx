@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/context/AuthContext";
 import { PlayerProvider } from "@/context/PlayerContext";
 import { PlaylistProvider } from "@/context/PlaylistContext";
+import { ToastProvider } from "@/context/ToastContext";
 import Player from "@/components/Player";
 import PlayerPadding from "@/components/PlayerPadding";
 import AuthRequiredPopup from "@/components/AuthRequiredPopup";
@@ -43,14 +44,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AuthProvider>
-            <PlayerProvider>
-              <PlaylistProvider>
-                {children}
+            <ToastProvider>
+              <PlayerProvider>
+                <PlaylistProvider>
+                  {children}
                 <AuthRequiredPopup />
                 <PlayerPadding />
                 <Player />
-              </PlaylistProvider>
-            </PlayerProvider>
+                </PlaylistProvider>
+              </PlayerProvider>
+            </ToastProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>

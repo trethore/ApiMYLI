@@ -2,7 +2,7 @@ import { usePlayer } from "@/context/PlayerContext";
 import { Button } from "@/components/ui/button";
 import { Music } from "@/types/music";
 import { Trash2, X, Play } from "lucide-react";
-import Image from "next/image";
+import Image from "@/components/ImageWithFallback";
 
 interface QueueListProps {
   className?: string;

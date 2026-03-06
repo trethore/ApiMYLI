@@ -13,7 +13,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import Image from "next/image";
+import Link from "next/link";
+import Image from "@/components/ImageWithFallback";
 import { useState } from "react";
 import QueueList from "@/components/QueueList";
 
@@ -68,7 +69,17 @@ export default function Player() {
           <div className="flex flex-col overflow-hidden">
             <span className="font-bold truncate text-sm sm:text-base">{currentTrack.title}</span>
             <span className="text-xs sm:text-sm text-muted-foreground truncate">
-              {currentTrack.artist.join(", ")}
+              {currentTrack.artist.map((artistName, index) => (
+                <span key={index}>
+                  <Link href={`/artist/${currentTrack.artistIds?.[index] || artistName}`} className="hover:underline">
+                    {artistName}
+                  </Link>
+                  {index < currentTrack.artist.length - 1 ? ", " : ""}
+                </span>
+              ))}
+              {currentTrack.album && currentTrack.albumId && (
+                <> • <Link href={`/album/${currentTrack.albumId}`} className="hover:underline">{currentTrack.album}</Link></>
+              )}
             </span>
           </div>
         </div>

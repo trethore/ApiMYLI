@@ -5,10 +5,17 @@ import { Music } from "@/types/music";
 import MusicItem from "@/components/MusicItem";
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Play } from "lucide-react";
-import Image from "next/image";
-import LikeButton from "@/components/LikeButton";
+import Image from "@/components/ImageWithFallback";
 import SectionTitle from "@/components/SectionTitle";
 import ContentGrid from "@/components/ContentGrid";
+import PinActionSubMenu from "@/components/PinActionSubMenu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useToast } from "@/context/ToastContext";
 
 import { use, useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
@@ -29,6 +36,12 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
   const [artistImage, setArtistImage] = useState<string>("/placeholder-artist.jpg");
   const [albums, setAlbums] = useState<ApiAlbum[]>([]);
   const [loading, setLoading] = useState(true);
+  const { showToast } = useToast();
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    showToast("Lien copié !");
+  };
 
   useEffect(() => {
     const fetchArtistData = async () => {
@@ -40,7 +53,11 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
           getArtistAlbumsQuery(artistId, token),
         ]);
         
-        if (apiArtist) setArtistData(apiArtist);
+        if (apiArtist) {
+          setArtistData(apiArtist);
+          if (apiArtist.name) setArtistName(apiArtist.name);
+          if (apiArtist.imageUrl) setArtistImage(formatImageUrl(apiArtist.imageUrl));
+        }
         if (apiAlbums) setAlbums(apiAlbums);
         
         if (tracks && tracks.length > 0) {
@@ -113,22 +130,26 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
                 <Play className="mr-2 fill-current" /> Lecture
               </Button>
 
-              <LikeButton
-                initialIsLiked={false}
-                size={28}
-                className="rounded-full hover:bg-secondary/20 h-14 w-14 border border-white/10"
-                iconClassName="w-7 h-7"
-                itemId={artistId}
-                itemType="artist"
-              />
-
-              <Button
-                size="icon"
-                variant="ghost"
-                className="rounded-full hover:bg-secondary/20 h-14 w-14 border border-white/10"
-              >
-                <MoreHorizontal />
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    className="rounded-full hover:bg-secondary/20 hover:text-foreground transition-colors cursor-pointer min-w-[40px] flex-shrink-0"
+                  >
+                    <MoreHorizontal size={28} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <PinActionSubMenu itemId={artistId} itemType="artist" />
+                  <DropdownMenuItem 
+                    className="cursor-pointer"
+                    onClick={handleShare}
+                  >
+                    Partager
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>
@@ -179,9 +200,7 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
               <div className="relative h-64 w-full rounded-lg overflow-hidden mb-4 bg-muted">
                 {/* Artist Bio Image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                  <p className="text-white font-bold line-clamp-3">
-                    {artistData?.artistBio || `${artistName} est un artiste présent sur MUSE...`}
-                  </p>
+                  <div className="text-white font-[500] line-clamp-3 text-sm" dangerouslySetInnerHTML={{ __html: artistData?.artistBio || `${artistName} est un artiste présent sur MUSE...` }} />
                 </div>
               </div>
               <div className="flex flex-col gap-2 text-sm text-muted-foreground">

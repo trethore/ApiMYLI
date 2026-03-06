@@ -73,7 +73,7 @@ export default function Library() {
           const [likedRes, pinnedRes, historyRes] = await Promise.all([
             getLikedTracksQuery(activeToken),
             getMyPinnedItemsQuery(activeToken),
-            getMyTrackHistoryQuery(4, activeToken),
+            getMyTrackHistoryQuery(12, activeToken),
           ]);
 
           setLikedTracks(likedRes.map((t) => ({ ...toMusic(t), type: "Track" as const })));
@@ -222,7 +222,7 @@ export default function Library() {
           )}
 
           <div>
-            <SectionTitle title="Titres Likés" className="mt-0" />
+            <SectionTitle title="Like" className="mt-0" />
             {likedTracks.length > 0 ? (
               <ContentGrid items={likedTracks} />
             ) : (
