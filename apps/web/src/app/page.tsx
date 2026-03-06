@@ -50,6 +50,7 @@ export default function Home() {
   const [basedOnHistoryRecos, setBasedOnHistoryRecos] = useState<
     { seedName: string; items: ContentList }[]
   >([]);
+  const [guestCarousels, setGuestCarousels] = useState<ContentList[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -162,6 +163,19 @@ export default function Home() {
         setHistoryContent([]);
         setRecommendedContent([]);
         setBasedOnHistoryRecos([]);
+        // Guest: 2 fully random carousels
+        try {
+          const [g1, g2] = await Promise.all([
+            getRecommendationsQuery([], [], 20, 100, null),
+            getRecommendationsQuery([], [], 20, 100, null),
+          ]);
+          setGuestCarousels([
+            g1.map((t) => ({ ...toMusic(t), type: "Track" as const })),
+            g2.map((t) => ({ ...toMusic(t), type: "Track" as const })),
+          ]);
+        } catch (e) {
+          console.error("Guest carousels failed", e);
+        }
       }
       setLoading(false);
     };
@@ -232,7 +246,7 @@ export default function Home() {
             <Button
               className="flex-1 rounded-none bg-transparent hover:bg-white/20 text-foreground hover:cursor-pointer"
               size="lg"
-              onClick={() => requireAuth(handleDecouvrir)}
+              onClick={handleDecouvrir}
             >
               <MdShuffle className="mr-2 h-5 w-5" /> Découvrir
             </Button>
@@ -265,6 +279,14 @@ export default function Home() {
                 items={section.items as any}
               />
             ))}
+
+          {!isAuthenticated && !loading && guestCarousels.map((items, idx) => (
+            <CoverCarousel
+              key={`guest-${idx}`}
+              title="Vous pourriez aimer"
+              items={items as any}
+            />
+          ))}
         </div>
       </main>
     </div>
