@@ -30,7 +30,12 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   register: (login: string, email: string, password: string, name: string) => Promise<void>;
   logout: () => Promise<void>;
-  updateUser: (data: { login?: string; name?: string; email?: string; password?: string }) => Promise<void>;
+  updateUser: (data: {
+    login?: string;
+    name?: string;
+    email?: string;
+    password?: string;
+  }) => Promise<void>;
   deleteAccount: () => Promise<void>;
   clearError: () => void;
   isAuthPopupOpen: boolean;
@@ -121,7 +126,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     router.push("/login");
   };
 
-  const updateUser = async (data: { login?: string; name?: string; email?: string; password?: string }) => {
+  const updateUser = async (data: {
+    login?: string;
+    name?: string;
+    email?: string;
+    password?: string;
+  }) => {
     if (!user || !token) return;
     setIsLoading(true);
     setError(null);

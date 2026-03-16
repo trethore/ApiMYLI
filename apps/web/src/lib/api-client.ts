@@ -41,11 +41,11 @@ async function gql<T>(
   if (json.errors && json.errors.length > 0) {
     const errorMsg = json.errors[0].message;
     console.error("GraphQL Errors:", json.errors, "in query:", query.substring(0, 100)); // Log part of the query
-    throw new Error(`${errorMsg} (Query: ${query.trim().split('{')[0].trim()})`);
+    throw new Error(`${errorMsg} (Query: ${query.trim().split("{")[0].trim()})`);
   }
 
   if (!json.data) {
-    throw new Error(`Aucune donnée reçue de l'API (Query: ${query.trim().split('{')[0].trim()})`);
+    throw new Error(`Aucune donnée reçue de l'API (Query: ${query.trim().split("{")[0].trim()})`);
   }
 
   return json.data;
@@ -170,13 +170,13 @@ export function formatImageUrl(url?: string | null): string {
 export function toMusic(apiTrack: ApiTrack): Music {
   const mins = Math.floor((apiTrack.durationSeconds || 0) / 60);
   const secs = (apiTrack.durationSeconds || 0) % 60;
-  const duration = `${mins}:${secs.toString().padStart(2, '0')}`;
-  
+  const duration = `${mins}:${secs.toString().padStart(2, "0")}`;
+
   return {
     id: apiTrack.trackId,
     title: apiTrack.title || "Unknown",
-    artist: apiTrack.mainArtists.map(a => a.name || "Unknown"),
-    artistIds: apiTrack.mainArtists.map(a => a.artistId),
+    artist: apiTrack.mainArtists.map((a) => a.name || "Unknown"),
+    artistIds: apiTrack.mainArtists.map((a) => a.artistId),
     album: apiTrack.album?.title || "Unknown Album",
     albumId: apiTrack.album?.albumId,
     image: formatImageUrl(apiTrack.imageUrl),
@@ -188,10 +188,7 @@ export function toMusic(apiTrack: ApiTrack): Music {
 
 // --- Mutations & Queries ---
 
-export async function loginMutation(
-  email: string,
-  password: string,
-): Promise<AuthPayload> {
+export async function loginMutation(email: string, password: string): Promise<AuthPayload> {
   const query = /* GraphQL */ `
     mutation Login($input: LoginInput!) {
       login(input: $input) {
@@ -275,11 +272,7 @@ export async function getAccountQuery(
     }
   `;
 
-  const data = await gql<{ account: ApiAccount | null }>(
-    query,
-    { accountId },
-    token,
-  );
+  const data = await gql<{ account: ApiAccount | null }>(query, { accountId }, token);
 
   return data.account;
 }
@@ -306,30 +299,19 @@ export async function updateAccountMutation(
     }
   `;
 
-  const data = await gql<{ updateAccount: ApiAccount | null }>(
-    query,
-    { accountId, input },
-    token,
-  );
+  const data = await gql<{ updateAccount: ApiAccount | null }>(query, { accountId, input }, token);
 
   return data.updateAccount;
 }
 
-export async function deleteAccountMutation(
-  accountId: string,
-  token: string,
-): Promise<boolean> {
+export async function deleteAccountMutation(accountId: string, token: string): Promise<boolean> {
   const query = /* GraphQL */ `
     mutation DeleteAccount($accountId: String!) {
       deleteAccount(accountId: $accountId)
     }
   `;
 
-  const data = await gql<{ deleteAccount: boolean }>(
-    query,
-    { accountId },
-    token,
-  );
+  const data = await gql<{ deleteAccount: boolean }>(query, { accountId }, token);
 
   return data.deleteAccount;
 }
@@ -389,7 +371,10 @@ const PLAYLIST_FRAGMENT = /* GraphQL */ `
   ${TRACK_FRAGMENT}
 `;
 
-export async function getTrackQuery(trackId: string, token?: string | null): Promise<ApiTrack | null> {
+export async function getTrackQuery(
+  trackId: string,
+  token?: string | null,
+): Promise<ApiTrack | null> {
   const query = /* GraphQL */ `
     query GetTrack($trackId: String!) {
       track(trackId: $trackId) {
@@ -402,7 +387,10 @@ export async function getTrackQuery(trackId: string, token?: string | null): Pro
   return data.track;
 }
 
-export async function getAlbumTracksQuery(albumId: string, token?: string | null): Promise<ApiTrack[]> {
+export async function getAlbumTracksQuery(
+  albumId: string,
+  token?: string | null,
+): Promise<ApiTrack[]> {
   const query = /* GraphQL */ `
     query GetAlbumTracks($albumId: String!) {
       albumTracks(albumId: $albumId) {
@@ -415,7 +403,11 @@ export async function getAlbumTracksQuery(albumId: string, token?: string | null
   return data.albumTracks;
 }
 
-export async function getArtistTopTracksQuery(artistId: string, limit?: number, token?: string | null): Promise<ApiTrack[]> {
+export async function getArtistTopTracksQuery(
+  artistId: string,
+  limit?: number,
+  token?: string | null,
+): Promise<ApiTrack[]> {
   const query = /* GraphQL */ `
     query GetArtistTopTracks($artistId: String!, $limit: Int) {
       artistTopTracks(artistId: $artistId, limit: $limit) {
@@ -428,7 +420,10 @@ export async function getArtistTopTracksQuery(artistId: string, limit?: number, 
   return data.artistTopTracks;
 }
 
-export async function getArtistQuery(artistId: string, token?: string | null): Promise<ApiArtist | null> {
+export async function getArtistQuery(
+  artistId: string,
+  token?: string | null,
+): Promise<ApiArtist | null> {
   const query = /* GraphQL */ `
     query GetArtist($artistId: String!) {
       artist(artistId: $artistId) {
@@ -463,9 +458,10 @@ export async function getLikedTracksQuery(token: string): Promise<ApiTrack[]> {
   return data.likedTracks;
 }
 
-
-
-export async function getPlaylistQuery(playlistId: string, token?: string | null): Promise<ApiPlaylist | null> {
+export async function getPlaylistQuery(
+  playlistId: string,
+  token?: string | null,
+): Promise<ApiPlaylist | null> {
   const query = /* GraphQL */ `
     query GetPlaylist($playlistId: String!) {
       playlist(playlistId: $playlistId) {
@@ -507,7 +503,10 @@ export async function likeTrackMutation(trackId: string, token: string): Promise
   return data.likeTrack;
 }
 
-export async function unlikeTrackMutation(trackId: string, token: string): Promise<ApiTrack | null> {
+export async function unlikeTrackMutation(
+  trackId: string,
+  token: string,
+): Promise<ApiTrack | null> {
   const query = /* GraphQL */ `
     mutation UnlikeTrack($trackId: String!) {
       unlikeTrack(trackId: $trackId) {
@@ -533,7 +532,11 @@ export async function createPlaylistMutation(name: string, token: string): Promi
   return data.createPlaylist;
 }
 
-export async function addTrackToPlaylistMutation(playlistId: string, trackId: string, token: string): Promise<ApiPlaylist | null> {
+export async function addTrackToPlaylistMutation(
+  playlistId: string,
+  trackId: string,
+  token: string,
+): Promise<ApiPlaylist | null> {
   const query = /* GraphQL */ `
     mutation AddTrackToPlaylist($playlistId: String!, $trackId: String!) {
       addTrackToPlaylist(playlistId: $playlistId, trackId: $trackId) {
@@ -542,11 +545,19 @@ export async function addTrackToPlaylistMutation(playlistId: string, trackId: st
     }
     ${PLAYLIST_FRAGMENT}
   `;
-  const data = await gql<{ addTrackToPlaylist: ApiPlaylist | null }>(query, { playlistId, trackId }, token);
+  const data = await gql<{ addTrackToPlaylist: ApiPlaylist | null }>(
+    query,
+    { playlistId, trackId },
+    token,
+  );
   return data.addTrackToPlaylist;
 }
 
-export async function removeTrackFromPlaylistMutation(playlistId: string, trackId: string, token: string): Promise<ApiPlaylist | null> {
+export async function removeTrackFromPlaylistMutation(
+  playlistId: string,
+  trackId: string,
+  token: string,
+): Promise<ApiPlaylist | null> {
   const query = /* GraphQL */ `
     mutation RemoveTrackFromPlaylist($playlistId: String!, $trackId: String!) {
       removeTrackFromPlaylist(playlistId: $playlistId, trackId: $trackId) {
@@ -555,7 +566,11 @@ export async function removeTrackFromPlaylistMutation(playlistId: string, trackI
     }
     ${PLAYLIST_FRAGMENT}
   `;
-  const data = await gql<{ removeTrackFromPlaylist: ApiPlaylist | null }>(query, { playlistId, trackId }, token);
+  const data = await gql<{ removeTrackFromPlaylist: ApiPlaylist | null }>(
+    query,
+    { playlistId, trackId },
+    token,
+  );
   return data.removeTrackFromPlaylist;
 }
 
@@ -579,7 +594,11 @@ export async function deletePlaylistMutation(playlistId: string, token: string):
   return data.deletePlaylist;
 }
 
-export async function updatePlaylistMutation(playlistId: string, name: string, token: string): Promise<ApiPlaylist | null> {
+export async function updatePlaylistMutation(
+  playlistId: string,
+  name: string,
+  token: string,
+): Promise<ApiPlaylist | null> {
   const query = /* GraphQL */ `
     mutation UpdatePlaylist($playlistId: String!, $input: UpdatePlaylistInput!) {
       updatePlaylist(playlistId: $playlistId, input: $input) {
@@ -588,7 +607,11 @@ export async function updatePlaylistMutation(playlistId: string, name: string, t
     }
     ${PLAYLIST_FRAGMENT}
   `;
-  const data = await gql<{ updatePlaylist: ApiPlaylist | null }>(query, { playlistId, input: { name } }, token);
+  const data = await gql<{ updatePlaylist: ApiPlaylist | null }>(
+    query,
+    { playlistId, input: { name } },
+    token,
+  );
   return data.updatePlaylist;
 }
 
@@ -682,7 +705,10 @@ const PINNED_ITEM_FRAGMENT = /* GraphQL */ `
   }
 `;
 
-export async function getArtistAlbumsQuery(artistId: string, token?: string | null): Promise<ApiAlbum[]> {
+export async function getArtistAlbumsQuery(
+  artistId: string,
+  token?: string | null,
+): Promise<ApiAlbum[]> {
   const query = /* GraphQL */ `
     query GetArtistAlbums($artistId: String!) {
       artistAlbums(artistId: $artistId) {
@@ -695,7 +721,10 @@ export async function getArtistAlbumsQuery(artistId: string, token?: string | nu
   return data.artistAlbums;
 }
 
-export async function getMyTrackHistoryQuery(limit: number, token: string): Promise<ApiTrackListenHistoryItem[]> {
+export async function getMyTrackHistoryQuery(
+  limit: number,
+  token: string,
+): Promise<ApiTrackListenHistoryItem[]> {
   const query = /* GraphQL */ `
     query GetMyTrackHistory($limit: Int) {
       myTrackHistory(limit: $limit) {
@@ -760,7 +789,11 @@ export async function getMyPinnedItemsQuery(token: string): Promise<ApiPinnedIte
   return data.myPinnedItems;
 }
 
-export async function pinTrackMutation(slot: number, trackId: string, token: string): Promise<ApiPinnedItem | null> {
+export async function pinTrackMutation(
+  slot: number,
+  trackId: string,
+  token: string,
+): Promise<ApiPinnedItem | null> {
   const query = /* GraphQL */ `
     mutation PinTrack($slot: Int!, $trackId: String!) {
       pinTrack(slot: $slot, trackId: $trackId) {
@@ -773,7 +806,11 @@ export async function pinTrackMutation(slot: number, trackId: string, token: str
   return data.pinTrack;
 }
 
-export async function pinAlbumMutation(slot: number, albumId: string, token: string): Promise<ApiPinnedItem | null> {
+export async function pinAlbumMutation(
+  slot: number,
+  albumId: string,
+  token: string,
+): Promise<ApiPinnedItem | null> {
   const query = /* GraphQL */ `
     mutation PinAlbum($slot: Int!, $albumId: String!) {
       pinAlbum(slot: $slot, albumId: $albumId) {
@@ -786,7 +823,11 @@ export async function pinAlbumMutation(slot: number, albumId: string, token: str
   return data.pinAlbum;
 }
 
-export async function pinArtistMutation(slot: number, artistId: string, token: string): Promise<ApiPinnedItem | null> {
+export async function pinArtistMutation(
+  slot: number,
+  artistId: string,
+  token: string,
+): Promise<ApiPinnedItem | null> {
   const query = /* GraphQL */ `
     mutation PinArtist($slot: Int!, $artistId: String!) {
       pinArtist(slot: $slot, artistId: $artistId) {
@@ -799,7 +840,11 @@ export async function pinArtistMutation(slot: number, artistId: string, token: s
   return data.pinArtist;
 }
 
-export async function pinPlaylistMutation(slot: number, playlistId: string, token: string): Promise<ApiPinnedItem | null> {
+export async function pinPlaylistMutation(
+  slot: number,
+  playlistId: string,
+  token: string,
+): Promise<ApiPinnedItem | null> {
   const query = /* GraphQL */ `
     mutation PinPlaylist($slot: Int!, $playlistId: String!) {
       pinPlaylist(slot: $slot, playlistId: $playlistId) {
@@ -829,7 +874,11 @@ export type ApiSearchResults = {
   playlists: ApiPlaylistSummary[];
 };
 
-export async function globalSearchQuery(queryText: string, limit: number = 5, token?: string | null): Promise<ApiSearchResults> {
+export async function globalSearchQuery(
+  queryText: string,
+  limit: number = 5,
+  token?: string | null,
+): Promise<ApiSearchResults> {
   const query = /* GraphQL */ `
     query SearchGlobal($queryText: String!, $limit: Int) {
       search(query: $queryText, limit: $limit) {
@@ -879,11 +928,21 @@ export async function getRecommendationsQuery(
   blacklistedTrackIds: string[],
   limit: number,
   randomness: number,
-  token?: string | null
+  token?: string | null,
 ): Promise<ApiTrack[]> {
   const query = /* GraphQL */ `
-    query GetRecommendations($seedTrackIds: [String!]!, $blacklistedTrackIds: [String!]!, $limit: Int!, $randomness: Int!) {
-      recommendations(seedTrackIds: $seedTrackIds, blacklistedTrackIds: $blacklistedTrackIds, limit: $limit, randomness: $randomness) {
+    query GetRecommendations(
+      $seedTrackIds: [String!]!
+      $blacklistedTrackIds: [String!]!
+      $limit: Int!
+      $randomness: Int!
+    ) {
+      recommendations(
+        seedTrackIds: $seedTrackIds
+        blacklistedTrackIds: $blacklistedTrackIds
+        limit: $limit
+        randomness: $randomness
+      ) {
         trackId
         title
         imageUrl
@@ -901,6 +960,10 @@ export async function getRecommendationsQuery(
       }
     }
   `;
-  const data = await gql<{ recommendations: ApiTrack[] }>(query, { seedTrackIds, blacklistedTrackIds, limit, randomness }, token);
+  const data = await gql<{ recommendations: ApiTrack[] }>(
+    query,
+    { seedTrackIds, blacklistedTrackIds, limit, randomness },
+    token,
+  );
   return data.recommendations;
 }

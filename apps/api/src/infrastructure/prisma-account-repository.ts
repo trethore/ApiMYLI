@@ -255,6 +255,7 @@ export const createPrismaAccountRepository = (prisma: PrismaClient): AccountRepo
     try {
       const deletedCount = await prisma.$transaction(async (transaction): Promise<number> => {
         await transaction.trackAccountLike.deleteMany({ where: { accountId: id } });
+        await transaction.trackAccountDislike.deleteMany({ where: { accountId: id } });
         await transaction.trackAccountListen.deleteMany({ where: { accountId: id } });
         await transaction.trackComment.deleteMany({ where: { accountId: id } });
         await transaction.accountPinnedItem.deleteMany({ where: { accountId: id } });

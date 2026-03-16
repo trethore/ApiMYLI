@@ -64,10 +64,7 @@ export const createPrismaArtistCatalogRepository = (
       }),
       prisma.track.count({
         where: {
-          OR: [
-            { mainArtists: { some: { artistId } } },
-            { featArtists: { some: { artistId } } },
-          ],
+          OR: [{ mainArtists: { some: { artistId } } }, { featArtists: { some: { artistId } } }],
         },
       }),
     ]);
@@ -102,10 +99,7 @@ export const createPrismaArtistCatalogRepository = (
         },
       },
       include: albumInclude(),
-      orderBy: [
-        { albumDateReleased: "desc" },
-        { albumTitle: "asc" },
-      ],
+      orderBy: [{ albumDateReleased: "desc" }, { albumTitle: "asc" }],
     });
 
     return albums.map(toAlbum);
@@ -173,7 +167,7 @@ export const createPrismaArtistCatalogRepository = (
           albumCount,
           trackCount,
         };
-      })
+      }),
     );
   },
   searchAlbums: async (query: string, limit = 10): Promise<Album[]> => {

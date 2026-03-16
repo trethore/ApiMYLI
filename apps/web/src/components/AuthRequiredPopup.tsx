@@ -30,7 +30,8 @@ export default function AuthRequiredPopup() {
             Connexion requise
           </AlertDialogTitle>
           <AlertDialogDescription className="text-muted-foreground">
-            Vous devez être connecté pour effectuer cette action. Voulez-vous vous connecter maintenant ?
+            Vous devez être connecté pour effectuer cette action. Voulez-vous vous connecter
+            maintenant ?
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter className="mt-6">

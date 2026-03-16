@@ -20,7 +20,13 @@ import { useToast } from "@/context/ToastContext";
 import { use, useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { usePlayer } from "@/context/PlayerContext";
-import { getArtistQuery, getArtistTopTracksQuery, getArtistAlbumsQuery, toMusic, formatImageUrl } from "@/lib/api-client";
+import {
+  getArtistQuery,
+  getArtistTopTracksQuery,
+  getArtistAlbumsQuery,
+  toMusic,
+  formatImageUrl,
+} from "@/lib/api-client";
 import { ApiArtist, ApiAlbum } from "@/lib/api-client";
 
 export default function ArtistPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,10 +35,12 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
 
   const { token, requireAuth } = useAuth();
   const { playTrack, setQueueList } = usePlayer();
-  
+
   const [artistData, setArtistData] = useState<ApiArtist | null>(null);
   const [popularTracks, setPopularTracks] = useState<Music[]>([]);
-  const [artistName, setArtistName] = useState<string>(slug.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()));
+  const [artistName, setArtistName] = useState<string>(
+    slug.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+  );
   const [artistImage, setArtistImage] = useState<string>("/placeholder-artist.jpg");
   const [albums, setAlbums] = useState<ApiAlbum[]>([]);
   const [loading, setLoading] = useState(true);
@@ -52,19 +60,20 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
           getArtistTopTracksQuery(artistId, 5, token),
           getArtistAlbumsQuery(artistId, token),
         ]);
-        
+
         if (apiArtist) {
           setArtistData(apiArtist);
           if (apiArtist.name) setArtistName(apiArtist.name);
           if (apiArtist.imageUrl) setArtistImage(formatImageUrl(apiArtist.imageUrl));
         }
         if (apiAlbums) setAlbums(apiAlbums);
-        
+
         if (tracks && tracks.length > 0) {
           setPopularTracks(tracks.map(toMusic));
-          
+
           // Try to extract name and image from tracks since ApiArtist lacks them
-          const artistSummary = tracks[0].mainArtists.find(a => a.artistId === artistId) || tracks[0].mainArtists[0];
+          const artistSummary =
+            tracks[0].mainArtists.find((a) => a.artistId === artistId) || tracks[0].mainArtists[0];
           if (artistSummary?.name) setArtistName(artistSummary.name);
           if (artistSummary?.imageUrl) setArtistImage(formatImageUrl(artistSummary.imageUrl));
         }
@@ -74,11 +83,9 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
         setLoading(false);
       }
     };
-    
+
     fetchArtistData();
   }, [artistId, token]);
-
-
 
   if (loading) {
     return (
@@ -120,13 +127,15 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
             />
 
             <p className="text-lg text-muted-foreground font-medium md:text-left">
-              {artistData?.artistFavorites || 0} favoris • Location: {artistData?.artistLocation || "Inconnue"}
+              {artistData?.artistFavorites || 0} favoris • Location:{" "}
+              {artistData?.artistLocation || "Inconnue"}
             </p>
 
             <div className="flex items-center justify-center md:justify-start gap-4 mt-6">
-              <Button 
+              <Button
                 onClick={handlePlayArtist}
-                className="rounded-full bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] text-foreground font-bold text-lg px-8 py-6 hover:scale-105 transition-transform hover:cursor-pointer flex-1 md:flex-none">
+                className="rounded-full bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] text-foreground font-bold text-lg px-8 py-6 hover:scale-105 transition-transform hover:cursor-pointer flex-1 md:flex-none"
+              >
                 <Play className="mr-2 fill-current" /> Lecture
               </Button>
 
@@ -142,10 +151,7 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <PinActionSubMenu itemId={artistId} itemType="artist" />
-                  <DropdownMenuItem 
-                    className="cursor-pointer"
-                    onClick={handleShare}
-                  >
+                  <DropdownMenuItem className="cursor-pointer" onClick={handleShare}>
                     Partager
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -186,7 +192,9 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
                     }))}
                   />
                   {albums.length === 0 && (
-                     <p className="text-muted-foreground">Aucun album disponible pour cet artiste.</p>
+                    <p className="text-muted-foreground">
+                      Aucun album disponible pour cet artiste.
+                    </p>
                   )}
                 </div>
               </div>
@@ -200,7 +208,13 @@ export default function ArtistPage({ params }: { params: Promise<{ slug: string 
               <div className="relative h-64 w-full rounded-lg overflow-hidden mb-4 bg-muted">
                 {/* Artist Bio Image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                  <div className="text-white font-[500] line-clamp-3 text-sm" dangerouslySetInnerHTML={{ __html: artistData?.artistBio || `${artistName} est un artiste présent sur MUSE...` }} />
+                  <div
+                    className="text-white font-[500] line-clamp-3 text-sm"
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        artistData?.artistBio || `${artistName} est un artiste présent sur MUSE...`,
+                    }}
+                  />
                 </div>
               </div>
               <div className="flex flex-col gap-2 text-sm text-muted-foreground">

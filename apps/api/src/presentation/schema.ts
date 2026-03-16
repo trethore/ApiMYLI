@@ -22,6 +22,7 @@ import { loginAccount } from "packages/application/src/use-cases/account/login-a
 import { logoutAccount } from "packages/application/src/use-cases/account/logout-account";
 import { updateAccount } from "packages/application/src/use-cases/account/update-account";
 import { updateArtistProfile } from "packages/application/src/use-cases/account/update-artist-profile";
+import { dislikeTrack } from "packages/application/src/use-cases/track/dislike-track";
 import { getTrackById } from "packages/application/src/use-cases/track/get-track-by-id";
 import { likeTrack } from "packages/application/src/use-cases/track/like-track";
 import { listArtistTopTracks } from "packages/application/src/use-cases/track/list-artist-top-tracks";
@@ -29,6 +30,7 @@ import { listLikedTracks } from "packages/application/src/use-cases/track/list-l
 import { listTrackListenHistory } from "packages/application/src/use-cases/track/list-track-listen-history";
 import { listTracksByAlbum } from "packages/application/src/use-cases/track/list-tracks-by-album";
 import { recordTrackListen } from "packages/application/src/use-cases/track/record-track-listen";
+import { undislikeTrack } from "packages/application/src/use-cases/track/undislike-track";
 import { unlikeTrack } from "packages/application/src/use-cases/track/unlike-track";
 import { searchGlobal } from "packages/application/src/use-cases/search/search-global";
 import { createGetRecommendations } from "packages/application/src/use-cases/recommendation/get-recommendations";
@@ -122,6 +124,7 @@ type GraphqlTrack = {
   mainArtists: GraphqlArtistSummary[];
   featArtists: GraphqlArtistSummary[];
   isLiked: boolean;
+  isDisliked: boolean;
 };
 
 type GraphqlPlaylist = {
@@ -299,6 +302,7 @@ const toGraphqlTrack = (track: Track): GraphqlTrack => ({
   mainArtists: track.mainArtists.map(toGraphqlArtistSummary),
   featArtists: track.featArtists.map(toGraphqlArtistSummary),
   isLiked: track.isLiked,
+  isDisliked: track.isDisliked,
 });
 
 const toGraphqlPlaylist = (playlist: Playlist): GraphqlPlaylist => ({
@@ -344,6 +348,25 @@ const getOptionalAuthenticatedAccountId = async (
   }
 
   return context.services.authTokenService.verify(context.authToken);
+};
+
+const resolveTrackLibraryMutation = async (
+  context: GraphqlContext,
+  trackId: string,
+  action: (
+    repository: TrackLibraryRepository,
+    accountId: string,
+    targetTrackId: string,
+  ) => Promise<Track | null>,
+): Promise<GraphqlTrack | null> => {
+  const currentAccountId = await getAuthenticatedAccountId(
+    context.services.authTokenService,
+    context.authToken,
+  );
+
+  const track = await action(context.services.trackLibraryRepository, currentAccountId, trackId);
+
+  return track ? toGraphqlTrack(track) : null;
 };
 
 export const schema = createSchema({
@@ -411,6 +434,7 @@ export const schema = createSchema({
       mainArtists: [ArtistSummary!]!
       featArtists: [ArtistSummary!]!
       isLiked: Boolean!
+      isDisliked: Boolean!
     }
 
     type Playlist {
@@ -521,7 +545,12 @@ export const schema = createSchema({
       myPlaylists: [Playlist!]!
       myPinnedItems: [PinnedItem!]!
       search(query: String!, limit: Int): SearchResults!
-      recommendations(seedTrackIds: [String!]!, blacklistedTrackIds: [String!]!, limit: Int!, randomness: Int!): [Track!]!
+      recommendations(
+        seedTrackIds: [String!]!
+        blacklistedTrackIds: [String!]!
+        limit: Int!
+        randomness: Int!
+      ): [Track!]!
     }
 
     type SearchResults {
@@ -540,6 +569,8 @@ export const schema = createSchema({
       logout: Boolean!
       likeTrack(trackId: String!): Track
       unlikeTrack(trackId: String!): Track
+      dislikeTrack(trackId: String!): Track
+      undislikeTrack(trackId: String!): Track
       pinTrack(slot: Int!, trackId: String!): PinnedItem
       pinAlbum(slot: Int!, albumId: String!): PinnedItem
       pinArtist(slot: Int!, artistId: String!): PinnedItem
@@ -583,7 +614,10 @@ export const schema = createSchema({
         args: { artistId: string },
         context: GraphqlContext,
       ) => {
-        const albums = await listArtistAlbums(context.services.artistCatalogRepository, args.artistId);
+        const albums = await listArtistAlbums(
+          context.services.artistCatalogRepository,
+          args.artistId,
+        );
 
         return albums.map(toGraphqlAlbum);
       },
@@ -628,7 +662,10 @@ export const schema = createSchema({
           context.authToken,
         );
 
-        const tracks = await listLikedTracks(context.services.trackLibraryRepository, currentAccountId);
+        const tracks = await listLikedTracks(
+          context.services.trackLibraryRepository,
+          currentAccountId,
+        );
 
         return tracks.map(toGraphqlTrack);
       },
@@ -650,11 +687,7 @@ export const schema = createSchema({
 
         return historyItems.map(toGraphqlTrackListenHistoryItem);
       },
-      playlist: async (
-        _parent: unknown,
-        args: { playlistId: string },
-        context: GraphqlContext,
-      ) => {
+      playlist: async (_parent: unknown, args: { playlistId: string }, context: GraphqlContext) => {
         const currentAccountId = await getOptionalAuthenticatedAccountId(context);
         const playlist = await getPlaylistById(
           context.services.playlistRepository,
@@ -670,7 +703,10 @@ export const schema = createSchema({
           context.authToken,
         );
 
-        const playlists = await listMyPlaylists(context.services.playlistRepository, currentAccountId);
+        const playlists = await listMyPlaylists(
+          context.services.playlistRepository,
+          currentAccountId,
+        );
 
         return playlists.map(toGraphqlPlaylist);
       },
@@ -694,7 +730,7 @@ export const schema = createSchema({
       ) => {
         const currentAccountId = await getOptionalAuthenticatedAccountId(context);
         const limit = args.limit && args.limit > 0 ? args.limit : 10;
-        
+
         const results = await searchGlobal(
           context.services.artistCatalogRepository,
           context.services.trackCatalogRepository,
@@ -713,12 +749,19 @@ export const schema = createSchema({
       },
       recommendations: async (
         _parent: unknown,
-        args: { seedTrackIds: string[]; blacklistedTrackIds: string[]; limit: number; randomness: number },
-        context: GraphqlContext
+        args: {
+          seedTrackIds: string[];
+          blacklistedTrackIds: string[];
+          limit: number;
+          randomness: number;
+        },
+        context: GraphqlContext,
       ) => {
         const currentAccountId = await getOptionalAuthenticatedAccountId(context);
-        const getRecommendations = createGetRecommendations(context.services.trackCatalogRepository);
-        
+        const getRecommendations = createGetRecommendations(
+          context.services.trackCatalogRepository,
+        );
+
         const recommendedTracks = await getRecommendations({
           seedTrackIds: args.seedTrackIds,
           blacklistedTrackIds: args.blacklistedTrackIds,
@@ -841,38 +884,17 @@ export const schema = createSchema({
 
         return logoutAccount(context.services.authTokenService, token);
       },
-      likeTrack: async (_parent: unknown, args: { trackId: string }, context: GraphqlContext) => {
-        const currentAccountId = await getAuthenticatedAccountId(
-          context.services.authTokenService,
-          context.authToken,
-        );
-
-        const track = await likeTrack(
-          context.services.trackLibraryRepository,
-          currentAccountId,
-          args.trackId,
-        );
-
-        return track ? toGraphqlTrack(track) : null;
-      },
-      unlikeTrack: async (
+      likeTrack: async (_parent: unknown, args: { trackId: string }, context: GraphqlContext) =>
+        resolveTrackLibraryMutation(context, args.trackId, likeTrack),
+      unlikeTrack: async (_parent: unknown, args: { trackId: string }, context: GraphqlContext) =>
+        resolveTrackLibraryMutation(context, args.trackId, unlikeTrack),
+      dislikeTrack: async (_parent: unknown, args: { trackId: string }, context: GraphqlContext) =>
+        resolveTrackLibraryMutation(context, args.trackId, dislikeTrack),
+      undislikeTrack: async (
         _parent: unknown,
         args: { trackId: string },
         context: GraphqlContext,
-      ) => {
-        const currentAccountId = await getAuthenticatedAccountId(
-          context.services.authTokenService,
-          context.authToken,
-        );
-
-        const track = await unlikeTrack(
-          context.services.trackLibraryRepository,
-          currentAccountId,
-          args.trackId,
-        );
-
-        return track ? toGraphqlTrack(track) : null;
-      },
+      ) => resolveTrackLibraryMutation(context, args.trackId, undislikeTrack),
       pinTrack: async (
         _parent: unknown,
         args: { slot: number; trackId: string },
@@ -949,11 +971,7 @@ export const schema = createSchema({
 
         return pinnedItem ? toGraphqlPinnedItem(pinnedItem) : null;
       },
-      unpinItem: async (
-        _parent: unknown,
-        args: { slot: number },
-        context: GraphqlContext,
-      ) => {
+      unpinItem: async (_parent: unknown, args: { slot: number }, context: GraphqlContext) => {
         const currentAccountId = await getAuthenticatedAccountId(
           context.services.authTokenService,
           context.authToken,
