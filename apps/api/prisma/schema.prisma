@@ -690,8 +690,10 @@ model Tag {
 }
 
 model Playlist {
-  playlistId   String  @id @default(dbgenerated("uuid_generate_v4()")) @map("playlist_id") @db.Uuid
-  playlistName String? @map("playlist_name") @db.VarChar(255)
+  playlistId          String  @id @default(dbgenerated("uuid_generate_v4()")) @map("playlist_id") @db.Uuid
+  playlistName        String? @map("playlist_name") @db.VarChar(255)
+  playlistDescription String? @map("playlist_description")
+  playlistImagePath   String? @map("playlist_image_path") @db.VarChar(255)
 
   playlistTracks PlaylistTrack[]
   playlistAccounts PlaylistAccount[]

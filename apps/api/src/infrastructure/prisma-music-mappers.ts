@@ -2,10 +2,18 @@ import type {
   Account,
   AlbumArtist,
   Album as PrismaAlbum,
-  Prisma,
   TrackArtistFeat,
   TrackArtistMain,
 } from "@prisma/generated/prisma/client";
+import type {
+  AlbumGetPayload,
+  AlbumInclude,
+  PlaylistGetPayload,
+  PlaylistInclude,
+  Track$accountLikesArgs,
+  TrackGetPayload,
+  TrackInclude,
+} from "@prisma/generated/prisma/models";
 import type { Album } from "packages/domain/src/entities/album";
 import type { Playlist as PlaylistEntity } from "packages/domain/src/entities/playlist";
 import type { PlaylistSummary } from "packages/domain/src/entities/playlist-summary";
@@ -19,7 +27,7 @@ const toNullableNumber = (value: bigint | number | null | undefined): number | n
   return Number(value);
 };
 
-const trackAccountLikesArgs = (currentAccountId?: string | null): Prisma.Track$accountLikesArgs => {
+const trackAccountLikesArgs = (currentAccountId?: string | null): Track$accountLikesArgs => {
   if (!currentAccountId) {
     return { take: 0 };
   }
@@ -53,7 +61,7 @@ export const trackInclude = (currentAccountId?: string | null) =>
     },
     accountLikes: trackAccountLikesArgs(currentAccountId),
     audioFeature: true,
-  }) satisfies Prisma.TrackInclude;
+  }) satisfies TrackInclude;
 
 export const playlistInclude = (currentAccountId?: string | null) =>
   ({
@@ -72,7 +80,7 @@ export const playlistInclude = (currentAccountId?: string | null) =>
         },
       },
     },
-  }) satisfies Prisma.PlaylistInclude;
+  }) satisfies PlaylistInclude;
 
 export const albumInclude = () =>
   ({
@@ -85,7 +93,7 @@ export const albumInclude = () =>
         },
       },
     },
-  }) satisfies Prisma.AlbumInclude;
+  }) satisfies AlbumInclude;
 
 export const playlistSummaryInclude = () =>
   ({
@@ -99,21 +107,21 @@ export const playlistSummaryInclude = () =>
         playlistTracks: true,
       },
     },
-  }) satisfies Prisma.PlaylistInclude;
+  }) satisfies PlaylistInclude;
 
-type PrismaTrackWithRelations = Prisma.TrackGetPayload<{
+type PrismaTrackWithRelations = TrackGetPayload<{
   include: ReturnType<typeof trackInclude>;
 }>;
 
-type PrismaAlbumWithRelations = Prisma.AlbumGetPayload<{
+type PrismaAlbumWithRelations = AlbumGetPayload<{
   include: ReturnType<typeof albumInclude>;
 }>;
 
-type PrismaPlaylistWithRelations = Prisma.PlaylistGetPayload<{
+type PrismaPlaylistWithRelations = PlaylistGetPayload<{
   include: ReturnType<typeof playlistInclude>;
 }>;
 
-type PrismaPlaylistSummaryWithRelations = Prisma.PlaylistGetPayload<{
+type PrismaPlaylistSummaryWithRelations = PlaylistGetPayload<{
   include: ReturnType<typeof playlistSummaryInclude>;
 }>;
 
@@ -206,6 +214,8 @@ export const toPlaylist = (
 ): PlaylistEntity => ({
   playlistId: playlist.playlistId,
   name: playlist.playlistName,
+  description: playlist.playlistDescription,
+  imagePath: playlist.playlistImagePath,
   ownerDisplayName: playlist.playlistAccounts[0]?.account
     ? toOwnerDisplayName(playlist.playlistAccounts[0].account)
     : null,
@@ -224,6 +234,8 @@ export const toPlaylistSummary = (
 ): PlaylistSummary => ({
   playlistId: playlist.playlistId,
   name: playlist.playlistName,
+  description: playlist.playlistDescription,
+  imagePath: playlist.playlistImagePath,
   ownerDisplayName: playlist.playlistAccounts[0]?.account
     ? toOwnerDisplayName(playlist.playlistAccounts[0].account)
     : null,

@@ -2,10 +2,14 @@ import type { Playlist } from "packages/domain/src/entities/playlist";
 
 export type CreatePlaylistData = {
   name: string;
+  description: string | null;
+  imagePath: string | null;
 };
 
 export type UpdatePlaylistData = {
   name?: string | null;
+  description?: string | null;
+  imagePath?: string | null;
 };
 
 export type PlaylistRepository = {

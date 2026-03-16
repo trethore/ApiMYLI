@@ -5,15 +5,14 @@ import depthLimit from "graphql-depth-limit";
 import { createYoga } from "graphql-yoga";
 import { schema } from "@/presentation/schema";
 import { createAppServices } from "@/main/app-services";
+import { parsePositiveInteger } from "@/main/config-utils";
+import { loadUploadConfig } from "@/main/upload-config";
+import { handleMediaRequest } from "@/presentation/http/media-routes";
 import { prisma } from "@/prisma";
 import { redis } from "@/redis";
 
-const services = createAppServices(prisma, redis);
-const parsePositiveInteger = (value: string | undefined, fallback: number): number => {
-  const parsedValue = Number.parseInt(value ?? "", 10);
-
-  return Number.isInteger(parsedValue) && parsedValue > 0 ? parsedValue : fallback;
-};
+const uploadConfig = loadUploadConfig();
+const services = createAppServices(prisma, redis, uploadConfig);
 
 const maxQueryDepth = parsePositiveInteger(Bun.env.GRAPHQL_MAX_DEPTH, 5);
 const maxQueryComplexity = parsePositiveInteger(Bun.env.GRAPHQL_MAX_COMPLEXITY, 1000);
@@ -35,7 +34,15 @@ const yoga = createYoga({
 const port = Number(Bun.env.PORT ?? 4000);
 const server = Bun.serve({
   port,
-  fetch: yoga.fetch,
+  fetch: async (request: Request) => {
+    const mediaResponse = await handleMediaRequest(request, services, uploadConfig);
+
+    if (mediaResponse) {
+      return mediaResponse;
+    }
+
+    return yoga.fetch(request);
+  },
 });
 
 console.log(`GraphQL server ready at http://localhost:${server.port}${yoga.graphqlEndpoint}`);

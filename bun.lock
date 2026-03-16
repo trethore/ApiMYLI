@@ -28,6 +28,7 @@
         "graphql-yoga": "5.18.0",
         "ioredis": "5.6.1",
         "jose": "5.10.0",
+        "sharp": "^0.34.5",
       },
       "devDependencies": {
         "@types/graphql-depth-limit": "^1.1.6",

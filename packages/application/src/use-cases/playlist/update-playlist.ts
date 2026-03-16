@@ -3,6 +3,13 @@ import type { PlaylistRepository } from "packages/domain/src/repositories/playli
 
 export type UpdatePlaylistInput = {
   name?: string | null;
+  description?: string | null;
+  imagePath?: string | null;
+};
+
+const normalizeOptionalString = (value: string | null | undefined): string | null => {
+  const normalizedValue = value?.trim();
+  return normalizedValue || null;
 };
 
 export const updatePlaylist = async (
@@ -13,6 +20,8 @@ export const updatePlaylist = async (
 ): Promise<Playlist | null> => {
   const updateData = {
     name: input.name === undefined ? undefined : input.name?.trim() ?? null,
+    description: input.description === undefined ? undefined : normalizeOptionalString(input.description),
+    imagePath: input.imagePath === undefined ? undefined : normalizeOptionalString(input.imagePath),
   };
 
   if (updateData.name !== undefined && !updateData.name) {

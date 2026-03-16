@@ -734,7 +734,9 @@ export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagSca
 
 export const PlaylistScalarFieldEnum = {
   playlistId: 'playlistId',
-  playlistName: 'playlistName'
+  playlistName: 'playlistName',
+  playlistDescription: 'playlistDescription',
+  playlistImagePath: 'playlistImagePath'
 } as const
 
 export type PlaylistScalarFieldEnum = (typeof PlaylistScalarFieldEnum)[keyof typeof PlaylistScalarFieldEnum]

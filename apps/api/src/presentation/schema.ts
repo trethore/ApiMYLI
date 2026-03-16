@@ -1,4 +1,5 @@
 import { createSchema } from "graphql-yoga";
+import type { PlaylistImageStoragePort } from "packages/application/src/ports/storage/playlist-image-storage-port";
 import { getArtistById } from "packages/application/src/use-cases/artist/get-artist-by-id";
 import { listArtistAlbums } from "packages/application/src/use-cases/artist/list-artist-albums";
 import { createPlaylist } from "packages/application/src/use-cases/playlist/create-playlist";
@@ -127,6 +128,8 @@ type GraphqlTrack = {
 type GraphqlPlaylist = {
   playlistId: string;
   name: string | null;
+  description: string | null;
+  imagePath: string | null;
   ownerDisplayName: string | null;
   isEditable: boolean;
   trackCount: number;
@@ -136,6 +139,8 @@ type GraphqlPlaylist = {
 type GraphqlPlaylistSummary = {
   playlistId: string;
   name: string | null;
+  description: string | null;
+  imagePath: string | null;
   ownerDisplayName: string | null;
   isEditable: boolean;
   trackCount: number;
@@ -186,10 +191,14 @@ type UpdateArtistInput = {
 
 type CreatePlaylistInput = {
   name: string;
+  description?: string | null;
+  imagePath?: string | null;
 };
 
 type UpdatePlaylistInput = {
   name?: string | null;
+  description?: string | null;
+  imagePath?: string | null;
 };
 
 type GraphqlContextServices = {
@@ -199,6 +208,7 @@ type GraphqlContextServices = {
   trackCatalogRepository: TrackCatalogRepository;
   trackLibraryRepository: TrackLibraryRepository;
   playlistRepository: PlaylistRepository;
+  playlistImageStorage: PlaylistImageStoragePort;
   passwordHasher: PasswordHasherPort;
   authTokenService: AuthTokenServicePort;
 };
@@ -304,6 +314,8 @@ const toGraphqlTrack = (track: Track): GraphqlTrack => ({
 const toGraphqlPlaylist = (playlist: Playlist): GraphqlPlaylist => ({
   playlistId: playlist.playlistId,
   name: playlist.name,
+  description: playlist.description,
+  imagePath: playlist.imagePath,
   ownerDisplayName: playlist.ownerDisplayName,
   isEditable: playlist.isEditable,
   trackCount: playlist.trackCount,
@@ -313,6 +325,8 @@ const toGraphqlPlaylist = (playlist: Playlist): GraphqlPlaylist => ({
 const toGraphqlPlaylistSummary = (playlist: PlaylistSummary): GraphqlPlaylistSummary => ({
   playlistId: playlist.playlistId,
   name: playlist.name,
+  description: playlist.description,
+  imagePath: playlist.imagePath,
   ownerDisplayName: playlist.ownerDisplayName,
   isEditable: playlist.isEditable,
   trackCount: playlist.trackCount,
@@ -416,6 +430,8 @@ export const schema = createSchema({
     type Playlist {
       playlistId: ID!
       name: String
+      description: String
+      imagePath: String
       ownerDisplayName: String
       isEditable: Boolean!
       trackCount: Int!
@@ -425,6 +441,8 @@ export const schema = createSchema({
     type PlaylistSummary {
       playlistId: ID!
       name: String
+      description: String
+      imagePath: String
       ownerDisplayName: String
       isEditable: Boolean!
       trackCount: Int!
@@ -496,10 +514,14 @@ export const schema = createSchema({
 
     input CreatePlaylistInput {
       name: String!
+      description: String
+      imagePath: String
     }
 
     input UpdatePlaylistInput {
       name: String
+      description: String
+      imagePath: String
     }
 
     input LoginInput {

@@ -27,16 +27,22 @@ export type AggregatePlaylist = {
 export type PlaylistMinAggregateOutputType = {
   playlistId: string | null
   playlistName: string | null
+  playlistDescription: string | null
+  playlistImagePath: string | null
 }
 
 export type PlaylistMaxAggregateOutputType = {
   playlistId: string | null
   playlistName: string | null
+  playlistDescription: string | null
+  playlistImagePath: string | null
 }
 
 export type PlaylistCountAggregateOutputType = {
   playlistId: number
   playlistName: number
+  playlistDescription: number
+  playlistImagePath: number
   _all: number
 }
 
@@ -44,16 +50,22 @@ export type PlaylistCountAggregateOutputType = {
 export type PlaylistMinAggregateInputType = {
   playlistId?: true
   playlistName?: true
+  playlistDescription?: true
+  playlistImagePath?: true
 }
 
 export type PlaylistMaxAggregateInputType = {
   playlistId?: true
   playlistName?: true
+  playlistDescription?: true
+  playlistImagePath?: true
 }
 
 export type PlaylistCountAggregateInputType = {
   playlistId?: true
   playlistName?: true
+  playlistDescription?: true
+  playlistImagePath?: true
   _all?: true
 }
 
@@ -132,6 +144,8 @@ export type PlaylistGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 export type PlaylistGroupByOutputType = {
   playlistId: string
   playlistName: string | null
+  playlistDescription: string | null
+  playlistImagePath: string | null
   _count: PlaylistCountAggregateOutputType | null
   _min: PlaylistMinAggregateOutputType | null
   _max: PlaylistMaxAggregateOutputType | null
@@ -158,6 +172,8 @@ export type PlaylistWhereInput = {
   NOT?: Prisma.PlaylistWhereInput | Prisma.PlaylistWhereInput[]
   playlistId?: Prisma.UuidFilter<"Playlist"> | string
   playlistName?: Prisma.StringNullableFilter<"Playlist"> | string | null
+  playlistDescription?: Prisma.StringNullableFilter<"Playlist"> | string | null
+  playlistImagePath?: Prisma.StringNullableFilter<"Playlist"> | string | null
   playlistTracks?: Prisma.PlaylistTrackListRelationFilter
   playlistAccounts?: Prisma.PlaylistAccountListRelationFilter
   pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
@@ -166,6 +182,8 @@ export type PlaylistWhereInput = {
 export type PlaylistOrderByWithRelationInput = {
   playlistId?: Prisma.SortOrder
   playlistName?: Prisma.SortOrderInput | Prisma.SortOrder
+  playlistDescription?: Prisma.SortOrderInput | Prisma.SortOrder
+  playlistImagePath?: Prisma.SortOrderInput | Prisma.SortOrder
   playlistTracks?: Prisma.PlaylistTrackOrderByRelationAggregateInput
   playlistAccounts?: Prisma.PlaylistAccountOrderByRelationAggregateInput
   pinnedItems?: Prisma.AccountPinnedItemOrderByRelationAggregateInput
@@ -177,6 +195,8 @@ export type PlaylistWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.PlaylistWhereInput[]
   NOT?: Prisma.PlaylistWhereInput | Prisma.PlaylistWhereInput[]
   playlistName?: Prisma.StringNullableFilter<"Playlist"> | string | null
+  playlistDescription?: Prisma.StringNullableFilter<"Playlist"> | string | null
+  playlistImagePath?: Prisma.StringNullableFilter<"Playlist"> | string | null
   playlistTracks?: Prisma.PlaylistTrackListRelationFilter
   playlistAccounts?: Prisma.PlaylistAccountListRelationFilter
   pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
@@ -185,6 +205,8 @@ export type PlaylistWhereUniqueInput = Prisma.AtLeast<{
 export type PlaylistOrderByWithAggregationInput = {
   playlistId?: Prisma.SortOrder
   playlistName?: Prisma.SortOrderInput | Prisma.SortOrder
+  playlistDescription?: Prisma.SortOrderInput | Prisma.SortOrder
+  playlistImagePath?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.PlaylistCountOrderByAggregateInput
   _max?: Prisma.PlaylistMaxOrderByAggregateInput
   _min?: Prisma.PlaylistMinOrderByAggregateInput
@@ -196,11 +218,15 @@ export type PlaylistScalarWhereWithAggregatesInput = {
   NOT?: Prisma.PlaylistScalarWhereWithAggregatesInput | Prisma.PlaylistScalarWhereWithAggregatesInput[]
   playlistId?: Prisma.UuidWithAggregatesFilter<"Playlist"> | string
   playlistName?: Prisma.StringNullableWithAggregatesFilter<"Playlist"> | string | null
+  playlistDescription?: Prisma.StringNullableWithAggregatesFilter<"Playlist"> | string | null
+  playlistImagePath?: Prisma.StringNullableWithAggregatesFilter<"Playlist"> | string | null
 }
 
 export type PlaylistCreateInput = {
   playlistId?: string
   playlistName?: string | null
+  playlistDescription?: string | null
+  playlistImagePath?: string | null
   playlistTracks?: Prisma.PlaylistTrackCreateNestedManyWithoutPlaylistInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutPlaylistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutPlaylistInput
@@ -209,6 +235,8 @@ export type PlaylistCreateInput = {
 export type PlaylistUncheckedCreateInput = {
   playlistId?: string
   playlistName?: string | null
+  playlistDescription?: string | null
+  playlistImagePath?: string | null
   playlistTracks?: Prisma.PlaylistTrackUncheckedCreateNestedManyWithoutPlaylistInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutPlaylistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutPlaylistInput
@@ -217,6 +245,8 @@ export type PlaylistUncheckedCreateInput = {
 export type PlaylistUpdateInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   playlistTracks?: Prisma.PlaylistTrackUpdateManyWithoutPlaylistNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutPlaylistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutPlaylistNestedInput
@@ -225,6 +255,8 @@ export type PlaylistUpdateInput = {
 export type PlaylistUncheckedUpdateInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   playlistTracks?: Prisma.PlaylistTrackUncheckedUpdateManyWithoutPlaylistNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutPlaylistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutPlaylistNestedInput
@@ -233,31 +265,43 @@ export type PlaylistUncheckedUpdateInput = {
 export type PlaylistCreateManyInput = {
   playlistId?: string
   playlistName?: string | null
+  playlistDescription?: string | null
+  playlistImagePath?: string | null
 }
 
 export type PlaylistUpdateManyMutationInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type PlaylistUncheckedUpdateManyInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type PlaylistCountOrderByAggregateInput = {
   playlistId?: Prisma.SortOrder
   playlistName?: Prisma.SortOrder
+  playlistDescription?: Prisma.SortOrder
+  playlistImagePath?: Prisma.SortOrder
 }
 
 export type PlaylistMaxOrderByAggregateInput = {
   playlistId?: Prisma.SortOrder
   playlistName?: Prisma.SortOrder
+  playlistDescription?: Prisma.SortOrder
+  playlistImagePath?: Prisma.SortOrder
 }
 
 export type PlaylistMinOrderByAggregateInput = {
   playlistId?: Prisma.SortOrder
   playlistName?: Prisma.SortOrder
+  playlistDescription?: Prisma.SortOrder
+  playlistImagePath?: Prisma.SortOrder
 }
 
 export type PlaylistScalarRelationFilter = {
@@ -317,6 +361,8 @@ export type PlaylistUpdateOneWithoutPinnedItemsNestedInput = {
 export type PlaylistCreateWithoutPlaylistTracksInput = {
   playlistId?: string
   playlistName?: string | null
+  playlistDescription?: string | null
+  playlistImagePath?: string | null
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutPlaylistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutPlaylistInput
 }
@@ -324,6 +370,8 @@ export type PlaylistCreateWithoutPlaylistTracksInput = {
 export type PlaylistUncheckedCreateWithoutPlaylistTracksInput = {
   playlistId?: string
   playlistName?: string | null
+  playlistDescription?: string | null
+  playlistImagePath?: string | null
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutPlaylistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutPlaylistInput
 }
@@ -347,6 +395,8 @@ export type PlaylistUpdateToOneWithWhereWithoutPlaylistTracksInput = {
 export type PlaylistUpdateWithoutPlaylistTracksInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutPlaylistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutPlaylistNestedInput
 }
@@ -354,6 +404,8 @@ export type PlaylistUpdateWithoutPlaylistTracksInput = {
 export type PlaylistUncheckedUpdateWithoutPlaylistTracksInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutPlaylistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutPlaylistNestedInput
 }
@@ -361,6 +413,8 @@ export type PlaylistUncheckedUpdateWithoutPlaylistTracksInput = {
 export type PlaylistCreateWithoutPlaylistAccountsInput = {
   playlistId?: string
   playlistName?: string | null
+  playlistDescription?: string | null
+  playlistImagePath?: string | null
   playlistTracks?: Prisma.PlaylistTrackCreateNestedManyWithoutPlaylistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutPlaylistInput
 }
@@ -368,6 +422,8 @@ export type PlaylistCreateWithoutPlaylistAccountsInput = {
 export type PlaylistUncheckedCreateWithoutPlaylistAccountsInput = {
   playlistId?: string
   playlistName?: string | null
+  playlistDescription?: string | null
+  playlistImagePath?: string | null
   playlistTracks?: Prisma.PlaylistTrackUncheckedCreateNestedManyWithoutPlaylistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutPlaylistInput
 }
@@ -391,6 +447,8 @@ export type PlaylistUpdateToOneWithWhereWithoutPlaylistAccountsInput = {
 export type PlaylistUpdateWithoutPlaylistAccountsInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   playlistTracks?: Prisma.PlaylistTrackUpdateManyWithoutPlaylistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutPlaylistNestedInput
 }
@@ -398,6 +456,8 @@ export type PlaylistUpdateWithoutPlaylistAccountsInput = {
 export type PlaylistUncheckedUpdateWithoutPlaylistAccountsInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   playlistTracks?: Prisma.PlaylistTrackUncheckedUpdateManyWithoutPlaylistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutPlaylistNestedInput
 }
@@ -405,6 +465,8 @@ export type PlaylistUncheckedUpdateWithoutPlaylistAccountsInput = {
 export type PlaylistCreateWithoutPinnedItemsInput = {
   playlistId?: string
   playlistName?: string | null
+  playlistDescription?: string | null
+  playlistImagePath?: string | null
   playlistTracks?: Prisma.PlaylistTrackCreateNestedManyWithoutPlaylistInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutPlaylistInput
 }
@@ -412,6 +474,8 @@ export type PlaylistCreateWithoutPinnedItemsInput = {
 export type PlaylistUncheckedCreateWithoutPinnedItemsInput = {
   playlistId?: string
   playlistName?: string | null
+  playlistDescription?: string | null
+  playlistImagePath?: string | null
   playlistTracks?: Prisma.PlaylistTrackUncheckedCreateNestedManyWithoutPlaylistInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutPlaylistInput
 }
@@ -435,6 +499,8 @@ export type PlaylistUpdateToOneWithWhereWithoutPinnedItemsInput = {
 export type PlaylistUpdateWithoutPinnedItemsInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   playlistTracks?: Prisma.PlaylistTrackUpdateManyWithoutPlaylistNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutPlaylistNestedInput
 }
@@ -442,6 +508,8 @@ export type PlaylistUpdateWithoutPinnedItemsInput = {
 export type PlaylistUncheckedUpdateWithoutPinnedItemsInput = {
   playlistId?: Prisma.StringFieldUpdateOperationsInput | string
   playlistName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  playlistImagePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   playlistTracks?: Prisma.PlaylistTrackUncheckedUpdateManyWithoutPlaylistNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutPlaylistNestedInput
 }
@@ -498,6 +566,8 @@ export type PlaylistCountOutputTypeCountPinnedItemsArgs<ExtArgs extends runtime.
 export type PlaylistSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   playlistId?: boolean
   playlistName?: boolean
+  playlistDescription?: boolean
+  playlistImagePath?: boolean
   playlistTracks?: boolean | Prisma.Playlist$playlistTracksArgs<ExtArgs>
   playlistAccounts?: boolean | Prisma.Playlist$playlistAccountsArgs<ExtArgs>
   pinnedItems?: boolean | Prisma.Playlist$pinnedItemsArgs<ExtArgs>
@@ -507,19 +577,25 @@ export type PlaylistSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
 export type PlaylistSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   playlistId?: boolean
   playlistName?: boolean
+  playlistDescription?: boolean
+  playlistImagePath?: boolean
 }, ExtArgs["result"]["playlist"]>
 
 export type PlaylistSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   playlistId?: boolean
   playlistName?: boolean
+  playlistDescription?: boolean
+  playlistImagePath?: boolean
 }, ExtArgs["result"]["playlist"]>
 
 export type PlaylistSelectScalar = {
   playlistId?: boolean
   playlistName?: boolean
+  playlistDescription?: boolean
+  playlistImagePath?: boolean
 }
 
-export type PlaylistOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"playlistId" | "playlistName", ExtArgs["result"]["playlist"]>
+export type PlaylistOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"playlistId" | "playlistName" | "playlistDescription" | "playlistImagePath", ExtArgs["result"]["playlist"]>
 export type PlaylistInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   playlistTracks?: boolean | Prisma.Playlist$playlistTracksArgs<ExtArgs>
   playlistAccounts?: boolean | Prisma.Playlist$playlistAccountsArgs<ExtArgs>
@@ -539,6 +615,8 @@ export type $PlaylistPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     playlistId: string
     playlistName: string | null
+    playlistDescription: string | null
+    playlistImagePath: string | null
   }, ExtArgs["result"]["playlist"]>
   composites: {}
 }
@@ -967,6 +1045,8 @@ export interface Prisma__PlaylistClient<T, Null = never, ExtArgs extends runtime
 export interface PlaylistFieldRefs {
   readonly playlistId: Prisma.FieldRef<"Playlist", 'String'>
   readonly playlistName: Prisma.FieldRef<"Playlist", 'String'>
+  readonly playlistDescription: Prisma.FieldRef<"Playlist", 'String'>
+  readonly playlistImagePath: Prisma.FieldRef<"Playlist", 'String'>
 }
     
 
