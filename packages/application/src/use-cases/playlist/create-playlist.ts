@@ -3,6 +3,13 @@ import type { PlaylistRepository } from "packages/domain/src/repositories/playli
 
 export type CreatePlaylistInput = {
   name: string;
+  description?: string | null;
+  imagePath?: string | null;
+};
+
+const normalizeOptionalString = (value: string | null | undefined): string | null => {
+  const normalizedValue = value?.trim();
+  return normalizedValue || null;
 };
 
 export const createPlaylist = async (
@@ -11,10 +18,12 @@ export const createPlaylist = async (
   input: CreatePlaylistInput,
 ): Promise<Playlist> => {
   const name = input.name.trim();
+  const description = normalizeOptionalString(input.description);
+  const imagePath = normalizeOptionalString(input.imagePath);
 
   if (!name) {
     throw new Error("Playlist name is required");
   }
 
-  return repository.create(accountId, { name });
+  return repository.create(accountId, { name, description, imagePath });
 };

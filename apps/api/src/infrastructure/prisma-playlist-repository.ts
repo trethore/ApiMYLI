@@ -1,4 +1,5 @@
 import type { Prisma, PrismaClient } from "@prisma/generated/prisma/client";
+import type { PlaylistCreateInput, PlaylistUpdateInput } from "@prisma/generated/prisma/models";
 import type { Playlist } from "packages/domain/src/entities/playlist";
 import type {
   CreatePlaylistData,
@@ -63,21 +64,33 @@ export const createPrismaPlaylistRepository = (prisma: PrismaClient): PlaylistRe
     return playlists.map((playlist) => toPlaylist(playlist, accountId));
   },
   create: async (accountId: string, data: CreatePlaylistData): Promise<Playlist> => {
-    const playlist = await prisma.playlist.create({
-      data: {
-        playlistName: data.name,
-        playlistAccounts: {
-          create: {
-            account: {
-              connect: { accountId },
-            },
+    const createData: PlaylistCreateInput = {
+      playlistName: data.name,
+      playlistDescription: data.description,
+      playlistImagePath: data.imagePath,
+      playlistAccounts: {
+        create: {
+          account: {
+            connect: { accountId },
           },
         },
       },
-      include: playlistInclude(accountId),
+    };
+
+    const createdPlaylist = await prisma.playlist.create({
+      data: createData,
+      select: {
+        playlistId: true,
+      },
     });
 
-    return toPlaylist(playlist, accountId);
+    const playlist = await readPlaylist(prisma, createdPlaylist.playlistId, accountId);
+
+    if (!playlist) {
+      throw new Error("Failed to load created playlist");
+    }
+
+    return playlist;
   },
   update: async (
     accountId: string,
@@ -90,15 +103,18 @@ export const createPrismaPlaylistRepository = (prisma: PrismaClient): PlaylistRe
       return null;
     }
 
-    const playlist = await prisma.playlist.update({
+    const updateData: PlaylistUpdateInput = {
+      playlistName: data.name === undefined ? undefined : data.name,
+      playlistDescription: data.description === undefined ? undefined : data.description,
+      playlistImagePath: data.imagePath === undefined ? undefined : data.imagePath,
+    };
+
+    await prisma.playlist.update({
       where: { playlistId },
-      data: {
-        playlistName: data.name === undefined ? undefined : data.name,
-      },
-      include: playlistInclude(accountId),
+      data: updateData,
     });
 
-    return toPlaylist(playlist, accountId);
+    return readPlaylist(prisma, playlistId, accountId);
   },
   delete: async (accountId: string, playlistId: string): Promise<boolean> => {
     const canEdit = await hasPlaylistAccess(prisma, playlistId, accountId);
