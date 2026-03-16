@@ -32,6 +32,7 @@ export default function LoginPage() {
               Connectez-vous à MUSE
             </CardTitle>
           </CardHeader>
+
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
