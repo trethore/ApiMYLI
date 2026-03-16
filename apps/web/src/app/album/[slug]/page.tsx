@@ -148,7 +148,7 @@ export default function AlbumPage({ params }: { params: Promise<{ slug: string }
                       }
                     }}
                   >
-                    Voir l'artiste
+                    Voir l&apos;artiste
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     className="cursor-pointer"

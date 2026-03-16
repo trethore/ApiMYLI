@@ -97,7 +97,7 @@ export default function SearchBar() {
             </div>
           ) : !hasResults ? (
             <div className="p-8 text-center text-muted-foreground text-sm">
-              Aucun résultat pour "{query}"
+              Aucun résultat pour &quot;{query}&quot;
             </div>
           ) : (
              <div className="overflow-y-auto p-2 flex flex-col gap-4 custom-scrollbar">

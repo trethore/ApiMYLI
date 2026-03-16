@@ -1,49 +1,46 @@
 "use client";
 
 import { usePlayer } from "@/context/PlayerContext";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Activity, Power, PowerOff } from "lucide-react";
+import { Power, PowerOff } from "lucide-react";
 
 export default function MusicVisualizer() {
   const { isPlaying, volume } = usePlayer();
   const [isEnabled, setIsEnabled] = useState(true);
-  const [hasStarted, setHasStarted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const requestRef = useRef<number>(0);
 
-  useEffect(() => {
-    if (isPlaying) {
-      setHasStarted(true);
-    }
-  }, [isPlaying]);
+  // Frame counter for deterministic animation
+  const frameRef = useRef<number>(0);
 
-  const barCount = 40;
+  // Pure seeded "random" function
+  const seededRandom = (seed: number) => {
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+  };
 
-  // Animation Loop
   const animate = () => {
-    if (containerRef.current && isEnabled && isPlaying) {
-      const bars = containerRef.current.children as HTMLCollectionOf<HTMLElement>;
-      const time = Date.now() / 1000;
+    if (!containerRef.current) return;
 
+    const bars = containerRef.current.children as HTMLCollectionOf<HTMLElement>;
+
+    if (isEnabled && isPlaying) {
       for (let i = 0; i < bars.length; i++) {
-        // Create a pseudo-random wave pattern
-        // Base wave based on time and index
-        const wave = Math.sin(time * 1 + i * 0.2) * 0.5 + 0.5;
-        // Fast "beat" noise
-        const noise = Math.random();
+        const t = frameRef.current / 60; // 60 fps approximation
+        const wave = Math.sin(t * 2 + i * 0.2) * 0.5 + 0.5;
 
-        // Combine them: beat hits harder on some bars
-        const height = (wave * 0.3 + noise * 0.7) * (volume * 100);
+        // Deterministic per-frame noise from frame count + index
+        const noise = seededRandom(frameRef.current + i);
 
-        // Clamp and smooth
-        const finalHeight = Math.max(5, Math.min(100, height));
-
-        bars[i].style.height = `${finalHeight}%`;
+        const height = (wave * 0.3 + noise * 0.7) * volume * 100;
+        bars[i].style.height = `${Math.max(5, Math.min(100, height))}%`;
       }
-    } else if (containerRef.current && (!isPlaying || !isEnabled)) {
-      // Reset to flat line if paused
-      const bars = containerRef.current.children as HTMLCollectionOf<HTMLElement>;
+
+      // Increment frame counter for next animation
+      frameRef.current += 1;
+    } else {
+      // Reset bars if disabled or paused
       for (let i = 0; i < bars.length; i++) {
         bars[i].style.height = "5%";
       }
@@ -51,13 +48,13 @@ export default function MusicVisualizer() {
 
     requestRef.current = requestAnimationFrame(animate);
   };
-
+  
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
   });
 
-  if (!hasStarted && !isPlaying) return null;
+  if (!isPlaying) return null;
 
   return (
     <div className="w-full h-48 bg-background/50 backdrop-blur-sm rounded-xl border border-white/10 relative overflow-hidden flex flex-col items-center justify-center mb-8 bg-gradient-to-b from-muse-dark-blue/20 to-transparent">

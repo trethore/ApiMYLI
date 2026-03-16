@@ -26,6 +26,7 @@ interface AuthContextType {
   token: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
+  isInitializing: boolean;
   error: string | null;
   login: (email: string, password: string) => Promise<void>;
   register: (login: string, email: string, password: string, name: string) => Promise<void>;
@@ -48,6 +49,7 @@ const toUser = (account: ApiAccount): User => ({
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [isInitializing, setIsInitializing] = useState<boolean>(true)
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -67,6 +69,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         localStorage.removeItem(TOKEN_KEY);
       }
     }
+
+    setIsInitializing(false);
   }, []);
 
   const persistAuth = (u: User, t: string) => {
@@ -171,6 +175,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         token,
         isAuthenticated: !!user && !!token,
         isLoading,
+        isInitializing,
         error,
         login,
         register,

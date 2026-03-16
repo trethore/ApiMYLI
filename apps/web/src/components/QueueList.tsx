@@ -1,7 +1,7 @@
 import { usePlayer } from "@/context/PlayerContext";
 import { Button } from "@/components/ui/button";
 import { Music } from "@/types/music";
-import { Trash2, X, Play } from "lucide-react";
+import { X, Play } from "lucide-react";
 import Image from "@/components/ImageWithFallback";
 
 interface QueueListProps {
@@ -9,12 +9,12 @@ interface QueueListProps {
 }
 
 export default function QueueList({ className }: QueueListProps) {
-  const { queue, removeFromQueue, clearQueue, playTrack, currentTrack } = usePlayer();
+  const { queue, removeFromQueue, clearQueue, playTrack } = usePlayer();
 
   if (queue.length === 0) {
     return (
       <div className={`p-4 text-center text-muted-foreground ${className}`}>
-        File d'attente vide
+        File d&apos;attente vide
       </div>
     );
   }
@@ -22,7 +22,7 @@ export default function QueueList({ className }: QueueListProps) {
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
       <div className="flex items-center justify-between p-2 border-b border-border/50">
-        <h3 className="font-semibold text-sm">File d'attente ({queue.length})</h3>
+        <h3 className="font-semibold text-sm">File d&apos;attente ({queue.length})</h3>
         <Button
           variant="ghost"
           size="sm"

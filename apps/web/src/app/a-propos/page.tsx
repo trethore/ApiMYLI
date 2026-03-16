@@ -3,53 +3,49 @@
 import Nav from "@/components/Nav";
 import SectionTitle from "@/components/SectionTitle";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function AboutPage() {
-  const [activeSection, setActiveSection] = useState("mentions");
-
-  useEffect(() => {
-    // Si l'URL contient #contact, on active la section contact
-    if (window.location.hash === "#contact") {
-      setActiveSection("contact");
-    }
-  }, []);
+  const wind = window;
+  const [activeSection, setActiveSection] = useState(() => {
+    return wind?.location?.hash === "#contact" ? "contact" : "mentions"
+  });
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-background text-foreground">
       <Nav />
       {/* Container principal */}
       <main className="flex-1 flex flex-col lg:flex-row p-8 pb-24 max-w-6xl mx-auto w-full gap-8 mt-16">
-        
+
         {/* Menu Gauche */}
         <div className="w-full lg:w-1/4 flex flex-col space-y-4">
           <SectionTitle title="À propos" className="text-left mt-0 text-3xl mb-2" />
           <nav className="flex flex-col space-y-2 flex-grow">
-            <button 
+            <button
               onClick={() => setActiveSection("api")}
               className={`text-left px-4 py-3 rounded-md transition-colors ${activeSection === "api" ? "bg-primary text-primary-foreground font-medium" : "bg-card text-card-foreground hover:bg-accent hover:text-accent-foreground border border-border"}`}
             >
               API
             </button>
-            <button 
+            <button
               onClick={() => setActiveSection("mentions")}
               className={`text-left px-4 py-3 rounded-md transition-colors ${activeSection === "mentions" ? "bg-primary text-primary-foreground font-medium" : "bg-card text-card-foreground hover:bg-accent hover:text-accent-foreground border border-border"}`}
             >
               Mentions légales
             </button>
-            <button 
+            <button
               onClick={() => setActiveSection("rgpd")}
               className={`text-left px-4 py-3 rounded-md transition-colors ${activeSection === "rgpd" ? "bg-primary text-primary-foreground font-medium" : "bg-card text-card-foreground hover:bg-accent hover:text-accent-foreground border border-border"}`}
             >
               Confidentialité (RGPD)
             </button>
-            <button 
+            <button
               onClick={() => setActiveSection("cgu")}
               className={`text-left px-4 py-3 rounded-md transition-colors ${activeSection === "cgu" ? "bg-primary text-primary-foreground font-medium" : "bg-card text-card-foreground hover:bg-accent hover:text-accent-foreground border border-border"}`}
             >
               CGU
             </button>
-            <button 
+            <button
               onClick={() => setActiveSection("contact")}
               className={`text-left px-4 py-3 rounded-md transition-colors ${activeSection === "contact" ? "bg-primary text-primary-foreground font-medium" : "bg-card text-card-foreground hover:bg-accent hover:text-accent-foreground border border-border"}`}
             >
@@ -71,7 +67,7 @@ export default function AboutPage() {
                 {/* Introduction */}
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold text-foreground">Introduction</h3>
-                  <p>Cette API est une API GraphQL exposée par l'application <code className="bg-muted px-1 rounded text-sm">apps/api</code>.</p>
+                  <p>Cette API est une API GraphQL exposée par l&apos;application <code className="bg-muted px-1 rounded text-sm">apps/api</code>.</p>
                   <ul className="list-disc pl-5 space-y-1">
                     <li><strong>Endpoint local par défaut :</strong> <code className="bg-muted px-1 rounded text-sm">http://localhost:4000/graphql</code></li>
                     <li><strong>Runtime :</strong> Bun</li>
@@ -84,7 +80,7 @@ export default function AboutPage() {
                 {/* Prérequis */}
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold text-foreground">Prérequis</h3>
-                  <p>Avant de lancer l'API :</p>
+                  <p>Avant de lancer l&apos;API :</p>
                   <ul className="list-disc pl-5 space-y-1">
                     <li>installer <a href="https://bun.sh/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Bun</a></li>
                     <li>installer Docker et Docker Compose</li>
@@ -97,16 +93,16 @@ export default function AboutPage() {
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold text-foreground">Initialiser la base de données</h3>
 
-                  <h4 className="font-semibold text-foreground">1. Configurer les fichiers d'environnement</h4>
+                  <h4 className="font-semibold text-foreground">1. Configurer les fichiers d&apos;environnement</h4>
                   <p>Fichier racine <code className="bg-muted px-1 rounded text-sm">/.env</code> (utilisé par docker-compose) :</p>
                   <pre className="bg-muted rounded-md p-4 text-sm overflow-x-auto"><code>{`cp .env.example .env`}</code></pre>
                   <pre className="bg-muted rounded-md p-4 text-sm overflow-x-auto"><code>{`POSTGRES_PORT=5433`}</code></pre>
 
-                  <p>Fichier <code className="bg-muted px-1 rounded text-sm">apps/api/.env</code> (utilisé par l'API et les scripts) :</p>
+                  <p>Fichier <code className="bg-muted px-1 rounded text-sm">apps/api/.env</code> (utilisé par l&apos;API et les scripts) :</p>
                   <pre className="bg-muted rounded-md p-4 text-sm overflow-x-auto"><code>{`cp apps/api/.env.example apps/api/.env`}</code></pre>
                   <pre className="bg-muted rounded-md p-4 text-sm overflow-x-auto"><code>{`DATABASE_URL="postgresql://myli:myli@localhost:5433/myli"\nREDIS_URL="redis://localhost:6379"\nPORT=4000\nPASSWORD_PEPPER="IjustUseThisForMyTestButINeedToReplaceItForTheFinalEnvFile"\nJWT_SECRET="replace-with-strong-secret"\nARGON2_MEMORY_COST=65536\nARGON2_TIME_COST=3\nARGON2_PARALLELISM=1\nGRAPHQL_MAX_DEPTH=5\nGRAPHQL_MAX_COMPLEXITY=1000`}</code></pre>
 
-                  <h4 className="font-semibold text-foreground">2. Variables d'environnement</h4>
+                  <h4 className="font-semibold text-foreground">2. Variables d&apos;environnement</h4>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm border-collapse">
                       <thead>
@@ -120,7 +116,7 @@ export default function AboutPage() {
                         {[
                           ["DATABASE_URL", "oui", "URL PostgreSQL utilisée par Prisma et les scripts de seed. En local, utiliser localhost:5433 si vous gardez la config Docker par défaut."],
                           ["REDIS_URL", "oui", "URL de connexion Redis. Par défaut : redis://localhost:6379."],
-                          ["PORT", "non", "Port HTTP de l'API GraphQL. Par défaut : 4000."],
+                          ["PORT", "non", "Port HTTP de l&apos;API GraphQL. Par défaut : 4000."],
                           ["PASSWORD_PEPPER", "oui", "Valeur secrète ajoutée aux mots de passe avant hash Argon2."],
                           ["JWT_SECRET", "oui", "Secret de signature des JWT. Obligatoire pour login, logout et toutes les mutations authentifiées."],
                           ["ARGON2_MEMORY_COST", "non", "Coût mémoire Argon2. Par défaut : 65536."],
@@ -153,13 +149,13 @@ export default function AboutPage() {
                   <pre className="bg-muted rounded-md p-4 text-sm overflow-x-auto"><code>{`cp .env.example .env\ncp apps/api/.env.example apps/api/.env\ndocker compose up -d\nbun install\nbun run --filter api prisma:generate\nbun run --filter api prisma:migrate\nbun run --filter api seed:download\nbun run --filter api seed\nbun run --filter api dev`}</code></pre>
                 </div>
 
-                {/* Lancer l'API */}
+                {/* Lancer l&apos;API */}
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-foreground">Lancer l'API</h3>
+                  <h3 className="text-xl font-bold text-foreground">Lancer l&apos;API</h3>
                   <pre className="bg-muted rounded-md p-4 text-sm overflow-x-auto"><code>{`bun run --filter api dev`}</code></pre>
                   <ul className="list-disc pl-5 space-y-1">
                     <li>URL GraphQL : <code className="bg-muted px-1 rounded text-sm">http://localhost:4000/graphql</code></li>
-                    <li>Header d'auth : <code className="bg-muted px-1 rounded text-sm">Authorization: Bearer &lt;token&gt;</code></li>
+                    <li>Header d&apos;auth : <code className="bg-muted px-1 rounded text-sm">Authorization: Bearer &lt;token&gt;</code></li>
                   </ul>
                 </div>
 
@@ -176,7 +172,7 @@ export default function AboutPage() {
       "input": { "name": "Ma playlist" }
     }
   }'`}</code></pre>
-                  <p>Si une mutation n'exige pas d'authentification, supprimez le header <code className="bg-muted px-1 rounded text-sm">Authorization</code>.</p>
+                  <p>Si une mutation n&apos;exige pas d&apos;authentification, supprimez le header <code className="bg-muted px-1 rounded text-sm">Authorization</code>.</p>
                 </div>
 
                 {/* Documentation des mutations */}
@@ -213,7 +209,7 @@ export default function AboutPage() {
                   <div className="border border-border rounded-lg p-4 space-y-3">
                     <div className="flex items-center gap-3"><code className="text-base font-bold text-foreground">updateAccount</code><span className="text-xs px-2 py-0.5 rounded-full font-medium bg-amber-500/20 text-amber-400">🔒 Auth requise</span></div>
                     <p>Mettre à jour le compte connecté.</p>
-                    <ul className="list-disc pl-5 space-y-0.5 text-sm"><li>Retour : <code className="bg-muted px-1 rounded text-xs">Account</code> (peut être <code className="bg-muted px-1 rounded text-xs">null</code> si le compte n'existe pas)</li><li>Restriction : <code className="bg-muted px-1 rounded text-xs">accountId</code> doit correspondre au compte du token</li></ul>
+                    <ul className="list-disc pl-5 space-y-0.5 text-sm"><li>Retour : <code className="bg-muted px-1 rounded text-xs">Account</code> (peut être <code className="bg-muted px-1 rounded text-xs">null</code> si le compte n&apos;existe pas)</li><li>Restriction : <code className="bg-muted px-1 rounded text-xs">accountId</code> doit correspondre au compte du token</li></ul>
                     <pre className="bg-muted rounded-md p-3 text-xs overflow-x-auto"><code>{`mutation UpdateAccount($accountId: String!, $input: UpdateAccountInput!) {
   updateAccount(accountId: $accountId, input: $input) {
     accountId
@@ -281,7 +277,7 @@ export default function AboutPage() {
                   <div className="border border-border rounded-lg p-4 space-y-3">
                     <div className="flex items-center gap-3"><code className="text-base font-bold text-foreground">login</code><span className="text-xs px-2 py-0.5 rounded-full font-medium bg-green-500/20 text-green-400">✓ Public</span></div>
                     <p>Authentifier un utilisateur et récupérer un JWT.</p>
-                    <ul className="list-disc pl-5 space-y-0.5 text-sm"><li>Retour : <code className="bg-muted px-1 rounded text-xs">AuthPayload</code> ou <code className="bg-muted px-1 rounded text-xs">null</code> si email / mot de passe invalide</li><li>Usage : stocker <code className="bg-muted px-1 rounded text-xs">token</code> puis l'envoyer dans <code className="bg-muted px-1 rounded text-xs">Authorization: Bearer &lt;token&gt;</code></li></ul>
+                    <ul className="list-disc pl-5 space-y-0.5 text-sm"><li>Retour : <code className="bg-muted px-1 rounded text-xs">AuthPayload</code> ou <code className="bg-muted px-1 rounded text-xs">null</code> si email / mot de passe invalide</li><li>Usage : stocker <code className="bg-muted px-1 rounded text-xs">token</code> puis l&apos;envoyer dans <code className="bg-muted px-1 rounded text-xs">Authorization: Bearer &lt;token&gt;</code></li></ul>
                     <pre className="bg-muted rounded-md p-3 text-xs overflow-x-auto"><code>{`mutation Login($input: LoginInput!) {
   login(input: $input) {
     token
@@ -485,7 +481,7 @@ export default function AboutPage() {
                   <div className="border border-border rounded-lg p-4 space-y-3">
                     <div className="flex items-center gap-3"><code className="text-base font-bold text-foreground">updatePlaylist</code><span className="text-xs px-2 py-0.5 rounded-full font-medium bg-amber-500/20 text-amber-400">🔒 Auth requise</span></div>
                     <p>Renommer une playlist éditable par le compte connecté.</p>
-                    <ul className="list-disc pl-5 space-y-0.5 text-sm"><li>Retour : <code className="bg-muted px-1 rounded text-xs">Playlist</code></li><li>Contrainte : <code className="bg-muted px-1 rounded text-xs">name</code>, s'il est fourni, ne doit pas être vide</li></ul>
+                    <ul className="list-disc pl-5 space-y-0.5 text-sm"><li>Retour : <code className="bg-muted px-1 rounded text-xs">Playlist</code></li><li>Contrainte : <code className="bg-muted px-1 rounded text-xs">name</code>, s&apos;il est fourni, ne doit pas être vide</li></ul>
                     <pre className="bg-muted rounded-md p-3 text-xs overflow-x-auto"><code>{`mutation UpdatePlaylist($playlistId: String!, $input: UpdatePlaylistInput!) {
   updatePlaylist(playlistId: $playlistId, input: $input) {
     playlistId
@@ -542,7 +538,7 @@ export default function AboutPage() {
                   {/* removeTrackFromPlaylist */}
                   <div className="border border-border rounded-lg p-4 space-y-3">
                     <div className="flex items-center gap-3"><code className="text-base font-bold text-foreground">removeTrackFromPlaylist</code><span className="text-xs px-2 py-0.5 rounded-full font-medium bg-amber-500/20 text-amber-400">🔒 Auth requise</span></div>
-                    <p>Retirer un morceau d'une playlist éditable par le compte connecté.</p>
+                    <p>Retirer un morceau d&apos;une playlist éditable par le compte connecté.</p>
                     <ul className="list-disc pl-5 space-y-0.5 text-sm"><li>Retour : <code className="bg-muted px-1 rounded text-xs">Playlist</code></li></ul>
                     <pre className="bg-muted rounded-md p-3 text-xs overflow-x-auto"><code>{`mutation RemoveTrackFromPlaylist($playlistId: String!, $trackId: String!) {
   removeTrackFromPlaylist(playlistId: $playlistId, trackId: $trackId) {
@@ -566,7 +562,7 @@ export default function AboutPage() {
                   <div className="border border-border rounded-lg p-4 space-y-3">
                     <div className="flex items-center gap-3"><code className="text-base font-bold text-foreground">recordTrackListen</code><span className="text-xs px-2 py-0.5 rounded-full font-medium bg-amber-500/20 text-amber-400">🔒 Auth requise</span></div>
                     <p>Enregistrer une écoute pour le compte connecté.</p>
-                    <ul className="list-disc pl-5 space-y-0.5 text-sm"><li>Retour : <code className="bg-muted px-1 rounded text-xs">Boolean!</code></li><li>Effet de bord : met à jour l'historique d'écoute et les stats de bibliothèque côté backend</li></ul>
+                    <ul className="list-disc pl-5 space-y-0.5 text-sm"><li>Retour : <code className="bg-muted px-1 rounded text-xs">Boolean!</code></li><li>Effet de bord : met à jour l&apos;historique d&apos;écoute et les stats de bibliothèque côté backend</li></ul>
                     <pre className="bg-muted rounded-md p-3 text-xs overflow-x-auto"><code>{`mutation RecordTrackListen($trackId: String!) {
   recordTrackListen(trackId: $trackId)
 }`}</code></pre>
@@ -585,7 +581,7 @@ export default function AboutPage() {
                     <li>Commencez par <code className="bg-muted px-1 rounded text-xs">createAccount</code>, puis <code className="bg-muted px-1 rounded text-xs">login</code> pour récupérer un token.</li>
                     <li>Réutilisez ce token pour toutes les mutations protégées.</li>
                     <li>Pour les IDs (<code className="bg-muted px-1 rounded text-xs">accountId</code>, <code className="bg-muted px-1 rounded text-xs">trackId</code>, <code className="bg-muted px-1 rounded text-xs">playlistId</code>, etc.), utilisez les requêtes GraphQL de lecture pour récupérer des valeurs valides.</li>
-                    <li>Si une mutation retourne <code className="bg-muted px-1 rounded text-xs">null</code>, cela signifie généralement que la ressource cible n'existe pas ou n'est pas éditable / visible pour le compte courant.</li>
+                    <li>Si une mutation retourne <code className="bg-muted px-1 rounded text-xs">null</code>, cela signifie généralement que la ressource cible n&apos;existe pas ou n&apos;est pas éditable / visible pour le compte courant.</li>
                     <li>Si une mutation échoue avec une erreur GraphQL, vérifiez en priorité les contraintes de validation : mot de passe, unicité email/login, et slot entre <code className="bg-muted px-1 rounded text-xs">1</code> et <code className="bg-muted px-1 rounded text-xs">4</code>.</li>
                   </ul>
                 </div>
@@ -612,14 +608,14 @@ export default function AboutPage() {
                     <li><strong>RCS :</strong> Lannion, 22300</li>
                     <li><strong>Numéro TVA intracommunautaire :</strong> FR68212201131</li>
                   </ul>
-                  <p className="mt-4"><strong>Directeur de la publication :</strong> Antoine TOULLEC<br/><strong>Email de contact :</strong> <a href="mailto:antoine.toullec@etudiant.univ-rennes.fr" className="text-primary hover:underline">antoine.toullec@etudiant.univ-rennes.fr</a></p>
+                  <p className="mt-4"><strong>Directeur de la publication :</strong> Antoine TOULLEC<br /><strong>Email de contact :</strong> <a href="mailto:antoine.toullec@etudiant.univ-rennes.fr" className="text-primary hover:underline">antoine.toullec@etudiant.univ-rennes.fr</a></p>
                 </div>
 
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold text-foreground">Hébergement</h3>
-                  <p><strong>Hébergeur :</strong> IUT Lannion<br/>
-                  <strong>Adresse :</strong> 7 Rue Édouard Branly, 22300 Lannion<br/>
-                  <strong>Téléphone :</strong> 02 96 46 93 00</p>
+                  <p><strong>Hébergeur :</strong> IUT Lannion<br />
+                    <strong>Adresse :</strong> 7 Rue Édouard Branly, 22300 Lannion<br />
+                    <strong>Téléphone :</strong> 02 96 46 93 00</p>
                 </div>
 
                 <div className="space-y-2">
@@ -664,7 +660,7 @@ export default function AboutPage() {
 
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold text-foreground">Base légale & Durée de conservation</h3>
-                  <p><strong>Base légale :</strong> L’exécution du contrat (abonnement), le consentement (newsletter, cookies), et l'obligation légale.</p>
+                  <p><strong>Base légale :</strong> L’exécution du contrat (abonnement), le consentement (newsletter, cookies), et l&apos;obligation légale.</p>
                   <p><strong>Durée de conservation :</strong> Pendant la durée de l’abonnement, ou jusqu’à 3 ans après la dernière activité, et selon les obligations légales pour les données comptables.</p>
                 </div>
 
@@ -680,7 +676,7 @@ export default function AboutPage() {
           {activeSection === "cgu" && (
             <Card className="bg-card border-border shadow-md">
               <CardHeader>
-                <CardTitle className="text-3xl font-[family-name:var(--font-protest-strike)] text-primary font-light">Conditions Générales d'Utilisation</CardTitle>
+                <CardTitle className="text-3xl font-[family-name:var(--font-protest-strike)] text-primary font-light">Conditions Générales d&apos;Utilisation</CardTitle>
               </CardHeader>
               <CardContent className="space-y-8 text-muted-foreground leading-relaxed">
                 <div className="space-y-2">
@@ -724,9 +720,9 @@ export default function AboutPage() {
               <CardContent className="space-y-8">
                 <div className="space-y-2 mb-6">
                   <p className="text-lg font-medium text-foreground">MUSE – Music Unlimited Streaming Experience</p>
-                  <p className="text-muted-foreground">En collaboration avec MouveYourLife – MYLi<br/>Localisation : Lannion (22300), France</p>
+                  <p className="text-muted-foreground">En collaboration avec MouveYourLife – MYLi<br />Localisation : Lannion (22300), France</p>
                 </div>
-                
+
                 <p className="text-muted-foreground">La plateforme est développée et maintenue par une équipe de 5 développeurs :</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="p-4 rounded-lg bg-background/50 border border-border flex flex-col items-start hover:bg-muted/50 transition-colors">

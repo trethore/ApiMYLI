@@ -18,16 +18,15 @@ function normalizeImageUrl(url: string): string {
   return `${FMA_BASE}${stripped}`;
 }
 
-interface ImageWithFallbackProps extends ImageProps {
-  fallbackSrc?: string;
-}
+// interface ImageWithFallbackProps extends ImageProps {
+  // fallbackSrc?: string;
+// }
 
 export default function ImageWithFallback({
   src,
-  fallbackSrc = "/placeholder-music.jpg",
   alt,
   ...rest
-}: ImageWithFallbackProps) {
+}: ImageProps) {
   const [error, setError] = useState(false);
 
   const isPlaceholder = !src || (typeof src === "string" && src.includes("placeholder"));

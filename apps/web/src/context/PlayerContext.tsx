@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useRef, useEffect } from "react";
+import React, { createContext, useContext, useState, useRef, useEffect, useCallback } from "react";
 import { Music } from "@/types/music";
 import { useAuth } from "@/context/AuthContext";
 import { recordTrackListenMutation, getRecommendationsQuery, toMusic } from "@/lib/api-client";
@@ -55,33 +55,24 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
-    const handleLoadedMetadata = () => setDuration(audio.duration);
-    const handleEnded = () => {
-      playNext();
-    };
-
-    audio.addEventListener("timeupdate", handleTimeUpdate);
-    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
-    audio.addEventListener("ended", handleEnded);
-
-    return () => {
-      audio.removeEventListener("timeupdate", handleTimeUpdate);
-      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
-      audio.removeEventListener("ended", handleEnded);
-    };
-  }, [queue, currentTrack]); // Re-bind when queue changes to ensure playNext has fresh state
-
-  useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
     }
   }, [volume]);
 
-  const playTrack = (track: Music, addToHistory = true) => {
+
+  const togglePlay = useCallback(() => {
+    if (!audioRef.current || !currentTrack) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  }, [currentTrack, isPlaying, audioRef])
+
+  const playTrack = useCallback((track: Music, addToHistory = true) => {
     if (!audioRef.current) return;
 
     // If we are changing tracks (and not just toggling same track), add current to history
@@ -102,7 +93,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         setIsPlaying(true);
 
         if (isAuthenticated && token) {
-           recordTrackListenMutation(track.id, token).catch(console.error);
+          recordTrackListenMutation(track.id, token).catch(console.error);
         }
       } else {
         console.warn("No audio source available for this track");
@@ -110,18 +101,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     } else {
       togglePlay();
     }
-  };
-
-  const togglePlay = () => {
-    if (!audioRef.current || !currentTrack) return;
-
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
+  }, [currentTrack, isAuthenticated, token, togglePlay]);
 
   const seek = (time: number) => {
     if (audioRef.current) {
@@ -146,7 +126,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     setQueue(tracks);
   };
 
-  const playNext = async () => {
+  const playNext = useCallback(async () => {
     if (queue.length > 0) {
       const nextTrack = queue[0];
       setQueue((prev) => prev.slice(1));
@@ -157,7 +137,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         const recentHistoryIds = history.slice(-5).map(t => t.id);
         const seedIds = [currentTrack.id, ...recentHistoryIds];
         const blacklistedIds = [currentTrack.id, ...history.map(t => t.id)];
-        
+
         const recommendations = await getRecommendationsQuery(
           seedIds,
           blacklistedIds,
@@ -176,12 +156,33 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
       } catch (error) {
         console.error("Autoplay failed to get recommendations:", error);
       }
-      
+
       setIsPlaying(false);
     } else {
       setIsPlaying(false);
     }
-  };
+  }, [queue, currentTrack, history, token, playTrack])
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+    const handleLoadedMetadata = () => setDuration(audio.duration);
+    const handleEnded = () => {
+      playNext();
+    };
+
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.addEventListener("ended", handleEnded);
+
+    return () => {
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.removeEventListener("ended", handleEnded);
+    };
+  }, [queue, currentTrack, playNext]); // Re-bind when queue changes to ensure playNext has fresh state
 
   const playPrevious = () => {
     if (history.length > 0) {

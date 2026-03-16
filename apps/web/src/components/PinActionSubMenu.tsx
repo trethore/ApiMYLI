@@ -41,7 +41,7 @@ export default function PinActionSubMenu({ itemId, itemType }: PinActionSubMenuP
             break;
         }
         showToast(`Épinglé à l'emplacement ${slot} avec succès !`);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Failed to pin item", err);
         showToast(`Emplacement ${slot} pris : Veuillez le libérer d'abord.`);
       }
@@ -54,7 +54,7 @@ export default function PinActionSubMenu({ itemId, itemType }: PinActionSubMenuP
         if (!token) return;
         await unpinItemMutation(slot, token);
         showToast(`Emplacement ${slot} libéré avec succès !`);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Failed to unpin item", err);
         showToast(`Erreur : Impossible de libérer l'emplacement ${slot}.`);
       }
@@ -82,7 +82,7 @@ export default function PinActionSubMenu({ itemId, itemType }: PinActionSubMenuP
           </div>
           {[1, 2, 3, 4].map((slot) => (
             <DropdownMenuItem key={`unpin-${slot}`} onClick={() => handleUnpin(slot)} className="cursor-pointer text-destructive focus:text-destructive">
-              Vider l'emplacement {slot}
+              Vider l&apos;emplacement {slot}
             </DropdownMenuItem>
           ))}
         </DropdownMenuSubContent>
