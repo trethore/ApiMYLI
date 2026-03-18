@@ -35,7 +35,7 @@ export default function ImageWithFallback({
   if (error || isPlaceholder) {
     // Return a gradient div matching the app's aesthetic
     return (
-      <div 
+      <div
         className={`w-full h-full bg-gradient-to-br from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] opacity-80 ${rest.fill ? "absolute inset-0" : ""} ${rest.className || ""}`}
       />
     );
@@ -48,7 +48,11 @@ export default function ImageWithFallback({
     <Image
       src={resolvedSrc}
       alt={alt}
-      sizes={rest.fill && !rest.sizes ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" : rest.sizes}
+      sizes={
+        rest.fill && !rest.sizes
+          ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          : rest.sizes
+      }
       onError={() => {
         setError(true);
       }}

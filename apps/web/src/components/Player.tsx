@@ -71,14 +71,23 @@ export default function Player() {
             <span className="text-xs sm:text-sm text-muted-foreground truncate">
               {currentTrack.artist.map((artistName, index) => (
                 <span key={index}>
-                  <Link href={`/artist/${currentTrack.artistIds?.[index] || artistName}`} className="hover:underline">
+                  <Link
+                    href={`/artist/${currentTrack.artistIds?.[index] || artistName}`}
+                    className="hover:underline"
+                  >
                     {artistName}
                   </Link>
                   {index < currentTrack.artist.length - 1 ? ", " : ""}
                 </span>
               ))}
               {currentTrack.album && currentTrack.albumId && (
-                <> • <Link href={`/album/${currentTrack.albumId}`} className="hover:underline">{currentTrack.album}</Link></>
+                <>
+                  {" "}
+                  •{" "}
+                  <Link href={`/album/${currentTrack.albumId}`} className="hover:underline">
+                    {currentTrack.album}
+                  </Link>
+                </>
               )}
             </span>
           </div>

@@ -19,7 +19,7 @@ const toNullableNumber = (value: bigint | number | null | undefined): number | n
   return Number(value);
 };
 
-const trackAccountLikesArgs = (currentAccountId?: string | null): Prisma.Track$accountLikesArgs => {
+const trackAccountPreferenceArgs = (currentAccountId?: string | null) => {
   if (!currentAccountId) {
     return { take: 0 };
   }
@@ -51,7 +51,8 @@ export const trackInclude = (currentAccountId?: string | null) =>
         },
       },
     },
-    accountLikes: trackAccountLikesArgs(currentAccountId),
+    accountLikes: trackAccountPreferenceArgs(currentAccountId),
+    accountDislikes: trackAccountPreferenceArgs(currentAccountId),
     audioFeature: true,
   }) satisfies Prisma.TrackInclude;
 
@@ -193,6 +194,7 @@ export const toTrack = (track: PrismaTrackWithRelations): Track => ({
   mainArtists: track.mainArtists.map(toArtistSummary),
   featArtists: track.featArtists.map(toArtistSummary),
   isLiked: track.accountLikes.length > 0,
+  isDisliked: track.accountDislikes.length > 0,
   audioFeatures: track.audioFeature || undefined,
 });
 

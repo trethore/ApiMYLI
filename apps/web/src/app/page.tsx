@@ -280,13 +280,15 @@ export default function Home() {
               />
             ))}
 
-          {!isAuthenticated && !loading && guestCarousels.map((items, idx) => (
-            <CoverCarousel
-              key={`guest-${idx}`}
-              title="Vous pourriez aimer"
-              items={items as any}
-            />
-          ))}
+          {!isAuthenticated &&
+            !loading &&
+            guestCarousels.map((items, idx) => (
+              <CoverCarousel
+                key={`guest-${idx}`}
+                title="Vous pourriez aimer"
+                items={items as any}
+              />
+            ))}
         </div>
       </main>
     </div>

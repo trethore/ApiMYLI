@@ -1,7 +1,11 @@
 import { readdir } from "node:fs/promises";
 import { basename, resolve } from "node:path";
 import "dotenv/config";
-import { isPublicTablePresent, runPrismaMigrationSqlFiles, runSeedSqlFiles } from "../scripts/run-psql";
+import {
+  isPublicTablePresent,
+  runPrismaMigrationSqlFiles,
+  runSeedSqlFiles,
+} from "../scripts/run-psql";
 
 const SQL_DIRECTORY_PATH = resolve(import.meta.dir, "sql");
 const PRISMA_MIGRATIONS_DIRECTORY_PATH = resolve(import.meta.dir, "../prisma/migrations");
@@ -25,7 +29,6 @@ const listMigrationDirectories = async (migrationsDirectoryPath: string): Promis
 };
 
 const ensureDatabaseSchema = async (databaseUrl: string): Promise<void> => {
-
   const isGenreTablePresent = await isPublicTablePresent(databaseUrl, "genre");
 
   if (isGenreTablePresent) {

@@ -10,7 +10,8 @@ export const listArtistTopTracks = async (
   currentAccountId?: string | null,
   limit?: number,
 ): Promise<Track[]> => {
-  const resolvedLimit = limit === undefined ? DEFAULT_LIMIT : Math.min(Math.max(limit, 1), MAX_LIMIT);
+  const resolvedLimit =
+    limit === undefined ? DEFAULT_LIMIT : Math.min(Math.max(limit, 1), MAX_LIMIT);
 
   return repository.listArtistTopTracks(artistId, currentAccountId, resolvedLimit);
 };

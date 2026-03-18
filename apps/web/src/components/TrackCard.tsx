@@ -49,7 +49,11 @@ export default function TrackCard({ track, priority = false }: TrackCardProps) {
         <div className="p-1 lg:p-4 flex-1 w-full overflow-hidden">
           <h3 className="text-sm lg:text-base truncate opacity-90 font-bold">{track.title}</h3>
           <p className="text-xs lg:text-sm truncate opacity-70 mt-1">
-            {track.artist ? (Array.isArray(track.artist) ? track.artist.join(", ") : track.artist) : "Unknown"}
+            {track.artist
+              ? Array.isArray(track.artist)
+                ? track.artist.join(", ")
+                : track.artist
+              : "Unknown"}
           </p>
         </div>
       </div>
