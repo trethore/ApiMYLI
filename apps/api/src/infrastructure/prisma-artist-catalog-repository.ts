@@ -337,7 +337,9 @@ export const createPrismaArtistCatalogRepository = (
         await transaction.artist.update({
           where: { artistId },
           data: {
-            artistFavorites: toBigInt(artist.artistFavorites) + BigInt(1),
+            artistFavorites: {
+              increment: BigInt(1),
+            },
           },
         });
       }
@@ -366,14 +368,14 @@ export const createPrismaArtistCatalogRepository = (
       );
 
       if (deletedRows > 0) {
-        const nextFavorites = toBigInt(artist.artistFavorites) - BigInt(1);
-
-        await transaction.artist.update({
-          where: { artistId },
-          data: {
-            artistFavorites: nextFavorites > BigInt(0) ? nextFavorites : BigInt(0),
-          },
-        });
+        await transaction.$executeRawUnsafe(
+          `
+            UPDATE artist
+            SET artist_favorites = GREATEST(artist_favorites - 1, 0)
+            WHERE artist_id = $1::uuid
+          `,
+          artistId,
+        );
       }
 
       return readArtist(transaction, artistId, accountId);
