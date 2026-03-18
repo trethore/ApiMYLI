@@ -30,10 +30,10 @@ export default function AlbumPage({ params }: { params: Promise<{ slug: string }
   const { token, requireAuth } = useAuth();
   const { playTrack, setQueueList } = usePlayer();
   const router = useRouter();
-
+  
   const [tracks, setTracks] = useState<Music[]>([]);
   const [loading, setLoading] = useState(true);
-
+  
   // Derived state from the API tracks (since GraphQL doesn't have an album query for metadata)
   const [albumName, setAlbumName] = useState<string>(slug.replace(/-/g, " "));
   const [albumImage, setAlbumImage] = useState<string>("/placeholder-album.jpg");
@@ -53,13 +53,13 @@ export default function AlbumPage({ params }: { params: Promise<{ slug: string }
         const apiTracks = await getAlbumTracksQuery(albumId, token);
         if (apiTracks && apiTracks.length > 0) {
           setTracks(apiTracks.map(toMusic));
-
+          
           const firstTrack = apiTracks[0];
           if (firstTrack.album?.title) setAlbumName(firstTrack.album.title);
           if (firstTrack.album?.imageUrl) setAlbumImage(formatImageUrl(firstTrack.album.imageUrl));
           if (firstTrack.mainArtists.length > 0) {
-            setArtistName(firstTrack.mainArtists.map((a) => a.name).join(", "));
-            const ids = firstTrack.mainArtists.map((a) => a.artistId).filter(Boolean);
+            setArtistName(firstTrack.mainArtists.map(a => a.name).join(", "));
+            const ids = firstTrack.mainArtists.map(a => a.artistId).filter(Boolean);
             if (ids.length > 0) setArtistIds(ids);
           }
         }
@@ -69,7 +69,7 @@ export default function AlbumPage({ params }: { params: Promise<{ slug: string }
         setLoading(false);
       }
     };
-
+    
     fetchAlbum();
   }, [albumId, token]);
 
@@ -109,13 +109,13 @@ export default function AlbumPage({ params }: { params: Promise<{ slug: string }
           {/* Metadata & Actions Row */}
           <div className="w-full flex items-end justify-between px-2 sm:px-8">
             <div className="flex flex-col text-left">
-              <SectionTitle title={albumName} className="mt-0 text-2xl sm:text-4xl leading-tight" />
+              <SectionTitle
+                title={albumName}
+                className="mt-0 text-2xl sm:text-4xl leading-tight"
+              />
               <p className="text-lg text-muted-foreground font-medium">
                 {artistIds && artistIds.length > 0 ? (
-                  <Link
-                    href={`/artist/${artistIds[0]}`}
-                    className="hover:text-foreground hover:underline"
-                  >
+                  <Link href={`/artist/${artistIds[0]}`} className="hover:text-foreground hover:underline">
                     {artistName}
                   </Link>
                 ) : (
@@ -140,7 +140,7 @@ export default function AlbumPage({ params }: { params: Promise<{ slug: string }
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <PinActionSubMenu itemId={albumId} itemType="album" />
-                  <DropdownMenuItem
+                  <DropdownMenuItem 
                     className="cursor-pointer"
                     onClick={() => {
                       if (artistIds && artistIds.length > 0) {
@@ -150,7 +150,10 @@ export default function AlbumPage({ params }: { params: Promise<{ slug: string }
                   >
                     Voir l'artiste
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="cursor-pointer" onClick={handleShare}>
+                  <DropdownMenuItem 
+                    className="cursor-pointer"
+                    onClick={handleShare}
+                  >
                     Partager
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -160,10 +163,9 @@ export default function AlbumPage({ params }: { params: Promise<{ slug: string }
 
           {/* Play Button */}
           <div className="w-full px-2 sm:px-8 mt-6">
-            <Button
+            <Button 
               onClick={handlePlayAlbum}
-              className="w-full sm:w-auto text-foreground font-bold text-lg py-6 rounded-full flex items-center gap-2 bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] hover:cursor-pointer"
-            >
+              className="w-full sm:w-auto text-foreground font-bold text-lg py-6 rounded-full flex items-center gap-2 bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] hover:cursor-pointer">
               <Play className="fill-current" /> Lecture
             </Button>
           </div>
@@ -177,9 +179,7 @@ export default function AlbumPage({ params }: { params: Promise<{ slug: string }
                 <MusicItem key={track.id} music={track} index={index} showImage={false} />
               ))
             ) : (
-              <p className="text-muted-foreground text-center py-4">
-                Cet album ne contient aucune chanson.
-              </p>
+              <p className="text-muted-foreground text-center py-4">Cet album ne contient aucune chanson.</p>
             )}
           </div>
         </div>

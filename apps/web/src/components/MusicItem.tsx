@@ -164,10 +164,10 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
                 </DropdownMenuSubContent>
               </DropdownMenuPortal>
             </DropdownMenuSub>
-
+            
             <PinActionSubMenu itemId={music.id} itemType="track" />
 
-            <DropdownMenuItem
+            <DropdownMenuItem 
               className="cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
@@ -179,7 +179,7 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
               Voir l'artiste
             </DropdownMenuItem>
             {music.albumId && (
-              <DropdownMenuItem
+              <DropdownMenuItem 
                 className="cursor-pointer"
                 onClick={(e) => {
                   e.stopPropagation();

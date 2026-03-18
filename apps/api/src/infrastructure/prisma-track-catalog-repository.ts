@@ -12,10 +12,7 @@ const trackOrderBy: Prisma.TrackOrderByWithRelationInput[] = [
 export const createPrismaTrackCatalogRepository = (
   prisma: PrismaClient,
 ): TrackCatalogRepository => ({
-  findTrackById: async (
-    trackId: string,
-    currentAccountId?: string | null,
-  ): Promise<Track | null> => {
+  findTrackById: async (trackId: string, currentAccountId?: string | null): Promise<Track | null> => {
     const track = await prisma.track.findUnique({
       where: { trackId },
       include: trackInclude(currentAccountId),
@@ -42,20 +39,23 @@ export const createPrismaTrackCatalogRepository = (
   ): Promise<Track[]> => {
     const tracks = await prisma.track.findMany({
       where: {
-        OR: [{ mainArtists: { some: { artistId } } }, { featArtists: { some: { artistId } } }],
+        OR: [
+          { mainArtists: { some: { artistId } } },
+          { featArtists: { some: { artistId } } },
+        ],
       },
       include: trackInclude(currentAccountId),
-      orderBy: [{ trackListens: "desc" }, { trackFavorites: "desc" }, { trackTitle: "asc" }],
+      orderBy: [
+        { trackListens: "desc" },
+        { trackFavorites: "desc" },
+        { trackTitle: "asc" },
+      ],
       take: limit,
     });
 
     return tracks.map(toTrack);
   },
-  searchTracks: async (
-    query: string,
-    currentAccountId?: string | null,
-    limit = 10,
-  ): Promise<Track[]> => {
+  searchTracks: async (query: string, currentAccountId?: string | null, limit = 10): Promise<Track[]> => {
     const tracks = await prisma.track.findMany({
       where: {
         trackTitle: { contains: query, mode: "insensitive" },
@@ -66,10 +66,7 @@ export const createPrismaTrackCatalogRepository = (
     });
     return tracks.map(toTrack);
   },
-  getTracksWithFeatures: async (
-    trackIds: string[],
-    currentAccountId?: string | null,
-  ): Promise<Track[]> => {
+  getTracksWithFeatures: async (trackIds: string[], currentAccountId?: string | null): Promise<Track[]> => {
     const tracks = await prisma.track.findMany({
       where: {
         trackId: { in: trackIds },
@@ -79,12 +76,8 @@ export const createPrismaTrackCatalogRepository = (
     });
     return tracks.map(toTrack);
   },
-  getRandomTracks: async (
-    limit: number,
-    excludedIds: string[],
-    currentAccountId?: string | null,
-  ): Promise<Track[]> => {
-    // Prisma does not have native ORDER BY RANDOM().
+  getRandomTracks: async (limit: number, excludedIds: string[], currentAccountId?: string | null): Promise<Track[]> => {
+    // Prisma does not have native ORDER BY RANDOM(). 
     // Usually we fetch IDs, shuffle, then take 'limit'.
     const allTrackIds = await prisma.track.findMany({
       where: {

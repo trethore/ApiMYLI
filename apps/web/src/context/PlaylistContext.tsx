@@ -1,13 +1,6 @@
 "use client";
 
-import React, {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useEffect,
-  useCallback,
-} from "react";
+import React, { createContext, useContext, useState, ReactNode, useEffect, useCallback } from "react";
 import { Album, Music } from "@/types/music";
 import { useAuth } from "@/context/AuthContext";
 import {
@@ -45,9 +38,7 @@ export const PlaylistProvider = ({ children }: { children: ReactNode }) => {
           id: p.playlistId,
           name: p.name || "Ma Playlist",
           artist: p.ownerDisplayName || "User",
-          image: p.tracks?.[0]?.imageUrl
-            ? formatImageUrl(p.tracks[0].imageUrl)
-            : "/placeholder-album.jpg",
+          image: p.tracks?.[0]?.imageUrl ? formatImageUrl(p.tracks[0].imageUrl) : "/placeholder-album.jpg",
           type: "Playlist" as const,
           tracks: p.tracks ? p.tracks.map(toMusic) : [],
         }));

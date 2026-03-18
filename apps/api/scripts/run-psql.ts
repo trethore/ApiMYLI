@@ -33,13 +33,7 @@ const runPsqlArguments = async (
     dockerComposeArguments.push("-w", containerWorkingDirectoryPath);
   }
 
-  dockerComposeArguments.push(
-    POSTGRES_SERVICE_NAME,
-    "psql",
-    dockerDatabaseUrl,
-    "-v",
-    "ON_ERROR_STOP=1",
-  );
+  dockerComposeArguments.push(POSTGRES_SERVICE_NAME, "psql", dockerDatabaseUrl, "-v", "ON_ERROR_STOP=1");
 
   await $`docker compose -f ${DOCKER_COMPOSE_FILE_PATH} ${dockerComposeArguments} ${psqlArguments}`;
 };
@@ -57,23 +51,12 @@ const readPsqlOutput = async (
     dockerComposeArguments.push("-w", containerWorkingDirectoryPath);
   }
 
-  dockerComposeArguments.push(
-    POSTGRES_SERVICE_NAME,
-    "psql",
-    dockerDatabaseUrl,
-    "-v",
-    "ON_ERROR_STOP=1",
-  );
+  dockerComposeArguments.push(POSTGRES_SERVICE_NAME, "psql", dockerDatabaseUrl, "-v", "ON_ERROR_STOP=1");
 
-  return await $`docker compose -f ${DOCKER_COMPOSE_FILE_PATH} ${dockerComposeArguments} ${psqlArguments}`
-    .quiet()
-    .text();
+  return await $`docker compose -f ${DOCKER_COMPOSE_FILE_PATH} ${dockerComposeArguments} ${psqlArguments}`.quiet().text();
 };
 
-export const isPublicTablePresent = async (
-  databaseUrl: string,
-  tableName: string,
-): Promise<boolean> => {
+export const isPublicTablePresent = async (databaseUrl: string, tableName: string): Promise<boolean> => {
   const escapedTableName = tableName.replaceAll('"', '""');
   const existenceQuery = `SELECT to_regclass('public."${escapedTableName}"') IS NOT NULL;`;
   const output = await readPsqlOutput(databaseUrl, ["-tA", "-c", existenceQuery]);
@@ -81,10 +64,7 @@ export const isPublicTablePresent = async (
   return output.trim() === "t";
 };
 
-export const runSeedSqlFiles = async (
-  databaseUrl: string,
-  sqlFileNames: string[],
-): Promise<void> => {
+export const runSeedSqlFiles = async (databaseUrl: string, sqlFileNames: string[]): Promise<void> => {
   const sqlFileArguments: string[] = sqlFileNames.flatMap((sqlFileName) => [
     "-f",
     `${CONTAINER_SEED_WORKSPACE_PATH}/seed/sql/${sqlFileName}`,
@@ -97,12 +77,10 @@ export const runPrismaMigrationSqlFiles = async (
   databaseUrl: string,
   migrationDirectoryNames: string[],
 ): Promise<void> => {
-  const migrationSqlArguments: string[] = migrationDirectoryNames.flatMap(
-    (migrationDirectoryName) => [
-      "-f",
-      `${CONTAINER_SEED_WORKSPACE_PATH}/prisma/migrations/${migrationDirectoryName}/migration.sql`,
-    ],
-  );
+  const migrationSqlArguments: string[] = migrationDirectoryNames.flatMap((migrationDirectoryName) => [
+    "-f",
+    `${CONTAINER_SEED_WORKSPACE_PATH}/prisma/migrations/${migrationDirectoryName}/migration.sql`,
+  ]);
 
   await runPsqlArguments(databaseUrl, migrationSqlArguments, CONTAINER_SEED_WORKSPACE_PATH);
 };

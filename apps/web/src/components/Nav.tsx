@@ -18,6 +18,8 @@ export default function Nav() {
   const { isAuthenticated } = useAuth();
   const { theme, setTheme } = useTheme();
 
+
+
   return (
     <>
       {/* Mobile Nav (< lg) */}
@@ -43,62 +45,39 @@ export default function Nav() {
               <MdPerson className="w-full h-full" />
             </div>
           </DropdownMenuTrigger>
-          <DropdownMenuContent
-            align="end"
-            className="w-48 bg-card text-card-foreground border-border z-50"
-          >
+          <DropdownMenuContent align="end" className="w-48 bg-card text-card-foreground border-border z-50">
             {isAuthenticated ? (
               <>
                 <DropdownMenuItem asChild>
-                  <Link href="/settings" className="w-full cursor-pointer">
-                    Compte
-                  </Link>
+                  <Link href="/settings" className="w-full cursor-pointer">Compte</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="cursor-pointer"
-                >
+                <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
                   Mode {theme === "dark" ? "clair" : "sombre"}
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/a-propos" className="w-full cursor-pointer">
-                    À propos
-                  </Link>
+                  <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/a-propos#contact" className="w-full cursor-pointer">
-                    Contact
-                  </Link>
+                  <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
                 </DropdownMenuItem>
               </>
             ) : (
               <>
                 <DropdownMenuItem asChild>
-                  <Link href="/login" className="w-full cursor-pointer">
-                    Connexion
-                  </Link>
+                  <Link href="/login" className="w-full cursor-pointer">Connexion</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/register" className="w-full cursor-pointer">
-                    Inscription
-                  </Link>
+                  <Link href="/register" className="w-full cursor-pointer">Inscription</Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="cursor-pointer"
-                >
+                <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
                   Mode {theme === "dark" ? "clair" : "sombre"}
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/a-propos" className="w-full cursor-pointer">
-                    À propos
-                  </Link>
+                  <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/a-propos#contact" className="w-full cursor-pointer">
-                    Contact
-                  </Link>
+                  <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
                 </DropdownMenuItem>
               </>
             )}
@@ -135,62 +114,39 @@ export default function Nav() {
                 <MdPerson className="w-full h-full" />
               </div>
             </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              className="w-48 bg-card text-card-foreground border-border z-50"
-            >
+            <DropdownMenuContent align="end" className="w-48 bg-card text-card-foreground border-border z-50">
               {isAuthenticated ? (
                 <>
                   <DropdownMenuItem asChild>
-                    <Link href="/settings" className="w-full cursor-pointer">
-                      Compte
-                    </Link>
+                    <Link href="/settings" className="w-full cursor-pointer">Compte</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    className="cursor-pointer"
-                  >
+                  <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
                     Mode {theme === "dark" ? "clair" : "sombre"}
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/a-propos" className="w-full cursor-pointer">
-                      À propos
-                    </Link>
+                    <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/a-propos#contact" className="w-full cursor-pointer">
-                      Contact
-                    </Link>
+                    <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
                   </DropdownMenuItem>
                 </>
               ) : (
                 <>
                   <DropdownMenuItem asChild>
-                    <Link href="/login" className="w-full cursor-pointer">
-                      Connexion
-                    </Link>
+                    <Link href="/login" className="w-full cursor-pointer">Connexion</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/register" className="w-full cursor-pointer">
-                      Inscription
-                    </Link>
+                    <Link href="/register" className="w-full cursor-pointer">Inscription</Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    className="cursor-pointer"
-                  >
+                  <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
                     Mode {theme === "dark" ? "clair" : "sombre"}
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/a-propos" className="w-full cursor-pointer">
-                      À propos
-                    </Link>
+                    <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/a-propos#contact" className="w-full cursor-pointer">
-                      Contact
-                    </Link>
+                    <Link href="/a-propos#contact" className="w-full cursor-pointer">Contact</Link>
                   </DropdownMenuItem>
                 </>
               )}

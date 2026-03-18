@@ -48,9 +48,9 @@ export default function RootLayout({
               <PlayerProvider>
                 <PlaylistProvider>
                   {children}
-                  <AuthRequiredPopup />
-                  <PlayerPadding />
-                  <Player />
+                <AuthRequiredPopup />
+                <PlayerPadding />
+                <Player />
                 </PlaylistProvider>
               </PlayerProvider>
             </ToastProvider>

@@ -28,7 +28,6 @@ model Account {
   preferenceVector PreferenceVector?
   playlistAccounts PlaylistAccount[]
   trackLikes       TrackAccountLike[]
-  trackDislikes    TrackAccountDislike[]
   trackListens     TrackAccountListen[]
   trackListenHistoryItems TrackListenHistoryItem[]
   pinnedItems      AccountPinnedItem[]
@@ -130,7 +129,6 @@ model Track {
   playlistTracks  PlaylistTrack[]
   rankTracks      RankTrack[]
   accountLikes    TrackAccountLike[]
-  accountDislikes TrackAccountDislike[]
   accountListens  TrackAccountListen[]
   listenHistoryItems TrackListenHistoryItem[]
   pinnedItems     AccountPinnedItem[] @relation("PinnedTrack")
@@ -904,17 +902,6 @@ model TrackAccountLike {
 
   @@id([trackId, accountId])
   @@map("track_account_like")
-}
-
-model TrackAccountDislike {
-  trackId   String @map("track_id") @db.Uuid
-  accountId String @map("account_id") @db.Uuid
-
-  track   Track   @relation(fields: [trackId], references: [trackId])
-  account Account @relation(fields: [accountId], references: [accountId])
-
-  @@id([trackId, accountId])
-  @@map("track_account_dislike")
 }
 
 model TrackAccountListen {

@@ -143,11 +143,6 @@ export type PlaylistAccount = Prisma.PlaylistAccountModel
  */
 export type TrackAccountLike = Prisma.TrackAccountLikeModel
 /**
- * Model TrackAccountDislike
- * 
- */
-export type TrackAccountDislike = Prisma.TrackAccountDislikeModel
-/**
  * Model TrackAccountListen
  * 
  */

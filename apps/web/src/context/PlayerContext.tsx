@@ -102,7 +102,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         setIsPlaying(true);
 
         if (isAuthenticated && token) {
-          recordTrackListenMutation(track.id, token).catch(console.error);
+           recordTrackListenMutation(track.id, token).catch(console.error);
         }
       } else {
         console.warn("No audio source available for this track");
@@ -154,16 +154,16 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     } else if (currentTrack) {
       // Autoplay: Fetch recommendations if queue is empty
       try {
-        const recentHistoryIds = history.slice(-5).map((t) => t.id);
+        const recentHistoryIds = history.slice(-5).map(t => t.id);
         const seedIds = [currentTrack.id, ...recentHistoryIds];
-        const blacklistedIds = [currentTrack.id, ...history.map((t) => t.id)];
-
+        const blacklistedIds = [currentTrack.id, ...history.map(t => t.id)];
+        
         const recommendations = await getRecommendationsQuery(
           seedIds,
           blacklistedIds,
           5, // Fetch 5 tracks ahead
           5, // 5% randomness to stay very close to the current vibe
-          token,
+          token
         );
 
         if (recommendations.length > 0) {
@@ -176,7 +176,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
       } catch (error) {
         console.error("Autoplay failed to get recommendations:", error);
       }
-
+      
       setIsPlaying(false);
     } else {
       setIsPlaying(false);

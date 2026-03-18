@@ -409,7 +409,6 @@ export const ModelName = {
   GenrePreference: 'GenrePreference',
   PlaylistAccount: 'PlaylistAccount',
   TrackAccountLike: 'TrackAccountLike',
-  TrackAccountDislike: 'TrackAccountDislike',
   TrackAccountListen: 'TrackAccountListen',
   TrackListenHistoryItem: 'TrackListenHistoryItem',
   AccountPinnedItem: 'AccountPinnedItem',
@@ -429,7 +428,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountDislike" | "trackAccountListen" | "trackListenHistoryItem" | "accountPinnedItem" | "trackComment"
+    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountListen" | "trackListenHistoryItem" | "accountPinnedItem" | "trackComment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2283,80 +2282,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    TrackAccountDislike: {
-      payload: Prisma.$TrackAccountDislikePayload<ExtArgs>
-      fields: Prisma.TrackAccountDislikeFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.TrackAccountDislikeFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.TrackAccountDislikeFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload>
-        }
-        findFirst: {
-          args: Prisma.TrackAccountDislikeFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.TrackAccountDislikeFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload>
-        }
-        findMany: {
-          args: Prisma.TrackAccountDislikeFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload>[]
-        }
-        create: {
-          args: Prisma.TrackAccountDislikeCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload>
-        }
-        createMany: {
-          args: Prisma.TrackAccountDislikeCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.TrackAccountDislikeCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload>[]
-        }
-        delete: {
-          args: Prisma.TrackAccountDislikeDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload>
-        }
-        update: {
-          args: Prisma.TrackAccountDislikeUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload>
-        }
-        deleteMany: {
-          args: Prisma.TrackAccountDislikeDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.TrackAccountDislikeUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.TrackAccountDislikeUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload>[]
-        }
-        upsert: {
-          args: Prisma.TrackAccountDislikeUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrackAccountDislikePayload>
-        }
-        aggregate: {
-          args: Prisma.TrackAccountDislikeAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTrackAccountDislike>
-        }
-        groupBy: {
-          args: Prisma.TrackAccountDislikeGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TrackAccountDislikeGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.TrackAccountDislikeCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TrackAccountDislikeCountAggregateOutputType> | number
-        }
-      }
-    }
     TrackAccountListen: {
       payload: Prisma.$TrackAccountListenPayload<ExtArgs>
       fields: Prisma.TrackAccountListenFieldRefs
@@ -3484,14 +3409,6 @@ export const TrackAccountLikeScalarFieldEnum = {
 export type TrackAccountLikeScalarFieldEnum = (typeof TrackAccountLikeScalarFieldEnum)[keyof typeof TrackAccountLikeScalarFieldEnum]
 
 
-export const TrackAccountDislikeScalarFieldEnum = {
-  trackId: 'trackId',
-  accountId: 'accountId'
-} as const
-
-export type TrackAccountDislikeScalarFieldEnum = (typeof TrackAccountDislikeScalarFieldEnum)[keyof typeof TrackAccountDislikeScalarFieldEnum]
-
-
 export const TrackAccountListenScalarFieldEnum = {
   trackId: 'trackId',
   accountId: 'accountId',
@@ -3777,7 +3694,6 @@ export type GlobalOmitConfig = {
   genrePreference?: Prisma.GenrePreferenceOmit
   playlistAccount?: Prisma.PlaylistAccountOmit
   trackAccountLike?: Prisma.TrackAccountLikeOmit
-  trackAccountDislike?: Prisma.TrackAccountDislikeOmit
   trackAccountListen?: Prisma.TrackAccountListenOmit
   trackListenHistoryItem?: Prisma.TrackListenHistoryItemOmit
   accountPinnedItem?: Prisma.AccountPinnedItemOmit

@@ -29,17 +29,17 @@ export default function LikeButton({
 
   const toggleLike = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering parent click
-
+    
     // Pour l'instant on ne supporte en back-end QUE le like/unlike des tracks
     if (itemType !== "track") {
       console.warn("Liking is ONLY supported for music tracks currently.");
       return;
     }
-
+    
     requireAuth(async () => {
       const newState = !isLiked;
       setIsLiked(newState); // Optimistic UI
-
+      
       try {
         if (newState) {
           await likeTrackMutation(itemId, token!);
