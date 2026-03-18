@@ -287,7 +287,9 @@ const pinPlaylistAtSlot = async (
   return readPinnedItem(dbClient, accountId, slot);
 };
 
-export const createPrismaPinnedItemRepository = (prisma: PrismaClient): PinnedItemRepository => ({
+export const createPrismaPinnedItemRepository = (
+  prisma: PrismaClient,
+): PinnedItemRepository => ({
   listByAccountId: async (accountId: string): Promise<PinnedItem[]> => {
     const pinnedItems = await prisma.accountPinnedItem.findMany({
       where: { accountId },
@@ -299,32 +301,18 @@ export const createPrismaPinnedItemRepository = (prisma: PrismaClient): PinnedIt
 
     return pinnedItems.map((pinnedItem) => toPinnedItem(pinnedItem, accountId));
   },
-  pinTrack: async (
-    accountId: string,
-    slot: number,
-    trackId: string,
-  ): Promise<PinnedItem | null> => {
-    return prisma.$transaction((transaction) =>
-      pinTrackAtSlot(transaction, accountId, slot, trackId),
-    );
+  pinTrack: async (accountId: string, slot: number, trackId: string): Promise<PinnedItem | null> => {
+    return prisma.$transaction((transaction) => pinTrackAtSlot(transaction, accountId, slot, trackId));
   },
-  pinAlbum: async (
-    accountId: string,
-    slot: number,
-    albumId: string,
-  ): Promise<PinnedItem | null> => {
-    return prisma.$transaction((transaction) =>
-      pinAlbumAtSlot(transaction, accountId, slot, albumId),
-    );
+  pinAlbum: async (accountId: string, slot: number, albumId: string): Promise<PinnedItem | null> => {
+    return prisma.$transaction((transaction) => pinAlbumAtSlot(transaction, accountId, slot, albumId));
   },
   pinArtist: async (
     accountId: string,
     slot: number,
     artistId: string,
   ): Promise<PinnedItem | null> => {
-    return prisma.$transaction((transaction) =>
-      pinArtistAtSlot(transaction, accountId, slot, artistId),
-    );
+    return prisma.$transaction((transaction) => pinArtistAtSlot(transaction, accountId, slot, artistId));
   },
   pinPlaylist: async (
     accountId: string,

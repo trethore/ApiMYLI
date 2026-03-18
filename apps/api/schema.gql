@@ -61,7 +61,6 @@ type Track {
   mainArtists: [ArtistSummary!]!
   featArtists: [ArtistSummary!]!
   isLiked: Boolean!
-  isDisliked: Boolean!
 }
 
 type Playlist {
@@ -171,20 +170,6 @@ type Query {
   playlist(playlistId: String!): Playlist
   myPlaylists: [Playlist!]!
   myPinnedItems: [PinnedItem!]!
-  search(query: String!, limit: Int): SearchResults!
-  recommendations(
-    seedTrackIds: [String!]!
-    blacklistedTrackIds: [String!]!
-    limit: Int!
-    randomness: Int!
-  ): [Track!]!
-}
-
-type SearchResults {
-  tracks: [Track!]!
-  albums: [Album!]!
-  artists: [Artist!]!
-  playlists: [Playlist!]!
 }
 
 type Mutation {
@@ -196,8 +181,6 @@ type Mutation {
   logout: Boolean!
   likeTrack(trackId: String!): Track
   unlikeTrack(trackId: String!): Track
-  dislikeTrack(trackId: String!): Track
-  undislikeTrack(trackId: String!): Track
   pinTrack(slot: Int!, trackId: String!): PinnedItem
   pinAlbum(slot: Int!, albumId: String!): PinnedItem
   pinArtist(slot: Int!, artistId: String!): PinnedItem

@@ -20,12 +20,7 @@ import { usePlaylist } from "@/context/PlaylistContext";
 import { useAuth } from "@/context/AuthContext";
 import { usePlayer } from "@/context/PlayerContext";
 import { useRouter } from "next/navigation";
-import {
-  getLikedTracksQuery,
-  getMyPinnedItemsQuery,
-  getMyTrackHistoryQuery,
-  toMusic,
-} from "@/lib/api-client";
+import { getLikedTracksQuery, getMyPinnedItemsQuery, getMyTrackHistoryQuery, toMusic } from "@/lib/api-client";
 import { Music } from "@/types/music";
 
 type ContentType = "Album" | "Single" | "Artiste" | "Playlist" | "Track";
@@ -62,10 +57,7 @@ export default function Library() {
   const [loading, setLoading] = useState(true);
 
   // Fallback local history if not authenticated
-  const localHistoryContent = history
-    .map((t) => ({ ...t, type: "Track" as const }))
-    .reverse()
-    .slice(0, 10);
+  const localHistoryContent = history.map((t) => ({ ...t, type: "Track" as const })).reverse().slice(0, 10);
 
   useEffect(() => {
     const fetchLibraryData = async () => {

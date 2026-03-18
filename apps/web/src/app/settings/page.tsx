@@ -160,11 +160,11 @@ export default function Settings() {
                         disabled
                         className="opacity-60 cursor-not-allowed"
                       />
-                      <p className="text-xs text-muted-foreground">
-                        L&apos;email ne peut pas être modifié.
-                      </p>
+                      <p className="text-xs text-muted-foreground">L&apos;email ne peut pas être modifié.</p>
                     </div>
-                    {editError && <p className="text-sm text-destructive">{editError}</p>}
+                    {editError && (
+                      <p className="text-sm text-destructive">{editError}</p>
+                    )}
                     <DialogFooter>
                       <Button type="submit" disabled={isLoading}>
                         {isLoading ? (

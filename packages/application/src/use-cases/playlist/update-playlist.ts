@@ -12,7 +12,7 @@ export const updatePlaylist = async (
   input: UpdatePlaylistInput,
 ): Promise<Playlist | null> => {
   const updateData = {
-    name: input.name === undefined ? undefined : (input.name?.trim() ?? null),
+    name: input.name === undefined ? undefined : input.name?.trim() ?? null,
   };
 
   if (updateData.name !== undefined && !updateData.name) {

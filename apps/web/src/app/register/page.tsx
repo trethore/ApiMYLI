@@ -73,6 +73,7 @@ export default function RegisterPage() {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
+
               {/* Pseudo */}
               <div className="space-y-2">
                 <Label htmlFor="username">Pseudo</Label>

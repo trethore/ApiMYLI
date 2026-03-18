@@ -74,24 +74,24 @@ GRAPHQL_MAX_COMPLEXITY=1000
 
 #### Variables Docker
 
-| Variable        | Obligatoire | Description                                                                        |
-| --------------- | ----------- | ---------------------------------------------------------------------------------- |
-| `POSTGRES_PORT` | non         | Port exposé localement pour PostgreSQL. La valeur par défaut du projet est `5433`. |
+| Variable | Obligatoire | Description |
+| --- | --- | --- |
+| `POSTGRES_PORT` | non | Port exposé localement pour PostgreSQL. La valeur par défaut du projet est `5433`. |
 
 #### Variables API
 
-| Variable                 | Obligatoire | Description                                                                                                                                |
-| ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `DATABASE_URL`           | oui         | URL PostgreSQL utilisée par Prisma et les scripts de seed. En local, utiliser `localhost:5433` si vous gardez la config Docker par défaut. |
-| `REDIS_URL`              | oui         | URL de connexion Redis. Par défaut : `redis://localhost:6379`.                                                                             |
-| `PORT`                   | non         | Port HTTP de l'API GraphQL. Par défaut : `4000`.                                                                                           |
-| `PASSWORD_PEPPER`        | oui         | Valeur secrète ajoutée aux mots de passe avant hash Argon2. Obligatoire pour créer un compte et se connecter.                              |
-| `JWT_SECRET`             | oui         | Secret de signature des JWT. Obligatoire pour `login`, `logout` et toutes les mutations authentifiees.                                     |
-| `ARGON2_MEMORY_COST`     | non         | Coût mémoire Argon2. Par défaut : `65536`.                                                                                                 |
-| `ARGON2_TIME_COST`       | non         | Coût temporel Argon2. Par défaut : `3`.                                                                                                    |
-| `ARGON2_PARALLELISM`     | non         | Niveau de parallélisme Argon2. Par défaut : `1`.                                                                                           |
-| `GRAPHQL_MAX_DEPTH`      | non         | Profondeur maximale d'une requête GraphQL. Par défaut : `5`.                                                                               |
-| `GRAPHQL_MAX_COMPLEXITY` | non         | Complexité maximale d'une requête GraphQL. Par défaut : `1000`.                                                                            |
+| Variable | Obligatoire | Description |
+| --- | --- | --- |
+| `DATABASE_URL` | oui | URL PostgreSQL utilisée par Prisma et les scripts de seed. En local, utiliser `localhost:5433` si vous gardez la config Docker par défaut. |
+| `REDIS_URL` | oui | URL de connexion Redis. Par défaut : `redis://localhost:6379`. |
+| `PORT` | non | Port HTTP de l'API GraphQL. Par défaut : `4000`. |
+| `PASSWORD_PEPPER` | oui | Valeur secrète ajoutée aux mots de passe avant hash Argon2. Obligatoire pour créer un compte et se connecter. |
+| `JWT_SECRET` | oui | Secret de signature des JWT. Obligatoire pour `login`, `logout` et toutes les mutations authentifiees. |
+| `ARGON2_MEMORY_COST` | non | Coût mémoire Argon2. Par défaut : `65536`. |
+| `ARGON2_TIME_COST` | non | Coût temporel Argon2. Par défaut : `3`. |
+| `ARGON2_PARALLELISM` | non | Niveau de parallélisme Argon2. Par défaut : `1`. |
+| `GRAPHQL_MAX_DEPTH` | non | Profondeur maximale d'une requête GraphQL. Par défaut : `5`. |
+| `GRAPHQL_MAX_COMPLEXITY` | non | Complexité maximale d'une requête GraphQL. Par défaut : `1000`. |
 
 ### 3. Démarrer PostgreSQL et Redis
 

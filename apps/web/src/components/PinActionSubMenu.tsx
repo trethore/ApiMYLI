@@ -1,13 +1,7 @@
 "use client";
 
 import { useAuth } from "@/context/AuthContext";
-import {
-  pinTrackMutation,
-  pinAlbumMutation,
-  pinArtistMutation,
-  pinPlaylistMutation,
-  unpinItemMutation,
-} from "@/lib/api-client";
+import { pinTrackMutation, pinAlbumMutation, pinArtistMutation, pinPlaylistMutation, unpinItemMutation } from "@/lib/api-client";
 import {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
@@ -31,7 +25,7 @@ export default function PinActionSubMenu({ itemId, itemType }: PinActionSubMenuP
     requireAuth(async () => {
       try {
         if (!token) return;
-
+        
         switch (itemType) {
           case "track":
             await pinTrackMutation(slot, itemId, token);
@@ -78,22 +72,16 @@ export default function PinActionSubMenu({ itemId, itemType }: PinActionSubMenuP
             Épingler à...
           </div>
           {[1, 2, 3, 4].map((slot) => (
-            <DropdownMenuItem
-              key={`pin-${slot}`}
-              onClick={() => handlePin(slot)}
-              className="cursor-pointer"
-            >
+            <DropdownMenuItem key={`pin-${slot}`} onClick={() => handlePin(slot)} className="cursor-pointer">
               Emplacement {slot}
             </DropdownMenuItem>
           ))}
           <DropdownMenuSeparator />
-          <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground">Libérer...</div>
+          <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground">
+            Libérer...
+          </div>
           {[1, 2, 3, 4].map((slot) => (
-            <DropdownMenuItem
-              key={`unpin-${slot}`}
-              onClick={() => handleUnpin(slot)}
-              className="cursor-pointer text-destructive focus:text-destructive"
-            >
+            <DropdownMenuItem key={`unpin-${slot}`} onClick={() => handleUnpin(slot)} className="cursor-pointer text-destructive focus:text-destructive">
               Vider l'emplacement {slot}
             </DropdownMenuItem>
           ))}

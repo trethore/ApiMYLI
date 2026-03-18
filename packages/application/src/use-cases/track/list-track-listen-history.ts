@@ -9,8 +9,7 @@ export const listTrackListenHistory = async (
   accountId: string,
   limit?: number,
 ): Promise<TrackListenHistoryItem[]> => {
-  const resolvedLimit =
-    limit === undefined ? DEFAULT_LIMIT : Math.min(Math.max(limit, 1), MAX_LIMIT);
+  const resolvedLimit = limit === undefined ? DEFAULT_LIMIT : Math.min(Math.max(limit, 1), MAX_LIMIT);
 
   return repository.listTrackListenHistory(accountId, resolvedLimit);
 };

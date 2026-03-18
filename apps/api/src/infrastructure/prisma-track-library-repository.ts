@@ -5,11 +5,6 @@ import type { TrackLibraryRepository } from "packages/domain/src/repositories/tr
 import { toTrack, trackInclude } from "@/infrastructure/prisma-music-mappers";
 
 type DbClient = PrismaClient | Prisma.TransactionClient;
-type TrackFeedback = "like" | "dislike";
-
-const trackIdSelect = {
-  trackId: true,
-} satisfies Prisma.TrackSelect;
 
 const readTrack = async (
   dbClient: DbClient,
@@ -47,124 +42,77 @@ const toBigInt = (value: bigint | null | undefined): bigint => {
   return value ?? BigInt(0);
 };
 
-const trackExists = async (dbClient: DbClient, trackId: string): Promise<boolean> => {
-  const track = await dbClient.track.findUnique({
-    where: { trackId },
-    select: trackIdSelect,
-  });
-
-  return track !== null;
-};
-
-const setTrackFeedback = async (
-  dbClient: DbClient,
-  accountId: string,
-  trackId: string,
-  feedback: TrackFeedback,
-): Promise<void> => {
-  if (feedback === "like") {
-    await dbClient.trackAccountDislike.deleteMany({
-      where: { trackId, accountId },
-    });
-
-    await dbClient.trackAccountLike.upsert({
-      where: {
-        trackId_accountId: {
-          trackId,
-          accountId,
-        },
-      },
-      update: {},
-      create: {
-        track: { connect: { trackId } },
-        account: { connect: { accountId } },
-      },
-    });
-
-    return;
-  }
-
-  await dbClient.trackAccountLike.deleteMany({
-    where: { trackId, accountId },
-  });
-
-  await dbClient.trackAccountDislike.upsert({
-    where: {
-      trackId_accountId: {
-        trackId,
-        accountId,
-      },
-    },
-    update: {},
-    create: {
-      track: { connect: { trackId } },
-      account: { connect: { accountId } },
-    },
-  });
-};
-
-const clearTrackFeedback = async (
-  dbClient: DbClient,
-  accountId: string,
-  trackId: string,
-  feedback: TrackFeedback,
-): Promise<void> => {
-  if (feedback === "like") {
-    await dbClient.trackAccountLike.deleteMany({
-      where: { trackId, accountId },
-    });
-
-    return;
-  }
-
-  await dbClient.trackAccountDislike.deleteMany({
-    where: { trackId, accountId },
-  });
-};
-
 export const createPrismaTrackLibraryRepository = (
   prisma: PrismaClient,
 ): TrackLibraryRepository => ({
   likeTrack: async (accountId: string, trackId: string): Promise<Track | null> => {
     return prisma.$transaction(async (transaction) => {
-      if (!(await trackExists(transaction, trackId))) {
+      const track = await transaction.track.findUnique({
+        where: { trackId },
+        select: { trackId: true, trackFavorites: true },
+      });
+
+      if (!track) {
         return null;
       }
 
-      await setTrackFeedback(transaction, accountId, trackId, "like");
+      const existingLike = await transaction.trackAccountLike.findFirst({
+        where: { trackId, accountId },
+      });
+
+      if (!existingLike) {
+        await transaction.trackAccountLike.create({
+          data: {
+            track: { connect: { trackId } },
+            account: { connect: { accountId } },
+          },
+        });
+
+        await transaction.track.update({
+          where: { trackId },
+          data: {
+            trackFavorites: toBigInt(track.trackFavorites) + BigInt(1),
+          },
+        });
+      }
 
       return readTrack(transaction, trackId, accountId);
     });
   },
   unlikeTrack: async (accountId: string, trackId: string): Promise<Track | null> => {
     return prisma.$transaction(async (transaction) => {
-      if (!(await trackExists(transaction, trackId))) {
+      const track = await transaction.track.findUnique({
+        where: { trackId },
+        select: { trackId: true, trackFavorites: true },
+      });
+
+      if (!track) {
         return null;
       }
 
-      await clearTrackFeedback(transaction, accountId, trackId, "like");
+      const existingLike = await transaction.trackAccountLike.findFirst({
+        where: { trackId, accountId },
+      });
 
-      return readTrack(transaction, trackId, accountId);
-    });
-  },
-  dislikeTrack: async (accountId: string, trackId: string): Promise<Track | null> => {
-    return prisma.$transaction(async (transaction) => {
-      if (!(await trackExists(transaction, trackId))) {
-        return null;
+      if (existingLike) {
+        await transaction.trackAccountLike.delete({
+          where: {
+            trackId_accountId: {
+              trackId,
+              accountId,
+            },
+          },
+        });
+
+        const nextFavorites = toBigInt(track.trackFavorites) - BigInt(1);
+
+        await transaction.track.update({
+          where: { trackId },
+          data: {
+            trackFavorites: nextFavorites > BigInt(0) ? nextFavorites : BigInt(0),
+          },
+        });
       }
-
-      await setTrackFeedback(transaction, accountId, trackId, "dislike");
-
-      return readTrack(transaction, trackId, accountId);
-    });
-  },
-  undislikeTrack: async (accountId: string, trackId: string): Promise<Track | null> => {
-    return prisma.$transaction(async (transaction) => {
-      if (!(await trackExists(transaction, trackId))) {
-        return null;
-      }
-
-      await clearTrackFeedback(transaction, accountId, trackId, "dislike");
 
       return readTrack(transaction, trackId, accountId);
     });
