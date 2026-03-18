@@ -57,16 +57,12 @@ const getFavoritedArtistIds = async (
     return new Set<string>();
   }
 
-  const rows = await dbClient.$queryRawUnsafe<FavoriteArtistRow[]>(
-    `
+  const rows = await dbClient.$queryRaw<FavoriteArtistRow[]>`
       SELECT artist_id
       FROM artist_account_favorite
-      WHERE account_id = $1::uuid
-        AND artist_id = ANY($2::uuid[])
-    `,
-    accountId,
-    artistIds,
-  );
+      WHERE account_id = ${accountId}::uuid
+        AND artist_id = ANY(${artistIds}::uuid[])
+    `;
 
   return new Set(rows.map((row) => row.artist_id));
 };
@@ -80,14 +76,12 @@ const getFavoritedAlbumIds = async (
     return new Set<string>();
   }
 
-  const rows = await dbClient.$queryRawUnsafe<FavoriteAlbumRow[]>((
-    `
+  const rows = await dbClient.$queryRaw<FavoriteAlbumRow[]>`
       SELECT album_id
       FROM album_account_favorite
-      WHERE account_id = $1::uuid
-        AND album_id = ANY($2::uuid[])
-    `
-  ), accountId, albumIds);
+      WHERE account_id = ${accountId}::uuid
+        AND album_id = ANY(${albumIds}::uuid[])
+    `;
 
   return new Set(rows.map((row) => row.album_id));
 };
