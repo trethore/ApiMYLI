@@ -463,7 +463,7 @@ export const createPrismaArtistCatalogRepository = (
         await transaction.album.update({
           where: { albumId },
           data: {
-            albumFavorites: toBigInt(album.albumFavorites) + BigInt(1),
+            albumFavorites: { increment: 1 },
           },
         });
       }
