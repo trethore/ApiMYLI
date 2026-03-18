@@ -129,7 +129,7 @@ const extractArchive = async (archivePath: string, targetDirectoryPath: string):
     return;
   }
 
-  await $`unzip -o ${archivePath} -d ${targetDirectoryPath}`;
+  await $`tar -xf ${archivePath} -C ${targetDirectoryPath}`;
 };
 
 await mkdir(DATA_DIRECTORY_PATH, { recursive: true });

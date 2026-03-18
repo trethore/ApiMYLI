@@ -1,10 +1,9 @@
 import type { Album } from "packages/domain/src/entities/album";
 import type { ArtistCatalogRepository } from "packages/domain/src/repositories/artist-catalog-repository";
 
-export const listArtistAlbums = async (
+export const listFavoriteAlbums = async (
   repository: ArtistCatalogRepository,
-  artistId: string,
-  currentAccountId?: string | null,
+  accountId: string,
 ): Promise<Album[]> => {
-  return repository.listAlbumsByArtistId(artistId, currentAccountId);
+  return repository.listFavoriteAlbums(accountId);
 };

@@ -162,7 +162,7 @@ export const toAlbumSummary = (album: PrismaAlbum) => ({
   type: album.albumType,
 });
 
-export const toAlbum = (album: PrismaAlbumWithRelations): Album => ({
+export const toAlbum = (album: PrismaAlbumWithRelations, isFavorited: boolean): Album => ({
   albumId: album.albumId,
   title: album.albumTitle,
   imageUrl: album.albumImageFile,
@@ -174,6 +174,7 @@ export const toAlbum = (album: PrismaAlbumWithRelations): Album => ({
   comments: toNullableNumber(album.albumComments),
   producer: album.albumProducer,
   artists: album.albumArtists.map(toArtistSummary),
+  isFavorited,
 });
 
 export const toTrack = (track: PrismaTrackWithRelations): Track => ({

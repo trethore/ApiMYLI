@@ -278,6 +278,7 @@ export type AlbumWhereInput = {
   albumProducer?: Prisma.StringNullableFilter<"Album"> | string | null
   tracks?: Prisma.TrackListRelationFilter
   albumArtists?: Prisma.AlbumArtistListRelationFilter
+  accountFavorites?: Prisma.AlbumAccountFavoriteListRelationFilter
   pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
 }
 
@@ -295,6 +296,7 @@ export type AlbumOrderByWithRelationInput = {
   albumProducer?: Prisma.SortOrderInput | Prisma.SortOrder
   tracks?: Prisma.TrackOrderByRelationAggregateInput
   albumArtists?: Prisma.AlbumArtistOrderByRelationAggregateInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteOrderByRelationAggregateInput
   pinnedItems?: Prisma.AccountPinnedItemOrderByRelationAggregateInput
 }
 
@@ -315,6 +317,7 @@ export type AlbumWhereUniqueInput = Prisma.AtLeast<{
   albumProducer?: Prisma.StringNullableFilter<"Album"> | string | null
   tracks?: Prisma.TrackListRelationFilter
   albumArtists?: Prisma.AlbumArtistListRelationFilter
+  accountFavorites?: Prisma.AlbumAccountFavoriteListRelationFilter
   pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
 }, "albumId">
 
@@ -368,6 +371,7 @@ export type AlbumCreateInput = {
   albumProducer?: string | null
   tracks?: Prisma.TrackCreateNestedManyWithoutAlbumInput
   albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutAlbumInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAlbumInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAlbumInput
 }
 
@@ -385,6 +389,7 @@ export type AlbumUncheckedCreateInput = {
   albumProducer?: string | null
   tracks?: Prisma.TrackUncheckedCreateNestedManyWithoutAlbumInput
   albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutAlbumInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAlbumInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
 }
 
@@ -402,6 +407,7 @@ export type AlbumUpdateInput = {
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUpdateManyWithoutAlbumNestedInput
   albumArtists?: Prisma.AlbumArtistUpdateManyWithoutAlbumNestedInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAlbumNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAlbumNestedInput
 }
 
@@ -419,6 +425,7 @@ export type AlbumUncheckedUpdateInput = {
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUncheckedUpdateManyWithoutAlbumNestedInput
   albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutAlbumNestedInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAlbumNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
 }
 
@@ -560,6 +567,20 @@ export type AlbumUpdateOneRequiredWithoutAlbumArtistsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.AlbumUpdateToOneWithWhereWithoutAlbumArtistsInput, Prisma.AlbumUpdateWithoutAlbumArtistsInput>, Prisma.AlbumUncheckedUpdateWithoutAlbumArtistsInput>
 }
 
+export type AlbumCreateNestedOneWithoutAccountFavoritesInput = {
+  create?: Prisma.XOR<Prisma.AlbumCreateWithoutAccountFavoritesInput, Prisma.AlbumUncheckedCreateWithoutAccountFavoritesInput>
+  connectOrCreate?: Prisma.AlbumCreateOrConnectWithoutAccountFavoritesInput
+  connect?: Prisma.AlbumWhereUniqueInput
+}
+
+export type AlbumUpdateOneRequiredWithoutAccountFavoritesNestedInput = {
+  create?: Prisma.XOR<Prisma.AlbumCreateWithoutAccountFavoritesInput, Prisma.AlbumUncheckedCreateWithoutAccountFavoritesInput>
+  connectOrCreate?: Prisma.AlbumCreateOrConnectWithoutAccountFavoritesInput
+  upsert?: Prisma.AlbumUpsertWithoutAccountFavoritesInput
+  connect?: Prisma.AlbumWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AlbumUpdateToOneWithWhereWithoutAccountFavoritesInput, Prisma.AlbumUpdateWithoutAccountFavoritesInput>, Prisma.AlbumUncheckedUpdateWithoutAccountFavoritesInput>
+}
+
 export type AlbumCreateNestedOneWithoutPinnedItemsInput = {
   create?: Prisma.XOR<Prisma.AlbumCreateWithoutPinnedItemsInput, Prisma.AlbumUncheckedCreateWithoutPinnedItemsInput>
   connectOrCreate?: Prisma.AlbumCreateOrConnectWithoutPinnedItemsInput
@@ -589,6 +610,7 @@ export type AlbumCreateWithoutTracksInput = {
   albumComments?: bigint | number | null
   albumProducer?: string | null
   albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutAlbumInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAlbumInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAlbumInput
 }
 
@@ -605,6 +627,7 @@ export type AlbumUncheckedCreateWithoutTracksInput = {
   albumComments?: bigint | number | null
   albumProducer?: string | null
   albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutAlbumInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAlbumInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
 }
 
@@ -637,6 +660,7 @@ export type AlbumUpdateWithoutTracksInput = {
   albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   albumArtists?: Prisma.AlbumArtistUpdateManyWithoutAlbumNestedInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAlbumNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAlbumNestedInput
 }
 
@@ -653,6 +677,7 @@ export type AlbumUncheckedUpdateWithoutTracksInput = {
   albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutAlbumNestedInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAlbumNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
 }
 
@@ -669,6 +694,7 @@ export type AlbumCreateWithoutAlbumArtistsInput = {
   albumComments?: bigint | number | null
   albumProducer?: string | null
   tracks?: Prisma.TrackCreateNestedManyWithoutAlbumInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAlbumInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAlbumInput
 }
 
@@ -685,6 +711,7 @@ export type AlbumUncheckedCreateWithoutAlbumArtistsInput = {
   albumComments?: bigint | number | null
   albumProducer?: string | null
   tracks?: Prisma.TrackUncheckedCreateNestedManyWithoutAlbumInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAlbumInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
 }
 
@@ -717,6 +744,7 @@ export type AlbumUpdateWithoutAlbumArtistsInput = {
   albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUpdateManyWithoutAlbumNestedInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAlbumNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAlbumNestedInput
 }
 
@@ -733,6 +761,91 @@ export type AlbumUncheckedUpdateWithoutAlbumArtistsInput = {
   albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUncheckedUpdateManyWithoutAlbumNestedInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAlbumNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
+}
+
+export type AlbumCreateWithoutAccountFavoritesInput = {
+  albumId?: string
+  albumTitle?: string | null
+  albumImageFile?: string | null
+  albumImages?: string | null
+  albumType?: string | null
+  albumTracksCount?: number | null
+  albumDateReleased?: Date | string | null
+  albumListens?: bigint | number | null
+  albumFavorites?: bigint | number | null
+  albumComments?: bigint | number | null
+  albumProducer?: string | null
+  tracks?: Prisma.TrackCreateNestedManyWithoutAlbumInput
+  albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutAlbumInput
+  pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAlbumInput
+}
+
+export type AlbumUncheckedCreateWithoutAccountFavoritesInput = {
+  albumId?: string
+  albumTitle?: string | null
+  albumImageFile?: string | null
+  albumImages?: string | null
+  albumType?: string | null
+  albumTracksCount?: number | null
+  albumDateReleased?: Date | string | null
+  albumListens?: bigint | number | null
+  albumFavorites?: bigint | number | null
+  albumComments?: bigint | number | null
+  albumProducer?: string | null
+  tracks?: Prisma.TrackUncheckedCreateNestedManyWithoutAlbumInput
+  albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutAlbumInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAlbumInput
+}
+
+export type AlbumCreateOrConnectWithoutAccountFavoritesInput = {
+  where: Prisma.AlbumWhereUniqueInput
+  create: Prisma.XOR<Prisma.AlbumCreateWithoutAccountFavoritesInput, Prisma.AlbumUncheckedCreateWithoutAccountFavoritesInput>
+}
+
+export type AlbumUpsertWithoutAccountFavoritesInput = {
+  update: Prisma.XOR<Prisma.AlbumUpdateWithoutAccountFavoritesInput, Prisma.AlbumUncheckedUpdateWithoutAccountFavoritesInput>
+  create: Prisma.XOR<Prisma.AlbumCreateWithoutAccountFavoritesInput, Prisma.AlbumUncheckedCreateWithoutAccountFavoritesInput>
+  where?: Prisma.AlbumWhereInput
+}
+
+export type AlbumUpdateToOneWithWhereWithoutAccountFavoritesInput = {
+  where?: Prisma.AlbumWhereInput
+  data: Prisma.XOR<Prisma.AlbumUpdateWithoutAccountFavoritesInput, Prisma.AlbumUncheckedUpdateWithoutAccountFavoritesInput>
+}
+
+export type AlbumUpdateWithoutAccountFavoritesInput = {
+  albumId?: Prisma.StringFieldUpdateOperationsInput | string
+  albumTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  albumImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  albumImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  albumType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  albumTracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  albumDateReleased?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  albumListens?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  albumFavorites?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tracks?: Prisma.TrackUpdateManyWithoutAlbumNestedInput
+  albumArtists?: Prisma.AlbumArtistUpdateManyWithoutAlbumNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAlbumNestedInput
+}
+
+export type AlbumUncheckedUpdateWithoutAccountFavoritesInput = {
+  albumId?: Prisma.StringFieldUpdateOperationsInput | string
+  albumTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  albumImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  albumImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  albumType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  albumTracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  albumDateReleased?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  albumListens?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  albumFavorites?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  albumComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tracks?: Prisma.TrackUncheckedUpdateManyWithoutAlbumNestedInput
+  albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutAlbumNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAlbumNestedInput
 }
 
@@ -750,6 +863,7 @@ export type AlbumCreateWithoutPinnedItemsInput = {
   albumProducer?: string | null
   tracks?: Prisma.TrackCreateNestedManyWithoutAlbumInput
   albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutAlbumInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAlbumInput
 }
 
 export type AlbumUncheckedCreateWithoutPinnedItemsInput = {
@@ -766,6 +880,7 @@ export type AlbumUncheckedCreateWithoutPinnedItemsInput = {
   albumProducer?: string | null
   tracks?: Prisma.TrackUncheckedCreateNestedManyWithoutAlbumInput
   albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutAlbumInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAlbumInput
 }
 
 export type AlbumCreateOrConnectWithoutPinnedItemsInput = {
@@ -798,6 +913,7 @@ export type AlbumUpdateWithoutPinnedItemsInput = {
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUpdateManyWithoutAlbumNestedInput
   albumArtists?: Prisma.AlbumArtistUpdateManyWithoutAlbumNestedInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAlbumNestedInput
 }
 
 export type AlbumUncheckedUpdateWithoutPinnedItemsInput = {
@@ -814,6 +930,7 @@ export type AlbumUncheckedUpdateWithoutPinnedItemsInput = {
   albumProducer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tracks?: Prisma.TrackUncheckedUpdateManyWithoutAlbumNestedInput
   albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutAlbumNestedInput
+  accountFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAlbumNestedInput
 }
 
 
@@ -824,12 +941,14 @@ export type AlbumUncheckedUpdateWithoutPinnedItemsInput = {
 export type AlbumCountOutputType = {
   tracks: number
   albumArtists: number
+  accountFavorites: number
   pinnedItems: number
 }
 
 export type AlbumCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tracks?: boolean | AlbumCountOutputTypeCountTracksArgs
   albumArtists?: boolean | AlbumCountOutputTypeCountAlbumArtistsArgs
+  accountFavorites?: boolean | AlbumCountOutputTypeCountAccountFavoritesArgs
   pinnedItems?: boolean | AlbumCountOutputTypeCountPinnedItemsArgs
 }
 
@@ -860,6 +979,13 @@ export type AlbumCountOutputTypeCountAlbumArtistsArgs<ExtArgs extends runtime.Ty
 /**
  * AlbumCountOutputType without action
  */
+export type AlbumCountOutputTypeCountAccountFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AlbumAccountFavoriteWhereInput
+}
+
+/**
+ * AlbumCountOutputType without action
+ */
 export type AlbumCountOutputTypeCountPinnedItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.AccountPinnedItemWhereInput
 }
@@ -879,6 +1005,7 @@ export type AlbumSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   albumProducer?: boolean
   tracks?: boolean | Prisma.Album$tracksArgs<ExtArgs>
   albumArtists?: boolean | Prisma.Album$albumArtistsArgs<ExtArgs>
+  accountFavorites?: boolean | Prisma.Album$accountFavoritesArgs<ExtArgs>
   pinnedItems?: boolean | Prisma.Album$pinnedItemsArgs<ExtArgs>
   _count?: boolean | Prisma.AlbumCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["album"]>
@@ -929,6 +1056,7 @@ export type AlbumOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
 export type AlbumInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tracks?: boolean | Prisma.Album$tracksArgs<ExtArgs>
   albumArtists?: boolean | Prisma.Album$albumArtistsArgs<ExtArgs>
+  accountFavorites?: boolean | Prisma.Album$accountFavoritesArgs<ExtArgs>
   pinnedItems?: boolean | Prisma.Album$pinnedItemsArgs<ExtArgs>
   _count?: boolean | Prisma.AlbumCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -940,6 +1068,7 @@ export type $AlbumPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   objects: {
     tracks: Prisma.$TrackPayload<ExtArgs>[]
     albumArtists: Prisma.$AlbumArtistPayload<ExtArgs>[]
+    accountFavorites: Prisma.$AlbumAccountFavoritePayload<ExtArgs>[]
     pinnedItems: Prisma.$AccountPinnedItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1350,6 +1479,7 @@ export interface Prisma__AlbumClient<T, Null = never, ExtArgs extends runtime.Ty
   readonly [Symbol.toStringTag]: "PrismaPromise"
   tracks<T extends Prisma.Album$tracksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Album$tracksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   albumArtists<T extends Prisma.Album$albumArtistsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Album$albumArtistsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AlbumArtistPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  accountFavorites<T extends Prisma.Album$accountFavoritesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Album$accountFavoritesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AlbumAccountFavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   pinnedItems<T extends Prisma.Album$pinnedItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Album$pinnedItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPinnedItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1824,6 +1954,30 @@ export type Album$albumArtistsArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.AlbumArtistScalarFieldEnum | Prisma.AlbumArtistScalarFieldEnum[]
+}
+
+/**
+ * Album.accountFavorites
+ */
+export type Album$accountFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AlbumAccountFavorite
+   */
+  select?: Prisma.AlbumAccountFavoriteSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AlbumAccountFavorite
+   */
+  omit?: Prisma.AlbumAccountFavoriteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AlbumAccountFavoriteInclude<ExtArgs> | null
+  where?: Prisma.AlbumAccountFavoriteWhereInput
+  orderBy?: Prisma.AlbumAccountFavoriteOrderByWithRelationInput | Prisma.AlbumAccountFavoriteOrderByWithRelationInput[]
+  cursor?: Prisma.AlbumAccountFavoriteWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AlbumAccountFavoriteScalarFieldEnum | Prisma.AlbumAccountFavoriteScalarFieldEnum[]
 }
 
 /**

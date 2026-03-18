@@ -27,8 +27,8 @@ export const searchGlobal = async (
 
   const [tracks, albums, artists, playlists] = await Promise.all([
     trackRepo.searchTracks(query, currentAccountId, limit),
-    artistRepo.searchAlbums(query, limit),
-    artistRepo.searchArtists(query, limit),
+    artistRepo.searchAlbums(query, currentAccountId, limit),
+    artistRepo.searchArtists(query, currentAccountId, limit),
     playlistRepo.searchPlaylists(query, currentAccountId, limit),
   ]);
 

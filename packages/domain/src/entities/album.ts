@@ -12,4 +12,5 @@ export type Album = {
   comments: number | null;
   producer: string | null;
   artists: ArtistSummary[];
+  isFavorited: boolean;
 };

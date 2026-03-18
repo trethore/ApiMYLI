@@ -76,6 +76,8 @@ export const ModelName = {
   GenrePreference: 'GenrePreference',
   PlaylistAccount: 'PlaylistAccount',
   TrackAccountLike: 'TrackAccountLike',
+  ArtistAccountFavorite: 'ArtistAccountFavorite',
+  AlbumAccountFavorite: 'AlbumAccountFavorite',
   TrackAccountListen: 'TrackAccountListen',
   TrackListenHistoryItem: 'TrackListenHistoryItem',
   AccountPinnedItem: 'AccountPinnedItem',
@@ -888,6 +890,22 @@ export const TrackAccountLikeScalarFieldEnum = {
 } as const
 
 export type TrackAccountLikeScalarFieldEnum = (typeof TrackAccountLikeScalarFieldEnum)[keyof typeof TrackAccountLikeScalarFieldEnum]
+
+
+export const ArtistAccountFavoriteScalarFieldEnum = {
+  artistId: 'artistId',
+  accountId: 'accountId'
+} as const
+
+export type ArtistAccountFavoriteScalarFieldEnum = (typeof ArtistAccountFavoriteScalarFieldEnum)[keyof typeof ArtistAccountFavoriteScalarFieldEnum]
+
+
+export const AlbumAccountFavoriteScalarFieldEnum = {
+  albumId: 'albumId',
+  accountId: 'accountId'
+} as const
+
+export type AlbumAccountFavoriteScalarFieldEnum = (typeof AlbumAccountFavoriteScalarFieldEnum)[keyof typeof AlbumAccountFavoriteScalarFieldEnum]
 
 
 export const TrackAccountListenScalarFieldEnum = {

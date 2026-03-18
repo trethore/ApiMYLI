@@ -409,6 +409,8 @@ export const ModelName = {
   GenrePreference: 'GenrePreference',
   PlaylistAccount: 'PlaylistAccount',
   TrackAccountLike: 'TrackAccountLike',
+  ArtistAccountFavorite: 'ArtistAccountFavorite',
+  AlbumAccountFavorite: 'AlbumAccountFavorite',
   TrackAccountListen: 'TrackAccountListen',
   TrackListenHistoryItem: 'TrackListenHistoryItem',
   AccountPinnedItem: 'AccountPinnedItem',
@@ -428,7 +430,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountListen" | "trackListenHistoryItem" | "accountPinnedItem" | "trackComment"
+    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "artistAccountFavorite" | "albumAccountFavorite" | "trackAccountListen" | "trackListenHistoryItem" | "accountPinnedItem" | "trackComment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2282,6 +2284,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ArtistAccountFavorite: {
+      payload: Prisma.$ArtistAccountFavoritePayload<ExtArgs>
+      fields: Prisma.ArtistAccountFavoriteFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ArtistAccountFavoriteFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ArtistAccountFavoriteFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload>
+        }
+        findFirst: {
+          args: Prisma.ArtistAccountFavoriteFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ArtistAccountFavoriteFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload>
+        }
+        findMany: {
+          args: Prisma.ArtistAccountFavoriteFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload>[]
+        }
+        create: {
+          args: Prisma.ArtistAccountFavoriteCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload>
+        }
+        createMany: {
+          args: Prisma.ArtistAccountFavoriteCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ArtistAccountFavoriteCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload>[]
+        }
+        delete: {
+          args: Prisma.ArtistAccountFavoriteDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload>
+        }
+        update: {
+          args: Prisma.ArtistAccountFavoriteUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload>
+        }
+        deleteMany: {
+          args: Prisma.ArtistAccountFavoriteDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ArtistAccountFavoriteUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ArtistAccountFavoriteUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload>[]
+        }
+        upsert: {
+          args: Prisma.ArtistAccountFavoriteUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistAccountFavoritePayload>
+        }
+        aggregate: {
+          args: Prisma.ArtistAccountFavoriteAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateArtistAccountFavorite>
+        }
+        groupBy: {
+          args: Prisma.ArtistAccountFavoriteGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArtistAccountFavoriteGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ArtistAccountFavoriteCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArtistAccountFavoriteCountAggregateOutputType> | number
+        }
+      }
+    }
+    AlbumAccountFavorite: {
+      payload: Prisma.$AlbumAccountFavoritePayload<ExtArgs>
+      fields: Prisma.AlbumAccountFavoriteFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AlbumAccountFavoriteFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AlbumAccountFavoriteFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload>
+        }
+        findFirst: {
+          args: Prisma.AlbumAccountFavoriteFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AlbumAccountFavoriteFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload>
+        }
+        findMany: {
+          args: Prisma.AlbumAccountFavoriteFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload>[]
+        }
+        create: {
+          args: Prisma.AlbumAccountFavoriteCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload>
+        }
+        createMany: {
+          args: Prisma.AlbumAccountFavoriteCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AlbumAccountFavoriteCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload>[]
+        }
+        delete: {
+          args: Prisma.AlbumAccountFavoriteDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload>
+        }
+        update: {
+          args: Prisma.AlbumAccountFavoriteUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload>
+        }
+        deleteMany: {
+          args: Prisma.AlbumAccountFavoriteDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AlbumAccountFavoriteUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AlbumAccountFavoriteUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload>[]
+        }
+        upsert: {
+          args: Prisma.AlbumAccountFavoriteUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AlbumAccountFavoritePayload>
+        }
+        aggregate: {
+          args: Prisma.AlbumAccountFavoriteAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAlbumAccountFavorite>
+        }
+        groupBy: {
+          args: Prisma.AlbumAccountFavoriteGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AlbumAccountFavoriteGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AlbumAccountFavoriteCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AlbumAccountFavoriteCountAggregateOutputType> | number
+        }
+      }
+    }
     TrackAccountListen: {
       payload: Prisma.$TrackAccountListenPayload<ExtArgs>
       fields: Prisma.TrackAccountListenFieldRefs
@@ -3409,6 +3559,22 @@ export const TrackAccountLikeScalarFieldEnum = {
 export type TrackAccountLikeScalarFieldEnum = (typeof TrackAccountLikeScalarFieldEnum)[keyof typeof TrackAccountLikeScalarFieldEnum]
 
 
+export const ArtistAccountFavoriteScalarFieldEnum = {
+  artistId: 'artistId',
+  accountId: 'accountId'
+} as const
+
+export type ArtistAccountFavoriteScalarFieldEnum = (typeof ArtistAccountFavoriteScalarFieldEnum)[keyof typeof ArtistAccountFavoriteScalarFieldEnum]
+
+
+export const AlbumAccountFavoriteScalarFieldEnum = {
+  albumId: 'albumId',
+  accountId: 'accountId'
+} as const
+
+export type AlbumAccountFavoriteScalarFieldEnum = (typeof AlbumAccountFavoriteScalarFieldEnum)[keyof typeof AlbumAccountFavoriteScalarFieldEnum]
+
+
 export const TrackAccountListenScalarFieldEnum = {
   trackId: 'trackId',
   accountId: 'accountId',
@@ -3694,6 +3860,8 @@ export type GlobalOmitConfig = {
   genrePreference?: Prisma.GenrePreferenceOmit
   playlistAccount?: Prisma.PlaylistAccountOmit
   trackAccountLike?: Prisma.TrackAccountLikeOmit
+  artistAccountFavorite?: Prisma.ArtistAccountFavoriteOmit
+  albumAccountFavorite?: Prisma.AlbumAccountFavoriteOmit
   trackAccountListen?: Prisma.TrackAccountListenOmit
   trackListenHistoryItem?: Prisma.TrackListenHistoryItemOmit
   accountPinnedItem?: Prisma.AccountPinnedItemOmit
