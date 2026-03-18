@@ -27,6 +27,7 @@ import { getTrackById } from "packages/application/src/use-cases/track/get-track
 import { likeTrack } from "packages/application/src/use-cases/track/like-track";
 import { listArtistTopTracks } from "packages/application/src/use-cases/track/list-artist-top-tracks";
 import { listLikedTracks } from "packages/application/src/use-cases/track/list-liked-tracks";
+import { listDislikedTracks } from "packages/application/src/use-cases/track/list-disliked-tracks";
 import { listTrackListenHistory } from "packages/application/src/use-cases/track/list-track-listen-history";
 import { listTracksByAlbum } from "packages/application/src/use-cases/track/list-tracks-by-album";
 import { recordTrackListen } from "packages/application/src/use-cases/track/record-track-listen";
@@ -540,6 +541,7 @@ export const schema = createSchema({
       albumTracks(albumId: String!): [Track!]!
       artistTopTracks(artistId: String!, limit: Int): [Track!]!
       likedTracks: [Track!]!
+      dislikedTracks: [Track!]!
       myTrackHistory(limit: Int): [TrackListenHistoryItem!]!
       playlist(playlistId: String!): Playlist
       myPlaylists: [Playlist!]!
@@ -663,6 +665,19 @@ export const schema = createSchema({
         );
 
         const tracks = await listLikedTracks(
+          context.services.trackLibraryRepository,
+          currentAccountId,
+        );
+
+        return tracks.map(toGraphqlTrack);
+      },
+      dislikedTracks: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const tracks = await listDislikedTracks(
           context.services.trackLibraryRepository,
           currentAccountId,
         );

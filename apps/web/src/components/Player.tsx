@@ -17,6 +17,8 @@ import Link from "next/link";
 import Image from "@/components/ImageWithFallback";
 import { useState } from "react";
 import QueueList from "@/components/QueueList";
+import LikeButton from "@/components/LikeButton";
+import DislikeButton from "@/components/DislikeButton";
 
 export default function Player() {
   const {
@@ -143,6 +145,18 @@ export default function Player() {
 
         {/* Volume (Desktop Only) */}
         <div className="hidden sm:flex items-center justify-end gap-2 w-1/3">
+          <LikeButton
+            initialIsLiked={currentTrack.isLiked}
+            size={20}
+            itemId={currentTrack.id}
+            itemType="track"
+          />
+          <DislikeButton
+            initialIsDisliked={currentTrack.isDisliked}
+            size={20}
+            itemId={currentTrack.id}
+            itemType="track"
+          />
           <Button
             variant="ghost"
             size="icon"

@@ -97,6 +97,7 @@ export type ApiTrack = {
   mainArtists: ApiArtistSummary[];
   featArtists: ApiArtistSummary[];
   isLiked: boolean;
+  isDisliked: boolean;
 };
 
 export type ApiPlaylistSummary = {
@@ -182,6 +183,7 @@ export function toMusic(apiTrack: ApiTrack): Music {
     image: formatImageUrl(apiTrack.imageUrl),
     duration,
     isLiked: apiTrack.isLiked,
+    isDisliked: apiTrack.isDisliked,
     audioSrc: formatAudioUrl(apiTrack.audioSrc),
   };
 }
@@ -331,6 +333,7 @@ const TRACK_FRAGMENT = /* GraphQL */ `
     favorites
     comments
     isLiked
+    isDisliked
     album {
       albumId
       title
@@ -458,6 +461,19 @@ export async function getLikedTracksQuery(token: string): Promise<ApiTrack[]> {
   return data.likedTracks;
 }
 
+export async function getDislikedTracksQuery(token: string): Promise<ApiTrack[]> {
+  const query = /* GraphQL */ `
+    query GetDislikedTracks {
+      dislikedTracks {
+        ...TrackDetails
+      }
+    }
+    ${TRACK_FRAGMENT}
+  `;
+  const data = await gql<{ dislikedTracks: ApiTrack[] }>(query, {}, token);
+  return data.dislikedTracks;
+}
+
 export async function getPlaylistQuery(
   playlistId: string,
   token?: string | null,
@@ -517,6 +533,38 @@ export async function unlikeTrackMutation(
   `;
   const data = await gql<{ unlikeTrack: ApiTrack | null }>(query, { trackId }, token);
   return data.unlikeTrack;
+}
+
+export async function dislikeTrackMutation(
+  trackId: string,
+  token: string,
+): Promise<ApiTrack | null> {
+  const query = /* GraphQL */ `
+    mutation DislikeTrack($trackId: String!) {
+      dislikeTrack(trackId: $trackId) {
+        ...TrackDetails
+      }
+    }
+    ${TRACK_FRAGMENT}
+  `;
+  const data = await gql<{ dislikeTrack: ApiTrack | null }>(query, { trackId }, token);
+  return data.dislikeTrack;
+}
+
+export async function undislikeTrackMutation(
+  trackId: string,
+  token: string,
+): Promise<ApiTrack | null> {
+  const query = /* GraphQL */ `
+    mutation UndislikeTrack($trackId: String!) {
+      undislikeTrack(trackId: $trackId) {
+        ...TrackDetails
+      }
+    }
+    ${TRACK_FRAGMENT}
+  `;
+  const data = await gql<{ undislikeTrack: ApiTrack | null }>(query, { trackId }, token);
+  return data.undislikeTrack;
 }
 
 export async function createPlaylistMutation(name: string, token: string): Promise<ApiPlaylist> {
@@ -889,6 +937,7 @@ export async function globalSearchQuery(
           audioSrc
           durationSeconds
           isLiked
+          isDisliked
           mainArtists {
             artistId
             name
@@ -949,6 +998,7 @@ export async function getRecommendationsQuery(
         audioSrc
         durationSeconds
         isLiked
+        isDisliked
         mainArtists {
           artistId
           name

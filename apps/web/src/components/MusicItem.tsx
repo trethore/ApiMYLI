@@ -6,6 +6,7 @@ import Image from "@/components/ImageWithFallback";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import LikeButton from "@/components/LikeButton";
+import DislikeButton from "@/components/DislikeButton";
 import PinActionSubMenu from "@/components/PinActionSubMenu";
 import { usePlayer } from "@/context/PlayerContext";
 import { usePlaylist } from "@/context/PlaylistContext";
@@ -117,6 +118,12 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
 
       <div className="flex items-center gap-1 sm:gap-3">
         <LikeButton initialIsLiked={music.isLiked} size={20} itemId={music.id} itemType="track" />
+        <DislikeButton
+          initialIsDisliked={music.isDisliked}
+          size={20}
+          itemId={music.id}
+          itemType="track"
+        />
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

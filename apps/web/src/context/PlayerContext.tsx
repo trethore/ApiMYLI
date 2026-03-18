@@ -3,7 +3,12 @@
 import React, { createContext, useContext, useState, useRef, useEffect } from "react";
 import { Music } from "@/types/music";
 import { useAuth } from "@/context/AuthContext";
-import { recordTrackListenMutation, getRecommendationsQuery, toMusic } from "@/lib/api-client";
+import {
+  recordTrackListenMutation,
+  getRecommendationsQuery,
+  getDislikedTracksQuery,
+  toMusic,
+} from "@/lib/api-client";
 
 interface PlayerContextType {
   currentTrack: Music | null;
@@ -158,9 +163,22 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         const seedIds = [currentTrack.id, ...recentHistoryIds];
         const blacklistedIds = [currentTrack.id, ...history.map((t) => t.id)];
 
+        let dislikedIds: string[] = [];
+        if (isAuthenticated && token) {
+          try {
+            const dislikedTracks = await getDislikedTracksQuery(token);
+            dislikedIds = dislikedTracks.map((t) => t.trackId);
+          } catch {
+            // best-effort
+          }
+        }
+
+        const filteredSeedIds = seedIds.filter((id) => !dislikedIds.includes(id));
+        const mergedBlacklist = [...new Set([...blacklistedIds, ...dislikedIds])];
+
         const recommendations = await getRecommendationsQuery(
-          seedIds,
-          blacklistedIds,
+          filteredSeedIds,
+          mergedBlacklist,
           5, // Fetch 5 tracks ahead
           5, // 5% randomness to stay very close to the current vibe
           token,

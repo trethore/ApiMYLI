@@ -182,6 +182,19 @@ export const createPrismaTrackLibraryRepository = (
 
     return tracks.map(toTrack);
   },
+  listDislikedTracks: async (accountId: string): Promise<Track[]> => {
+    const tracks = await prisma.track.findMany({
+      where: {
+        accountDislikes: {
+          some: { accountId },
+        },
+      },
+      include: trackInclude(accountId),
+      orderBy: [{ trackFavorites: "desc" }, { trackTitle: "asc" }],
+    });
+
+    return tracks.map(toTrack);
+  },
   listTrackListenHistory: async (
     accountId: string,
     limit = 50,

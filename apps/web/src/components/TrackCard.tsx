@@ -4,6 +4,8 @@ import Image from "@/components/ImageWithFallback";
 import { Play } from "lucide-react";
 import { usePlayer } from "@/context/PlayerContext";
 import { Music } from "@/types/music";
+import LikeButton from "@/components/LikeButton";
+import DislikeButton from "@/components/DislikeButton";
 
 interface TrackCardProps {
   track: Music;
@@ -37,6 +39,26 @@ export default function TrackCard({ track, priority = false }: TrackCardProps) {
           {/* Default Play Icon on hover */}
           <div className="absolute inset-0 z-30 hidden lg:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
             <Play className="w-12 h-12 text-white fill-white shadow-lg drop-shadow-md" />
+          </div>
+
+          {/* Like / Dislike buttons on hover */}
+          <div className="absolute bottom-1 right-1 z-30 hidden lg:flex items-center gap-0 opacity-0 group-hover:opacity-100 transition-opacity">
+            <LikeButton
+              initialIsLiked={track.isLiked}
+              size={18}
+              itemId={track.id}
+              itemType="track"
+              className="text-white hover:text-primary"
+              iconClassName="drop-shadow-md"
+            />
+            <DislikeButton
+              initialIsDisliked={track.isDisliked}
+              size={18}
+              itemId={track.id}
+              itemType="track"
+              className="text-white hover:text-destructive"
+              iconClassName="drop-shadow-md"
+            />
           </div>
 
           {/* Type Badge */}

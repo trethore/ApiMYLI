@@ -14,6 +14,7 @@ import {
   getMyPinnedItemsQuery,
   getMyTrackHistoryQuery,
   getRecommendationsQuery,
+  getDislikedTracksQuery,
   toMusic,
 } from "@/lib/api-client";
 import { Music } from "@/types/music";
@@ -115,10 +116,21 @@ export default function Home() {
           if (formattedHistory.length > 0) {
             const historyIds = formattedHistory.map((h) => h.id);
 
+            let dislikedIds: string[] = [];
+            try {
+              const dislikedTracks = await getDislikedTracksQuery(token);
+              dislikedIds = dislikedTracks.map((t) => t.trackId);
+            } catch {
+              // best-effort
+            }
+
+            const filteredHistoryIds = historyIds.filter((id) => !dislikedIds.includes(id));
+            const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
+
             // 1. Recommandé pour vous (Radio style)
             const mainRecos = await getRecommendationsQuery(
-              historyIds.slice(0, 12),
-              historyIds,
+              filteredHistoryIds.slice(0, 12),
+              mergedBlacklist,
               20,
               20, // 20% randomness
               token,
@@ -135,8 +147,8 @@ export default function Home() {
             const dynamicRecos = [];
             for (const track of seedTracks) {
               const recs = await getRecommendationsQuery(
-                [track.id],
-                historyIds,
+                [track.id].filter((id) => !dislikedIds.includes(id)),
+                mergedBlacklist,
                 10,
                 10, // 10% randomness for highly related
                 token,
@@ -189,9 +201,23 @@ export default function Home() {
     if (!token) return;
     try {
       const historyIds = history.slice(-12).map((t) => t.id);
+
+      let dislikedIds: string[] = [];
+      if (token) {
+        try {
+          const dislikedTracks = await getDislikedTracksQuery(token);
+          dislikedIds = dislikedTracks.map((t) => t.trackId);
+        } catch {
+          // best-effort
+        }
+      }
+
+      const filteredIds = historyIds.filter((id) => !dislikedIds.includes(id));
+      const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
+
       const recs = await getRecommendationsQuery(
-        historyIds,
-        historyIds,
+        filteredIds,
+        mergedBlacklist,
         20,
         20, // 20% randomness
         token,
@@ -210,9 +236,22 @@ export default function Home() {
   const handleDecouvrir = async () => {
     try {
       const historyIds = history.map((t) => t.id);
+
+      let dislikedIds: string[] = [];
+      if (token) {
+        try {
+          const dislikedTracks = await getDislikedTracksQuery(token);
+          dislikedIds = dislikedTracks.map((t) => t.trackId);
+        } catch {
+          // best-effort
+        }
+      }
+
+      const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
+
       const recs = await getRecommendationsQuery(
         [],
-        historyIds, // Still blacklist current history though
+        mergedBlacklist,
         20,
         100, // 100% randomness
         token,

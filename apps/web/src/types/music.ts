@@ -8,6 +8,7 @@ export interface Music {
   image?: string;
   duration: string;
   isLiked: boolean;
+  isDisliked: boolean;
   audioSrc?: string;
 }
 

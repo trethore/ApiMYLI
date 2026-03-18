@@ -7,6 +7,7 @@ export type TrackLibraryRepository = {
   dislikeTrack(accountId: string, trackId: string): Promise<Track | null>;
   undislikeTrack(accountId: string, trackId: string): Promise<Track | null>;
   listLikedTracks(accountId: string): Promise<Track[]>;
+  listDislikedTracks(accountId: string): Promise<Track[]>;
   listTrackListenHistory(accountId: string, limit?: number): Promise<TrackListenHistoryItem[]>;
   recordTrackListen(accountId: string, trackId: string): Promise<boolean>;
 };
