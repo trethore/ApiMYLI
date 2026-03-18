@@ -1,10 +1,10 @@
 import type { Artist } from "packages/domain/src/entities/artist";
 import type { ArtistCatalogRepository } from "packages/domain/src/repositories/artist-catalog-repository";
 
-export const getArtistById = async (
+export const unfavoriteArtist = async (
   repository: ArtistCatalogRepository,
+  accountId: string,
   artistId: string,
-  currentAccountId?: string | null,
 ): Promise<Artist | null> => {
-  return repository.findById(artistId, currentAccountId);
+  return repository.unfavoriteArtist(accountId, artistId);
 };

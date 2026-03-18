@@ -15,6 +15,7 @@ type Artist {
   tags: [String!]!
   albumCount: Int
   trackCount: Int
+  isFavorited: Boolean!
 }
 
 type ArtistSummary {
@@ -42,6 +43,7 @@ type Album {
   comments: Float
   producer: String
   artists: [ArtistSummary!]!
+  isFavorited: Boolean!
 }
 
 type Track {
@@ -166,10 +168,21 @@ type Query {
   albumTracks(albumId: String!): [Track!]!
   artistTopTracks(artistId: String!, limit: Int): [Track!]!
   likedTracks: [Track!]!
+  favoriteArtists: [Artist!]!
+  favoriteAlbums: [Album!]!
   myTrackHistory(limit: Int): [TrackListenHistoryItem!]!
   playlist(playlistId: String!): Playlist
   myPlaylists: [Playlist!]!
   myPinnedItems: [PinnedItem!]!
+  search(query: String!, limit: Int): SearchResults!
+  recommendations(seedTrackIds: [String!]!, blacklistedTrackIds: [String!]!, limit: Int!, randomness: Int!): [Track!]!
+}
+
+type SearchResults {
+  tracks: [Track!]!
+  albums: [Album!]!
+  artists: [Artist!]!
+  playlists: [Playlist!]!
 }
 
 type Mutation {
@@ -181,6 +194,10 @@ type Mutation {
   logout: Boolean!
   likeTrack(trackId: String!): Track
   unlikeTrack(trackId: String!): Track
+  favoriteArtist(artistId: String!): Artist
+  unfavoriteArtist(artistId: String!): Artist
+  favoriteAlbum(albumId: String!): Album
+  unfavoriteAlbum(albumId: String!): Album
   pinTrack(slot: Int!, trackId: String!): PinnedItem
   pinAlbum(slot: Int!, albumId: String!): PinnedItem
   pinArtist(slot: Int!, artistId: String!): PinnedItem

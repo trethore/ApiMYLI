@@ -211,6 +211,8 @@ export type AccountWhereInput = {
   preferenceVector?: Prisma.XOR<Prisma.PreferenceVectorNullableScalarRelationFilter, Prisma.PreferenceVectorWhereInput> | null
   playlistAccounts?: Prisma.PlaylistAccountListRelationFilter
   trackLikes?: Prisma.TrackAccountLikeListRelationFilter
+  artistFavorites?: Prisma.ArtistAccountFavoriteListRelationFilter
+  albumFavorites?: Prisma.AlbumAccountFavoriteListRelationFilter
   trackListens?: Prisma.TrackAccountListenListRelationFilter
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemListRelationFilter
   pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
@@ -231,6 +233,8 @@ export type AccountOrderByWithRelationInput = {
   preferenceVector?: Prisma.PreferenceVectorOrderByWithRelationInput
   playlistAccounts?: Prisma.PlaylistAccountOrderByRelationAggregateInput
   trackLikes?: Prisma.TrackAccountLikeOrderByRelationAggregateInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteOrderByRelationAggregateInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteOrderByRelationAggregateInput
   trackListens?: Prisma.TrackAccountListenOrderByRelationAggregateInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemOrderByRelationAggregateInput
   pinnedItems?: Prisma.AccountPinnedItemOrderByRelationAggregateInput
@@ -254,6 +258,8 @@ export type AccountWhereUniqueInput = Prisma.AtLeast<{
   preferenceVector?: Prisma.XOR<Prisma.PreferenceVectorNullableScalarRelationFilter, Prisma.PreferenceVectorWhereInput> | null
   playlistAccounts?: Prisma.PlaylistAccountListRelationFilter
   trackLikes?: Prisma.TrackAccountLikeListRelationFilter
+  artistFavorites?: Prisma.ArtistAccountFavoriteListRelationFilter
+  albumFavorites?: Prisma.AlbumAccountFavoriteListRelationFilter
   trackListens?: Prisma.TrackAccountListenListRelationFilter
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemListRelationFilter
   pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
@@ -302,6 +308,8 @@ export type AccountCreateInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
@@ -322,6 +330,8 @@ export type AccountUncheckedCreateInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
@@ -342,6 +352,8 @@ export type AccountUpdateInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
@@ -362,6 +374,8 @@ export type AccountUncheckedUpdateInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
@@ -530,6 +544,34 @@ export type AccountUpdateOneRequiredWithoutTrackLikesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.AccountUpdateToOneWithWhereWithoutTrackLikesInput, Prisma.AccountUpdateWithoutTrackLikesInput>, Prisma.AccountUncheckedUpdateWithoutTrackLikesInput>
 }
 
+export type AccountCreateNestedOneWithoutArtistFavoritesInput = {
+  create?: Prisma.XOR<Prisma.AccountCreateWithoutArtistFavoritesInput, Prisma.AccountUncheckedCreateWithoutArtistFavoritesInput>
+  connectOrCreate?: Prisma.AccountCreateOrConnectWithoutArtistFavoritesInput
+  connect?: Prisma.AccountWhereUniqueInput
+}
+
+export type AccountUpdateOneRequiredWithoutArtistFavoritesNestedInput = {
+  create?: Prisma.XOR<Prisma.AccountCreateWithoutArtistFavoritesInput, Prisma.AccountUncheckedCreateWithoutArtistFavoritesInput>
+  connectOrCreate?: Prisma.AccountCreateOrConnectWithoutArtistFavoritesInput
+  upsert?: Prisma.AccountUpsertWithoutArtistFavoritesInput
+  connect?: Prisma.AccountWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AccountUpdateToOneWithWhereWithoutArtistFavoritesInput, Prisma.AccountUpdateWithoutArtistFavoritesInput>, Prisma.AccountUncheckedUpdateWithoutArtistFavoritesInput>
+}
+
+export type AccountCreateNestedOneWithoutAlbumFavoritesInput = {
+  create?: Prisma.XOR<Prisma.AccountCreateWithoutAlbumFavoritesInput, Prisma.AccountUncheckedCreateWithoutAlbumFavoritesInput>
+  connectOrCreate?: Prisma.AccountCreateOrConnectWithoutAlbumFavoritesInput
+  connect?: Prisma.AccountWhereUniqueInput
+}
+
+export type AccountUpdateOneRequiredWithoutAlbumFavoritesNestedInput = {
+  create?: Prisma.XOR<Prisma.AccountCreateWithoutAlbumFavoritesInput, Prisma.AccountUncheckedCreateWithoutAlbumFavoritesInput>
+  connectOrCreate?: Prisma.AccountCreateOrConnectWithoutAlbumFavoritesInput
+  upsert?: Prisma.AccountUpsertWithoutAlbumFavoritesInput
+  connect?: Prisma.AccountWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AccountUpdateToOneWithWhereWithoutAlbumFavoritesInput, Prisma.AccountUpdateWithoutAlbumFavoritesInput>, Prisma.AccountUncheckedUpdateWithoutAlbumFavoritesInput>
+}
+
 export type AccountCreateNestedOneWithoutTrackListensInput = {
   create?: Prisma.XOR<Prisma.AccountCreateWithoutTrackListensInput, Prisma.AccountUncheckedCreateWithoutTrackListensInput>
   connectOrCreate?: Prisma.AccountCreateOrConnectWithoutTrackListensInput
@@ -601,6 +643,8 @@ export type AccountCreateWithoutArtistInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
@@ -620,6 +664,8 @@ export type AccountUncheckedCreateWithoutArtistInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
@@ -655,6 +701,8 @@ export type AccountUpdateWithoutArtistInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
@@ -674,6 +722,8 @@ export type AccountUncheckedUpdateWithoutArtistInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
@@ -693,6 +743,8 @@ export type AccountCreateWithoutPreferenceInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
@@ -712,6 +764,8 @@ export type AccountUncheckedCreateWithoutPreferenceInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
@@ -747,6 +801,8 @@ export type AccountUpdateWithoutPreferenceInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
@@ -766,6 +822,8 @@ export type AccountUncheckedUpdateWithoutPreferenceInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
@@ -785,6 +843,8 @@ export type AccountCreateWithoutPreferenceVectorInput = {
   preference?: Prisma.PreferenceCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
@@ -804,6 +864,8 @@ export type AccountUncheckedCreateWithoutPreferenceVectorInput = {
   preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
@@ -839,6 +901,8 @@ export type AccountUpdateWithoutPreferenceVectorInput = {
   preference?: Prisma.PreferenceUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
@@ -858,6 +922,8 @@ export type AccountUncheckedUpdateWithoutPreferenceVectorInput = {
   preference?: Prisma.PreferenceUncheckedUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
@@ -877,6 +943,8 @@ export type AccountCreateWithoutPlaylistAccountsInput = {
   preference?: Prisma.PreferenceCreateNestedOneWithoutAccountInput
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
@@ -896,6 +964,8 @@ export type AccountUncheckedCreateWithoutPlaylistAccountsInput = {
   preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutAccountInput
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
@@ -931,6 +1001,8 @@ export type AccountUpdateWithoutPlaylistAccountsInput = {
   preference?: Prisma.PreferenceUpdateOneWithoutAccountNestedInput
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
@@ -950,6 +1022,8 @@ export type AccountUncheckedUpdateWithoutPlaylistAccountsInput = {
   preference?: Prisma.PreferenceUncheckedUpdateOneWithoutAccountNestedInput
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
@@ -969,6 +1043,8 @@ export type AccountCreateWithoutTrackLikesInput = {
   preference?: Prisma.PreferenceCreateNestedOneWithoutAccountInput
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
@@ -988,6 +1064,8 @@ export type AccountUncheckedCreateWithoutTrackLikesInput = {
   preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutAccountInput
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
@@ -1023,6 +1101,8 @@ export type AccountUpdateWithoutTrackLikesInput = {
   preference?: Prisma.PreferenceUpdateOneWithoutAccountNestedInput
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
@@ -1042,6 +1122,208 @@ export type AccountUncheckedUpdateWithoutTrackLikesInput = {
   preference?: Prisma.PreferenceUncheckedUpdateOneWithoutAccountNestedInput
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
+  trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutAccountNestedInput
+}
+
+export type AccountCreateWithoutArtistFavoritesInput = {
+  accountId?: string
+  login?: string | null
+  password?: string | null
+  name?: string | null
+  pseudo?: string | null
+  email?: string | null
+  isArtist?: boolean
+  createdAt?: Date | string | null
+  artist?: Prisma.ArtistCreateNestedOneWithoutAccountInput
+  preference?: Prisma.PreferenceCreateNestedOneWithoutAccountInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
+  playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
+  trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
+  trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
+  trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
+  pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutAccountInput
+}
+
+export type AccountUncheckedCreateWithoutArtistFavoritesInput = {
+  accountId?: string
+  login?: string | null
+  password?: string | null
+  name?: string | null
+  pseudo?: string | null
+  email?: string | null
+  isArtist?: boolean
+  createdAt?: Date | string | null
+  artist?: Prisma.ArtistUncheckedCreateNestedOneWithoutAccountInput
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutAccountInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
+  playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
+  trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
+  trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutAccountInput
+}
+
+export type AccountCreateOrConnectWithoutArtistFavoritesInput = {
+  where: Prisma.AccountWhereUniqueInput
+  create: Prisma.XOR<Prisma.AccountCreateWithoutArtistFavoritesInput, Prisma.AccountUncheckedCreateWithoutArtistFavoritesInput>
+}
+
+export type AccountUpsertWithoutArtistFavoritesInput = {
+  update: Prisma.XOR<Prisma.AccountUpdateWithoutArtistFavoritesInput, Prisma.AccountUncheckedUpdateWithoutArtistFavoritesInput>
+  create: Prisma.XOR<Prisma.AccountCreateWithoutArtistFavoritesInput, Prisma.AccountUncheckedCreateWithoutArtistFavoritesInput>
+  where?: Prisma.AccountWhereInput
+}
+
+export type AccountUpdateToOneWithWhereWithoutArtistFavoritesInput = {
+  where?: Prisma.AccountWhereInput
+  data: Prisma.XOR<Prisma.AccountUpdateWithoutArtistFavoritesInput, Prisma.AccountUncheckedUpdateWithoutArtistFavoritesInput>
+}
+
+export type AccountUpdateWithoutArtistFavoritesInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  login?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  artist?: Prisma.ArtistUpdateOneWithoutAccountNestedInput
+  preference?: Prisma.PreferenceUpdateOneWithoutAccountNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
+  playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
+  trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
+  trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
+  trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutAccountNestedInput
+}
+
+export type AccountUncheckedUpdateWithoutArtistFavoritesInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  login?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  artist?: Prisma.ArtistUncheckedUpdateOneWithoutAccountNestedInput
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutAccountNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
+  playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
+  trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
+  trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
+  trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutAccountNestedInput
+}
+
+export type AccountCreateWithoutAlbumFavoritesInput = {
+  accountId?: string
+  login?: string | null
+  password?: string | null
+  name?: string | null
+  pseudo?: string | null
+  email?: string | null
+  isArtist?: boolean
+  createdAt?: Date | string | null
+  artist?: Prisma.ArtistCreateNestedOneWithoutAccountInput
+  preference?: Prisma.PreferenceCreateNestedOneWithoutAccountInput
+  preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
+  playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
+  trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
+  trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
+  pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
+  trackComments?: Prisma.TrackCommentCreateNestedManyWithoutAccountInput
+}
+
+export type AccountUncheckedCreateWithoutAlbumFavoritesInput = {
+  accountId?: string
+  login?: string | null
+  password?: string | null
+  name?: string | null
+  pseudo?: string | null
+  email?: string | null
+  isArtist?: boolean
+  createdAt?: Date | string | null
+  artist?: Prisma.ArtistUncheckedCreateNestedOneWithoutAccountInput
+  preference?: Prisma.PreferenceUncheckedCreateNestedOneWithoutAccountInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
+  playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
+  trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
+  trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
+  trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutAccountInput
+}
+
+export type AccountCreateOrConnectWithoutAlbumFavoritesInput = {
+  where: Prisma.AccountWhereUniqueInput
+  create: Prisma.XOR<Prisma.AccountCreateWithoutAlbumFavoritesInput, Prisma.AccountUncheckedCreateWithoutAlbumFavoritesInput>
+}
+
+export type AccountUpsertWithoutAlbumFavoritesInput = {
+  update: Prisma.XOR<Prisma.AccountUpdateWithoutAlbumFavoritesInput, Prisma.AccountUncheckedUpdateWithoutAlbumFavoritesInput>
+  create: Prisma.XOR<Prisma.AccountCreateWithoutAlbumFavoritesInput, Prisma.AccountUncheckedCreateWithoutAlbumFavoritesInput>
+  where?: Prisma.AccountWhereInput
+}
+
+export type AccountUpdateToOneWithWhereWithoutAlbumFavoritesInput = {
+  where?: Prisma.AccountWhereInput
+  data: Prisma.XOR<Prisma.AccountUpdateWithoutAlbumFavoritesInput, Prisma.AccountUncheckedUpdateWithoutAlbumFavoritesInput>
+}
+
+export type AccountUpdateWithoutAlbumFavoritesInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  login?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  artist?: Prisma.ArtistUpdateOneWithoutAccountNestedInput
+  preference?: Prisma.PreferenceUpdateOneWithoutAccountNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
+  playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
+  trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
+  trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
+  trackComments?: Prisma.TrackCommentUpdateManyWithoutAccountNestedInput
+}
+
+export type AccountUncheckedUpdateWithoutAlbumFavoritesInput = {
+  accountId?: Prisma.StringFieldUpdateOperationsInput | string
+  login?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pseudo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isArtist?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  artist?: Prisma.ArtistUncheckedUpdateOneWithoutAccountNestedInput
+  preference?: Prisma.PreferenceUncheckedUpdateOneWithoutAccountNestedInput
+  preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
+  playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
+  trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
@@ -1062,6 +1344,8 @@ export type AccountCreateWithoutTrackListensInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutAccountInput
@@ -1081,6 +1365,8 @@ export type AccountUncheckedCreateWithoutTrackListensInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutAccountInput
@@ -1116,6 +1402,8 @@ export type AccountUpdateWithoutTrackListensInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutAccountNestedInput
@@ -1135,6 +1423,8 @@ export type AccountUncheckedUpdateWithoutTrackListensInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutAccountNestedInput
@@ -1154,6 +1444,8 @@ export type AccountCreateWithoutTrackListenHistoryItemsInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutAccountInput
@@ -1173,6 +1465,8 @@ export type AccountUncheckedCreateWithoutTrackListenHistoryItemsInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutAccountInput
@@ -1208,6 +1502,8 @@ export type AccountUpdateWithoutTrackListenHistoryItemsInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutAccountNestedInput
@@ -1227,6 +1523,8 @@ export type AccountUncheckedUpdateWithoutTrackListenHistoryItemsInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutAccountNestedInput
@@ -1246,6 +1544,8 @@ export type AccountCreateWithoutPinnedItemsInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
   trackComments?: Prisma.TrackCommentCreateNestedManyWithoutAccountInput
@@ -1265,6 +1565,8 @@ export type AccountUncheckedCreateWithoutPinnedItemsInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
   trackComments?: Prisma.TrackCommentUncheckedCreateNestedManyWithoutAccountInput
@@ -1300,6 +1602,8 @@ export type AccountUpdateWithoutPinnedItemsInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
   trackComments?: Prisma.TrackCommentUpdateManyWithoutAccountNestedInput
@@ -1319,6 +1623,8 @@ export type AccountUncheckedUpdateWithoutPinnedItemsInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
   trackComments?: Prisma.TrackCommentUncheckedUpdateManyWithoutAccountNestedInput
@@ -1338,6 +1644,8 @@ export type AccountCreateWithoutTrackCommentsInput = {
   preferenceVector?: Prisma.PreferenceVectorCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutAccountInput
@@ -1357,6 +1665,8 @@ export type AccountUncheckedCreateWithoutTrackCommentsInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedCreateNestedOneWithoutAccountInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedCreateNestedManyWithoutAccountInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedCreateNestedManyWithoutAccountInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedCreateNestedManyWithoutAccountInput
   trackListens?: Prisma.TrackAccountListenUncheckedCreateNestedManyWithoutAccountInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedCreateNestedManyWithoutAccountInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutAccountInput
@@ -1392,6 +1702,8 @@ export type AccountUpdateWithoutTrackCommentsInput = {
   preferenceVector?: Prisma.PreferenceVectorUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutAccountNestedInput
@@ -1411,6 +1723,8 @@ export type AccountUncheckedUpdateWithoutTrackCommentsInput = {
   preferenceVector?: Prisma.PreferenceVectorUncheckedUpdateOneWithoutAccountNestedInput
   playlistAccounts?: Prisma.PlaylistAccountUncheckedUpdateManyWithoutAccountNestedInput
   trackLikes?: Prisma.TrackAccountLikeUncheckedUpdateManyWithoutAccountNestedInput
+  artistFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
+  albumFavorites?: Prisma.AlbumAccountFavoriteUncheckedUpdateManyWithoutAccountNestedInput
   trackListens?: Prisma.TrackAccountListenUncheckedUpdateManyWithoutAccountNestedInput
   trackListenHistoryItems?: Prisma.TrackListenHistoryItemUncheckedUpdateManyWithoutAccountNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutAccountNestedInput
@@ -1424,6 +1738,8 @@ export type AccountUncheckedUpdateWithoutTrackCommentsInput = {
 export type AccountCountOutputType = {
   playlistAccounts: number
   trackLikes: number
+  artistFavorites: number
+  albumFavorites: number
   trackListens: number
   trackListenHistoryItems: number
   pinnedItems: number
@@ -1433,6 +1749,8 @@ export type AccountCountOutputType = {
 export type AccountCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   playlistAccounts?: boolean | AccountCountOutputTypeCountPlaylistAccountsArgs
   trackLikes?: boolean | AccountCountOutputTypeCountTrackLikesArgs
+  artistFavorites?: boolean | AccountCountOutputTypeCountArtistFavoritesArgs
+  albumFavorites?: boolean | AccountCountOutputTypeCountAlbumFavoritesArgs
   trackListens?: boolean | AccountCountOutputTypeCountTrackListensArgs
   trackListenHistoryItems?: boolean | AccountCountOutputTypeCountTrackListenHistoryItemsArgs
   pinnedItems?: boolean | AccountCountOutputTypeCountPinnedItemsArgs
@@ -1461,6 +1779,20 @@ export type AccountCountOutputTypeCountPlaylistAccountsArgs<ExtArgs extends runt
  */
 export type AccountCountOutputTypeCountTrackLikesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.TrackAccountLikeWhereInput
+}
+
+/**
+ * AccountCountOutputType without action
+ */
+export type AccountCountOutputTypeCountArtistFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ArtistAccountFavoriteWhereInput
+}
+
+/**
+ * AccountCountOutputType without action
+ */
+export type AccountCountOutputTypeCountAlbumFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AlbumAccountFavoriteWhereInput
 }
 
 /**
@@ -1506,6 +1838,8 @@ export type AccountSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   preferenceVector?: boolean | Prisma.Account$preferenceVectorArgs<ExtArgs>
   playlistAccounts?: boolean | Prisma.Account$playlistAccountsArgs<ExtArgs>
   trackLikes?: boolean | Prisma.Account$trackLikesArgs<ExtArgs>
+  artistFavorites?: boolean | Prisma.Account$artistFavoritesArgs<ExtArgs>
+  albumFavorites?: boolean | Prisma.Account$albumFavoritesArgs<ExtArgs>
   trackListens?: boolean | Prisma.Account$trackListensArgs<ExtArgs>
   trackListenHistoryItems?: boolean | Prisma.Account$trackListenHistoryItemsArgs<ExtArgs>
   pinnedItems?: boolean | Prisma.Account$pinnedItemsArgs<ExtArgs>
@@ -1553,6 +1887,8 @@ export type AccountInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   preferenceVector?: boolean | Prisma.Account$preferenceVectorArgs<ExtArgs>
   playlistAccounts?: boolean | Prisma.Account$playlistAccountsArgs<ExtArgs>
   trackLikes?: boolean | Prisma.Account$trackLikesArgs<ExtArgs>
+  artistFavorites?: boolean | Prisma.Account$artistFavoritesArgs<ExtArgs>
+  albumFavorites?: boolean | Prisma.Account$albumFavoritesArgs<ExtArgs>
   trackListens?: boolean | Prisma.Account$trackListensArgs<ExtArgs>
   trackListenHistoryItems?: boolean | Prisma.Account$trackListenHistoryItemsArgs<ExtArgs>
   pinnedItems?: boolean | Prisma.Account$pinnedItemsArgs<ExtArgs>
@@ -1570,6 +1906,8 @@ export type $AccountPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     preferenceVector: Prisma.$PreferenceVectorPayload<ExtArgs> | null
     playlistAccounts: Prisma.$PlaylistAccountPayload<ExtArgs>[]
     trackLikes: Prisma.$TrackAccountLikePayload<ExtArgs>[]
+    artistFavorites: Prisma.$ArtistAccountFavoritePayload<ExtArgs>[]
+    albumFavorites: Prisma.$AlbumAccountFavoritePayload<ExtArgs>[]
     trackListens: Prisma.$TrackAccountListenPayload<ExtArgs>[]
     trackListenHistoryItems: Prisma.$TrackListenHistoryItemPayload<ExtArgs>[]
     pinnedItems: Prisma.$AccountPinnedItemPayload<ExtArgs>[]
@@ -1983,6 +2321,8 @@ export interface Prisma__AccountClient<T, Null = never, ExtArgs extends runtime.
   preferenceVector<T extends Prisma.Account$preferenceVectorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Account$preferenceVectorArgs<ExtArgs>>): Prisma.Prisma__PreferenceVectorClient<runtime.Types.Result.GetResult<Prisma.$PreferenceVectorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   playlistAccounts<T extends Prisma.Account$playlistAccountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Account$playlistAccountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PlaylistAccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trackLikes<T extends Prisma.Account$trackLikesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Account$trackLikesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackAccountLikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  artistFavorites<T extends Prisma.Account$artistFavoritesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Account$artistFavoritesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArtistAccountFavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  albumFavorites<T extends Prisma.Account$albumFavoritesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Account$albumFavoritesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AlbumAccountFavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trackListens<T extends Prisma.Account$trackListensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Account$trackListensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackAccountListenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trackListenHistoryItems<T extends Prisma.Account$trackListenHistoryItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Account$trackListenHistoryItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackListenHistoryItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   pinnedItems<T extends Prisma.Account$pinnedItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Account$pinnedItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPinnedItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2514,6 +2854,54 @@ export type Account$trackLikesArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.TrackAccountLikeScalarFieldEnum | Prisma.TrackAccountLikeScalarFieldEnum[]
+}
+
+/**
+ * Account.artistFavorites
+ */
+export type Account$artistFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ArtistAccountFavorite
+   */
+  select?: Prisma.ArtistAccountFavoriteSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ArtistAccountFavorite
+   */
+  omit?: Prisma.ArtistAccountFavoriteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ArtistAccountFavoriteInclude<ExtArgs> | null
+  where?: Prisma.ArtistAccountFavoriteWhereInput
+  orderBy?: Prisma.ArtistAccountFavoriteOrderByWithRelationInput | Prisma.ArtistAccountFavoriteOrderByWithRelationInput[]
+  cursor?: Prisma.ArtistAccountFavoriteWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ArtistAccountFavoriteScalarFieldEnum | Prisma.ArtistAccountFavoriteScalarFieldEnum[]
+}
+
+/**
+ * Account.albumFavorites
+ */
+export type Account$albumFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AlbumAccountFavorite
+   */
+  select?: Prisma.AlbumAccountFavoriteSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AlbumAccountFavorite
+   */
+  omit?: Prisma.AlbumAccountFavoriteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AlbumAccountFavoriteInclude<ExtArgs> | null
+  where?: Prisma.AlbumAccountFavoriteWhereInput
+  orderBy?: Prisma.AlbumAccountFavoriteOrderByWithRelationInput | Prisma.AlbumAccountFavoriteOrderByWithRelationInput[]
+  cursor?: Prisma.AlbumAccountFavoriteWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AlbumAccountFavoriteScalarFieldEnum | Prisma.AlbumAccountFavoriteScalarFieldEnum[]
 }
 
 /**

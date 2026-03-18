@@ -143,6 +143,16 @@ export type PlaylistAccount = Prisma.PlaylistAccountModel
  */
 export type TrackAccountLike = Prisma.TrackAccountLikeModel
 /**
+ * Model ArtistAccountFavorite
+ * 
+ */
+export type ArtistAccountFavorite = Prisma.ArtistAccountFavoriteModel
+/**
+ * Model AlbumAccountFavorite
+ * 
+ */
+export type AlbumAccountFavorite = Prisma.AlbumAccountFavoriteModel
+/**
  * Model TrackAccountListen
  * 
  */

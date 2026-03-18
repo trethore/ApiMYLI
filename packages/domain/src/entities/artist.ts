@@ -15,4 +15,5 @@ export type Artist = {
   tags: string[];
   albumCount: number | null;
   trackCount: number | null;
+  isFavorited: boolean;
 };

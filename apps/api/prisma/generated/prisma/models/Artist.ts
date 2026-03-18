@@ -298,6 +298,7 @@ export type ArtistWhereInput = {
   mainTracks?: Prisma.TrackArtistMainListRelationFilter
   featTracks?: Prisma.TrackArtistFeatListRelationFilter
   pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
+  accountFavorites?: Prisma.ArtistAccountFavoriteListRelationFilter
   rankArtists?: Prisma.RankArtistListRelationFilter
 }
 
@@ -320,6 +321,7 @@ export type ArtistOrderByWithRelationInput = {
   mainTracks?: Prisma.TrackArtistMainOrderByRelationAggregateInput
   featTracks?: Prisma.TrackArtistFeatOrderByRelationAggregateInput
   pinnedItems?: Prisma.AccountPinnedItemOrderByRelationAggregateInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteOrderByRelationAggregateInput
   rankArtists?: Prisma.RankArtistOrderByRelationAggregateInput
 }
 
@@ -345,6 +347,7 @@ export type ArtistWhereUniqueInput = Prisma.AtLeast<{
   mainTracks?: Prisma.TrackArtistMainListRelationFilter
   featTracks?: Prisma.TrackArtistFeatListRelationFilter
   pinnedItems?: Prisma.AccountPinnedItemListRelationFilter
+  accountFavorites?: Prisma.ArtistAccountFavoriteListRelationFilter
   rankArtists?: Prisma.RankArtistListRelationFilter
 }, "artistId">
 
@@ -404,6 +407,7 @@ export type ArtistCreateInput = {
   mainTracks?: Prisma.TrackArtistMainCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistCreateNestedManyWithoutArtistInput
 }
 
@@ -425,6 +429,7 @@ export type ArtistUncheckedCreateInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatUncheckedCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistUncheckedCreateNestedManyWithoutArtistInput
 }
 
@@ -446,6 +451,7 @@ export type ArtistUpdateInput = {
   mainTracks?: Prisma.TrackArtistMainUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUpdateManyWithoutArtistNestedInput
 }
 
@@ -467,6 +473,7 @@ export type ArtistUncheckedUpdateInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUncheckedUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUncheckedUpdateManyWithoutArtistNestedInput
 }
 
@@ -713,6 +720,20 @@ export type ArtistUpdateOneRequiredWithoutFeatTracksNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ArtistUpdateToOneWithWhereWithoutFeatTracksInput, Prisma.ArtistUpdateWithoutFeatTracksInput>, Prisma.ArtistUncheckedUpdateWithoutFeatTracksInput>
 }
 
+export type ArtistCreateNestedOneWithoutAccountFavoritesInput = {
+  create?: Prisma.XOR<Prisma.ArtistCreateWithoutAccountFavoritesInput, Prisma.ArtistUncheckedCreateWithoutAccountFavoritesInput>
+  connectOrCreate?: Prisma.ArtistCreateOrConnectWithoutAccountFavoritesInput
+  connect?: Prisma.ArtistWhereUniqueInput
+}
+
+export type ArtistUpdateOneRequiredWithoutAccountFavoritesNestedInput = {
+  create?: Prisma.XOR<Prisma.ArtistCreateWithoutAccountFavoritesInput, Prisma.ArtistUncheckedCreateWithoutAccountFavoritesInput>
+  connectOrCreate?: Prisma.ArtistCreateOrConnectWithoutAccountFavoritesInput
+  upsert?: Prisma.ArtistUpsertWithoutAccountFavoritesInput
+  connect?: Prisma.ArtistWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ArtistUpdateToOneWithWhereWithoutAccountFavoritesInput, Prisma.ArtistUpdateWithoutAccountFavoritesInput>, Prisma.ArtistUncheckedUpdateWithoutAccountFavoritesInput>
+}
+
 export type ArtistCreateNestedOneWithoutPinnedItemsInput = {
   create?: Prisma.XOR<Prisma.ArtistCreateWithoutPinnedItemsInput, Prisma.ArtistUncheckedCreateWithoutPinnedItemsInput>
   connectOrCreate?: Prisma.ArtistCreateOrConnectWithoutPinnedItemsInput
@@ -746,6 +767,7 @@ export type ArtistCreateWithoutAccountInput = {
   mainTracks?: Prisma.TrackArtistMainCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistCreateNestedManyWithoutArtistInput
 }
 
@@ -766,6 +788,7 @@ export type ArtistUncheckedCreateWithoutAccountInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatUncheckedCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistUncheckedCreateNestedManyWithoutArtistInput
 }
 
@@ -802,6 +825,7 @@ export type ArtistUpdateWithoutAccountInput = {
   mainTracks?: Prisma.TrackArtistMainUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUpdateManyWithoutArtistNestedInput
 }
 
@@ -822,6 +846,7 @@ export type ArtistUncheckedUpdateWithoutAccountInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUncheckedUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUncheckedUpdateManyWithoutArtistNestedInput
 }
 
@@ -843,6 +868,7 @@ export type ArtistCreateWithoutRankArtistsInput = {
   mainTracks?: Prisma.TrackArtistMainCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutArtistInput
 }
 
 export type ArtistUncheckedCreateWithoutRankArtistsInput = {
@@ -863,6 +889,7 @@ export type ArtistUncheckedCreateWithoutRankArtistsInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatUncheckedCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutArtistInput
 }
 
 export type ArtistCreateOrConnectWithoutRankArtistsInput = {
@@ -899,6 +926,7 @@ export type ArtistUpdateWithoutRankArtistsInput = {
   mainTracks?: Prisma.TrackArtistMainUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutArtistNestedInput
 }
 
 export type ArtistUncheckedUpdateWithoutRankArtistsInput = {
@@ -919,6 +947,7 @@ export type ArtistUncheckedUpdateWithoutRankArtistsInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUncheckedUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutArtistNestedInput
 }
 
 export type ArtistCreateWithoutArtistTagsInput = {
@@ -938,6 +967,7 @@ export type ArtistCreateWithoutArtistTagsInput = {
   mainTracks?: Prisma.TrackArtistMainCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistCreateNestedManyWithoutArtistInput
 }
 
@@ -958,6 +988,7 @@ export type ArtistUncheckedCreateWithoutArtistTagsInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatUncheckedCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistUncheckedCreateNestedManyWithoutArtistInput
 }
 
@@ -994,6 +1025,7 @@ export type ArtistUpdateWithoutArtistTagsInput = {
   mainTracks?: Prisma.TrackArtistMainUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUpdateManyWithoutArtistNestedInput
 }
 
@@ -1014,6 +1046,7 @@ export type ArtistUncheckedUpdateWithoutArtistTagsInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUncheckedUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUncheckedUpdateManyWithoutArtistNestedInput
 }
 
@@ -1034,6 +1067,7 @@ export type ArtistCreateWithoutAlbumArtistsInput = {
   mainTracks?: Prisma.TrackArtistMainCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistCreateNestedManyWithoutArtistInput
 }
 
@@ -1054,6 +1088,7 @@ export type ArtistUncheckedCreateWithoutAlbumArtistsInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatUncheckedCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistUncheckedCreateNestedManyWithoutArtistInput
 }
 
@@ -1090,6 +1125,7 @@ export type ArtistUpdateWithoutAlbumArtistsInput = {
   mainTracks?: Prisma.TrackArtistMainUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUpdateManyWithoutArtistNestedInput
 }
 
@@ -1110,6 +1146,7 @@ export type ArtistUncheckedUpdateWithoutAlbumArtistsInput = {
   mainTracks?: Prisma.TrackArtistMainUncheckedUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUncheckedUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUncheckedUpdateManyWithoutArtistNestedInput
 }
 
@@ -1130,6 +1167,7 @@ export type ArtistCreateWithoutMainTracksInput = {
   albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistCreateNestedManyWithoutArtistInput
 }
 
@@ -1150,6 +1188,7 @@ export type ArtistUncheckedCreateWithoutMainTracksInput = {
   albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatUncheckedCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistUncheckedCreateNestedManyWithoutArtistInput
 }
 
@@ -1186,6 +1225,7 @@ export type ArtistUpdateWithoutMainTracksInput = {
   albumArtists?: Prisma.AlbumArtistUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUpdateManyWithoutArtistNestedInput
 }
 
@@ -1206,6 +1246,7 @@ export type ArtistUncheckedUpdateWithoutMainTracksInput = {
   albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUncheckedUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUncheckedUpdateManyWithoutArtistNestedInput
 }
 
@@ -1226,6 +1267,7 @@ export type ArtistCreateWithoutFeatTracksInput = {
   albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutArtistInput
   mainTracks?: Prisma.TrackArtistMainCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistCreateNestedManyWithoutArtistInput
 }
 
@@ -1246,6 +1288,7 @@ export type ArtistUncheckedCreateWithoutFeatTracksInput = {
   albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutArtistInput
   mainTracks?: Prisma.TrackArtistMainUncheckedCreateNestedManyWithoutArtistInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistUncheckedCreateNestedManyWithoutArtistInput
 }
 
@@ -1282,6 +1325,7 @@ export type ArtistUpdateWithoutFeatTracksInput = {
   albumArtists?: Prisma.AlbumArtistUpdateManyWithoutArtistNestedInput
   mainTracks?: Prisma.TrackArtistMainUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUpdateManyWithoutArtistNestedInput
 }
 
@@ -1301,6 +1345,107 @@ export type ArtistUncheckedUpdateWithoutFeatTracksInput = {
   artistTags?: Prisma.ArtistTagUncheckedUpdateManyWithoutArtistNestedInput
   albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutArtistNestedInput
   mainTracks?: Prisma.TrackArtistMainUncheckedUpdateManyWithoutArtistNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutArtistNestedInput
+  rankArtists?: Prisma.RankArtistUncheckedUpdateManyWithoutArtistNestedInput
+}
+
+export type ArtistCreateWithoutAccountFavoritesInput = {
+  artistBio?: string | null
+  artistMembers?: string | null
+  artistImageFile?: string | null
+  artistImages?: string | null
+  artistLocation?: string | null
+  artistLatitude?: number | null
+  artistLongitude?: number | null
+  artistActiveYearBegin?: number | null
+  artistActiveYearEnd?: number | null
+  artistFavorites?: bigint | number | null
+  artistComments?: bigint | number | null
+  account: Prisma.AccountCreateNestedOneWithoutArtistInput
+  artistTags?: Prisma.ArtistTagCreateNestedManyWithoutArtistInput
+  albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutArtistInput
+  mainTracks?: Prisma.TrackArtistMainCreateNestedManyWithoutArtistInput
+  featTracks?: Prisma.TrackArtistFeatCreateNestedManyWithoutArtistInput
+  pinnedItems?: Prisma.AccountPinnedItemCreateNestedManyWithoutArtistInput
+  rankArtists?: Prisma.RankArtistCreateNestedManyWithoutArtistInput
+}
+
+export type ArtistUncheckedCreateWithoutAccountFavoritesInput = {
+  artistId: string
+  artistBio?: string | null
+  artistMembers?: string | null
+  artistImageFile?: string | null
+  artistImages?: string | null
+  artistLocation?: string | null
+  artistLatitude?: number | null
+  artistLongitude?: number | null
+  artistActiveYearBegin?: number | null
+  artistActiveYearEnd?: number | null
+  artistFavorites?: bigint | number | null
+  artistComments?: bigint | number | null
+  artistTags?: Prisma.ArtistTagUncheckedCreateNestedManyWithoutArtistInput
+  albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutArtistInput
+  mainTracks?: Prisma.TrackArtistMainUncheckedCreateNestedManyWithoutArtistInput
+  featTracks?: Prisma.TrackArtistFeatUncheckedCreateNestedManyWithoutArtistInput
+  pinnedItems?: Prisma.AccountPinnedItemUncheckedCreateNestedManyWithoutArtistInput
+  rankArtists?: Prisma.RankArtistUncheckedCreateNestedManyWithoutArtistInput
+}
+
+export type ArtistCreateOrConnectWithoutAccountFavoritesInput = {
+  where: Prisma.ArtistWhereUniqueInput
+  create: Prisma.XOR<Prisma.ArtistCreateWithoutAccountFavoritesInput, Prisma.ArtistUncheckedCreateWithoutAccountFavoritesInput>
+}
+
+export type ArtistUpsertWithoutAccountFavoritesInput = {
+  update: Prisma.XOR<Prisma.ArtistUpdateWithoutAccountFavoritesInput, Prisma.ArtistUncheckedUpdateWithoutAccountFavoritesInput>
+  create: Prisma.XOR<Prisma.ArtistCreateWithoutAccountFavoritesInput, Prisma.ArtistUncheckedCreateWithoutAccountFavoritesInput>
+  where?: Prisma.ArtistWhereInput
+}
+
+export type ArtistUpdateToOneWithWhereWithoutAccountFavoritesInput = {
+  where?: Prisma.ArtistWhereInput
+  data: Prisma.XOR<Prisma.ArtistUpdateWithoutAccountFavoritesInput, Prisma.ArtistUncheckedUpdateWithoutAccountFavoritesInput>
+}
+
+export type ArtistUpdateWithoutAccountFavoritesInput = {
+  artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistLatitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  artistLongitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  artistActiveYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  artistActiveYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  artistFavorites?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  artistComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  account?: Prisma.AccountUpdateOneRequiredWithoutArtistNestedInput
+  artistTags?: Prisma.ArtistTagUpdateManyWithoutArtistNestedInput
+  albumArtists?: Prisma.AlbumArtistUpdateManyWithoutArtistNestedInput
+  mainTracks?: Prisma.TrackArtistMainUpdateManyWithoutArtistNestedInput
+  featTracks?: Prisma.TrackArtistFeatUpdateManyWithoutArtistNestedInput
+  pinnedItems?: Prisma.AccountPinnedItemUpdateManyWithoutArtistNestedInput
+  rankArtists?: Prisma.RankArtistUpdateManyWithoutArtistNestedInput
+}
+
+export type ArtistUncheckedUpdateWithoutAccountFavoritesInput = {
+  artistId?: Prisma.StringFieldUpdateOperationsInput | string
+  artistBio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistMembers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistImageFile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistImages?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  artistLatitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  artistLongitude?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  artistActiveYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  artistActiveYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  artistFavorites?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  artistComments?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  artistTags?: Prisma.ArtistTagUncheckedUpdateManyWithoutArtistNestedInput
+  albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutArtistNestedInput
+  mainTracks?: Prisma.TrackArtistMainUncheckedUpdateManyWithoutArtistNestedInput
+  featTracks?: Prisma.TrackArtistFeatUncheckedUpdateManyWithoutArtistNestedInput
   pinnedItems?: Prisma.AccountPinnedItemUncheckedUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUncheckedUpdateManyWithoutArtistNestedInput
 }
@@ -1322,6 +1467,7 @@ export type ArtistCreateWithoutPinnedItemsInput = {
   albumArtists?: Prisma.AlbumArtistCreateNestedManyWithoutArtistInput
   mainTracks?: Prisma.TrackArtistMainCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistCreateNestedManyWithoutArtistInput
 }
 
@@ -1342,6 +1488,7 @@ export type ArtistUncheckedCreateWithoutPinnedItemsInput = {
   albumArtists?: Prisma.AlbumArtistUncheckedCreateNestedManyWithoutArtistInput
   mainTracks?: Prisma.TrackArtistMainUncheckedCreateNestedManyWithoutArtistInput
   featTracks?: Prisma.TrackArtistFeatUncheckedCreateNestedManyWithoutArtistInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedCreateNestedManyWithoutArtistInput
   rankArtists?: Prisma.RankArtistUncheckedCreateNestedManyWithoutArtistInput
 }
 
@@ -1378,6 +1525,7 @@ export type ArtistUpdateWithoutPinnedItemsInput = {
   albumArtists?: Prisma.AlbumArtistUpdateManyWithoutArtistNestedInput
   mainTracks?: Prisma.TrackArtistMainUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUpdateManyWithoutArtistNestedInput
 }
 
@@ -1398,6 +1546,7 @@ export type ArtistUncheckedUpdateWithoutPinnedItemsInput = {
   albumArtists?: Prisma.AlbumArtistUncheckedUpdateManyWithoutArtistNestedInput
   mainTracks?: Prisma.TrackArtistMainUncheckedUpdateManyWithoutArtistNestedInput
   featTracks?: Prisma.TrackArtistFeatUncheckedUpdateManyWithoutArtistNestedInput
+  accountFavorites?: Prisma.ArtistAccountFavoriteUncheckedUpdateManyWithoutArtistNestedInput
   rankArtists?: Prisma.RankArtistUncheckedUpdateManyWithoutArtistNestedInput
 }
 
@@ -1412,6 +1561,7 @@ export type ArtistCountOutputType = {
   mainTracks: number
   featTracks: number
   pinnedItems: number
+  accountFavorites: number
   rankArtists: number
 }
 
@@ -1421,6 +1571,7 @@ export type ArtistCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   mainTracks?: boolean | ArtistCountOutputTypeCountMainTracksArgs
   featTracks?: boolean | ArtistCountOutputTypeCountFeatTracksArgs
   pinnedItems?: boolean | ArtistCountOutputTypeCountPinnedItemsArgs
+  accountFavorites?: boolean | ArtistCountOutputTypeCountAccountFavoritesArgs
   rankArtists?: boolean | ArtistCountOutputTypeCountRankArtistsArgs
 }
 
@@ -1472,6 +1623,13 @@ export type ArtistCountOutputTypeCountPinnedItemsArgs<ExtArgs extends runtime.Ty
 /**
  * ArtistCountOutputType without action
  */
+export type ArtistCountOutputTypeCountAccountFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ArtistAccountFavoriteWhereInput
+}
+
+/**
+ * ArtistCountOutputType without action
+ */
 export type ArtistCountOutputTypeCountRankArtistsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.RankArtistWhereInput
 }
@@ -1496,6 +1654,7 @@ export type ArtistSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   mainTracks?: boolean | Prisma.Artist$mainTracksArgs<ExtArgs>
   featTracks?: boolean | Prisma.Artist$featTracksArgs<ExtArgs>
   pinnedItems?: boolean | Prisma.Artist$pinnedItemsArgs<ExtArgs>
+  accountFavorites?: boolean | Prisma.Artist$accountFavoritesArgs<ExtArgs>
   rankArtists?: boolean | Prisma.Artist$rankArtistsArgs<ExtArgs>
   _count?: boolean | Prisma.ArtistCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["artist"]>
@@ -1555,6 +1714,7 @@ export type ArtistInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   mainTracks?: boolean | Prisma.Artist$mainTracksArgs<ExtArgs>
   featTracks?: boolean | Prisma.Artist$featTracksArgs<ExtArgs>
   pinnedItems?: boolean | Prisma.Artist$pinnedItemsArgs<ExtArgs>
+  accountFavorites?: boolean | Prisma.Artist$accountFavoritesArgs<ExtArgs>
   rankArtists?: boolean | Prisma.Artist$rankArtistsArgs<ExtArgs>
   _count?: boolean | Prisma.ArtistCountOutputTypeDefaultArgs<ExtArgs>
 }
@@ -1574,6 +1734,7 @@ export type $ArtistPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     mainTracks: Prisma.$TrackArtistMainPayload<ExtArgs>[]
     featTracks: Prisma.$TrackArtistFeatPayload<ExtArgs>[]
     pinnedItems: Prisma.$AccountPinnedItemPayload<ExtArgs>[]
+    accountFavorites: Prisma.$ArtistAccountFavoritePayload<ExtArgs>[]
     rankArtists: Prisma.$RankArtistPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1989,6 +2150,7 @@ export interface Prisma__ArtistClient<T, Null = never, ExtArgs extends runtime.T
   mainTracks<T extends Prisma.Artist$mainTracksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Artist$mainTracksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackArtistMainPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   featTracks<T extends Prisma.Artist$featTracksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Artist$featTracksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackArtistFeatPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   pinnedItems<T extends Prisma.Artist$pinnedItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Artist$pinnedItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountPinnedItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  accountFavorites<T extends Prisma.Artist$accountFavoritesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Artist$accountFavoritesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArtistAccountFavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   rankArtists<T extends Prisma.Artist$rankArtistsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Artist$rankArtistsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RankArtistPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2544,6 +2706,30 @@ export type Artist$pinnedItemsArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.AccountPinnedItemScalarFieldEnum | Prisma.AccountPinnedItemScalarFieldEnum[]
+}
+
+/**
+ * Artist.accountFavorites
+ */
+export type Artist$accountFavoritesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ArtistAccountFavorite
+   */
+  select?: Prisma.ArtistAccountFavoriteSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ArtistAccountFavorite
+   */
+  omit?: Prisma.ArtistAccountFavoriteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ArtistAccountFavoriteInclude<ExtArgs> | null
+  where?: Prisma.ArtistAccountFavoriteWhereInput
+  orderBy?: Prisma.ArtistAccountFavoriteOrderByWithRelationInput | Prisma.ArtistAccountFavoriteOrderByWithRelationInput[]
+  cursor?: Prisma.ArtistAccountFavoriteWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ArtistAccountFavoriteScalarFieldEnum | Prisma.ArtistAccountFavoriteScalarFieldEnum[]
 }
 
 /**
