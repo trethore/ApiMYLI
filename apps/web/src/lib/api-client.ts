@@ -465,10 +465,9 @@ export async function getDislikedTracksQuery(token: string): Promise<ApiTrack[]>
   const query = /* GraphQL */ `
     query GetDislikedTracks {
       dislikedTracks {
-        ...TrackDetails
+        trackId
       }
     }
-    ${TRACK_FRAGMENT}
   `;
   const data = await gql<{ dislikedTracks: ApiTrack[] }>(query, {}, token);
   return data.dislikedTracks;
