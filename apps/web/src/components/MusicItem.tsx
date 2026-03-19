@@ -122,7 +122,6 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
       <div className="flex items-center gap-1 sm:gap-3">
         <LikeButton
           initialIsLiked={music.isLiked}
-          isLiked={isLiked}
           size={20}
           itemId={music.id}
           itemType="track"
@@ -135,7 +134,6 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
         />
         <DislikeButton
           initialIsDisliked={music.isDisliked}
-          isDisliked={isDisliked}
           size={20}
           itemId={music.id}
           itemType="track"
