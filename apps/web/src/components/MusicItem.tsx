@@ -11,7 +11,7 @@ import PinActionSubMenu from "@/components/PinActionSubMenu";
 import { usePlayer } from "@/context/PlayerContext";
 import { usePlaylist } from "@/context/PlaylistContext";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,6 +36,11 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
   const router = useRouter();
   const [isLiked, setIsLiked] = useState(!!music.isLiked);
   const [isDisliked, setIsDisliked] = useState(!!music.isDisliked);
+
+  useEffect(() => {
+    setIsLiked(!!music.isLiked);
+    setIsDisliked(!!music.isDisliked);
+  }, [music.id, music.isLiked, music.isDisliked]);
 
   // Determine if we are currently inside an owned playlist
   const isPlaylistRoute = pathname.startsWith("/playlist/");
@@ -122,6 +127,7 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
       <div className="flex items-center gap-1 sm:gap-3">
         <LikeButton
           initialIsLiked={music.isLiked}
+          isLiked={isLiked}
           size={20}
           itemId={music.id}
           itemType="track"
