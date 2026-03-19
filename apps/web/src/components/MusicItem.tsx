@@ -133,7 +133,7 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
           }}
         />
         <DislikeButton
-          initialIsDisliked={music.isDisliked}
+          initialIsDisliked={isDisliked}
           size={20}
           itemId={music.id}
           itemType="track"
