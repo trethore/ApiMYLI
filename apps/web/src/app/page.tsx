@@ -29,7 +29,8 @@ async function fetchDislikedTrackIds(token: string): Promise<string[]> {
 
 export default function Home() {
   const { isAuthenticated, requireAuth, token } = useAuth();
-  const { history, clearPlayer, setQueueList, playTrack } = usePlayer();
+  const { history, clearPlayer, setQueueList, playTrack, dislikedIds } =
+    usePlayer();
   const router = useRouter();
 
   // ... existing types ...
@@ -196,7 +197,7 @@ export default function Home() {
     };
 
     fetchHomeData();
-  }, [isAuthenticated, token, history]);
+  }, [isAuthenticated, token, history, dislikedIds]);
 
   const contentRef = useRef<HTMLDivElement>(null);
 
