@@ -125,10 +125,10 @@ export default function Home() {
           if (formattedHistory.length > 0) {
             const historyIds = formattedHistory.map((h) => h.id);
 
-            const dislikedIds = await fetchDislikedTrackIds(token);
+            const fetchedDislikedIds = await fetchDislikedTrackIds(token);
 
-            const filteredHistoryIds = historyIds.filter((id) => !dislikedIds.includes(id));
-            const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
+            const filteredHistoryIds = historyIds.filter((id) => !fetchedDislikedIds.includes(id));
+            const mergedBlacklist = [...new Set([...historyIds, ...fetchedDislikedIds])];
 
             // 1. Recommandé pour vous (Radio style)
             const mainRecos = await getRecommendationsQuery(
@@ -149,7 +149,7 @@ export default function Home() {
 
             const dynamicRecos = [];
             for (const track of seedTracks) {
-              if (dislikedIds.includes(track.id)) continue;
+              if (fetchedDislikedIds.includes(track.id)) continue;
               const recs = await getRecommendationsQuery(
                 [track.id],
                 mergedBlacklist,
