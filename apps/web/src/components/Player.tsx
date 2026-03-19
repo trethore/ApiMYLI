@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import Link from "next/link";
 import Image from "@/components/ImageWithFallback";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import QueueList from "@/components/QueueList";
 import LikeButton from "@/components/LikeButton";
 import DislikeButton from "@/components/DislikeButton";
@@ -34,6 +34,13 @@ export default function Player() {
     playPrevious,
   } = usePlayer();
   const [showQueue, setShowQueue] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isDisliked, setIsDisliked] = useState(false);
+
+  useEffect(() => {
+    setIsLiked(currentTrack?.isLiked ?? false);
+    setIsDisliked(currentTrack?.isDisliked ?? false);
+  }, [currentTrack?.id, currentTrack?.isLiked, currentTrack?.isDisliked]);
 
   if (!currentTrack) return null;
 
@@ -146,16 +153,26 @@ export default function Player() {
         {/* Volume (Desktop Only) */}
         <div className="hidden sm:flex items-center justify-end gap-2 w-1/3">
           <LikeButton
-            initialIsLiked={currentTrack.isLiked}
+            key={`like-${currentTrack.id}`}
+            initialIsLiked={isLiked}
             size={20}
             itemId={currentTrack.id}
             itemType="track"
+            onLiked={(newState) => {
+              setIsLiked(newState);
+              if (newState) setIsDisliked(false);
+            }}
           />
           <DislikeButton
-            initialIsDisliked={currentTrack.isDisliked}
+            key={`dislike-${currentTrack.id}`}
+            initialIsDisliked={isDisliked}
             size={20}
             itemId={currentTrack.id}
             itemType="track"
+            onDisliked={(newState) => {
+              setIsDisliked(newState);
+              if (newState) setIsLiked(false);
+            }}
           />
           <Button
             variant="ghost"

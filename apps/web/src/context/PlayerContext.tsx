@@ -6,7 +6,7 @@ import { useAuth } from "@/context/AuthContext";
 import {
   recordTrackListenMutation,
   getRecommendationsQuery,
-  getDislikedTracksQuery,
+  getDislikedTrackIdsQuery,
   toMusic,
 } from "@/lib/api-client";
 
@@ -29,6 +29,9 @@ interface PlayerContextType {
   playPrevious: () => void;
   clearPlayer: () => void;
   setQueueList: (tracks: Music[]) => void;
+  dislikedIds: string[];
+  addDislikedId: (id: string) => void;
+  removeDislikedId: (id: string) => void;
 }
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
@@ -41,6 +44,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   const [duration, setDuration] = useState(0);
   const [queue, setQueue] = useState<Music[]>([]);
   const [history, setHistory] = useState<Music[]>([]);
+  const [dislikedIds, setDislikedIds] = useState<string[]>([]);
 
   const { token, isAuthenticated } = useAuth();
 
@@ -85,6 +89,27 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
       audioRef.current.volume = volume;
     }
   }, [volume]);
+
+  useEffect(() => {
+    if (!isAuthenticated || !token) {
+      setDislikedIds([]);
+      return;
+    }
+    getDislikedTrackIdsQuery(token)
+      .then(setDislikedIds)
+      .catch((err) => {
+        console.error("Failed to load disliked track IDs:", err);
+        setDislikedIds([]);
+      });
+  }, [isAuthenticated, token]);
+
+  const addDislikedId = (id: string) => {
+    setDislikedIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+  };
+
+  const removeDislikedId = (id: string) => {
+    setDislikedIds((prev) => prev.filter((d) => d !== id));
+  };
 
   const playTrack = (track: Music, addToHistory = true) => {
     if (!audioRef.current) return;
@@ -162,16 +187,6 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         const recentHistoryIds = history.slice(-5).map((t) => t.id);
         const seedIds = [currentTrack.id, ...recentHistoryIds];
         const blacklistedIds = [currentTrack.id, ...history.map((t) => t.id)];
-
-        let dislikedIds: string[] = [];
-        if (isAuthenticated && token) {
-          try {
-            const dislikedTracks = await getDislikedTracksQuery(token);
-            dislikedIds = dislikedTracks.map((t) => t.trackId);
-          } catch {
-            // best-effort
-          }
-        }
 
         const filteredSeedIds = seedIds.filter((id) => !dislikedIds.includes(id));
         const mergedBlacklist = [...new Set([...blacklistedIds, ...dislikedIds])];
@@ -265,6 +280,9 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         playNext,
         playPrevious,
         clearPlayer,
+        dislikedIds,
+        addDislikedId,
+        removeDislikedId,
       }}
     >
       {children}

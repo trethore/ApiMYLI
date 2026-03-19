@@ -14,10 +14,18 @@ import {
   getMyPinnedItemsQuery,
   getMyTrackHistoryQuery,
   getRecommendationsQuery,
-  getDislikedTracksQuery,
+  getDislikedTrackIdsQuery,
   toMusic,
 } from "@/lib/api-client";
 import { Music } from "@/types/music";
+
+async function fetchDislikedTrackIds(token: string): Promise<string[]> {
+  try {
+    return await getDislikedTrackIdsQuery(token);
+  } catch {
+    return [];
+  }
+}
 
 export default function Home() {
   const { isAuthenticated, requireAuth, token } = useAuth();
@@ -116,13 +124,7 @@ export default function Home() {
           if (formattedHistory.length > 0) {
             const historyIds = formattedHistory.map((h) => h.id);
 
-            let dislikedIds: string[] = [];
-            try {
-              const dislikedTracks = await getDislikedTracksQuery(token);
-              dislikedIds = dislikedTracks.map((t) => t.trackId);
-            } catch {
-              // best-effort
-            }
+            const dislikedIds = await fetchDislikedTrackIds(token);
 
             const filteredHistoryIds = historyIds.filter((id) => !dislikedIds.includes(id));
             const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
@@ -146,8 +148,9 @@ export default function Home() {
 
             const dynamicRecos = [];
             for (const track of seedTracks) {
+              if (dislikedIds.includes(track.id)) continue;
               const recs = await getRecommendationsQuery(
-                [track.id].filter((id) => !dislikedIds.includes(id)),
+                [track.id],
                 mergedBlacklist,
                 10,
                 10, // 10% randomness for highly related
@@ -201,16 +204,7 @@ export default function Home() {
     if (!token) return;
     try {
       const historyIds = history.slice(-12).map((t) => t.id);
-
-      let dislikedIds: string[] = [];
-      if (token) {
-        try {
-          const dislikedTracks = await getDislikedTracksQuery(token);
-          dislikedIds = dislikedTracks.map((t) => t.trackId);
-        } catch {
-          // best-effort
-        }
-      }
+      const dislikedIds = await fetchDislikedTrackIds(token);
 
       const filteredIds = historyIds.filter((id) => !dislikedIds.includes(id));
       const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
@@ -236,16 +230,7 @@ export default function Home() {
   const handleDecouvrir = async () => {
     try {
       const historyIds = history.map((t) => t.id);
-
-      let dislikedIds: string[] = [];
-      if (token) {
-        try {
-          const dislikedTracks = await getDislikedTracksQuery(token);
-          dislikedIds = dislikedTracks.map((t) => t.trackId);
-        } catch {
-          // best-effort
-        }
-      }
+      const dislikedIds = token ? await fetchDislikedTrackIds(token) : [];
 
       const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
 

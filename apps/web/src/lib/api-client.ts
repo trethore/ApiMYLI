@@ -474,6 +474,18 @@ export async function getDislikedTracksQuery(token: string): Promise<ApiTrack[]>
   return data.dislikedTracks;
 }
 
+export async function getDislikedTrackIdsQuery(token: string): Promise<string[]> {
+  const query = /* GraphQL */ `
+    query GetDislikedTrackIds {
+      dislikedTracks {
+        trackId
+      }
+    }
+  `;
+  const data = await gql<{ dislikedTracks: { trackId: string }[] }>(query, {}, token);
+  return data.dislikedTracks.map((t) => t.trackId);
+}
+
 export async function getPlaylistQuery(
   playlistId: string,
   token?: string | null,
