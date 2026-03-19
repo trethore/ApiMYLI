@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useRef, useEffect } from "react";
+import React, { createContext, useContext, useState, useRef, useEffect, useCallback } from "react";
 import { Music } from "@/types/music";
 import { useAuth } from "@/context/AuthContext";
 import {
@@ -176,7 +176,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     setQueue(tracks);
   };
 
-  const playNext = async () => {
+  const playNext = useCallback(async () => {
     if (queue.length > 0) {
       const nextTrack = queue[0];
       setQueue((prev) => prev.slice(1));
@@ -214,7 +214,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     } else {
       setIsPlaying(false);
     }
-  };
+  }, [queue, currentTrack, history, dislikedIds, token, playTrack]);
 
   const playPrevious = () => {
     if (history.length > 0) {
