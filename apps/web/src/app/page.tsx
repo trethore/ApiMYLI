@@ -14,18 +14,9 @@ import {
   getMyPinnedItemsQuery,
   getMyTrackHistoryQuery,
   getRecommendationsQuery,
-  getDislikedTrackIdsQuery,
   toMusic,
 } from "@/lib/api-client";
 import { Music } from "@/types/music";
-
-async function fetchDislikedTrackIds(token: string): Promise<string[]> {
-  try {
-    return await getDislikedTrackIdsQuery(token);
-  } catch {
-    return [];
-  }
-}
 
 export default function Home() {
   const { isAuthenticated, requireAuth, token } = useAuth();
@@ -125,10 +116,8 @@ export default function Home() {
           if (formattedHistory.length > 0) {
             const historyIds = formattedHistory.map((h) => h.id);
 
-            const fetchedDislikedIds = await fetchDislikedTrackIds(token);
-
-            const filteredHistoryIds = historyIds.filter((id) => !fetchedDislikedIds.includes(id));
-            const mergedBlacklist = [...new Set([...historyIds, ...fetchedDislikedIds])];
+            const filteredHistoryIds = historyIds.filter((id) => !dislikedIds.includes(id));
+            const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
 
             // 1. Recommandé pour vous (Radio style)
             const mainRecos = await getRecommendationsQuery(
@@ -149,7 +138,7 @@ export default function Home() {
 
             const dynamicRecos = [];
             for (const track of seedTracks) {
-              if (fetchedDislikedIds.includes(track.id)) continue;
+              if (dislikedIds.includes(track.id)) continue;
               const recs = await getRecommendationsQuery(
                 [track.id],
                 mergedBlacklist,
@@ -197,7 +186,7 @@ export default function Home() {
     };
 
     fetchHomeData();
-  }, [isAuthenticated, token, history, dislikedIds]);
+  }, [isAuthenticated, token, history]);
 
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -205,7 +194,6 @@ export default function Home() {
     if (!token) return;
     try {
       const historyIds = history.slice(-12).map((t) => t.id);
-      const dislikedIds = await fetchDislikedTrackIds(token);
 
       const filteredIds = historyIds.filter((id) => !dislikedIds.includes(id));
       const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
@@ -231,7 +219,6 @@ export default function Home() {
   const handleDecouvrir = async () => {
     try {
       const historyIds = history.map((t) => t.id);
-      const dislikedIds = token ? await fetchDislikedTrackIds(token) : [];
 
       const mergedBlacklist = [...new Set([...historyIds, ...dislikedIds])];
 

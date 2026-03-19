@@ -6,7 +6,7 @@ import { usePlayer } from "@/context/PlayerContext";
 import { Music } from "@/types/music";
 import LikeButton from "@/components/LikeButton";
 import DislikeButton from "@/components/DislikeButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface TrackCardProps {
   track: Music;
@@ -17,6 +17,11 @@ export default function TrackCard({ track, priority = false }: TrackCardProps) {
   const { playTrack } = usePlayer();
   const [isLiked, setIsLiked] = useState<boolean | undefined>(track.isLiked);
   const [isDisliked, setIsDisliked] = useState<boolean | undefined>(track.isDisliked);
+
+  useEffect(() => {
+    setIsLiked(track.isLiked);
+    setIsDisliked(track.isDisliked);
+  }, [track.id, track.isLiked, track.isDisliked]);
 
   const handleLikedChange = (liked: boolean) => {
     setIsLiked(liked);
