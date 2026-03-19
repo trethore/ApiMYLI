@@ -11,6 +11,7 @@ import PinActionSubMenu from "@/components/PinActionSubMenu";
 import { usePlayer } from "@/context/PlayerContext";
 import { usePlaylist } from "@/context/PlaylistContext";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,6 +34,8 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
   const { playlists, isOwnedPlaylist, removeTrackFromPlaylist, addTrackToPlaylist } = usePlaylist();
   const pathname = usePathname();
   const router = useRouter();
+  const [isLiked, setIsLiked] = useState(!!music.isLiked);
+  const [isDisliked, setIsDisliked] = useState(!!music.isDisliked);
 
   // Determine if we are currently inside an owned playlist
   const isPlaylistRoute = pathname.startsWith("/playlist/");
@@ -117,12 +120,31 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
       </span>
 
       <div className="flex items-center gap-1 sm:gap-3">
-        <LikeButton initialIsLiked={music.isLiked} size={20} itemId={music.id} itemType="track" />
-        <DislikeButton
-          initialIsDisliked={music.isDisliked}
+        <LikeButton
+          initialIsLiked={music.isLiked}
+          isLiked={isLiked}
           size={20}
           itemId={music.id}
           itemType="track"
+          onLiked={(nextIsLiked: boolean) => {
+            setIsLiked(nextIsLiked);
+            if (nextIsLiked) {
+              setIsDisliked(false);
+            }
+          }}
+        />
+        <DislikeButton
+          initialIsDisliked={music.isDisliked}
+          isDisliked={isDisliked}
+          size={20}
+          itemId={music.id}
+          itemType="track"
+          onDisliked={(nextIsDisliked: boolean) => {
+            setIsDisliked(nextIsDisliked);
+            if (nextIsDisliked) {
+              setIsLiked(false);
+            }
+          }}
         />
 
         <DropdownMenu>
