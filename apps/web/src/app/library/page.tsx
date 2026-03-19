@@ -135,7 +135,7 @@ export default function Library() {
     };
 
     fetchLibraryData();
-  }, [isAuthenticated, router, token, history]);
+  }, [isAuthenticated, router, token, history, localHistoryContent]);
 
   if (!isAuthenticated) {
     return null;
@@ -210,7 +210,7 @@ export default function Library() {
                 }))}
               />
             ) : (
-              <p className="text-muted-foreground mt-4">Vous n'avez pas encore de playlist.</p>
+              <p className="text-muted-foreground mt-4">Vous n&apos;avez pas encore de playlist.</p>
             )}
           </div>
 
@@ -226,7 +226,7 @@ export default function Library() {
             {likedTracks.length > 0 ? (
               <ContentGrid items={likedTracks} />
             ) : (
-              <p className="text-muted-foreground mt-4">Vous n'avez pas de titres likés.</p>
+              <p className="text-muted-foreground mt-4">Vous n&apos;avez pas de titres likés.</p>
             )}
           </div>
         </div>

@@ -12,13 +12,13 @@ export default function NotFound() {
         </h1>
         <h2 className="text-2xl sm:text-4xl font-bold mt-4 mb-8">Oups ! Page introuvable</h2>
         <p className="text-muted-foreground mb-8 max-w-md text-lg">
-          Désolé, la page que vous recherchez n'existe pas ou a été déplacée.
+          Désolé, la page que vous recherchez n&apos;existe pas ou a été déplacée.
         </p>
         <Button
           asChild
           className="bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] text-foreground font-bold text-lg py-6 px-8 rounded-full hover:scale-105 transition-transform hover:cursor-pointer"
         >
-          <Link href="/">Retour à l'accueil</Link>
+          <Link href="/">Retour à l&apos;accueil</Link>
         </Button>
       </main>
     </div>

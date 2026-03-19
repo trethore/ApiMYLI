@@ -5,12 +5,6 @@ import { User, LogOut, Trash2, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -37,31 +31,23 @@ import Nav from "@/components/Nav";
 import SectionTitle from "@/components/SectionTitle";
 
 import { useAuth } from "@/context/AuthContext";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePlayer } from "@/context/PlayerContext";
 
 export default function Settings() {
   const { isAuthenticated, user, logout, updateUser, deleteAccount, isLoading, error, clearError } =
     useAuth();
   const { clearPlayer } = usePlayer();
-  const router = useRouter();
 
-  const [editLogin, setEditLogin] = useState("");
-  const [editName, setEditName] = useState("");
-  const [editEmail, setEditEmail] = useState("");
-  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [editLogin, setEditLogin] = useState<string | undefined>();
+  const login = editLogin ?? user?.login ?? "";
+  const [editName, setEditName] = useState<string | undefined>();
+  const name = editName ?? user?.name ?? "";
+  const [editEmail, setEditEmail] = useState<string | undefined>();
+  const email = editEmail ?? user?.email ?? "";
+
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState<boolean>(false);
   const [editError, setEditError] = useState("");
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push("/register");
-    } else if (user) {
-      setEditLogin(user.login);
-      setEditName(user.name);
-      setEditEmail(user.email);
-    }
-  }, [isAuthenticated, router, user]);
 
   const handleLogout = async () => {
     clearPlayer();
@@ -83,12 +69,12 @@ export default function Settings() {
     await deleteAccount();
   };
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated || !user) {
     return null;
   }
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-background text-foreground">
+    <div className="min-h-screen flex flex-col font-sans bg-background text-foreground" key={user?.accountId ?? "new"}>
       <Nav />
       <main className="flex-1 p-8 pb-24 text-center max-w-3xl mx-auto w-full space-y-8">
         <SectionTitle title="Paramètres du compte" className="text-left mt-0 text-4xl" />
@@ -139,7 +125,7 @@ export default function Settings() {
                       <Label htmlFor="edit-login">Pseudo</Label>
                       <Input
                         id="edit-login"
-                        value={editLogin}
+                        value={login}
                         onChange={(e) => setEditLogin(e.target.value)}
                       />
                     </div>
@@ -147,7 +133,7 @@ export default function Settings() {
                       <Label htmlFor="edit-name">Nom</Label>
                       <Input
                         id="edit-name"
-                        value={editName}
+                        value={name}
                         onChange={(e) => setEditName(e.target.value)}
                       />
                     </div>
@@ -155,7 +141,7 @@ export default function Settings() {
                       <Label htmlFor="edit-email">Email</Label>
                       <Input
                         id="edit-email"
-                        value={editEmail}
+                        value={email}
                         onChange={(e) => setEditEmail(e.target.value)}
                         disabled
                         className="opacity-60 cursor-not-allowed"

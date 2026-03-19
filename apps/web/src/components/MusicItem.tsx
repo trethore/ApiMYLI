@@ -130,7 +130,7 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem onClick={() => addToQueue(music)} className="cursor-pointer">
-              Ajouter à la file d'attente
+              Ajouter à la file d&apos;attente
             </DropdownMenuItem>
 
             {isInsideOwnedPlaylist && (
@@ -176,7 +176,7 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
                 }
               }}
             >
-              Voir l'artiste
+              Voir l&apos;artiste
             </DropdownMenuItem>
             {music.albumId && (
               <DropdownMenuItem 
@@ -186,7 +186,7 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
                   router.push(`/album/${music.albumId}`);
                 }}
               >
-                Voir l'album
+                Voir l&apos;album
               </DropdownMenuItem>
             )}
           </DropdownMenuContent>

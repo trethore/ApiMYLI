@@ -109,7 +109,8 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
 
   const handleEdit = async () => {
     if (editName.trim()) {
-      await updatePlaylist(playlistId, editName, editImage);
+      // await updatePlaylist(playlistId, editName, editImage);
+      await updatePlaylist(playlistId, editName);
       setIsEditOpen(false);
       setDisplayName(editName);
       if (editImage) setDisplayImage(editImage);
@@ -147,7 +148,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
         <Nav />
         <main className="flex-1 p-4 lg:p-8 flex flex-col items-center justify-center max-w-5xl mx-auto w-full text-center">
           <SectionTitle title="Playlist introuvable" />
-          <p className="text-muted-foreground mt-4">La playlist que vous cherchez n'existe pas ou a été supprimée.</p>
+          <p className="text-muted-foreground mt-4">La playlist que vous cherchez n&apos;existe pas ou a été supprimée.</p>
           <Button className="mt-6" onClick={() => router.push("/library")}>
             Retour à la bibliothèque
           </Button>
@@ -221,7 +222,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                       <AlertDialogTitle>Êtes-vous sûr ?</AlertDialogTitle>
                       <AlertDialogDescription>
                         Cette action est irréversible. Cela supprimera définitivement votre playlist
-                        "{displayName}".
+                        &quot;{displayName}&quot;.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
@@ -302,7 +303,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="edit-image">URL de l'image (optionnelle)</Label>
+                <Label htmlFor="edit-image">URL de l&apos;image (optionnelle)</Label>
                 <Input
                   id="edit-image"
                   placeholder="https://..."

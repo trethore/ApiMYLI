@@ -10,7 +10,7 @@ interface ContentItem {
   imageUrl?: string;
   image?: string;
   link?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface ContentGridProps {
@@ -28,7 +28,7 @@ export default function ContentGrid({ items = [] }: ContentGridProps) {
           <ContentCard
             key={`${item.id}-${index}`}
             name={item.name || item.title || "Unknown"}
-            type={item.type as any}
+            type={item.type as "Track" | "Album" | "Single" | "Artiste" | "Playlist" | "Artist"}
             imageUrl={item.imageUrl || item.image}
             link={item.link || "/"}
             priority={index < 2}

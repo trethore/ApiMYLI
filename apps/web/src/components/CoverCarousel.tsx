@@ -1,7 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -10,11 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Music, Album, Artist } from "@/types/music";
-import Image from "@/components/ImageWithFallback";
-import Link from "next/link";
-import { Play } from "lucide-react";
 
-// Define a union type for items that can be displayed
 // Define a union type for items that can be displayed
 type CarouselItemType =
   | (Music & { type?: "Track" })
@@ -23,7 +17,7 @@ type CarouselItemType =
   | (Artist & { type: "Artist" });
 
 interface CoverCarouselProps {
-  items: CarouselItemType[];
+  items: CarouselItemType;
   title?: string;
   className?: string;
 }
@@ -107,13 +101,4 @@ function getName(item: CarouselItemType): string {
   if ("name" in item) return item.name;
   if ("title" in item) return item.title;
   return "Unknown";
-}
-
-function getSubtext(item: CarouselItemType): string {
-  if ("artist" in item) {
-    if (Array.isArray(item.artist)) return item.artist.join(", ");
-    return item.artist;
-  }
-  if ("type" in item) return item.type;
-  return "";
 }

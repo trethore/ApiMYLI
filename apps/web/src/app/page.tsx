@@ -9,19 +9,16 @@ import MusicVisualizer from "@/components/MusicVisualizer";
 import CoverCarousel from "@/components/CoverCarousel";
 import { useAuth } from "@/context/AuthContext";
 import { usePlayer } from "@/context/PlayerContext";
-import { useRouter } from "next/navigation";
 import {
   getMyPinnedItemsQuery,
   getMyTrackHistoryQuery,
   getRecommendationsQuery,
   toMusic,
 } from "@/lib/api-client";
-import { Music } from "@/types/music";
 
 export default function Home() {
   const { isAuthenticated, requireAuth, token } = useAuth();
   const { history, clearPlayer, setQueueList, playTrack } = usePlayer();
-  const router = useRouter();
 
   // ... existing types ...
   type ContentType = "Album" | "Single" | "Artiste" | "Playlist" | "Track";
@@ -255,7 +252,7 @@ export default function Home() {
           {isAuthenticated && !loading && pinnedContent.length > 0 && (
             <>
               <SectionTitle title="Épinglés" />
-              <ContentGrid items={pinnedContent as any} />
+              <ContentGrid items={pinnedContent as ContentList} />
             </>
           )}
 

@@ -1,0 +1,13 @@
+# START
+api & web -> bun run dev
+
+# INSTALL
+<install bun>
+docker composer up -d
+bun install
+bun run --filter api prisma:migrate
+
+# SEEDING
+bun run --filter api seed:download
+bun run db:full-reset
+bun run --filter api seed (long sa mère, compter 2H+)
