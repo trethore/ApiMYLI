@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { usePlayer } from "@/context/PlayerContext";
 import {
   Play,
@@ -33,6 +34,49 @@ export default function Player() {
   } = usePlayer();
   const [showQueue, setShowQueue] = useState(false);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+  
+      // Ignore typing fields
+      if (
+        target.tagName === "INPUT" ||
+        target.tagName === "TEXTAREA" ||
+        target.isContentEditable
+      ) {
+        return;
+      }
+      let newTime = 0;
+  
+      switch (e.code) {
+        case "Space":
+          e.preventDefault();
+          togglePlay();
+          break;
+  
+        case "ArrowRight":
+          e.preventDefault();
+          newTime = Math.min(currentTime + 5, duration)
+          console.log(currentTime);
+          console.log(duration);
+          seek(newTime);
+          break;
+  
+        case "ArrowLeft":
+          e.preventDefault();
+          newTime = Math.max(currentTime - 5, 0) 
+          seek(newTime);
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+  
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [togglePlay, seek, currentTime, duration]);
+
   if (!currentTrack) return null;
 
   const formatTime = (time: number) => {
@@ -43,14 +87,13 @@ export default function Player() {
   };
 
   return (
-    <div className="fixed bottom-[54px] lg:bottom-0 left-0 right-0 bg-background/95 backdrop-blur-lg border-t border-border z-50 flex flex-col sm:flex-row h-auto sm:h-24">
+    <div  className="fixed bottom-[54px] lg:bottom-0 left-0 right-0 bg-background/95 backdrop-blur-lg border-t border-border z-50 flex flex-col sm:flex-row h-auto sm:h-24">
       {/* Mobile Progress Bar (Full Width Top) */}
       <div className="w-full sm:hidden order-1">
         <Slider
           value={[currentTime]}
           max={duration || 100}
           step={1}
-          onValueChange={(vals: number[]) => seek(vals[0])}
           className="w-full cursor-pointer h-1 rounded-none group"
         />
       </div>

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Power, PowerOff } from "lucide-react";
 
 export default function MusicVisualizer() {
-  const { isPlaying, volume } = usePlayer();
+  const { isPlaying, volume, currentTrack } = usePlayer();
   const [isEnabled, setIsEnabled] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const requestRef = useRef<number>(0);
@@ -54,7 +54,7 @@ export default function MusicVisualizer() {
     return () => cancelAnimationFrame(requestRef.current);
   });
 
-  if (!isPlaying) return null;
+  if (!currentTrack) return null;
 
   return (
     <div className="w-full h-48 bg-background/50 backdrop-blur-sm rounded-xl border border-white/10 relative overflow-hidden flex flex-col items-center justify-center mb-8 bg-gradient-to-b from-muse-dark-blue/20 to-transparent">

@@ -45,6 +45,8 @@ export default function Settings() {
   const name = editName ?? user?.name ?? "";
   const [editEmail, setEditEmail] = useState<string | undefined>();
   const email = editEmail ?? user?.email ?? "";
+  const [editRole, setEditRole] = useState<string | undefined>();
+  const role = editRole ?? user?.role ?? "";
 
   const [isEditDialogOpen, setIsEditDialogOpen] = useState<boolean>(false);
   const [editError, setEditError] = useState("");
@@ -58,7 +60,7 @@ export default function Settings() {
     e.preventDefault();
     setEditError("");
     clearError();
-    await updateUser({ login: editLogin, name: editName });
+    await updateUser({ login: editLogin, name: editName, role: 'admin'});
     if (!error) {
       setIsEditDialogOpen(false);
     }
@@ -101,6 +103,14 @@ export default function Settings() {
                 <span className="text-muted-foreground">Email :</span>
                 <span className="font-medium">{user?.email}</span>
               </div>
+              {
+                (user.role === 'admin' || user.role === 'super_admin') && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Rôle :</span>
+                    <span className="font-medium">{user?.role}</span>
+                  </div>
+                )
+              }
             </div>
 
             {error && (
@@ -147,6 +157,17 @@ export default function Settings() {
                         className="opacity-60 cursor-not-allowed"
                       />
                       <p className="text-xs text-muted-foreground">L&apos;email ne peut pas être modifié.</p>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="edit-email">Rôle</Label>
+                      <Input
+                        id="edit-role"
+                        value={role}
+                        onChange={(e) => setEditRole(e.target.value)}
+                        disabled
+                        className="opacity-60 cursor-not-allowed"
+                      />
+                      <p className="text-xs text-muted-foreground">Le rôle être modifié.</p>
                     </div>
                     {editError && (
                       <p className="text-sm text-destructive">{editError}</p>
