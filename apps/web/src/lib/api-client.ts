@@ -709,6 +709,7 @@ const PINNED_ITEM_FRAGMENT = /* GraphQL */ `
       audioSrc
       durationSeconds
       isLiked
+      isDisliked
       trackNumber
       discNumber
       isExplicit
@@ -815,6 +816,7 @@ export async function getMyPinnedItemsQuery(token: string): Promise<ApiPinnedIte
           audioSrc
           durationSeconds
           isLiked
+          isDisliked
           album {
             title
           }
