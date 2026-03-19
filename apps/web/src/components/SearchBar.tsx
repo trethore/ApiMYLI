@@ -74,7 +74,7 @@ export default function SearchBar() {
             setQuery(e.target.value);
             setShowDropdown(true);
           }}
-          className="w-full bg-secondary/50 hover:bg-secondary/80 text-foreground border border-border/50 rounded-full py-2 pl-10 pr-10 focus:outline-none focus:ring-1 focus:ring-primary transition-all text-sm"
+            className="w-full bg-secondary/50 hover:bg-secondary/80 text-white border border-border/50 rounded-full py-2 pl-10 pr-10 focus:outline-none focus:ring-1 focus:ring-primary transition-all text-sm"
         />
         {query && (
           <button 

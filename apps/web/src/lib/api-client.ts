@@ -57,6 +57,7 @@ export type ApiAccount = {
   accountId: string;
   login: string | null;
   email: string | null;
+  role: string | null;
   name: string | null;
   isArtist: boolean;
 };
@@ -199,6 +200,7 @@ export async function loginMutation(
         account {
           accountId
           login
+          role
           email
           name
           isArtist
@@ -269,6 +271,7 @@ export async function getAccountQuery(
         accountId
         login
         email
+        role
         name
         isArtist
       }
@@ -289,6 +292,7 @@ export async function updateAccountMutation(
   input: {
     login?: string;
     email?: string;
+    role?: string;
     password?: string;
     name?: string;
   },
@@ -300,6 +304,7 @@ export async function updateAccountMutation(
         accountId
         login
         email
+        role
         name
         isArtist
       }

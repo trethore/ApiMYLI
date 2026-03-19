@@ -215,6 +215,7 @@ export default function AboutPage() {
     accountId
     login
     email
+    role
     name
     isArtist
   }

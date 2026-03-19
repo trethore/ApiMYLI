@@ -17,6 +17,7 @@ const TOKEN_KEY = "muse_token";
 interface User {
   accountId: string;
   login: string;
+  role: string;
   email: string;
   name: string;
 }
@@ -31,7 +32,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   register: (login: string, email: string, password: string, name: string) => Promise<void>;
   logout: () => Promise<void>;
-  updateUser: (data: { login?: string; name?: string; email?: string; password?: string }) => Promise<void>;
+  updateUser: (data: { login?: string; name?: string; email?: string; password?: string, role?: string }) => Promise<void>;
   deleteAccount: () => Promise<void>;
   clearError: () => void;
   isAuthPopupOpen: boolean;
@@ -44,6 +45,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const toUser = (account: ApiAccount): User => ({
   accountId: account.accountId,
   login: account.login ?? "",
+  role: account.role ?? "",
   email: account.email ?? "",
   name: account.name ?? "",
 });
@@ -60,6 +62,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const storedUser = localStorage.getItem(USER_KEY);
     const storedToken = localStorage.getItem(TOKEN_KEY);
+
+    console.log(storedUser);
+
     if (storedUser && storedToken) {
       try {
         setUser(JSON.parse(storedUser));
@@ -125,8 +130,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     router.push("/login");
   };
 
-  const updateUser = async (data: { login?: string; name?: string; email?: string; password?: string }) => {
+  const updateUser = async (data: { login?: string; name?: string; email?: string; password?: string, role?: string}) => {
     if (!user || !token) return;
+
     setIsLoading(true);
     setError(null);
     try {
