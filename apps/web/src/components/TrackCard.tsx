@@ -6,6 +6,7 @@ import { usePlayer } from "@/context/PlayerContext";
 import { Music } from "@/types/music";
 import LikeButton from "@/components/LikeButton";
 import DislikeButton from "@/components/DislikeButton";
+import { useState } from "react";
 
 interface TrackCardProps {
   track: Music;
@@ -14,6 +15,22 @@ interface TrackCardProps {
 
 export default function TrackCard({ track, priority = false }: TrackCardProps) {
   const { playTrack } = usePlayer();
+  const [isLiked, setIsLiked] = useState<boolean | undefined>(track.isLiked);
+  const [isDisliked, setIsDisliked] = useState<boolean | undefined>(track.isDisliked);
+
+  const handleLikedChange = (liked: boolean) => {
+    setIsLiked(liked);
+    if (liked) {
+      setIsDisliked(false);
+    }
+  };
+
+  const handleDislikedChange = (disliked: boolean) => {
+    setIsDisliked(disliked);
+    if (disliked) {
+      setIsLiked(false);
+    }
+  };
 
   return (
     <div
@@ -44,20 +61,22 @@ export default function TrackCard({ track, priority = false }: TrackCardProps) {
           {/* Like / Dislike buttons on hover */}
           <div className="absolute bottom-1 right-1 z-30 hidden lg:flex items-center gap-0 opacity-0 group-hover:opacity-100 transition-opacity">
             <LikeButton
-              initialIsLiked={track.isLiked}
+              initialIsLiked={isLiked}
               size={18}
               itemId={track.id}
               itemType="track"
               className="text-white hover:text-primary"
               iconClassName="drop-shadow-md"
+              onLiked={handleLikedChange}
             />
             <DislikeButton
-              initialIsDisliked={track.isDisliked}
+              initialIsDisliked={isDisliked}
               size={18}
               itemId={track.id}
               itemType="track"
               className="text-white hover:text-destructive"
               iconClassName="drop-shadow-md"
+              onDisliked={handleDislikedChange}
             />
           </div>
 
