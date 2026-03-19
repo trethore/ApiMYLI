@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -14,6 +14,7 @@ interface LikeButtonProps {
   iconClassName?: string;
   itemId: string;
   itemType: "track" | "album" | "artist" | "playlist";
+  onLiked?: (newState: boolean) => void;
 }
 
 export default function LikeButton({
@@ -23,9 +24,14 @@ export default function LikeButton({
   iconClassName,
   itemId,
   itemType,
+  onLiked,
 }: LikeButtonProps) {
   const { token, requireAuth } = useAuth();
   const [isLiked, setIsLiked] = useState(initialIsLiked);
+
+  useEffect(() => {
+    setIsLiked(initialIsLiked ?? false);
+  }, [itemId, initialIsLiked]);
 
   const toggleLike = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering parent click
@@ -39,6 +45,7 @@ export default function LikeButton({
     requireAuth(async () => {
       const newState = !isLiked;
       setIsLiked(newState); // Optimistic UI
+      onLiked?.(newState);
 
       try {
         if (newState) {
@@ -49,6 +56,7 @@ export default function LikeButton({
       } catch (err) {
         console.error("Failed to like/unlike track", err);
         setIsLiked(!newState); // revert if failed
+        onLiked?.(!newState);
       }
     });
   };
