@@ -189,7 +189,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         const blacklistedIds = [currentTrack.id, ...history.map((t) => t.id)];
 
         // Fetch the latest disliked track ids to avoid relying on a potentially stale closure
-        const latestDislikedIds = await getDislikedTrackIdsQuery(token);
+        const latestDislikedIds = token ? await getDislikedTrackIdsQuery(token) : [];
         const filteredSeedIds = seedIds.filter((id) => !latestDislikedIds.includes(id));
         const mergedBlacklist = [...new Set([...blacklistedIds, ...latestDislikedIds])];
 
