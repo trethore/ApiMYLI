@@ -158,15 +158,15 @@ export type PlaylistAccountWhereInput = {
   NOT?: Prisma.PlaylistAccountWhereInput | Prisma.PlaylistAccountWhereInput[]
   playlistId?: Prisma.UuidFilter<"PlaylistAccount"> | string
   accountId?: Prisma.UuidFilter<"PlaylistAccount"> | string
-  playlist?: Prisma.XOR<Prisma.PlaylistScalarRelationFilter, Prisma.PlaylistWhereInput>
   account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
+  playlist?: Prisma.XOR<Prisma.PlaylistScalarRelationFilter, Prisma.PlaylistWhereInput>
 }
 
 export type PlaylistAccountOrderByWithRelationInput = {
   playlistId?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
-  playlist?: Prisma.PlaylistOrderByWithRelationInput
   account?: Prisma.AccountOrderByWithRelationInput
+  playlist?: Prisma.PlaylistOrderByWithRelationInput
 }
 
 export type PlaylistAccountWhereUniqueInput = Prisma.AtLeast<{
@@ -176,8 +176,8 @@ export type PlaylistAccountWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.PlaylistAccountWhereInput | Prisma.PlaylistAccountWhereInput[]
   playlistId?: Prisma.UuidFilter<"PlaylistAccount"> | string
   accountId?: Prisma.UuidFilter<"PlaylistAccount"> | string
-  playlist?: Prisma.XOR<Prisma.PlaylistScalarRelationFilter, Prisma.PlaylistWhereInput>
   account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
+  playlist?: Prisma.XOR<Prisma.PlaylistScalarRelationFilter, Prisma.PlaylistWhereInput>
 }, "playlistId_accountId">
 
 export type PlaylistAccountOrderByWithAggregationInput = {
@@ -197,8 +197,8 @@ export type PlaylistAccountScalarWhereWithAggregatesInput = {
 }
 
 export type PlaylistAccountCreateInput = {
-  playlist: Prisma.PlaylistCreateNestedOneWithoutPlaylistAccountsInput
   account: Prisma.AccountCreateNestedOneWithoutPlaylistAccountsInput
+  playlist: Prisma.PlaylistCreateNestedOneWithoutPlaylistAccountsInput
 }
 
 export type PlaylistAccountUncheckedCreateInput = {
@@ -207,8 +207,8 @@ export type PlaylistAccountUncheckedCreateInput = {
 }
 
 export type PlaylistAccountUpdateInput = {
-  playlist?: Prisma.PlaylistUpdateOneRequiredWithoutPlaylistAccountsNestedInput
   account?: Prisma.AccountUpdateOneRequiredWithoutPlaylistAccountsNestedInput
+  playlist?: Prisma.PlaylistUpdateOneRequiredWithoutPlaylistAccountsNestedInput
 }
 
 export type PlaylistAccountUncheckedUpdateInput = {
@@ -457,22 +457,22 @@ export type PlaylistAccountUncheckedUpdateManyWithoutPlaylistInput = {
 export type PlaylistAccountSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   playlistId?: boolean
   accountId?: boolean
-  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["playlistAccount"]>
 
 export type PlaylistAccountSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   playlistId?: boolean
   accountId?: boolean
-  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["playlistAccount"]>
 
 export type PlaylistAccountSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   playlistId?: boolean
   accountId?: boolean
-  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["playlistAccount"]>
 
 export type PlaylistAccountSelectScalar = {
@@ -482,23 +482,23 @@ export type PlaylistAccountSelectScalar = {
 
 export type PlaylistAccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"playlistId" | "accountId", ExtArgs["result"]["playlistAccount"]>
 export type PlaylistAccountInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
 }
 export type PlaylistAccountIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
 }
 export type PlaylistAccountIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  playlist?: boolean | Prisma.PlaylistDefaultArgs<ExtArgs>
 }
 
 export type $PlaylistAccountPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "PlaylistAccount"
   objects: {
-    playlist: Prisma.$PlaylistPayload<ExtArgs>
     account: Prisma.$AccountPayload<ExtArgs>
+    playlist: Prisma.$PlaylistPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     playlistId: string
@@ -897,8 +897,8 @@ readonly fields: PlaylistAccountFieldRefs;
  */
 export interface Prisma__PlaylistAccountClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  playlist<T extends Prisma.PlaylistDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PlaylistDefaultArgs<ExtArgs>>): Prisma.Prisma__PlaylistClient<runtime.Types.Result.GetResult<Prisma.$PlaylistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   account<T extends Prisma.AccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountDefaultArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  playlist<T extends Prisma.PlaylistDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PlaylistDefaultArgs<ExtArgs>>): Prisma.Prisma__PlaylistClient<runtime.Types.Result.GetResult<Prisma.$PlaylistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

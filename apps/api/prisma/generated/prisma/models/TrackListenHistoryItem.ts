@@ -174,8 +174,8 @@ export type TrackListenHistoryItemWhereInput = {
   trackId?: Prisma.UuidFilter<"TrackListenHistoryItem"> | string
   accountId?: Prisma.UuidFilter<"TrackListenHistoryItem"> | string
   listenedAt?: Prisma.DateTimeFilter<"TrackListenHistoryItem"> | Date | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }
 
 export type TrackListenHistoryItemOrderByWithRelationInput = {
@@ -183,8 +183,8 @@ export type TrackListenHistoryItemOrderByWithRelationInput = {
   trackId?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
   listenedAt?: Prisma.SortOrder
-  track?: Prisma.TrackOrderByWithRelationInput
   account?: Prisma.AccountOrderByWithRelationInput
+  track?: Prisma.TrackOrderByWithRelationInput
 }
 
 export type TrackListenHistoryItemWhereUniqueInput = Prisma.AtLeast<{
@@ -195,8 +195,8 @@ export type TrackListenHistoryItemWhereUniqueInput = Prisma.AtLeast<{
   trackId?: Prisma.UuidFilter<"TrackListenHistoryItem"> | string
   accountId?: Prisma.UuidFilter<"TrackListenHistoryItem"> | string
   listenedAt?: Prisma.DateTimeFilter<"TrackListenHistoryItem"> | Date | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }, "listenHistoryItemId">
 
 export type TrackListenHistoryItemOrderByWithAggregationInput = {
@@ -222,8 +222,8 @@ export type TrackListenHistoryItemScalarWhereWithAggregatesInput = {
 export type TrackListenHistoryItemCreateInput = {
   listenHistoryItemId?: string
   listenedAt?: Date | string
-  track: Prisma.TrackCreateNestedOneWithoutListenHistoryItemsInput
   account: Prisma.AccountCreateNestedOneWithoutTrackListenHistoryItemsInput
+  track: Prisma.TrackCreateNestedOneWithoutListenHistoryItemsInput
 }
 
 export type TrackListenHistoryItemUncheckedCreateInput = {
@@ -236,8 +236,8 @@ export type TrackListenHistoryItemUncheckedCreateInput = {
 export type TrackListenHistoryItemUpdateInput = {
   listenHistoryItemId?: Prisma.StringFieldUpdateOperationsInput | string
   listenedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  track?: Prisma.TrackUpdateOneRequiredWithoutListenHistoryItemsNestedInput
   account?: Prisma.AccountUpdateOneRequiredWithoutTrackListenHistoryItemsNestedInput
+  track?: Prisma.TrackUpdateOneRequiredWithoutListenHistoryItemsNestedInput
 }
 
 export type TrackListenHistoryItemUncheckedUpdateInput = {
@@ -522,8 +522,8 @@ export type TrackListenHistoryItemSelect<ExtArgs extends runtime.Types.Extension
   trackId?: boolean
   accountId?: boolean
   listenedAt?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackListenHistoryItem"]>
 
 export type TrackListenHistoryItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -531,8 +531,8 @@ export type TrackListenHistoryItemSelectCreateManyAndReturn<ExtArgs extends runt
   trackId?: boolean
   accountId?: boolean
   listenedAt?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackListenHistoryItem"]>
 
 export type TrackListenHistoryItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -540,8 +540,8 @@ export type TrackListenHistoryItemSelectUpdateManyAndReturn<ExtArgs extends runt
   trackId?: boolean
   accountId?: boolean
   listenedAt?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackListenHistoryItem"]>
 
 export type TrackListenHistoryItemSelectScalar = {
@@ -553,23 +553,23 @@ export type TrackListenHistoryItemSelectScalar = {
 
 export type TrackListenHistoryItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"listenHistoryItemId" | "trackId" | "accountId" | "listenedAt", ExtArgs["result"]["trackListenHistoryItem"]>
 export type TrackListenHistoryItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackListenHistoryItemIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackListenHistoryItemIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 
 export type $TrackListenHistoryItemPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "TrackListenHistoryItem"
   objects: {
-    track: Prisma.$TrackPayload<ExtArgs>
     account: Prisma.$AccountPayload<ExtArgs>
+    track: Prisma.$TrackPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     listenHistoryItemId: string
@@ -970,8 +970,8 @@ readonly fields: TrackListenHistoryItemFieldRefs;
  */
 export interface Prisma__TrackListenHistoryItemClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   account<T extends Prisma.AccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountDefaultArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

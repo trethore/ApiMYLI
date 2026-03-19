@@ -158,15 +158,15 @@ export type TrackTagWhereInput = {
   NOT?: Prisma.TrackTagWhereInput | Prisma.TrackTagWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackTag"> | string
   tagId?: Prisma.UuidFilter<"TrackTag"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   tag?: Prisma.XOR<Prisma.TagScalarRelationFilter, Prisma.TagWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }
 
 export type TrackTagOrderByWithRelationInput = {
   trackId?: Prisma.SortOrder
   tagId?: Prisma.SortOrder
-  track?: Prisma.TrackOrderByWithRelationInput
   tag?: Prisma.TagOrderByWithRelationInput
+  track?: Prisma.TrackOrderByWithRelationInput
 }
 
 export type TrackTagWhereUniqueInput = Prisma.AtLeast<{
@@ -176,8 +176,8 @@ export type TrackTagWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.TrackTagWhereInput | Prisma.TrackTagWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackTag"> | string
   tagId?: Prisma.UuidFilter<"TrackTag"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   tag?: Prisma.XOR<Prisma.TagScalarRelationFilter, Prisma.TagWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }, "trackId_tagId">
 
 export type TrackTagOrderByWithAggregationInput = {
@@ -197,8 +197,8 @@ export type TrackTagScalarWhereWithAggregatesInput = {
 }
 
 export type TrackTagCreateInput = {
-  track: Prisma.TrackCreateNestedOneWithoutTrackTagsInput
   tag: Prisma.TagCreateNestedOneWithoutTrackTagsInput
+  track: Prisma.TrackCreateNestedOneWithoutTrackTagsInput
 }
 
 export type TrackTagUncheckedCreateInput = {
@@ -207,8 +207,8 @@ export type TrackTagUncheckedCreateInput = {
 }
 
 export type TrackTagUpdateInput = {
-  track?: Prisma.TrackUpdateOneRequiredWithoutTrackTagsNestedInput
   tag?: Prisma.TagUpdateOneRequiredWithoutTrackTagsNestedInput
+  track?: Prisma.TrackUpdateOneRequiredWithoutTrackTagsNestedInput
 }
 
 export type TrackTagUncheckedUpdateInput = {
@@ -457,22 +457,22 @@ export type TrackTagUncheckedUpdateManyWithoutTagInput = {
 export type TrackTagSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   tagId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackTag"]>
 
 export type TrackTagSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   tagId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackTag"]>
 
 export type TrackTagSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   tagId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackTag"]>
 
 export type TrackTagSelectScalar = {
@@ -482,23 +482,23 @@ export type TrackTagSelectScalar = {
 
 export type TrackTagOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "tagId", ExtArgs["result"]["trackTag"]>
 export type TrackTagInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackTagIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackTagIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   tag?: boolean | Prisma.TagDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 
 export type $TrackTagPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "TrackTag"
   objects: {
-    track: Prisma.$TrackPayload<ExtArgs>
     tag: Prisma.$TagPayload<ExtArgs>
+    track: Prisma.$TrackPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     trackId: string
@@ -897,8 +897,8 @@ readonly fields: TrackTagFieldRefs;
  */
 export interface Prisma__TrackTagClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   tag<T extends Prisma.TagDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TagDefaultArgs<ExtArgs>>): Prisma.Prisma__TagClient<runtime.Types.Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

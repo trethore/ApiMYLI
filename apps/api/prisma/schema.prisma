@@ -9,718 +9,700 @@ datasource db {
   provider = "postgresql"
 }
 
-// ============================================================================
-// CORE ENTITIES
-// ============================================================================
-
 model Account {
-  accountId String   @id @default(dbgenerated("uuid_generate_v4()")) @map("account_id") @db.Uuid
-  login     String?  @unique @db.VarChar(255)
-  password  String?  @db.VarChar(255)
-  name      String?  @db.VarChar(255)
-  pseudo    String?  @db.VarChar(255)
-  email     String?  @unique @db.VarChar(255)
-  isArtist  Boolean  @default(false) @map("is_artist")
-  createdAt DateTime? @map("created_at") @db.Timestamp(6)
-
-  artist           Artist?
-  preference       Preference?
-  preferenceVector PreferenceVector?
-  playlistAccounts PlaylistAccount[]
-  trackLikes       TrackAccountLike[]
-  trackListens     TrackAccountListen[]
+  accountId               String                   @id @default(dbgenerated("uuid_generate_v4()")) @map("account_id") @db.Uuid
+  login                   String?                  @unique @db.VarChar(255)
+  password                String?                  @db.VarChar(255)
+  name                    String?                  @db.VarChar(255)
+  email                   String?                  @unique @db.VarChar(255)
+  createdAt               DateTime?                @map("created_at") @db.Timestamp(6)
+  isArtist                Boolean                  @default(false) @map("is_artist")
+  pseudo                  String?                  @db.VarChar(255)
+  role                    account_roles            @default(listener)
+  pinnedItems             AccountPinnedItem[]
+  artist                  Artist?
+  playlistAccounts        PlaylistAccount[]
+  preference              Preference?
+  preferenceVector        PreferenceVector?
+  trackLikes              TrackAccountLike[]
+  trackListens            TrackAccountListen[]
+  trackComments           TrackComment[]
   trackListenHistoryItems TrackListenHistoryItem[]
-  pinnedItems      AccountPinnedItem[]
-  trackComments    TrackComment[]
 
   @@map("account")
 }
 
 model Artist {
-  artistId              String  @id @map("artist_id") @db.Uuid
-  artistBio             String? @map("artist_bio")
-  artistMembers         String? @map("artist_members")
-  artistImageFile       String? @map("artist_image_file")
-  artistImages          String? @map("artist_images")
-  artistLocation        String? @map("artist_location")
-  artistLatitude        Float?  @map("artist_latitude")
-  artistLongitude       Float?  @map("artist_longitude")
-  artistActiveYearBegin Int?    @map("artist_active_year_begin")
-  artistActiveYearEnd   Int?    @map("artist_active_year_end")
-  artistFavorites       BigInt? @map("artist_favorites")
-  artistComments        BigInt? @map("artist_comments")
-
-  account      Account             @relation(fields: [artistId], references: [accountId])
-  artistTags   ArtistTag[]
-  albumArtists AlbumArtist[]
-  mainTracks   TrackArtistMain[]
-  featTracks   TrackArtistFeat[]
-  pinnedItems  AccountPinnedItem[] @relation("PinnedArtist")
-  rankArtists  RankArtist[]
+  artistId              String              @id @map("artist_id") @db.Uuid
+  artistBio             String?             @map("artist_bio")
+  artistLocation        String?             @map("artist_location")
+  artistLatitude        Float?              @map("artist_latitude")
+  artistLongitude       Float?              @map("artist_longitude")
+  artistActiveYearBegin Int?                @map("artist_active_year_begin")
+  artistActiveYearEnd   Int?                @map("artist_active_year_end")
+  artistFavorites       BigInt?             @map("artist_favorites")
+  artistComments        BigInt?             @map("artist_comments")
+  artistImageFile       String?             @map("artist_image_file")
+  artistImages          String?             @map("artist_images")
+  artistMembers         String?             @map("artist_members")
+  pinnedItems           AccountPinnedItem[] @relation("PinnedArtist")
+  albumArtists          AlbumArtist[]
+  account               Account             @relation(fields: [artistId], references: [accountId])
+  artistTags            ArtistTag[]
+  rankArtists           RankArtist[]
+  featTracks            TrackArtistFeat[]
+  mainTracks            TrackArtistMain[]
 
   @@map("artist")
 }
 
 model Album {
-  albumId           String    @id @default(dbgenerated("uuid_generate_v4()")) @map("album_id") @db.Uuid
-  albumTitle        String?   @map("album_title")
-  albumImageFile    String?   @map("album_image_file")
-  albumImages       String?   @map("album_images")
-  albumType         String?   @map("album_type") @db.VarChar(255)
-  albumTracksCount  Int?      @map("album_tracks_count")
-  albumDateReleased DateTime? @map("album_date_released") @db.Date
-  albumListens      BigInt?   @map("album_listens")
-  albumFavorites    BigInt?   @map("album_favorites")
-  albumComments     BigInt?   @map("album_comments")
-  albumProducer     String?   @map("album_producer") @db.VarChar(255)
-
-  tracks       Track[]
-  albumArtists AlbumArtist[]
-  pinnedItems  AccountPinnedItem[] @relation("PinnedAlbum")
+  albumId           String              @id @default(dbgenerated("uuid_generate_v4()")) @map("album_id") @db.Uuid
+  albumTitle        String?             @map("album_title")
+  albumType         String?             @map("album_type") @db.VarChar(255)
+  albumTracksCount  Int?                @map("album_tracks_count")
+  albumDateReleased DateTime?           @map("album_date_released") @db.Date
+  albumListens      BigInt?             @map("album_listens")
+  albumFavorites    BigInt?             @map("album_favorites")
+  albumComments     BigInt?             @map("album_comments")
+  albumProducer     String?             @map("album_producer") @db.VarChar(255)
+  albumImageFile    String?             @map("album_image_file")
+  albumImages       String?             @map("album_images")
+  pinnedItems       AccountPinnedItem[] @relation("PinnedAlbum")
+  albumArtists      AlbumArtist[]
+  tracks            Track[]
 
   @@map("album")
 }
 
 model Genre {
-  genreId  String  @id @default(dbgenerated("uuid_generate_v4()")) @map("genre_id") @db.Uuid
-  parentId String? @map("parent_id") @db.Uuid
-  title    String? @db.VarChar(255)
-  topLevel Int?    @map("top_level")
-  tracksCount Int? @map("tracks_count")
-
+  genreId          String            @id @default(dbgenerated("uuid_generate_v4()")) @map("genre_id") @db.Uuid
+  parentId         String?           @map("parent_id") @db.Uuid
+  title            String?           @db.VarChar(255)
+  topLevel         Int?              @map("top_level")
+  tracksCount      Int?              @map("tracks_count")
   parent           Genre?            @relation("GenreHierarchy", fields: [parentId], references: [genreId])
   children         Genre[]           @relation("GenreHierarchy")
-  trackGenres      TrackGenre[]
   genrePreferences GenrePreference[]
+  trackGenres      TrackGenre[]
 
   @@map("genre")
 }
 
 model Track {
-  trackId           String    @id @default(dbgenerated("uuid_generate_v4()")) @map("track_id") @db.Uuid
-  albumId           String?   @map("album_id") @db.Uuid
-  trackGenreTop     String?   @map("track_genre_top")
-  trackTitle        String?   @map("track_title") @db.VarChar(255)
-  trackUrl          String?   @map("track_url")
-  trackFile         String?   @map("track_file")
-  trackImageFile    String?   @map("track_image_file")
-  trackDuration     BigInt?   @map("track_duration")
-  trackNumber       Int?      @map("track_number")
-  trackDiscNumber   Int?      @map("track_disc_number")
-  trackExplicit     Boolean?  @map("track_explicit")
-  trackInstrumental Boolean?  @map("track_instrumental")
-  trackListens      BigInt?   @map("track_listens")
-  trackFavorites    BigInt?   @map("track_favorites")
-  trackInterest     Float?    @map("track_interest")
-  trackComments     BigInt?   @map("track_comments")
-  trackDateCreated  DateTime? @map("track_date_created") @db.Date
-  trackComposer     String?   @map("track_composer") @db.VarChar(255)
-  trackLyricist     String?   @map("track_lyricist") @db.VarChar(255)
-  trackPublisher    String?   @map("track_publisher") @db.VarChar(255)
-
-  album           Album?            @relation(fields: [albumId], references: [albumId])
-  audioFeature    AudioFeature?
-  temporalFeature TemporalFeature?
-  trackGenres     TrackGenre[]
-  trackTags       TrackTag[]
-  mainArtists     TrackArtistMain[]
-  featArtists     TrackArtistFeat[]
-  trackLicenses   TrackLicense[]
-  playlistTracks  PlaylistTrack[]
-  rankTracks      RankTrack[]
-  accountLikes    TrackAccountLike[]
-  accountListens  TrackAccountListen[]
+  trackId            String                   @id @default(dbgenerated("uuid_generate_v4()")) @map("track_id") @db.Uuid
+  albumId            String?                  @map("album_id") @db.Uuid
+  trackTitle         String?                  @map("track_title") @db.VarChar(255)
+  trackDuration      BigInt?                  @map("track_duration")
+  trackNumber        Int?                     @map("track_number")
+  trackDiscNumber    Int?                     @map("track_disc_number")
+  trackExplicit      Boolean?                 @map("track_explicit")
+  trackInstrumental  Boolean?                 @map("track_instrumental")
+  trackListens       BigInt?                  @map("track_listens")
+  trackFavorites     BigInt?                  @map("track_favorites")
+  trackInterest      Float?                   @map("track_interest")
+  trackComments      BigInt?                  @map("track_comments")
+  trackDateCreated   DateTime?                @map("track_date_created") @db.Date
+  trackComposer      String?                  @map("track_composer") @db.VarChar(255)
+  trackLyricist      String?                  @map("track_lyricist") @db.VarChar(255)
+  trackPublisher     String?                  @map("track_publisher") @db.VarChar(255)
+  trackFile          String?                  @map("track_file")
+  trackImageFile     String?                  @map("track_image_file")
+  trackUrl           String?                  @map("track_url")
+  trackGenreTop      String?                  @map("track_genre_top")
+  pinnedItems        AccountPinnedItem[]      @relation("PinnedTrack")
+  audioFeature       AudioFeature?
+  playlistTracks     PlaylistTrack[]
+  rankTracks         RankTrack[]
+  temporalFeature    TemporalFeature?
+  album              Album?                   @relation(fields: [albumId], references: [albumId])
+  accountLikes       TrackAccountLike[]
+  accountListens     TrackAccountListen[]
+  featArtists        TrackArtistFeat[]
+  mainArtists        TrackArtistMain[]
+  comments           TrackComment[]
+  trackGenres        TrackGenre[]
+  trackLicenses      TrackLicense[]
   listenHistoryItems TrackListenHistoryItem[]
-  pinnedItems     AccountPinnedItem[] @relation("PinnedTrack")
-  comments        TrackComment[]
+  trackTags          TrackTag[]
 
   @@map("track")
 }
 
 model AudioFeature {
   trackId          String @id @map("track_id") @db.Uuid
-  acousticness     Float? @db.DoublePrecision
-  danceability     Float? @db.DoublePrecision
-  energy           Float? @db.DoublePrecision
-  instrumentalness Float? @db.DoublePrecision
-  liveness         Float? @db.DoublePrecision
-  speechiness      Float? @db.DoublePrecision
-  tempo            Float? @db.DoublePrecision
-  valence          Float? @db.DoublePrecision
-
-  track Track @relation(fields: [trackId], references: [trackId])
+  acousticness     Float?
+  danceability     Float?
+  energy           Float?
+  instrumentalness Float?
+  liveness         Float?
+  speechiness      Float?
+  tempo            Float?
+  valence          Float?
+  track            Track  @relation(fields: [trackId], references: [trackId])
 
   @@map("audio_feature")
 }
 
 model TemporalFeature {
-  trackId String @id @map("track_id") @db.Uuid
-  chroma_cens_kurtosis Float? @db.DoublePrecision
-  chroma_cens_kurtosis1 Float? @db.DoublePrecision
-  chroma_cens_kurtosis2 Float? @db.DoublePrecision
-  chroma_cens_kurtosis3 Float? @db.DoublePrecision
-  chroma_cens_kurtosis4 Float? @db.DoublePrecision
-  chroma_cens_kurtosis5 Float? @db.DoublePrecision
-  chroma_cens_kurtosis6 Float? @db.DoublePrecision
-  chroma_cens_kurtosis7 Float? @db.DoublePrecision
-  chroma_cens_kurtosis8 Float? @db.DoublePrecision
-  chroma_cens_kurtosis9 Float? @db.DoublePrecision
-  chroma_cens_kurtosis10 Float? @db.DoublePrecision
-  chroma_cens_kurtosis11 Float? @db.DoublePrecision
-  chroma_cens_max Float? @db.DoublePrecision
-  chroma_cens_max1 Float? @db.DoublePrecision
-  chroma_cens_max2 Float? @db.DoublePrecision
-  chroma_cens_max3 Float? @db.DoublePrecision
-  chroma_cens_max4 Float? @db.DoublePrecision
-  chroma_cens_max5 Float? @db.DoublePrecision
-  chroma_cens_max6 Float? @db.DoublePrecision
-  chroma_cens_max7 Float? @db.DoublePrecision
-  chroma_cens_max8 Float? @db.DoublePrecision
-  chroma_cens_max9 Float? @db.DoublePrecision
-  chroma_cens_max10 Float? @db.DoublePrecision
-  chroma_cens_max11 Float? @db.DoublePrecision
-  chroma_cens_mean Float? @db.DoublePrecision
-  chroma_cens_mean1 Float? @db.DoublePrecision
-  chroma_cens_mean2 Float? @db.DoublePrecision
-  chroma_cens_mean3 Float? @db.DoublePrecision
-  chroma_cens_mean4 Float? @db.DoublePrecision
-  chroma_cens_mean5 Float? @db.DoublePrecision
-  chroma_cens_mean6 Float? @db.DoublePrecision
-  chroma_cens_mean7 Float? @db.DoublePrecision
-  chroma_cens_mean8 Float? @db.DoublePrecision
-  chroma_cens_mean9 Float? @db.DoublePrecision
-  chroma_cens_mean10 Float? @db.DoublePrecision
-  chroma_cens_mean11 Float? @db.DoublePrecision
-  chroma_cens_median Float? @db.DoublePrecision
-  chroma_cens_median1 Float? @db.DoublePrecision
-  chroma_cens_median2 Float? @db.DoublePrecision
-  chroma_cens_median3 Float? @db.DoublePrecision
-  chroma_cens_median4 Float? @db.DoublePrecision
-  chroma_cens_median5 Float? @db.DoublePrecision
-  chroma_cens_median6 Float? @db.DoublePrecision
-  chroma_cens_median7 Float? @db.DoublePrecision
-  chroma_cens_median8 Float? @db.DoublePrecision
-  chroma_cens_median9 Float? @db.DoublePrecision
-  chroma_cens_median10 Float? @db.DoublePrecision
-  chroma_cens_median11 Float? @db.DoublePrecision
-  chroma_cens_min Float? @db.DoublePrecision
-  chroma_cens_min1 Float? @db.DoublePrecision
-  chroma_cens_min2 Float? @db.DoublePrecision
-  chroma_cens_min3 Float? @db.DoublePrecision
-  chroma_cens_min4 Float? @db.DoublePrecision
-  chroma_cens_min5 Float? @db.DoublePrecision
-  chroma_cens_min6 Float? @db.DoublePrecision
-  chroma_cens_min7 Float? @db.DoublePrecision
-  chroma_cens_min8 Float? @db.DoublePrecision
-  chroma_cens_min9 Float? @db.DoublePrecision
-  chroma_cens_min10 Float? @db.DoublePrecision
-  chroma_cens_min11 Float? @db.DoublePrecision
-  chroma_cens_skew Float? @db.DoublePrecision
-  chroma_cens_skew1 Float? @db.DoublePrecision
-  chroma_cens_skew2 Float? @db.DoublePrecision
-  chroma_cens_skew3 Float? @db.DoublePrecision
-  chroma_cens_skew4 Float? @db.DoublePrecision
-  chroma_cens_skew5 Float? @db.DoublePrecision
-  chroma_cens_skew6 Float? @db.DoublePrecision
-  chroma_cens_skew7 Float? @db.DoublePrecision
-  chroma_cens_skew8 Float? @db.DoublePrecision
-  chroma_cens_skew9 Float? @db.DoublePrecision
-  chroma_cens_skew10 Float? @db.DoublePrecision
-  chroma_cens_skew11 Float? @db.DoublePrecision
-  chroma_cens_std Float? @db.DoublePrecision
-  chroma_cens_std1 Float? @db.DoublePrecision
-  chroma_cens_std2 Float? @db.DoublePrecision
-  chroma_cens_std3 Float? @db.DoublePrecision
-  chroma_cens_std4 Float? @db.DoublePrecision
-  chroma_cens_std5 Float? @db.DoublePrecision
-  chroma_cens_std6 Float? @db.DoublePrecision
-  chroma_cens_std7 Float? @db.DoublePrecision
-  chroma_cens_std8 Float? @db.DoublePrecision
-  chroma_cens_std9 Float? @db.DoublePrecision
-  chroma_cens_std10 Float? @db.DoublePrecision
-  chroma_cens_std11 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis Float? @db.DoublePrecision
-  chroma_cqt_kurtosis1 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis2 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis3 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis4 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis5 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis6 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis7 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis8 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis9 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis10 Float? @db.DoublePrecision
-  chroma_cqt_kurtosis11 Float? @db.DoublePrecision
-  chroma_cqt_max Float? @db.DoublePrecision
-  chroma_cqt_max1 Float? @db.DoublePrecision
-  chroma_cqt_max2 Float? @db.DoublePrecision
-  chroma_cqt_max3 Float? @db.DoublePrecision
-  chroma_cqt_max4 Float? @db.DoublePrecision
-  chroma_cqt_max5 Float? @db.DoublePrecision
-  chroma_cqt_max6 Float? @db.DoublePrecision
-  chroma_cqt_max7 Float? @db.DoublePrecision
-  chroma_cqt_max8 Float? @db.DoublePrecision
-  chroma_cqt_max9 Float? @db.DoublePrecision
-  chroma_cqt_max10 Float? @db.DoublePrecision
-  chroma_cqt_max11 Float? @db.DoublePrecision
-  chroma_cqt_mean Float? @db.DoublePrecision
-  chroma_cqt_mean1 Float? @db.DoublePrecision
-  chroma_cqt_mean2 Float? @db.DoublePrecision
-  chroma_cqt_mean3 Float? @db.DoublePrecision
-  chroma_cqt_mean4 Float? @db.DoublePrecision
-  chroma_cqt_mean5 Float? @db.DoublePrecision
-  chroma_cqt_mean6 Float? @db.DoublePrecision
-  chroma_cqt_mean7 Float? @db.DoublePrecision
-  chroma_cqt_mean8 Float? @db.DoublePrecision
-  chroma_cqt_mean9 Float? @db.DoublePrecision
-  chroma_cqt_mean10 Float? @db.DoublePrecision
-  chroma_cqt_mean11 Float? @db.DoublePrecision
-  chroma_cqt_median Float? @db.DoublePrecision
-  chroma_cqt_median1 Float? @db.DoublePrecision
-  chroma_cqt_median2 Float? @db.DoublePrecision
-  chroma_cqt_median3 Float? @db.DoublePrecision
-  chroma_cqt_median4 Float? @db.DoublePrecision
-  chroma_cqt_median5 Float? @db.DoublePrecision
-  chroma_cqt_median6 Float? @db.DoublePrecision
-  chroma_cqt_median7 Float? @db.DoublePrecision
-  chroma_cqt_median8 Float? @db.DoublePrecision
-  chroma_cqt_median9 Float? @db.DoublePrecision
-  chroma_cqt_median10 Float? @db.DoublePrecision
-  chroma_cqt_median11 Float? @db.DoublePrecision
-  chroma_cqt_min Float? @db.DoublePrecision
-  chroma_cqt_min1 Float? @db.DoublePrecision
-  chroma_cqt_min2 Float? @db.DoublePrecision
-  chroma_cqt_min3 Float? @db.DoublePrecision
-  chroma_cqt_min4 Float? @db.DoublePrecision
-  chroma_cqt_min5 Float? @db.DoublePrecision
-  chroma_cqt_min6 Float? @db.DoublePrecision
-  chroma_cqt_min7 Float? @db.DoublePrecision
-  chroma_cqt_min8 Float? @db.DoublePrecision
-  chroma_cqt_min9 Float? @db.DoublePrecision
-  chroma_cqt_min10 Float? @db.DoublePrecision
-  chroma_cqt_min11 Float? @db.DoublePrecision
-  chroma_cqt_skew Float? @db.DoublePrecision
-  chroma_cqt_skew1 Float? @db.DoublePrecision
-  chroma_cqt_skew2 Float? @db.DoublePrecision
-  chroma_cqt_skew3 Float? @db.DoublePrecision
-  chroma_cqt_skew4 Float? @db.DoublePrecision
-  chroma_cqt_skew5 Float? @db.DoublePrecision
-  chroma_cqt_skew6 Float? @db.DoublePrecision
-  chroma_cqt_skew7 Float? @db.DoublePrecision
-  chroma_cqt_skew8 Float? @db.DoublePrecision
-  chroma_cqt_skew9 Float? @db.DoublePrecision
-  chroma_cqt_skew10 Float? @db.DoublePrecision
-  chroma_cqt_skew11 Float? @db.DoublePrecision
-  chroma_cqt_std Float? @db.DoublePrecision
-  chroma_cqt_std1 Float? @db.DoublePrecision
-  chroma_cqt_std2 Float? @db.DoublePrecision
-  chroma_cqt_std3 Float? @db.DoublePrecision
-  chroma_cqt_std4 Float? @db.DoublePrecision
-  chroma_cqt_std5 Float? @db.DoublePrecision
-  chroma_cqt_std6 Float? @db.DoublePrecision
-  chroma_cqt_std7 Float? @db.DoublePrecision
-  chroma_cqt_std8 Float? @db.DoublePrecision
-  chroma_cqt_std9 Float? @db.DoublePrecision
-  chroma_cqt_std10 Float? @db.DoublePrecision
-  chroma_cqt_std11 Float? @db.DoublePrecision
-  chroma_stft_kurtosis Float? @db.DoublePrecision
-  chroma_stft_kurtosis1 Float? @db.DoublePrecision
-  chroma_stft_kurtosis2 Float? @db.DoublePrecision
-  chroma_stft_kurtosis3 Float? @db.DoublePrecision
-  chroma_stft_kurtosis4 Float? @db.DoublePrecision
-  chroma_stft_kurtosis5 Float? @db.DoublePrecision
-  chroma_stft_kurtosis6 Float? @db.DoublePrecision
-  chroma_stft_kurtosis7 Float? @db.DoublePrecision
-  chroma_stft_kurtosis8 Float? @db.DoublePrecision
-  chroma_stft_kurtosis9 Float? @db.DoublePrecision
-  chroma_stft_kurtosis10 Float? @db.DoublePrecision
-  chroma_stft_kurtosis11 Float? @db.DoublePrecision
-  chroma_stft_max Float? @db.DoublePrecision
-  chroma_stft_max1 Float? @db.DoublePrecision
-  chroma_stft_max2 Float? @db.DoublePrecision
-  chroma_stft_max3 Float? @db.DoublePrecision
-  chroma_stft_max4 Float? @db.DoublePrecision
-  chroma_stft_max5 Float? @db.DoublePrecision
-  chroma_stft_max6 Float? @db.DoublePrecision
-  chroma_stft_max7 Float? @db.DoublePrecision
-  chroma_stft_max8 Float? @db.DoublePrecision
-  chroma_stft_max9 Float? @db.DoublePrecision
-  chroma_stft_max10 Float? @db.DoublePrecision
-  chroma_stft_max11 Float? @db.DoublePrecision
-  chroma_stft_mean Float? @db.DoublePrecision
-  chroma_stft_mean1 Float? @db.DoublePrecision
-  chroma_stft_mean2 Float? @db.DoublePrecision
-  chroma_stft_mean3 Float? @db.DoublePrecision
-  chroma_stft_mean4 Float? @db.DoublePrecision
-  chroma_stft_mean5 Float? @db.DoublePrecision
-  chroma_stft_mean6 Float? @db.DoublePrecision
-  chroma_stft_mean7 Float? @db.DoublePrecision
-  chroma_stft_mean8 Float? @db.DoublePrecision
-  chroma_stft_mean9 Float? @db.DoublePrecision
-  chroma_stft_mean10 Float? @db.DoublePrecision
-  chroma_stft_mean11 Float? @db.DoublePrecision
-  chroma_stft_median Float? @db.DoublePrecision
-  chroma_stft_median1 Float? @db.DoublePrecision
-  chroma_stft_median2 Float? @db.DoublePrecision
-  chroma_stft_median3 Float? @db.DoublePrecision
-  chroma_stft_median4 Float? @db.DoublePrecision
-  chroma_stft_median5 Float? @db.DoublePrecision
-  chroma_stft_median6 Float? @db.DoublePrecision
-  chroma_stft_median7 Float? @db.DoublePrecision
-  chroma_stft_median8 Float? @db.DoublePrecision
-  chroma_stft_median9 Float? @db.DoublePrecision
-  chroma_stft_median10 Float? @db.DoublePrecision
-  chroma_stft_median11 Float? @db.DoublePrecision
-  chroma_stft_min Float? @db.DoublePrecision
-  chroma_stft_min1 Float? @db.DoublePrecision
-  chroma_stft_min2 Float? @db.DoublePrecision
-  chroma_stft_min3 Float? @db.DoublePrecision
-  chroma_stft_min4 Float? @db.DoublePrecision
-  chroma_stft_min5 Float? @db.DoublePrecision
-  chroma_stft_min6 Float? @db.DoublePrecision
-  chroma_stft_min7 Float? @db.DoublePrecision
-  chroma_stft_min8 Float? @db.DoublePrecision
-  chroma_stft_min9 Float? @db.DoublePrecision
-  chroma_stft_min10 Float? @db.DoublePrecision
-  chroma_stft_min11 Float? @db.DoublePrecision
-  chroma_stft_skew Float? @db.DoublePrecision
-  chroma_stft_skew1 Float? @db.DoublePrecision
-  chroma_stft_skew2 Float? @db.DoublePrecision
-  chroma_stft_skew3 Float? @db.DoublePrecision
-  chroma_stft_skew4 Float? @db.DoublePrecision
-  chroma_stft_skew5 Float? @db.DoublePrecision
-  chroma_stft_skew6 Float? @db.DoublePrecision
-  chroma_stft_skew7 Float? @db.DoublePrecision
-  chroma_stft_skew8 Float? @db.DoublePrecision
-  chroma_stft_skew9 Float? @db.DoublePrecision
-  chroma_stft_skew10 Float? @db.DoublePrecision
-  chroma_stft_skew11 Float? @db.DoublePrecision
-  chroma_stft_std Float? @db.DoublePrecision
-  chroma_stft_std1 Float? @db.DoublePrecision
-  chroma_stft_std2 Float? @db.DoublePrecision
-  chroma_stft_std3 Float? @db.DoublePrecision
-  chroma_stft_std4 Float? @db.DoublePrecision
-  chroma_stft_std5 Float? @db.DoublePrecision
-  chroma_stft_std6 Float? @db.DoublePrecision
-  chroma_stft_std7 Float? @db.DoublePrecision
-  chroma_stft_std8 Float? @db.DoublePrecision
-  chroma_stft_std9 Float? @db.DoublePrecision
-  chroma_stft_std10 Float? @db.DoublePrecision
-  chroma_stft_std11 Float? @db.DoublePrecision
-  mfcc_kurtosis Float? @db.DoublePrecision
-  mfcc_kurtosis1 Float? @db.DoublePrecision
-  mfcc_kurtosis2 Float? @db.DoublePrecision
-  mfcc_kurtosis3 Float? @db.DoublePrecision
-  mfcc_kurtosis4 Float? @db.DoublePrecision
-  mfcc_kurtosis5 Float? @db.DoublePrecision
-  mfcc_kurtosis6 Float? @db.DoublePrecision
-  mfcc_kurtosis7 Float? @db.DoublePrecision
-  mfcc_kurtosis8 Float? @db.DoublePrecision
-  mfcc_kurtosis9 Float? @db.DoublePrecision
-  mfcc_kurtosis10 Float? @db.DoublePrecision
-  mfcc_kurtosis11 Float? @db.DoublePrecision
-  mfcc_kurtosis12 Float? @db.DoublePrecision
-  mfcc_kurtosis13 Float? @db.DoublePrecision
-  mfcc_kurtosis14 Float? @db.DoublePrecision
-  mfcc_kurtosis15 Float? @db.DoublePrecision
-  mfcc_kurtosis16 Float? @db.DoublePrecision
-  mfcc_kurtosis17 Float? @db.DoublePrecision
-  mfcc_kurtosis18 Float? @db.DoublePrecision
-  mfcc_kurtosis19 Float? @db.DoublePrecision
-  mfcc_max Float? @db.DoublePrecision
-  mfcc_max1 Float? @db.DoublePrecision
-  mfcc_max2 Float? @db.DoublePrecision
-  mfcc_max3 Float? @db.DoublePrecision
-  mfcc_max4 Float? @db.DoublePrecision
-  mfcc_max5 Float? @db.DoublePrecision
-  mfcc_max6 Float? @db.DoublePrecision
-  mfcc_max7 Float? @db.DoublePrecision
-  mfcc_max8 Float? @db.DoublePrecision
-  mfcc_max9 Float? @db.DoublePrecision
-  mfcc_max10 Float? @db.DoublePrecision
-  mfcc_max11 Float? @db.DoublePrecision
-  mfcc_max12 Float? @db.DoublePrecision
-  mfcc_max13 Float? @db.DoublePrecision
-  mfcc_max14 Float? @db.DoublePrecision
-  mfcc_max15 Float? @db.DoublePrecision
-  mfcc_max16 Float? @db.DoublePrecision
-  mfcc_max17 Float? @db.DoublePrecision
-  mfcc_max18 Float? @db.DoublePrecision
-  mfcc_max19 Float? @db.DoublePrecision
-  mfcc_mean Float? @db.DoublePrecision
-  mfcc_mean1 Float? @db.DoublePrecision
-  mfcc_mean2 Float? @db.DoublePrecision
-  mfcc_mean3 Float? @db.DoublePrecision
-  mfcc_mean4 Float? @db.DoublePrecision
-  mfcc_mean5 Float? @db.DoublePrecision
-  mfcc_mean6 Float? @db.DoublePrecision
-  mfcc_mean7 Float? @db.DoublePrecision
-  mfcc_mean8 Float? @db.DoublePrecision
-  mfcc_mean9 Float? @db.DoublePrecision
-  mfcc_mean10 Float? @db.DoublePrecision
-  mfcc_mean11 Float? @db.DoublePrecision
-  mfcc_mean12 Float? @db.DoublePrecision
-  mfcc_mean13 Float? @db.DoublePrecision
-  mfcc_mean14 Float? @db.DoublePrecision
-  mfcc_mean15 Float? @db.DoublePrecision
-  mfcc_mean16 Float? @db.DoublePrecision
-  mfcc_mean17 Float? @db.DoublePrecision
-  mfcc_mean18 Float? @db.DoublePrecision
-  mfcc_mean19 Float? @db.DoublePrecision
-  mfcc_median Float? @db.DoublePrecision
-  mfcc_median1 Float? @db.DoublePrecision
-  mfcc_median2 Float? @db.DoublePrecision
-  mfcc_median3 Float? @db.DoublePrecision
-  mfcc_median4 Float? @db.DoublePrecision
-  mfcc_median5 Float? @db.DoublePrecision
-  mfcc_median6 Float? @db.DoublePrecision
-  mfcc_median7 Float? @db.DoublePrecision
-  mfcc_median8 Float? @db.DoublePrecision
-  mfcc_median9 Float? @db.DoublePrecision
-  mfcc_median10 Float? @db.DoublePrecision
-  mfcc_median11 Float? @db.DoublePrecision
-  mfcc_median12 Float? @db.DoublePrecision
-  mfcc_median13 Float? @db.DoublePrecision
-  mfcc_median14 Float? @db.DoublePrecision
-  mfcc_median15 Float? @db.DoublePrecision
-  mfcc_median16 Float? @db.DoublePrecision
-  mfcc_median17 Float? @db.DoublePrecision
-  mfcc_median18 Float? @db.DoublePrecision
-  mfcc_median19 Float? @db.DoublePrecision
-  mfcc_min Float? @db.DoublePrecision
-  mfcc_min1 Float? @db.DoublePrecision
-  mfcc_min2 Float? @db.DoublePrecision
-  mfcc_min3 Float? @db.DoublePrecision
-  mfcc_min4 Float? @db.DoublePrecision
-  mfcc_min5 Float? @db.DoublePrecision
-  mfcc_min6 Float? @db.DoublePrecision
-  mfcc_min7 Float? @db.DoublePrecision
-  mfcc_min8 Float? @db.DoublePrecision
-  mfcc_min9 Float? @db.DoublePrecision
-  mfcc_min10 Float? @db.DoublePrecision
-  mfcc_min11 Float? @db.DoublePrecision
-  mfcc_min12 Float? @db.DoublePrecision
-  mfcc_min13 Float? @db.DoublePrecision
-  mfcc_min14 Float? @db.DoublePrecision
-  mfcc_min15 Float? @db.DoublePrecision
-  mfcc_min16 Float? @db.DoublePrecision
-  mfcc_min17 Float? @db.DoublePrecision
-  mfcc_min18 Float? @db.DoublePrecision
-  mfcc_min19 Float? @db.DoublePrecision
-  mfcc_skew Float? @db.DoublePrecision
-  mfcc_skew1 Float? @db.DoublePrecision
-  mfcc_skew2 Float? @db.DoublePrecision
-  mfcc_skew3 Float? @db.DoublePrecision
-  mfcc_skew4 Float? @db.DoublePrecision
-  mfcc_skew5 Float? @db.DoublePrecision
-  mfcc_skew6 Float? @db.DoublePrecision
-  mfcc_skew7 Float? @db.DoublePrecision
-  mfcc_skew8 Float? @db.DoublePrecision
-  mfcc_skew9 Float? @db.DoublePrecision
-  mfcc_skew10 Float? @db.DoublePrecision
-  mfcc_skew11 Float? @db.DoublePrecision
-  mfcc_skew12 Float? @db.DoublePrecision
-  mfcc_skew13 Float? @db.DoublePrecision
-  mfcc_skew14 Float? @db.DoublePrecision
-  mfcc_skew15 Float? @db.DoublePrecision
-  mfcc_skew16 Float? @db.DoublePrecision
-  mfcc_skew17 Float? @db.DoublePrecision
-  mfcc_skew18 Float? @db.DoublePrecision
-  mfcc_skew19 Float? @db.DoublePrecision
-  mfcc_std Float? @db.DoublePrecision
-  mfcc_std1 Float? @db.DoublePrecision
-  mfcc_std2 Float? @db.DoublePrecision
-  mfcc_std3 Float? @db.DoublePrecision
-  mfcc_std4 Float? @db.DoublePrecision
-  mfcc_std5 Float? @db.DoublePrecision
-  mfcc_std6 Float? @db.DoublePrecision
-  mfcc_std7 Float? @db.DoublePrecision
-  mfcc_std8 Float? @db.DoublePrecision
-  mfcc_std9 Float? @db.DoublePrecision
-  mfcc_std10 Float? @db.DoublePrecision
-  mfcc_std11 Float? @db.DoublePrecision
-  mfcc_std12 Float? @db.DoublePrecision
-  mfcc_std13 Float? @db.DoublePrecision
-  mfcc_std14 Float? @db.DoublePrecision
-  mfcc_std15 Float? @db.DoublePrecision
-  mfcc_std16 Float? @db.DoublePrecision
-  mfcc_std17 Float? @db.DoublePrecision
-  mfcc_std18 Float? @db.DoublePrecision
-  mfcc_std19 Float? @db.DoublePrecision
-  rmse_kurtosis Float? @db.DoublePrecision
-  rmse_max Float? @db.DoublePrecision
-  rmse_mean Float? @db.DoublePrecision
-  rmse_median Float? @db.DoublePrecision
-  rmse_min Float? @db.DoublePrecision
-  rmse_skew Float? @db.DoublePrecision
-  rmse_std Float? @db.DoublePrecision
-  spectral_bandwidth_kurtosis Float? @db.DoublePrecision
-  spectral_bandwidth_max Float? @db.DoublePrecision
-  spectral_bandwidth_mean Float? @db.DoublePrecision
-  spectral_bandwidth_median Float? @db.DoublePrecision
-  spectral_bandwidth_min Float? @db.DoublePrecision
-  spectral_bandwidth_skew Float? @db.DoublePrecision
-  spectral_bandwidth_std Float? @db.DoublePrecision
-  spectral_centroid_kurtosis Float? @db.DoublePrecision
-  spectral_centroid_max Float? @db.DoublePrecision
-  spectral_centroid_mean Float? @db.DoublePrecision
-  spectral_centroid_median Float? @db.DoublePrecision
-  spectral_centroid_min Float? @db.DoublePrecision
-  spectral_centroid_skew Float? @db.DoublePrecision
-  spectral_centroid_std Float? @db.DoublePrecision
-  spectral_contrast_kurtosis Float? @db.DoublePrecision
-  spectral_contrast_kurtosis1 Float? @db.DoublePrecision
-  spectral_contrast_kurtosis2 Float? @db.DoublePrecision
-  spectral_contrast_kurtosis3 Float? @db.DoublePrecision
-  spectral_contrast_kurtosis4 Float? @db.DoublePrecision
-  spectral_contrast_kurtosis5 Float? @db.DoublePrecision
-  spectral_contrast_kurtosis6 Float? @db.DoublePrecision
-  spectral_contrast_max Float? @db.DoublePrecision
-  spectral_contrast_max1 Float? @db.DoublePrecision
-  spectral_contrast_max2 Float? @db.DoublePrecision
-  spectral_contrast_max3 Float? @db.DoublePrecision
-  spectral_contrast_max4 Float? @db.DoublePrecision
-  spectral_contrast_max5 Float? @db.DoublePrecision
-  spectral_contrast_max6 Float? @db.DoublePrecision
-  spectral_contrast_mean Float? @db.DoublePrecision
-  spectral_contrast_mean1 Float? @db.DoublePrecision
-  spectral_contrast_mean2 Float? @db.DoublePrecision
-  spectral_contrast_mean3 Float? @db.DoublePrecision
-  spectral_contrast_mean4 Float? @db.DoublePrecision
-  spectral_contrast_mean5 Float? @db.DoublePrecision
-  spectral_contrast_mean6 Float? @db.DoublePrecision
-  spectral_contrast_median Float? @db.DoublePrecision
-  spectral_contrast_median1 Float? @db.DoublePrecision
-  spectral_contrast_median2 Float? @db.DoublePrecision
-  spectral_contrast_median3 Float? @db.DoublePrecision
-  spectral_contrast_median4 Float? @db.DoublePrecision
-  spectral_contrast_median5 Float? @db.DoublePrecision
-  spectral_contrast_median6 Float? @db.DoublePrecision
-  spectral_contrast_min Float? @db.DoublePrecision
-  spectral_contrast_min1 Float? @db.DoublePrecision
-  spectral_contrast_min2 Float? @db.DoublePrecision
-  spectral_contrast_min3 Float? @db.DoublePrecision
-  spectral_contrast_min4 Float? @db.DoublePrecision
-  spectral_contrast_min5 Float? @db.DoublePrecision
-  spectral_contrast_min6 Float? @db.DoublePrecision
-  spectral_contrast_skew Float? @db.DoublePrecision
-  spectral_contrast_skew1 Float? @db.DoublePrecision
-  spectral_contrast_skew2 Float? @db.DoublePrecision
-  spectral_contrast_skew3 Float? @db.DoublePrecision
-  spectral_contrast_skew4 Float? @db.DoublePrecision
-  spectral_contrast_skew5 Float? @db.DoublePrecision
-  spectral_contrast_skew6 Float? @db.DoublePrecision
-  spectral_contrast_std Float? @db.DoublePrecision
-  spectral_contrast_std1 Float? @db.DoublePrecision
-  spectral_contrast_std2 Float? @db.DoublePrecision
-  spectral_contrast_std3 Float? @db.DoublePrecision
-  spectral_contrast_std4 Float? @db.DoublePrecision
-  spectral_contrast_std5 Float? @db.DoublePrecision
-  spectral_contrast_std6 Float? @db.DoublePrecision
-  spectral_rolloff_kurtosis Float? @db.DoublePrecision
-  spectral_rolloff_max Float? @db.DoublePrecision
-  spectral_rolloff_mean Float? @db.DoublePrecision
-  spectral_rolloff_median Float? @db.DoublePrecision
-  spectral_rolloff_min Float? @db.DoublePrecision
-  spectral_rolloff_skew Float? @db.DoublePrecision
-  spectral_rolloff_std Float? @db.DoublePrecision
-  tonnetz_kurtosis Float? @db.DoublePrecision
-  tonnetz_kurtosis1 Float? @db.DoublePrecision
-  tonnetz_kurtosis2 Float? @db.DoublePrecision
-  tonnetz_kurtosis3 Float? @db.DoublePrecision
-  tonnetz_kurtosis4 Float? @db.DoublePrecision
-  tonnetz_kurtosis5 Float? @db.DoublePrecision
-  tonnetz_max Float? @db.DoublePrecision
-  tonnetz_max1 Float? @db.DoublePrecision
-  tonnetz_max2 Float? @db.DoublePrecision
-  tonnetz_max3 Float? @db.DoublePrecision
-  tonnetz_max4 Float? @db.DoublePrecision
-  tonnetz_max5 Float? @db.DoublePrecision
-  tonnetz_mean Float? @db.DoublePrecision
-  tonnetz_mean1 Float? @db.DoublePrecision
-  tonnetz_mean2 Float? @db.DoublePrecision
-  tonnetz_mean3 Float? @db.DoublePrecision
-  tonnetz_mean4 Float? @db.DoublePrecision
-  tonnetz_mean5 Float? @db.DoublePrecision
-  tonnetz_median Float? @db.DoublePrecision
-  tonnetz_median1 Float? @db.DoublePrecision
-  tonnetz_median2 Float? @db.DoublePrecision
-  tonnetz_median3 Float? @db.DoublePrecision
-  tonnetz_median4 Float? @db.DoublePrecision
-  tonnetz_median5 Float? @db.DoublePrecision
-  tonnetz_min Float? @db.DoublePrecision
-  tonnetz_min1 Float? @db.DoublePrecision
-  tonnetz_min2 Float? @db.DoublePrecision
-  tonnetz_min3 Float? @db.DoublePrecision
-  tonnetz_min4 Float? @db.DoublePrecision
-  tonnetz_min5 Float? @db.DoublePrecision
-  tonnetz_skew Float? @db.DoublePrecision
-  tonnetz_skew1 Float? @db.DoublePrecision
-  tonnetz_skew2 Float? @db.DoublePrecision
-  tonnetz_skew3 Float? @db.DoublePrecision
-  tonnetz_skew4 Float? @db.DoublePrecision
-  tonnetz_skew5 Float? @db.DoublePrecision
-  tonnetz_std Float? @db.DoublePrecision
-  tonnetz_std1 Float? @db.DoublePrecision
-  tonnetz_std2 Float? @db.DoublePrecision
-  tonnetz_std3 Float? @db.DoublePrecision
-  tonnetz_std4 Float? @db.DoublePrecision
-  tonnetz_std5 Float? @db.DoublePrecision
-  zcr_kurtosis Float? @db.DoublePrecision
-  zcr_max Float? @db.DoublePrecision
-  zcr_mean Float? @db.DoublePrecision
-  zcr_median Float? @db.DoublePrecision
-  zcr_min Float? @db.DoublePrecision
-  zcr_skew Float? @db.DoublePrecision
-  zcr_std Float? @db.DoublePrecision
-
-  track Track @relation(fields: [trackId], references: [trackId])
+  trackId                     String @id @map("track_id") @db.Uuid
+  chroma_cens_kurtosis        Float?
+  chroma_cens_kurtosis1       Float?
+  chroma_cens_kurtosis2       Float?
+  chroma_cens_kurtosis3       Float?
+  chroma_cens_kurtosis4       Float?
+  chroma_cens_kurtosis5       Float?
+  chroma_cens_kurtosis6       Float?
+  chroma_cens_kurtosis7       Float?
+  chroma_cens_kurtosis8       Float?
+  chroma_cens_kurtosis9       Float?
+  chroma_cens_kurtosis10      Float?
+  chroma_cens_kurtosis11      Float?
+  chroma_cens_max             Float?
+  chroma_cens_max1            Float?
+  chroma_cens_max2            Float?
+  chroma_cens_max3            Float?
+  chroma_cens_max4            Float?
+  chroma_cens_max5            Float?
+  chroma_cens_max6            Float?
+  chroma_cens_max7            Float?
+  chroma_cens_max8            Float?
+  chroma_cens_max9            Float?
+  chroma_cens_max10           Float?
+  chroma_cens_max11           Float?
+  chroma_cens_mean            Float?
+  chroma_cens_mean1           Float?
+  chroma_cens_mean2           Float?
+  chroma_cens_mean3           Float?
+  chroma_cens_mean4           Float?
+  chroma_cens_mean5           Float?
+  chroma_cens_mean6           Float?
+  chroma_cens_mean7           Float?
+  chroma_cens_mean8           Float?
+  chroma_cens_mean9           Float?
+  chroma_cens_mean10          Float?
+  chroma_cens_mean11          Float?
+  chroma_cens_median          Float?
+  chroma_cens_median1         Float?
+  chroma_cens_median2         Float?
+  chroma_cens_median3         Float?
+  chroma_cens_median4         Float?
+  chroma_cens_median5         Float?
+  chroma_cens_median6         Float?
+  chroma_cens_median7         Float?
+  chroma_cens_median8         Float?
+  chroma_cens_median9         Float?
+  chroma_cens_median10        Float?
+  chroma_cens_median11        Float?
+  chroma_cens_min             Float?
+  chroma_cens_min1            Float?
+  chroma_cens_min2            Float?
+  chroma_cens_min3            Float?
+  chroma_cens_min4            Float?
+  chroma_cens_min5            Float?
+  chroma_cens_min6            Float?
+  chroma_cens_min7            Float?
+  chroma_cens_min8            Float?
+  chroma_cens_min9            Float?
+  chroma_cens_min10           Float?
+  chroma_cens_min11           Float?
+  chroma_cens_skew            Float?
+  chroma_cens_skew1           Float?
+  chroma_cens_skew2           Float?
+  chroma_cens_skew3           Float?
+  chroma_cens_skew4           Float?
+  chroma_cens_skew5           Float?
+  chroma_cens_skew6           Float?
+  chroma_cens_skew7           Float?
+  chroma_cens_skew8           Float?
+  chroma_cens_skew9           Float?
+  chroma_cens_skew10          Float?
+  chroma_cens_skew11          Float?
+  chroma_cens_std             Float?
+  chroma_cens_std1            Float?
+  chroma_cens_std2            Float?
+  chroma_cens_std3            Float?
+  chroma_cens_std4            Float?
+  chroma_cens_std5            Float?
+  chroma_cens_std6            Float?
+  chroma_cens_std7            Float?
+  chroma_cens_std8            Float?
+  chroma_cens_std9            Float?
+  chroma_cens_std10           Float?
+  chroma_cens_std11           Float?
+  chroma_cqt_kurtosis         Float?
+  chroma_cqt_kurtosis1        Float?
+  chroma_cqt_kurtosis2        Float?
+  chroma_cqt_kurtosis3        Float?
+  chroma_cqt_kurtosis4        Float?
+  chroma_cqt_kurtosis5        Float?
+  chroma_cqt_kurtosis6        Float?
+  chroma_cqt_kurtosis7        Float?
+  chroma_cqt_kurtosis8        Float?
+  chroma_cqt_kurtosis9        Float?
+  chroma_cqt_kurtosis10       Float?
+  chroma_cqt_kurtosis11       Float?
+  chroma_cqt_max              Float?
+  chroma_cqt_max1             Float?
+  chroma_cqt_max2             Float?
+  chroma_cqt_max3             Float?
+  chroma_cqt_max4             Float?
+  chroma_cqt_max5             Float?
+  chroma_cqt_max6             Float?
+  chroma_cqt_max7             Float?
+  chroma_cqt_max8             Float?
+  chroma_cqt_max9             Float?
+  chroma_cqt_max10            Float?
+  chroma_cqt_max11            Float?
+  chroma_cqt_mean             Float?
+  chroma_cqt_mean1            Float?
+  chroma_cqt_mean2            Float?
+  chroma_cqt_mean3            Float?
+  chroma_cqt_mean4            Float?
+  chroma_cqt_mean5            Float?
+  chroma_cqt_mean6            Float?
+  chroma_cqt_mean7            Float?
+  chroma_cqt_mean8            Float?
+  chroma_cqt_mean9            Float?
+  chroma_cqt_mean10           Float?
+  chroma_cqt_mean11           Float?
+  chroma_cqt_median           Float?
+  chroma_cqt_median1          Float?
+  chroma_cqt_median2          Float?
+  chroma_cqt_median3          Float?
+  chroma_cqt_median4          Float?
+  chroma_cqt_median5          Float?
+  chroma_cqt_median6          Float?
+  chroma_cqt_median7          Float?
+  chroma_cqt_median8          Float?
+  chroma_cqt_median9          Float?
+  chroma_cqt_median10         Float?
+  chroma_cqt_median11         Float?
+  chroma_cqt_min              Float?
+  chroma_cqt_min1             Float?
+  chroma_cqt_min2             Float?
+  chroma_cqt_min3             Float?
+  chroma_cqt_min4             Float?
+  chroma_cqt_min5             Float?
+  chroma_cqt_min6             Float?
+  chroma_cqt_min7             Float?
+  chroma_cqt_min8             Float?
+  chroma_cqt_min9             Float?
+  chroma_cqt_min10            Float?
+  chroma_cqt_min11            Float?
+  chroma_cqt_skew             Float?
+  chroma_cqt_skew1            Float?
+  chroma_cqt_skew2            Float?
+  chroma_cqt_skew3            Float?
+  chroma_cqt_skew4            Float?
+  chroma_cqt_skew5            Float?
+  chroma_cqt_skew6            Float?
+  chroma_cqt_skew7            Float?
+  chroma_cqt_skew8            Float?
+  chroma_cqt_skew9            Float?
+  chroma_cqt_skew10           Float?
+  chroma_cqt_skew11           Float?
+  chroma_cqt_std              Float?
+  chroma_cqt_std1             Float?
+  chroma_cqt_std2             Float?
+  chroma_cqt_std3             Float?
+  chroma_cqt_std4             Float?
+  chroma_cqt_std5             Float?
+  chroma_cqt_std6             Float?
+  chroma_cqt_std7             Float?
+  chroma_cqt_std8             Float?
+  chroma_cqt_std9             Float?
+  chroma_cqt_std10            Float?
+  chroma_cqt_std11            Float?
+  chroma_stft_kurtosis        Float?
+  chroma_stft_kurtosis1       Float?
+  chroma_stft_kurtosis2       Float?
+  chroma_stft_kurtosis3       Float?
+  chroma_stft_kurtosis4       Float?
+  chroma_stft_kurtosis5       Float?
+  chroma_stft_kurtosis6       Float?
+  chroma_stft_kurtosis7       Float?
+  chroma_stft_kurtosis8       Float?
+  chroma_stft_kurtosis9       Float?
+  chroma_stft_kurtosis10      Float?
+  chroma_stft_kurtosis11      Float?
+  chroma_stft_max             Float?
+  chroma_stft_max1            Float?
+  chroma_stft_max2            Float?
+  chroma_stft_max3            Float?
+  chroma_stft_max4            Float?
+  chroma_stft_max5            Float?
+  chroma_stft_max6            Float?
+  chroma_stft_max7            Float?
+  chroma_stft_max8            Float?
+  chroma_stft_max9            Float?
+  chroma_stft_max10           Float?
+  chroma_stft_max11           Float?
+  chroma_stft_mean            Float?
+  chroma_stft_mean1           Float?
+  chroma_stft_mean2           Float?
+  chroma_stft_mean3           Float?
+  chroma_stft_mean4           Float?
+  chroma_stft_mean5           Float?
+  chroma_stft_mean6           Float?
+  chroma_stft_mean7           Float?
+  chroma_stft_mean8           Float?
+  chroma_stft_mean9           Float?
+  chroma_stft_mean10          Float?
+  chroma_stft_mean11          Float?
+  chroma_stft_median          Float?
+  chroma_stft_median1         Float?
+  chroma_stft_median2         Float?
+  chroma_stft_median3         Float?
+  chroma_stft_median4         Float?
+  chroma_stft_median5         Float?
+  chroma_stft_median6         Float?
+  chroma_stft_median7         Float?
+  chroma_stft_median8         Float?
+  chroma_stft_median9         Float?
+  chroma_stft_median10        Float?
+  chroma_stft_median11        Float?
+  chroma_stft_min             Float?
+  chroma_stft_min1            Float?
+  chroma_stft_min2            Float?
+  chroma_stft_min3            Float?
+  chroma_stft_min4            Float?
+  chroma_stft_min5            Float?
+  chroma_stft_min6            Float?
+  chroma_stft_min7            Float?
+  chroma_stft_min8            Float?
+  chroma_stft_min9            Float?
+  chroma_stft_min10           Float?
+  chroma_stft_min11           Float?
+  chroma_stft_skew            Float?
+  chroma_stft_skew1           Float?
+  chroma_stft_skew2           Float?
+  chroma_stft_skew3           Float?
+  chroma_stft_skew4           Float?
+  chroma_stft_skew5           Float?
+  chroma_stft_skew6           Float?
+  chroma_stft_skew7           Float?
+  chroma_stft_skew8           Float?
+  chroma_stft_skew9           Float?
+  chroma_stft_skew10          Float?
+  chroma_stft_skew11          Float?
+  chroma_stft_std             Float?
+  chroma_stft_std1            Float?
+  chroma_stft_std2            Float?
+  chroma_stft_std3            Float?
+  chroma_stft_std4            Float?
+  chroma_stft_std5            Float?
+  chroma_stft_std6            Float?
+  chroma_stft_std7            Float?
+  chroma_stft_std8            Float?
+  chroma_stft_std9            Float?
+  chroma_stft_std10           Float?
+  chroma_stft_std11           Float?
+  mfcc_kurtosis               Float?
+  mfcc_kurtosis1              Float?
+  mfcc_kurtosis2              Float?
+  mfcc_kurtosis3              Float?
+  mfcc_kurtosis4              Float?
+  mfcc_kurtosis5              Float?
+  mfcc_kurtosis6              Float?
+  mfcc_kurtosis7              Float?
+  mfcc_kurtosis8              Float?
+  mfcc_kurtosis9              Float?
+  mfcc_kurtosis10             Float?
+  mfcc_kurtosis11             Float?
+  mfcc_kurtosis12             Float?
+  mfcc_kurtosis13             Float?
+  mfcc_kurtosis14             Float?
+  mfcc_kurtosis15             Float?
+  mfcc_kurtosis16             Float?
+  mfcc_kurtosis17             Float?
+  mfcc_kurtosis18             Float?
+  mfcc_kurtosis19             Float?
+  mfcc_max                    Float?
+  mfcc_max1                   Float?
+  mfcc_max2                   Float?
+  mfcc_max3                   Float?
+  mfcc_max4                   Float?
+  mfcc_max5                   Float?
+  mfcc_max6                   Float?
+  mfcc_max7                   Float?
+  mfcc_max8                   Float?
+  mfcc_max9                   Float?
+  mfcc_max10                  Float?
+  mfcc_max11                  Float?
+  mfcc_max12                  Float?
+  mfcc_max13                  Float?
+  mfcc_max14                  Float?
+  mfcc_max15                  Float?
+  mfcc_max16                  Float?
+  mfcc_max17                  Float?
+  mfcc_max18                  Float?
+  mfcc_max19                  Float?
+  mfcc_mean                   Float?
+  mfcc_mean1                  Float?
+  mfcc_mean2                  Float?
+  mfcc_mean3                  Float?
+  mfcc_mean4                  Float?
+  mfcc_mean5                  Float?
+  mfcc_mean6                  Float?
+  mfcc_mean7                  Float?
+  mfcc_mean8                  Float?
+  mfcc_mean9                  Float?
+  mfcc_mean10                 Float?
+  mfcc_mean11                 Float?
+  mfcc_mean12                 Float?
+  mfcc_mean13                 Float?
+  mfcc_mean14                 Float?
+  mfcc_mean15                 Float?
+  mfcc_mean16                 Float?
+  mfcc_mean17                 Float?
+  mfcc_mean18                 Float?
+  mfcc_mean19                 Float?
+  mfcc_median                 Float?
+  mfcc_median1                Float?
+  mfcc_median2                Float?
+  mfcc_median3                Float?
+  mfcc_median4                Float?
+  mfcc_median5                Float?
+  mfcc_median6                Float?
+  mfcc_median7                Float?
+  mfcc_median8                Float?
+  mfcc_median9                Float?
+  mfcc_median10               Float?
+  mfcc_median11               Float?
+  mfcc_median12               Float?
+  mfcc_median13               Float?
+  mfcc_median14               Float?
+  mfcc_median15               Float?
+  mfcc_median16               Float?
+  mfcc_median17               Float?
+  mfcc_median18               Float?
+  mfcc_median19               Float?
+  mfcc_min                    Float?
+  mfcc_min1                   Float?
+  mfcc_min2                   Float?
+  mfcc_min3                   Float?
+  mfcc_min4                   Float?
+  mfcc_min5                   Float?
+  mfcc_min6                   Float?
+  mfcc_min7                   Float?
+  mfcc_min8                   Float?
+  mfcc_min9                   Float?
+  mfcc_min10                  Float?
+  mfcc_min11                  Float?
+  mfcc_min12                  Float?
+  mfcc_min13                  Float?
+  mfcc_min14                  Float?
+  mfcc_min15                  Float?
+  mfcc_min16                  Float?
+  mfcc_min17                  Float?
+  mfcc_min18                  Float?
+  mfcc_min19                  Float?
+  mfcc_skew                   Float?
+  mfcc_skew1                  Float?
+  mfcc_skew2                  Float?
+  mfcc_skew3                  Float?
+  mfcc_skew4                  Float?
+  mfcc_skew5                  Float?
+  mfcc_skew6                  Float?
+  mfcc_skew7                  Float?
+  mfcc_skew8                  Float?
+  mfcc_skew9                  Float?
+  mfcc_skew10                 Float?
+  mfcc_skew11                 Float?
+  mfcc_skew12                 Float?
+  mfcc_skew13                 Float?
+  mfcc_skew14                 Float?
+  mfcc_skew15                 Float?
+  mfcc_skew16                 Float?
+  mfcc_skew17                 Float?
+  mfcc_skew18                 Float?
+  mfcc_skew19                 Float?
+  mfcc_std                    Float?
+  mfcc_std1                   Float?
+  mfcc_std2                   Float?
+  mfcc_std3                   Float?
+  mfcc_std4                   Float?
+  mfcc_std5                   Float?
+  mfcc_std6                   Float?
+  mfcc_std7                   Float?
+  mfcc_std8                   Float?
+  mfcc_std9                   Float?
+  mfcc_std10                  Float?
+  mfcc_std11                  Float?
+  mfcc_std12                  Float?
+  mfcc_std13                  Float?
+  mfcc_std14                  Float?
+  mfcc_std15                  Float?
+  mfcc_std16                  Float?
+  mfcc_std17                  Float?
+  mfcc_std18                  Float?
+  mfcc_std19                  Float?
+  rmse_kurtosis               Float?
+  rmse_max                    Float?
+  rmse_mean                   Float?
+  rmse_median                 Float?
+  rmse_min                    Float?
+  rmse_skew                   Float?
+  rmse_std                    Float?
+  spectral_bandwidth_kurtosis Float?
+  spectral_bandwidth_max      Float?
+  spectral_bandwidth_mean     Float?
+  spectral_bandwidth_median   Float?
+  spectral_bandwidth_min      Float?
+  spectral_bandwidth_skew     Float?
+  spectral_bandwidth_std      Float?
+  spectral_centroid_kurtosis  Float?
+  spectral_centroid_max       Float?
+  spectral_centroid_mean      Float?
+  spectral_centroid_median    Float?
+  spectral_centroid_min       Float?
+  spectral_centroid_skew      Float?
+  spectral_centroid_std       Float?
+  spectral_contrast_kurtosis  Float?
+  spectral_contrast_kurtosis1 Float?
+  spectral_contrast_kurtosis2 Float?
+  spectral_contrast_kurtosis3 Float?
+  spectral_contrast_kurtosis4 Float?
+  spectral_contrast_kurtosis5 Float?
+  spectral_contrast_kurtosis6 Float?
+  spectral_contrast_max       Float?
+  spectral_contrast_max1      Float?
+  spectral_contrast_max2      Float?
+  spectral_contrast_max3      Float?
+  spectral_contrast_max4      Float?
+  spectral_contrast_max5      Float?
+  spectral_contrast_max6      Float?
+  spectral_contrast_mean      Float?
+  spectral_contrast_mean1     Float?
+  spectral_contrast_mean2     Float?
+  spectral_contrast_mean3     Float?
+  spectral_contrast_mean4     Float?
+  spectral_contrast_mean5     Float?
+  spectral_contrast_mean6     Float?
+  spectral_contrast_median    Float?
+  spectral_contrast_median1   Float?
+  spectral_contrast_median2   Float?
+  spectral_contrast_median3   Float?
+  spectral_contrast_median4   Float?
+  spectral_contrast_median5   Float?
+  spectral_contrast_median6   Float?
+  spectral_contrast_min       Float?
+  spectral_contrast_min1      Float?
+  spectral_contrast_min2      Float?
+  spectral_contrast_min3      Float?
+  spectral_contrast_min4      Float?
+  spectral_contrast_min5      Float?
+  spectral_contrast_min6      Float?
+  spectral_contrast_skew      Float?
+  spectral_contrast_skew1     Float?
+  spectral_contrast_skew2     Float?
+  spectral_contrast_skew3     Float?
+  spectral_contrast_skew4     Float?
+  spectral_contrast_skew5     Float?
+  spectral_contrast_skew6     Float?
+  spectral_contrast_std       Float?
+  spectral_contrast_std1      Float?
+  spectral_contrast_std2      Float?
+  spectral_contrast_std3      Float?
+  spectral_contrast_std4      Float?
+  spectral_contrast_std5      Float?
+  spectral_contrast_std6      Float?
+  spectral_rolloff_kurtosis   Float?
+  spectral_rolloff_max        Float?
+  spectral_rolloff_mean       Float?
+  spectral_rolloff_median     Float?
+  spectral_rolloff_min        Float?
+  spectral_rolloff_skew       Float?
+  spectral_rolloff_std        Float?
+  tonnetz_kurtosis            Float?
+  tonnetz_kurtosis1           Float?
+  tonnetz_kurtosis2           Float?
+  tonnetz_kurtosis3           Float?
+  tonnetz_kurtosis4           Float?
+  tonnetz_kurtosis5           Float?
+  tonnetz_max                 Float?
+  tonnetz_max1                Float?
+  tonnetz_max2                Float?
+  tonnetz_max3                Float?
+  tonnetz_max4                Float?
+  tonnetz_max5                Float?
+  tonnetz_mean                Float?
+  tonnetz_mean1               Float?
+  tonnetz_mean2               Float?
+  tonnetz_mean3               Float?
+  tonnetz_mean4               Float?
+  tonnetz_mean5               Float?
+  tonnetz_median              Float?
+  tonnetz_median1             Float?
+  tonnetz_median2             Float?
+  tonnetz_median3             Float?
+  tonnetz_median4             Float?
+  tonnetz_median5             Float?
+  tonnetz_min                 Float?
+  tonnetz_min1                Float?
+  tonnetz_min2                Float?
+  tonnetz_min3                Float?
+  tonnetz_min4                Float?
+  tonnetz_min5                Float?
+  tonnetz_skew                Float?
+  tonnetz_skew1               Float?
+  tonnetz_skew2               Float?
+  tonnetz_skew3               Float?
+  tonnetz_skew4               Float?
+  tonnetz_skew5               Float?
+  tonnetz_std                 Float?
+  tonnetz_std1                Float?
+  tonnetz_std2                Float?
+  tonnetz_std3                Float?
+  tonnetz_std4                Float?
+  tonnetz_std5                Float?
+  zcr_kurtosis                Float?
+  zcr_max                     Float?
+  zcr_mean                    Float?
+  zcr_median                  Float?
+  zcr_min                     Float?
+  zcr_skew                    Float?
+  zcr_std                     Float?
+  track                       Track  @relation(fields: [trackId], references: [trackId])
 
   @@map("temporal_feature")
 }
 
 model Tag {
-  tagId   String  @id @default(dbgenerated("uuid_generate_v4()")) @map("tag_id") @db.Uuid
-  tagName String? @map("tag_name") @db.VarChar(255)
-
-  trackTags  TrackTag[]
+  tagId      String      @id @default(dbgenerated("uuid_generate_v4()")) @map("tag_id") @db.Uuid
+  tagName    String?     @map("tag_name") @db.VarChar(255)
   artistTags ArtistTag[]
+  trackTags  TrackTag[]
 
   @@map("tag")
 }
 
 model Playlist {
-  playlistId   String  @id @default(dbgenerated("uuid_generate_v4()")) @map("playlist_id") @db.Uuid
-  playlistName String? @map("playlist_name") @db.VarChar(255)
-
-  playlistTracks PlaylistTrack[]
-  playlistAccounts PlaylistAccount[]
+  playlistId       String              @id @default(dbgenerated("uuid_generate_v4()")) @map("playlist_id") @db.Uuid
+  playlistName     String?             @map("playlist_name") @db.VarChar(255)
   pinnedItems      AccountPinnedItem[] @relation("PinnedPlaylist")
+  playlistAccounts PlaylistAccount[]
+  playlistTracks   PlaylistTrack[]
 
   @@map("playlist")
 }
 
 model License {
-  licenseId    String  @id @default(dbgenerated("uuid_generate_v4()")) @map("license_id") @db.Uuid
-  licenseTitle String? @map("license_title") @db.VarChar(255)
-  licenseUrl   String? @map("license_url") @db.VarChar(255)
-
+  licenseId     String         @id @default(dbgenerated("uuid_generate_v4()")) @map("license_id") @db.Uuid
+  licenseTitle  String?        @map("license_title") @db.VarChar(255)
+  licenseUrl    String?        @map("license_url") @db.VarChar(255)
   trackLicenses TrackLicense[]
 
   @@map("license")
 }
-
-// ============================================================================
-// RANKING TABLES
-// ============================================================================
 
 model RankTrack {
   trackId            String   @map("track_id") @db.Uuid
   ranksDate          DateTime @default(now()) @map("ranks_date") @db.Timestamp(6)
   rankSongCurrency   BigInt?  @map("rank_song_currency")
   rankSongHotttnesss BigInt?  @map("rank_song_hotttnesss")
-
-  track Track @relation(fields: [trackId], references: [trackId])
+  track              Track    @relation(fields: [trackId], references: [trackId])
 
   @@id([trackId, ranksDate])
   @@map("rank_track")
@@ -732,23 +714,17 @@ model RankArtist {
   rankArtistDiscovery   BigInt?  @map("rank_artist_discovery")
   rankArtistFamiliarity BigInt?  @map("rank_artist_familiarity")
   rankArtistHotttnesss  BigInt?  @map("rank_artist_hotttnesss")
-
-  artist Artist @relation(fields: [artistId], references: [artistId])
+  artist                Artist   @relation(fields: [artistId], references: [artistId])
 
   @@id([artistId, ranksDate])
   @@map("rank_artist")
 }
 
-// ============================================================================
-// JOIN TABLES
-// ============================================================================
-
 model TrackGenre {
   trackId String @map("track_id") @db.Uuid
   genreId String @map("genre_id") @db.Uuid
-
-  track Track @relation(fields: [trackId], references: [trackId])
-  genre Genre @relation(fields: [genreId], references: [genreId])
+  genre   Genre  @relation(fields: [genreId], references: [genreId])
+  track   Track  @relation(fields: [trackId], references: [trackId])
 
   @@id([trackId, genreId])
   @@map("track_genre")
@@ -757,9 +733,8 @@ model TrackGenre {
 model TrackTag {
   trackId String @map("track_id") @db.Uuid
   tagId   String @map("tag_id") @db.Uuid
-
-  track Track @relation(fields: [trackId], references: [trackId])
-  tag   Tag   @relation(fields: [tagId], references: [tagId])
+  tag     Tag    @relation(fields: [tagId], references: [tagId])
+  track   Track  @relation(fields: [trackId], references: [trackId])
 
   @@id([trackId, tagId])
   @@map("track_tag")
@@ -768,9 +743,8 @@ model TrackTag {
 model ArtistTag {
   artistId String @map("artist_id") @db.Uuid
   tagId    String @map("tag_id") @db.Uuid
-
-  artist Artist @relation(fields: [artistId], references: [artistId])
-  tag    Tag    @relation(fields: [tagId], references: [tagId])
+  artist   Artist @relation(fields: [artistId], references: [artistId])
+  tag      Tag    @relation(fields: [tagId], references: [tagId])
 
   @@id([artistId, tagId])
   @@map("artist_tag")
@@ -779,9 +753,8 @@ model ArtistTag {
 model AlbumArtist {
   albumId  String @map("album_id") @db.Uuid
   artistId String @map("artist_id") @db.Uuid
-
-  album  Album  @relation(fields: [albumId], references: [albumId])
-  artist Artist @relation(fields: [artistId], references: [artistId])
+  album    Album  @relation(fields: [albumId], references: [albumId])
+  artist   Artist @relation(fields: [artistId], references: [artistId])
 
   @@id([albumId, artistId])
   @@map("album_artist")
@@ -790,9 +763,8 @@ model AlbumArtist {
 model TrackArtistMain {
   trackId  String @map("track_id") @db.Uuid
   artistId String @map("artist_id") @db.Uuid
-
-  track  Track  @relation(fields: [trackId], references: [trackId])
-  artist Artist @relation(fields: [artistId], references: [artistId])
+  artist   Artist @relation(fields: [artistId], references: [artistId])
+  track    Track  @relation(fields: [trackId], references: [trackId])
 
   @@id([trackId, artistId])
   @@map("track_artist_main")
@@ -801,80 +773,70 @@ model TrackArtistMain {
 model TrackArtistFeat {
   trackId  String @map("track_id") @db.Uuid
   artistId String @map("artist_id") @db.Uuid
-
-  track  Track  @relation(fields: [trackId], references: [trackId])
-  artist Artist @relation(fields: [artistId], references: [artistId])
+  artist   Artist @relation(fields: [artistId], references: [artistId])
+  track    Track  @relation(fields: [trackId], references: [trackId])
 
   @@id([trackId, artistId])
   @@map("track_artist_feat")
 }
 
 model TrackLicense {
-  trackId   String @map("track_id") @db.Uuid
-  licenseId String @map("license_id") @db.Uuid
-
-  track   Track   @relation(fields: [trackId], references: [trackId])
-  license License @relation(fields: [licenseId], references: [licenseId])
+  trackId   String  @map("track_id") @db.Uuid
+  licenseId String  @map("license_id") @db.Uuid
+  license   License @relation(fields: [licenseId], references: [licenseId])
+  track     Track   @relation(fields: [trackId], references: [trackId])
 
   @@id([trackId, licenseId])
   @@map("track_license")
 }
 
 model PlaylistTrack {
-  playlistId String @map("playlist_id") @db.Uuid
-  trackId    String @map("track_id") @db.Uuid
-
-  playlist Playlist @relation(fields: [playlistId], references: [playlistId])
-  track    Track    @relation(fields: [trackId], references: [trackId])
+  playlistId String   @map("playlist_id") @db.Uuid
+  trackId    String   @map("track_id") @db.Uuid
+  playlist   Playlist @relation(fields: [playlistId], references: [playlistId])
+  track      Track    @relation(fields: [trackId], references: [trackId])
 
   @@id([playlistId, trackId])
   @@map("playlist_track")
 }
 
-// ============================================================================
-// ACCOUNT-RELATED TABLES
-// ============================================================================
-
 model Preference {
-  accountId     String   @id @map("account_id") @db.Uuid
-  ageRange      String?  @map("age_range") @db.VarChar(255)
-  gender        String?  @db.VarChar(255)
-  position      String?  @db.VarChar(255)
-  hasConsented  Boolean? @map("has_consented")
-  isListening   Boolean? @map("is_listening")
-  frequency     String?  @db.VarChar(255)
-  whenListening Float?   @map("when_listening") @db.DoublePrecision
-  durationPref  Int?     @map("duration_pref")
-  energyPref    String?  @map("energy_pref") @db.VarChar(255)
-  tempoPref     Float?   @map("tempo_pref") @db.DoublePrecision
-  feelingPref   String?  @map("feeling_pref") @db.VarChar(255)
-  isLivePref    String?  @map("is_live_pref") @db.VarChar(255)
-  qualityPref   Int?     @map("quality_pref")
-  curiosityPref Int?     @map("curiosity_pref")
-  context       String?  @db.VarChar(255)
-  how           String?  @db.VarChar(255)
-  platform      String?  @db.VarChar(255)
-  utility       String?  @db.VarChar(255)
-
-  account          Account           @relation(fields: [accountId], references: [accountId])
+  accountId        String            @id @map("account_id") @db.Uuid
+  ageRange         String?           @map("age_range") @db.VarChar(255)
+  gender           String?           @db.VarChar(255)
+  position         String?           @db.VarChar(255)
+  hasConsented     Boolean?          @map("has_consented")
+  isListening      Boolean?          @map("is_listening")
+  frequency        String?           @db.VarChar(255)
+  whenListening    Float?            @map("when_listening")
+  durationPref     Int?              @map("duration_pref")
+  energyPref       String?           @map("energy_pref") @db.VarChar(255)
+  tempoPref        Float?            @map("tempo_pref")
+  feelingPref      String?           @map("feeling_pref") @db.VarChar(255)
+  isLivePref       String?           @map("is_live_pref") @db.VarChar(255)
+  qualityPref      Int?              @map("quality_pref")
+  curiosityPref    Int?              @map("curiosity_pref")
+  context          String?           @db.VarChar(255)
+  how              String?           @db.VarChar(255)
+  platform         String?           @db.VarChar(255)
+  utility          String?           @db.VarChar(255)
   genrePreferences GenrePreference[]
+  account          Account           @relation(fields: [accountId], references: [accountId])
 
   @@map("preference")
 }
 
 model PreferenceVector {
-  accountId String                     @id @map("account_id") @db.Uuid
-  embedding Unsupported("VECTOR(71)")? @map("embedding")
-
-  account Account @relation(fields: [accountId], references: [accountId])
+  accountId String                 @id @map("account_id") @db.Uuid
+  embedding Unsupported("vector")? @map("embedding")
+  account   Account                @relation(fields: [accountId], references: [accountId])
 
   @@map("preference_vector")
 }
 
 model GenrePreference {
-  accountId String @map("account_id") @db.Uuid
-  genreId   String @map("genre_id") @db.Uuid
-
+  accountId  String     @map("account_id") @db.Uuid
+  genreId    String     @map("genre_id") @db.Uuid
   preference Preference @relation(fields: [accountId], references: [accountId])
   genre      Genre      @relation(fields: [genreId], references: [genreId])
 
@@ -883,22 +845,20 @@ model GenrePreference {
 }
 
 model PlaylistAccount {
-  playlistId String @map("playlist_id") @db.Uuid
-  accountId  String @map("account_id") @db.Uuid
-
-  playlist Playlist @relation(fields: [playlistId], references: [playlistId])
-  account  Account  @relation(fields: [accountId], references: [accountId])
+  playlistId String   @map("playlist_id") @db.Uuid
+  accountId  String   @map("account_id") @db.Uuid
+  account    Account  @relation(fields: [accountId], references: [accountId])
+  playlist   Playlist @relation(fields: [playlistId], references: [playlistId])
 
   @@id([playlistId, accountId])
   @@map("playlist_account")
 }
 
 model TrackAccountLike {
-  trackId   String @map("track_id") @db.Uuid
-  accountId String @map("account_id") @db.Uuid
-
-  track   Track   @relation(fields: [trackId], references: [trackId])
-  account Account @relation(fields: [accountId], references: [accountId])
+  trackId   String  @map("track_id") @db.Uuid
+  accountId String  @map("account_id") @db.Uuid
+  account   Account @relation(fields: [accountId], references: [accountId])
+  track     Track   @relation(fields: [trackId], references: [trackId])
 
   @@id([trackId, accountId])
   @@map("track_account_like")
@@ -909,9 +869,8 @@ model TrackAccountListen {
   accountId  String   @map("account_id") @db.Uuid
   count      Int?     @default(1)
   listenedAt DateTime @default(now()) @map("listened_at") @db.Timestamp(6)
-
-  track   Track   @relation(fields: [trackId], references: [trackId])
-  account Account @relation(fields: [accountId], references: [accountId])
+  account    Account  @relation(fields: [accountId], references: [accountId])
+  track      Track    @relation(fields: [trackId], references: [trackId])
 
   @@id([trackId, accountId])
   @@map("track_account_listen")
@@ -922,22 +881,12 @@ model TrackListenHistoryItem {
   trackId             String   @map("track_id") @db.Uuid
   accountId           String   @map("account_id") @db.Uuid
   listenedAt          DateTime @default(now()) @map("listened_at") @db.Timestamp(6)
-
-  track   Track   @relation(fields: [trackId], references: [trackId], onDelete: Cascade)
-  account Account @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
+  account             Account  @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
+  track               Track    @relation(fields: [trackId], references: [trackId], onDelete: Cascade)
 
   @@index([accountId, listenedAt(sort: Desc)])
   @@index([trackId, listenedAt(sort: Desc)])
   @@map("track_listen_history_item")
-}
-
-enum PinnedItemType {
-  TRACK
-  ALBUM
-  ARTIST
-  PLAYLIST
-
-  @@map("pinned_item_type")
 }
 
 model AccountPinnedItem {
@@ -949,12 +898,11 @@ model AccountPinnedItem {
   artistId   String?        @map("artist_id") @db.Uuid
   playlistId String?        @map("playlist_id") @db.Uuid
   pinnedAt   DateTime       @default(now()) @map("pinned_at") @db.Timestamp(6)
-
-  account  Account   @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
-  track    Track?    @relation("PinnedTrack", fields: [trackId], references: [trackId], onDelete: Cascade)
-  album    Album?    @relation("PinnedAlbum", fields: [albumId], references: [albumId], onDelete: Cascade)
-  artist   Artist?   @relation("PinnedArtist", fields: [artistId], references: [artistId], onDelete: Cascade)
-  playlist Playlist? @relation("PinnedPlaylist", fields: [playlistId], references: [playlistId], onDelete: Cascade)
+  account    Account        @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
+  album      Album?         @relation("PinnedAlbum", fields: [albumId], references: [albumId], onDelete: Cascade)
+  artist     Artist?        @relation("PinnedArtist", fields: [artistId], references: [artistId], onDelete: Cascade)
+  playlist   Playlist?      @relation("PinnedPlaylist", fields: [playlistId], references: [playlistId], onDelete: Cascade)
+  track      Track?         @relation("PinnedTrack", fields: [trackId], references: [trackId], onDelete: Cascade)
 
   @@id([accountId, slot])
   @@map("account_pinned_item")
@@ -966,9 +914,23 @@ model TrackComment {
   accountId String?   @map("account_id") @db.Uuid
   content   String?
   createdAt DateTime? @default(now()) @map("created_at") @db.Timestamp(6)
-
-  track   Track   @relation(fields: [trackId], references: [trackId])
-  account Account? @relation(fields: [accountId], references: [accountId])
+  account   Account?  @relation(fields: [accountId], references: [accountId])
+  track     Track     @relation(fields: [trackId], references: [trackId])
 
   @@map("track_comment")
+}
+
+enum account_roles {
+  listener
+  admin
+  super_admin
+}
+
+enum PinnedItemType {
+  TRACK
+  ALBUM
+  ARTIST
+  PLAYLIST
+
+  @@map("pinned_item_type")
 }

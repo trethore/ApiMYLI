@@ -344,8 +344,8 @@ export type PreferenceWhereInput = {
   how?: Prisma.StringNullableFilter<"Preference"> | string | null
   platform?: Prisma.StringNullableFilter<"Preference"> | string | null
   utility?: Prisma.StringNullableFilter<"Preference"> | string | null
-  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
   genrePreferences?: Prisma.GenrePreferenceListRelationFilter
+  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
 }
 
 export type PreferenceOrderByWithRelationInput = {
@@ -368,8 +368,8 @@ export type PreferenceOrderByWithRelationInput = {
   how?: Prisma.SortOrderInput | Prisma.SortOrder
   platform?: Prisma.SortOrderInput | Prisma.SortOrder
   utility?: Prisma.SortOrderInput | Prisma.SortOrder
-  account?: Prisma.AccountOrderByWithRelationInput
   genrePreferences?: Prisma.GenrePreferenceOrderByRelationAggregateInput
+  account?: Prisma.AccountOrderByWithRelationInput
 }
 
 export type PreferenceWhereUniqueInput = Prisma.AtLeast<{
@@ -395,8 +395,8 @@ export type PreferenceWhereUniqueInput = Prisma.AtLeast<{
   how?: Prisma.StringNullableFilter<"Preference"> | string | null
   platform?: Prisma.StringNullableFilter<"Preference"> | string | null
   utility?: Prisma.StringNullableFilter<"Preference"> | string | null
-  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
   genrePreferences?: Prisma.GenrePreferenceListRelationFilter
+  account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
 }, "accountId">
 
 export type PreferenceOrderByWithAggregationInput = {
@@ -470,8 +470,8 @@ export type PreferenceCreateInput = {
   how?: string | null
   platform?: string | null
   utility?: string | null
-  account: Prisma.AccountCreateNestedOneWithoutPreferenceInput
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutPreferenceInput
+  account: Prisma.AccountCreateNestedOneWithoutPreferenceInput
 }
 
 export type PreferenceUncheckedCreateInput = {
@@ -516,8 +516,8 @@ export type PreferenceUpdateInput = {
   how?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   platform?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   utility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  account?: Prisma.AccountUpdateOneRequiredWithoutPreferenceNestedInput
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutPreferenceNestedInput
+  account?: Prisma.AccountUpdateOneRequiredWithoutPreferenceNestedInput
 }
 
 export type PreferenceUncheckedUpdateInput = {
@@ -1005,8 +1005,8 @@ export type PreferenceSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   how?: boolean
   platform?: boolean
   utility?: boolean
-  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
   genrePreferences?: boolean | Prisma.Preference$genrePreferencesArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.PreferenceCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["preference"]>
 
@@ -1080,8 +1080,8 @@ export type PreferenceSelectScalar = {
 
 export type PreferenceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"accountId" | "ageRange" | "gender" | "position" | "hasConsented" | "isListening" | "frequency" | "whenListening" | "durationPref" | "energyPref" | "tempoPref" | "feelingPref" | "isLivePref" | "qualityPref" | "curiosityPref" | "context" | "how" | "platform" | "utility", ExtArgs["result"]["preference"]>
 export type PreferenceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
   genrePreferences?: boolean | Prisma.Preference$genrePreferencesArgs<ExtArgs>
+  account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.PreferenceCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PreferenceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1094,8 +1094,8 @@ export type PreferenceIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 export type $PreferencePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Preference"
   objects: {
-    account: Prisma.$AccountPayload<ExtArgs>
     genrePreferences: Prisma.$GenrePreferencePayload<ExtArgs>[]
+    account: Prisma.$AccountPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     accountId: string
@@ -1511,8 +1511,8 @@ readonly fields: PreferenceFieldRefs;
  */
 export interface Prisma__PreferenceClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  account<T extends Prisma.AccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountDefaultArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   genrePreferences<T extends Prisma.Preference$genrePreferencesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Preference$genrePreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GenrePreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  account<T extends Prisma.AccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountDefaultArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

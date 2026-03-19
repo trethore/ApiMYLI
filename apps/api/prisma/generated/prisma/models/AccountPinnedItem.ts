@@ -241,10 +241,10 @@ export type AccountPinnedItemWhereInput = {
   playlistId?: Prisma.UuidNullableFilter<"AccountPinnedItem"> | string | null
   pinnedAt?: Prisma.DateTimeFilter<"AccountPinnedItem"> | Date | string
   account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
-  track?: Prisma.XOR<Prisma.TrackNullableScalarRelationFilter, Prisma.TrackWhereInput> | null
   album?: Prisma.XOR<Prisma.AlbumNullableScalarRelationFilter, Prisma.AlbumWhereInput> | null
   artist?: Prisma.XOR<Prisma.ArtistNullableScalarRelationFilter, Prisma.ArtistWhereInput> | null
   playlist?: Prisma.XOR<Prisma.PlaylistNullableScalarRelationFilter, Prisma.PlaylistWhereInput> | null
+  track?: Prisma.XOR<Prisma.TrackNullableScalarRelationFilter, Prisma.TrackWhereInput> | null
 }
 
 export type AccountPinnedItemOrderByWithRelationInput = {
@@ -257,10 +257,10 @@ export type AccountPinnedItemOrderByWithRelationInput = {
   playlistId?: Prisma.SortOrderInput | Prisma.SortOrder
   pinnedAt?: Prisma.SortOrder
   account?: Prisma.AccountOrderByWithRelationInput
-  track?: Prisma.TrackOrderByWithRelationInput
   album?: Prisma.AlbumOrderByWithRelationInput
   artist?: Prisma.ArtistOrderByWithRelationInput
   playlist?: Prisma.PlaylistOrderByWithRelationInput
+  track?: Prisma.TrackOrderByWithRelationInput
 }
 
 export type AccountPinnedItemWhereUniqueInput = Prisma.AtLeast<{
@@ -277,10 +277,10 @@ export type AccountPinnedItemWhereUniqueInput = Prisma.AtLeast<{
   playlistId?: Prisma.UuidNullableFilter<"AccountPinnedItem"> | string | null
   pinnedAt?: Prisma.DateTimeFilter<"AccountPinnedItem"> | Date | string
   account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
-  track?: Prisma.XOR<Prisma.TrackNullableScalarRelationFilter, Prisma.TrackWhereInput> | null
   album?: Prisma.XOR<Prisma.AlbumNullableScalarRelationFilter, Prisma.AlbumWhereInput> | null
   artist?: Prisma.XOR<Prisma.ArtistNullableScalarRelationFilter, Prisma.ArtistWhereInput> | null
   playlist?: Prisma.XOR<Prisma.PlaylistNullableScalarRelationFilter, Prisma.PlaylistWhereInput> | null
+  track?: Prisma.XOR<Prisma.TrackNullableScalarRelationFilter, Prisma.TrackWhereInput> | null
 }, "accountId_slot">
 
 export type AccountPinnedItemOrderByWithAggregationInput = {
@@ -318,10 +318,10 @@ export type AccountPinnedItemCreateInput = {
   itemType: $Enums.PinnedItemType
   pinnedAt?: Date | string
   account: Prisma.AccountCreateNestedOneWithoutPinnedItemsInput
-  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
   album?: Prisma.AlbumCreateNestedOneWithoutPinnedItemsInput
   artist?: Prisma.ArtistCreateNestedOneWithoutPinnedItemsInput
   playlist?: Prisma.PlaylistCreateNestedOneWithoutPinnedItemsInput
+  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
 }
 
 export type AccountPinnedItemUncheckedCreateInput = {
@@ -340,10 +340,10 @@ export type AccountPinnedItemUpdateInput = {
   itemType?: Prisma.EnumPinnedItemTypeFieldUpdateOperationsInput | $Enums.PinnedItemType
   pinnedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   account?: Prisma.AccountUpdateOneRequiredWithoutPinnedItemsNestedInput
-  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
   album?: Prisma.AlbumUpdateOneWithoutPinnedItemsNestedInput
   artist?: Prisma.ArtistUpdateOneWithoutPinnedItemsNestedInput
   playlist?: Prisma.PlaylistUpdateOneWithoutPinnedItemsNestedInput
+  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
 }
 
 export type AccountPinnedItemUncheckedUpdateInput = {
@@ -667,10 +667,10 @@ export type AccountPinnedItemCreateWithoutAccountInput = {
   slot: number
   itemType: $Enums.PinnedItemType
   pinnedAt?: Date | string
-  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
   album?: Prisma.AlbumCreateNestedOneWithoutPinnedItemsInput
   artist?: Prisma.ArtistCreateNestedOneWithoutPinnedItemsInput
   playlist?: Prisma.PlaylistCreateNestedOneWithoutPinnedItemsInput
+  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
 }
 
 export type AccountPinnedItemUncheckedCreateWithoutAccountInput = {
@@ -728,9 +728,9 @@ export type AccountPinnedItemCreateWithoutArtistInput = {
   itemType: $Enums.PinnedItemType
   pinnedAt?: Date | string
   account: Prisma.AccountCreateNestedOneWithoutPinnedItemsInput
-  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
   album?: Prisma.AlbumCreateNestedOneWithoutPinnedItemsInput
   playlist?: Prisma.PlaylistCreateNestedOneWithoutPinnedItemsInput
+  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
 }
 
 export type AccountPinnedItemUncheckedCreateWithoutArtistInput = {
@@ -774,9 +774,9 @@ export type AccountPinnedItemCreateWithoutAlbumInput = {
   itemType: $Enums.PinnedItemType
   pinnedAt?: Date | string
   account: Prisma.AccountCreateNestedOneWithoutPinnedItemsInput
-  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
   artist?: Prisma.ArtistCreateNestedOneWithoutPinnedItemsInput
   playlist?: Prisma.PlaylistCreateNestedOneWithoutPinnedItemsInput
+  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
 }
 
 export type AccountPinnedItemUncheckedCreateWithoutAlbumInput = {
@@ -866,9 +866,9 @@ export type AccountPinnedItemCreateWithoutPlaylistInput = {
   itemType: $Enums.PinnedItemType
   pinnedAt?: Date | string
   account: Prisma.AccountCreateNestedOneWithoutPinnedItemsInput
-  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
   album?: Prisma.AlbumCreateNestedOneWithoutPinnedItemsInput
   artist?: Prisma.ArtistCreateNestedOneWithoutPinnedItemsInput
+  track?: Prisma.TrackCreateNestedOneWithoutPinnedItemsInput
 }
 
 export type AccountPinnedItemUncheckedCreateWithoutPlaylistInput = {
@@ -921,10 +921,10 @@ export type AccountPinnedItemUpdateWithoutAccountInput = {
   slot?: Prisma.IntFieldUpdateOperationsInput | number
   itemType?: Prisma.EnumPinnedItemTypeFieldUpdateOperationsInput | $Enums.PinnedItemType
   pinnedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
   album?: Prisma.AlbumUpdateOneWithoutPinnedItemsNestedInput
   artist?: Prisma.ArtistUpdateOneWithoutPinnedItemsNestedInput
   playlist?: Prisma.PlaylistUpdateOneWithoutPinnedItemsNestedInput
+  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
 }
 
 export type AccountPinnedItemUncheckedUpdateWithoutAccountInput = {
@@ -962,9 +962,9 @@ export type AccountPinnedItemUpdateWithoutArtistInput = {
   itemType?: Prisma.EnumPinnedItemTypeFieldUpdateOperationsInput | $Enums.PinnedItemType
   pinnedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   account?: Prisma.AccountUpdateOneRequiredWithoutPinnedItemsNestedInput
-  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
   album?: Prisma.AlbumUpdateOneWithoutPinnedItemsNestedInput
   playlist?: Prisma.PlaylistUpdateOneWithoutPinnedItemsNestedInput
+  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
 }
 
 export type AccountPinnedItemUncheckedUpdateWithoutArtistInput = {
@@ -1002,9 +1002,9 @@ export type AccountPinnedItemUpdateWithoutAlbumInput = {
   itemType?: Prisma.EnumPinnedItemTypeFieldUpdateOperationsInput | $Enums.PinnedItemType
   pinnedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   account?: Prisma.AccountUpdateOneRequiredWithoutPinnedItemsNestedInput
-  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
   artist?: Prisma.ArtistUpdateOneWithoutPinnedItemsNestedInput
   playlist?: Prisma.PlaylistUpdateOneWithoutPinnedItemsNestedInput
+  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
 }
 
 export type AccountPinnedItemUncheckedUpdateWithoutAlbumInput = {
@@ -1082,9 +1082,9 @@ export type AccountPinnedItemUpdateWithoutPlaylistInput = {
   itemType?: Prisma.EnumPinnedItemTypeFieldUpdateOperationsInput | $Enums.PinnedItemType
   pinnedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   account?: Prisma.AccountUpdateOneRequiredWithoutPinnedItemsNestedInput
-  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
   album?: Prisma.AlbumUpdateOneWithoutPinnedItemsNestedInput
   artist?: Prisma.ArtistUpdateOneWithoutPinnedItemsNestedInput
+  track?: Prisma.TrackUpdateOneWithoutPinnedItemsNestedInput
 }
 
 export type AccountPinnedItemUncheckedUpdateWithoutPlaylistInput = {
@@ -1119,10 +1119,10 @@ export type AccountPinnedItemSelect<ExtArgs extends runtime.Types.Extensions.Int
   playlistId?: boolean
   pinnedAt?: boolean
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
-  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
   album?: boolean | Prisma.AccountPinnedItem$albumArgs<ExtArgs>
   artist?: boolean | Prisma.AccountPinnedItem$artistArgs<ExtArgs>
   playlist?: boolean | Prisma.AccountPinnedItem$playlistArgs<ExtArgs>
+  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
 }, ExtArgs["result"]["accountPinnedItem"]>
 
 export type AccountPinnedItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1135,10 +1135,10 @@ export type AccountPinnedItemSelectCreateManyAndReturn<ExtArgs extends runtime.T
   playlistId?: boolean
   pinnedAt?: boolean
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
-  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
   album?: boolean | Prisma.AccountPinnedItem$albumArgs<ExtArgs>
   artist?: boolean | Prisma.AccountPinnedItem$artistArgs<ExtArgs>
   playlist?: boolean | Prisma.AccountPinnedItem$playlistArgs<ExtArgs>
+  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
 }, ExtArgs["result"]["accountPinnedItem"]>
 
 export type AccountPinnedItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1151,10 +1151,10 @@ export type AccountPinnedItemSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   playlistId?: boolean
   pinnedAt?: boolean
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
-  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
   album?: boolean | Prisma.AccountPinnedItem$albumArgs<ExtArgs>
   artist?: boolean | Prisma.AccountPinnedItem$artistArgs<ExtArgs>
   playlist?: boolean | Prisma.AccountPinnedItem$playlistArgs<ExtArgs>
+  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
 }, ExtArgs["result"]["accountPinnedItem"]>
 
 export type AccountPinnedItemSelectScalar = {
@@ -1171,34 +1171,34 @@ export type AccountPinnedItemSelectScalar = {
 export type AccountPinnedItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"accountId" | "slot" | "itemType" | "trackId" | "albumId" | "artistId" | "playlistId" | "pinnedAt", ExtArgs["result"]["accountPinnedItem"]>
 export type AccountPinnedItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
-  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
   album?: boolean | Prisma.AccountPinnedItem$albumArgs<ExtArgs>
   artist?: boolean | Prisma.AccountPinnedItem$artistArgs<ExtArgs>
   playlist?: boolean | Prisma.AccountPinnedItem$playlistArgs<ExtArgs>
+  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
 }
 export type AccountPinnedItemIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
-  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
   album?: boolean | Prisma.AccountPinnedItem$albumArgs<ExtArgs>
   artist?: boolean | Prisma.AccountPinnedItem$artistArgs<ExtArgs>
   playlist?: boolean | Prisma.AccountPinnedItem$playlistArgs<ExtArgs>
+  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
 }
 export type AccountPinnedItemIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
-  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
   album?: boolean | Prisma.AccountPinnedItem$albumArgs<ExtArgs>
   artist?: boolean | Prisma.AccountPinnedItem$artistArgs<ExtArgs>
   playlist?: boolean | Prisma.AccountPinnedItem$playlistArgs<ExtArgs>
+  track?: boolean | Prisma.AccountPinnedItem$trackArgs<ExtArgs>
 }
 
 export type $AccountPinnedItemPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "AccountPinnedItem"
   objects: {
     account: Prisma.$AccountPayload<ExtArgs>
-    track: Prisma.$TrackPayload<ExtArgs> | null
     album: Prisma.$AlbumPayload<ExtArgs> | null
     artist: Prisma.$ArtistPayload<ExtArgs> | null
     playlist: Prisma.$PlaylistPayload<ExtArgs> | null
+    track: Prisma.$TrackPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     accountId: string
@@ -1604,10 +1604,10 @@ readonly fields: AccountPinnedItemFieldRefs;
 export interface Prisma__AccountPinnedItemClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   account<T extends Prisma.AccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountDefaultArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  track<T extends Prisma.AccountPinnedItem$trackArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountPinnedItem$trackArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   album<T extends Prisma.AccountPinnedItem$albumArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountPinnedItem$albumArgs<ExtArgs>>): Prisma.Prisma__AlbumClient<runtime.Types.Result.GetResult<Prisma.$AlbumPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   artist<T extends Prisma.AccountPinnedItem$artistArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountPinnedItem$artistArgs<ExtArgs>>): Prisma.Prisma__ArtistClient<runtime.Types.Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   playlist<T extends Prisma.AccountPinnedItem$playlistArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountPinnedItem$playlistArgs<ExtArgs>>): Prisma.Prisma__PlaylistClient<runtime.Types.Result.GetResult<Prisma.$PlaylistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  track<T extends Prisma.AccountPinnedItem$trackArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountPinnedItem$trackArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2041,25 +2041,6 @@ export type AccountPinnedItemDeleteManyArgs<ExtArgs extends runtime.Types.Extens
 }
 
 /**
- * AccountPinnedItem.track
- */
-export type AccountPinnedItem$trackArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Track
-   */
-  select?: Prisma.TrackSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Track
-   */
-  omit?: Prisma.TrackOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TrackInclude<ExtArgs> | null
-  where?: Prisma.TrackWhereInput
-}
-
-/**
  * AccountPinnedItem.album
  */
 export type AccountPinnedItem$albumArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2114,6 +2095,25 @@ export type AccountPinnedItem$playlistArgs<ExtArgs extends runtime.Types.Extensi
    */
   include?: Prisma.PlaylistInclude<ExtArgs> | null
   where?: Prisma.PlaylistWhereInput
+}
+
+/**
+ * AccountPinnedItem.track
+ */
+export type AccountPinnedItem$trackArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Track
+   */
+  select?: Prisma.TrackSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Track
+   */
+  omit?: Prisma.TrackOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TrackInclude<ExtArgs> | null
+  where?: Prisma.TrackWhereInput
 }
 
 /**

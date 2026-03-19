@@ -73,6 +73,7 @@ type GraphqlAccount = {
   accountId: string;
   login: string | null;
   email: string | null;
+  role: string | null;
   name: string | null;
   isArtist: boolean;
   artist?: GraphqlArtist | null;
@@ -168,6 +169,7 @@ type CreateAccountInput = {
 type UpdateAccountInput = {
   login?: string | null;
   email?: string | null;
+  role?: string | null;
   password?: string | null;
   name?: string | null;
   isArtist?: boolean | null;
@@ -250,6 +252,7 @@ const toGraphqlAccount = (account: Account): GraphqlAccount => ({
   accountId: account.accountId,
   login: account.login ?? null,
   email: account.email ?? null,
+  role: account.role,
   name: account.name ?? null,
   isArtist: account.isArtist,
   artist: account.artist ? toGraphqlArtistProfile(account, account.artist) : null,
@@ -457,6 +460,7 @@ export const schema = createSchema({
       accountId: ID!
       login: String
       email: String
+      role: String
       name: String
       isArtist: Boolean!
       artist: Artist
@@ -489,6 +493,7 @@ export const schema = createSchema({
     input UpdateAccountInput {
       login: String
       email: String
+      role: String
       password: String
       name: String
       isArtist: Boolean

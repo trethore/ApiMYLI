@@ -158,15 +158,15 @@ export type TrackLicenseWhereInput = {
   NOT?: Prisma.TrackLicenseWhereInput | Prisma.TrackLicenseWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackLicense"> | string
   licenseId?: Prisma.UuidFilter<"TrackLicense"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   license?: Prisma.XOR<Prisma.LicenseScalarRelationFilter, Prisma.LicenseWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }
 
 export type TrackLicenseOrderByWithRelationInput = {
   trackId?: Prisma.SortOrder
   licenseId?: Prisma.SortOrder
-  track?: Prisma.TrackOrderByWithRelationInput
   license?: Prisma.LicenseOrderByWithRelationInput
+  track?: Prisma.TrackOrderByWithRelationInput
 }
 
 export type TrackLicenseWhereUniqueInput = Prisma.AtLeast<{
@@ -176,8 +176,8 @@ export type TrackLicenseWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.TrackLicenseWhereInput | Prisma.TrackLicenseWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackLicense"> | string
   licenseId?: Prisma.UuidFilter<"TrackLicense"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   license?: Prisma.XOR<Prisma.LicenseScalarRelationFilter, Prisma.LicenseWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }, "trackId_licenseId">
 
 export type TrackLicenseOrderByWithAggregationInput = {
@@ -197,8 +197,8 @@ export type TrackLicenseScalarWhereWithAggregatesInput = {
 }
 
 export type TrackLicenseCreateInput = {
-  track: Prisma.TrackCreateNestedOneWithoutTrackLicensesInput
   license: Prisma.LicenseCreateNestedOneWithoutTrackLicensesInput
+  track: Prisma.TrackCreateNestedOneWithoutTrackLicensesInput
 }
 
 export type TrackLicenseUncheckedCreateInput = {
@@ -207,8 +207,8 @@ export type TrackLicenseUncheckedCreateInput = {
 }
 
 export type TrackLicenseUpdateInput = {
-  track?: Prisma.TrackUpdateOneRequiredWithoutTrackLicensesNestedInput
   license?: Prisma.LicenseUpdateOneRequiredWithoutTrackLicensesNestedInput
+  track?: Prisma.TrackUpdateOneRequiredWithoutTrackLicensesNestedInput
 }
 
 export type TrackLicenseUncheckedUpdateInput = {
@@ -457,22 +457,22 @@ export type TrackLicenseUncheckedUpdateManyWithoutLicenseInput = {
 export type TrackLicenseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   licenseId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   license?: boolean | Prisma.LicenseDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackLicense"]>
 
 export type TrackLicenseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   licenseId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   license?: boolean | Prisma.LicenseDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackLicense"]>
 
 export type TrackLicenseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   licenseId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   license?: boolean | Prisma.LicenseDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackLicense"]>
 
 export type TrackLicenseSelectScalar = {
@@ -482,23 +482,23 @@ export type TrackLicenseSelectScalar = {
 
 export type TrackLicenseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "licenseId", ExtArgs["result"]["trackLicense"]>
 export type TrackLicenseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   license?: boolean | Prisma.LicenseDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackLicenseIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   license?: boolean | Prisma.LicenseDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackLicenseIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   license?: boolean | Prisma.LicenseDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 
 export type $TrackLicensePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "TrackLicense"
   objects: {
-    track: Prisma.$TrackPayload<ExtArgs>
     license: Prisma.$LicensePayload<ExtArgs>
+    track: Prisma.$TrackPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     trackId: string
@@ -897,8 +897,8 @@ readonly fields: TrackLicenseFieldRefs;
  */
 export interface Prisma__TrackLicenseClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   license<T extends Prisma.LicenseDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LicenseDefaultArgs<ExtArgs>>): Prisma.Prisma__LicenseClient<runtime.Types.Result.GetResult<Prisma.$LicensePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

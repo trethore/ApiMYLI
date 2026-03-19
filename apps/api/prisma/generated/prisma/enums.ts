@@ -9,6 +9,15 @@
 * 🟢 You can import this file directly.
 */
 
+export const account_roles = {
+  listener: 'listener',
+  admin: 'admin',
+  super_admin: 'super_admin'
+} as const
+
+export type account_roles = (typeof account_roles)[keyof typeof account_roles]
+
+
 export const PinnedItemType = {
   TRACK: 'TRACK',
   ALBUM: 'ALBUM',

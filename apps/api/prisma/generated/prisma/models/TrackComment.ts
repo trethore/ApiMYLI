@@ -182,8 +182,8 @@ export type TrackCommentWhereInput = {
   accountId?: Prisma.UuidNullableFilter<"TrackComment"> | string | null
   content?: Prisma.StringNullableFilter<"TrackComment"> | string | null
   createdAt?: Prisma.DateTimeNullableFilter<"TrackComment"> | Date | string | null
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   account?: Prisma.XOR<Prisma.AccountNullableScalarRelationFilter, Prisma.AccountWhereInput> | null
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }
 
 export type TrackCommentOrderByWithRelationInput = {
@@ -192,8 +192,8 @@ export type TrackCommentOrderByWithRelationInput = {
   accountId?: Prisma.SortOrderInput | Prisma.SortOrder
   content?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  track?: Prisma.TrackOrderByWithRelationInput
   account?: Prisma.AccountOrderByWithRelationInput
+  track?: Prisma.TrackOrderByWithRelationInput
 }
 
 export type TrackCommentWhereUniqueInput = Prisma.AtLeast<{
@@ -205,8 +205,8 @@ export type TrackCommentWhereUniqueInput = Prisma.AtLeast<{
   accountId?: Prisma.UuidNullableFilter<"TrackComment"> | string | null
   content?: Prisma.StringNullableFilter<"TrackComment"> | string | null
   createdAt?: Prisma.DateTimeNullableFilter<"TrackComment"> | Date | string | null
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   account?: Prisma.XOR<Prisma.AccountNullableScalarRelationFilter, Prisma.AccountWhereInput> | null
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }, "commentId">
 
 export type TrackCommentOrderByWithAggregationInput = {
@@ -235,8 +235,8 @@ export type TrackCommentCreateInput = {
   commentId?: string
   content?: string | null
   createdAt?: Date | string | null
-  track: Prisma.TrackCreateNestedOneWithoutCommentsInput
   account?: Prisma.AccountCreateNestedOneWithoutTrackCommentsInput
+  track: Prisma.TrackCreateNestedOneWithoutCommentsInput
 }
 
 export type TrackCommentUncheckedCreateInput = {
@@ -251,8 +251,8 @@ export type TrackCommentUpdateInput = {
   commentId?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  track?: Prisma.TrackUpdateOneRequiredWithoutCommentsNestedInput
   account?: Prisma.AccountUpdateOneWithoutTrackCommentsNestedInput
+  track?: Prisma.TrackUpdateOneRequiredWithoutCommentsNestedInput
 }
 
 export type TrackCommentUncheckedUpdateInput = {
@@ -558,8 +558,8 @@ export type TrackCommentSelect<ExtArgs extends runtime.Types.Extensions.Internal
   accountId?: boolean
   content?: boolean
   createdAt?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackComment"]>
 
 export type TrackCommentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -568,8 +568,8 @@ export type TrackCommentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   accountId?: boolean
   content?: boolean
   createdAt?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackComment"]>
 
 export type TrackCommentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -578,8 +578,8 @@ export type TrackCommentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   accountId?: boolean
   content?: boolean
   createdAt?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackComment"]>
 
 export type TrackCommentSelectScalar = {
@@ -592,23 +592,23 @@ export type TrackCommentSelectScalar = {
 
 export type TrackCommentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"commentId" | "trackId" | "accountId" | "content" | "createdAt", ExtArgs["result"]["trackComment"]>
 export type TrackCommentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackCommentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackCommentIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.TrackComment$accountArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 
 export type $TrackCommentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "TrackComment"
   objects: {
-    track: Prisma.$TrackPayload<ExtArgs>
     account: Prisma.$AccountPayload<ExtArgs> | null
+    track: Prisma.$TrackPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     commentId: string
@@ -1010,8 +1010,8 @@ readonly fields: TrackCommentFieldRefs;
  */
 export interface Prisma__TrackCommentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   account<T extends Prisma.TrackComment$accountArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackComment$accountArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

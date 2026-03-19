@@ -158,15 +158,15 @@ export type TagWhereInput = {
   NOT?: Prisma.TagWhereInput | Prisma.TagWhereInput[]
   tagId?: Prisma.UuidFilter<"Tag"> | string
   tagName?: Prisma.StringNullableFilter<"Tag"> | string | null
-  trackTags?: Prisma.TrackTagListRelationFilter
   artistTags?: Prisma.ArtistTagListRelationFilter
+  trackTags?: Prisma.TrackTagListRelationFilter
 }
 
 export type TagOrderByWithRelationInput = {
   tagId?: Prisma.SortOrder
   tagName?: Prisma.SortOrderInput | Prisma.SortOrder
-  trackTags?: Prisma.TrackTagOrderByRelationAggregateInput
   artistTags?: Prisma.ArtistTagOrderByRelationAggregateInput
+  trackTags?: Prisma.TrackTagOrderByRelationAggregateInput
 }
 
 export type TagWhereUniqueInput = Prisma.AtLeast<{
@@ -175,8 +175,8 @@ export type TagWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.TagWhereInput[]
   NOT?: Prisma.TagWhereInput | Prisma.TagWhereInput[]
   tagName?: Prisma.StringNullableFilter<"Tag"> | string | null
-  trackTags?: Prisma.TrackTagListRelationFilter
   artistTags?: Prisma.ArtistTagListRelationFilter
+  trackTags?: Prisma.TrackTagListRelationFilter
 }, "tagId">
 
 export type TagOrderByWithAggregationInput = {
@@ -198,29 +198,29 @@ export type TagScalarWhereWithAggregatesInput = {
 export type TagCreateInput = {
   tagId?: string
   tagName?: string | null
-  trackTags?: Prisma.TrackTagCreateNestedManyWithoutTagInput
   artistTags?: Prisma.ArtistTagCreateNestedManyWithoutTagInput
+  trackTags?: Prisma.TrackTagCreateNestedManyWithoutTagInput
 }
 
 export type TagUncheckedCreateInput = {
   tagId?: string
   tagName?: string | null
-  trackTags?: Prisma.TrackTagUncheckedCreateNestedManyWithoutTagInput
   artistTags?: Prisma.ArtistTagUncheckedCreateNestedManyWithoutTagInput
+  trackTags?: Prisma.TrackTagUncheckedCreateNestedManyWithoutTagInput
 }
 
 export type TagUpdateInput = {
   tagId?: Prisma.StringFieldUpdateOperationsInput | string
   tagName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  trackTags?: Prisma.TrackTagUpdateManyWithoutTagNestedInput
   artistTags?: Prisma.ArtistTagUpdateManyWithoutTagNestedInput
+  trackTags?: Prisma.TrackTagUpdateManyWithoutTagNestedInput
 }
 
 export type TagUncheckedUpdateInput = {
   tagId?: Prisma.StringFieldUpdateOperationsInput | string
   tagName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  trackTags?: Prisma.TrackTagUncheckedUpdateManyWithoutTagNestedInput
   artistTags?: Prisma.ArtistTagUncheckedUpdateManyWithoutTagNestedInput
+  trackTags?: Prisma.TrackTagUncheckedUpdateManyWithoutTagNestedInput
 }
 
 export type TagCreateManyInput = {
@@ -372,13 +372,13 @@ export type TagUncheckedUpdateWithoutArtistTagsInput = {
  */
 
 export type TagCountOutputType = {
-  trackTags: number
   artistTags: number
+  trackTags: number
 }
 
 export type TagCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  trackTags?: boolean | TagCountOutputTypeCountTrackTagsArgs
   artistTags?: boolean | TagCountOutputTypeCountArtistTagsArgs
+  trackTags?: boolean | TagCountOutputTypeCountTrackTagsArgs
 }
 
 /**
@@ -394,23 +394,23 @@ export type TagCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensio
 /**
  * TagCountOutputType without action
  */
-export type TagCountOutputTypeCountTrackTagsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.TrackTagWhereInput
+export type TagCountOutputTypeCountArtistTagsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ArtistTagWhereInput
 }
 
 /**
  * TagCountOutputType without action
  */
-export type TagCountOutputTypeCountArtistTagsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ArtistTagWhereInput
+export type TagCountOutputTypeCountTrackTagsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TrackTagWhereInput
 }
 
 
 export type TagSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   tagId?: boolean
   tagName?: boolean
-  trackTags?: boolean | Prisma.Tag$trackTagsArgs<ExtArgs>
   artistTags?: boolean | Prisma.Tag$artistTagsArgs<ExtArgs>
+  trackTags?: boolean | Prisma.Tag$trackTagsArgs<ExtArgs>
   _count?: boolean | Prisma.TagCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tag"]>
 
@@ -431,8 +431,8 @@ export type TagSelectScalar = {
 
 export type TagOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"tagId" | "tagName", ExtArgs["result"]["tag"]>
 export type TagInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  trackTags?: boolean | Prisma.Tag$trackTagsArgs<ExtArgs>
   artistTags?: boolean | Prisma.Tag$artistTagsArgs<ExtArgs>
+  trackTags?: boolean | Prisma.Tag$trackTagsArgs<ExtArgs>
   _count?: boolean | Prisma.TagCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TagIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -441,8 +441,8 @@ export type TagIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
 export type $TagPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Tag"
   objects: {
-    trackTags: Prisma.$TrackTagPayload<ExtArgs>[]
     artistTags: Prisma.$ArtistTagPayload<ExtArgs>[]
+    trackTags: Prisma.$TrackTagPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     tagId: string
@@ -841,8 +841,8 @@ readonly fields: TagFieldRefs;
  */
 export interface Prisma__TagClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  trackTags<T extends Prisma.Tag$trackTagsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tag$trackTagsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackTagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   artistTags<T extends Prisma.Tag$artistTagsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tag$artistTagsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArtistTagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  trackTags<T extends Prisma.Tag$trackTagsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tag$trackTagsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackTagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1262,30 +1262,6 @@ export type TagDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 }
 
 /**
- * Tag.trackTags
- */
-export type Tag$trackTagsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the TrackTag
-   */
-  select?: Prisma.TrackTagSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TrackTag
-   */
-  omit?: Prisma.TrackTagOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TrackTagInclude<ExtArgs> | null
-  where?: Prisma.TrackTagWhereInput
-  orderBy?: Prisma.TrackTagOrderByWithRelationInput | Prisma.TrackTagOrderByWithRelationInput[]
-  cursor?: Prisma.TrackTagWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.TrackTagScalarFieldEnum | Prisma.TrackTagScalarFieldEnum[]
-}
-
-/**
  * Tag.artistTags
  */
 export type Tag$artistTagsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1307,6 +1283,30 @@ export type Tag$artistTagsArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.ArtistTagScalarFieldEnum | Prisma.ArtistTagScalarFieldEnum[]
+}
+
+/**
+ * Tag.trackTags
+ */
+export type Tag$trackTagsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TrackTag
+   */
+  select?: Prisma.TrackTagSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TrackTag
+   */
+  omit?: Prisma.TrackTagOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TrackTagInclude<ExtArgs> | null
+  where?: Prisma.TrackTagWhereInput
+  orderBy?: Prisma.TrackTagOrderByWithRelationInput | Prisma.TrackTagOrderByWithRelationInput[]
+  cursor?: Prisma.TrackTagWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TrackTagScalarFieldEnum | Prisma.TrackTagScalarFieldEnum[]
 }
 
 /**

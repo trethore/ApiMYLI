@@ -158,15 +158,15 @@ export type TrackArtistMainWhereInput = {
   NOT?: Prisma.TrackArtistMainWhereInput | Prisma.TrackArtistMainWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackArtistMain"> | string
   artistId?: Prisma.UuidFilter<"TrackArtistMain"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   artist?: Prisma.XOR<Prisma.ArtistScalarRelationFilter, Prisma.ArtistWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }
 
 export type TrackArtistMainOrderByWithRelationInput = {
   trackId?: Prisma.SortOrder
   artistId?: Prisma.SortOrder
-  track?: Prisma.TrackOrderByWithRelationInput
   artist?: Prisma.ArtistOrderByWithRelationInput
+  track?: Prisma.TrackOrderByWithRelationInput
 }
 
 export type TrackArtistMainWhereUniqueInput = Prisma.AtLeast<{
@@ -176,8 +176,8 @@ export type TrackArtistMainWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.TrackArtistMainWhereInput | Prisma.TrackArtistMainWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackArtistMain"> | string
   artistId?: Prisma.UuidFilter<"TrackArtistMain"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   artist?: Prisma.XOR<Prisma.ArtistScalarRelationFilter, Prisma.ArtistWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }, "trackId_artistId">
 
 export type TrackArtistMainOrderByWithAggregationInput = {
@@ -197,8 +197,8 @@ export type TrackArtistMainScalarWhereWithAggregatesInput = {
 }
 
 export type TrackArtistMainCreateInput = {
-  track: Prisma.TrackCreateNestedOneWithoutMainArtistsInput
   artist: Prisma.ArtistCreateNestedOneWithoutMainTracksInput
+  track: Prisma.TrackCreateNestedOneWithoutMainArtistsInput
 }
 
 export type TrackArtistMainUncheckedCreateInput = {
@@ -207,8 +207,8 @@ export type TrackArtistMainUncheckedCreateInput = {
 }
 
 export type TrackArtistMainUpdateInput = {
-  track?: Prisma.TrackUpdateOneRequiredWithoutMainArtistsNestedInput
   artist?: Prisma.ArtistUpdateOneRequiredWithoutMainTracksNestedInput
+  track?: Prisma.TrackUpdateOneRequiredWithoutMainArtistsNestedInput
 }
 
 export type TrackArtistMainUncheckedUpdateInput = {
@@ -457,22 +457,22 @@ export type TrackArtistMainUncheckedUpdateManyWithoutTrackInput = {
 export type TrackArtistMainSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   artistId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   artist?: boolean | Prisma.ArtistDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackArtistMain"]>
 
 export type TrackArtistMainSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   artistId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   artist?: boolean | Prisma.ArtistDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackArtistMain"]>
 
 export type TrackArtistMainSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   artistId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   artist?: boolean | Prisma.ArtistDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackArtistMain"]>
 
 export type TrackArtistMainSelectScalar = {
@@ -482,23 +482,23 @@ export type TrackArtistMainSelectScalar = {
 
 export type TrackArtistMainOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "artistId", ExtArgs["result"]["trackArtistMain"]>
 export type TrackArtistMainInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   artist?: boolean | Prisma.ArtistDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackArtistMainIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   artist?: boolean | Prisma.ArtistDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackArtistMainIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   artist?: boolean | Prisma.ArtistDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 
 export type $TrackArtistMainPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "TrackArtistMain"
   objects: {
-    track: Prisma.$TrackPayload<ExtArgs>
     artist: Prisma.$ArtistPayload<ExtArgs>
+    track: Prisma.$TrackPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     trackId: string
@@ -897,8 +897,8 @@ readonly fields: TrackArtistMainFieldRefs;
  */
 export interface Prisma__TrackArtistMainClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   artist<T extends Prisma.ArtistDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ArtistDefaultArgs<ExtArgs>>): Prisma.Prisma__ArtistClient<runtime.Types.Result.GetResult<Prisma.$ArtistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

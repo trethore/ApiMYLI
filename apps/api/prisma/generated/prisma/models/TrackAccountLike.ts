@@ -158,15 +158,15 @@ export type TrackAccountLikeWhereInput = {
   NOT?: Prisma.TrackAccountLikeWhereInput | Prisma.TrackAccountLikeWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackAccountLike"> | string
   accountId?: Prisma.UuidFilter<"TrackAccountLike"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }
 
 export type TrackAccountLikeOrderByWithRelationInput = {
   trackId?: Prisma.SortOrder
   accountId?: Prisma.SortOrder
-  track?: Prisma.TrackOrderByWithRelationInput
   account?: Prisma.AccountOrderByWithRelationInput
+  track?: Prisma.TrackOrderByWithRelationInput
 }
 
 export type TrackAccountLikeWhereUniqueInput = Prisma.AtLeast<{
@@ -176,8 +176,8 @@ export type TrackAccountLikeWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.TrackAccountLikeWhereInput | Prisma.TrackAccountLikeWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackAccountLike"> | string
   accountId?: Prisma.UuidFilter<"TrackAccountLike"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   account?: Prisma.XOR<Prisma.AccountScalarRelationFilter, Prisma.AccountWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }, "trackId_accountId">
 
 export type TrackAccountLikeOrderByWithAggregationInput = {
@@ -197,8 +197,8 @@ export type TrackAccountLikeScalarWhereWithAggregatesInput = {
 }
 
 export type TrackAccountLikeCreateInput = {
-  track: Prisma.TrackCreateNestedOneWithoutAccountLikesInput
   account: Prisma.AccountCreateNestedOneWithoutTrackLikesInput
+  track: Prisma.TrackCreateNestedOneWithoutAccountLikesInput
 }
 
 export type TrackAccountLikeUncheckedCreateInput = {
@@ -207,8 +207,8 @@ export type TrackAccountLikeUncheckedCreateInput = {
 }
 
 export type TrackAccountLikeUpdateInput = {
-  track?: Prisma.TrackUpdateOneRequiredWithoutAccountLikesNestedInput
   account?: Prisma.AccountUpdateOneRequiredWithoutTrackLikesNestedInput
+  track?: Prisma.TrackUpdateOneRequiredWithoutAccountLikesNestedInput
 }
 
 export type TrackAccountLikeUncheckedUpdateInput = {
@@ -457,22 +457,22 @@ export type TrackAccountLikeUncheckedUpdateManyWithoutTrackInput = {
 export type TrackAccountLikeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   accountId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackAccountLike"]>
 
 export type TrackAccountLikeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   accountId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackAccountLike"]>
 
 export type TrackAccountLikeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   accountId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackAccountLike"]>
 
 export type TrackAccountLikeSelectScalar = {
@@ -482,23 +482,23 @@ export type TrackAccountLikeSelectScalar = {
 
 export type TrackAccountLikeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "accountId", ExtArgs["result"]["trackAccountLike"]>
 export type TrackAccountLikeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackAccountLikeIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackAccountLikeIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   account?: boolean | Prisma.AccountDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 
 export type $TrackAccountLikePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "TrackAccountLike"
   objects: {
-    track: Prisma.$TrackPayload<ExtArgs>
     account: Prisma.$AccountPayload<ExtArgs>
+    track: Prisma.$TrackPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     trackId: string
@@ -897,8 +897,8 @@ readonly fields: TrackAccountLikeFieldRefs;
  */
 export interface Prisma__TrackAccountLikeClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   account<T extends Prisma.AccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AccountDefaultArgs<ExtArgs>>): Prisma.Prisma__AccountClient<runtime.Types.Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

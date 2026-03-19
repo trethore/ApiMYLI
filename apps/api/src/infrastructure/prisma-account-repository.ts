@@ -1,9 +1,11 @@
-import type {
+import {
   Account as PrismaAccount,
   Artist as PrismaArtist,
   Prisma,
   PrismaClient,
+  $Enums,
 } from "@prisma/generated/prisma/client";
+import { Enumaccount_rolesFieldRefInput, Enumaccount_rolesFilter } from "@prisma/generated/prisma/internal/prismaNamespace";
 import type { Account } from "packages/domain/src/entities/account";
 import type { ArtistProfile } from "packages/domain/src/entities/artist-profile";
 import type {
@@ -12,6 +14,8 @@ import type {
   UpdateAccountData,
   UpdateArtistProfileData,
 } from "packages/domain/src/repositories/account-repository";
+
+export type AccountRole = 'admin' | 'user' | 'guest';
 
 type PrismaAccountWithArtist = PrismaAccount & {
   artist?: PrismaArtist | null;
@@ -42,6 +46,7 @@ const toAccount = (account: PrismaAccountWithArtist): Account => ({
   login: account.login,
   password: account.password,
   name: account.name,
+  role: account.role,
   email: account.email,
   isArtist: account.isArtist,
   artist: account.artist ? toArtistProfile(account.artist) : null,
@@ -180,6 +185,8 @@ export const createPrismaAccountRepository = (prisma: PrismaClient): AccountRepo
       return null;
     }
 
+    Prisma.AccountPinnedItemScalarFieldEnum;
+
     const accountUpdateInput: Prisma.AccountUpdateInput = {};
     if (data.login !== undefined) {
       accountUpdateInput.login = data.login;
@@ -200,6 +207,10 @@ export const createPrismaAccountRepository = (prisma: PrismaClient): AccountRepo
 
     if (data.isArtist !== undefined) {
       accountUpdateInput.isArtist = data.isArtist;
+    }
+
+    if (data.role !== undefined) {
+      accountUpdateInput.role = data.role as $Enums.account_roles;
     }
 
     const account = await prisma.$transaction(

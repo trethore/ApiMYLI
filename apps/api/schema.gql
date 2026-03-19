@@ -107,6 +107,7 @@ type Account {
   accountId: ID!
   login: String
   email: String
+  role: String
   name: String
   isArtist: Boolean!
   artist: Artist
@@ -139,6 +140,7 @@ input UpdateArtistInput {
 input UpdateAccountInput {
   login: String
   email: String
+  role: String
   password: String
   name: String
   isArtist: Boolean

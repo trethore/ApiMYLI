@@ -158,15 +158,15 @@ export type TrackGenreWhereInput = {
   NOT?: Prisma.TrackGenreWhereInput | Prisma.TrackGenreWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackGenre"> | string
   genreId?: Prisma.UuidFilter<"TrackGenre"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   genre?: Prisma.XOR<Prisma.GenreScalarRelationFilter, Prisma.GenreWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }
 
 export type TrackGenreOrderByWithRelationInput = {
   trackId?: Prisma.SortOrder
   genreId?: Prisma.SortOrder
-  track?: Prisma.TrackOrderByWithRelationInput
   genre?: Prisma.GenreOrderByWithRelationInput
+  track?: Prisma.TrackOrderByWithRelationInput
 }
 
 export type TrackGenreWhereUniqueInput = Prisma.AtLeast<{
@@ -176,8 +176,8 @@ export type TrackGenreWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.TrackGenreWhereInput | Prisma.TrackGenreWhereInput[]
   trackId?: Prisma.UuidFilter<"TrackGenre"> | string
   genreId?: Prisma.UuidFilter<"TrackGenre"> | string
-  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
   genre?: Prisma.XOR<Prisma.GenreScalarRelationFilter, Prisma.GenreWhereInput>
+  track?: Prisma.XOR<Prisma.TrackScalarRelationFilter, Prisma.TrackWhereInput>
 }, "trackId_genreId">
 
 export type TrackGenreOrderByWithAggregationInput = {
@@ -197,8 +197,8 @@ export type TrackGenreScalarWhereWithAggregatesInput = {
 }
 
 export type TrackGenreCreateInput = {
-  track: Prisma.TrackCreateNestedOneWithoutTrackGenresInput
   genre: Prisma.GenreCreateNestedOneWithoutTrackGenresInput
+  track: Prisma.TrackCreateNestedOneWithoutTrackGenresInput
 }
 
 export type TrackGenreUncheckedCreateInput = {
@@ -207,8 +207,8 @@ export type TrackGenreUncheckedCreateInput = {
 }
 
 export type TrackGenreUpdateInput = {
-  track?: Prisma.TrackUpdateOneRequiredWithoutTrackGenresNestedInput
   genre?: Prisma.GenreUpdateOneRequiredWithoutTrackGenresNestedInput
+  track?: Prisma.TrackUpdateOneRequiredWithoutTrackGenresNestedInput
 }
 
 export type TrackGenreUncheckedUpdateInput = {
@@ -457,22 +457,22 @@ export type TrackGenreUncheckedUpdateManyWithoutTrackInput = {
 export type TrackGenreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   genreId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackGenre"]>
 
 export type TrackGenreSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   genreId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackGenre"]>
 
 export type TrackGenreSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   trackId?: boolean
   genreId?: boolean
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trackGenre"]>
 
 export type TrackGenreSelectScalar = {
@@ -482,23 +482,23 @@ export type TrackGenreSelectScalar = {
 
 export type TrackGenreOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trackId" | "genreId", ExtArgs["result"]["trackGenre"]>
 export type TrackGenreInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackGenreIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 export type TrackGenreIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
   genre?: boolean | Prisma.GenreDefaultArgs<ExtArgs>
+  track?: boolean | Prisma.TrackDefaultArgs<ExtArgs>
 }
 
 export type $TrackGenrePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "TrackGenre"
   objects: {
-    track: Prisma.$TrackPayload<ExtArgs>
     genre: Prisma.$GenrePayload<ExtArgs>
+    track: Prisma.$TrackPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     trackId: string
@@ -897,8 +897,8 @@ readonly fields: TrackGenreFieldRefs;
  */
 export interface Prisma__TrackGenreClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   genre<T extends Prisma.GenreDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GenreDefaultArgs<ExtArgs>>): Prisma.Prisma__GenreClient<runtime.Types.Result.GetResult<Prisma.$GenrePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  track<T extends Prisma.TrackDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TrackDefaultArgs<ExtArgs>>): Prisma.Prisma__TrackClient<runtime.Types.Result.GetResult<Prisma.$TrackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
