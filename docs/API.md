@@ -258,6 +258,7 @@ mutation UpdateAccount($accountId: String!, $input: UpdateAccountInput!) {
   updateAccount(accountId: $accountId, input: $input) {
     accountId
     login
+    role
     email
     name
     isArtist

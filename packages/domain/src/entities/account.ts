@@ -5,6 +5,7 @@ export type Account = {
   login?: string | null;
   password?: string | null;
   name?: string | null;
+  role: string | null;
   email?: string | null;
   isArtist: boolean;
   artist?: ArtistProfile | null;

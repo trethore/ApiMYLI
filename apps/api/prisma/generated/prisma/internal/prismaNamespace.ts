@@ -2623,10 +2623,10 @@ export const AccountScalarFieldEnum = {
   password: 'password',
   name: 'name',
   email: 'email',
-  role: 'role',
   createdAt: 'createdAt',
   isArtist: 'isArtist',
-  pseudo: 'pseudo'
+  pseudo: 'pseudo',
+  role: 'role'
 } as const
 
 export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
@@ -3500,20 +3500,6 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
- * Reference to a field of type 'account_roles'
- */
-export type Enumaccount_rolesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'account_roles'>
-    
-
-
-/**
- * Reference to a field of type 'account_roles[]'
- */
-export type ListEnumaccount_rolesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'account_roles[]'>
-    
-
-
-/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -3531,6 +3517,20 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'account_roles'
+ */
+export type Enumaccount_rolesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'account_roles'>
+    
+
+
+/**
+ * Reference to a field of type 'account_roles[]'
+ */
+export type ListEnumaccount_rolesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'account_roles[]'>
     
 
 
