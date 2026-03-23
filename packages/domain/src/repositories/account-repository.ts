@@ -14,6 +14,7 @@ export type UpdateAccountData = {
   password?: string | null;
   name?: string | null;
   email?: string | null;
+  role?: string | null;
   isArtist?: boolean;
 };
 

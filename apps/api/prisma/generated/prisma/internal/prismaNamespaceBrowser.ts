@@ -104,10 +104,10 @@ export const AccountScalarFieldEnum = {
   password: 'password',
   name: 'name',
   email: 'email',
-  role: 'role',
   createdAt: 'createdAt',
   isArtist: 'isArtist',
-  pseudo: 'pseudo'
+  pseudo: 'pseudo',
+  role: 'role'
 } as const
 
 export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]

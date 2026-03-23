@@ -680,6 +680,8 @@ export const schema = createSchema({
         return playlists.map(toGraphqlPlaylist);
       },
       myPinnedItems: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
+        console.log(context);
+        
         const currentAccountId = await getAuthenticatedAccountId(
           context.services.authTokenService,
           context.authToken,
