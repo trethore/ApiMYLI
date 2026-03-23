@@ -87,6 +87,7 @@ export type UpdateAccountInput = {
   login?: string | null;
   email?: string | null;
   password?: string | null;
+  role?: string | null;
   name?: string | null;
   isArtist?: boolean | null;
 };
@@ -108,6 +109,7 @@ export const updateAccount = async (
 
   const updateData: UpdateAccountData = {
     name: input.name,
+    role: input.role,
     isArtist: input.isArtist ?? undefined,
   };
 

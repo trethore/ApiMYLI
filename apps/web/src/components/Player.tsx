@@ -57,8 +57,6 @@ export default function Player() {
         case "ArrowRight":
           e.preventDefault();
           newTime = Math.min(currentTime + 5, duration)
-          console.log(currentTime);
-          console.log(duration);
           seek(newTime);
           break;
   

@@ -15,7 +15,6 @@ import {
   getRecommendationsQuery,
   toMusic,
 } from "@/lib/api-client";
-import { Loader2 } from "lucide-react";
 
 export default function Home() {
   const { isAuthenticated, requireAuth, token } = useAuth();
@@ -54,6 +53,9 @@ export default function Home() {
   useEffect(() => {
     const fetchHomeData = async () => {
       if (isAuthenticated && token) {
+        console.log(isAuthenticated);
+        console.log(token);
+
         try {
           const [pinnedRes, historyRes] = await Promise.all([
             getMyPinnedItemsQuery(token),
