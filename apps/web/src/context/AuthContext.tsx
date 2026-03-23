@@ -14,13 +14,12 @@ import {
 const USER_KEY = "muse_user";
 const TOKEN_KEY = "muse_token";
 
-
 interface User {
   accountId: string;
   login: string;
+  role: string;
   email: string;
   name: string;
-  role: string;
 }
 
 interface AuthContextType {
@@ -29,7 +28,6 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   isInitializing: boolean;
-  userRole: string | null;
   error: string | null;
   login: (email: string, password: string) => Promise<void>;
   register: (login: string, email: string, password: string, name: string) => Promise<void>;
@@ -47,9 +45,9 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const toUser = (account: ApiAccount): User => ({
   accountId: account.accountId,
   login: account.login ?? "",
+  role: account.role ?? "",
   email: account.email ?? "",
   name: account.name ?? "",
-  role: account.role ?? "",
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -184,7 +182,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isAuthenticated: !!user && !!token,
         isLoading,
         isInitializing,
-        role: user?.role ?? null,
         error,
         login,
         register,
