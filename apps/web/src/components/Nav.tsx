@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MdHome, MdLibraryMusic, MdSearch, MdPerson } from "react-icons/md";
+import { MdHome, MdMusicVideo, MdLibraryMusic, MdSearch, MdPerson } from "react-icons/md";
 import MuseLogo from "./SVG/MuseLogo";
 import SearchBar from "./SearchBar";
 import { useAuth } from "@/context/AuthContext";
@@ -17,8 +17,6 @@ import {
 export default function Nav() {
   const { isAuthenticated } = useAuth();
   const { theme, setTheme } = useTheme();
-
-
 
   return (
     <>
@@ -96,14 +94,22 @@ export default function Nav() {
         </div>
 
         <div className="flex items-center gap-6">
+          {/* Home */}
           <Link href="/" className="p-2 hover:text-primary-bis text-foreground">
             <div className="w-[20px] h-[20px]">
               <MdHome className="w-full h-full" />
             </div>
           </Link>
+          {/* Playlists */}
           <Link href="/library" className="p-2 hover:text-primary-bis text-foreground">
             <div className="w-[17px] h-[17px]">
               <MdLibraryMusic className="w-full h-full" />
+            </div>
+          </Link>
+          {/* Blindtest */}
+          <Link href="/blindtest">
+            <div className="w-[17px] h-[17px]">
+              <MdMusicVideo />
             </div>
           </Link>
           <SearchBar />

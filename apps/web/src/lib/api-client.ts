@@ -124,7 +124,7 @@ export type ApiAlbum = ApiAlbumSummary & {
 
 export type ApiPinnedItem = {
   slot: number;
-  itemType: "TRACK" | "ALBUM" | "ARTIST" | "PLAYLIST";
+  itemType: "TRACK" | "ALBUM" | "ARTIST" | "PLAYLIST" | "BLINDTEST";
   pinnedAt: string;
   track: ApiTrack | null;
   album: ApiAlbum | null;
