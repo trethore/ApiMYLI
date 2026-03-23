@@ -17,7 +17,7 @@ import {
 export default function Nav() {
   const { isAuthenticated } = useAuth();
   const { theme, setTheme } = useTheme();
-
+  const { isUserAdmin } = useAuth();
 
 
   return (
@@ -54,6 +54,14 @@ export default function Nav() {
                 <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
                   Mode {theme === "dark" ? "clair" : "sombre"}
                 </DropdownMenuItem>
+                {isUserAdmin && (
+                    <>
+                      <DropdownMenuItem asChild>
+                        <Link href="/administrer" className="w-full cursor-pointer">Gérer</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </>
+                  )}
                 <DropdownMenuItem asChild>
                   <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
                 </DropdownMenuItem>
@@ -123,6 +131,14 @@ export default function Nav() {
                   <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
                     Mode {theme === "dark" ? "clair" : "sombre"}
                   </DropdownMenuItem>
+                  {isUserAdmin && (
+                    <>
+                      <DropdownMenuItem asChild>
+                        <Link href="/administrer" className="w-full cursor-pointer">Administrer</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </>
+                  )}
                   <DropdownMenuItem asChild>
                     <Link href="/a-propos" className="w-full cursor-pointer">À propos</Link>
                   </DropdownMenuItem>
