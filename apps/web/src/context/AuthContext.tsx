@@ -184,7 +184,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isAuthenticated: !!user && !!token,
         isLoading,
         isInitializing,
-        userRole,
+        role: user?.role ?? null,
         error,
         login,
         register,
