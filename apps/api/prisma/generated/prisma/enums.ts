@@ -22,6 +22,7 @@ export const PinnedItemType = {
   TRACK: 'TRACK',
   ALBUM: 'ALBUM',
   ARTIST: 'ARTIST',
+  BLINDTEST: 'BLINDTEST',
   PLAYLIST: 'PLAYLIST'
 } as const
 

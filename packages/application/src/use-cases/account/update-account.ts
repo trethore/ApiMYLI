@@ -107,6 +107,8 @@ export const updateAccount = async (
     throw new Error("Unauthorized");
   }
 
+  // TODO : check if new role != 'listener', check if we are the super_admin
+
   const updateData: UpdateAccountData = {
     name: input.name,
     role: input.role,

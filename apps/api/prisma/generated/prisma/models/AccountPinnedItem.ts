@@ -651,14 +651,6 @@ export type AccountPinnedItemUncheckedUpdateManyWithoutPlaylistNestedInput = {
   deleteMany?: Prisma.AccountPinnedItemScalarWhereInput | Prisma.AccountPinnedItemScalarWhereInput[]
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type EnumPinnedItemTypeFieldUpdateOperationsInput = {
   set?: $Enums.PinnedItemType
 }

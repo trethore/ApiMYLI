@@ -140,6 +140,31 @@ export type TrackLicense = Prisma.TrackLicenseModel
  */
 export type PlaylistTrack = Prisma.PlaylistTrackModel
 /**
+ * Model ArtistBlindtest
+ * 
+ */
+export type ArtistBlindtest = Prisma.ArtistBlindtestModel
+/**
+ * Model BlindtestGenre
+ * 
+ */
+export type BlindtestGenre = Prisma.BlindtestGenreModel
+/**
+ * Model BlindtestTrack
+ * 
+ */
+export type BlindtestTrack = Prisma.BlindtestTrackModel
+/**
+ * Model BlindtestCompulsoryTrack
+ * 
+ */
+export type BlindtestCompulsoryTrack = Prisma.BlindtestCompulsoryTrackModel
+/**
+ * Model Blindtest
+ * 
+ */
+export type Blindtest = Prisma.BlindtestModel
+/**
  * Model Preference
  * 
  */

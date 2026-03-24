@@ -60,7 +60,7 @@ export default function Settings() {
     e.preventDefault();
     setEditError("");
     clearError();
-    await updateUser({ login: editLogin, name: editName, role: 'admin'});
+    await updateUser({ login: editLogin, name: editName});
     if (!error) {
       setIsEditDialogOpen(false);
     }

@@ -404,6 +404,11 @@ export const ModelName = {
   TrackArtistFeat: 'TrackArtistFeat',
   TrackLicense: 'TrackLicense',
   PlaylistTrack: 'PlaylistTrack',
+  ArtistBlindtest: 'ArtistBlindtest',
+  BlindtestGenre: 'BlindtestGenre',
+  BlindtestTrack: 'BlindtestTrack',
+  BlindtestCompulsoryTrack: 'BlindtestCompulsoryTrack',
+  Blindtest: 'Blindtest',
   Preference: 'Preference',
   PreferenceVector: 'PreferenceVector',
   GenrePreference: 'GenrePreference',
@@ -428,7 +433,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountListen" | "trackListenHistoryItem" | "accountPinnedItem" | "trackComment"
+    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "artistBlindtest" | "blindtestGenre" | "blindtestTrack" | "blindtestCompulsoryTrack" | "blindtest" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountListen" | "trackListenHistoryItem" | "accountPinnedItem" | "trackComment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1912,6 +1917,376 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ArtistBlindtest: {
+      payload: Prisma.$ArtistBlindtestPayload<ExtArgs>
+      fields: Prisma.ArtistBlindtestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ArtistBlindtestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ArtistBlindtestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload>
+        }
+        findFirst: {
+          args: Prisma.ArtistBlindtestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ArtistBlindtestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload>
+        }
+        findMany: {
+          args: Prisma.ArtistBlindtestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload>[]
+        }
+        create: {
+          args: Prisma.ArtistBlindtestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload>
+        }
+        createMany: {
+          args: Prisma.ArtistBlindtestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ArtistBlindtestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload>[]
+        }
+        delete: {
+          args: Prisma.ArtistBlindtestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload>
+        }
+        update: {
+          args: Prisma.ArtistBlindtestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload>
+        }
+        deleteMany: {
+          args: Prisma.ArtistBlindtestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ArtistBlindtestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ArtistBlindtestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload>[]
+        }
+        upsert: {
+          args: Prisma.ArtistBlindtestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArtistBlindtestPayload>
+        }
+        aggregate: {
+          args: Prisma.ArtistBlindtestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateArtistBlindtest>
+        }
+        groupBy: {
+          args: Prisma.ArtistBlindtestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArtistBlindtestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ArtistBlindtestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArtistBlindtestCountAggregateOutputType> | number
+        }
+      }
+    }
+    BlindtestGenre: {
+      payload: Prisma.$BlindtestGenrePayload<ExtArgs>
+      fields: Prisma.BlindtestGenreFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BlindtestGenreFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BlindtestGenreFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload>
+        }
+        findFirst: {
+          args: Prisma.BlindtestGenreFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BlindtestGenreFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload>
+        }
+        findMany: {
+          args: Prisma.BlindtestGenreFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload>[]
+        }
+        create: {
+          args: Prisma.BlindtestGenreCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload>
+        }
+        createMany: {
+          args: Prisma.BlindtestGenreCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BlindtestGenreCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload>[]
+        }
+        delete: {
+          args: Prisma.BlindtestGenreDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload>
+        }
+        update: {
+          args: Prisma.BlindtestGenreUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload>
+        }
+        deleteMany: {
+          args: Prisma.BlindtestGenreDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BlindtestGenreUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BlindtestGenreUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload>[]
+        }
+        upsert: {
+          args: Prisma.BlindtestGenreUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestGenrePayload>
+        }
+        aggregate: {
+          args: Prisma.BlindtestGenreAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBlindtestGenre>
+        }
+        groupBy: {
+          args: Prisma.BlindtestGenreGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlindtestGenreGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BlindtestGenreCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlindtestGenreCountAggregateOutputType> | number
+        }
+      }
+    }
+    BlindtestTrack: {
+      payload: Prisma.$BlindtestTrackPayload<ExtArgs>
+      fields: Prisma.BlindtestTrackFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BlindtestTrackFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BlindtestTrackFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload>
+        }
+        findFirst: {
+          args: Prisma.BlindtestTrackFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BlindtestTrackFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload>
+        }
+        findMany: {
+          args: Prisma.BlindtestTrackFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload>[]
+        }
+        create: {
+          args: Prisma.BlindtestTrackCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload>
+        }
+        createMany: {
+          args: Prisma.BlindtestTrackCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BlindtestTrackCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload>[]
+        }
+        delete: {
+          args: Prisma.BlindtestTrackDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload>
+        }
+        update: {
+          args: Prisma.BlindtestTrackUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload>
+        }
+        deleteMany: {
+          args: Prisma.BlindtestTrackDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BlindtestTrackUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BlindtestTrackUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload>[]
+        }
+        upsert: {
+          args: Prisma.BlindtestTrackUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestTrackPayload>
+        }
+        aggregate: {
+          args: Prisma.BlindtestTrackAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBlindtestTrack>
+        }
+        groupBy: {
+          args: Prisma.BlindtestTrackGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlindtestTrackGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BlindtestTrackCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlindtestTrackCountAggregateOutputType> | number
+        }
+      }
+    }
+    BlindtestCompulsoryTrack: {
+      payload: Prisma.$BlindtestCompulsoryTrackPayload<ExtArgs>
+      fields: Prisma.BlindtestCompulsoryTrackFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BlindtestCompulsoryTrackFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BlindtestCompulsoryTrackFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload>
+        }
+        findFirst: {
+          args: Prisma.BlindtestCompulsoryTrackFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BlindtestCompulsoryTrackFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload>
+        }
+        findMany: {
+          args: Prisma.BlindtestCompulsoryTrackFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload>[]
+        }
+        create: {
+          args: Prisma.BlindtestCompulsoryTrackCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload>
+        }
+        createMany: {
+          args: Prisma.BlindtestCompulsoryTrackCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BlindtestCompulsoryTrackCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload>[]
+        }
+        delete: {
+          args: Prisma.BlindtestCompulsoryTrackDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload>
+        }
+        update: {
+          args: Prisma.BlindtestCompulsoryTrackUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload>
+        }
+        deleteMany: {
+          args: Prisma.BlindtestCompulsoryTrackDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BlindtestCompulsoryTrackUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BlindtestCompulsoryTrackUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload>[]
+        }
+        upsert: {
+          args: Prisma.BlindtestCompulsoryTrackUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestCompulsoryTrackPayload>
+        }
+        aggregate: {
+          args: Prisma.BlindtestCompulsoryTrackAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBlindtestCompulsoryTrack>
+        }
+        groupBy: {
+          args: Prisma.BlindtestCompulsoryTrackGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlindtestCompulsoryTrackGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BlindtestCompulsoryTrackCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlindtestCompulsoryTrackCountAggregateOutputType> | number
+        }
+      }
+    }
+    Blindtest: {
+      payload: Prisma.$BlindtestPayload<ExtArgs>
+      fields: Prisma.BlindtestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BlindtestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BlindtestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload>
+        }
+        findFirst: {
+          args: Prisma.BlindtestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BlindtestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload>
+        }
+        findMany: {
+          args: Prisma.BlindtestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload>[]
+        }
+        create: {
+          args: Prisma.BlindtestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload>
+        }
+        createMany: {
+          args: Prisma.BlindtestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BlindtestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload>[]
+        }
+        delete: {
+          args: Prisma.BlindtestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload>
+        }
+        update: {
+          args: Prisma.BlindtestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload>
+        }
+        deleteMany: {
+          args: Prisma.BlindtestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BlindtestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BlindtestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload>[]
+        }
+        upsert: {
+          args: Prisma.BlindtestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlindtestPayload>
+        }
+        aggregate: {
+          args: Prisma.BlindtestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBlindtest>
+        }
+        groupBy: {
+          args: Prisma.BlindtestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlindtestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BlindtestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlindtestCountAggregateOutputType> | number
+        }
+      }
+    }
     Preference: {
       payload: Prisma.$PreferencePayload<ExtArgs>
       fields: Prisma.PreferenceFieldRefs
@@ -3354,6 +3729,51 @@ export const PlaylistTrackScalarFieldEnum = {
 export type PlaylistTrackScalarFieldEnum = (typeof PlaylistTrackScalarFieldEnum)[keyof typeof PlaylistTrackScalarFieldEnum]
 
 
+export const ArtistBlindtestScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  artistId: 'artistId'
+} as const
+
+export type ArtistBlindtestScalarFieldEnum = (typeof ArtistBlindtestScalarFieldEnum)[keyof typeof ArtistBlindtestScalarFieldEnum]
+
+
+export const BlindtestGenreScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  genreId: 'genreId'
+} as const
+
+export type BlindtestGenreScalarFieldEnum = (typeof BlindtestGenreScalarFieldEnum)[keyof typeof BlindtestGenreScalarFieldEnum]
+
+
+export const BlindtestTrackScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  trackId: 'trackId'
+} as const
+
+export type BlindtestTrackScalarFieldEnum = (typeof BlindtestTrackScalarFieldEnum)[keyof typeof BlindtestTrackScalarFieldEnum]
+
+
+export const BlindtestCompulsoryTrackScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  trackId: 'trackId'
+} as const
+
+export type BlindtestCompulsoryTrackScalarFieldEnum = (typeof BlindtestCompulsoryTrackScalarFieldEnum)[keyof typeof BlindtestCompulsoryTrackScalarFieldEnum]
+
+
+export const BlindtestScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  blindtestName: 'blindtestName',
+  blindtestLength: 'blindtestLength',
+  blindtestDifficulty: 'blindtestDifficulty',
+  blindtestInstrumental: 'blindtestInstrumental',
+  blindtestYearBegin: 'blindtestYearBegin',
+  blindtestYearEnd: 'blindtestYearEnd'
+} as const
+
+export type BlindtestScalarFieldEnum = (typeof BlindtestScalarFieldEnum)[keyof typeof BlindtestScalarFieldEnum]
+
+
 export const PreferenceScalarFieldEnum = {
   accountId: 'accountId',
   ageRange: 'ageRange',
@@ -3704,6 +4124,11 @@ export type GlobalOmitConfig = {
   trackArtistFeat?: Prisma.TrackArtistFeatOmit
   trackLicense?: Prisma.TrackLicenseOmit
   playlistTrack?: Prisma.PlaylistTrackOmit
+  artistBlindtest?: Prisma.ArtistBlindtestOmit
+  blindtestGenre?: Prisma.BlindtestGenreOmit
+  blindtestTrack?: Prisma.BlindtestTrackOmit
+  blindtestCompulsoryTrack?: Prisma.BlindtestCompulsoryTrackOmit
+  blindtest?: Prisma.BlindtestOmit
   preference?: Prisma.PreferenceOmit
   preferenceVector?: Prisma.PreferenceVectorOmit
   genrePreference?: Prisma.GenrePreferenceOmit
