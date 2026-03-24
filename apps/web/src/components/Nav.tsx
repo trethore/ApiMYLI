@@ -17,8 +17,7 @@ import {
 export default function Nav() {
   const { isAuthenticated } = useAuth();
   const { theme, setTheme } = useTheme();
-  const { isUserAdmin } = useAuth();
-
+  const { user } = useAuth();
 
   return (
     <>
@@ -54,7 +53,7 @@ export default function Nav() {
                 <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
                   Mode {theme === "dark" ? "clair" : "sombre"}
                 </DropdownMenuItem>
-                {isUserAdmin && (
+                {(user?.role === 'admin' || user?.role === 'super_admin') && (
                     <>
                       <DropdownMenuItem asChild>
                         <Link href="/administrer" className="w-full cursor-pointer">Gérer</Link>
@@ -117,7 +116,7 @@ export default function Nav() {
             </div>
           </Link>
           {/* Blindtest */}
-          <Link href="/blindtest">
+          <Link href="/blindtests">
             <div className="w-[17px] h-[17px]">
               <MdMusicVideo />
             </div>
@@ -139,7 +138,7 @@ export default function Nav() {
                   <DropdownMenuItem onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="cursor-pointer">
                     Mode {theme === "dark" ? "clair" : "sombre"}
                   </DropdownMenuItem>
-                  {isUserAdmin && (
+                  {(user?.role === 'admin' || user?.role === 'super_admin') && (
                     <>
                       <DropdownMenuItem asChild>
                         <Link href="/administrer" className="w-full cursor-pointer">Administrer</Link>

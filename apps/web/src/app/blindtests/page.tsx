@@ -2,7 +2,6 @@
 import Nav from "@/components/Nav";
 import SectionTitle from "@/components/SectionTitle";
 import ContentGrid from "@/components/ContentGrid";
-import CoverCarousel from "@/components/CoverCarousel";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import {
@@ -14,6 +13,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { useState, useEffect } from "react";
 import { usePlaylist } from "@/context/PlaylistContext";
@@ -50,10 +50,9 @@ export default function Library() {
   const router = useRouter();
 
   const [newBlindtestName, setNewBlindtestName] = useState("");
+  const [newBlindtestLength, setNewBlindtestLength] = useState<number>(10);
+  const [newBlindtestDifficulty, setNewBlindtestDifficulty] = useState<number>(10);
   const [isCreateOpen, setIsCreateOpen] = useState(false);
-  const [likedTracks, setLikedTracks] = useState<(Music & { type: "Track" })[]>([]);
-  const [pinnedContent, setPinnedContent] = useState<ContentList>([]);
-  const [historyContent, setHistoryContent] = useState<ContentList>([]);
   const [loading, setLoading] = useState(true);
 
   // Fallback local history if not authenticated
@@ -180,6 +179,29 @@ export default function Library() {
                       onChange={(e) => setNewBlindtestName(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && handleCreate()}
                     />
+
+                    <SectionTitle title="Paramètres" className="mt-0" />
+
+                    <Label htmlFor="name">Nombre de morceaux</Label>
+                    <Input
+                      id="length"
+                      type="number"
+                      max={99}
+                      min={0}
+                      value={newBlindtestLength}
+                      onChange={(e) => setNewBlindtestLength(parseInt(e.target.value))}
+                      onKeyDown={(e) => e.key === "Enter" && handleCreate()}
+                    />
+
+                    <Label htmlFor="name">Temps pour deviner (s)</Label>
+                    <Slider
+                      step={1}
+                      max={99}
+                      min={0}
+                      value={[newBlindtestDifficulty]}
+                      onValueChange={(vals: number[]) => setNewBlindtestDifficulty(vals[0])}
+                    />
+
                   </div>
                 </div>
                 <DialogFooter>
@@ -191,13 +213,6 @@ export default function Library() {
               </DialogContent>
             </Dialog>
           </div>
-
-          {!loading && pinnedContent.length > 0 && (
-            <div>
-              <SectionTitle title="Épinglés" className="mt-0" />
-              <ContentGrid items={pinnedContent as any} />
-            </div>
-          )}
 
           <div>
             <SectionTitle title="Mes blindtests" className="mt-0" />
@@ -214,21 +229,6 @@ export default function Library() {
             )}
           </div>
 
-          {historyContent.length > 0 && (
-            <div>
-              <SectionTitle title="Historique" className="mt-0" />
-              <CoverCarousel items={historyContent as any} />
-            </div>
-          )}
-
-          <div>
-            <SectionTitle title="Like" className="mt-0" />
-            {likedTracks.length > 0 ? (
-              <ContentGrid items={likedTracks} />
-            ) : (
-              <p className="text-muted-foreground mt-4">Vous n&apos;avez pas de titres likés.</p>
-            )}
-          </div>
         </div>
       </main>
     </div>

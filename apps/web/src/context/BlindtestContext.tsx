@@ -1,138 +1,137 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { Album, Music } from "@/types/music";
 import { useAuth } from "@/context/AuthContext";
 import {
-  getMyPlaylistsQuery,
-  createPlaylistMutation,
-  deletePlaylistMutation,
-  updatePlaylistMutation,
-  addTrackToPlaylistMutation,
-  removeTrackFromPlaylistMutation,
+  getMyBlindtestsQuery,
+  createBlindtestMutation,
+  deleteBlindtestMutation,
+  updateBlindtestMutation,
+  addTrackToBlindtestMutation,
+  removeTrackFromBlindtestMutation,
   toMusic,
   formatImageUrl,
 } from "@/lib/api-client";
 
-interface PlaylistContextType {
-  playlists: Album[];
-  createPlaylist: (name: string) => Promise<void>;
-  updatePlaylist: (id: string, name: string) => Promise<void>;
-  deletePlaylist: (id: string) => Promise<void>;
-  addTrackToPlaylist: (playlistId: string, track: Music) => Promise<void>;
-  removeTrackFromPlaylist: (playlistId: string, trackId: string) => Promise<void>;
-  isOwnedPlaylist: (id: string) => boolean;
+interface BlindtestContextType {
+  blindtests: Album[];
+  createBlindtest: (name: string) => Promise<void>;
+  updateBlindtest: (id: string, name: string) => Promise<void>;
+  deleteBlindtest: (id: string) => Promise<void>;
+  addTrackToBlindtest: (blindtestId: string, track: Music) => Promise<void>;
+  removeTrackFromBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
+  isOwnedBindtest: (id: string) => boolean;
 }
 
-const PlaylistContext = createContext<PlaylistContextType | undefined>(undefined);
+const BlindtestContext = createContext<BlindtestContextType | undefined>(undefined);
 
-export const PlaylistProvider = ({ children }: { children: ReactNode }) => {
-  const [playlists, setPlaylists] = useState<Album[]>([]);
+export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
+  const [blindtests, setBlindtests] = useState<Album[]>([]);
   const { token } = useAuth();
 
   useEffect(() => {
     const load = async () => {
       if (token) {
         try {
-          const data = await getMyPlaylistsQuery(token);
-          const mapped: Album[] = data.map((p) => ({
-            id: p.playlistId,
-            name: p.name || "Ma Playlist",
+          const data = await getMyBlindtestsQuery(token);
+          const mapped: Album[] = data.map((p: any) => ({
+            id: p.blindtestId,
+            name: p.name || "Mon blindtest",
             artist: p.ownerDisplayName || "User",
             image: p.tracks?.[0]?.imageUrl
               ? formatImageUrl(p.tracks[0].imageUrl)
               : "/placeholder-album.jpg",
-            type: "Playlist",
+            type: "Blindtest",
             tracks: p.tracks ? p.tracks.map(toMusic) : [],
           }));
   
-          setPlaylists(mapped);
+          setBlindtests(mapped);
         } catch (err) {
-          console.error("Failed to load playlists", err);
+          console.error("Failed to load blindtests", err);
         }
       } else {
-        setPlaylists([]);
+        setBlindtests([]);
       }
     };
   
     load();
   }, [token]);
 
-  const createPlaylist = async (name: string) => {
+  const createBlindtest = async (name: string) => {
     if (!token) return;
     try {
-      await createPlaylistMutation(name, token);
-      // await loadPlaylists();
+      await createBlindtestMutation(name, token);
     } catch (err) {
       console.error(err);
     }
   };
 
-  const updatePlaylist = async (id: string, name: string) => {
+  const updateBlindtest = async (id: string, name: string) => {
     if (!token) return;
     try {
-      await updatePlaylistMutation(id, name, token);
-      // await loadPlaylists();
+      await updateBlindtestMutation(id, name, token);
+      // await loadBlindtests();
     } catch (err) {
       console.error(err);
     }
   };
 
-  const deletePlaylist = async (id: string) => {
+  const deleteBlindtest = async (id: string) => {
     if (!token) return;
     try {
-      await deletePlaylistMutation(id, token);
-      // await loadPlaylists();
+      await deleteBlindtestMutation(id, token);
+      // await loadBlindtests();
     } catch (err) {
       console.error(err);
     }
   };
 
-  const addTrackToPlaylist = async (playlistId: string, track: Music) => {
+  const addTrackToBlindtest = async (blindtestId: string, track: Music) => {
     if (!token) return;
     try {
-      await addTrackToPlaylistMutation(playlistId, track.id, token);
-      // await loadPlaylists();
+      await addTrackToBlindtestMutation(blindtestId, track.id, token);
+      // await loadBlindtests();
     } catch (err) {
       console.error(err);
     }
   };
 
-  const removeTrackFromPlaylist = async (playlistId: string, trackId: string) => {
+  const removeTrackFromBlindtest = async (blindtestId: string, trackId: string) => {
     if (!token) return;
     try {
-      await removeTrackFromPlaylistMutation(playlistId, trackId, token);
-      // await loadPlaylists();
+      await removeTrackFromBlindtestMutation(blindtestId, trackId, token);
+      // await loadBlindtests();
     } catch (err) {
       console.error(err);
     }
   };
 
-  const isOwnedPlaylist = (id: string) => {
-    return playlists.some((p) => p.id === id);
+  const isOwnedBlindtest = (id: string) => {
+    return blindtests.some((p) => p.id === id);
   };
 
   return (
-    <PlaylistContext.Provider
+    <BlindtestContext.Provider
       value={{
-        playlists,
-        createPlaylist,
-        updatePlaylist,
-        deletePlaylist,
-        addTrackToPlaylist,
-        removeTrackFromPlaylist,
-        isOwnedPlaylist,
+        blindtests,
+        createBlindtest,
+        updateBlindtest,
+        deleteBlindtest,
+        addTrackToBlindtest,
+        removeTrackFromBlindtest,
+        isOwnedBlindtest,
       }}
     >
       {children}
-    </PlaylistContext.Provider>
+    </BlindtestContext.Provider>
   );
 };
 
-export const usePlaylist = () => {
-  const context = useContext(PlaylistContext);
+export const useBlindtest = () => {
+  const context = useContext(BlindtestContext);
   if (context === undefined) {
-    throw new Error("usePlaylist must be used within a PlaylistProvider");
+    throw new Error("useBlindtest must be used within a BlindtestProvider");
   }
   return context;
 };
