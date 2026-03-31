@@ -65,9 +65,10 @@ export default function Library() {
       if (!isAuthenticated && !localToken) {
         router.push("/login");
         return;
-      }
+      }      
 
       const activeToken = token || (localToken as string);
+
       if (activeToken) {
         try {
           const [likedRes, pinnedRes, historyRes] = await Promise.all([

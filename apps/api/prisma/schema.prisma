@@ -22,6 +22,7 @@ model Account {
   pinnedItems             AccountPinnedItem[]
   artist                  Artist?
   playlistAccounts        PlaylistAccount[]
+  accountBlindtests       AccountBlindtest[]
   preference              Preference?
   preferenceVector        PreferenceVector?
   trackLikes              TrackAccountLike[]
@@ -846,19 +847,31 @@ model BlindtestCompulsoryTrack {
 
 model Blindtest {
   blindtestId           String   @id @default(dbgenerated("uuid_generate_v4()")) @map("blindtest_id") @db.Uuid
-  blindtestName         String   @map("blindtest_name") @db.VarChar(255)
-  blindtestLength       Int      @map("blindtest_length")
-  blindtestDifficulty   Int      @map("blindtest_difficulty")
+  blindtestName         String?  @map("blindtest_name") @db.VarChar(255)
+  blindtestLength       Int      @default(10) @map("blindtest_length")
+  blindtestDifficulty   Int      @default(10) @map("blindtest_difficulty")
   blindtestInstrumental Boolean? @map("blindtest_instrumental")
   blindtestYearBegin    Int?     @map("blindtest_year_begin")
   blindtestYearEnd      Int?     @map("blindtest_year_end")
 
-  BlindtestGenres           BlindtestGenre[]
+  blindtestGenres           BlindtestGenre[]
   artistBlindtests          ArtistBlindtest[]
   blindtestCompulsoryTracks BlindtestCompulsoryTrack[]
   blindtestTracks           BlindtestTrack[]
 
+  accountBlindtests         AccountBlindtest[]
+
   @@map("blindtest")
+}
+
+model AccountBlindtest {
+  blindtestId String   @map("blindtest_id") @db.Uuid
+  accountId  String   @map("account_id") @db.Uuid
+  account    Account  @relation(fields: [accountId], references: [accountId])
+  blindtest  Blindtest @relation(fields: [blindtestId], references: [blindtestId])
+
+  @@id([blindtestId, accountId])
+  @@map("blindtest_account")
 }
 
 model Preference {

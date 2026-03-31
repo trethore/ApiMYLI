@@ -409,6 +409,7 @@ export const ModelName = {
   BlindtestTrack: 'BlindtestTrack',
   BlindtestCompulsoryTrack: 'BlindtestCompulsoryTrack',
   Blindtest: 'Blindtest',
+  AccountBlindtest: 'AccountBlindtest',
   Preference: 'Preference',
   PreferenceVector: 'PreferenceVector',
   GenrePreference: 'GenrePreference',
@@ -433,7 +434,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "artistBlindtest" | "blindtestGenre" | "blindtestTrack" | "blindtestCompulsoryTrack" | "blindtest" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountListen" | "trackListenHistoryItem" | "accountPinnedItem" | "trackComment"
+    modelProps: "account" | "artist" | "album" | "genre" | "track" | "audioFeature" | "temporalFeature" | "tag" | "playlist" | "license" | "rankTrack" | "rankArtist" | "trackGenre" | "trackTag" | "artistTag" | "albumArtist" | "trackArtistMain" | "trackArtistFeat" | "trackLicense" | "playlistTrack" | "artistBlindtest" | "blindtestGenre" | "blindtestTrack" | "blindtestCompulsoryTrack" | "blindtest" | "accountBlindtest" | "preference" | "preferenceVector" | "genrePreference" | "playlistAccount" | "trackAccountLike" | "trackAccountListen" | "trackListenHistoryItem" | "accountPinnedItem" | "trackComment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2287,6 +2288,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AccountBlindtest: {
+      payload: Prisma.$AccountBlindtestPayload<ExtArgs>
+      fields: Prisma.AccountBlindtestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AccountBlindtestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AccountBlindtestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload>
+        }
+        findFirst: {
+          args: Prisma.AccountBlindtestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AccountBlindtestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload>
+        }
+        findMany: {
+          args: Prisma.AccountBlindtestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload>[]
+        }
+        create: {
+          args: Prisma.AccountBlindtestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload>
+        }
+        createMany: {
+          args: Prisma.AccountBlindtestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AccountBlindtestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload>[]
+        }
+        delete: {
+          args: Prisma.AccountBlindtestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload>
+        }
+        update: {
+          args: Prisma.AccountBlindtestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload>
+        }
+        deleteMany: {
+          args: Prisma.AccountBlindtestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AccountBlindtestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AccountBlindtestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload>[]
+        }
+        upsert: {
+          args: Prisma.AccountBlindtestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccountBlindtestPayload>
+        }
+        aggregate: {
+          args: Prisma.AccountBlindtestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAccountBlindtest>
+        }
+        groupBy: {
+          args: Prisma.AccountBlindtestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AccountBlindtestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AccountBlindtestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AccountBlindtestCountAggregateOutputType> | number
+        }
+      }
+    }
     Preference: {
       payload: Prisma.$PreferencePayload<ExtArgs>
       fields: Prisma.PreferenceFieldRefs
@@ -3774,6 +3849,14 @@ export const BlindtestScalarFieldEnum = {
 export type BlindtestScalarFieldEnum = (typeof BlindtestScalarFieldEnum)[keyof typeof BlindtestScalarFieldEnum]
 
 
+export const AccountBlindtestScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  accountId: 'accountId'
+} as const
+
+export type AccountBlindtestScalarFieldEnum = (typeof AccountBlindtestScalarFieldEnum)[keyof typeof AccountBlindtestScalarFieldEnum]
+
+
 export const PreferenceScalarFieldEnum = {
   accountId: 'accountId',
   ageRange: 'ageRange',
@@ -4129,6 +4212,7 @@ export type GlobalOmitConfig = {
   blindtestTrack?: Prisma.BlindtestTrackOmit
   blindtestCompulsoryTrack?: Prisma.BlindtestCompulsoryTrackOmit
   blindtest?: Prisma.BlindtestOmit
+  accountBlindtest?: Prisma.AccountBlindtestOmit
   preference?: Prisma.PreferenceOmit
   preferenceVector?: Prisma.PreferenceVectorOmit
   genrePreference?: Prisma.GenrePreferenceOmit

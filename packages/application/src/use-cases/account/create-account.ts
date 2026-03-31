@@ -1,6 +1,7 @@
 import type { Account } from "packages/domain/src/entities/account";
 import type { AccountRepository } from "packages/domain/src/repositories/account-repository";
 import type { PasswordHasherPort } from "packages/application/src/ports/security/password-hasher-port";
+import { GraphQLError } from "graphql";
 
 const PASSWORD_REGEX = /^(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{12,}$/;
 
@@ -33,21 +34,21 @@ export const createAccount = async (
   const email = input.email.trim();
 
   if (!login) {
-    throw new Error("Login is required");
+    throw new GraphQLError("Pseudo requis");
   }
 
   if (!email) {
-    throw new Error("Email is required");
+    throw new GraphQLError("Email requis");
   }
 
   const existingLogin = await dependencies.accountRepository.findByLogin(login);
   if (existingLogin) {
-    throw new Error("Login already in use");
+    throw new GraphQLError("Pseudo déjà pris");
   }
 
   const existingEmail = await dependencies.accountRepository.findByEmail(email);
   if (existingEmail) {
-    throw new Error("Email already in use");
+    throw new GraphQLError("Email déjà pris");
   }
 
   validatePassword(input.password);

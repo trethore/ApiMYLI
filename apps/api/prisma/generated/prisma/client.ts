@@ -165,6 +165,11 @@ export type BlindtestCompulsoryTrack = Prisma.BlindtestCompulsoryTrackModel
  */
 export type Blindtest = Prisma.BlindtestModel
 /**
+ * Model AccountBlindtest
+ * 
+ */
+export type AccountBlindtest = Prisma.AccountBlindtestModel
+/**
  * Model Preference
  * 
  */

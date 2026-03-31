@@ -1,33 +1,28 @@
 "use client";
 
 import { createContext, useContext, useState, ReactNode, useEffect } from "react";
-import { Album, Music } from "@/types/music";
+import { Blindtest, Music } from "@/types/music";
 import { useAuth } from "@/context/AuthContext";
 import {
   getMyBlindtestsQuery,
-  createBlindtestMutation,
-  deleteBlindtestMutation,
-  updateBlindtestMutation,
-  addTrackToBlindtestMutation,
-  removeTrackFromBlindtestMutation,
   toMusic,
   formatImageUrl,
 } from "@/lib/api-client";
 
 interface BlindtestContextType {
-  blindtests: Album[];
+  blindtests: Blindtest[];
   createBlindtest: (name: string) => Promise<void>;
   updateBlindtest: (id: string, name: string) => Promise<void>;
   deleteBlindtest: (id: string) => Promise<void>;
-  addTrackToBlindtest: (blindtestId: string, track: Music) => Promise<void>;
-  removeTrackFromBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
+  addCompulsoryTrackToBlindtest: (blindtestId: string, track: Music) => Promise<void>;
+  removeCompulsoryTrackFromBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
   isOwnedBindtest: (id: string) => boolean;
 }
 
 const BlindtestContext = createContext<BlindtestContextType | undefined>(undefined);
 
 export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
-  const [blindtests, setBlindtests] = useState<Album[]>([]);
+  const [blindtests, setBlindtests] = useState<Blindtest[]>([]);
   const { token } = useAuth();
 
   useEffect(() => {
@@ -35,7 +30,7 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
       if (token) {
         try {
           const data = await getMyBlindtestsQuery(token);
-          const mapped: Album[] = data.map((p: any) => ({
+          const mapped: Blindtest[] = data.map((p: any) => ({
             id: p.blindtestId,
             name: p.name || "Mon blindtest",
             artist: p.ownerDisplayName || "User",
@@ -87,20 +82,20 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const addTrackToBlindtest = async (blindtestId: string, track: Music) => {
+  const addCompulsoryTrackToBlindtest = async (blindtestId: string, track: Music) => {
     if (!token) return;
     try {
-      await addTrackToBlindtestMutation(blindtestId, track.id, token);
+      await addCompulsoryTrackToBlindtestMutation(blindtestId, track.id, token);
       // await loadBlindtests();
     } catch (err) {
       console.error(err);
     }
   };
 
-  const removeTrackFromBlindtest = async (blindtestId: string, trackId: string) => {
+  const removeCompulsoryTrackFromBlindtest = async (blindtestId: string, trackId: string) => {
     if (!token) return;
     try {
-      await removeTrackFromBlindtestMutation(blindtestId, trackId, token);
+      await removeCompulsoryTrackFromBlindtestMutation(blindtestId, trackId, token);
       // await loadBlindtests();
     } catch (err) {
       console.error(err);
@@ -118,8 +113,8 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
         createBlindtest,
         updateBlindtest,
         deleteBlindtest,
-        addTrackToBlindtest,
-        removeTrackFromBlindtest,
+        addCompulsoryTrackToBlindtest,
+        removeCompulsoryTrackFromBlindtest,
         isOwnedBlindtest,
       }}
     >

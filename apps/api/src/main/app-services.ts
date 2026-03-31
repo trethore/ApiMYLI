@@ -16,6 +16,8 @@ import { createPrismaPinnedItemRepository } from "@/infrastructure/prisma-pinned
 import { createPrismaPlaylistRepository } from "@/infrastructure/prisma-playlist-repository";
 import { createPrismaTrackCatalogRepository } from "@/infrastructure/prisma-track-catalog-repository";
 import { createPrismaTrackLibraryRepository } from "@/infrastructure/prisma-track-library-repository";
+import { BlindtestRepository } from "packages/domain/src/repositories/blindtest-repository";
+import { createPrismaBlindtestRepository } from "@/infrastructure/prisma-blindtest-repository";
 
 export type AppServices = {
   accountRepository: AccountRepository;
@@ -24,6 +26,7 @@ export type AppServices = {
   trackCatalogRepository: TrackCatalogRepository;
   trackLibraryRepository: TrackLibraryRepository;
   playlistRepository: PlaylistRepository;
+  blindtestRepository: BlindtestRepository;
   passwordHasher: PasswordHasherPort;
   authTokenService: AuthTokenServicePort;
 };
@@ -35,6 +38,7 @@ export const createAppServices = (prisma: PrismaClient, redis: Redis): AppServic
   trackCatalogRepository: createPrismaTrackCatalogRepository(prisma),
   trackLibraryRepository: createPrismaTrackLibraryRepository(prisma),
   playlistRepository: createPrismaPlaylistRepository(prisma),
+  blindtestRepository: createPrismaBlindtestRepository(prisma),
   passwordHasher: argon2PasswordHasher,
   authTokenService: createRedisJwtAuthTokenService(redis),
 });

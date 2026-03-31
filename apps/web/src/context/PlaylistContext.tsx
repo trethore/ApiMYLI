@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { Album, Music } from "@/types/music";
 import { useAuth } from "@/context/AuthContext";
 import {

@@ -205,7 +205,7 @@ export type BlindtestGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 
 export type BlindtestGroupByOutputType = {
   blindtestId: string
-  blindtestName: string
+  blindtestName: string | null
   blindtestLength: number
   blindtestDifficulty: number
   blindtestInstrumental: boolean | null
@@ -238,30 +238,32 @@ export type BlindtestWhereInput = {
   OR?: Prisma.BlindtestWhereInput[]
   NOT?: Prisma.BlindtestWhereInput | Prisma.BlindtestWhereInput[]
   blindtestId?: Prisma.UuidFilter<"Blindtest"> | string
-  blindtestName?: Prisma.StringFilter<"Blindtest"> | string
+  blindtestName?: Prisma.StringNullableFilter<"Blindtest"> | string | null
   blindtestLength?: Prisma.IntFilter<"Blindtest"> | number
   blindtestDifficulty?: Prisma.IntFilter<"Blindtest"> | number
   blindtestInstrumental?: Prisma.BoolNullableFilter<"Blindtest"> | boolean | null
   blindtestYearBegin?: Prisma.IntNullableFilter<"Blindtest"> | number | null
   blindtestYearEnd?: Prisma.IntNullableFilter<"Blindtest"> | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreListRelationFilter
+  blindtestGenres?: Prisma.BlindtestGenreListRelationFilter
   artistBlindtests?: Prisma.ArtistBlindtestListRelationFilter
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackListRelationFilter
   blindtestTracks?: Prisma.BlindtestTrackListRelationFilter
+  accountBlindtests?: Prisma.AccountBlindtestListRelationFilter
 }
 
 export type BlindtestOrderByWithRelationInput = {
   blindtestId?: Prisma.SortOrder
-  blindtestName?: Prisma.SortOrder
+  blindtestName?: Prisma.SortOrderInput | Prisma.SortOrder
   blindtestLength?: Prisma.SortOrder
   blindtestDifficulty?: Prisma.SortOrder
   blindtestInstrumental?: Prisma.SortOrderInput | Prisma.SortOrder
   blindtestYearBegin?: Prisma.SortOrderInput | Prisma.SortOrder
   blindtestYearEnd?: Prisma.SortOrderInput | Prisma.SortOrder
-  BlindtestGenres?: Prisma.BlindtestGenreOrderByRelationAggregateInput
+  blindtestGenres?: Prisma.BlindtestGenreOrderByRelationAggregateInput
   artistBlindtests?: Prisma.ArtistBlindtestOrderByRelationAggregateInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackOrderByRelationAggregateInput
   blindtestTracks?: Prisma.BlindtestTrackOrderByRelationAggregateInput
+  accountBlindtests?: Prisma.AccountBlindtestOrderByRelationAggregateInput
 }
 
 export type BlindtestWhereUniqueInput = Prisma.AtLeast<{
@@ -269,21 +271,22 @@ export type BlindtestWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.BlindtestWhereInput | Prisma.BlindtestWhereInput[]
   OR?: Prisma.BlindtestWhereInput[]
   NOT?: Prisma.BlindtestWhereInput | Prisma.BlindtestWhereInput[]
-  blindtestName?: Prisma.StringFilter<"Blindtest"> | string
+  blindtestName?: Prisma.StringNullableFilter<"Blindtest"> | string | null
   blindtestLength?: Prisma.IntFilter<"Blindtest"> | number
   blindtestDifficulty?: Prisma.IntFilter<"Blindtest"> | number
   blindtestInstrumental?: Prisma.BoolNullableFilter<"Blindtest"> | boolean | null
   blindtestYearBegin?: Prisma.IntNullableFilter<"Blindtest"> | number | null
   blindtestYearEnd?: Prisma.IntNullableFilter<"Blindtest"> | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreListRelationFilter
+  blindtestGenres?: Prisma.BlindtestGenreListRelationFilter
   artistBlindtests?: Prisma.ArtistBlindtestListRelationFilter
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackListRelationFilter
   blindtestTracks?: Prisma.BlindtestTrackListRelationFilter
+  accountBlindtests?: Prisma.AccountBlindtestListRelationFilter
 }, "blindtestId">
 
 export type BlindtestOrderByWithAggregationInput = {
   blindtestId?: Prisma.SortOrder
-  blindtestName?: Prisma.SortOrder
+  blindtestName?: Prisma.SortOrderInput | Prisma.SortOrder
   blindtestLength?: Prisma.SortOrder
   blindtestDifficulty?: Prisma.SortOrder
   blindtestInstrumental?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -301,7 +304,7 @@ export type BlindtestScalarWhereWithAggregatesInput = {
   OR?: Prisma.BlindtestScalarWhereWithAggregatesInput[]
   NOT?: Prisma.BlindtestScalarWhereWithAggregatesInput | Prisma.BlindtestScalarWhereWithAggregatesInput[]
   blindtestId?: Prisma.UuidWithAggregatesFilter<"Blindtest"> | string
-  blindtestName?: Prisma.StringWithAggregatesFilter<"Blindtest"> | string
+  blindtestName?: Prisma.StringNullableWithAggregatesFilter<"Blindtest"> | string | null
   blindtestLength?: Prisma.IntWithAggregatesFilter<"Blindtest"> | number
   blindtestDifficulty?: Prisma.IntWithAggregatesFilter<"Blindtest"> | number
   blindtestInstrumental?: Prisma.BoolNullableWithAggregatesFilter<"Blindtest"> | boolean | null
@@ -311,65 +314,69 @@ export type BlindtestScalarWhereWithAggregatesInput = {
 
 export type BlindtestCreateInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
-  BlindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutBlindtestInput
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutBlindtestInput
   artistBlindtests?: Prisma.ArtistBlindtestCreateNestedManyWithoutBlindtestInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackCreateNestedManyWithoutBlindtestInput
   blindtestTracks?: Prisma.BlindtestTrackCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestUncheckedCreateInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutBlindtestInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutBlindtestInput
   artistBlindtests?: Prisma.ArtistBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedCreateNestedManyWithoutBlindtestInput
   blindtestTracks?: Prisma.BlindtestTrackUncheckedCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestUpdateInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutBlindtestNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutBlindtestNestedInput
   artistBlindtests?: Prisma.ArtistBlindtestUpdateManyWithoutBlindtestNestedInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUpdateManyWithoutBlindtestNestedInput
   blindtestTracks?: Prisma.BlindtestTrackUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUpdateManyWithoutBlindtestNestedInput
 }
 
 export type BlindtestUncheckedUpdateInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutBlindtestNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutBlindtestNestedInput
   artistBlindtests?: Prisma.ArtistBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedUpdateManyWithoutBlindtestNestedInput
   blindtestTracks?: Prisma.BlindtestTrackUncheckedUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
 }
 
 export type BlindtestCreateManyInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
@@ -377,7 +384,7 @@ export type BlindtestCreateManyInput = {
 
 export type BlindtestUpdateManyMutationInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -387,7 +394,7 @@ export type BlindtestUpdateManyMutationInput = {
 
 export type BlindtestUncheckedUpdateManyInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -508,30 +515,46 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type BlindtestCreateNestedOneWithoutAccountBlindtestsInput = {
+  create?: Prisma.XOR<Prisma.BlindtestCreateWithoutAccountBlindtestsInput, Prisma.BlindtestUncheckedCreateWithoutAccountBlindtestsInput>
+  connectOrCreate?: Prisma.BlindtestCreateOrConnectWithoutAccountBlindtestsInput
+  connect?: Prisma.BlindtestWhereUniqueInput
+}
+
+export type BlindtestUpdateOneRequiredWithoutAccountBlindtestsNestedInput = {
+  create?: Prisma.XOR<Prisma.BlindtestCreateWithoutAccountBlindtestsInput, Prisma.BlindtestUncheckedCreateWithoutAccountBlindtestsInput>
+  connectOrCreate?: Prisma.BlindtestCreateOrConnectWithoutAccountBlindtestsInput
+  upsert?: Prisma.BlindtestUpsertWithoutAccountBlindtestsInput
+  connect?: Prisma.BlindtestWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.BlindtestUpdateToOneWithWhereWithoutAccountBlindtestsInput, Prisma.BlindtestUpdateWithoutAccountBlindtestsInput>, Prisma.BlindtestUncheckedUpdateWithoutAccountBlindtestsInput>
+}
+
 export type BlindtestCreateWithoutArtistBlindtestsInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
-  BlindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutBlindtestInput
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutBlindtestInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackCreateNestedManyWithoutBlindtestInput
   blindtestTracks?: Prisma.BlindtestTrackCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestUncheckedCreateWithoutArtistBlindtestsInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutBlindtestInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutBlindtestInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedCreateNestedManyWithoutBlindtestInput
   blindtestTracks?: Prisma.BlindtestTrackUncheckedCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestCreateOrConnectWithoutArtistBlindtestsInput = {
@@ -552,54 +575,58 @@ export type BlindtestUpdateToOneWithWhereWithoutArtistBlindtestsInput = {
 
 export type BlindtestUpdateWithoutArtistBlindtestsInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutBlindtestNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutBlindtestNestedInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUpdateManyWithoutBlindtestNestedInput
   blindtestTracks?: Prisma.BlindtestTrackUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUpdateManyWithoutBlindtestNestedInput
 }
 
 export type BlindtestUncheckedUpdateWithoutArtistBlindtestsInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutBlindtestNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutBlindtestNestedInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedUpdateManyWithoutBlindtestNestedInput
   blindtestTracks?: Prisma.BlindtestTrackUncheckedUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
 }
 
 export type BlindtestCreateWithoutBlindtestGenresInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
   artistBlindtests?: Prisma.ArtistBlindtestCreateNestedManyWithoutBlindtestInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackCreateNestedManyWithoutBlindtestInput
   blindtestTracks?: Prisma.BlindtestTrackCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestUncheckedCreateWithoutBlindtestGenresInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
   artistBlindtests?: Prisma.ArtistBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedCreateNestedManyWithoutBlindtestInput
   blindtestTracks?: Prisma.BlindtestTrackUncheckedCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestCreateOrConnectWithoutBlindtestGenresInput = {
@@ -620,7 +647,7 @@ export type BlindtestUpdateToOneWithWhereWithoutBlindtestGenresInput = {
 
 export type BlindtestUpdateWithoutBlindtestGenresInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -629,11 +656,12 @@ export type BlindtestUpdateWithoutBlindtestGenresInput = {
   artistBlindtests?: Prisma.ArtistBlindtestUpdateManyWithoutBlindtestNestedInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUpdateManyWithoutBlindtestNestedInput
   blindtestTracks?: Prisma.BlindtestTrackUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUpdateManyWithoutBlindtestNestedInput
 }
 
 export type BlindtestUncheckedUpdateWithoutBlindtestGenresInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -642,32 +670,35 @@ export type BlindtestUncheckedUpdateWithoutBlindtestGenresInput = {
   artistBlindtests?: Prisma.ArtistBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedUpdateManyWithoutBlindtestNestedInput
   blindtestTracks?: Prisma.BlindtestTrackUncheckedUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
 }
 
 export type BlindtestCreateWithoutBlindtestTracksInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
-  BlindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutBlindtestInput
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutBlindtestInput
   artistBlindtests?: Prisma.ArtistBlindtestCreateNestedManyWithoutBlindtestInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestUncheckedCreateWithoutBlindtestTracksInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutBlindtestInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutBlindtestInput
   artistBlindtests?: Prisma.ArtistBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestCreateOrConnectWithoutBlindtestTracksInput = {
@@ -688,54 +719,58 @@ export type BlindtestUpdateToOneWithWhereWithoutBlindtestTracksInput = {
 
 export type BlindtestUpdateWithoutBlindtestTracksInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutBlindtestNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutBlindtestNestedInput
   artistBlindtests?: Prisma.ArtistBlindtestUpdateManyWithoutBlindtestNestedInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUpdateManyWithoutBlindtestNestedInput
 }
 
 export type BlindtestUncheckedUpdateWithoutBlindtestTracksInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutBlindtestNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutBlindtestNestedInput
   artistBlindtests?: Prisma.ArtistBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
   blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
 }
 
 export type BlindtestCreateWithoutBlindtestCompulsoryTracksInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
-  BlindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutBlindtestInput
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutBlindtestInput
   artistBlindtests?: Prisma.ArtistBlindtestCreateNestedManyWithoutBlindtestInput
   blindtestTracks?: Prisma.BlindtestTrackCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestUncheckedCreateWithoutBlindtestCompulsoryTracksInput = {
   blindtestId?: string
-  blindtestName: string
-  blindtestLength: number
-  blindtestDifficulty: number
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
   blindtestInstrumental?: boolean | null
   blindtestYearBegin?: number | null
   blindtestYearEnd?: number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutBlindtestInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutBlindtestInput
   artistBlindtests?: Prisma.ArtistBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
   blindtestTracks?: Prisma.BlindtestTrackUncheckedCreateNestedManyWithoutBlindtestInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
 }
 
 export type BlindtestCreateOrConnectWithoutBlindtestCompulsoryTracksInput = {
@@ -756,27 +791,101 @@ export type BlindtestUpdateToOneWithWhereWithoutBlindtestCompulsoryTracksInput =
 
 export type BlindtestUpdateWithoutBlindtestCompulsoryTracksInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutBlindtestNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutBlindtestNestedInput
   artistBlindtests?: Prisma.ArtistBlindtestUpdateManyWithoutBlindtestNestedInput
   blindtestTracks?: Prisma.BlindtestTrackUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUpdateManyWithoutBlindtestNestedInput
 }
 
 export type BlindtestUncheckedUpdateWithoutBlindtestCompulsoryTracksInput = {
   blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
-  blindtestName?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
   blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  BlindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutBlindtestNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutBlindtestNestedInput
   artistBlindtests?: Prisma.ArtistBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
+  blindtestTracks?: Prisma.BlindtestTrackUncheckedUpdateManyWithoutBlindtestNestedInput
+  accountBlindtests?: Prisma.AccountBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
+}
+
+export type BlindtestCreateWithoutAccountBlindtestsInput = {
+  blindtestId?: string
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
+  blindtestInstrumental?: boolean | null
+  blindtestYearBegin?: number | null
+  blindtestYearEnd?: number | null
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutBlindtestInput
+  artistBlindtests?: Prisma.ArtistBlindtestCreateNestedManyWithoutBlindtestInput
+  blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackCreateNestedManyWithoutBlindtestInput
+  blindtestTracks?: Prisma.BlindtestTrackCreateNestedManyWithoutBlindtestInput
+}
+
+export type BlindtestUncheckedCreateWithoutAccountBlindtestsInput = {
+  blindtestId?: string
+  blindtestName?: string | null
+  blindtestLength?: number
+  blindtestDifficulty?: number
+  blindtestInstrumental?: boolean | null
+  blindtestYearBegin?: number | null
+  blindtestYearEnd?: number | null
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutBlindtestInput
+  artistBlindtests?: Prisma.ArtistBlindtestUncheckedCreateNestedManyWithoutBlindtestInput
+  blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedCreateNestedManyWithoutBlindtestInput
+  blindtestTracks?: Prisma.BlindtestTrackUncheckedCreateNestedManyWithoutBlindtestInput
+}
+
+export type BlindtestCreateOrConnectWithoutAccountBlindtestsInput = {
+  where: Prisma.BlindtestWhereUniqueInput
+  create: Prisma.XOR<Prisma.BlindtestCreateWithoutAccountBlindtestsInput, Prisma.BlindtestUncheckedCreateWithoutAccountBlindtestsInput>
+}
+
+export type BlindtestUpsertWithoutAccountBlindtestsInput = {
+  update: Prisma.XOR<Prisma.BlindtestUpdateWithoutAccountBlindtestsInput, Prisma.BlindtestUncheckedUpdateWithoutAccountBlindtestsInput>
+  create: Prisma.XOR<Prisma.BlindtestCreateWithoutAccountBlindtestsInput, Prisma.BlindtestUncheckedCreateWithoutAccountBlindtestsInput>
+  where?: Prisma.BlindtestWhereInput
+}
+
+export type BlindtestUpdateToOneWithWhereWithoutAccountBlindtestsInput = {
+  where?: Prisma.BlindtestWhereInput
+  data: Prisma.XOR<Prisma.BlindtestUpdateWithoutAccountBlindtestsInput, Prisma.BlindtestUncheckedUpdateWithoutAccountBlindtestsInput>
+}
+
+export type BlindtestUpdateWithoutAccountBlindtestsInput = {
+  blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
+  blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
+  blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutBlindtestNestedInput
+  artistBlindtests?: Prisma.ArtistBlindtestUpdateManyWithoutBlindtestNestedInput
+  blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUpdateManyWithoutBlindtestNestedInput
+  blindtestTracks?: Prisma.BlindtestTrackUpdateManyWithoutBlindtestNestedInput
+}
+
+export type BlindtestUncheckedUpdateWithoutAccountBlindtestsInput = {
+  blindtestId?: Prisma.StringFieldUpdateOperationsInput | string
+  blindtestName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  blindtestLength?: Prisma.IntFieldUpdateOperationsInput | number
+  blindtestDifficulty?: Prisma.IntFieldUpdateOperationsInput | number
+  blindtestInstrumental?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  blindtestYearBegin?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  blindtestYearEnd?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutBlindtestNestedInput
+  artistBlindtests?: Prisma.ArtistBlindtestUncheckedUpdateManyWithoutBlindtestNestedInput
+  blindtestCompulsoryTracks?: Prisma.BlindtestCompulsoryTrackUncheckedUpdateManyWithoutBlindtestNestedInput
   blindtestTracks?: Prisma.BlindtestTrackUncheckedUpdateManyWithoutBlindtestNestedInput
 }
 
@@ -786,17 +895,19 @@ export type BlindtestUncheckedUpdateWithoutBlindtestCompulsoryTracksInput = {
  */
 
 export type BlindtestCountOutputType = {
-  BlindtestGenres: number
+  blindtestGenres: number
   artistBlindtests: number
   blindtestCompulsoryTracks: number
   blindtestTracks: number
+  accountBlindtests: number
 }
 
 export type BlindtestCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  BlindtestGenres?: boolean | BlindtestCountOutputTypeCountBlindtestGenresArgs
+  blindtestGenres?: boolean | BlindtestCountOutputTypeCountBlindtestGenresArgs
   artistBlindtests?: boolean | BlindtestCountOutputTypeCountArtistBlindtestsArgs
   blindtestCompulsoryTracks?: boolean | BlindtestCountOutputTypeCountBlindtestCompulsoryTracksArgs
   blindtestTracks?: boolean | BlindtestCountOutputTypeCountBlindtestTracksArgs
+  accountBlindtests?: boolean | BlindtestCountOutputTypeCountAccountBlindtestsArgs
 }
 
 /**
@@ -837,6 +948,13 @@ export type BlindtestCountOutputTypeCountBlindtestTracksArgs<ExtArgs extends run
   where?: Prisma.BlindtestTrackWhereInput
 }
 
+/**
+ * BlindtestCountOutputType without action
+ */
+export type BlindtestCountOutputTypeCountAccountBlindtestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AccountBlindtestWhereInput
+}
+
 
 export type BlindtestSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   blindtestId?: boolean
@@ -846,10 +964,11 @@ export type BlindtestSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   blindtestInstrumental?: boolean
   blindtestYearBegin?: boolean
   blindtestYearEnd?: boolean
-  BlindtestGenres?: boolean | Prisma.Blindtest$BlindtestGenresArgs<ExtArgs>
+  blindtestGenres?: boolean | Prisma.Blindtest$blindtestGenresArgs<ExtArgs>
   artistBlindtests?: boolean | Prisma.Blindtest$artistBlindtestsArgs<ExtArgs>
   blindtestCompulsoryTracks?: boolean | Prisma.Blindtest$blindtestCompulsoryTracksArgs<ExtArgs>
   blindtestTracks?: boolean | Prisma.Blindtest$blindtestTracksArgs<ExtArgs>
+  accountBlindtests?: boolean | Prisma.Blindtest$accountBlindtestsArgs<ExtArgs>
   _count?: boolean | Prisma.BlindtestCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["blindtest"]>
 
@@ -885,10 +1004,11 @@ export type BlindtestSelectScalar = {
 
 export type BlindtestOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"blindtestId" | "blindtestName" | "blindtestLength" | "blindtestDifficulty" | "blindtestInstrumental" | "blindtestYearBegin" | "blindtestYearEnd", ExtArgs["result"]["blindtest"]>
 export type BlindtestInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  BlindtestGenres?: boolean | Prisma.Blindtest$BlindtestGenresArgs<ExtArgs>
+  blindtestGenres?: boolean | Prisma.Blindtest$blindtestGenresArgs<ExtArgs>
   artistBlindtests?: boolean | Prisma.Blindtest$artistBlindtestsArgs<ExtArgs>
   blindtestCompulsoryTracks?: boolean | Prisma.Blindtest$blindtestCompulsoryTracksArgs<ExtArgs>
   blindtestTracks?: boolean | Prisma.Blindtest$blindtestTracksArgs<ExtArgs>
+  accountBlindtests?: boolean | Prisma.Blindtest$accountBlindtestsArgs<ExtArgs>
   _count?: boolean | Prisma.BlindtestCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type BlindtestIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -897,14 +1017,15 @@ export type BlindtestIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
 export type $BlindtestPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Blindtest"
   objects: {
-    BlindtestGenres: Prisma.$BlindtestGenrePayload<ExtArgs>[]
+    blindtestGenres: Prisma.$BlindtestGenrePayload<ExtArgs>[]
     artistBlindtests: Prisma.$ArtistBlindtestPayload<ExtArgs>[]
     blindtestCompulsoryTracks: Prisma.$BlindtestCompulsoryTrackPayload<ExtArgs>[]
     blindtestTracks: Prisma.$BlindtestTrackPayload<ExtArgs>[]
+    accountBlindtests: Prisma.$AccountBlindtestPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     blindtestId: string
-    blindtestName: string
+    blindtestName: string | null
     blindtestLength: number
     blindtestDifficulty: number
     blindtestInstrumental: boolean | null
@@ -1304,10 +1425,11 @@ readonly fields: BlindtestFieldRefs;
  */
 export interface Prisma__BlindtestClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  BlindtestGenres<T extends Prisma.Blindtest$BlindtestGenresArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Blindtest$BlindtestGenresArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BlindtestGenrePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  blindtestGenres<T extends Prisma.Blindtest$blindtestGenresArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Blindtest$blindtestGenresArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BlindtestGenrePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   artistBlindtests<T extends Prisma.Blindtest$artistBlindtestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Blindtest$artistBlindtestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArtistBlindtestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   blindtestCompulsoryTracks<T extends Prisma.Blindtest$blindtestCompulsoryTracksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Blindtest$blindtestCompulsoryTracksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BlindtestCompulsoryTrackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   blindtestTracks<T extends Prisma.Blindtest$blindtestTracksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Blindtest$blindtestTracksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BlindtestTrackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  accountBlindtests<T extends Prisma.Blindtest$accountBlindtestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Blindtest$accountBlindtestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AccountBlindtestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1562,7 +1684,7 @@ export type BlindtestCreateArgs<ExtArgs extends runtime.Types.Extensions.Interna
   /**
    * The data needed to create a Blindtest.
    */
-  data: Prisma.XOR<Prisma.BlindtestCreateInput, Prisma.BlindtestUncheckedCreateInput>
+  data?: Prisma.XOR<Prisma.BlindtestCreateInput, Prisma.BlindtestUncheckedCreateInput>
 }
 
 /**
@@ -1732,9 +1854,9 @@ export type BlindtestDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
 }
 
 /**
- * Blindtest.BlindtestGenres
+ * Blindtest.blindtestGenres
  */
-export type Blindtest$BlindtestGenresArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Blindtest$blindtestGenresArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the BlindtestGenre
    */
@@ -1825,6 +1947,30 @@ export type Blindtest$blindtestTracksArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.BlindtestTrackScalarFieldEnum | Prisma.BlindtestTrackScalarFieldEnum[]
+}
+
+/**
+ * Blindtest.accountBlindtests
+ */
+export type Blindtest$accountBlindtestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AccountBlindtest
+   */
+  select?: Prisma.AccountBlindtestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AccountBlindtest
+   */
+  omit?: Prisma.AccountBlindtestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AccountBlindtestInclude<ExtArgs> | null
+  where?: Prisma.AccountBlindtestWhereInput
+  orderBy?: Prisma.AccountBlindtestOrderByWithRelationInput | Prisma.AccountBlindtestOrderByWithRelationInput[]
+  cursor?: Prisma.AccountBlindtestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AccountBlindtestScalarFieldEnum | Prisma.AccountBlindtestScalarFieldEnum[]
 }
 
 /**

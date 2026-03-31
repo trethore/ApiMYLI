@@ -76,6 +76,7 @@ export const ModelName = {
   BlindtestTrack: 'BlindtestTrack',
   BlindtestCompulsoryTrack: 'BlindtestCompulsoryTrack',
   Blindtest: 'Blindtest',
+  AccountBlindtest: 'AccountBlindtest',
   Preference: 'Preference',
   PreferenceVector: 'PreferenceVector',
   GenrePreference: 'GenrePreference',
@@ -883,6 +884,14 @@ export const BlindtestScalarFieldEnum = {
 } as const
 
 export type BlindtestScalarFieldEnum = (typeof BlindtestScalarFieldEnum)[keyof typeof BlindtestScalarFieldEnum]
+
+
+export const AccountBlindtestScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  accountId: 'accountId'
+} as const
+
+export type AccountBlindtestScalarFieldEnum = (typeof AccountBlindtestScalarFieldEnum)[keyof typeof AccountBlindtestScalarFieldEnum]
 
 
 export const PreferenceScalarFieldEnum = {

@@ -1,4 +1,5 @@
 "use client";
+
 import Nav from "@/components/Nav";
 import SectionTitle from "@/components/SectionTitle";
 import ContentGrid from "@/components/ContentGrid";
@@ -16,12 +17,11 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { useState, useEffect } from "react";
-import { usePlaylist } from "@/context/PlaylistContext";
 import { useAuth } from "@/context/AuthContext";
 import { usePlayer } from "@/context/PlayerContext";
 import { useRouter } from "next/navigation";
 import { getLikedTracksQuery, getMyPinnedItemsQuery, getMyTrackHistoryQuery, toMusic } from "@/lib/api-client";
-import { Music } from "@/types/music";
+import { useBlindtest } from "@/context/BlindtestContext";
 
 type ContentType = "Album" | "Single" | "Artiste" | "Playlist" | "Blindtest" | "Track";
 type Content = {
@@ -41,10 +41,9 @@ type Content = {
   albums?: unknown[];
   singles?: unknown[];
 };
-type ContentList = Content[];
 
-export default function Library() {
-  const { blindtests, createPlaylist } = usePlaylist();
+export default function Blindtests() {
+  const { blindtests, createBlindtest } = useBlindtest();
   const { isAuthenticated, token } = useAuth();
   const { history } = usePlayer();
   const router = useRouter();
@@ -69,63 +68,7 @@ export default function Library() {
       const activeToken = token || (localToken as string);
       if (activeToken) {
         try {
-          const [likedRes, pinnedRes, historyRes] = await Promise.all([
-            getLikedTracksQuery(activeToken),
-            getMyPinnedItemsQuery(activeToken),
-            getMyTrackHistoryQuery(12, activeToken),
-          ]);
-
-          setLikedTracks(likedRes.map((t) => ({ ...toMusic(t), type: "Track" as const })));
-
-          // Format Pinned Items
-          const formattedPinned = pinnedRes
-            .sort((a, b) => a.slot - b.slot)
-            .map((item) => {
-              if (item.itemType === "TRACK" && item.track) {
-                const m = toMusic(item.track);
-                return { ...m, type: "Track" as const };
-              }
-              if (item.itemType === "ALBUM" && item.album) {
-                return {
-                  id: item.album.albumId,
-                  name: item.album.title || "Album Inconnu",
-                  type: "Album" as const,
-                  image: item.album.imageUrl || "/placeholder-album.jpg",
-                  link: `/album/${item.album.albumId}`,
-                  artist: item.album.artists.map((a) => a.name).join(", "),
-                };
-              }
-              if (item.itemType === "ARTIST" && item.artist) {
-                return {
-                  id: item.artist.artistId,
-                  name: item.artist.name || "Artiste Inconnu",
-                  type: "Artiste" as const,
-                  image: item.artist.imageUrl || "/placeholder-artist.jpg",
-                  link: `/artist/${item.artist.artistId}`,
-                };
-              }
-              if (item.itemType === "BLINDTEST" && item.blindtest) {
-                return {
-                  id: item.blindtest.blindtestId,
-                  name: item.blindtest.name || "Blindtest",
-                  type: "Blindtest" as const,
-                  link: `/playlist/${item.blindtest.blindtestId}`,
-                };
-              }
-              return null;
-            })
-            .filter(Boolean) as ContentList;
-          setPinnedContent(formattedPinned);
-
-          // Format History
-          const formattedHistory = historyRes.map((h) => {
-            const m = toMusic(h.track);
-            return { ...m, type: "Track" as const };
-          });
-          setHistoryContent(formattedHistory);
         } catch (err) {
-          console.error("Failed to load library data", err);
-          setHistoryContent(localHistoryContent);
         } finally {
           setLoading(false);
         }
@@ -141,7 +84,10 @@ export default function Library() {
 
   const handleCreate = () => {
     if (newBlindtestName.trim()) {
-      createPlaylist(newBlindtestName.trim());
+
+      // TODO : update cration with all attributes indcluded
+
+      createBlindtest(newBlindtestName.trim());
       setNewBlindtestName("");
       setIsCreateOpen(false);
     }

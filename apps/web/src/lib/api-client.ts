@@ -41,7 +41,8 @@ async function gql<T>(
   if (json.errors && json.errors.length > 0) {
     const errorMsg = json.errors[0].message;
     console.error("GraphQL Errors:", json.errors, "in query:", query.substring(0, 100)); // Log part of the query
-    throw new Error(`${errorMsg} (Query: ${query.trim().split('{')[0].trim()})`);
+    // throw new Error(`${errorMsg} (Query: ${query.trim().split('{')[0].trim()})`);
+    throw new Error(`${errorMsg}`);
   }
 
   if (!json.data) {
@@ -112,6 +113,22 @@ export type ApiPlaylist = ApiPlaylistSummary & {
   tracks: ApiTrack[];
 };
 
+export type ApiBlindtest = {
+  blindtestId: string;
+  name: string;
+  length: number;
+  yearBegin: number;
+  yearEnd: number;
+  difficulty: number;
+  instrumental: boolean;
+  isEditable: boolean;
+  trackCount: number;
+  compulsoryTracks: ApiTrack[];
+  tracks: ApiTrack[];
+  genres: ApiGenre[];
+  artists: ApiArtist[];
+};
+
 export type ApiAlbum = ApiAlbumSummary & {
   dateReleased: string | null;
   tracksCount: number | null;
@@ -137,6 +154,28 @@ export type ApiTrackListenHistoryItem = {
   listenedAt: string;
   track: ApiTrack;
 };
+
+export type ApiGenre = {
+  genreId: string;
+  parentId: string | null;
+  title: string | null;
+  topLevel: number | null;
+  tracksCount: number | null;
+  parent: {
+    genreId: string;
+    parentId: string | null;
+    title: string | null;
+    topLevel: number | null;
+    tracksCount: number | null;
+  } | null;
+  children: {
+    genreId: string;
+    parentId: string | null;
+    title: string | null;
+    topLevel: number | null;
+    tracksCount: number | null;
+  }[];
+}
 
 export type ApiArtist = {
   artistId: string;
@@ -394,6 +433,16 @@ const PLAYLIST_FRAGMENT = /* GraphQL */ `
   ${TRACK_FRAGMENT}
 `;
 
+// TODO : add other relations...
+const BLINDTEST_FRAGMENT = /* GraphQL */ `
+  fragment BlindtestDetails on Blindtest {
+    tracks {
+      ...TrackDetails
+    }
+  }
+  ${TRACK_FRAGMENT}
+`;
+
 export async function getTrackQuery(trackId: string, token?: string | null): Promise<ApiTrack | null> {
   const query = /* GraphQL */ `
     query GetTrack($trackId: String!) {
@@ -468,8 +517,6 @@ export async function getLikedTracksQuery(token: string): Promise<ApiTrack[]> {
   return data.likedTracks;
 }
 
-
-
 export async function getPlaylistQuery(playlistId: string, token?: string | null): Promise<ApiPlaylist | null> {
   const query = /* GraphQL */ `
     query GetPlaylist($playlistId: String!) {
@@ -491,6 +538,20 @@ export async function getMyPlaylistsQuery(token: string): Promise<ApiPlaylist[]>
         name
         ownerDisplayName
         isEditable
+        trackCount
+      }
+    }
+  `;
+  const data = await gql<{ myPlaylists: ApiPlaylist[] }>(query, {}, token);
+  return data.myPlaylists;
+}
+
+export async function getMyBlindtestsQuery(token: string): Promise<ApiPlaylist[]> {
+  const query = /* GraphQL */ `
+    query GetMyBlindtests {
+      myBlindtests {
+        blindtestId
+        name
         trackCount
       }
     }
@@ -523,6 +584,44 @@ export async function unlikeTrackMutation(trackId: string, token: string): Promi
   `;
   const data = await gql<{ unlikeTrack: ApiTrack | null }>(query, { trackId }, token);
   return data.unlikeTrack;
+}
+
+// TODO : add other attributes & relations
+export async function createBlindtestMutation(name: string, token: string): Promise<ApiBlindtest> {
+  const query = /* GraphQL */ `
+    mutation createBlindtest($input: CreateBlindtestInput!) {
+      createBlindtest(input: $input) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+  const data = await gql<{ createBlindtest: ApiBlindtest }>(query, { input: { name } }, token);
+  return data.createBlindtest;
+}
+
+// TODO : add other attributes & relations
+export async function updateBlindtestMutation(blindtestId: string, name: string, token: string): Promise<ApiBlindtest | null> {
+  const query = /* GraphQL */ `
+    mutation UpdateBlindtest($playlistId: String!, $input: UpdateBlindtestInput!) {
+      updateBlindtest(playlistId: $blindtestId, input: $input) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+  const data = await gql<{ updateBlindtest: ApiBlindtest | null }>(query, { blindtestId, input: { name } }, token);
+  return data.updateBlindtest;
+}
+
+export async function deleteBlindtestMutation(blindtestId: string, token: string): Promise<boolean> {
+  const query = /* GraphQL */ `
+    mutation DeleteBlindtest($blindtestId: String!) {
+      deleteBlindtest(blindtestId: $blindtestId)
+    }
+  `;
+  const data = await gql<{ deleteBlindtest: boolean }>(query, { blindtestId }, token);
+  return data.deleteBlindtest;
 }
 
 export async function createPlaylistMutation(name: string, token: string): Promise<ApiPlaylist> {
