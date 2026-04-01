@@ -20,7 +20,6 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { usePlayer } from "@/context/PlayerContext";
 import { useRouter } from "next/navigation";
-import { getLikedTracksQuery, getMyPinnedItemsQuery, getMyTrackHistoryQuery, toMusic } from "@/lib/api-client";
 import { useBlindtest } from "@/context/BlindtestContext";
 
 type ContentType = "Album" | "Single" | "Artiste" | "Playlist" | "Blindtest" | "Track";
@@ -43,14 +42,14 @@ type Content = {
 };
 
 export default function Blindtests() {
-  const { blindtests, createBlindtest } = useBlindtest();
+  const { blindtests, loadBlindtests, createBlindtest, addCompulsoryTrackToBlindtest, deleteBlindtest, updateBlindtest, removeCompulsoryTrackFromBlindtest, isOwnedBlindtest } = useBlindtest();
   const { isAuthenticated, token } = useAuth();
   const { history } = usePlayer();
   const router = useRouter();
 
-  const [newBlindtestName, setNewBlindtestName] = useState("");
-  const [newBlindtestLength, setNewBlindtestLength] = useState<number>(10);
-  const [newBlindtestDifficulty, setNewBlindtestDifficulty] = useState<number>(10);
+  const [newBlindtestName, setNewBlindtestName] = useState<string>("");
+  const [newBlindtestLength, setNewBlindtestLength] = useState<string>("10");
+  const [newBlindtestDifficulty, setNewBlindtestDifficulty] = useState<string>("10");
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -58,7 +57,7 @@ export default function Blindtests() {
   const localHistoryContent = history.map((t) => ({ ...t, type: "Track" as const })).reverse().slice(0, 10);
 
   useEffect(() => {
-    const fetchLibraryData = async () => {
+    const fetchBlindtests = async () => {
       const localToken = localStorage.getItem("muse_token");
       if (!isAuthenticated && !localToken) {
         router.push("/login");
@@ -75,21 +74,23 @@ export default function Blindtests() {
       }
     };
 
-    fetchLibraryData();
+    fetchBlindtests();
   }, [isAuthenticated, router, token, history, localHistoryContent]);
 
   if (!isAuthenticated) {
     return null;
   }
 
-  const handleCreate = () => {
-    if (newBlindtestName.trim()) {
+  const handleCreate = async () => {
+    if (newBlindtestName?.trim()) {
 
       // TODO : update cration with all attributes indcluded
 
-      createBlindtest(newBlindtestName.trim());
+      await createBlindtest(newBlindtestName?.trim());
       setNewBlindtestName("");
       setIsCreateOpen(false);
+
+      loadBlindtests();
     }
   };
 
@@ -102,7 +103,7 @@ export default function Blindtests() {
           {/* Header Action Row */}
           <div className="flex items-center justify-between">
             <h1 className="text-4xl font-bold font-[family-name:var(--font-protest-strike)]">
-              Mes blindtests
+              Blindtests
             </h1>
             <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
               <DialogTrigger asChild>
@@ -135,7 +136,7 @@ export default function Blindtests() {
                       max={99}
                       min={0}
                       value={newBlindtestLength}
-                      onChange={(e) => setNewBlindtestLength(parseInt(e.target.value))}
+                      onChange={(e) => setNewBlindtestLength(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && handleCreate()}
                     />
 
@@ -144,8 +145,8 @@ export default function Blindtests() {
                       step={1}
                       max={99}
                       min={0}
-                      value={[newBlindtestDifficulty]}
-                      onValueChange={(vals: number[]) => setNewBlindtestDifficulty(vals[0])}
+                      value={[parseInt(newBlindtestDifficulty)]}
+                      onValueChange={(vals: number[]) => setNewBlindtestDifficulty(vals[0].toString())}
                     />
 
                   </div>

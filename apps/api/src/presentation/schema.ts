@@ -168,17 +168,19 @@ type GraphqlPlaylist = {
 
 type GraphqlBlindtest = {
   blindtestId: string;
-  name: string;
-  length?: number;
-  difficulty?: number;
-  instrumental?: boolean;
-  yearBegin?: number;
-  yearEnd?: number;
+  name: string | null;
+  length: number | null;
+  difficulty: number | null;
+  instrumental: boolean | null;
+  yearBegin: number | null;
+  yearEnd: number | null;
   trackCount: number;
   compulsoryTracks: GraphqlTrack[];
   tracks: GraphqlTrack[];
   artists: GraphqlArtist[];
   genres: GraphqlGenre[];
+  ownerDisplayName: string | null;
+  isEditable: boolean;
 };
 
 type GraphqlPlaylistSummary = {
@@ -401,11 +403,18 @@ const toGraphqlPlaylist = (playlist: Playlist): GraphqlPlaylist => ({
 const toGraphqlBlindtest = (blindtest: Blindtest): GraphqlBlindtest => ({
   blindtestId: blindtest.blindtestId,
   name: blindtest.name,
+  length: blindtest.length,
+  difficulty: blindtest.difficulty,
+  instrumental: blindtest.instrumental,
+  yearBegin: blindtest.yearBegin,
+  yearEnd: blindtest.yearEnd,
   trackCount: blindtest.trackCount,
   compulsoryTracks: blindtest.compulsoryTracks,
   tracks: blindtest.tracks,
   artists: blindtest.artists.map(toGraphqlArtist),
-  genres: blindtest.genres.map(toGraphqlGenre)
+  genres: blindtest.genres.map(toGraphqlGenre),
+  ownerDisplayName: blindtest.ownerDisplayName,
+  isEditable: blindtest.isEditable,
 });
 
 const toGraphqlPlaylistSummary = (playlist: PlaylistSummary): GraphqlPlaylistSummary => ({
@@ -545,6 +554,8 @@ export const schema = createSchema({
       genres: [Genre!]!
       artists: [Artist!]!
       accounts: [Account!]!
+      ownerDisplayName: String
+      isEditable: Boolean!
     }
 
     type Playlist {
@@ -856,9 +867,9 @@ export const schema = createSchema({
           context.authToken,
         );
 
-        const playlists = await listMyBlindtests(context.services.blindtestRepository, currentAccountId);
+        const blindtests = await listMyBlindtests(context.services.blindtestRepository, currentAccountId);
 
-        return playlists.map(toGraphqlBlindtest);
+        return blindtests.map(toGraphqlBlindtest);
       },
       myPinnedItems: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
         console.log(context);

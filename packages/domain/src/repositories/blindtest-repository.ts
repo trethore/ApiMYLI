@@ -1,7 +1,4 @@
 import type { Blindtest } from "packages/domain/src/entities/blindtest";
-import { Genre } from "../entities/genre";
-import { Artist } from "../entities/artist";
-import { Track } from "../entities/track";
 
 export type CreateBlindtestData = {
   name: string;

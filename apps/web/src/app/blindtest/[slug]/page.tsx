@@ -40,19 +40,22 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/context/AuthContext";
 import { usePlayer } from "@/context/PlayerContext";
-import { getPlaylistQuery, toMusic } from "@/lib/api-client";
-import { ApiPlaylist } from "@/lib/api-client";
+import { getBlindtestQuery, toMusic } from "@/lib/api-client";
+import { ApiBlindtest } from "@/lib/api-client";
+import { useBlindtest } from "@/context/BlindtestContext";
 
-export default function PlaylistPage({ params }: { params: Promise<{ slug: string }> }) {
+export default function BlindtestPage({ params }: { params: Promise<{ slug: string }> }) {
   const router = useRouter();
   const { slug } = use(params);
-  const playlistId = slug;
+  const blindtestId = slug;
 
   const { token, requireAuth } = useAuth();
-  const { playlists, deletePlaylist, updatePlaylist, loadPlaylists } = usePlaylist();
+  const { playlists, deletePlaylist, updatePlaylist } = usePlaylist();
   const { playTrack, setQueueList } = usePlayer();
 
-  const [playlist, setPlaylist] = useState<ApiPlaylist | null>(null);
+  const { updateBlindtest, deleteBlindtest, loadBlindtests } = useBlindtest();
+
+  const [blindtest, setBlindtest] = useState<ApiBlindtest | null>(null);
   const [tracks, setTracks] = useState<Music[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -74,12 +77,13 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
   };
 
   useEffect(() => {
-    const fetchPlaylist = async () => {
+    const fetchBlindtest = async () => {
       try {
         setLoading(true);
-        const data = await getPlaylistQuery(playlistId, token);
+        const data = await getBlindtestQuery(blindtestId, token);
         if (data) {
-          setPlaylist(data);
+          setBlindtest(data);
+
           if (data.tracks) {
             setTracks(data.tracks.map(toMusic));
           }
@@ -91,26 +95,25 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
           if (data.ownerDisplayName) setDisplayOwner(data.ownerDisplayName);
           if (data.isEditable) setIsOwned(true);
 
-          const contextMatch = playlists.find((p) => p.id === playlistId);
+          const contextMatch = playlists.find((p) => p.id === blindtestId);
           if (contextMatch?.image) {
             setDisplayImage(contextMatch.image);
             setEditImage(contextMatch.image);
           }
         }
       } catch (err) {
-        console.error("Error fetching playlist", err);
+        console.error("Error fetching blindtest", err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchPlaylist();
-  }, [playlistId, token, playlists]);
+    fetchBlindtest();
+  }, [blindtestId, token, playlists]);
 
   const handleEdit = async () => {
     if (editName.trim()) {
-      // await updatePlaylist(playlistId, editName, editImage);
-      await updatePlaylist(playlistId, editName);
+      await updateBlindtest(blindtestId, editName);
       setIsEditOpen(false);
       setDisplayName(editName);
       if (editImage) setDisplayImage(editImage);
@@ -118,12 +121,12 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
   };
 
   const handleDelete = async () => {
-    await deletePlaylist(playlistId);
-    loadPlaylists();
-    router.push("/library");
+    await deleteBlindtest(blindtestId);
+    loadBlindtests();
+    router.push("/blindtests");
   };
 
-  const handlePlayPlaylist = () => {
+  const handlePlayBlindtest = () => {
     requireAuth(() => {
       if (tracks.length > 0) {
         playTrack(tracks[0]);
@@ -143,15 +146,15 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
     );
   }
 
-  if (!playlist) {
+  if (!blindtest) {
     return (
       <div className="min-h-screen flex flex-col font-sans bg-background text-foreground pb-24 lg:pb-0">
         <Nav />
         <main className="flex-1 p-4 lg:p-8 flex flex-col items-center justify-center max-w-5xl mx-auto w-full text-center">
-          <SectionTitle title="Playlist introuvable" />
-          <p className="text-muted-foreground mt-4">La playlist que vous cherchez n&apos;existe pas ou a été supprimée.</p>
-          <Button className="mt-6" onClick={() => router.push("/library")}>
-            Retour à la bibliothèque
+          <SectionTitle title="Blindtest introuvable" />
+          <p className="text-muted-foreground mt-4">Le blindtest que vous cherchez n&apos;existe pas ou a été supprimé.</p>
+          <Button className="mt-6" onClick={() => router.push("/blindtests")}>
+            Retour à mes blindtests
           </Button>
         </main>
       </div>
@@ -162,9 +165,9 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
     <div className="min-h-screen flex flex-col font-sans bg-background text-foreground pb-24 lg:pb-0">
       <Nav />
       <main className="flex-1 p-4 lg:p-8 max-w-5xl mx-auto w-full">
-        {/* Playlist Header - Mobile Layout Focus */}
+        {/* Blindtest Header - Mobile Layout Focus */}
         <div className="flex flex-col items-center mb-8">
-          {/* Playlist Image - Centered */}
+          {/* Blindtest Image - Centered */}
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 shadow-xl rounded-lg overflow-hidden mb-6 group">
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] opacity-80" />
             {displayImage && displayImage !== "/placeholder-album.jpg" && (
@@ -189,7 +192,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                 className="mt-0 text-2xl sm:text-4xl leading-tight"
               />
               <p className="text-lg text-muted-foreground font-medium flex items-center gap-2">
-                Playlist par {displayOwner}
+                Blindtest par {displayOwner}
                 {isOwned && (
                   <Button
                     variant="ghost"
@@ -202,7 +205,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                 )}
               </p>
               <p className="text-sm text-muted-foreground/80 lowercase mt-1">
-                Playlist • {tracks.length} titres
+                Blindtest • {tracks.length} titres
               </p>
             </div>
 
@@ -222,7 +225,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                     <AlertDialogHeader>
                       <AlertDialogTitle>Êtes-vous sûr ?</AlertDialogTitle>
                       <AlertDialogDescription>
-                        Cette action est irréversible. Cela supprimera définitivement votre playlist
+                        Cette action est irréversible. Cela supprimera définitivement votre blindtest
                         &quot;{displayName}&quot;.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
@@ -249,7 +252,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <PinActionSubMenu itemId={playlistId} itemType="playlist" />
+                  <PinActionSubMenu itemId={blindtestId} itemType="blindtest" />
                   <DropdownMenuItem 
                     className="cursor-pointer"
                     onClick={handleShare}
@@ -264,7 +267,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
           {/* Play Button */}
           <div className="w-full px-2 sm:px-8 mt-6">
             <Button
-              onClick={handlePlayPlaylist}
+              onClick={handlePlayBlindtest}
               className="w-full sm:w-auto text-foreground font-bold text-lg py-6 rounded-full flex items-center gap-2 bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] hover:cursor-pointer disabled:opacity-50"
               disabled={tracks.length === 0}
             >
@@ -282,7 +285,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
               ))
             ) : (
               <div className="text-center text-muted-foreground py-12">
-                Cette playlist est vide.
+                Ce blindtest est vide.
               </div>
             )}
           </div>
@@ -292,7 +295,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
         <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
           <DialogContent className="bg-card border-border sm:max-w-md">
             <DialogHeader>
-              <DialogTitle>Modifier la playlist</DialogTitle>
+              <DialogTitle>Modifier le blindtest</DialogTitle>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">

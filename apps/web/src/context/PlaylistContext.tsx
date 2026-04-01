@@ -16,6 +16,7 @@ import {
 
 interface PlaylistContextType {
   playlists: Album[];
+  loadPlaylists: () => Promise<void>
   createPlaylist: (name: string) => Promise<void>;
   updatePlaylist: (id: string, name: string) => Promise<void>;
   deletePlaylist: (id: string) => Promise<void>;
@@ -30,32 +31,32 @@ export const PlaylistProvider = ({ children }: { children: ReactNode }) => {
   const [playlists, setPlaylists] = useState<Album[]>([]);
   const { token } = useAuth();
 
-  useEffect(() => {
-    const load = async () => {
-      if (token) {
-        try {
-          const data = await getMyPlaylistsQuery(token);
-          const mapped: Album[] = data.map((p) => ({
-            id: p.playlistId,
-            name: p.name || "Ma Playlist",
-            artist: p.ownerDisplayName || "User",
-            image: p.tracks?.[0]?.imageUrl
-              ? formatImageUrl(p.tracks[0].imageUrl)
-              : "/placeholder-album.jpg",
-            type: "Playlist",
-            tracks: p.tracks ? p.tracks.map(toMusic) : [],
-          }));
-  
-          setPlaylists(mapped);
-        } catch (err) {
-          console.error("Failed to load playlists", err);
-        }
-      } else {
-        setPlaylists([]);
+  const loadPlaylists = async () => {
+    if (token) {
+      try {
+        const data = await getMyPlaylistsQuery(token);
+        const mapped: Album[] = data.map((p) => ({
+          id: p.playlistId,
+          name: p.name || "Ma Playlist",
+          artist: p.ownerDisplayName || "User",
+          image: p.tracks?.[0]?.imageUrl
+            ? formatImageUrl(p.tracks[0].imageUrl)
+            : "/placeholder-album.jpg",
+          type: "Playlist",
+          tracks: p.tracks ? p.tracks.map(toMusic) : [],
+        }));
+
+        setPlaylists(mapped);
+      } catch (err) {
+        console.error("Failed to load playlists", err);
       }
-    };
-  
-    load();
+    } else {
+      setPlaylists([]);
+    }
+  };
+
+  useEffect(() => {  
+    loadPlaylists();
   }, [token]);
 
   const createPlaylist = async (name: string) => {
@@ -116,6 +117,7 @@ export const PlaylistProvider = ({ children }: { children: ReactNode }) => {
     <PlaylistContext.Provider
       value={{
         playlists,
+        loadPlaylists,
         createPlaylist,
         updatePlaylist,
         deletePlaylist,

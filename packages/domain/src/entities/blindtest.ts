@@ -4,16 +4,17 @@ import { Artist } from "./artist";
 
 export type Blindtest = {
   blindtestId: string;
-  name: string;
-  length: number;
-  yearBegin: number;
-  yearEnd: number;
-  difficulty: number;
-  instrumental: boolean;
+  name: string | null;
+  length: number | null;
+  yearBegin: number | null;
+  yearEnd: number | null;
+  difficulty: number | null;
+  instrumental: boolean | null;
   isEditable: boolean;
   trackCount: number;
   compulsoryTracks: Track[];
   tracks: Track[];
   genres: Genre[];
   artists: Artist[];
+  ownerDisplayName: string | null,
 };

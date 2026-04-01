@@ -350,16 +350,24 @@ export const toBlindtest = (
 ): BlindtestEntity => ({
   blindtestId: blindtest.blindtestId,
   name: blindtest.blindtestName,
+  length: blindtest.blindtestLength,
+  yearBegin: blindtest.blindtestYearBegin,
+  yearEnd: blindtest.blindtestYearEnd,
+  difficulty: blindtest.blindtestDifficulty,
+  instrumental: blindtest.blindtestInstrumental,
+  trackCount: blindtest.blindtestTracks.length,
+  tracks: blindtest.blindtestTracks?.map((blindtestTrack) => toTrack(blindtestTrack.track)),
+  compulsoryTracks: blindtest.blindtestCompulsoryTracks?.map((track) => toTrack(track.track)),
+  genres: blindtest.blindtestGenres?.map((genre) => toGenre(genre.genre)),
+  artists: blindtest.artistBlindtests?.map((artist) => toArtist(artist.artist)),
+  ownerDisplayName: blindtest.accountBlindtests[0]?.account
+    ? toOwnerDisplayName(blindtest.accountBlindtests[0].account)
+    : null,
   isEditable: currentAccountId
-    ? blindtest.accountBlindtests.some(
+    ? blindtest.accountBlindtests?.some(
       (account) => account.accountId === currentAccountId
     )
     : false,
-  trackCount: blindtest.blindtestTracks.length,
-  tracks: blindtest.blindtestTracks.map((blindtestTrack) => toTrack(blindtestTrack.track)),
-  compulsoryTracks: blindtest.blindtestCompulsoryTracks.map((track) => toTrack(track.track)),
-  genres: blindtest.blindtestGenres.map((genre) => toGenre(genre.genre)),
-  artists: blindtest.artistBlindtests.map((artist) => toArtist(artist.artist)),
 });
 
 export const toPlaylistSummary = (

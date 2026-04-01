@@ -7,16 +7,22 @@ import {
   getMyBlindtestsQuery,
   toMusic,
   formatImageUrl,
+  createBlindtestMutation,
+  updateBlindtestMutation,
+  deleteBlindtestMutation,
+  addCompulsoryTrackToBlindtestMutation,
+  removeCompulsoryTrackFromBlindtestMutation,
 } from "@/lib/api-client";
 
 interface BlindtestContextType {
   blindtests: Blindtest[];
+  loadBlindtests: () => Promise<void>;
   createBlindtest: (name: string) => Promise<void>;
   updateBlindtest: (id: string, name: string) => Promise<void>;
   deleteBlindtest: (id: string) => Promise<void>;
   addCompulsoryTrackToBlindtest: (blindtestId: string, track: Music) => Promise<void>;
   removeCompulsoryTrackFromBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
-  isOwnedBindtest: (id: string) => boolean;
+  isOwnedBlindtest: (id: string) => boolean;
 }
 
 const BlindtestContext = createContext<BlindtestContextType | undefined>(undefined);
@@ -25,32 +31,33 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
   const [blindtests, setBlindtests] = useState<Blindtest[]>([]);
   const { token } = useAuth();
 
-  useEffect(() => {
-    const load = async () => {
-      if (token) {
-        try {
-          const data = await getMyBlindtestsQuery(token);
-          const mapped: Blindtest[] = data.map((p: any) => ({
-            id: p.blindtestId,
-            name: p.name || "Mon blindtest",
-            artist: p.ownerDisplayName || "User",
-            image: p.tracks?.[0]?.imageUrl
-              ? formatImageUrl(p.tracks[0].imageUrl)
-              : "/placeholder-album.jpg",
-            type: "Blindtest",
-            tracks: p.tracks ? p.tracks.map(toMusic) : [],
-          }));
-  
-          setBlindtests(mapped);
-        } catch (err) {
-          console.error("Failed to load blindtests", err);
-        }
-      } else {
-        setBlindtests([]);
+  const loadBlindtests = async () => {
+    if (token) {
+      try {
+        const data = await getMyBlindtestsQuery(token);
+        
+        const mapped: Blindtest[] = data.map((p: any) => ({
+          id: p.blindtestId,
+          name: p.name || "Mon blindtest",
+          artist: p.ownerDisplayName || "User",
+          image: p.tracks?.[0]?.imageUrl
+            ? formatImageUrl(p.tracks[0].imageUrl)
+            : "/placeholder-album.jpg",
+          type: "Blindtest",
+          tracks: p.tracks ? p.tracks.map(toMusic) : [],
+        }));
+
+        setBlindtests(mapped);
+      } catch (err) {
+        console.error("Failed to load blindtests", err);
       }
-    };
-  
-    load();
+    } else {
+      setBlindtests([]);
+    }
+  };
+
+  useEffect(() => {  
+    loadBlindtests();
   }, [token]);
 
   const createBlindtest = async (name: string) => {
@@ -110,6 +117,7 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     <BlindtestContext.Provider
       value={{
         blindtests,
+        loadBlindtests,
         createBlindtest,
         updateBlindtest,
         deleteBlindtest,

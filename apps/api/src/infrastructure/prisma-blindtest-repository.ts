@@ -137,6 +137,7 @@ export const createPrismaBlindtestRepository = (prisma: PrismaClient): Blindtest
     }
 
     await prisma.$transaction(async (transaction) => {
+      await transaction.accountBlindtest.deleteMany({ where: { blindtestId } });
       await transaction.artistBlindtest.deleteMany({ where: { blindtestId } });
       await transaction.blindtestCompulsoryTrack.deleteMany({ where: { blindtestId } });
       await transaction.blindtestGenre.deleteMany({ where: { blindtestId } });
