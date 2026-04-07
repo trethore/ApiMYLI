@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import SectionTitle from "@/components/SectionTitle";
 import ContentGrid from "@/components/ContentGrid";
 import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import { ChevronDown, ChevronRight, Plus } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -16,42 +16,45 @@ import {
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { usePlayer } from "@/context/PlayerContext";
 import { useRouter } from "next/navigation";
 import { useBlindtest } from "@/context/BlindtestContext";
-
-type ContentType = "Album" | "Single" | "Artiste" | "Playlist" | "Blindtest" | "Track";
-type Content = {
-  id: string;
-  name?: string;
-  title?: string;
-  type: ContentType;
-  imageUrl?: string;
-  image?: string;
-  link?: string;
-  artist?: string | string[];
-  duration?: string;
-  isLiked?: boolean;
-  tracks?: unknown[];
-  stats?: unknown;
-  popularTracks?: unknown[];
-  albums?: unknown[];
-  singles?: unknown[];
-};
+import SearchBar from "@/components/SearchBar";
 
 export default function Blindtests() {
-  const { blindtests, loadBlindtests, createBlindtest, addCompulsoryTrackToBlindtest, deleteBlindtest, updateBlindtest, removeCompulsoryTrackFromBlindtest, isOwnedBlindtest } = useBlindtest();
+  const { blindtests, createBlindtest } = useBlindtest();
   const { isAuthenticated, token } = useAuth();
   const { history } = usePlayer();
   const router = useRouter();
 
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
+  const [isAdvancedOptionsOpen, setIsAdvancedOptionsOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   const [newBlindtestName, setNewBlindtestName] = useState<string>("");
   const [newBlindtestLength, setNewBlindtestLength] = useState<string>("10");
+  const [newBlindtestYearBegin, setNewBlindtestYearBegin] = useState<string>("");
+  const [newBlindtestYearEnd, setNewBlindtestYearEnd] = useState<string>("");
   const [newBlindtestDifficulty, setNewBlindtestDifficulty] = useState<string>("10");
-  const [isCreateOpen, setIsCreateOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [newBlindtestInstrumental, setNewBlindtestInstrumental] = useState<string>("");
+
+  const [newBlindtestArtists, setNewBlindtestArtists] = useState<{ id: string, name: string }[]>([]);
+  const [newBlindtestCompulsoryTracks, setNewBlindtestCompulsoryTracks] = useState<{ id: string, name: string }[]>([]);
+  const [newBlindtestGenres, setNewBlindtestGenres] = useState<{ id: string, name: string }[]>([]);
+
+  const difficultyMeta = useMemo(() => {
+    if (Number(newBlindtestDifficulty) < 5) {
+      return { color: "red", text: "Difficile" };
+    }
+    if (Number(newBlindtestDifficulty) < 10) {
+      return { color: "orange", text: "Moyen" };
+    }
+    return { color: "green", text: "Facile" };
+  }, [Number(newBlindtestDifficulty)]);
+
+  const years = Array.from({ length: 3000 - 1950 + 1 }, (_, i) => 1950 + i)
 
   // Fallback local history if not authenticated
   const localHistoryContent = history.map((t) => ({ ...t, type: "Track" as const })).reverse().slice(0, 10);
@@ -81,17 +84,33 @@ export default function Blindtests() {
     return null;
   }
 
-  const handleCreate = async () => {
-    if (newBlindtestName?.trim()) {
-
-      // TODO : update cration with all attributes indcluded
-
-      await createBlindtest(newBlindtestName?.trim());
-      setNewBlindtestName("");
-      setIsCreateOpen(false);
-
-      loadBlindtests();
+  const handleCreate = async (e: any) => {
+    if (!newBlindtestName.trim() || !newBlindtestDifficulty || !newBlindtestLength) {
+      return
     }
+
+    await createBlindtest({
+      name: newBlindtestName,
+      length: parseInt(newBlindtestLength),
+      difficulty: parseInt(newBlindtestDifficulty),
+      yearBegin: parseInt(newBlindtestYearBegin),
+      yearEnd: parseInt(newBlindtestYearEnd),
+      instrumental: newBlindtestInstrumental === ""
+        ? null
+        : newBlindtestInstrumental === "true",
+      genreIds: newBlindtestGenres.map(g => g.id),
+      artistIds: newBlindtestArtists.map(a => a.id),
+      compulsoryTrackIds: newBlindtestCompulsoryTracks.map(t => t.id),
+    });
+
+    // reset attrs
+    setNewBlindtestName("");
+    setNewBlindtestLength("10");
+    setNewBlindtestDifficulty("10");
+    setNewBlindtestYearBegin("");
+    setNewBlindtestYearEnd("");
+
+    setIsCreateOpen(false);
   };
 
   return (
@@ -108,15 +127,47 @@ export default function Blindtests() {
             <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] text-foreground font-bold hover:scale-105 transition-transform flex items-center gap-2">
-                  <Plus className="w-5 h-5" /> Créer
+                  <Plus className="w-5 h-5" /> Générer
                 </Button>
               </DialogTrigger>
 
-              <DialogContent className="bg-card border-border sm:max-w-md">
-                <DialogHeader>
-                  <DialogTitle>Créer un blindtest</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
+              <DialogContent
+                className="bg-card border-border sm:max-w-lg"
+              >
+                <form
+                  className="space-y-4 py-4"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const form = e.currentTarget as HTMLFormElement;
+
+                    if (!form.checkValidity()) {
+                      form.reportValidity();
+                      return;
+                    }
+
+                    handleCreate(e);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      e.stopPropagation();
+
+                      const form = e.currentTarget as HTMLFormElement;
+
+                      if (!form.checkValidity()) {
+                        form.reportValidity();
+                        return;
+                      }
+
+                      handleCreate(e);
+                    }
+                  }}
+                >
+                  <DialogHeader>
+                    <DialogTitle>Générer un blindtest</DialogTitle>
+                  </DialogHeader>
                   <div className="space-y-2">
                     <Label htmlFor="name">Nom du blindtest</Label>
                     <Input
@@ -124,12 +175,10 @@ export default function Blindtests() {
                       placeholder="Mon super blindtest..."
                       value={newBlindtestName}
                       onChange={(e) => setNewBlindtestName(e.target.value)}
-                      onKeyDown={(e) => e.key === "Enter" && handleCreate()}
+                      required
                     />
 
-                    <SectionTitle title="Paramètres" className="mt-0" />
-
-                    <Label htmlFor="name">Nombre de morceaux</Label>
+                    <Label>Nombre de morceaux</Label>
                     <Input
                       id="length"
                       type="number"
@@ -137,26 +186,137 @@ export default function Blindtests() {
                       min={0}
                       value={newBlindtestLength}
                       onChange={(e) => setNewBlindtestLength(e.target.value)}
-                      onKeyDown={(e) => e.key === "Enter" && handleCreate()}
+                      required
                     />
 
-                    <Label htmlFor="name">Temps pour deviner (s)</Label>
+                    <Label className="flex justify-between w-full items-center mt-5">
+                      Temps pour deviner ({newBlindtestDifficulty}s)
+                      <div style={{ color: difficultyMeta.color }}>
+                        {difficultyMeta.text}
+                      </div>
+                    </Label>
                     <Slider
                       step={1}
-                      max={99}
-                      min={0}
+                      max={20}
+                      min={1}
                       value={[parseInt(newBlindtestDifficulty)]}
                       onValueChange={(vals: number[]) => setNewBlindtestDifficulty(vals[0].toString())}
                     />
 
+                    <div
+                      onClick={(_) => setIsAdvancedOptionsOpen(!isAdvancedOptionsOpen)}
+                      className="w-full flex gap-2 justify-between items-center cursor-pointer mt-5">
+                      <SectionTitle title="Génération avancée" className="mt-0!" />
+
+                      {(!isAdvancedOptionsOpen &&
+                        <ChevronRight size={24} />
+                      )}
+                      {(isAdvancedOptionsOpen &&
+                        <ChevronDown size={24} />
+                      )}
+                    </div>
+
+                    {(isAdvancedOptionsOpen &&
+                      <div>
+                        <Label>Musique instrumentale ?</Label>
+                        <select
+                          value={newBlindtestInstrumental}
+                          onChange={(e) => setNewBlindtestInstrumental(e.target.value)}
+                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                        >
+                          <option key="" value="">
+                            Peu importe
+                          </option>
+                          <option key="true" value="true">
+                            Oui
+                          </option>
+                          <option key="false" value="false">
+                            Non
+                          </option>
+                        </select>
+
+                        <div className="flex gap-2 items-center mt-5">
+                          <select
+                            value={newBlindtestYearBegin}
+                            onChange={(e) => setNewBlindtestYearBegin(e.target.value)}
+                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                          >
+                            <option value="" disabled>
+                              Date minimale
+                            </option>
+
+                            {years.map((year) => (
+                              <option key={year} value={year}>
+                                {year}
+                              </option>
+                            ))}
+                          </select>
+
+                          <p className="text-sm"> - </p>
+
+                          <select
+                            value={newBlindtestYearEnd}
+                            onChange={(e) => setNewBlindtestYearEnd(e.target.value)}
+                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                          >
+                            <option value="" disabled>
+                              Date maximale
+                            </option>
+
+                            {years.map((year) => (
+                              <option key={year} value={year}>
+                                {year}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+
+                        <div className="mt-3">
+                          <Label>Artistes</Label>
+
+                          <SearchBar categories={["artist"]} setSelectedArtists={setNewBlindtestArtists} selectedArtists={newBlindtestArtists} placeholder="" />
+
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {newBlindtestArtists.map((artist) => (
+                              <div
+                                key={artist.id}
+                                className="px-3 py-1 text-sm border rounded-full flex items-center gap-2"
+                              >
+                                <span>{artist.name}</span>
+                                <button
+                                  onClick={() =>
+                                    setNewBlindtestArtists(prev =>
+                                      prev.filter(a => a.id !== artist.id)
+                                    )
+                                  }
+                                  className="text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                                >
+                                  ✕
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="mt-3">
+                          <Label>Genres</Label>
+                          <SearchBar categories={["genre"]} setSelectedGenres={setNewBlindtestGenres} selectedGenres={newBlindtestGenres} placeholder="" />
+                        </div>
+
+                        <div className="mt-3">
+                          <Label>Musiques</Label>
+                          <SearchBar categories={["track"]} setSelectedTracks={setNewBlindtestCompulsoryTracks} selectedTracks={newBlindtestCompulsoryTracks} placeholder="" />
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-                <DialogFooter>
-                  <Button variant="outline" onClick={() => setIsCreateOpen(false)}>
-                    Annuler
-                  </Button>
-                  <Button onClick={handleCreate}>Créer</Button>
-                </DialogFooter>
+                  <DialogFooter>
+                    <Button variant="outline" onClick={() => setIsCreateOpen(false)}>
+                      Annuler
+                    </Button>
+                    <Button type="submit">Générer</Button>
+                  </DialogFooter>
+                </form>
               </DialogContent>
             </Dialog>
           </div>
@@ -165,10 +325,11 @@ export default function Blindtests() {
             <SectionTitle title="Mes blindtests" className="mt-0" />
             {blindtests.length > 0 ? (
               <ContentGrid
-                items={blindtests.map((p: any) => ({
-                  ...p,
+                items={blindtests.map((b: any) => ({
+                  ...b,
                   type: "Blindtest",
-                  link: `/blindtest/${p.id}`,
+                  annotation: b.totalTracksCount ? (b.totalTracksCount + " titre" + (b.totalTracksCount > 1 ? "s" : "")) : null,
+                  link: `/blindtest/${b.id}`,
                 }))}
               />
             ) : (

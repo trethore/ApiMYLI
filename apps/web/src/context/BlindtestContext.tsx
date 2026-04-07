@@ -12,14 +12,28 @@ import {
   deleteBlindtestMutation,
   addCompulsoryTrackToBlindtestMutation,
   removeCompulsoryTrackFromBlindtestMutation,
+  autocompleteBlindtestMutation,
 } from "@/lib/api-client";
+
+export type BlindtestCreateInput = {
+  name: string,
+  length: number,
+  difficulty: number,
+  yearBegin: number | null,
+  yearEnd: number | null,
+  instrumental: boolean | null;
+  genreIds: string[],
+  artistIds: string[],
+  compulsoryTrackIds: string[]
+}
 
 interface BlindtestContextType {
   blindtests: Blindtest[];
   loadBlindtests: () => Promise<void>;
-  createBlindtest: (name: string) => Promise<void>;
+  createBlindtest: (input: BlindtestCreateInput) => Promise<void>;
   updateBlindtest: (id: string, name: string) => Promise<void>;
   deleteBlindtest: (id: string) => Promise<void>;
+  autocompleteBlindtest: (id: string, seedTrackIds: string[], blacklistedTrackIds: string[], randomness: number) => Promise<void>;
   addCompulsoryTrackToBlindtest: (blindtestId: string, track: Music) => Promise<void>;
   removeCompulsoryTrackFromBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
   isOwnedBlindtest: (id: string) => boolean;
@@ -35,7 +49,7 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     if (token) {
       try {
         const data = await getMyBlindtestsQuery(token);
-        
+
         const mapped: Blindtest[] = data.map((p: any) => ({
           id: p.blindtestId,
           name: p.name || "Mon blindtest",
@@ -45,6 +59,9 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
             : "/placeholder-album.jpg",
           type: "Blindtest",
           tracks: p.tracks ? p.tracks.map(toMusic) : [],
+          trackCount: p.trackCount ? p.trackCount : null,
+          compulsoryTrackCount: p.compulsoryTrackCount ? p.compulsoryTrackCount : null,
+          totalTracksCount: p.totalTracksCount,
         }));
 
         setBlindtests(mapped);
@@ -56,14 +73,16 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  useEffect(() => {  
+  useEffect(() => {
     loadBlindtests();
   }, [token]);
 
-  const createBlindtest = async (name: string) => {
+  const createBlindtest = async (input: BlindtestCreateInput) => {
     if (!token) return;
+
     try {
-      await createBlindtestMutation(name, token);
+      await createBlindtestMutation(input, token);
+      await loadBlindtests();
     } catch (err) {
       console.error(err);
     }
@@ -73,7 +92,7 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     if (!token) return;
     try {
       await updateBlindtestMutation(id, name, token);
-      // await loadBlindtests();
+      await loadBlindtests();
     } catch (err) {
       console.error(err);
     }
@@ -83,7 +102,18 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     if (!token) return;
     try {
       await deleteBlindtestMutation(id, token);
-      // await loadBlindtests();
+      await loadBlindtests();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const autocompleteBlindtest = async (id: string, seedTrackIds: string[], blacklistedTrackIds: string[], randomness: number) => {
+    if (!token) return;
+
+    try {
+      await autocompleteBlindtestMutation(id, seedTrackIds, blacklistedTrackIds, randomness, token);
+      await loadBlindtests();
     } catch (err) {
       console.error(err);
     }
@@ -121,6 +151,7 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
         createBlindtest,
         updateBlindtest,
         deleteBlindtest,
+        autocompleteBlindtest,
         addCompulsoryTrackToBlindtest,
         removeCompulsoryTrackFromBlindtest,
         isOwnedBlindtest,

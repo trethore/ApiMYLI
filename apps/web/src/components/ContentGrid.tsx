@@ -7,6 +7,7 @@ interface ContentItem {
   name?: string;
   title?: string;
   type?: string;
+  annotation?: string,
   imageUrl?: string;
   image?: string;
   link?: string;
@@ -28,7 +29,8 @@ export default function ContentGrid({ items = [] }: ContentGridProps) {
           <ContentCard
             key={`${item.id}-${index}`}
             name={item.name || item.title || "Unknown"}
-            type={item.type as "Track" | "Album" | "Single" | "Artiste" | "Playlist" | "Artist"}
+            type={item.type as "Track" | "Album" | "Single" | "Artiste" | "Playlist" | "Artist" | "Blindtest"}
+            annotation={item.annotation}
             imageUrl={item.imageUrl || item.image}
             link={item.link || "/"}
             priority={index < 2}

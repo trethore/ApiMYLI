@@ -1,7 +1,9 @@
 import type { Prisma, PrismaClient } from "@prisma/generated/prisma/client";
 import type { Blindtest } from "packages/domain/src/entities/blindtest";
 import { blindtestInclude, toBlindtest } from "@/infrastructure/prisma-music-mappers";
-import { BlindtestRepository, CreateBlindtestData, UpdateBlindtestData } from "packages/domain/src/repositories/blindtest-repository";
+import { BlindtestRepository } from "packages/domain/src/repositories/blindtest-repository";
+import { CreateBlindtestInput } from "@/presentation/schema";
+import { UpdateBlindtestInput } from "packages/application/src/use-cases/blindtest/update-blindtest";
 
 type DbClient = PrismaClient | Prisma.TransactionClient;
 
@@ -58,7 +60,7 @@ export const createPrismaBlindtestRepository = (prisma: PrismaClient): Blindtest
 
     return blindtests.map((blindtest) => toBlindtest(blindtest, accountId));
   },
-  create: async (accountId: string, data: CreateBlindtestData): Promise<Blindtest> => {
+  create: async (accountId: string, data: CreateBlindtestInput): Promise<Blindtest> => {
     const blindtest = await prisma.blindtest.create({
       data: {
         blindtestName: data.name,
@@ -106,7 +108,7 @@ export const createPrismaBlindtestRepository = (prisma: PrismaClient): Blindtest
   update: async (
     accountId: string,
     blindtestId: string,
-    data: UpdateBlindtestData,
+    data: UpdateBlindtestInput,
   ): Promise<Blindtest | null> => {
     const canEdit = await hasBlindtestAccess(prisma, blindtestId, accountId);
 
@@ -168,6 +170,19 @@ export const createPrismaBlindtestRepository = (prisma: PrismaClient): Blindtest
         return null;
       }
 
+      // max length reached ?
+      const blindtest = await transaction.blindtest.findUnique({
+        where: { blindtestId },
+        select: {
+          blindtestId: true, blindtestLength: true, blindtestTracks: true, blindtestCompulsoryTracks: true
+        },
+      });
+      if (blindtest &&
+        (blindtest.blindtestTracks?.length + blindtest?.blindtestCompulsoryTracks?.length >= blindtest.blindtestLength)
+      ) {
+        return null;
+      }
+            
       const existingBlintestTrack = await transaction.blindtestCompulsoryTrack.findFirst({
         where: { blindtestId, trackId },
       });
@@ -202,6 +217,86 @@ export const createPrismaBlindtestRepository = (prisma: PrismaClient): Blindtest
 
       if (existingBlindtestTrack) {
         await transaction.blindtestCompulsoryTrack.delete({
+          where: {
+            blindtestId_trackId: {
+              blindtestId,
+              trackId,
+            },
+          },
+        });
+      }
+
+      return readBlindtest(transaction, blindtestId, accountId);
+    });
+  },
+  addTrack: async (
+    accountId: string,
+    blindtestId: string,
+    trackId: string,
+  ): Promise<Blindtest | null> => {
+    return prisma.$transaction(async (transaction) => {
+      // is owner ?
+      const canEdit = await hasBlindtestAccess(transaction, blindtestId, accountId);
+      if (!canEdit) {
+        return null;
+      }
+
+      // track exists ?
+      const track = await transaction.track.findUnique({
+        where: { trackId },
+        select: { trackId: true },
+      });
+      if (!track) {
+        return null;
+      }
+
+      // max length reached ?
+      const blindtest = await transaction.blindtest.findUnique({
+        where: { blindtestId },
+        select: {
+          blindtestId: true, blindtestLength: true, blindtestTracks: true, blindtestCompulsoryTracks: true
+        },
+      });
+      if (blindtest &&
+        (blindtest.blindtestTracks?.length + blindtest?.blindtestCompulsoryTracks?.length >= blindtest.blindtestLength)
+      ) {
+        return null;
+      }
+
+      // alrdy added ?
+      const existingBlintestTrack = await transaction.blindtestTrack.findFirst({
+        where: { blindtestId, trackId },
+      });
+      if (!existingBlintestTrack) {
+        await transaction.blindtestTrack.create({
+          data: {
+            blindtest: { connect: { blindtestId } },
+            track: { connect: { trackId } },
+          },
+        });
+      }
+
+      return readBlindtest(transaction, blindtestId, accountId);
+    });
+  },
+  removeTrack: async (
+    accountId: string,
+    blindtestId: string,
+    trackId: string,
+  ): Promise<Blindtest | null> => {
+    return prisma.$transaction(async (transaction) => {
+      const canEdit = await hasBlindtestAccess(transaction, blindtestId, accountId);
+
+      if (!canEdit) {
+        return null;
+      }
+
+      const existingBlindtestTrack = await transaction.blindtestTrack.findFirst({
+        where: { blindtestId, trackId },
+      });
+
+      if (existingBlindtestTrack) {
+        await transaction.blindtestTrack.delete({
           where: {
             blindtestId_trackId: {
               blindtestId,

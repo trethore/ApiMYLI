@@ -121,6 +121,7 @@ export default function Nav() {
               <MdMusicVideo />
             </div>
           </Link>
+          
           <SearchBar />
 
           <DropdownMenu>

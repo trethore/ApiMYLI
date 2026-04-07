@@ -2,16 +2,15 @@ import type { Blindtest } from "packages/domain/src/entities/blindtest";
 import type { BlindtestRepository } from "packages/domain/src/repositories/blindtest-repository";
 
 export type CreateBlindtestInput = {
-  name: string;
-  length: number;
-  yearBegin: number;
-  yearEnd: number;
-  difficulty: number;
-  instrumental: boolean
-  compulsoryTrackIds: string[];
-  trackIds: string[];
-  genreIds: string[];
-  artistIds: string[];
+  name: string,
+  length: number,
+  difficulty: number,
+  yearBegin: number | null,
+  yearEnd: number | null,
+  instrumental: boolean | null;
+  genreIds: string[],
+  artistIds: string[],
+  compulsoryTrackIds: string[]
 };
 
 export const createBlindtest = async (

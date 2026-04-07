@@ -295,6 +295,7 @@ export const toAlbum = (album: PrismaAlbumWithRelations): Album => ({
 export const toTrack = (track: PrismaTrackWithRelations): Track => ({
   trackId: track.trackId,
   title: track.trackTitle,
+  dateCreated: track.trackDateCreated ?? null,
   imageUrl: track.trackImageFile ?? track.album?.albumImageFile ?? null,
   audioSrc: track.trackFile ?? track.trackUrl ?? null,
   durationSeconds: toNullableNumber(track.trackDuration),
@@ -356,6 +357,8 @@ export const toBlindtest = (
   difficulty: blindtest.blindtestDifficulty,
   instrumental: blindtest.blindtestInstrumental,
   trackCount: blindtest.blindtestTracks.length,
+  compulsoryTrackCount: blindtest.blindtestCompulsoryTracks.length,
+  totalTracksCount: blindtest.blindtestCompulsoryTracks.length + blindtest.blindtestTracks.length,
   tracks: blindtest.blindtestTracks?.map((blindtestTrack) => toTrack(blindtestTrack.track)),
   compulsoryTracks: blindtest.blindtestCompulsoryTracks?.map((track) => toTrack(track.track)),
   genres: blindtest.blindtestGenres?.map((genre) => toGenre(genre.genre)),

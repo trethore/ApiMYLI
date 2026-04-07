@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import MusicItem from "@/components/MusicItem";
 import { Music } from "@/types/music";
 import { Button } from "@/components/ui/button";
-import { MoreHorizontal, Play, Edit, Trash2 } from "lucide-react";
+import { MoreHorizontal, Play, Edit, Trash2, ListMinus } from "lucide-react";
 import Image from "@/components/ImageWithFallback";
 import SectionTitle from "@/components/SectionTitle";
 import PinActionSubMenu from "@/components/PinActionSubMenu";
@@ -50,10 +50,9 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
   const blindtestId = slug;
 
   const { token, requireAuth } = useAuth();
-  const { playlists, deletePlaylist, updatePlaylist } = usePlaylist();
   const { playTrack, setQueueList } = usePlayer();
 
-  const { updateBlindtest, deleteBlindtest, loadBlindtests } = useBlindtest();
+  const { updateBlindtest, deleteBlindtest, autocompleteBlindtest } = useBlindtest();
 
   const [blindtest, setBlindtest] = useState<ApiBlindtest | null>(null);
   const [tracks, setTracks] = useState<Music[]>([]);
@@ -64,6 +63,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
   const [displayImage, setDisplayImage] = useState("/placeholder-album.jpg");
   const [displayOwner, setDisplayOwner] = useState("Utilisateur inconnu");
   const [isOwned, setIsOwned] = useState(false);
+  const [isFull, setIsFull] = useState(false);
 
   // Edit Dialog State
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -76,40 +76,35 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
     showToast("Lien copié !");
   };
 
-  useEffect(() => {
-    const fetchBlindtest = async () => {
-      try {
-        setLoading(true);
-        const data = await getBlindtestQuery(blindtestId, token);
-        if (data) {
-          setBlindtest(data);
+  const fetchBlindtest = async () => {
+    try {
+      setLoading(true);
+      const data = await getBlindtestQuery(blindtestId, token);
+      if (data) {
+        setBlindtest(data);
 
-          if (data.tracks) {
-            setTracks(data.tracks.map(toMusic));
-          }
-
-          if (data.name) {
-            setDisplayName(data.name);
-            setEditName(data.name);
-          }
-          if (data.ownerDisplayName) setDisplayOwner(data.ownerDisplayName);
-          if (data.isEditable) setIsOwned(true);
-
-          const contextMatch = playlists.find((p) => p.id === blindtestId);
-          if (contextMatch?.image) {
-            setDisplayImage(contextMatch.image);
-            setEditImage(contextMatch.image);
-          }
+        if (data.tracks) {
+          setTracks(data.tracks.map(toMusic));
         }
-      } catch (err) {
-        console.error("Error fetching blindtest", err);
-      } finally {
-        setLoading(false);
-      }
-    };
 
+        if (data.name) {
+          setDisplayName(data.name);
+          setEditName(data.name);
+        }
+        if (data.ownerDisplayName) setDisplayOwner(data.ownerDisplayName);
+        if (data.isEditable) setIsOwned(true);
+        if (data.totalTracksCount >= data.length) setIsFull(true)
+      }
+    } catch (err) {
+      console.error("Error fetching blindtest", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchBlindtest();
-  }, [blindtestId, token, playlists]);
+  }, [token]);
 
   const handleEdit = async () => {
     if (editName.trim()) {
@@ -120,9 +115,13 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
     }
   };
 
+  const handleAutocomplete = async () => {
+    await autocompleteBlindtest(blindtestId, [], [], 20);
+    await fetchBlindtest();
+  };
+
   const handleDelete = async () => {
     await deleteBlindtest(blindtestId);
-    loadBlindtests();
     router.push("/blindtests");
   };
 
@@ -253,7 +252,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <PinActionSubMenu itemId={blindtestId} itemType="blindtest" />
-                  <DropdownMenuItem 
+                  <DropdownMenuItem
                     className="cursor-pointer"
                     onClick={handleShare}
                   >
@@ -265,7 +264,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
           </div>
 
           {/* Play Button */}
-          <div className="w-full px-2 sm:px-8 mt-6">
+          <div className="w-full px-2 sm:px-8 mt-6 flex justify-between">
             <Button
               onClick={handlePlayBlindtest}
               className="w-full sm:w-auto text-foreground font-bold text-lg py-6 rounded-full flex items-center gap-2 bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] hover:cursor-pointer disabled:opacity-50"
@@ -273,6 +272,37 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
             >
               <Play className="fill-current" /> Lecture
             </Button>
+
+            {!isFull && (
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    variant="secondary"
+                    className="rounded-full transition-colors cursor-pointer flex-shrink-0"
+                  >
+                    <ListMinus size={24} /> Autocompléter
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Autocomplétion</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Cette action remplira le reste de votre blindtest automatiquement en fonction des titres déjà présents
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Annuler</AlertDialogCancel>
+                    <AlertDialogAction
+                      onClick={handleAutocomplete}
+                      className="bg-secondary hover:bg-secondary/80 cursor-pointer"
+                    >
+                      Autocompléter
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            )}
+
           </div>
         </div>
 
