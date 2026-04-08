@@ -880,7 +880,8 @@ export const BlindtestScalarFieldEnum = {
   blindtestDifficulty: 'blindtestDifficulty',
   blindtestInstrumental: 'blindtestInstrumental',
   blindtestYearBegin: 'blindtestYearBegin',
-  blindtestYearEnd: 'blindtestYearEnd'
+  blindtestYearEnd: 'blindtestYearEnd',
+  blindtestRankingOrder: 'blindtestRankingOrder'
 } as const
 
 export type BlindtestScalarFieldEnum = (typeof BlindtestScalarFieldEnum)[keyof typeof BlindtestScalarFieldEnum]
@@ -978,6 +979,7 @@ export const AccountPinnedItemScalarFieldEnum = {
   albumId: 'albumId',
   artistId: 'artistId',
   playlistId: 'playlistId',
+  blindtestId: 'blindtestId',
   pinnedAt: 'pinnedAt'
 } as const
 

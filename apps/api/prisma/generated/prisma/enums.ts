@@ -18,6 +18,15 @@ export const account_roles = {
 export type account_roles = (typeof account_roles)[keyof typeof account_roles]
 
 
+export const BlindtestRankingType = {
+  listens: 'listens',
+  likes: 'likes',
+  comments: 'comments'
+} as const
+
+export type BlindtestRankingType = (typeof BlindtestRankingType)[keyof typeof BlindtestRankingType]
+
+
 export const PinnedItemType = {
   TRACK: 'TRACK',
   ALBUM: 'ALBUM',

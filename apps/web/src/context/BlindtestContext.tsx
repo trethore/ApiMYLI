@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode, useEffect } from "react";
-import { Blindtest, Music } from "@/types/music";
+import { createContext, useContext, useState, ReactNode, useEffect, use } from "react";
+import { Blindtest } from "@/types/music";
 import { useAuth } from "@/context/AuthContext";
 import {
   getMyBlindtestsQuery,
@@ -13,6 +13,10 @@ import {
   addCompulsoryTrackToBlindtestMutation,
   removeCompulsoryTrackFromBlindtestMutation,
   autocompleteBlindtestMutation,
+  ApiBlindtest,
+  getBlindtestQuery,
+  addTrackToBlindtestMutation,
+  removeTrackFromBlindtestMutation,
 } from "@/lib/api-client";
 
 export type BlindtestCreateInput = {
@@ -29,13 +33,19 @@ export type BlindtestCreateInput = {
 
 interface BlindtestContextType {
   blindtests: Blindtest[];
+  blindtest: ApiBlindtest | null;
   loadBlindtests: () => Promise<void>;
+  loadBlindtest: (blindtestId: string) => Promise<void>;
   createBlindtest: (input: BlindtestCreateInput) => Promise<void>;
   updateBlindtest: (id: string, name: string) => Promise<void>;
   deleteBlindtest: (id: string) => Promise<void>;
   autocompleteBlindtest: (id: string, seedTrackIds: string[], blacklistedTrackIds: string[], randomness: number) => Promise<void>;
-  addCompulsoryTrackToBlindtest: (blindtestId: string, track: Music) => Promise<void>;
+  addCompulsoryTrackToBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
+  addCompulsoryTracksToBlindtest: (blindtestId: string, trackIds: string[]) => Promise<void>;
   removeCompulsoryTrackFromBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
+  addTrackToBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
+  addTracksToBlindtest: (blindtestId: string, trackIds: string[]) => Promise<void>;
+  removeTrackFromBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
   isOwnedBlindtest: (id: string) => boolean;
 }
 
@@ -43,7 +53,20 @@ const BlindtestContext = createContext<BlindtestContextType | undefined>(undefin
 
 export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
   const [blindtests, setBlindtests] = useState<Blindtest[]>([]);
+  const [blindtest, setBlindtest] = useState<ApiBlindtest | null>(null);
   const { token } = useAuth();
+
+  const loadBlindtest = async (blindtestId: string) => {
+    try {
+      const data = await getBlindtestQuery(blindtestId, token);
+
+      if (data) {
+        setBlindtest(data);
+      }
+    } catch (err) {
+      console.error("Error fetching blindtest", err);
+    }
+  };
 
   const loadBlindtests = async () => {
     if (token) {
@@ -108,24 +131,38 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const autocompleteBlindtest = async (id: string, seedTrackIds: string[], blacklistedTrackIds: string[], randomness: number) => {
+  const autocompleteBlindtest = async (blindtestId: string, seedTrackIds: string[], blacklistedTrackIds: string[], randomness: number) => {
     if (!token) return;
 
     try {
-      await autocompleteBlindtestMutation(id, seedTrackIds, blacklistedTrackIds, randomness, token);
-      await loadBlindtests();
+      const updatedBlindtest = await autocompleteBlindtestMutation(
+        blindtestId,
+        seedTrackIds,
+        blacklistedTrackIds,
+        randomness,
+        token
+      );
+
+      if (updatedBlindtest) {
+        setBlindtest(updatedBlindtest);
+      }
     } catch (err) {
       console.error(err);
     }
   };
 
-  const addCompulsoryTrackToBlindtest = async (blindtestId: string, track: Music) => {
+  const addCompulsoryTrackToBlindtest = async (blindtestId: string, trackId: string) => {
     if (!token) return;
     try {
-      await addCompulsoryTrackToBlindtestMutation(blindtestId, track.id, token);
-      // await loadBlindtests();
+      await addCompulsoryTrackToBlindtestMutation(blindtestId, trackId, token);
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const addCompulsoryTracksToBlindtest = async (blindtestId: string, trackIds: string[]) => {
+    for (const id of trackIds) {
+      await addCompulsoryTrackToBlindtest(blindtestId, id);
     }
   };
 
@@ -133,7 +170,32 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     if (!token) return;
     try {
       await removeCompulsoryTrackFromBlindtestMutation(blindtestId, trackId, token);
-      // await loadBlindtests();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const addTrackToBlindtest = async (blindtestId: string, trackId: string) => {
+    if (!token) return;
+    try {
+      await addTrackToBlindtestMutation(blindtestId, trackId, token);
+      await loadBlindtests();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const addTracksToBlindtest = async (blindtestId: string, trackIds: string[]) => {
+    for (const id of trackIds) {
+      await addTrackToBlindtest(blindtestId, id);
+    }
+  };
+
+  const removeTrackFromBlindtest = async (blindtestId: string, trackId: string) => {
+    if (!token) return;
+    try {
+      await removeTrackFromBlindtestMutation(blindtestId, trackId, token);
+      await loadBlindtests();
     } catch (err) {
       console.error(err);
     }
@@ -147,13 +209,19 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     <BlindtestContext.Provider
       value={{
         blindtests,
+        blindtest,
         loadBlindtests,
+        loadBlindtest,
         createBlindtest,
         updateBlindtest,
         deleteBlindtest,
         autocompleteBlindtest,
         addCompulsoryTrackToBlindtest,
+        addCompulsoryTracksToBlindtest,
         removeCompulsoryTrackFromBlindtest,
+        addTrackToBlindtest,
+        addTracksToBlindtest,
+        removeTrackFromBlindtest,
         isOwnedBlindtest,
       }}
     >

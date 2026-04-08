@@ -59,7 +59,6 @@ export default function SearchBar({
       const updated = isSelected
         ? selectedPlaylists.filter(item => item.id !== playlist.id)
         : [...selectedPlaylists, playlist];
-      console.log(updated);
       setSelectedPlaylists(updated);
     }
   };
@@ -69,7 +68,6 @@ export default function SearchBar({
       const updated = isSelected
         ? selectedGenres.filter(item => item.id !== genre.id)
         : [...selectedGenres, genre];
-      console.log(updated);
       setSelectedGenres(updated);
     }
   };
@@ -79,7 +77,6 @@ export default function SearchBar({
       const updated = isSelected
         ? selectedTracks.filter(item => item.id !== track.id)
         : [...selectedTracks, track];
-      console.log(updated);
       setSelectedTracks(updated);
     }
   };
@@ -174,24 +171,28 @@ export default function SearchBar({
                     return (
                       <div
                         key={t.trackId}
-                        className="flex items-center gap-3 p-2 hover:bg-secondary/50 rounded-md transition-colors"
+                        className={`flex items-center gap-3 p-2 rounded-md transition-colors
+                        ${setSelectedTracks ? "cursor-pointer" : ""}
+                        ${isSelected ? "bg-secondary/50" : "hover:bg-secondary/30"}`}
+                        onClick={(e) => {
+                          if (setSelectedTracks) {
+                            toggleTrackSelection({ id: t.trackId, name: t.title ?? "" })
+                          }
+                        }}
                       >
                         <div
-                          className={`flex items-center gap-3 p-2 rounded-md cursor-pointer transition-colors
-                                      ${isSelected ? "bg-secondary/50" : "hover:bg-secondary/30"}`}
+                          className="w-10 h-10 relative flex-shrink-0 bg-secondary rounded overflow-hidden group/image cursor-pointer"
                           onClick={(e) => {
-                            if (setSelectedTracks) {
-                              toggleTrackSelection({ name: t.title ?? "", id: t.trackId })
-                            } else {
+                            if (!setSelectedTracks) {
                               e.stopPropagation();
                               requireAuth(() => playTrack(toMusic(t)));
                             }
                           }}
                         >
-                          {/* <div className="w-10 h-10 relative flex-shrink-0 bg-secondary rounded-full overflow-hidden border border-border/10">
-                          </div> */}
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity">
-                            <Image src={t.imageUrl || "/placeholder-music.jpg"} alt={t.title || "Titre"} layout="fill" objectFit="cover" />
+                          <Image src={t.imageUrl || "/placeholder-music.jpg"} alt={t.title || "Titre"} layout="fill" objectFit="cover" />
+                          <div className={`absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 transition-opacity
+                            ${setSelectedTracks ? "" : "group-hover/image:opacity-100"}
+                            `}>
                             <Play className="w-4 h-4 fill-white text-white" />
                           </div>
                         </div>
@@ -202,8 +203,7 @@ export default function SearchBar({
                           </p>
                         </div>
                       </div>
-                    )
-                  })}
+                    )})}
                 </div>
               )}
 

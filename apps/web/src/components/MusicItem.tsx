@@ -20,16 +20,19 @@ import {
   DropdownMenuPortal,
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
+import { useBlindtest } from "@/context/BlindtestContext";
 
 interface MusicItemProps {
   music: Music;
   index: number;
+  type?: string;
   showImage?: boolean; // Default true
 }
 
-export default function MusicItem({ music, index, showImage = true }: MusicItemProps) {
+export default function MusicItem({ music, index, type, showImage = true }: MusicItemProps) {
   const { playTrack, addToQueue } = usePlayer();
   const { playlists, isOwnedPlaylist, removeTrackFromPlaylist, addTrackToPlaylist } = usePlaylist();
+  const { isOwnedBlindtest, removeCompulsoryTrackFromBlindtest, removeTrackFromBlindtest, loadBlindtest } = useBlindtest();
   const pathname = usePathname();
   const router = useRouter();
 
@@ -37,11 +40,26 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
   const isPlaylistRoute = pathname.startsWith("/playlist/");
   const currentPlaylistId = isPlaylistRoute ? pathname.split("/").pop() : null;
   const isInsideOwnedPlaylist = currentPlaylistId ? isOwnedPlaylist(currentPlaylistId) : false;
+  const isBlindtestRoute = pathname.startsWith("/blindtest/");
+  const currentBlindtestId = isBlindtestRoute ? pathname.split("/").pop() : null;
+  const isInsideOwnedBlindtest = currentBlindtestId ? isOwnedBlindtest(currentBlindtestId) : false;
 
   const handleRemoveFromPlaylist = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (currentPlaylistId) {
       removeTrackFromPlaylist(currentPlaylistId, music.id);
+    }
+  };
+
+  const handleRemoveFromBlindtest = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (currentBlindtestId) {
+      if (type === 'COMPULSORY') {
+        await removeCompulsoryTrackFromBlindtest(currentBlindtestId, music.id);
+      } else if (type === 'TRACK') {
+        await removeTrackFromBlindtest(currentBlindtestId, music.id);
+      }
+      loadBlindtest(currentBlindtestId);
     }
   };
 
@@ -139,6 +157,14 @@ export default function MusicItem({ music, index, showImage = true }: MusicItemP
                 className="cursor-pointer text-destructive focus:text-destructive"
               >
                 Retirer de la playlist
+              </DropdownMenuItem>
+            )}
+            {isInsideOwnedBlindtest && (
+              <DropdownMenuItem
+                onClick={handleRemoveFromBlindtest}
+                className="cursor-pointer text-destructive focus:text-destructive"
+              >
+                Retirer du blindtest
               </DropdownMenuItem>
             )}
 

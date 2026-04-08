@@ -451,6 +451,9 @@ const BLINDTEST_FRAGMENT = /* GraphQL */ `
     tracks {
       ...TrackDetails
     }
+    compulsoryTracks {
+      ...TrackDetails
+    }
   }
   ${TRACK_FRAGMENT}
 `;
@@ -552,6 +555,7 @@ export async function getBlindtestQuery(blindtestId: string, token?: string | nu
     ${BLINDTEST_FRAGMENT}
   `;
   const data = await gql<{ blindtest: ApiBlindtest | null }>(query, { blindtestId }, token);
+
   return data.blindtest;
 }
 
@@ -651,7 +655,13 @@ export async function deleteBlindtestMutation(blindtestId: string, token: string
   return data.deleteBlindtest;
 }
 
-export async function autocompleteBlindtestMutation(blindtestId: string, seedTrackIds: string[], blacklistedTrackIds: string[], randomness: number, token: string): Promise<boolean> {
+export async function autocompleteBlindtestMutation(
+  blindtestId: string,
+  seedTrackIds: string[],
+  blacklistedTrackIds: string[],
+  randomness: number,
+  token: string
+): Promise<ApiBlindtest> {
   const query = /* GraphQL */ `
     mutation AutocompleteBlindtest($blindtestId: String!, $seedTrackIds: [String!]!, $blacklistedTrackIds: [String!]!, $randomness: Int!) {
       autocompleteBlindtest(blindtestId: $blindtestId, seedTrackIds: $seedTrackIds, blacklistedTrackIds: $blacklistedTrackIds, randomness: $randomness) {
@@ -660,7 +670,11 @@ export async function autocompleteBlindtestMutation(blindtestId: string, seedTra
     }
     ${BLINDTEST_FRAGMENT}
   `;
-  const data = await gql<{ autocompleteBlindtest: boolean }>(query, { blindtestId, seedTrackIds, blacklistedTrackIds, randomness }, token);
+  const data = await gql<{ autocompleteBlindtest: ApiBlindtest }>(
+    query,
+    { blindtestId, seedTrackIds, blacklistedTrackIds, randomness },
+    token
+  );
   return data.autocompleteBlindtest;
 }
 

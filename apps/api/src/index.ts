@@ -7,6 +7,7 @@ import { schema } from "@/presentation/schema";
 import { createAppServices } from "@/main/app-services";
 import { prisma } from "@/prisma";
 import { redis } from "@/redis";
+import { getComplexity, simpleEstimator, fieldExtensionsEstimator } from 'graphql-query-complexity';
 
 const services = createAppServices(prisma, redis);
 const parsePositiveInteger = (value: string | undefined, fallback: number): number => {
@@ -21,6 +22,12 @@ const maxQueryComplexity = parsePositiveInteger(Bun.env.GRAPHQL_MAX_COMPLEXITY, 
 const yoga = createYoga({
   schema,
   plugins: [
+    // {
+    //   onValidate({addValidationRule}) {
+    //     addValidationRule((_context: any) => {
+    //     });
+    //   }
+    // },
     useValidationRule(depthLimit(maxQueryDepth)),
     useValidationRule(createComplexityLimitRule(maxQueryComplexity)),
   ],

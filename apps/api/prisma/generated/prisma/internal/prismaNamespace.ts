@@ -3843,7 +3843,8 @@ export const BlindtestScalarFieldEnum = {
   blindtestDifficulty: 'blindtestDifficulty',
   blindtestInstrumental: 'blindtestInstrumental',
   blindtestYearBegin: 'blindtestYearBegin',
-  blindtestYearEnd: 'blindtestYearEnd'
+  blindtestYearEnd: 'blindtestYearEnd',
+  blindtestRankingOrder: 'blindtestRankingOrder'
 } as const
 
 export type BlindtestScalarFieldEnum = (typeof BlindtestScalarFieldEnum)[keyof typeof BlindtestScalarFieldEnum]
@@ -3941,6 +3942,7 @@ export const AccountPinnedItemScalarFieldEnum = {
   albumId: 'albumId',
   artistId: 'artistId',
   playlistId: 'playlistId',
+  blindtestId: 'blindtestId',
   pinnedAt: 'pinnedAt'
 } as const
 
@@ -4076,6 +4078,20 @@ export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'BigInt[]'
  */
 export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BlindtestRankingType'
+ */
+export type EnumBlindtestRankingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BlindtestRankingType'>
+    
+
+
+/**
+ * Reference to a field of type 'BlindtestRankingType[]'
+ */
+export type ListEnumBlindtestRankingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BlindtestRankingType[]'>
     
 
 

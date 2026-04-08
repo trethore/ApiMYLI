@@ -1268,18 +1268,22 @@ export const schema = createSchema({
           currentAccountId,
         });
 
-        recommendedTracks.forEach( async (track) => {
+        for (const track of recommendedTracks) {
           await addTrackToBlindtest(
             context.services.blindtestRepository,
             currentAccountId,
             args.blindtestId,
-            track.trackId,
-          )
-        })
+            track.trackId
+          );
+        }
 
-        return null
+        const updatedBlindtest = await getBlindtestById(
+          context.services.blindtestRepository,
+          args.blindtestId,
+          currentAccountId
+        )
 
-        return recommendedTracks.map(toGraphqlTrack);
+        return updatedBlindtest ? toGraphqlBlindtest(updatedBlindtest) : null;
       },
       addCompulsoryTrackToBlindtest: async (
         _parent: unknown,
