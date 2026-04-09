@@ -1,4 +1,4 @@
-import { BlindtestCreateInput } from "@/context/BlindtestContext";
+import { BlindtestCreateInput, BlindtestUpdateInput } from "@/context/BlindtestContext";
 import { Music } from "@/types/music";
 
 const API_URL = "http://localhost:4000/graphql";
@@ -41,7 +41,7 @@ async function gql<T>(
 
   if (json.errors && json.errors.length > 0) {
     const errorMsg = json.errors[0].message;
-    console.error("GraphQL Errors:", json.errors, "in query:", query.substring(0, 100)); // Log part of the query
+    console.error("GraphQL Errors:", json.errors, "in query:", query.substring(0, 10000)); // Log part of the query
     // throw new Error(`${errorMsg} (Query: ${query.trim().split('{')[0].trim()})`);
     throw new Error(`${errorMsg}`);
   }
@@ -416,6 +416,20 @@ const TRACK_FRAGMENT = /* GraphQL */ `
   }
 `;
 
+const GENRE_FRAGMENT = /* GraphQL */ `
+  fragment GenreDetails on Genre {
+    genreId
+    title
+  }
+`;
+
+const ARTIST_FRAGMENT = /* GraphQL */ `
+  fragment ArtistDetails on Artist {
+    artistId
+    name
+  }
+`;
+
 const PLAYLIST_SUMMARY_FRAGMENT = /* GraphQL */ `
   fragment PlaylistSummary on Playlist {
     playlistId
@@ -448,14 +462,26 @@ const BLINDTEST_FRAGMENT = /* GraphQL */ `
     trackCount
     compulsoryTrackCount
     totalTracksCount
+    yearBegin
+    yearEnd
+    difficulty
+    instrumental
     tracks {
       ...TrackDetails
     }
     compulsoryTracks {
       ...TrackDetails
     }
+    artists {
+      ...ArtistDetails
+    }
+    genres {
+      ...GenreDetails
+    }
   }
   ${TRACK_FRAGMENT}
+  ${ARTIST_FRAGMENT}
+  ${GENRE_FRAGMENT}
 `;
 
 export async function getTrackQuery(trackId: string, token?: string | null): Promise<ApiTrack | null> {
@@ -554,6 +580,7 @@ export async function getBlindtestQuery(blindtestId: string, token?: string | nu
     }
     ${BLINDTEST_FRAGMENT}
   `;
+
   const data = await gql<{ blindtest: ApiBlindtest | null }>(query, { blindtestId }, token);
 
   return data.blindtest;
@@ -632,16 +659,16 @@ export async function createBlindtestMutation(input: BlindtestCreateInput, token
 }
 
 // TODO : add other attributes & relations
-export async function updateBlindtestMutation(blindtestId: string, name: string, token: string): Promise<ApiBlindtest | null> {
+export async function updateBlindtestMutation(blindtestId: string, input: BlindtestUpdateInput, token: string): Promise<ApiBlindtest | null> {
   const query = /* GraphQL */ `
-    mutation UpdateBlindtest($playlistId: String!, $input: UpdateBlindtestInput!) {
-      updateBlindtest(playlistId: $blindtestId, input: $input) {
+    mutation UpdateBlindtest($blindtestId: String!, $input: UpdateBlindtestInput!) {
+      updateBlindtest(blindtestId: $blindtestId, input: $input) {
         ...BlindtestDetails
       }
     }
     ${BLINDTEST_FRAGMENT}
   `;
-  const data = await gql<{ updateBlindtest: ApiBlindtest | null }>(query, { blindtestId, input: { name } }, token);
+  const data = await gql<{ updateBlindtest: ApiBlindtest | null }>(query, { blindtestId, input }, token);
   return data.updateBlindtest;
 }
 
@@ -1037,6 +1064,7 @@ export type ApiSearchResults = {
   albums: ApiAlbumSummary[];
   artists: ApiArtistSummary[];
   playlists: ApiPlaylistSummary[];
+  genres: ApiGenre[];
 };
 
 export async function globalSearchQuery(queryText: string, limit: number = 5, token?: string | null): Promise<ApiSearchResults> {
@@ -1076,6 +1104,10 @@ export async function globalSearchQuery(queryText: string, limit: number = 5, to
         playlists {
           playlistId
           name
+        }
+        genres {
+          genreId
+          title
         }
       }
     }

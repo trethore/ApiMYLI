@@ -74,14 +74,14 @@ export const createPrismaBlindtestRepository = (prisma: PrismaClient): Blindtest
         artistBlindtests: {
           create: data.artistIds?.map((id) => ({
             artist: {
-              connect: {artistId: id}
+              connect: { artistId: id }
             }
           }))
         },
         blindtestCompulsoryTracks: {
           create: data.compulsoryTrackIds?.map((id) => ({
             track: {
-              connect: {trackId: id}
+              connect: { trackId: id }
             }
           }))
         },
@@ -119,12 +119,40 @@ export const createPrismaBlindtestRepository = (prisma: PrismaClient): Blindtest
     const blindtest = await prisma.blindtest.update({
       where: { blindtestId },
       data: {
+        // direct attrs
         ...(data.name != null && { blindtestName: data.name }),
         ...(data.difficulty != null && { blindtestDifficulty: data.difficulty }),
         ...(data.length != null && { blindtestLength: data.length }),
-        ...(data.name != null && { blindtestName: data.name }),
+        blindtestYearBegin: data.yearBegin,
+        blindtestYearEnd: data.yearEnd,
+        blindtestInstrumental: data.instrumental,
 
-        // TODO : update relations too...
+        // relations
+        blindtestCompulsoryTracks: {
+          deleteMany: {},
+          createMany: {
+            data: (data.compulsoryTrackIds ?? []).map((trackId) => ({
+              trackId,
+            })),
+          },
+        },
+        artistBlindtests: {
+          deleteMany: {},
+          createMany: {
+            data: (data.artistIds ?? []).map((artistId) => ({
+              artistId,
+            })),
+          },
+        },
+        blindtestGenres: {
+          deleteMany: {},
+          createMany: {
+            data: (data.genreIds ?? []).map((genreId) => ({
+              genreId,
+            })),
+          },
+        },
+
       },
       include: blindtestInclude(accountId),
     });
@@ -182,7 +210,7 @@ export const createPrismaBlindtestRepository = (prisma: PrismaClient): Blindtest
       ) {
         return null;
       }
-            
+
       const existingBlintestTrack = await transaction.blindtestCompulsoryTrack.findFirst({
         where: { blindtestId, trackId },
       });

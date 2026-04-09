@@ -62,6 +62,8 @@ import type { TrackCatalogRepository } from "packages/domain/src/repositories/tr
 import type { TrackLibraryRepository } from "packages/domain/src/repositories/track-library-repository";
 import { BlindtestRepository } from "packages/domain/src/repositories/blindtest-repository";
 import { ExtraBlindtestConstraints } from "@/infrastructure/prisma-track-catalog-repository";
+import { GenreRepository } from "packages/domain/src/repositories/genre-repository";
+import { GraphQLError } from "graphql";
 
 type GraphqlArtist = {
   artistId: string;
@@ -253,7 +255,7 @@ export type CreateBlindtestInput = {
   compulsoryTrackIds: string[]
 };
 
-type UpdateBlindtestInput = {
+export type UpdateBlindtestInput = {
   name: string;
   length: number;
   yearBegin: number;
@@ -283,6 +285,7 @@ type GraphqlContextServices = {
   trackLibraryRepository: TrackLibraryRepository;
   playlistRepository: PlaylistRepository;
   blindtestRepository: BlindtestRepository;
+  genreRepository: GenreRepository;
   passwordHasher: PasswordHasherPort;
   authTokenService: AuthTokenServicePort;
 };
@@ -494,12 +497,12 @@ export const schema = createSchema({
 
     type Genre {
       genreId: ID!
-      parentId: String
       title: String
-      topLevel: Int!
-      tracksCount: Int!
-      parent: Genre!
-      children: [Genre!]!
+      parentId: String
+      topLevel: Int
+      tracksCount: Int
+      parent: Genre
+      children: [Genre!]
     }
 
     type ArtistSummary {
@@ -553,9 +556,9 @@ export const schema = createSchema({
       blindtestId: ID!
       name: String
       length: Int!
-      instrumental: Boolean!
-      yearBegin: Int!
-      yearEnd: Int!
+      instrumental: Boolean
+      yearBegin: Int
+      yearEnd: Int
       difficulty: Int!
       trackCount: Int!
       compulsoryTrackCount: Int!
@@ -662,11 +665,9 @@ export const schema = createSchema({
       yearEnd: Int
       difficulty: Int
       instrumental: Boolean
-      isEditable: Boolean
-      trackCount: Int
-      compulsoryTrackIds: [ID!]
       genreIds: [ID!]
       artistIds: [ID!]
+      compulsoryTrackIds: [ID!]
     }
 
     input ExtraBlindtestConstraintsInput {
@@ -715,6 +716,7 @@ export const schema = createSchema({
       albums: [Album!]!
       artists: [Artist!]!
       playlists: [Playlist!]!
+      genres: [Genre!]!
     }
 
     type Mutation {
@@ -918,6 +920,7 @@ export const schema = createSchema({
           context.services.artistCatalogRepository,
           context.services.trackCatalogRepository,
           context.services.playlistRepository,
+          context.services.genreRepository,
           args.query,
           limit,
           currentAccountId,
@@ -928,6 +931,7 @@ export const schema = createSchema({
           albums: results.albums.map(toGraphqlAlbum),
           artists: results.artists.map(toGraphqlArtist),
           playlists: results.playlists.map(toGraphqlPlaylist),
+          genres: results.genres.map(toGraphqlGenre),
         };
       },
       recommendations: async (
@@ -1238,18 +1242,20 @@ export const schema = createSchema({
         args: { blindtestId: string, seedTrackIds: string[]; blacklistedTrackIds: string[]; randomness: number },
         context: GraphqlContext,
       ) => {
-        const currentAccountId = await getOptionalAuthenticatedAccountId(context);
-        const getRecommendations = createGetRecommendations(context.services.trackCatalogRepository);
+        // Fetch blindtest & accout
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
         const blindtest = await getBlindtestById(
           context.services.blindtestRepository,
           args.blindtestId,
           currentAccountId
         )
+        if (!currentAccountId || !blindtest) return null;
 
-        if (!blindtest || !currentAccountId) {
-          return null
-        }
-
+        // get recommendations
+        const getRecommendations = createGetRecommendations(context.services.trackCatalogRepository);
         const constraints: ExtraBlindtestConstraints = {
           yearBegin: blindtest.yearBegin,
           yearEnd: blindtest.yearEnd,
@@ -1258,7 +1264,6 @@ export const schema = createSchema({
           artistIds: blindtest.artists.map(a => a.artistId),
           compulsoryTrackIds: blindtest.compulsoryTracks.map(t => t.trackId)
         }
-
         const recommendedTracks = await getRecommendations({
           seedTrackIds: args.seedTrackIds,
           blacklistedTrackIds: args.blacklistedTrackIds,
@@ -1268,6 +1273,7 @@ export const schema = createSchema({
           currentAccountId,
         });
 
+        // sync recommendations
         for (const track of recommendedTracks) {
           await addTrackToBlindtest(
             context.services.blindtestRepository,
@@ -1277,12 +1283,12 @@ export const schema = createSchema({
           );
         }
 
+        // return updated blindtest
         const updatedBlindtest = await getBlindtestById(
           context.services.blindtestRepository,
           args.blindtestId,
           currentAccountId
         )
-
         return updatedBlindtest ? toGraphqlBlindtest(updatedBlindtest) : null;
       },
       addCompulsoryTrackToBlindtest: async (

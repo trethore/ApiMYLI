@@ -203,7 +203,34 @@ export default function SearchBar({
                           </p>
                         </div>
                       </div>
-                    )})}
+                    )
+                  })}
+                </div>
+              )}
+
+              {results.genres?.length > 0 && categories.includes("genre") && (
+                <div>
+                  <h3 className="px-2 text-xs font-bold text-muted-foreground mb-1 uppercase tracking-wider">Genres</h3>
+                  {results.genres?.map(g => {
+                    const isSelected = selectedGenres?.map(i => i.id).includes(g.genreId);
+
+                    return (
+                      <div
+                        key={g.genreId}
+                        className={`flex items-center gap-3 p-2 rounded-md cursor-pointer transition-colors
+                          ${isSelected ? "bg-secondary/50" : "hover:bg-secondary/30"}`}
+                        onClick={() => {
+                          if (setSelectedGenres) {
+                            toggleGenreSelection({ id: g.genreId, name: g.title ?? "" })
+                          }
+                        }}
+                      >
+                        <div className="flex-1 truncate border-b border-transparent">
+                          <p className="text-sm font-medium truncate">{g.title}</p>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
               )}
 

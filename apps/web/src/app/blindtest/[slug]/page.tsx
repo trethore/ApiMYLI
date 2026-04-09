@@ -4,12 +4,12 @@ import Nav from "@/components/Nav";
 import MusicItem from "@/components/MusicItem";
 import { Music } from "@/types/music";
 import { Button } from "@/components/ui/button";
-import { MoreHorizontal, Play, Edit, Trash2, ListMinus, EyeClosed, Eye, PlusIcon } from "lucide-react";
+import { MoreHorizontal, Play, Edit, Trash2, ListMinus, EyeClosed, Eye, PlusIcon, ChevronRight, ChevronDown } from "lucide-react";
 import Image from "@/components/ImageWithFallback";
 import SectionTitle from "@/components/SectionTitle";
 import PinActionSubMenu from "@/components/PinActionSubMenu";
 import { useToast } from "@/context/ToastContext";
-import { use, useState, useEffect, useRef } from "react";
+import { use, useState, useEffect, useRef, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import {
   Dialog,
@@ -43,6 +43,8 @@ import { toMusic } from "@/lib/api-client";
 import { useBlindtest } from "@/context/BlindtestContext";
 import SearchBar from "@/components/SearchBar";
 import SelectedItemsChips from "@/components/SelectedItemsChips";
+import { Slider } from "@/components/ui/slider";
+import { PlayBlindtest } from "@/components/PlayBlindtest";
 
 export default function BlindtestPage({ params }: { params: Promise<{ slug: string }> }) {
   const router = useRouter();
@@ -54,12 +56,22 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
   const { playTrack, setQueueList } = usePlayer();
 
   // Blindtest data
-  const { updateBlindtest, deleteBlindtest, autocompleteBlindtest, loadBlindtest, blindtest, addTracksToBlindtest, addCompulsoryTracksToBlindtest } = useBlindtest();
+  const { updateBlindtest, deleteBlindtest, autocompleteBlindtest, loadBlindtest, blindtest, addCompulsoryTracksToBlindtest } = useBlindtest();
   const [tracks, setTracks] = useState<Music[]>([]);
   const [compulsoryTracks, setCompulsoryTracks] = useState<Music[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCompulsoryTracks, setSelectedCompulsoryTracks] = useState<{ id: string, name: string }[]>([]);
-  const [selectedTracks, setSelectedTracks] = useState<{ id: string, name: string }[]>([]);
+
+  // Update blindtest attributes
+  const [updateBlindtestName, setUpdateBlindtestName] = useState<string>("");
+  const [updateBlindtestLength, setUpdateBlindtestLength] = useState<string>("10");
+  const [updateBlindtestYearBegin, setUpdateBlindtestYearBegin] = useState<string>("");
+  const [updateBlindtestYearEnd, setUpdateBlindtestYearEnd] = useState<string>("");
+  const [updateBlindtestDifficulty, setUpdateBlindtestDifficulty] = useState<string>("10");
+  const [updateBlindtestInstrumental, setUpdateBlindtestInstrumental] = useState<string>("");
+  const [updateBlindtestArtists, setUpdateBlindtestArtists] = useState<{ id: string, name: string }[]>([]);
+  const [updateBlindtestCompulsoryTracks, setUpdateBlindtestCompulsoryTracks] = useState<{ id: string, name: string }[]>([]);
+  const [updateBlindtestGenres, setUpdateBlindtestGenres] = useState<{ id: string, name: string }[]>([]);
 
   // Derived state
   const [displayName, setDisplayName] = useState(slug.replace(/-/g, " "));
@@ -76,8 +88,23 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
 
   // Utilities
   const [holding, setHolding] = useState(false);
-  const [blindtestVisible, setBlindtestVisible] = useState(true);
+  const [blindtestVisible, setBlindtestVisible] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const [isAdvancedOptionsOpen, setIsAdvancedOptionsOpen] = useState(false);
+  const [hasAutocompleteNoTracks, setHasAutocompleteNoTracks] = useState(false);
+  const [playingBlindtest, setPlayingBlindtest] = useState(false);
+  const difficultyMeta = useMemo(() => {
+    if (Number(updateBlindtestDifficulty) < 5) {
+      return { color: "red", text: "Difficile" };
+    }
+    if (Number(updateBlindtestDifficulty) < 10) {
+      return { color: "orange", text: "Moyen" };
+    }
+    return { color: "green", text: "Facile" };
+  }, [Number(updateBlindtestDifficulty)]);
+
+  const years = Array.from({ length: 3000 - 1950 + 1 }, (_, i) => 1950 + i)
+
 
   const handleMouseDown = () => {
     setHolding(true);
@@ -118,18 +145,42 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
 
   useEffect(() => {
     if (blindtest) {
-      if (blindtest.tracks) {
-        setTracks(blindtest.tracks.map(toMusic));
-      }
-
-      if (blindtest.compulsoryTracks) {
-        setCompulsoryTracks(blindtest.compulsoryTracks.map(toMusic))
-      }
-
+      // direct attributes
       if (blindtest.name) {
         setDisplayName(blindtest.name);
         setEditName(blindtest.name);
+        setUpdateBlindtestName(blindtest.name);
       }
+      if (blindtest.length) {
+        setUpdateBlindtestLength(blindtest.length.toString());
+      }
+      if (blindtest.yearBegin) {
+        setUpdateBlindtestYearBegin(blindtest.yearBegin.toString());
+      }
+      if (blindtest.yearEnd) {
+        setUpdateBlindtestYearEnd(blindtest.yearEnd.toString());
+      }
+      if (blindtest.difficulty) {
+        setUpdateBlindtestDifficulty(blindtest.difficulty.toString());
+      }
+      setUpdateBlindtestInstrumental(blindtest.instrumental ? 'true' : (blindtest.instrumental === null ? "" : "false"));
+
+      // relations
+      if (blindtest.tracks) {
+        setTracks(blindtest.tracks.map(toMusic));
+      }
+      if (blindtest.compulsoryTracks) {
+        setCompulsoryTracks(blindtest.compulsoryTracks.map(toMusic))
+        setUpdateBlindtestCompulsoryTracks(blindtest.compulsoryTracks.map(t => { return { id: t.trackId, name: t.title ?? "" } }))
+      }
+      if (blindtest.artists) {
+        setUpdateBlindtestArtists(blindtest.artists.map(a => { return { id: a.artistId, name: a.name ?? "" } }))
+      }
+      if (blindtest.genres) {
+        setUpdateBlindtestGenres(blindtest.genres.map(g => { return { id: g.genreId, name: g.title ?? "" } }))
+      }
+
+      // Utilities
       if (blindtest.ownerDisplayName) setDisplayOwner(blindtest.ownerDisplayName);
       if (blindtest.isEditable) setIsOwned(true);
       if (blindtest.totalTracksCount >= blindtest.length) {
@@ -137,29 +188,45 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
       } else {
         setIsFull(false)
       }
-
       if (blindtest.totalTracksCount <= 0) {
         setBlindtestVisible(true)
       }
     }
   }, [blindtest])
 
-  const handleEdit = async () => {
-    if (editName.trim()) {
-      await updateBlindtest(blindtestId, editName);
-      setIsEditOpen(false);
-      setDisplayName(editName);
-      if (editImage) setDisplayImage(editImage);
+  const handleEdit = async (e: any) => {
+    if (!updateBlindtestName.trim() || !updateBlindtestDifficulty || !updateBlindtestLength) {
+      return
     }
+
+    await updateBlindtest(blindtestId, {
+      name: updateBlindtestName,
+      length: parseInt(updateBlindtestLength),
+      difficulty: parseInt(updateBlindtestDifficulty),
+      yearBegin: updateBlindtestYearBegin ? parseInt(updateBlindtestYearBegin) : null,
+      yearEnd: updateBlindtestYearEnd ? parseInt(updateBlindtestYearEnd) : null,
+      instrumental: updateBlindtestInstrumental === ""
+        ? null
+        : updateBlindtestInstrumental === "true",
+      genreIds: updateBlindtestGenres.map(i => i.id),
+      artistIds: updateBlindtestArtists.map(i => i.id),
+      compulsoryTrackIds: updateBlindtestCompulsoryTracks.map(i => i.id),
+    });
+
+    // reset attrs by reloading blindtest
+    loadBlindtest(blindtestId);
+
+    setIsEditOpen(false);
+    if (editImage) setDisplayImage(editImage);
   };
 
   const handleAutocomplete = async () => {
-    await autocompleteBlindtest(blindtestId, [], [], 20);
+    const before = blindtest?.trackCount;
+    const updatedBlindtest = await autocompleteBlindtest(blindtestId, [], [], 10);
+    const after = updatedBlindtest?.trackCount;
+    if (before === after) setHasAutocompleteNoTracks(true);
   };
 
-  const handleAddTracks = async () => {
-    await addTracksToBlindtest(blindtestId, selectedTracks.map(t => t.id));
-  };
   const handleAddCompulsoryTracks = async () => {
     await addCompulsoryTracksToBlindtest(blindtestId, selectedCompulsoryTracks.map(t => t.id));
     loadBlindtest(blindtestId);
@@ -173,8 +240,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
   const handlePlayBlindtest = () => {
     requireAuth(() => {
       if (tracks.length > 0) {
-        playTrack(tracks[0]);
-        setQueueList(tracks.slice(1));
+        setPlayingBlindtest(true)
       }
     });
   };
@@ -208,6 +274,30 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
   return (
     <div className="min-h-screen flex flex-col font-sans bg-background text-foreground pb-24 lg:pb-0">
       <Nav />
+
+      <AlertDialog open={hasAutocompleteNoTracks}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Aïe</AlertDialogTitle>
+            <AlertDialogDescription>
+              Nous n&apos;avons pas pu trouver de titres répondant à l&apos;ensemble des paramètres / contraintes de votre blindtest. Vous pouvez les assouplir un peu puis réessayer.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction
+              onClick={(e) => setHasAutocompleteNoTracks(false)}
+              className="cursor-pointer"
+            >
+              D'accord
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {playingBlindtest && (
+        <PlayBlindtest blindtest={blindtest} closeBlindtest={() => setPlayingBlindtest(false)} />
+      )}
+
       <main className="flex-1 p-4 lg:p-8 max-w-5xl mx-auto w-full">
         {/* Blindtest Header - Mobile Layout Focus */}
         <div className="flex flex-col items-center mb-4">
@@ -316,12 +406,12 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
                 className="w-full sm:w-auto text-foreground font-bold text-lg py-6 rounded-full flex items-center gap-2 bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] hover:cursor-pointer disabled:opacity-50"
                 disabled={tracks.length === 0}
               >
-                <Play className="fill-current" /> Lancer !
+                <Play className="fill-current hover:animate-bounce" /> Jouer !
               </Button>
 
               <div
                 title="Voir les titres (maintenir le click)"
-                className={`p-2 rounded-full relative cursor-pointer transition-all duration-[1000ms]`}
+                className={`p-2 rounded-full relative cursor-pointer transition-all duration-[1000ms] flex gap-2 items-center`}
                 style={{
                   borderWidth: holding ? "4px" : "0px",
                   borderColor: holding ? "var(--color-secondary)" : "transparent",
@@ -340,6 +430,9 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
                 {(((blindtestVisible && !holding) || (!blindtestVisible && holding)) &&
                   <Eye className="w-6 h-6" />
                 )}
+                {(holding) &&
+                  <p className="italic font-light text-sm">Maintenir</p>
+                }
               </div>
             </div>
           </div>
@@ -393,7 +486,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
             </div>
           )}
 
-          {tracks.length > 0 && (
+          {!(tracks.length <= 0 && isFull) && (
             <>
               <div className="mb-2 flex items-center gap-2 justify-between">
                 <p>Titres</p>
@@ -444,35 +537,176 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
 
         {/* Edit Dialog */}
         <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-          <DialogContent className="bg-card border-border sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Modifier le blindtest</DialogTitle>
-            </DialogHeader>
-            <div className="space-y-4 py-4">
+          <DialogContent
+            className="bg-card border-border sm:max-w-lg"
+          >
+            <form
+              className="space-y-4 py-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const form = e.currentTarget as HTMLFormElement;
+
+                if (!form.checkValidity()) {
+                  form.reportValidity();
+                  return;
+                }
+
+                handleEdit(e);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  e.stopPropagation();
+
+                  const form = e.currentTarget as HTMLFormElement;
+
+                  if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                  }
+
+                  handleEdit(e);
+                }
+              }}
+            >
+              <DialogHeader>
+                <DialogTitle>Modification</DialogTitle>
+              </DialogHeader>
               <div className="space-y-2">
-                <Label htmlFor="edit-name">Nom</Label>
+                <Label htmlFor="name">Nom du blindtest</Label>
                 <Input
-                  id="edit-name"
-                  value={editName}
-                  onChange={(e) => setEditName(e.target.value)}
+                  id="name"
+                  placeholder="Mon super blindtest..."
+                  value={updateBlindtestName}
+                  onChange={(e) => setUpdateBlindtestName(e.target.value)}
+                  required
                 />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="edit-image">URL de l&apos;image (optionnelle)</Label>
+
+                <Label>Nombre de morceaux</Label>
                 <Input
-                  id="edit-image"
-                  placeholder="https://..."
-                  value={editImage}
-                  onChange={(e) => setEditImage(e.target.value)}
+                  id="length"
+                  type="number"
+                  max={99}
+                  min={0}
+                  value={updateBlindtestLength}
+                  onChange={(e) => setUpdateBlindtestLength(e.target.value)}
+                  required
                 />
+
+                <Label className="flex justify-between w-full items-center mt-5">
+                  Temps pour deviner ({updateBlindtestDifficulty}s)
+                  <div style={{ color: difficultyMeta.color }}>
+                    {difficultyMeta.text}
+                  </div>
+                </Label>
+                <Slider
+                  step={1}
+                  max={20}
+                  min={1}
+                  value={[parseInt(updateBlindtestDifficulty)]}
+                  onValueChange={(vals: number[]) => setUpdateBlindtestDifficulty(vals[0].toString())}
+                />
+
+                <div
+                  onClick={(_) => setIsAdvancedOptionsOpen(!isAdvancedOptionsOpen)}
+                  className="w-full flex gap-2 justify-between items-center cursor-pointer mt-5">
+                  <SectionTitle title="Modification avancée" className="mt-0!" />
+
+                  {(!isAdvancedOptionsOpen &&
+                    <ChevronRight size={24} />
+                  )}
+                  {(isAdvancedOptionsOpen &&
+                    <ChevronDown size={24} />
+                  )}
+                </div>
+
+                {(isAdvancedOptionsOpen &&
+                  <div>
+                    <Label>Musique instrumentale ?</Label>
+                    <select
+                      value={updateBlindtestInstrumental}
+                      onChange={(e) => setUpdateBlindtestInstrumental(e.target.value)}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                    >
+                      <option key="" value="">
+                        Peu importe
+                      </option>
+                      <option key="true" value="true">
+                        Oui
+                      </option>
+                      <option key="false" value="false">
+                        Non
+                      </option>
+                    </select>
+
+                    <div className="mt-5">
+                      <Label>Période</Label>
+                      <div className="flex gap-2 items-center">
+                        <select
+                          value={updateBlindtestYearBegin}
+                          onChange={(e) => setUpdateBlindtestYearBegin(e.target.value)}
+                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                        >
+                          <option value="">
+                            Peu importe
+                          </option>
+
+                          {years.map((year) => (
+                            <option key={year} value={year}>
+                              {year}
+                            </option>
+                          ))}
+                        </select>
+
+                        <p className="text-sm"> - </p>
+
+                        <select
+                          value={updateBlindtestYearEnd}
+                          onChange={(e) => setUpdateBlindtestYearEnd(e.target.value)}
+                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                        >
+                          <option value="">
+                            Peu importe
+                          </option>
+
+                          {years.map((year) => (
+                            <option key={year} value={year}>
+                              {year}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="mt-3">
+                      <Label>Artistes</Label>
+                      <SearchBar categories={["artist"]} setSelectedArtists={setUpdateBlindtestArtists} selectedArtists={updateBlindtestArtists} placeholder="" />
+                      <SelectedItemsChips items={updateBlindtestArtists} setItems={setUpdateBlindtestArtists} />
+                    </div>
+
+                    <div className="mt-3">
+                      <Label>Genres</Label>
+                      <SearchBar categories={["genre"]} setSelectedGenres={setUpdateBlindtestGenres} selectedGenres={updateBlindtestGenres} placeholder="" />
+                      <SelectedItemsChips items={updateBlindtestGenres} setItems={setUpdateBlindtestGenres} />
+                    </div>
+
+                    <div className="mt-3">
+                      <Label>Musiques</Label>
+                      <SearchBar categories={["track"]} setSelectedTracks={setUpdateBlindtestCompulsoryTracks} selectedTracks={updateBlindtestCompulsoryTracks} placeholder="" />
+                      <SelectedItemsChips items={updateBlindtestCompulsoryTracks} setItems={setUpdateBlindtestCompulsoryTracks} />
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-            <DialogFooter>
-              <Button variant="outline" onClick={() => setIsEditOpen(false)}>
-                Annuler
-              </Button>
-              <Button onClick={handleEdit}>Sauvegarder</Button>
-            </DialogFooter>
+              <DialogFooter>
+                <Button variant="outline" onClick={() => setIsEditOpen(false)}>
+                  Annuler
+                </Button>
+                <Button type="submit">Modifier</Button>
+              </DialogFooter>
+            </form>
           </DialogContent>
         </Dialog>
       </main>

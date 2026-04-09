@@ -31,15 +31,18 @@ export type BlindtestCreateInput = {
   compulsoryTrackIds: string[]
 }
 
+export type BlindtestUpdateInput = BlindtestCreateInput;
+
 interface BlindtestContextType {
   blindtests: Blindtest[];
   blindtest: ApiBlindtest | null;
+  error: string | null;
   loadBlindtests: () => Promise<void>;
   loadBlindtest: (blindtestId: string) => Promise<void>;
-  createBlindtest: (input: BlindtestCreateInput) => Promise<void>;
-  updateBlindtest: (id: string, name: string) => Promise<void>;
+  createBlindtest: (input: BlindtestCreateInput) => Promise<ApiBlindtest | undefined>;
+  updateBlindtest: (id: string, input: BlindtestUpdateInput) => Promise<void>;
   deleteBlindtest: (id: string) => Promise<void>;
-  autocompleteBlindtest: (id: string, seedTrackIds: string[], blacklistedTrackIds: string[], randomness: number) => Promise<void>;
+  autocompleteBlindtest: (id: string, seedTrackIds: string[], blacklistedTrackIds: string[], randomness: number) => Promise<ApiBlindtest | undefined>;
   addCompulsoryTrackToBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
   addCompulsoryTracksToBlindtest: (blindtestId: string, trackIds: string[]) => Promise<void>;
   removeCompulsoryTrackFromBlindtest: (blindtestId: string, trackId: string) => Promise<void>;
@@ -55,6 +58,7 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
   const [blindtests, setBlindtests] = useState<Blindtest[]>([]);
   const [blindtest, setBlindtest] = useState<ApiBlindtest | null>(null);
   const { token } = useAuth();
+  const [error, setError] = useState<string | null>(null);
 
   const loadBlindtest = async (blindtestId: string) => {
     try {
@@ -104,17 +108,18 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
     if (!token) return;
 
     try {
-      await createBlindtestMutation(input, token);
+      const blindtest = await createBlindtestMutation(input, token);
       await loadBlindtests();
+      return blindtest
     } catch (err) {
       console.error(err);
     }
   };
 
-  const updateBlindtest = async (id: string, name: string) => {
+  const updateBlindtest = async (id: string, input: BlindtestUpdateInput) => {
     if (!token) return;
     try {
-      await updateBlindtestMutation(id, name, token);
+      await updateBlindtestMutation(id, input, token);
       await loadBlindtests();
     } catch (err) {
       console.error(err);
@@ -143,10 +148,14 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
         token
       );
 
+      await loadBlindtests();
+
       if (updatedBlindtest) {
         setBlindtest(updatedBlindtest);
+        return updatedBlindtest;
       }
     } catch (err) {
+      setError(err instanceof Error ? err.message : "Erreur d'autocompletion");
       console.error(err);
     }
   };
@@ -210,6 +219,7 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
       value={{
         blindtests,
         blindtest,
+        error,
         loadBlindtests,
         loadBlindtest,
         createBlindtest,

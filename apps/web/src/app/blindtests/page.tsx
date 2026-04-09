@@ -25,7 +25,7 @@ import SearchBar from "@/components/SearchBar";
 import SelectedItemsChips from "@/components/SelectedItemsChips";
 
 export default function Blindtests() {
-  const { blindtests, createBlindtest } = useBlindtest();
+  const { blindtests, createBlindtest, autocompleteBlindtest } = useBlindtest();
   const { isAuthenticated, token } = useAuth();
   const { history } = usePlayer();
   const router = useRouter();
@@ -34,13 +34,13 @@ export default function Blindtests() {
   const [isAdvancedOptionsOpen, setIsAdvancedOptionsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // New blindtest attributes
   const [newBlindtestName, setNewBlindtestName] = useState<string>("");
   const [newBlindtestLength, setNewBlindtestLength] = useState<string>("10");
   const [newBlindtestYearBegin, setNewBlindtestYearBegin] = useState<string>("");
   const [newBlindtestYearEnd, setNewBlindtestYearEnd] = useState<string>("");
   const [newBlindtestDifficulty, setNewBlindtestDifficulty] = useState<string>("10");
   const [newBlindtestInstrumental, setNewBlindtestInstrumental] = useState<string>("");
-
   const [newBlindtestArtists, setNewBlindtestArtists] = useState<{ id: string, name: string }[]>([]);
   const [newBlindtestCompulsoryTracks, setNewBlindtestCompulsoryTracks] = useState<{ id: string, name: string }[]>([]);
   const [newBlindtestGenres, setNewBlindtestGenres] = useState<{ id: string, name: string }[]>([]);
@@ -90,12 +90,12 @@ export default function Blindtests() {
       return
     }
 
-    await createBlindtest({
+    const blindtest = await createBlindtest({
       name: newBlindtestName,
       length: parseInt(newBlindtestLength),
       difficulty: parseInt(newBlindtestDifficulty),
-      yearBegin: parseInt(newBlindtestYearBegin),
-      yearEnd: parseInt(newBlindtestYearEnd),
+      yearBegin: newBlindtestYearBegin ? parseInt(newBlindtestYearBegin) : null,
+      yearEnd: newBlindtestYearEnd ? parseInt(newBlindtestYearEnd) : null,
       instrumental: newBlindtestInstrumental === ""
         ? null
         : newBlindtestInstrumental === "true",
@@ -110,8 +110,16 @@ export default function Blindtests() {
     setNewBlindtestDifficulty("10");
     setNewBlindtestYearBegin("");
     setNewBlindtestYearEnd("");
+    setNewBlindtestInstrumental("");
+    setNewBlindtestCompulsoryTracks([]);
+    setNewBlindtestArtists([]);
+    setNewBlindtestGenres([]);
 
     setIsCreateOpen(false);
+
+    // autocomplete
+    if (!blindtest) return
+    await autocompleteBlindtest(blindtest.blindtestId, [], [], 10);
   };
 
   return (
@@ -140,7 +148,7 @@ export default function Blindtests() {
             </h1>
             <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] text-foreground font-bold hover:scale-105 transition-transform flex items-center gap-2">
+                <Button className="bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] text-foreground font-bold hover:scale-105 transition-transform flex items-center gap-2 cursor-pointer">
                   <Plus className="w-5 h-5" /> Générer
                 </Button>
               </DialogTrigger>
@@ -249,40 +257,43 @@ export default function Blindtests() {
                           </option>
                         </select>
 
-                        <div className="flex gap-2 items-center mt-5">
-                          <select
-                            value={newBlindtestYearBegin}
-                            onChange={(e) => setNewBlindtestYearBegin(e.target.value)}
-                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
-                          >
-                            <option value="" disabled>
-                              Date minimale
-                            </option>
-
-                            {years.map((year) => (
-                              <option key={year} value={year}>
-                                {year}
+                        <div className="mt-5">
+                          <Label>Période</Label>
+                          <div className="flex gap-2 items-center mt-5">
+                            <select
+                              value={newBlindtestYearBegin}
+                              onChange={(e) => setNewBlindtestYearBegin(e.target.value)}
+                              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                            >
+                              <option value="">
+                                Peu importe
                               </option>
-                            ))}
-                          </select>
 
-                          <p className="text-sm"> - </p>
+                              {years.map((year) => (
+                                <option key={year} value={year}>
+                                  {year}
+                                </option>
+                              ))}
+                            </select>
 
-                          <select
-                            value={newBlindtestYearEnd}
-                            onChange={(e) => setNewBlindtestYearEnd(e.target.value)}
-                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
-                          >
-                            <option value="" disabled>
-                              Date maximale
-                            </option>
+                            <p className="text-sm"> - </p>
 
-                            {years.map((year) => (
-                              <option key={year} value={year}>
-                                {year}
+                            <select
+                              value={newBlindtestYearEnd}
+                              onChange={(e) => setNewBlindtestYearEnd(e.target.value)}
+                              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                            >
+                              <option value="">
+                                Peu importe
                               </option>
-                            ))}
-                          </select>
+
+                              {years.map((year) => (
+                                <option key={year} value={year}>
+                                  {year}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
                         </div>
 
                         <div className="mt-3">
@@ -306,10 +317,10 @@ export default function Blindtests() {
                     )}
                   </div>
                   <DialogFooter>
-                    <Button variant="outline" onClick={() => setIsCreateOpen(false)}>
+                    <Button variant="outline" className="cursor-pointer" onClick={() => setIsCreateOpen(false)}>
                       Annuler
                     </Button>
-                    <Button type="submit">Générer</Button>
+                    <Button type="submit" className="cursor-pointer">Générer</Button>
                   </DialogFooter>
                 </form>
               </DialogContent>
