@@ -12,7 +12,7 @@ const toNullableNumber = (value: bigint | number | null | undefined): number | n
   return Number(value);
 };
 
-const parseImages = (value: string | null): string[] => {
+export const parseImages = (value: string | null): string[] => {
   if (!value) {
     return [];
   }

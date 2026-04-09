@@ -1,13 +1,22 @@
 import { createSchema } from "graphql-yoga";
 import { getArtistById } from "packages/application/src/use-cases/artist/get-artist-by-id";
 import { listArtistAlbums } from "packages/application/src/use-cases/artist/list-artist-albums";
+import { createBlindtest } from "packages/application/src/use-cases/blindtest/create-blindtest"
+import { updateBlindtest } from "packages/application/src/use-cases/blindtest/update-blindtest"
+import { deleteBlindtest } from "packages/application/src/use-cases/blindtest/delete-blindtest"
+import { addCompulsoryTrackToBlindtest } from "packages/application/src/use-cases/blindtest/add-compulsory-track-to-blindtest"
+import { addTrackToBlindtest } from "packages/application/src/use-cases/blindtest/add-track-to-blindtest"
+import { removeTrackFromBlindtest } from "packages/application/src/use-cases/blindtest/remove-track-from-blindtest"
+import { removeCompulsoryTrackFromBlindtest } from "packages/application/src/use-cases/blindtest/remove-compulsory-track-from-blindtest"
 import { createPlaylist } from "packages/application/src/use-cases/playlist/create-playlist";
 import { deletePlaylist } from "packages/application/src/use-cases/playlist/delete-playlist";
 import { getPlaylistById } from "packages/application/src/use-cases/playlist/get-playlist-by-id";
 import { listMyPlaylists } from "packages/application/src/use-cases/playlist/list-my-playlists";
+import { listMyBlindtests } from "packages/application/src/use-cases/blindtest/list-my-blindtests";
 import { updatePlaylist } from "packages/application/src/use-cases/playlist/update-playlist";
 import { addTrackToPlaylist } from "packages/application/src/use-cases/playlist/add-track-to-playlist";
 import { removeTrackFromPlaylist } from "packages/application/src/use-cases/playlist/remove-track-from-playlist";
+import { getBlindtestById } from "packages/application/src/use-cases/blindtest/get-blindtest-by-id";
 import { listPinnedItems } from "packages/application/src/use-cases/pin/list-pinned-items";
 import { pinAlbum } from "packages/application/src/use-cases/pin/pin-album";
 import { pinArtist } from "packages/application/src/use-cases/pin/pin-artist";
@@ -37,8 +46,10 @@ import type { PasswordHasherPort } from "packages/application/src/ports/security
 import type { Album } from "packages/domain/src/entities/album";
 import type { Account } from "packages/domain/src/entities/account";
 import type { Artist as ArtistEntity } from "packages/domain/src/entities/artist";
+import type { Genre as GenreEntity } from "packages/domain/src/entities/genre";
 import type { ArtistProfile } from "packages/domain/src/entities/artist-profile";
 import type { Playlist } from "packages/domain/src/entities/playlist";
+import type { Blindtest } from "packages/domain/src/entities/blindtest";
 import type { PlaylistSummary } from "packages/domain/src/entities/playlist-summary";
 import type { PinnedItem } from "packages/domain/src/entities/pinned-item";
 import type { TrackListenHistoryItem } from "packages/domain/src/entities/track-listen-history-item";
@@ -49,6 +60,10 @@ import type { AccountRepository } from "packages/domain/src/repositories/account
 import type { PinnedItemRepository } from "packages/domain/src/repositories/pinned-item-repository";
 import type { TrackCatalogRepository } from "packages/domain/src/repositories/track-catalog-repository";
 import type { TrackLibraryRepository } from "packages/domain/src/repositories/track-library-repository";
+import { BlindtestRepository } from "packages/domain/src/repositories/blindtest-repository";
+import { ExtraBlindtestConstraints } from "@/infrastructure/prisma-track-catalog-repository";
+import { GenreRepository } from "packages/domain/src/repositories/genre-repository";
+import { GraphQLError } from "graphql";
 
 type GraphqlArtist = {
   artistId: string;
@@ -67,6 +82,28 @@ type GraphqlArtist = {
   tags: string[];
   albumCount: number | null;
   trackCount: number | null;
+};
+
+type GraphqlGenre = {
+  genreId: string;
+  parentId: string | null;
+  title: string | null;
+  topLevel: number | null;
+  tracksCount: number | null;
+  parent: {
+    genreId: string;
+    parentId: string | null;
+    title: string | null;
+    topLevel: number | null;
+    tracksCount: number | null;
+  } | null;
+  children: {
+    genreId: string;
+    parentId: string | null;
+    title: string | null;
+    topLevel: number | null;
+    tracksCount: number | null;
+  }[];
 };
 
 type GraphqlAccount = {
@@ -109,6 +146,7 @@ type GraphqlAlbum = {
 type GraphqlTrack = {
   trackId: string;
   title: string | null;
+  dateCreated: Date | null; 
   imageUrl: string | null;
   audioSrc: string | null;
   durationSeconds: number | null;
@@ -132,6 +170,25 @@ type GraphqlPlaylist = {
   isEditable: boolean;
   trackCount: number;
   tracks: GraphqlTrack[];
+};
+
+type GraphqlBlindtest = {
+  blindtestId: string;
+  name: string | null;
+  length: number | null;
+  difficulty: number | null;
+  instrumental: boolean | null;
+  yearBegin: number | null;
+  yearEnd: number | null;
+  trackCount: number;
+  compulsoryTrackCount: number;
+  totalTracksCount: number;
+  compulsoryTracks: GraphqlTrack[];
+  tracks: GraphqlTrack[];
+  artists: GraphqlArtist[];
+  genres: GraphqlGenre[];
+  ownerDisplayName: string | null;
+  isEditable: boolean;
 };
 
 type GraphqlPlaylistSummary = {
@@ -186,6 +243,32 @@ type UpdateArtistInput = {
   artistComments?: number | null;
 };
 
+export type CreateBlindtestInput = {
+  name: string,
+  length: number,
+  difficulty: number,
+  yearBegin: number | null,
+  yearEnd: number | null,
+  instrumental: boolean | null;
+  genreIds: string[],
+  artistIds: string[],
+  compulsoryTrackIds: string[]
+};
+
+export type UpdateBlindtestInput = {
+  name: string;
+  length: number;
+  yearBegin: number;
+  yearEnd: number;
+  difficulty: number;
+  instrumental: boolean;
+  isEditable: boolean;
+  trackCount: number;
+  compulsoryTrackIds: string[];
+  genreIds: string[];
+  artistIds: string[];
+};
+
 type CreatePlaylistInput = {
   name: string;
 };
@@ -201,6 +284,8 @@ type GraphqlContextServices = {
   trackCatalogRepository: TrackCatalogRepository;
   trackLibraryRepository: TrackLibraryRepository;
   playlistRepository: PlaylistRepository;
+  blindtestRepository: BlindtestRepository;
+  genreRepository: GenreRepository;
   passwordHasher: PasswordHasherPort;
   authTokenService: AuthTokenServicePort;
 };
@@ -227,6 +312,16 @@ const toGraphqlArtistProfile = (account: Account, artist: ArtistProfile): Graphq
   tags: [],
   albumCount: null,
   trackCount: null,
+});
+
+const toGraphqlGenre = (genre: GenreEntity): GraphqlGenre => ({
+  genreId: genre.genreId,
+  parentId: genre.parentId,
+  parent: genre.parent,
+  title: genre.title,
+  topLevel: genre.topLevel,
+  tracksCount: genre.tracksCount,
+  children: genre.children,
 });
 
 const toGraphqlArtist = (artist: ArtistEntity): GraphqlArtist => ({
@@ -288,6 +383,7 @@ const toGraphqlAlbum = (album: Album): GraphqlAlbum => ({
 const toGraphqlTrack = (track: Track): GraphqlTrack => ({
   trackId: track.trackId,
   title: track.title,
+  dateCreated: track.dateCreated,
   imageUrl: track.imageUrl,
   audioSrc: track.audioSrc,
   durationSeconds: track.durationSeconds,
@@ -311,6 +407,25 @@ const toGraphqlPlaylist = (playlist: Playlist): GraphqlPlaylist => ({
   isEditable: playlist.isEditable,
   trackCount: playlist.trackCount,
   tracks: playlist.tracks.map(toGraphqlTrack),
+});
+
+const toGraphqlBlindtest = (blindtest: Blindtest): GraphqlBlindtest => ({
+  blindtestId: blindtest.blindtestId,
+  name: blindtest.name,
+  length: blindtest.length,
+  difficulty: blindtest.difficulty,
+  instrumental: blindtest.instrumental,
+  yearBegin: blindtest.yearBegin,
+  yearEnd: blindtest.yearEnd,
+  trackCount: blindtest.trackCount,
+  compulsoryTrackCount: blindtest.compulsoryTrackCount,
+  totalTracksCount: blindtest.totalTracksCount,
+  compulsoryTracks: blindtest.compulsoryTracks,
+  tracks: blindtest.tracks,
+  artists: blindtest.artists.map(toGraphqlArtist),
+  genres: blindtest.genres.map(toGraphqlGenre),
+  ownerDisplayName: blindtest.ownerDisplayName,
+  isEditable: blindtest.isEditable,
 });
 
 const toGraphqlPlaylistSummary = (playlist: PlaylistSummary): GraphqlPlaylistSummary => ({
@@ -370,6 +485,26 @@ export const schema = createSchema({
       trackCount: Int
     }
 
+    type Account {
+      accountId: ID!
+      login: String
+      email: String
+      role: String
+      name: String
+      isArtist: Boolean!
+      artist: Artist
+    }
+
+    type Genre {
+      genreId: ID!
+      title: String
+      parentId: String
+      topLevel: Int
+      tracksCount: Int
+      parent: Genre
+      children: [Genre!]
+    }
+
     type ArtistSummary {
       artistId: ID!
       name: String
@@ -403,6 +538,7 @@ export const schema = createSchema({
       imageUrl: String
       audioSrc: String
       durationSeconds: Int
+      dateCreated: String
       trackNumber: Int
       discNumber: Int
       isExplicit: Boolean!
@@ -414,6 +550,26 @@ export const schema = createSchema({
       mainArtists: [ArtistSummary!]!
       featArtists: [ArtistSummary!]!
       isLiked: Boolean!
+    }
+
+    type Blindtest {
+      blindtestId: ID!
+      name: String
+      length: Int!
+      instrumental: Boolean
+      yearBegin: Int
+      yearEnd: Int
+      difficulty: Int!
+      trackCount: Int!
+      compulsoryTrackCount: Int!
+      totalTracksCount: Int!
+      tracks: [Track!]!
+      compulsoryTracks: [Track!]!
+      genres: [Genre!]!
+      artists: [Artist!]!
+      accounts: [Account!]!
+      ownerDisplayName: String
+      isEditable: Boolean!
     }
 
     type Playlist {
@@ -437,6 +593,7 @@ export const schema = createSchema({
       TRACK
       ALBUM
       ARTIST
+      BLACKLIST
       PLAYLIST
     }
 
@@ -454,16 +611,6 @@ export const schema = createSchema({
       listenHistoryItemId: ID!
       listenedAt: String!
       track: Track!
-    }
-
-    type Account {
-      accountId: ID!
-      login: String
-      email: String
-      role: String
-      name: String
-      isArtist: Boolean!
-      artist: Artist
     }
 
     type AuthPayload {
@@ -499,6 +646,39 @@ export const schema = createSchema({
       isArtist: Boolean
     }
 
+    input CreateBlindtestInput {
+      name: String
+      length: Int
+      yearBegin: Int
+      yearEnd: Int
+      difficulty: Int
+      instrumental: Boolean
+      genreIds: [ID!]
+      artistIds: [ID!]
+      compulsoryTrackIds: [ID!]
+    }
+
+    input UpdateBlindtestInput {
+      name: String
+      length: Int
+      yearBegin: Int
+      yearEnd: Int
+      difficulty: Int
+      instrumental: Boolean
+      genreIds: [ID!]
+      artistIds: [ID!]
+      compulsoryTrackIds: [ID!]
+    }
+
+    input ExtraBlindtestConstraintsInput {
+      yearBegin: Int
+      yearEnd: Int
+      isInstrumental: Boolean
+      genreIds: [ID!]
+      artistIds: [ID!]
+      compulsoryTrackIds: [ID!]
+    }
+
     input CreatePlaylistInput {
       name: String!
     }
@@ -523,7 +703,9 @@ export const schema = createSchema({
       likedTracks: [Track!]!
       myTrackHistory(limit: Int): [TrackListenHistoryItem!]!
       playlist(playlistId: String!): Playlist
+      blindtest(blindtestId: String!): Blindtest
       myPlaylists: [Playlist!]!
+      myBlindtests: [Blindtest!]!
       myPinnedItems: [PinnedItem!]!
       search(query: String!, limit: Int): SearchResults!
       recommendations(seedTrackIds: [String!]!, blacklistedTrackIds: [String!]!, limit: Int!, randomness: Int!): [Track!]!
@@ -534,6 +716,7 @@ export const schema = createSchema({
       albums: [Album!]!
       artists: [Artist!]!
       playlists: [Playlist!]!
+      genres: [Genre!]!
     }
 
     type Mutation {
@@ -555,7 +738,15 @@ export const schema = createSchema({
       deletePlaylist(playlistId: String!): Boolean!
       addTrackToPlaylist(playlistId: String!, trackId: String!): Playlist
       removeTrackFromPlaylist(playlistId: String!, trackId: String!): Playlist
+      createBlindtest(input: CreateBlindtestInput!): Blindtest!
+      updateBlindtest(blindtestId: String!, input: UpdateBlindtestInput!): Blindtest
+      deleteBlindtest(blindtestId: String!): Boolean!
+      autocompleteBlindtest(blindtestId: String!, seedTrackIds: [String!]!, blacklistedTrackIds: [String!]!, randomness: Int!): Blindtest
       recordTrackListen(trackId: String!): Boolean!
+      addCompulsoryTrackToBlindtest(blindtestId: String!, trackId: String!): Blindtest
+      removeCompulsoryTrackFromBlindtest(blindtestId: String!, trackId: String!): Blindtest
+      addTrackToBlindtest(blindtestId: String!, trackId: String!): Blindtest
+      removeTrackFromBlindtest(blindtestId: String!, trackId: String!): Blindtest
     }
   `,
   resolvers: {
@@ -655,6 +846,21 @@ export const schema = createSchema({
 
         return historyItems.map(toGraphqlTrackListenHistoryItem);
       },
+      blindtest: async (
+        _parent: unknown,
+        args: { blindtestId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getOptionalAuthenticatedAccountId(context);
+        
+        const blindtest = await getBlindtestById(
+          context.services.blindtestRepository,
+          args.blindtestId,
+          currentAccountId,
+        );
+
+        return blindtest ? toGraphqlBlindtest(blindtest) : null;
+      },
       playlist: async (
         _parent: unknown,
         args: { playlistId: string },
@@ -679,9 +885,17 @@ export const schema = createSchema({
 
         return playlists.map(toGraphqlPlaylist);
       },
+      myBlindtests: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const blindtests = await listMyBlindtests(context.services.blindtestRepository, currentAccountId);
+
+        return blindtests.map(toGraphqlBlindtest);
+      },
       myPinnedItems: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
-        console.log(context);
-        
         const currentAccountId = await getAuthenticatedAccountId(
           context.services.authTokenService,
           context.authToken,
@@ -701,11 +915,12 @@ export const schema = createSchema({
       ) => {
         const currentAccountId = await getOptionalAuthenticatedAccountId(context);
         const limit = args.limit && args.limit > 0 ? args.limit : 10;
-        
+
         const results = await searchGlobal(
           context.services.artistCatalogRepository,
           context.services.trackCatalogRepository,
           context.services.playlistRepository,
+          context.services.genreRepository,
           args.query,
           limit,
           currentAccountId,
@@ -716,6 +931,7 @@ export const schema = createSchema({
           albums: results.albums.map(toGraphqlAlbum),
           artists: results.artists.map(toGraphqlArtist),
           playlists: results.playlists.map(toGraphqlPlaylist),
+          genres: results.genres.map(toGraphqlGenre),
         };
       },
       recommendations: async (
@@ -725,7 +941,7 @@ export const schema = createSchema({
       ) => {
         const currentAccountId = await getOptionalAuthenticatedAccountId(context);
         const getRecommendations = createGetRecommendations(context.services.trackCatalogRepository);
-        
+
         const recommendedTracks = await getRecommendations({
           seedTrackIds: args.seedTrackIds,
           blacklistedTrackIds: args.blacklistedTrackIds,
@@ -967,6 +1183,189 @@ export const schema = createSchema({
         );
 
         return unpinItem(context.services.pinnedItemRepository, currentAccountId, args.slot);
+      },
+      createBlindtest: async (
+        _parent: unknown,
+        args: { input: CreateBlindtestInput },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const blindtest = await createBlindtest(
+          context.services.blindtestRepository,
+          currentAccountId,
+          args.input,
+        );
+
+        return toGraphqlBlindtest(blindtest);
+      },
+      updateBlindtest: async (
+        _parent: unknown,
+        args: { blindtestId: string; input: UpdateBlindtestInput },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const blindtest = await updateBlindtest(
+          context.services.blindtestRepository,
+          currentAccountId,
+          args.blindtestId,
+          args.input,
+        );
+
+        return blindtest ? toGraphqlBlindtest(blindtest) : null;
+      },
+      deleteBlindtest: async (
+        _parent: unknown,
+        args: { blindtestId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        return deleteBlindtest(
+          context.services.blindtestRepository,
+          currentAccountId,
+          args.blindtestId,
+        );
+      },
+      autocompleteBlindtest: async (
+        _parent: unknown,
+        args: { blindtestId: string, seedTrackIds: string[]; blacklistedTrackIds: string[]; randomness: number },
+        context: GraphqlContext,
+      ) => {
+        // Fetch blindtest & accout
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+        const blindtest = await getBlindtestById(
+          context.services.blindtestRepository,
+          args.blindtestId,
+          currentAccountId
+        )
+        if (!currentAccountId || !blindtest) return null;
+
+        // get recommendations
+        const getRecommendations = createGetRecommendations(context.services.trackCatalogRepository);
+        const constraints: ExtraBlindtestConstraints = {
+          yearBegin: blindtest.yearBegin,
+          yearEnd: blindtest.yearEnd,
+          isInstrumental: blindtest.instrumental,
+          genreIds: blindtest.genres.map(g => g.genreId),
+          artistIds: blindtest.artists.map(a => a.artistId),
+          compulsoryTrackIds: blindtest.compulsoryTracks.map(t => t.trackId)
+        }
+        const recommendedTracks = await getRecommendations({
+          seedTrackIds: args.seedTrackIds,
+          blacklistedTrackIds: args.blacklistedTrackIds,
+          limit: blindtest.length - blindtest.totalTracksCount,
+          randomness: args.randomness,
+          extraBlindtestConstraints: constraints,
+          currentAccountId,
+        });
+
+        // sync recommendations
+        for (const track of recommendedTracks) {
+          await addTrackToBlindtest(
+            context.services.blindtestRepository,
+            currentAccountId,
+            args.blindtestId,
+            track.trackId
+          );
+        }
+
+        // return updated blindtest
+        const updatedBlindtest = await getBlindtestById(
+          context.services.blindtestRepository,
+          args.blindtestId,
+          currentAccountId
+        )
+        return updatedBlindtest ? toGraphqlBlindtest(updatedBlindtest) : null;
+      },
+      addCompulsoryTrackToBlindtest: async (
+        _parent: unknown,
+        args: { blindtestId: string; trackId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const blindtest = await addCompulsoryTrackToBlindtest(
+          context.services.blindtestRepository,
+          currentAccountId,
+          args.blindtestId,
+          args.trackId,
+        );
+
+        return blindtest ? toGraphqlBlindtest(blindtest) : null;
+      },
+      removeCompulsoryTrackFromBlindtest: async (
+        _parent: unknown,
+        args: { blindtestId: string; trackId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const blindtest = await removeCompulsoryTrackFromBlindtest(
+          context.services.blindtestRepository,
+          currentAccountId,
+          args.blindtestId,
+          args.trackId,
+        );
+
+        return blindtest ? toGraphqlBlindtest(blindtest) : null;
+      },
+      addTrackToBlindtest: async (
+        _parent: unknown,
+        args: { blindtestId: string; trackId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const blindtest = await addTrackToBlindtest(
+          context.services.blindtestRepository,
+          currentAccountId,
+          args.blindtestId,
+          args.trackId,
+        );
+
+        return blindtest ? toGraphqlBlindtest(blindtest) : null;
+      },
+      removeTrackFromBlindtest: async (
+        _parent: unknown,
+        args: { blindtestId: string; trackId: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        const blindtest = await removeTrackFromBlindtest(
+          context.services.blindtestRepository,
+          currentAccountId,
+          args.blindtestId,
+          args.trackId,
+        );
+
+        return blindtest ? toGraphqlBlindtest(blindtest) : null;
       },
       createPlaylist: async (
         _parent: unknown,

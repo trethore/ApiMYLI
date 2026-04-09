@@ -49,7 +49,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
   const playlistId = slug;
 
   const { token, requireAuth } = useAuth();
-  const { playlists, deletePlaylist, updatePlaylist } = usePlaylist();
+  const { playlists, deletePlaylist, updatePlaylist, loadPlaylists } = usePlaylist();
   const { playTrack, setQueueList } = usePlayer();
 
   const [playlist, setPlaylist] = useState<ApiPlaylist | null>(null);
@@ -119,6 +119,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ slug: strin
 
   const handleDelete = async () => {
     await deletePlaylist(playlistId);
+    loadPlaylists();
     router.push("/library");
   };
 

@@ -291,11 +291,11 @@ export type IntFilter<$PrismaModel = never> = {
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
 }
 
-export type EnumPinnedItemTypeFilter<$PrismaModel = never> = {
-  equals?: $Enums.PinnedItemType | Prisma.EnumPinnedItemTypeFieldRefInput<$PrismaModel>
-  in?: $Enums.PinnedItemType[] | Prisma.ListEnumPinnedItemTypeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.PinnedItemType[] | Prisma.ListEnumPinnedItemTypeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumPinnedItemTypeFilter<$PrismaModel> | $Enums.PinnedItemType
+export type EnumBlindtestRankingTypeNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.BlindtestRankingType | Prisma.EnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.BlindtestRankingType[] | Prisma.ListEnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.BlindtestRankingType[] | Prisma.ListEnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumBlindtestRankingTypeNullableFilter<$PrismaModel> | $Enums.BlindtestRankingType | null
 }
 
 export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -312,6 +312,23 @@ export type IntWithAggregatesFilter<$PrismaModel = never> = {
   _sum?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedIntFilter<$PrismaModel>
   _max?: Prisma.NestedIntFilter<$PrismaModel>
+}
+
+export type EnumBlindtestRankingTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BlindtestRankingType | Prisma.EnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.BlindtestRankingType[] | Prisma.ListEnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.BlindtestRankingType[] | Prisma.ListEnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumBlindtestRankingTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.BlindtestRankingType | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBlindtestRankingTypeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBlindtestRankingTypeNullableFilter<$PrismaModel>
+}
+
+export type EnumPinnedItemTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.PinnedItemType | Prisma.EnumPinnedItemTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PinnedItemType[] | Prisma.ListEnumPinnedItemTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PinnedItemType[] | Prisma.ListEnumPinnedItemTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPinnedItemTypeFilter<$PrismaModel> | $Enums.PinnedItemType
 }
 
 export type EnumPinnedItemTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -604,11 +621,11 @@ export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
-export type NestedEnumPinnedItemTypeFilter<$PrismaModel = never> = {
-  equals?: $Enums.PinnedItemType | Prisma.EnumPinnedItemTypeFieldRefInput<$PrismaModel>
-  in?: $Enums.PinnedItemType[] | Prisma.ListEnumPinnedItemTypeFieldRefInput<$PrismaModel>
-  notIn?: $Enums.PinnedItemType[] | Prisma.ListEnumPinnedItemTypeFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumPinnedItemTypeFilter<$PrismaModel> | $Enums.PinnedItemType
+export type NestedEnumBlindtestRankingTypeNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.BlindtestRankingType | Prisma.EnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.BlindtestRankingType[] | Prisma.ListEnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.BlindtestRankingType[] | Prisma.ListEnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumBlindtestRankingTypeNullableFilter<$PrismaModel> | $Enums.BlindtestRankingType | null
 }
 
 export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -636,6 +653,23 @@ export type NestedFloatFilter<$PrismaModel = never> = {
   gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   not?: Prisma.NestedFloatFilter<$PrismaModel> | number
+}
+
+export type NestedEnumBlindtestRankingTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.BlindtestRankingType | Prisma.EnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  in?: $Enums.BlindtestRankingType[] | Prisma.ListEnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.BlindtestRankingType[] | Prisma.ListEnumBlindtestRankingTypeFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumBlindtestRankingTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.BlindtestRankingType | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBlindtestRankingTypeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBlindtestRankingTypeNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumPinnedItemTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.PinnedItemType | Prisma.EnumPinnedItemTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PinnedItemType[] | Prisma.ListEnumPinnedItemTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PinnedItemType[] | Prisma.ListEnumPinnedItemTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPinnedItemTypeFilter<$PrismaModel> | $Enums.PinnedItemType
 }
 
 export type NestedEnumPinnedItemTypeWithAggregatesFilter<$PrismaModel = never> = {

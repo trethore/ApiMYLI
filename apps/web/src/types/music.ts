@@ -20,6 +20,12 @@ export interface Album {
   tracks: Music[];
 }
 
+export interface Blindtest {
+  id: string;
+  name: string;
+  tracks: Music[];
+}
+
 export interface Artist {
   id: string;
   name: string;

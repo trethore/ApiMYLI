@@ -22,6 +22,7 @@ model Account {
   pinnedItems             AccountPinnedItem[]
   artist                  Artist?
   playlistAccounts        PlaylistAccount[]
+  accountBlindtests       AccountBlindtest[]
   preference              Preference?
   preferenceVector        PreferenceVector?
   trackLikes              TrackAccountLike[]
@@ -52,6 +53,7 @@ model Artist {
   rankArtists           RankArtist[]
   featTracks            TrackArtistFeat[]
   mainTracks            TrackArtistMain[]
+  artistBlindtests      ArtistBlindtest[]
 
   @@map("artist")
 }
@@ -85,46 +87,49 @@ model Genre {
   children         Genre[]           @relation("GenreHierarchy")
   genrePreferences GenrePreference[]
   trackGenres      TrackGenre[]
+  blindtestGenres  BlindtestGenre[]
 
   @@map("genre")
 }
 
 model Track {
-  trackId            String                   @id @default(dbgenerated("uuid_generate_v4()")) @map("track_id") @db.Uuid
-  albumId            String?                  @map("album_id") @db.Uuid
-  trackTitle         String?                  @map("track_title") @db.VarChar(255)
-  trackDuration      BigInt?                  @map("track_duration")
-  trackNumber        Int?                     @map("track_number")
-  trackDiscNumber    Int?                     @map("track_disc_number")
-  trackExplicit      Boolean?                 @map("track_explicit")
-  trackInstrumental  Boolean?                 @map("track_instrumental")
-  trackListens       BigInt?                  @map("track_listens")
-  trackFavorites     BigInt?                  @map("track_favorites")
-  trackInterest      Float?                   @map("track_interest")
-  trackComments      BigInt?                  @map("track_comments")
-  trackDateCreated   DateTime?                @map("track_date_created") @db.Date
-  trackComposer      String?                  @map("track_composer") @db.VarChar(255)
-  trackLyricist      String?                  @map("track_lyricist") @db.VarChar(255)
-  trackPublisher     String?                  @map("track_publisher") @db.VarChar(255)
-  trackFile          String?                  @map("track_file")
-  trackImageFile     String?                  @map("track_image_file")
-  trackUrl           String?                  @map("track_url")
-  trackGenreTop      String?                  @map("track_genre_top")
-  pinnedItems        AccountPinnedItem[]      @relation("PinnedTrack")
-  audioFeature       AudioFeature?
-  playlistTracks     PlaylistTrack[]
-  rankTracks         RankTrack[]
-  temporalFeature    TemporalFeature?
-  album              Album?                   @relation(fields: [albumId], references: [albumId])
-  accountLikes       TrackAccountLike[]
-  accountListens     TrackAccountListen[]
-  featArtists        TrackArtistFeat[]
-  mainArtists        TrackArtistMain[]
-  comments           TrackComment[]
-  trackGenres        TrackGenre[]
-  trackLicenses      TrackLicense[]
-  listenHistoryItems TrackListenHistoryItem[]
-  trackTags          TrackTag[]
+  trackId                   String                     @id @default(dbgenerated("uuid_generate_v4()")) @map("track_id") @db.Uuid
+  albumId                   String?                    @map("album_id") @db.Uuid
+  trackTitle                String?                    @map("track_title") @db.VarChar(255)
+  trackDuration             BigInt?                    @map("track_duration")
+  trackNumber               Int?                       @map("track_number")
+  trackDiscNumber           Int?                       @map("track_disc_number")
+  trackExplicit             Boolean?                   @map("track_explicit")
+  trackInstrumental         Boolean?                   @map("track_instrumental")
+  trackListens              BigInt?                    @map("track_listens")
+  trackFavorites            BigInt?                    @map("track_favorites")
+  trackInterest             Float?                     @map("track_interest")
+  trackComments             BigInt?                    @map("track_comments")
+  trackDateCreated          DateTime?                  @map("track_date_created") @db.Date
+  trackComposer             String?                    @map("track_composer") @db.VarChar(255)
+  trackLyricist             String?                    @map("track_lyricist") @db.VarChar(255)
+  trackPublisher            String?                    @map("track_publisher") @db.VarChar(255)
+  trackFile                 String?                    @map("track_file")
+  trackImageFile            String?                    @map("track_image_file")
+  trackUrl                  String?                    @map("track_url")
+  trackGenreTop             String?                    @map("track_genre_top")
+  pinnedItems               AccountPinnedItem[]        @relation("PinnedTrack")
+  audioFeature              AudioFeature?
+  playlistTracks            PlaylistTrack[]
+  rankTracks                RankTrack[]
+  temporalFeature           TemporalFeature?
+  album                     Album?                     @relation(fields: [albumId], references: [albumId])
+  accountLikes              TrackAccountLike[]
+  accountListens            TrackAccountListen[]
+  featArtists               TrackArtistFeat[]
+  mainArtists               TrackArtistMain[]
+  comments                  TrackComment[]
+  trackGenres               TrackGenre[]
+  trackLicenses             TrackLicense[]
+  listenHistoryItems        TrackListenHistoryItem[]
+  trackTags                 TrackTag[]
+  blindtestTracks           BlindtestTrack[]
+  blindtestCompulsoryTracks BlindtestCompulsoryTrack[]
 
   @@map("track")
 }
@@ -800,6 +805,79 @@ model PlaylistTrack {
   @@map("playlist_track")
 }
 
+model ArtistBlindtest {
+  blindtestId String    @map("blindtest_id") @db.Uuid
+  artistId    String    @map("artist_id") @db.Uuid
+  blindtest   Blindtest @relation(fields: [blindtestId], references: [blindtestId])
+  artist      Artist    @relation(fields: [artistId], references: [artistId])
+
+  @@id([blindtestId, artistId])
+  @@map("artist_blindtest")
+}
+
+model BlindtestGenre {
+  blindtestId String    @map("blindtest_id") @db.Uuid
+  genreId     String    @map("genre_id") @db.Uuid
+  blindtest   Blindtest @relation(fields: [blindtestId], references: [blindtestId])
+  genre       Genre     @relation(fields: [genreId], references: [genreId])
+
+  @@id([blindtestId, genreId])
+  @@map("blindtest_genre")
+}
+
+model BlindtestTrack {
+  blindtestId String    @map("blindtest_id") @db.Uuid
+  trackId     String    @map("track_id") @db.Uuid
+  blindtest   Blindtest @relation(fields: [blindtestId], references: [blindtestId])
+  track       Track     @relation(fields: [trackId], references: [trackId])
+
+  @@id([blindtestId, trackId])
+  @@map("blindtest_track")
+}
+
+model BlindtestCompulsoryTrack {
+  blindtestId String    @map("blindtest_id") @db.Uuid
+  trackId     String    @map("track_id") @db.Uuid
+  blindtest   Blindtest @relation(fields: [blindtestId], references: [blindtestId])
+  track       Track     @relation(fields: [trackId], references: [trackId])
+
+  @@id([blindtestId, trackId])
+  @@map("blindtest_compulsory_track")
+}
+
+model Blindtest {
+  blindtestId           String   @id @default(dbgenerated("uuid_generate_v4()")) @map("blindtest_id") @db.Uuid
+  blindtestName         String?  @map("blindtest_name") @db.VarChar(255)
+  blindtestLength       Int      @default(10) @map("blindtest_length")
+  blindtestDifficulty   Int      @default(10) @map("blindtest_difficulty")
+  blindtestInstrumental Boolean? @map("blindtest_instrumental")
+  blindtestYearBegin    Int?     @map("blindtest_year_begin")
+  blindtestYearEnd      Int?     @map("blindtest_year_end")
+
+  blindtestRankingOrder BlindtestRankingType? @map("blindtest_ranking_order")
+
+  blindtestGenres           BlindtestGenre[]
+  artistBlindtests          ArtistBlindtest[]
+  blindtestCompulsoryTracks BlindtestCompulsoryTrack[]
+  blindtestTracks           BlindtestTrack[]
+
+  pinnedItems AccountPinnedItem[] @relation("PinnedBlindtest")
+
+  accountBlindtests AccountBlindtest[]
+
+  @@map("blindtest")
+}
+
+model AccountBlindtest {
+  blindtestId String    @map("blindtest_id") @db.Uuid
+  accountId   String    @map("account_id") @db.Uuid
+  account     Account   @relation(fields: [accountId], references: [accountId])
+  blindtest   Blindtest @relation(fields: [blindtestId], references: [blindtestId])
+
+  @@id([blindtestId, accountId])
+  @@map("blindtest_account")
+}
+
 model Preference {
   accountId        String            @id @map("account_id") @db.Uuid
   ageRange         String?           @map("age_range") @db.VarChar(255)
@@ -890,19 +968,21 @@ model TrackListenHistoryItem {
 }
 
 model AccountPinnedItem {
-  accountId  String         @map("account_id") @db.Uuid
-  slot       Int
-  itemType   PinnedItemType @map("item_type")
-  trackId    String?        @map("track_id") @db.Uuid
-  albumId    String?        @map("album_id") @db.Uuid
-  artistId   String?        @map("artist_id") @db.Uuid
-  playlistId String?        @map("playlist_id") @db.Uuid
-  pinnedAt   DateTime       @default(now()) @map("pinned_at") @db.Timestamp(6)
-  account    Account        @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
-  album      Album?         @relation("PinnedAlbum", fields: [albumId], references: [albumId], onDelete: Cascade)
-  artist     Artist?        @relation("PinnedArtist", fields: [artistId], references: [artistId], onDelete: Cascade)
-  playlist   Playlist?      @relation("PinnedPlaylist", fields: [playlistId], references: [playlistId], onDelete: Cascade)
-  track      Track?         @relation("PinnedTrack", fields: [trackId], references: [trackId], onDelete: Cascade)
+  accountId   String         @map("account_id") @db.Uuid
+  slot        Int
+  itemType    PinnedItemType @map("item_type")
+  trackId     String?        @map("track_id") @db.Uuid
+  albumId     String?        @map("album_id") @db.Uuid
+  artistId    String?        @map("artist_id") @db.Uuid
+  playlistId  String?        @map("playlist_id") @db.Uuid
+  blindtestId String?        @map("blindtest_id") @db.Uuid
+  pinnedAt    DateTime       @default(now()) @map("pinned_at") @db.Timestamp(6)
+  account     Account        @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
+  album       Album?         @relation("PinnedAlbum", fields: [albumId], references: [albumId], onDelete: Cascade)
+  artist      Artist?        @relation("PinnedArtist", fields: [artistId], references: [artistId], onDelete: Cascade)
+  playlist    Playlist?      @relation("PinnedPlaylist", fields: [playlistId], references: [playlistId], onDelete: Cascade)
+  track       Track?         @relation("PinnedTrack", fields: [trackId], references: [trackId], onDelete: Cascade)
+  blindtest   Blindtest?     @relation("PinnedBlindtest", fields: [blindtestId], references: [blindtestId], onDelete: Cascade)
 
   @@id([accountId, slot])
   @@map("account_pinned_item")
@@ -926,10 +1006,17 @@ enum account_roles {
   super_admin
 }
 
+enum BlindtestRankingType {
+  listens
+  likes
+  comments
+}
+
 enum PinnedItemType {
   TRACK
   ALBUM
   ARTIST
+  BLINDTEST
   PLAYLIST
 
   @@map("pinned_item_type")

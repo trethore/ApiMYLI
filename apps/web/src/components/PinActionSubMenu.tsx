@@ -14,7 +14,7 @@ import { useToast } from "@/context/ToastContext";
 
 interface PinActionSubMenuProps {
   itemId: string;
-  itemType: "track" | "album" | "artist" | "playlist";
+  itemType: "track" | "album" | "artist" | "playlist" | "blindtest";
 }
 
 export default function PinActionSubMenu({ itemId, itemType }: PinActionSubMenuProps) {
