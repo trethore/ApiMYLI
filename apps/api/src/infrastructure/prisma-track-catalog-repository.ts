@@ -3,6 +3,15 @@ import type { Track } from "packages/domain/src/entities/track";
 import type { TrackCatalogRepository } from "packages/domain/src/repositories/track-catalog-repository";
 import { toTrack, trackInclude } from "@/infrastructure/prisma-music-mappers";
 
+export type ExtraBlindtestConstraints = {
+  yearBegin: number | null;
+  yearEnd: number | null;
+  isInstrumental: boolean | null;
+  genreIds: string[];
+  artistIds: string[];
+  compulsoryTrackIds: string[];
+}
+
 const trackOrderBy: Prisma.TrackOrderByWithRelationInput[] = [
   { trackDiscNumber: "asc" },
   { trackNumber: "asc" },
@@ -76,11 +85,41 @@ export const createPrismaTrackCatalogRepository = (
     });
     return tracks.map(toTrack);
   },
-  getRandomTracks: async (limit: number, excludedIds: string[], currentAccountId?: string | null): Promise<Track[]> => {
+  getRandomTracks: async (limit: number, excludedIds: string[], currentAccountId?: string | null, extraBlindtestConstraints?: ExtraBlindtestConstraints): Promise<Track[]> => {
     // Prisma does not have native ORDER BY RANDOM(). 
     // Usually we fetch IDs, shuffle, then take 'limit'.
     const allTrackIds = await prisma.track.findMany({
       where: {
+
+        // Extra constraints for blindtest handling
+        ...(extraBlindtestConstraints?.isInstrumental != null && {
+          trackInstrumental: extraBlindtestConstraints.isInstrumental,
+        }),
+        ...(extraBlindtestConstraints && {
+          trackDateCreated: {
+            ...(extraBlindtestConstraints.yearBegin != null && {
+              gte: new Date(`${extraBlindtestConstraints.yearBegin}-01-01`),
+            }),
+            ...(extraBlindtestConstraints.yearEnd != null && {
+              lte: new Date(`${extraBlindtestConstraints.yearEnd}-12-31`),
+            }),
+          },
+        }),
+        ...(extraBlindtestConstraints?.genreIds?.length !== undefined && extraBlindtestConstraints?.genreIds?.length > 0 && {
+          trackGenres: {
+            some: {
+              genreId: { in: extraBlindtestConstraints.genreIds },
+            },
+          },
+        }),
+        ...(extraBlindtestConstraints?.artistIds?.length !== undefined && extraBlindtestConstraints?.artistIds?.length > 0 && {
+          mainArtists: {
+            some: {
+              artistId: { in: extraBlindtestConstraints.artistIds },
+            },
+          },
+        }),
+
         trackId: { notIn: excludedIds },
         audioFeature: { isNot: null }, // Prefer tracks that have features for a better radio
       },

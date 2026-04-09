@@ -9,6 +9,7 @@ import Player from "@/components/Player";
 import PlayerPadding from "@/components/PlayerPadding";
 import AuthRequiredPopup from "@/components/AuthRequiredPopup";
 import "./globals.css";
+import { BlindtestProvider } from "@/context/BlindtestContext";
 
 const alexandria = Alexandria({
   variable: "--font-alexandria",
@@ -47,7 +48,9 @@ export default function RootLayout({
             <ToastProvider>
               <PlayerProvider>
                 <PlaylistProvider>
-                  {children}
+                  <BlindtestProvider>
+                    {children}
+                  </BlindtestProvider>
                 <AuthRequiredPopup />
                 <PlayerPadding />
                 <Player />

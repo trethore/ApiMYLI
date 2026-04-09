@@ -1,12 +1,22 @@
 import type { Track } from "packages/domain/src/entities/track";
 import type { TrackCatalogRepository } from "packages/domain/src/repositories/track-catalog-repository";
 
+export type ExtraBlindtestConstraints = {
+  yearBegin: number | null;
+  yearEnd: number | null;
+  isInstrumental: boolean | null;
+  genreIds: string[];
+  artistIds: string[];
+  compulsoryTrackIds: string[];
+}
+
 export type GetRecommendationsInput = {
   seedTrackIds: string[];
   blacklistedTrackIds: string[];
   limit: number;
   randomness: number; // 0 to 100
   currentAccountId?: string | null;
+  extraBlindtestConstraints?: ExtraBlindtestConstraints;
 };
 
 // Calculate cosine similarity between two feature vectors
@@ -47,14 +57,14 @@ function extractFeaturesArray(features: any): number[] {
 export const createGetRecommendations =
   (trackCatalogRepository: TrackCatalogRepository) =>
   async (input: GetRecommendationsInput): Promise<Track[]> => {
-    const { seedTrackIds, limit, randomness, currentAccountId } = input;
+    const { seedTrackIds, limit, randomness, currentAccountId, extraBlindtestConstraints } = input;
     
     // Always exclude the seeds themselves from being recommended again, plus the explicit blacklist
     const excludedIds = [...new Set([...input.blacklistedTrackIds, ...seedTrackIds])];
 
     // 1. If randomness is 100 or no seeds provided, return purely random tracks (excluding blacklist)
     if (randomness >= 100 || seedTrackIds.length === 0) {
-      return trackCatalogRepository.getRandomTracks(limit, excludedIds, currentAccountId);
+      return trackCatalogRepository.getRandomTracks(limit, excludedIds, currentAccountId, extraBlindtestConstraints);
     }
 
     // 2. Fetch seed tracks with their audio features
@@ -67,7 +77,7 @@ export const createGetRecommendations =
     // (As per user logic: "Si aucune musique de la liste n'a d'audiofeature... c'est comme si l'aléatoire est de 100" 
     // *User also mentioned genres/tags but API structure doesn't expose genres easily yet, so fallback to random is safest*)
     if (seedsWithFeatures.length === 0) {
-      return trackCatalogRepository.getRandomTracks(limit, excludedIds, currentAccountId);
+      return trackCatalogRepository.getRandomTracks(limit, excludedIds, currentAccountId, extraBlindtestConstraints);
     }
 
     // 4. Calculate the average feature vector of the valid seeds
@@ -83,7 +93,7 @@ export const createGetRecommendations =
 
     // 5. Fetch a pool of candidate tracks that also have audio features
     // We fetch a larger pool (e.g., 200) to score them against the average vector
-    const candidateTracks = await trackCatalogRepository.getRandomTracks(200, excludedIds, currentAccountId);
+    const candidateTracks = await trackCatalogRepository.getRandomTracks(200, excludedIds, currentAccountId, extraBlindtestConstraints);
     
     if (candidateTracks.length === 0) return [];
 

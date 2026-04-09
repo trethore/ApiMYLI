@@ -1,3 +1,4 @@
+import { BlindtestCreateInput, BlindtestUpdateInput } from "@/context/BlindtestContext";
 import { Music } from "@/types/music";
 
 const API_URL = "http://localhost:4000/graphql";
@@ -40,8 +41,9 @@ async function gql<T>(
 
   if (json.errors && json.errors.length > 0) {
     const errorMsg = json.errors[0].message;
-    console.error("GraphQL Errors:", json.errors, "in query:", query.substring(0, 100)); // Log part of the query
-    throw new Error(`${errorMsg} (Query: ${query.trim().split('{')[0].trim()})`);
+    console.error("GraphQL Errors:", json.errors, "in query:", query.substring(0, 10000)); // Log part of the query
+    // throw new Error(`${errorMsg} (Query: ${query.trim().split('{')[0].trim()})`);
+    throw new Error(`${errorMsg}`);
   }
 
   if (!json.data) {
@@ -112,6 +114,25 @@ export type ApiPlaylist = ApiPlaylistSummary & {
   tracks: ApiTrack[];
 };
 
+export type ApiBlindtest = {
+  blindtestId: string;
+  name: string;
+  length: number;
+  yearBegin: number;
+  yearEnd: number;
+  difficulty: number;
+  instrumental: boolean;
+  trackCount: number;
+  compulsoryTrackCount: number;
+  totalTracksCount: number;
+  compulsoryTracks: ApiTrack[];
+  tracks: ApiTrack[];
+  genres: ApiGenre[];
+  artists: ApiArtist[];
+  ownerDisplayName: string | null;
+  isEditable: boolean;
+};
+
 export type ApiAlbum = ApiAlbumSummary & {
   dateReleased: string | null;
   tracksCount: number | null;
@@ -124,7 +145,7 @@ export type ApiAlbum = ApiAlbumSummary & {
 
 export type ApiPinnedItem = {
   slot: number;
-  itemType: "TRACK" | "ALBUM" | "ARTIST" | "PLAYLIST";
+  itemType: "TRACK" | "ALBUM" | "ARTIST" | "PLAYLIST" | "BLINDTEST";
   pinnedAt: string;
   track: ApiTrack | null;
   album: ApiAlbum | null;
@@ -137,6 +158,28 @@ export type ApiTrackListenHistoryItem = {
   listenedAt: string;
   track: ApiTrack;
 };
+
+export type ApiGenre = {
+  genreId: string;
+  parentId: string | null;
+  title: string | null;
+  topLevel: number | null;
+  tracksCount: number | null;
+  parent: {
+    genreId: string;
+    parentId: string | null;
+    title: string | null;
+    topLevel: number | null;
+    tracksCount: number | null;
+  } | null;
+  children: {
+    genreId: string;
+    parentId: string | null;
+    title: string | null;
+    topLevel: number | null;
+    tracksCount: number | null;
+  }[];
+}
 
 export type ApiArtist = {
   artistId: string;
@@ -400,6 +443,20 @@ const TRACK_FRAGMENT = /* GraphQL */ `
   }
 `;
 
+const GENRE_FRAGMENT = /* GraphQL */ `
+  fragment GenreDetails on Genre {
+    genreId
+    title
+  }
+`;
+
+const ARTIST_FRAGMENT = /* GraphQL */ `
+  fragment ArtistDetails on Artist {
+    artistId
+    name
+  }
+`;
+
 const PLAYLIST_SUMMARY_FRAGMENT = /* GraphQL */ `
   fragment PlaylistSummary on Playlist {
     playlistId
@@ -419,6 +476,39 @@ const PLAYLIST_FRAGMENT = /* GraphQL */ `
   }
   ${PLAYLIST_SUMMARY_FRAGMENT}
   ${TRACK_FRAGMENT}
+`;
+
+// TODO : add other relations...
+const BLINDTEST_FRAGMENT = /* GraphQL */ `
+  fragment BlindtestDetails on Blindtest {
+    blindtestId
+    name
+    length
+    ownerDisplayName
+    isEditable
+    trackCount
+    compulsoryTrackCount
+    totalTracksCount
+    yearBegin
+    yearEnd
+    difficulty
+    instrumental
+    tracks {
+      ...TrackDetails
+    }
+    compulsoryTracks {
+      ...TrackDetails
+    }
+    artists {
+      ...ArtistDetails
+    }
+    genres {
+      ...GenreDetails
+    }
+  }
+  ${TRACK_FRAGMENT}
+  ${ARTIST_FRAGMENT}
+  ${GENRE_FRAGMENT}
 `;
 
 export async function getTrackQuery(trackId: string, token?: string | null): Promise<ApiTrack | null> {
@@ -495,8 +585,6 @@ export async function getLikedTracksQuery(token: string): Promise<ApiTrack[]> {
   return data.likedTracks;
 }
 
-
-
 export async function getPlaylistQuery(playlistId: string, token?: string | null): Promise<ApiPlaylist | null> {
   const query = /* GraphQL */ `
     query GetPlaylist($playlistId: String!) {
@@ -508,6 +596,21 @@ export async function getPlaylistQuery(playlistId: string, token?: string | null
   `;
   const data = await gql<{ playlist: ApiPlaylist | null }>(query, { playlistId }, token);
   return data.playlist;
+}
+
+export async function getBlindtestQuery(blindtestId: string, token?: string | null): Promise<ApiBlindtest | null> {
+  const query = /* GraphQL */ `
+    query GetBlindtest($blindtestId: String!) {
+      blindtest(blindtestId: $blindtestId) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+
+  const data = await gql<{ blindtest: ApiBlindtest | null }>(query, { blindtestId }, token);
+
+  return data.blindtest;
 }
 
 export async function getMyPlaylistsQuery(token: string): Promise<ApiPlaylist[]> {
@@ -524,6 +627,22 @@ export async function getMyPlaylistsQuery(token: string): Promise<ApiPlaylist[]>
   `;
   const data = await gql<{ myPlaylists: ApiPlaylist[] }>(query, {}, token);
   return data.myPlaylists;
+}
+
+export async function getMyBlindtestsQuery(token: string): Promise<ApiBlindtest[]> {
+  const query = /* GraphQL */ `
+    query GetMyBlindtests {
+      myBlindtests {
+        blindtestId
+        name
+        trackCount
+        compulsoryTrackCount
+        totalTracksCount
+      }
+    }
+  `;
+  const data = await gql<{ myBlindtests: ApiBlindtest[] }>(query, {}, token);
+  return data.myBlindtests;
 }
 
 export async function likeTrackMutation(trackId: string, token: string): Promise<ApiTrack | null> {
@@ -550,6 +669,119 @@ export async function unlikeTrackMutation(trackId: string, token: string): Promi
   `;
   const data = await gql<{ unlikeTrack: ApiTrack | null }>(query, { trackId }, token);
   return data.unlikeTrack;
+}
+
+// TODO : add other attributes & relations
+export async function createBlindtestMutation(input: BlindtestCreateInput, token: string): Promise<ApiBlindtest> {
+  const query = /* GraphQL */ `
+    mutation createBlindtest($input: CreateBlindtestInput!) {
+      createBlindtest(input: $input) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+  const data = await gql<{ createBlindtest: ApiBlindtest }>(query, { input }, token);
+  return data.createBlindtest;
+}
+
+// TODO : add other attributes & relations
+export async function updateBlindtestMutation(blindtestId: string, input: BlindtestUpdateInput, token: string): Promise<ApiBlindtest | null> {
+  const query = /* GraphQL */ `
+    mutation UpdateBlindtest($blindtestId: String!, $input: UpdateBlindtestInput!) {
+      updateBlindtest(blindtestId: $blindtestId, input: $input) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+  const data = await gql<{ updateBlindtest: ApiBlindtest | null }>(query, { blindtestId, input }, token);
+  return data.updateBlindtest;
+}
+
+export async function deleteBlindtestMutation(blindtestId: string, token: string): Promise<boolean> {
+  const query = /* GraphQL */ `
+    mutation DeleteBlindtest($blindtestId: String!) {
+      deleteBlindtest(blindtestId: $blindtestId)
+    }
+  `;
+  const data = await gql<{ deleteBlindtest: boolean }>(query, { blindtestId }, token);
+  return data.deleteBlindtest;
+}
+
+export async function autocompleteBlindtestMutation(
+  blindtestId: string,
+  seedTrackIds: string[],
+  blacklistedTrackIds: string[],
+  randomness: number,
+  token: string
+): Promise<ApiBlindtest> {
+  const query = /* GraphQL */ `
+    mutation AutocompleteBlindtest($blindtestId: String!, $seedTrackIds: [String!]!, $blacklistedTrackIds: [String!]!, $randomness: Int!) {
+      autocompleteBlindtest(blindtestId: $blindtestId, seedTrackIds: $seedTrackIds, blacklistedTrackIds: $blacklistedTrackIds, randomness: $randomness) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+  const data = await gql<{ autocompleteBlindtest: ApiBlindtest }>(
+    query,
+    { blindtestId, seedTrackIds, blacklistedTrackIds, randomness },
+    token
+  );
+  return data.autocompleteBlindtest;
+}
+
+export async function addCompulsoryTrackToBlindtestMutation(blindtestId: string, trackId: string, token: string): Promise<ApiBlindtest | null> {
+  const query = /* GraphQL */ `
+    mutation AddCompulsoryTrackToBlindtest($blindtestId: String!, $trackId: String!) {
+      addCompulsoryTrackToBlindtest(blindtestId: $blindtestId, trackId: $trackId) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+  const data = await gql<{ addCompulsoryTrackToBlindtest: ApiBlindtest | null }>(query, { blindtestId, trackId }, token);
+  return data.addCompulsoryTrackToBlindtest;
+}
+
+export async function removeCompulsoryTrackFromBlindtestMutation(blindtestId: string, trackId: string, token: string): Promise<ApiBlindtest | null> {
+  const query = /* GraphQL */ `
+    mutation RemoveCompulsoryTrackFromBlindtest($blindtestId: String!, $trackId: String!) {
+      removeCompulsoryTrackFromBlindtest(blindtestId: $blindtestId, trackId: $trackId) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+  const data = await gql<{ removeCompulsoryTrackFromBlindtest: ApiBlindtest | null }>(query, { blindtestId, trackId }, token);
+  return data.removeCompulsoryTrackFromBlindtest;
+}
+
+export async function addTrackToBlindtestMutation(blindtestId: string, trackId: string, token: string): Promise<ApiBlindtest | null> {
+  const query = /* GraphQL */ `
+    mutation AddTrackToBlindtest($blindtestId: String!, $trackId: String!) {
+      addTrackToBlindtest(blindtestId: $blindtestId, trackId: $trackId) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+  const data = await gql<{ addTrackToBlindtest: ApiBlindtest | null }>(query, { blindtestId, trackId }, token);
+  return data.addTrackToBlindtest;
+}
+
+export async function removeTrackFromBlindtestMutation(blindtestId: string, trackId: string, token: string): Promise<ApiBlindtest | null> {
+  const query = /* GraphQL */ `
+    mutation RemoveTrackFromBlindtest($blindtestId: String!, $trackId: String!) {
+      removeTrackFromBlindtest(blindtestId: $blindtestId, trackId: $trackId) {
+        ...BlindtestDetails
+      }
+    }
+    ${BLINDTEST_FRAGMENT}
+  `;
+  const data = await gql<{ removeTrackFromBlindtest: ApiBlindtest | null }>(query, { blindtestId, trackId }, token);
+  return data.removeTrackFromBlindtest;
 }
 
 export async function createPlaylistMutation(name: string, token: string): Promise<ApiPlaylist> {
@@ -859,6 +1091,7 @@ export type ApiSearchResults = {
   albums: ApiAlbumSummary[];
   artists: ApiArtistSummary[];
   playlists: ApiPlaylistSummary[];
+  genres: ApiGenre[];
 };
 
 export async function globalSearchQuery(queryText: string, limit: number = 5, token?: string | null): Promise<ApiSearchResults> {
@@ -898,6 +1131,10 @@ export async function globalSearchQuery(queryText: string, limit: number = 5, to
         playlists {
           playlistId
           name
+        }
+        genres {
+          genreId
+          title
         }
       }
     }

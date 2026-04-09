@@ -17,6 +17,7 @@ export type Track = {
   imageUrl: string | null;
   audioSrc: string | null;
   durationSeconds: number | null;
+  dateCreated: Date | null;
   trackNumber: number | null;
   discNumber: number | null;
   isExplicit: boolean;

@@ -377,6 +377,66 @@ export interface PrismaClient<
   get playlistTrack(): Prisma.PlaylistTrackDelegate<ExtArgs, { omit: OmitOpts }>;
 
   /**
+   * `prisma.artistBlindtest`: Exposes CRUD operations for the **ArtistBlindtest** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ArtistBlindtests
+    * const artistBlindtests = await prisma.artistBlindtest.findMany()
+    * ```
+    */
+  get artistBlindtest(): Prisma.ArtistBlindtestDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.blindtestGenre`: Exposes CRUD operations for the **BlindtestGenre** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BlindtestGenres
+    * const blindtestGenres = await prisma.blindtestGenre.findMany()
+    * ```
+    */
+  get blindtestGenre(): Prisma.BlindtestGenreDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.blindtestTrack`: Exposes CRUD operations for the **BlindtestTrack** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BlindtestTracks
+    * const blindtestTracks = await prisma.blindtestTrack.findMany()
+    * ```
+    */
+  get blindtestTrack(): Prisma.BlindtestTrackDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.blindtestCompulsoryTrack`: Exposes CRUD operations for the **BlindtestCompulsoryTrack** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BlindtestCompulsoryTracks
+    * const blindtestCompulsoryTracks = await prisma.blindtestCompulsoryTrack.findMany()
+    * ```
+    */
+  get blindtestCompulsoryTrack(): Prisma.BlindtestCompulsoryTrackDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.blindtest`: Exposes CRUD operations for the **Blindtest** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Blindtests
+    * const blindtests = await prisma.blindtest.findMany()
+    * ```
+    */
+  get blindtest(): Prisma.BlindtestDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.accountBlindtest`: Exposes CRUD operations for the **AccountBlindtest** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AccountBlindtests
+    * const accountBlindtests = await prisma.accountBlindtest.findMany()
+    * ```
+    */
+  get accountBlindtest(): Prisma.AccountBlindtestDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
    * `prisma.preference`: Exposes CRUD operations for the **Preference** model.
     * Example usage:
     * ```ts

@@ -23,5 +23,8 @@
   "overrides": {
     "hono": "4.11.10",
     "lodash": "4.17.23"
+  },
+  "dependencies": {
+    "graphql-query-complexity": "^1.1.0"
   }
 }

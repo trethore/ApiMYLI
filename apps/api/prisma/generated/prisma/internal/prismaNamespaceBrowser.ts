@@ -71,6 +71,12 @@ export const ModelName = {
   TrackArtistFeat: 'TrackArtistFeat',
   TrackLicense: 'TrackLicense',
   PlaylistTrack: 'PlaylistTrack',
+  ArtistBlindtest: 'ArtistBlindtest',
+  BlindtestGenre: 'BlindtestGenre',
+  BlindtestTrack: 'BlindtestTrack',
+  BlindtestCompulsoryTrack: 'BlindtestCompulsoryTrack',
+  Blindtest: 'Blindtest',
+  AccountBlindtest: 'AccountBlindtest',
   Preference: 'Preference',
   PreferenceVector: 'PreferenceVector',
   GenrePreference: 'GenrePreference',
@@ -835,6 +841,60 @@ export const PlaylistTrackScalarFieldEnum = {
 export type PlaylistTrackScalarFieldEnum = (typeof PlaylistTrackScalarFieldEnum)[keyof typeof PlaylistTrackScalarFieldEnum]
 
 
+export const ArtistBlindtestScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  artistId: 'artistId'
+} as const
+
+export type ArtistBlindtestScalarFieldEnum = (typeof ArtistBlindtestScalarFieldEnum)[keyof typeof ArtistBlindtestScalarFieldEnum]
+
+
+export const BlindtestGenreScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  genreId: 'genreId'
+} as const
+
+export type BlindtestGenreScalarFieldEnum = (typeof BlindtestGenreScalarFieldEnum)[keyof typeof BlindtestGenreScalarFieldEnum]
+
+
+export const BlindtestTrackScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  trackId: 'trackId'
+} as const
+
+export type BlindtestTrackScalarFieldEnum = (typeof BlindtestTrackScalarFieldEnum)[keyof typeof BlindtestTrackScalarFieldEnum]
+
+
+export const BlindtestCompulsoryTrackScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  trackId: 'trackId'
+} as const
+
+export type BlindtestCompulsoryTrackScalarFieldEnum = (typeof BlindtestCompulsoryTrackScalarFieldEnum)[keyof typeof BlindtestCompulsoryTrackScalarFieldEnum]
+
+
+export const BlindtestScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  blindtestName: 'blindtestName',
+  blindtestLength: 'blindtestLength',
+  blindtestDifficulty: 'blindtestDifficulty',
+  blindtestInstrumental: 'blindtestInstrumental',
+  blindtestYearBegin: 'blindtestYearBegin',
+  blindtestYearEnd: 'blindtestYearEnd',
+  blindtestRankingOrder: 'blindtestRankingOrder'
+} as const
+
+export type BlindtestScalarFieldEnum = (typeof BlindtestScalarFieldEnum)[keyof typeof BlindtestScalarFieldEnum]
+
+
+export const AccountBlindtestScalarFieldEnum = {
+  blindtestId: 'blindtestId',
+  accountId: 'accountId'
+} as const
+
+export type AccountBlindtestScalarFieldEnum = (typeof AccountBlindtestScalarFieldEnum)[keyof typeof AccountBlindtestScalarFieldEnum]
+
+
 export const PreferenceScalarFieldEnum = {
   accountId: 'accountId',
   ageRange: 'ageRange',
@@ -919,6 +979,7 @@ export const AccountPinnedItemScalarFieldEnum = {
   albumId: 'albumId',
   artistId: 'artistId',
   playlistId: 'playlistId',
+  blindtestId: 'blindtestId',
   pinnedAt: 'pinnedAt'
 } as const
 

@@ -44,7 +44,7 @@ type Content = {
 type ContentList = Content[];
 
 export default function Library() {
-  const { playlists, createPlaylist } = usePlaylist();
+  const { playlists, createPlaylist, loadPlaylists } = usePlaylist();
   const { isAuthenticated, token } = useAuth();
   const { history } = usePlayer();
   const router = useRouter();
@@ -65,9 +65,10 @@ export default function Library() {
       if (!isAuthenticated && !localToken) {
         router.push("/login");
         return;
-      }
+      }      
 
       const activeToken = token || (localToken as string);
+
       if (activeToken) {
         try {
           const [likedRes, pinnedRes, historyRes] = await Promise.all([
@@ -141,11 +142,13 @@ export default function Library() {
     return null;
   }
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (newPlaylistName.trim()) {
-      createPlaylist(newPlaylistName.trim());
+      await createPlaylist(newPlaylistName.trim());
       setNewPlaylistName("");
       setIsCreateOpen(false);
+
+      loadPlaylists();
     }
   };
 

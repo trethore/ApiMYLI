@@ -224,6 +224,7 @@ export type GenreWhereInput = {
   children?: Prisma.GenreListRelationFilter
   genrePreferences?: Prisma.GenrePreferenceListRelationFilter
   trackGenres?: Prisma.TrackGenreListRelationFilter
+  blindtestGenres?: Prisma.BlindtestGenreListRelationFilter
 }
 
 export type GenreOrderByWithRelationInput = {
@@ -236,6 +237,7 @@ export type GenreOrderByWithRelationInput = {
   children?: Prisma.GenreOrderByRelationAggregateInput
   genrePreferences?: Prisma.GenrePreferenceOrderByRelationAggregateInput
   trackGenres?: Prisma.TrackGenreOrderByRelationAggregateInput
+  blindtestGenres?: Prisma.BlindtestGenreOrderByRelationAggregateInput
 }
 
 export type GenreWhereUniqueInput = Prisma.AtLeast<{
@@ -251,6 +253,7 @@ export type GenreWhereUniqueInput = Prisma.AtLeast<{
   children?: Prisma.GenreListRelationFilter
   genrePreferences?: Prisma.GenrePreferenceListRelationFilter
   trackGenres?: Prisma.TrackGenreListRelationFilter
+  blindtestGenres?: Prisma.BlindtestGenreListRelationFilter
 }, "genreId">
 
 export type GenreOrderByWithAggregationInput = {
@@ -286,6 +289,7 @@ export type GenreCreateInput = {
   children?: Prisma.GenreCreateNestedManyWithoutParentInput
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutGenreInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutGenreInput
 }
 
 export type GenreUncheckedCreateInput = {
@@ -297,6 +301,7 @@ export type GenreUncheckedCreateInput = {
   children?: Prisma.GenreUncheckedCreateNestedManyWithoutParentInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutGenreInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutGenreInput
 }
 
 export type GenreUpdateInput = {
@@ -308,6 +313,7 @@ export type GenreUpdateInput = {
   children?: Prisma.GenreUpdateManyWithoutParentNestedInput
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutGenreNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreUncheckedUpdateInput = {
@@ -319,6 +325,7 @@ export type GenreUncheckedUpdateInput = {
   children?: Prisma.GenreUncheckedUpdateManyWithoutParentNestedInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedUpdateManyWithoutGenreNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreCreateManyInput = {
@@ -470,6 +477,20 @@ export type GenreUpdateOneRequiredWithoutTrackGenresNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.GenreUpdateToOneWithWhereWithoutTrackGenresInput, Prisma.GenreUpdateWithoutTrackGenresInput>, Prisma.GenreUncheckedUpdateWithoutTrackGenresInput>
 }
 
+export type GenreCreateNestedOneWithoutBlindtestGenresInput = {
+  create?: Prisma.XOR<Prisma.GenreCreateWithoutBlindtestGenresInput, Prisma.GenreUncheckedCreateWithoutBlindtestGenresInput>
+  connectOrCreate?: Prisma.GenreCreateOrConnectWithoutBlindtestGenresInput
+  connect?: Prisma.GenreWhereUniqueInput
+}
+
+export type GenreUpdateOneRequiredWithoutBlindtestGenresNestedInput = {
+  create?: Prisma.XOR<Prisma.GenreCreateWithoutBlindtestGenresInput, Prisma.GenreUncheckedCreateWithoutBlindtestGenresInput>
+  connectOrCreate?: Prisma.GenreCreateOrConnectWithoutBlindtestGenresInput
+  upsert?: Prisma.GenreUpsertWithoutBlindtestGenresInput
+  connect?: Prisma.GenreWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GenreUpdateToOneWithWhereWithoutBlindtestGenresInput, Prisma.GenreUpdateWithoutBlindtestGenresInput>, Prisma.GenreUncheckedUpdateWithoutBlindtestGenresInput>
+}
+
 export type GenreCreateNestedOneWithoutGenrePreferencesInput = {
   create?: Prisma.XOR<Prisma.GenreCreateWithoutGenrePreferencesInput, Prisma.GenreUncheckedCreateWithoutGenrePreferencesInput>
   connectOrCreate?: Prisma.GenreCreateOrConnectWithoutGenrePreferencesInput
@@ -492,6 +513,7 @@ export type GenreCreateWithoutChildrenInput = {
   parent?: Prisma.GenreCreateNestedOneWithoutChildrenInput
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutGenreInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutGenreInput
 }
 
 export type GenreUncheckedCreateWithoutChildrenInput = {
@@ -502,6 +524,7 @@ export type GenreUncheckedCreateWithoutChildrenInput = {
   tracksCount?: number | null
   genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutGenreInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutGenreInput
 }
 
 export type GenreCreateOrConnectWithoutChildrenInput = {
@@ -517,6 +540,7 @@ export type GenreCreateWithoutParentInput = {
   children?: Prisma.GenreCreateNestedManyWithoutParentInput
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutGenreInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutGenreInput
 }
 
 export type GenreUncheckedCreateWithoutParentInput = {
@@ -527,6 +551,7 @@ export type GenreUncheckedCreateWithoutParentInput = {
   children?: Prisma.GenreUncheckedCreateNestedManyWithoutParentInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutGenreInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutGenreInput
 }
 
 export type GenreCreateOrConnectWithoutParentInput = {
@@ -558,6 +583,7 @@ export type GenreUpdateWithoutChildrenInput = {
   parent?: Prisma.GenreUpdateOneWithoutChildrenNestedInput
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutGenreNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreUncheckedUpdateWithoutChildrenInput = {
@@ -568,6 +594,7 @@ export type GenreUncheckedUpdateWithoutChildrenInput = {
   tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   genrePreferences?: Prisma.GenrePreferenceUncheckedUpdateManyWithoutGenreNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreUpsertWithWhereUniqueWithoutParentInput = {
@@ -605,6 +632,7 @@ export type GenreCreateWithoutTrackGenresInput = {
   parent?: Prisma.GenreCreateNestedOneWithoutChildrenInput
   children?: Prisma.GenreCreateNestedManyWithoutParentInput
   genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutGenreInput
 }
 
 export type GenreUncheckedCreateWithoutTrackGenresInput = {
@@ -615,6 +643,7 @@ export type GenreUncheckedCreateWithoutTrackGenresInput = {
   tracksCount?: number | null
   children?: Prisma.GenreUncheckedCreateNestedManyWithoutParentInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutGenreInput
 }
 
 export type GenreCreateOrConnectWithoutTrackGenresInput = {
@@ -641,6 +670,7 @@ export type GenreUpdateWithoutTrackGenresInput = {
   parent?: Prisma.GenreUpdateOneWithoutChildrenNestedInput
   children?: Prisma.GenreUpdateManyWithoutParentNestedInput
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreUncheckedUpdateWithoutTrackGenresInput = {
@@ -651,6 +681,67 @@ export type GenreUncheckedUpdateWithoutTrackGenresInput = {
   tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   children?: Prisma.GenreUncheckedUpdateManyWithoutParentNestedInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutGenreNestedInput
+}
+
+export type GenreCreateWithoutBlindtestGenresInput = {
+  genreId?: string
+  title?: string | null
+  topLevel?: number | null
+  tracksCount?: number | null
+  parent?: Prisma.GenreCreateNestedOneWithoutChildrenInput
+  children?: Prisma.GenreCreateNestedManyWithoutParentInput
+  genrePreferences?: Prisma.GenrePreferenceCreateNestedManyWithoutGenreInput
+  trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutGenreInput
+}
+
+export type GenreUncheckedCreateWithoutBlindtestGenresInput = {
+  genreId?: string
+  parentId?: string | null
+  title?: string | null
+  topLevel?: number | null
+  tracksCount?: number | null
+  children?: Prisma.GenreUncheckedCreateNestedManyWithoutParentInput
+  genrePreferences?: Prisma.GenrePreferenceUncheckedCreateNestedManyWithoutGenreInput
+  trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutGenreInput
+}
+
+export type GenreCreateOrConnectWithoutBlindtestGenresInput = {
+  where: Prisma.GenreWhereUniqueInput
+  create: Prisma.XOR<Prisma.GenreCreateWithoutBlindtestGenresInput, Prisma.GenreUncheckedCreateWithoutBlindtestGenresInput>
+}
+
+export type GenreUpsertWithoutBlindtestGenresInput = {
+  update: Prisma.XOR<Prisma.GenreUpdateWithoutBlindtestGenresInput, Prisma.GenreUncheckedUpdateWithoutBlindtestGenresInput>
+  create: Prisma.XOR<Prisma.GenreCreateWithoutBlindtestGenresInput, Prisma.GenreUncheckedCreateWithoutBlindtestGenresInput>
+  where?: Prisma.GenreWhereInput
+}
+
+export type GenreUpdateToOneWithWhereWithoutBlindtestGenresInput = {
+  where?: Prisma.GenreWhereInput
+  data: Prisma.XOR<Prisma.GenreUpdateWithoutBlindtestGenresInput, Prisma.GenreUncheckedUpdateWithoutBlindtestGenresInput>
+}
+
+export type GenreUpdateWithoutBlindtestGenresInput = {
+  genreId?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  parent?: Prisma.GenreUpdateOneWithoutChildrenNestedInput
+  children?: Prisma.GenreUpdateManyWithoutParentNestedInput
+  genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutGenreNestedInput
+  trackGenres?: Prisma.TrackGenreUpdateManyWithoutGenreNestedInput
+}
+
+export type GenreUncheckedUpdateWithoutBlindtestGenresInput = {
+  genreId?: Prisma.StringFieldUpdateOperationsInput | string
+  parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  topLevel?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  children?: Prisma.GenreUncheckedUpdateManyWithoutParentNestedInput
+  genrePreferences?: Prisma.GenrePreferenceUncheckedUpdateManyWithoutGenreNestedInput
+  trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreCreateWithoutGenrePreferencesInput = {
@@ -661,6 +752,7 @@ export type GenreCreateWithoutGenrePreferencesInput = {
   parent?: Prisma.GenreCreateNestedOneWithoutChildrenInput
   children?: Prisma.GenreCreateNestedManyWithoutParentInput
   trackGenres?: Prisma.TrackGenreCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreCreateNestedManyWithoutGenreInput
 }
 
 export type GenreUncheckedCreateWithoutGenrePreferencesInput = {
@@ -671,6 +763,7 @@ export type GenreUncheckedCreateWithoutGenrePreferencesInput = {
   tracksCount?: number | null
   children?: Prisma.GenreUncheckedCreateNestedManyWithoutParentInput
   trackGenres?: Prisma.TrackGenreUncheckedCreateNestedManyWithoutGenreInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedCreateNestedManyWithoutGenreInput
 }
 
 export type GenreCreateOrConnectWithoutGenrePreferencesInput = {
@@ -697,6 +790,7 @@ export type GenreUpdateWithoutGenrePreferencesInput = {
   parent?: Prisma.GenreUpdateOneWithoutChildrenNestedInput
   children?: Prisma.GenreUpdateManyWithoutParentNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreUncheckedUpdateWithoutGenrePreferencesInput = {
@@ -707,6 +801,7 @@ export type GenreUncheckedUpdateWithoutGenrePreferencesInput = {
   tracksCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   children?: Prisma.GenreUncheckedUpdateManyWithoutParentNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreCreateManyParentInput = {
@@ -724,6 +819,7 @@ export type GenreUpdateWithoutParentInput = {
   children?: Prisma.GenreUpdateManyWithoutParentNestedInput
   genrePreferences?: Prisma.GenrePreferenceUpdateManyWithoutGenreNestedInput
   trackGenres?: Prisma.TrackGenreUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreUncheckedUpdateWithoutParentInput = {
@@ -734,6 +830,7 @@ export type GenreUncheckedUpdateWithoutParentInput = {
   children?: Prisma.GenreUncheckedUpdateManyWithoutParentNestedInput
   genrePreferences?: Prisma.GenrePreferenceUncheckedUpdateManyWithoutGenreNestedInput
   trackGenres?: Prisma.TrackGenreUncheckedUpdateManyWithoutGenreNestedInput
+  blindtestGenres?: Prisma.BlindtestGenreUncheckedUpdateManyWithoutGenreNestedInput
 }
 
 export type GenreUncheckedUpdateManyWithoutParentInput = {
@@ -752,12 +849,14 @@ export type GenreCountOutputType = {
   children: number
   genrePreferences: number
   trackGenres: number
+  blindtestGenres: number
 }
 
 export type GenreCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   children?: boolean | GenreCountOutputTypeCountChildrenArgs
   genrePreferences?: boolean | GenreCountOutputTypeCountGenrePreferencesArgs
   trackGenres?: boolean | GenreCountOutputTypeCountTrackGenresArgs
+  blindtestGenres?: boolean | GenreCountOutputTypeCountBlindtestGenresArgs
 }
 
 /**
@@ -791,6 +890,13 @@ export type GenreCountOutputTypeCountTrackGenresArgs<ExtArgs extends runtime.Typ
   where?: Prisma.TrackGenreWhereInput
 }
 
+/**
+ * GenreCountOutputType without action
+ */
+export type GenreCountOutputTypeCountBlindtestGenresArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BlindtestGenreWhereInput
+}
+
 
 export type GenreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   genreId?: boolean
@@ -802,6 +908,7 @@ export type GenreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   children?: boolean | Prisma.Genre$childrenArgs<ExtArgs>
   genrePreferences?: boolean | Prisma.Genre$genrePreferencesArgs<ExtArgs>
   trackGenres?: boolean | Prisma.Genre$trackGenresArgs<ExtArgs>
+  blindtestGenres?: boolean | Prisma.Genre$blindtestGenresArgs<ExtArgs>
   _count?: boolean | Prisma.GenreCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["genre"]>
 
@@ -837,6 +944,7 @@ export type GenreInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   children?: boolean | Prisma.Genre$childrenArgs<ExtArgs>
   genrePreferences?: boolean | Prisma.Genre$genrePreferencesArgs<ExtArgs>
   trackGenres?: boolean | Prisma.Genre$trackGenresArgs<ExtArgs>
+  blindtestGenres?: boolean | Prisma.Genre$blindtestGenresArgs<ExtArgs>
   _count?: boolean | Prisma.GenreCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type GenreIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -853,6 +961,7 @@ export type $GenrePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     children: Prisma.$GenrePayload<ExtArgs>[]
     genrePreferences: Prisma.$GenrePreferencePayload<ExtArgs>[]
     trackGenres: Prisma.$TrackGenrePayload<ExtArgs>[]
+    blindtestGenres: Prisma.$BlindtestGenrePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     genreId: string
@@ -1258,6 +1367,7 @@ export interface Prisma__GenreClient<T, Null = never, ExtArgs extends runtime.Ty
   children<T extends Prisma.Genre$childrenArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Genre$childrenArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GenrePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   genrePreferences<T extends Prisma.Genre$genrePreferencesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Genre$genrePreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GenrePreferencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   trackGenres<T extends Prisma.Genre$trackGenresArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Genre$trackGenresArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrackGenrePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  blindtestGenres<T extends Prisma.Genre$blindtestGenresArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Genre$blindtestGenresArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BlindtestGenrePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1776,6 +1886,30 @@ export type Genre$trackGenresArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.TrackGenreScalarFieldEnum | Prisma.TrackGenreScalarFieldEnum[]
+}
+
+/**
+ * Genre.blindtestGenres
+ */
+export type Genre$blindtestGenresArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the BlindtestGenre
+   */
+  select?: Prisma.BlindtestGenreSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the BlindtestGenre
+   */
+  omit?: Prisma.BlindtestGenreOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BlindtestGenreInclude<ExtArgs> | null
+  where?: Prisma.BlindtestGenreWhereInput
+  orderBy?: Prisma.BlindtestGenreOrderByWithRelationInput | Prisma.BlindtestGenreOrderByWithRelationInput[]
+  cursor?: Prisma.BlindtestGenreWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BlindtestGenreScalarFieldEnum | Prisma.BlindtestGenreScalarFieldEnum[]
 }
 
 /**

@@ -6,7 +6,8 @@ interface ContentCardProps {
   name: string;
   subtitle?: string;
   link: string;
-  type: "Album" | "Single" | "Artiste" | "Playlist" | "Track" | "Artist";
+  type: "Album" | "Single" | "Artiste" | "Playlist" | "Track" | "Artist" | "Blindtest";
+  annotation?: string,
   priority?: boolean;
 }
 
@@ -16,6 +17,7 @@ export default function ContentCard({
   subtitle,
   link,
   type,
+  annotation,
   priority = false,
 }: ContentCardProps) {
   return (
@@ -43,6 +45,12 @@ export default function ContentCard({
           <div className="absolute hidden md:block top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm z-20">
             {type}
           </div>
+          {/* Annotation Badge (Top Right) */}
+          {annotation && (
+            <div className="absolute hidden md:block top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-sm z-20">
+              {annotation}
+            </div>
+          )}
         </div>
 
         {/* Text Content — no flex-1 so it hugs its content */}

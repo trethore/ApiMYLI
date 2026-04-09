@@ -21,3 +21,7 @@ git remote prune origin
 sudo systemctl restart docker.socket docker.service
 sudo lsof -i :6379 (ou autre port)
 sudo kill -9 {PID}
+
+# PRISMA (in apps/api)
+npx prisma migrate dev
+npx prisma generate
