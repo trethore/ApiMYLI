@@ -53,6 +53,9 @@ export default function Home() {
   useEffect(() => {
     const fetchHomeData = async () => {
       if (isAuthenticated && token) {
+        console.log(isAuthenticated);
+        console.log(token);
+
         try {
           const [pinnedRes, historyRes] = await Promise.all([
             getMyPinnedItemsQuery(token),

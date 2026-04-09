@@ -382,6 +382,33 @@ export async function deleteAccountMutation(
   return data.deleteAccount;
 }
 
+export async function updateAccountRoleMutation(
+  accountId: string,
+  role: string,
+  token: string,
+): Promise<ApiAccount> {
+  const query = /* GraphQL */ `
+    mutation UpdateAccountRole($accountId: String!, $role: String!) {
+      updateAccountRole(accountId: $accountId, role: $role) {
+        accountId
+        login
+        email
+        role
+        name
+        isArtist
+      }
+    }
+  `;
+
+  const data = await gql<{ updateAccountRole: ApiAccount }>(
+    query,
+    { accountId, role },
+    token,
+  );
+
+  return data.updateAccountRole;
+}
+
 const TRACK_FRAGMENT = /* GraphQL */ `
   fragment TrackDetails on Track {
     trackId
@@ -1145,4 +1172,76 @@ export async function getRecommendationsQuery(
   `;
   const data = await gql<{ recommendations: ApiTrack[] }>(query, { seedTrackIds, blacklistedTrackIds, limit, randomness }, token);
   return data.recommendations;
+}
+
+export async function getAllUserQuery(token: string | null): Promise<ApiAccount[]> {
+  const query = /* GraphQL */ `
+    query GetAllUsers {
+      allUser {
+        accountId
+        login
+        email
+        role
+        name
+        isArtist
+      }
+    }
+  `;
+
+  const data = await gql<{ allUser: ApiAccount[] }>(query, {}, token);
+  return data.allUser;
+}
+
+export async function getAllArtistQuery(token: string | null): Promise<ApiAccount[]> {
+  const query = /* GraphQL */ `
+    query GetAllArtists {
+      allArtist {
+        accountId
+        login
+        email
+        role
+        name
+        isArtist
+      }
+    }
+  `;
+
+  const data = await gql<{ allArtist: ApiAccount[] }>(query, {}, token);
+  return data.allArtist;
+}
+
+export async function getAllAccountsQuery(token: string | null): Promise<ApiAccount[]> {
+  const query = /* GraphQL */ `
+    query GetAllAccounts {
+      allAccounts {
+        accountId
+        login
+        email
+        role
+        name
+        isArtist
+      }
+    }
+  `;
+
+  const data = await gql<{ allAccounts: ApiAccount[] }>(query, {}, token);
+  return data.allAccounts;
+}
+
+export async function getAllAdminsQuery(token: string | null): Promise<ApiAccount[]> {
+  const query = /* GraphQL */ `
+    query GetAllAdmins {
+      allAdmins {
+        accountId
+        login
+        email
+        role
+        name
+        isArtist
+      }
+    }
+  `;
+
+  const data = await gql<{ allAdmins: ApiAccount[] }>(query, {}, token);
+  return data.allAdmins;
 }

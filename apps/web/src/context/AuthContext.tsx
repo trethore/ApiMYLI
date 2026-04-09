@@ -180,6 +180,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isAuthenticated: !!user && !!token,
         isLoading,
         isInitializing,
+        userRole: user?.role ?? null,
         error,
         login,
         register,

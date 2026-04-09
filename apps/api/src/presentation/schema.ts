@@ -30,6 +30,10 @@ import { getAuthenticatedAccountId } from "packages/application/src/use-cases/ac
 import { loginAccount } from "packages/application/src/use-cases/account/login-account";
 import { logoutAccount } from "packages/application/src/use-cases/account/logout-account";
 import { updateAccount } from "packages/application/src/use-cases/account/update-account";
+import { listAccounts } from "packages/application/src/use-cases/account/list-accounts";
+import { listArtistAccounts } from "packages/application/src/use-cases/account/list-artist-accounts";
+import { listUserAccounts } from "packages/application/src/use-cases/account/list-user-accounts";
+import { ListAdminsUseCase } from "packages/application/src/use-cases/account/list-admins";
 import { updateArtistProfile } from "packages/application/src/use-cases/account/update-artist-profile";
 import { getTrackById } from "packages/application/src/use-cases/track/get-track-by-id";
 import { likeTrack } from "packages/application/src/use-cases/track/like-track";
@@ -694,6 +698,10 @@ export const schema = createSchema({
 
     type Query {
       hello: String!
+      allUser: [Account!]!
+      allArtist: [Account!]!
+      allAccounts : [Account!]!
+      allAdmins : [Account!]!
       account(accountId: String!): Account
       artist(artistId: String!): Artist
       artistAlbums(artistId: String!): [Album!]!
@@ -722,6 +730,7 @@ export const schema = createSchema({
     type Mutation {
       createAccount(input: CreateAccountInput!): Account!
       updateAccount(accountId: String!, input: UpdateAccountInput!): Account
+      updateAccountRole(accountId: String!, role: String!): Account
       updateArtist(accountId: String!, input: UpdateArtistInput!): Artist
       deleteAccount(accountId: String!): Boolean!
       login(input: LoginInput!): AuthPayload
@@ -769,6 +778,29 @@ export const schema = createSchema({
 
         return account ? toGraphqlAccount(account) : null;
       },
+      allAccounts : async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
+        const accounts = await listAccounts(context.services.accountRepository);
+        
+        return accounts.map(toGraphqlAccount);
+      },
+
+      allUser: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
+        const accounts = await listUserAccounts(context.services.accountRepository);
+
+        return accounts.map(toGraphqlAccount);
+      },
+
+      allArtist: async (_parent: unknown, _args: unknown, context: GraphqlContext) => {
+        const accounts = await listArtistAccounts(context.services.accountRepository);
+
+        return accounts.map(toGraphqlAccount);
+      },
+
+      allAdmins: async (_: unknown, __: unknown, context: GraphQLContext): Promise<Account[]> => {
+        const useCase = new ListAdminsUseCase(context.services.accountRepository);
+        return useCase.execute();
+      },
+      
       artist: async (_parent: unknown, args: { artistId: string }, context: GraphqlContext) => {
         const artist = await getArtistById(context.services.artistCatalogRepository, args.artistId);
 
@@ -1020,6 +1052,31 @@ export const schema = createSchema({
         const account = await context.services.accountRepository.findById(args.accountId);
 
         return account ? toGraphqlArtistProfile(account, artist) : null;
+      },
+      updateAccountRole: async (
+        _parent: unknown,
+        args: { accountId: string; role: string },
+        context: GraphqlContext,
+      ) => {
+        const currentAccountId = await getAuthenticatedAccountId(
+          context.services.authTokenService,
+          context.authToken,
+        );
+
+        // const currentAccount = await context.services.accountRepository.findById(currentAccountId);
+        // if (!currentAccount || currentAccount.role !== "super_admin") {
+        //   throw new Error("Only super admins can change account roles");
+        // }
+
+        const updatedAccount = await context.services.accountRepository.update(args.accountId, {
+          role: args.role,
+        });
+
+        if (!updatedAccount) {
+          throw new Error("Account not found");
+        }
+
+        return toGraphqlAccount(updatedAccount);
       },
       deleteAccount: async (
         _parent: unknown,
