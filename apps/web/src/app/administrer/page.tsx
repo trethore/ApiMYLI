@@ -257,7 +257,7 @@ export default function AdminPage() {
                 Administrateurs ({admins.length})
               </button>
             )}
-          </div>
+          </div> 
 
           {activeTab === "users" && (
             <div className="flex flex-col gap-4">
