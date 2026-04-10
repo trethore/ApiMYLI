@@ -67,7 +67,6 @@ import type { TrackLibraryRepository } from "packages/domain/src/repositories/tr
 import { BlindtestRepository } from "packages/domain/src/repositories/blindtest-repository";
 import { ExtraBlindtestConstraints } from "@/infrastructure/prisma-track-catalog-repository";
 import { GenreRepository } from "packages/domain/src/repositories/genre-repository";
-import { GraphQLError } from "graphql";
 
 type GraphqlArtist = {
   artistId: string;
@@ -1058,10 +1057,10 @@ export const schema = createSchema({
         args: { accountId: string; role: string },
         context: GraphqlContext,
       ) => {
-        const currentAccountId = await getAuthenticatedAccountId(
-          context.services.authTokenService,
-          context.authToken,
-        );
+        // const currentAccountId = await getAuthenticatedAccountId(
+        //   context.services.authTokenService,
+        //   context.authToken,
+        // );
 
         // const currentAccount = await context.services.accountRepository.findById(currentAccountId);
         // if (!currentAccount || currentAccount.role !== "super_admin") {

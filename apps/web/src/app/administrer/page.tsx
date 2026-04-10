@@ -128,20 +128,20 @@ export default function AdminPage() {
     }
   };
 
-  const handlePromoteUserToSuperAdmin = async (accountId: string): Promise<void> => {
-    try {
-      setIsDeleting(true);
-      const updatedAccount = await updateAccountRoleMutation(accountId, "super_admin", activeToken);
-      setUsers(users.filter((u) => u.accountId !== accountId));
-      setAdmins([...admins, updatedAccount]);
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "erreur dans la promotion";
-      setError(errorMessage);
-      console.error("Error promoting user:", err);
-    } finally {
-      setIsDeleting(false);
-    }
-  };
+  // const handlePromoteUserToSuperAdmin = async (accountId: string): Promise<void> => {
+  //   try {
+  //     setIsDeleting(true);
+  //     const updatedAccount = await updateAccountRoleMutation(accountId, "super_admin", activeToken);
+  //     setUsers(users.filter((u) => u.accountId !== accountId));
+  //     setAdmins([...admins, updatedAccount]);
+  //   } catch (err) {
+  //     const errorMessage = err instanceof Error ? err.message : "erreur dans la promotion";
+  //     setError(errorMessage);
+  //     console.error("Error promoting user:", err);
+  //   } finally {
+  //     setIsDeleting(false);
+  //   }
+  // };
 
   const handleDemoteUser = async (accountId: string): Promise<void> => {
     try {
@@ -172,7 +172,7 @@ export default function AdminPage() {
               </div>
               <h1 className="text-2xl mb-2">Accès refusé</h1>
               <p className="text-muted-foreground mb-6">
-                Vous n'avez pas les droits nécessaires pour accéder à cette page.
+                Vous n&apos;avez pas les droits nécessaires pour accéder à cette page.
               </p>
               <p className="text-sm text-muted-foreground">
                 Redirection dans <span className=" text-foreground">{redirectCountdown}</span> seconde{redirectCountdown !== 1 ? "s" : ""}...
@@ -221,7 +221,7 @@ export default function AdminPage() {
         <div className="flex flex-col gap-8">
           <div>
             <h1 className="text-4xl font-[family-name:var(--font-protest-strike)]">
-              Panneau d'administration
+              Panneau d&apos;administration
             </h1>
             <p className="text-muted-foreground mt-2">
               Gérer les utilisateurs, les artistes et les administrateurs.

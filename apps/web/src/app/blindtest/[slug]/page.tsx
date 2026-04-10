@@ -38,7 +38,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/context/AuthContext";
-import { usePlayer } from "@/context/PlayerContext";
 import { toMusic } from "@/lib/api-client";
 import { useBlindtest } from "@/context/BlindtestContext";
 import SearchBar from "@/components/SearchBar";
@@ -53,7 +52,6 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
 
   // Auth
   const { token, requireAuth } = useAuth();
-  const { playTrack, setQueueList } = usePlayer();
 
   // Blindtest data
   const { updateBlindtest, deleteBlindtest, autocompleteBlindtest, loadBlindtest, blindtest, addCompulsoryTracksToBlindtest } = useBlindtest();
@@ -75,15 +73,13 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
 
   // Derived state
   const [displayName, setDisplayName] = useState(slug.replace(/-/g, " "));
-  const [displayImage, setDisplayImage] = useState("/placeholder-album.jpg");
   const [displayOwner, setDisplayOwner] = useState("Utilisateur inconnu");
   const [isOwned, setIsOwned] = useState(false);
   const [isFull, setIsFull] = useState(false);
+  const displayImage = useRef("/placeholder-album.jpg");
 
   // Edit Dialog State
   const [isEditOpen, setIsEditOpen] = useState(false);
-  const [editName, setEditName] = useState("");
-  const [editImage, setEditImage] = useState("");
   const { showToast } = useToast();
 
   // Utilities
@@ -101,7 +97,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
       return { color: "orange", text: "Moyen" };
     }
     return { color: "green", text: "Facile" };
-  }, [Number(updateBlindtestDifficulty)]);
+  }, [updateBlindtestDifficulty]);
 
   const years = Array.from({ length: 3000 - 1950 + 1 }, (_, i) => 1950 + i)
 
@@ -148,7 +144,6 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
       // direct attributes
       if (blindtest.name) {
         setDisplayName(blindtest.name);
-        setEditName(blindtest.name);
         setUpdateBlindtestName(blindtest.name);
       }
       if (blindtest.length) {
@@ -194,7 +189,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
     }
   }, [blindtest])
 
-  const handleEdit = async (e: any) => {
+  const handleEdit = async () => {
     if (!updateBlindtestName.trim() || !updateBlindtestDifficulty || !updateBlindtestLength) {
       return
     }
@@ -217,7 +212,6 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
     loadBlindtest(blindtestId);
 
     setIsEditOpen(false);
-    if (editImage) setDisplayImage(editImage);
   };
 
   const handleAutocomplete = async () => {
@@ -285,10 +279,10 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogAction
-              onClick={(e) => setHasAutocompleteNoTracks(false)}
+              onClick={() => setHasAutocompleteNoTracks(false)}
               className="cursor-pointer"
             >
-              D'accord
+              D&apos;accord
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -304,8 +298,8 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
           {/* Blindtest Image - Centered */}
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 shadow-xl rounded-lg overflow-hidden mb-6 group">
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] opacity-80" />
-            {displayImage && displayImage !== "/placeholder-album.jpg" && (
-              <Image src={displayImage} alt={displayName} fill className="object-cover z-10" />
+            {displayImage.current && displayImage.current !== "/placeholder-album.jpg" && (
+              <Image src={displayImage.current} alt={displayName} fill className="object-cover z-10" />
             )}
             {/* Hover Edit Overlay for Image */}
             {isOwned && (
@@ -553,7 +547,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
                   return;
                 }
 
-                handleEdit(e);
+                handleEdit();
               }}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -567,7 +561,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
                     return;
                   }
 
-                  handleEdit(e);
+                  handleEdit();
                 }
               }}
             >
@@ -610,7 +604,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
                 />
 
                 <div
-                  onClick={(_) => setIsAdvancedOptionsOpen(!isAdvancedOptionsOpen)}
+                  onClick={() => setIsAdvancedOptionsOpen(!isAdvancedOptionsOpen)}
                   className="w-full flex gap-2 justify-between items-center cursor-pointer mt-5">
                   <SectionTitle title="Modification avancée" className="mt-0!" />
 

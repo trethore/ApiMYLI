@@ -59,13 +59,13 @@ export const trackInclude = (currentAccountId?: string | null) =>
     audioFeature: true,
   }) satisfies Prisma.TrackInclude;
 
-export const genreInclude = (currentAccountId?: string | null) =>
+export const genreInclude = () =>
   ({
     parent: true,
     children: true,
   }) satisfies Prisma.GenreInclude;
 
-export const artistInclude = (currentAccountId?: string | null) =>
+export const artistInclude = () =>
   ({
     account: true,
     artistTags: {

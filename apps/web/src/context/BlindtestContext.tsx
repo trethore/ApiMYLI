@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode, useEffect, use } from "react";
+import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { Blindtest } from "@/types/music";
 import { useAuth } from "@/context/AuthContext";
 import {
@@ -77,7 +77,7 @@ export const BlindtestProvider = ({ children }: { children: ReactNode }) => {
       try {
         const data = await getMyBlindtestsQuery(token);
 
-        const mapped: Blindtest[] = data.map((p: any) => ({
+        const mapped: Blindtest[] = data.map((p: ApiBlindtest) => ({
           id: p.blindtestId,
           name: p.name || "Mon blindtest",
           artist: p.ownerDisplayName || "User",

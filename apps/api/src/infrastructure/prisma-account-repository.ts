@@ -5,7 +5,6 @@ import {
   PrismaClient,
   $Enums,
 } from "@prisma/generated/prisma/client";
-import { Enumaccount_rolesFieldRefInput, Enumaccount_rolesFilter } from "@prisma/generated/prisma/internal/prismaNamespace";
 import type { Account } from "packages/domain/src/entities/account";
 import type { ArtistProfile } from "packages/domain/src/entities/artist-profile";
 import type {
@@ -184,8 +183,6 @@ export const createPrismaAccountRepository = (prisma: PrismaClient): AccountRepo
     if (!existingAccount) {
       return null;
     }
-
-    Prisma.AccountPinnedItemScalarFieldEnum;
 
     const accountUpdateInput: Prisma.AccountUpdateInput = {};
     if (data.login !== undefined) {

@@ -53,7 +53,7 @@ export default function Blindtests() {
       return { color: "orange", text: "Moyen" };
     }
     return { color: "green", text: "Facile" };
-  }, [Number(newBlindtestDifficulty)]);
+  }, [newBlindtestDifficulty]);
 
   const years = Array.from({ length: 3000 - 1950 + 1 }, (_, i) => 1950 + i)
 
@@ -81,7 +81,7 @@ export default function Blindtests() {
     return null;
   }
 
-  const handleCreate = async (e: any) => {
+  const handleCreate = async () => {
     if (!newBlindtestName.trim() || !newBlindtestDifficulty || !newBlindtestLength) {
       return
     }
@@ -139,12 +139,12 @@ export default function Blindtests() {
         <div className="flex flex-col gap-8">
           {/* Header Action Row */}
           <div className="flex items-center justify-between">
-            <h1 className="text-4xl font-bold font-[family-name:var(--font-protest-strike)]">
+            <h1 className="text-4xl font-bold font-(family-name:--font-protest-strike)">
               Blindtests
             </h1>
             <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-gradient-to-r from-[var(--color-muse-sky-blue)] to-[var(--color-muse-pink)] text-foreground font-bold hover:scale-105 transition-transform flex items-center gap-2 cursor-pointer">
+                <Button className="bg-gradient-to-r from-muse-sky-blue to-[var(--color-muse-pink)] text-foreground font-bold hover:scale-105 transition-transform flex items-center gap-2 cursor-pointer">
                   <Plus className="w-5 h-5" /> Générer
                 </Button>
               </DialogTrigger>
@@ -165,7 +165,7 @@ export default function Blindtests() {
                       return;
                     }
 
-                    handleCreate(e);
+                    handleCreate();
                   }}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
@@ -179,7 +179,7 @@ export default function Blindtests() {
                         return;
                       }
 
-                      handleCreate(e);
+                      handleCreate();
                     }
                   }}
                 >
@@ -222,7 +222,7 @@ export default function Blindtests() {
                     />
 
                     <div
-                      onClick={(_) => setIsAdvancedOptionsOpen(!isAdvancedOptionsOpen)}
+                      onClick={() => setIsAdvancedOptionsOpen(!isAdvancedOptionsOpen)}
                       className="w-full flex gap-2 justify-between items-center cursor-pointer mt-5">
                       <SectionTitle title="Génération avancée" className="mt-0!" />
 

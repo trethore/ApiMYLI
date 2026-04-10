@@ -174,7 +174,7 @@ export default function SearchBar({
                         className={`flex items-center gap-3 p-2 rounded-md transition-colors
                         ${setSelectedTracks ? "cursor-pointer" : ""}
                         ${isSelected ? "bg-secondary/50" : "hover:bg-secondary/30"}`}
-                        onClick={(e) => {
+                        onClick={() => {
                           if (setSelectedTracks) {
                             toggleTrackSelection({ id: t.trackId, name: t.title ?? "" })
                           }
