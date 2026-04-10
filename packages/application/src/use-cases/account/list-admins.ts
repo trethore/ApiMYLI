@@ -1,5 +1,5 @@
-import type { Account } from "@domain/entities/account";
-import type { AccountRepository } from "@domain/repositories/account-repository";
+import type { Account } from "packages/domain/src/entities/account";
+import type { AccountRepository } from "packages/domain/src/repositories/account-repository";
 
 export class ListAdminsUseCase {
   constructor(private readonly accountRepository: AccountRepository) {}
