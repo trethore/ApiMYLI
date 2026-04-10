@@ -437,13 +437,13 @@ export default function AdminPage() {
                           <td className="px-4 py-3">{admin.role}</td>
                           {admin.role !== "super_admin" && (
                             <td className="px-4 py-3 flex gap-2">
-                              {/* <Button
+                              <Button
                                 onClick={() => handlePromoteUserToAdmin(admin.accountId)}
                                 disabled={isDeleting}
                                 className="bg-green-700 hover:bg-green-500 text-white"
                               >
                                 Promouvoir
-                              </Button> */}
+                              </Button>
                               <Button
                                 onClick={() => handleDemoteUser(admin.accountId)}
                                 disabled={isDeleting}
