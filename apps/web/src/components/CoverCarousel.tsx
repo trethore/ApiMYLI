@@ -17,7 +17,7 @@ type CarouselItemType =
   | (Artist & { type: "Artist" });
 
 interface CoverCarouselProps {
-  items: CarouselItemType;
+  items: CarouselItemType[]
   title?: string;
   className?: string;
 }

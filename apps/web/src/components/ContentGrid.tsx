@@ -11,7 +11,6 @@ interface ContentItem {
   imageUrl?: string;
   image?: string;
   link?: string;
-  [key: string]: unknown;
 }
 
 interface ContentGridProps {

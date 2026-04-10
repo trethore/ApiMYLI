@@ -3,13 +3,13 @@
 import Nav from "@/components/Nav";
 import SectionTitle from "@/components/SectionTitle";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function AboutPage() {
-  const wind = window;
-  const [activeSection, setActiveSection] = useState(() => {
-    return wind?.location?.hash === "#contact" ? "contact" : "mentions"
-  });
+  const [activeSection, setActiveSection] = useState("mentions");
+  useEffect(() => {
+    setActiveSection(window.location.hash === "#contact" ? "contact" : "mentions");
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-background text-foreground">
