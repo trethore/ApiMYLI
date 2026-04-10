@@ -3,13 +3,23 @@ import { Button } from "@/components/ui/button";
 import { Music } from "@/types/music";
 import { X, Play } from "lucide-react";
 import Image from "@/components/ImageWithFallback";
+import { GripVertical } from "lucide-react";
+import {
+  DndContext,
+  closestCenter,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import SortableItem from "@/components/SortableItem";
 
 interface QueueListProps {
   className?: string;
 }
 
 export default function QueueList({ className }: QueueListProps) {
-  const { queue, removeFromQueue, clearQueue, playTrack } = usePlayer();
+  const { queue, removeFromQueue, clearQueue, playTrack, reorderQueue } = usePlayer();
 
   if (queue.length === 0) {
     return (
@@ -18,6 +28,17 @@ export default function QueueList({ className }: QueueListProps) {
       </div>
     );
   }
+
+  const handleDragEnd = (event: any) => {
+    const { active, over } = event;
+
+    if (!over || active.id === over.id) return;
+
+    const oldIndex = queue.findIndex((t) => t.id === active.id);
+    const newIndex = queue.findIndex((t) => t.id === over.id);
+
+    reorderQueue(oldIndex, newIndex);
+  };
 
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
@@ -34,44 +55,68 @@ export default function QueueList({ className }: QueueListProps) {
       </div>
 
       <div className="h-[300px] w-full rounded-md overflow-y-auto custom-scrollbar">
-        <div className="flex flex-col gap-1 p-2">
-          {queue.map((track: Music, index) => (
-            <div
-              key={`${track.id}-${index}`}
-              className="flex items-center gap-3 p-2 rounded-md hover:bg-white/5 group"
-            >
-              <div className="relative h-10 w-10 min-w-10 rounded overflow-hidden bg-muted">
-                {track.image && (
-                  <Image src={track.image} alt={track.title} fill className="object-cover" />
-                )}
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-8 w-8 text-white"
-                    onClick={() => playTrack(track)}
-                  >
-                    <Play size={16} fill="currentColor" />
-                  </Button>
-                </div>
-              </div>
+        <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+          <SortableContext
+            items={queue.map((t) => t.id)}
+            strategy={verticalListSortingStrategy}
+          >
+            <div className="flex flex-col gap-1 p-2">
+              {queue.map((track: Music) => (
+                <SortableItem key={track.id} id={track.id}>
+                  {({ listeners, attributes }) => (
+                    <div className="flex items-center gap-3 p-2 rounded-md hover:bg-white/5 group">
 
-              <div className="flex-1 min-w-0 overflow-hidden">
-                <p className="text-sm font-medium truncate">{track.title}</p>
-                <p className="text-xs text-muted-foreground truncate">{track.artist.join(", ")}</p>
-              </div>
+                      {/* 🟣 DRAG HANDLE */}
+                      <div
+                        {...listeners}
+                        {...attributes}
+                        className="cursor-grab active:cursor-grabbing text-muted-foreground hover:text-foreground"
+                      >
+                        <GripVertical size={16} />
+                      </div>
 
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 text-muted-foreground hover:text-destructive opacity-0 group-hover:opacity-100 transition-opacity"
-                onClick={() => removeFromQueue(track.id)}
-              >
-                <X size={16} />
-              </Button>
+                      {/* IMAGE */}
+                      <div className="relative h-10 w-10 min-w-10 rounded overflow-hidden bg-muted">
+                        {track.image && (
+                          <Image src={track.image} alt={track.title} fill className="object-cover" />
+                        )}
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8 text-white"
+                            onClick={() => playTrack(track)}
+                          >
+                            <Play size={16} fill="currentColor" />
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* TEXT */}
+                      <div className="flex-1 min-w-0 overflow-hidden">
+                        <p className="text-sm font-medium truncate">{track.title}</p>
+                        <p className="text-xs text-muted-foreground truncate">
+                          {track.artist.join(", ")}
+                        </p>
+                      </div>
+
+                      {/* REMOVE BUTTON */}
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8 text-muted-foreground hover:text-destructive opacity-0 group-hover:opacity-100 transition-opacity"
+                        onClick={() => removeFromQueue(track.id)}
+                      >
+                        <X size={16} />
+                      </Button>
+                    </div>
+                  )}
+                </SortableItem>
+              ))}
             </div>
-          ))}
-        </div>
+
+          </SortableContext>
+        </DndContext>
       </div>
     </div>
   );

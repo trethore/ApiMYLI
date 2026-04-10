@@ -24,6 +24,7 @@ interface PlayerContextType {
   playPrevious: () => void;
   clearPlayer: () => void;
   setQueueList: (tracks: Music[]) => void;
+  reorderQueue: (oldIndex: number, newIndex: number) => void;
 }
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
@@ -162,6 +163,15 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     }
   }, [queue, currentTrack, history, token, playTrack])
 
+  const reorderQueue = (oldIndex: number, newIndex: number) => {
+    setQueue((prev) => {
+      const updated = [...prev];
+      const [moved] = updated.splice(oldIndex, 1);
+      updated.splice(newIndex, 0, moved);
+      return updated;
+    });
+  };
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -247,6 +257,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         playNext,
         playPrevious,
         clearPlayer,
+        reorderQueue,
       }}
     >
       {children}
