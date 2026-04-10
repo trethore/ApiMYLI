@@ -504,7 +504,7 @@ export default function BlindtestPage({ params }: { params: Promise<{ slug: stri
                       <AlertDialogHeader>
                         <AlertDialogTitle>Autocomplétion</AlertDialogTitle>
                         <AlertDialogDescription>
-                          Cette action remplira le reste de votre blindtest automatiquement en fonction des titres déjà présents
+                          Cette action remplira le reste de votre blindtest automatiquement en fonction des paramètres de votre blindtest
                         </AlertDialogDescription>
                       </AlertDialogHeader>
                       <AlertDialogFooter>

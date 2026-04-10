@@ -41,6 +41,8 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<"users" | "artists" | "admins">("users");
   const [isDeleting, setIsDeleting] = useState(false);
 
+  const activeToken = token ?? "";
+
   useEffect(() => {
     if (!isAuthenticated) {
       setRedirectCountdown(5);
@@ -59,9 +61,11 @@ export default function AdminPage() {
     if (redirectCountdown === null) return;
 
     if (redirectCountdown === 0) {
-      const destination = isAuthenticated ? "/" : "/login";
-      router.push(destination);
-      return;
+      if (userRole !== 'admin' && userRole !== 'super_admin') {
+        const destination = isAuthenticated ? "/" : "/login";
+        router.push(destination);
+        return;
+      }
     }
 
     const timer = setTimeout(() => {
@@ -96,7 +100,7 @@ export default function AdminPage() {
   const handleDeleteAccount = async (accountId: string): Promise<void> => {
     try {
       setIsDeleting(true);
-      await deleteAccountMutation(accountId, token);
+      await deleteAccountMutation(accountId, activeToken);
       setUsers(users.filter((u) => u.accountId !== accountId));
       setArtists(artists.filter((a) => a.accountId !== accountId));
       setAdmins(admins.filter((a) => a.accountId !== accountId));
@@ -112,7 +116,7 @@ export default function AdminPage() {
   const handlePromoteUserToAdmin = async (accountId: string): Promise<void> => {
     try {
       setIsDeleting(true);
-      const updatedAccount = await updateAccountRoleMutation(accountId, "admin", token);
+      const updatedAccount = await updateAccountRoleMutation(accountId, "admin", activeToken);
       setUsers(users.filter((u) => u.accountId !== accountId));
       setAdmins([...admins, updatedAccount]);
     } catch (err) {
@@ -127,7 +131,7 @@ export default function AdminPage() {
   const handlePromoteUserToSuperAdmin = async (accountId: string): Promise<void> => {
     try {
       setIsDeleting(true);
-      const updatedAccount = await updateAccountRoleMutation(accountId, "super_admin", token);
+      const updatedAccount = await updateAccountRoleMutation(accountId, "super_admin", activeToken);
       setUsers(users.filter((u) => u.accountId !== accountId));
       setAdmins([...admins, updatedAccount]);
     } catch (err) {
@@ -142,9 +146,9 @@ export default function AdminPage() {
   const handleDemoteUser = async (accountId: string): Promise<void> => {
     try {
       setIsDeleting(true);
-      const updatedAccount = await updateAccountRoleMutation(accountId, "listener", token);
-      setUsers(users.filter((u) => u.accountId !== accountId));
-      setAdmins([...admins, updatedAccount]);
+      const updatedAccount = await updateAccountRoleMutation(accountId, "listener", activeToken);
+      setUsers([...users, updatedAccount]);
+      setAdmins(admins.filter((a) => a.accountId !== accountId ));
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "erreur dans la retrogradation";
       setError(errorMessage);
@@ -433,13 +437,13 @@ export default function AdminPage() {
                           <td className="px-4 py-3">{admin.role}</td>
                           {admin.role !== "super_admin" && (
                             <td className="px-4 py-3 flex gap-2">
-                              <Button
+                              {/* <Button
                                 onClick={() => handlePromoteUserToAdmin(admin.accountId)}
                                 disabled={isDeleting}
                                 className="bg-green-700 hover:bg-green-500 text-white"
                               >
                                 Promouvoir
-                              </Button>
+                              </Button> */}
                               <Button
                                 onClick={() => handleDemoteUser(admin.accountId)}
                                 disabled={isDeleting}

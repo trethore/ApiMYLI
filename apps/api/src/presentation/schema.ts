@@ -796,7 +796,7 @@ export const schema = createSchema({
         return accounts.map(toGraphqlAccount);
       },
 
-      allAdmins: async (_: unknown, __: unknown, context: GraphQLContext): Promise<Account[]> => {
+      allAdmins: async (_: unknown, __: unknown, context: GraphqlContext): Promise<Account[]> => {
         const useCase = new ListAdminsUseCase(context.services.accountRepository);
         return useCase.execute();
       },
@@ -1088,7 +1088,12 @@ export const schema = createSchema({
           context.authToken,
         );
 
-        return deleteAccount(context.services.accountRepository, currentAccountId, args.accountId);
+        const currentAccount = await context.services.accountRepository.findById(currentAccountId);
+        if (!currentAccount || currentAccount.role !== "super_admin") {
+          throw new Error("Only super admins can change account roles");
+        }
+
+        return deleteAccount(context.services.accountRepository, currentAccountId, currentAccount.role, args.accountId);
       },
       login: async (
         _parent: unknown,

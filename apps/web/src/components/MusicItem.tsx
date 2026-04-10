@@ -68,9 +68,6 @@ export default function MusicItem({ music, index, type, showImage = true }: Musi
     addTrackToPlaylist(playlistId, music);
   };
 
-  console.log(music.image);
-  
-
   return (
     <div className="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors group relative">
       <div className="flex items-center gap-4">

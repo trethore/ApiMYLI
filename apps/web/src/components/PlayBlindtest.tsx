@@ -16,6 +16,7 @@ export const PlayBlindtest: React.FC<Props> = ({ blindtest, closeBlindtest }) =>
     const [countdown, setCountdown] = useState(3);
     const [timeLeft, setTimeLeft] = useState(blindtest.difficulty);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const originalVolumeRef = useRef<number>(1);
 
     const tracks = useMemo(() => {
         const t = blindtest.tracks
@@ -128,7 +129,7 @@ export const PlayBlindtest: React.FC<Props> = ({ blindtest, closeBlindtest }) =>
         if (phase !== "playing") return;
 
         if (timeLeft <= 0) {
-            audioRef.current?.pause();
+            // audioRef.current?.pause();
             setPhase("reveal");
             setTimeLeft(5);
         }
@@ -149,8 +150,43 @@ export const PlayBlindtest: React.FC<Props> = ({ blindtest, closeBlindtest }) =>
     useEffect(() => {
         if (phase !== "reveal") return;
 
+        let fadeInterval: NodeJS.Timeout | null = null;
+        if (timeLeft <= 3 && audioRef.current) {
+            const audio = audioRef.current;
+    
+            // Start fade-out only once
+            if (!audio.dataset.fading) {
+                audio.dataset.fading = "true";
+
+                // Save audio volume
+                originalVolumeRef.current = audio.volume;
+    
+                const fadeDuration = 2500;
+                const steps = 20;
+                const stepTime = fadeDuration / steps;
+                const volumeStep = audio.volume / steps;
+    
+                fadeInterval = setInterval(() => {
+                    if (!audio) return;
+
+                    const newVolume = Math.max(0, audio.volume - volumeStep);
+                    audio.volume = newVolume;
+    
+                    if (newVolume <= 0) {
+                        audio.pause();
+                        clearInterval(fadeInterval!);
+                    }
+                }, stepTime);
+            }
+        }
+
         if (timeLeft <= 0) {
             const nextIndex = currentIndex + 1;
+
+            if (audioRef.current) {
+                audioRef.current.volume = originalVolumeRef.current;
+                audioRef.current.dataset.fading = "";
+            }
 
             if (nextIndex >= tracks.length) {
                 setPhase("finished");
@@ -199,7 +235,7 @@ export const PlayBlindtest: React.FC<Props> = ({ blindtest, closeBlindtest }) =>
                     )}
                     <h2>{currentTrack.title}</h2>
                     <p>{currentTrack.artist.join(", ")}</p>
-                    <p>{timeLeft}</p>
+                    {/* <p>{timeLeft}</p> */}
                 </div>
             )}
 
@@ -246,6 +282,4 @@ const styles: Record<string, React.CSSProperties> = {
         objectFit: "cover",
         marginBottom: 20,
     },
-
-
 };

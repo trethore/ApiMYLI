@@ -70,11 +70,7 @@ export default function Blindtests() {
 
       const activeToken = token || (localToken as string);
       if (activeToken) {
-        try {
-        } catch (err) {
-        } finally {
-          setLoading(false);
-        }
+        setLoading(false);
       }
     };
 
